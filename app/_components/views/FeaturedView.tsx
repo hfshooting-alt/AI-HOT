@@ -2,8 +2,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { HotTopic, NewsItem } from "../../_lib/types";
-import { loadFeatured, loadHot, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/api";
+import type { FundingTable, HotTopic, NewsItem } from "../../_lib/types";
+import { loadFeatured, loadFundingTable, loadHot, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/api";
 import {
   bjDayKey,
   fmtFullDay,
@@ -11,11 +11,13 @@ import {
   fmtWeekday,
   heatOf,
 } from "../../_lib/format";
-import { categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/taxonomy";
+import { categoryDisplay, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/taxonomy";
+import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/fundingTaxonomy";
 import { useApp } from "../providers/AppDataProvider";
 import { ArticleCard } from "../ArticleCard";
 import { CategoryTabs, type TabOption } from "../CategoryTabs";
 import { DateGroup } from "../DateGroup";
+import { FundingTableView } from "../FundingTableView";
 import { ArrowRightIcon } from "../icons";
 import { SearchToolbar, type SourceFilter } from "../SearchToolbar";
 import { TagFilterBar, type DimSelection } from "../TagFilterBar";
@@ -40,6 +42,9 @@ export function FeaturedView() {
   const [src, setSrc] = useState<SourceFilter>(persisted.src);
   const [dimSel, setDimSel] = useState<DimSelection>(persisted.dimSel);
   const [today, setToday] = useState("");
+  /** 融资表格（构建产物）：null 且 ready 时回退卡片流 */
+  const [fundingTable, setFundingTable] = useState<FundingTable | null>(null);
+  const [fundingReady, setFundingReady] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -65,12 +70,18 @@ export function FeaturedView() {
     loadHot().then((r) => {
       if (!cancelled && r) setHotTop(r.items.slice(0, 3));
     });
+    loadFundingTable().then((t) => {
+      if (!cancelled) {
+        setFundingTable(t);
+        setFundingReady(true);
+      }
+    });
     return () => {
       cancelled = true;
     };
   }, []);
 
-  /** 分类 Tab：全部 + 新 6 类（固定顺序，计数基于 categoryOf） */
+  /** 分类 Tab：全部 + 新 6 类（固定顺序，计数基于 categoryOf，0 也显示以保证类别齐全） */
   const tabOptions = useMemo<TabOption[]>(() => {
     const counter = new Map<string, number>();
     for (const it of pool) {
@@ -79,17 +90,22 @@ export function FeaturedView() {
     }
     const opts: TabOption[] = [{ key: "all", label: "全部", count: pool.length }];
     for (const c of TAXONOMY_CATEGORIES) {
-      const n = counter.get(c.id);
-      if (n) opts.push({ key: c.id, label: c.label, count: n });
+      opts.push({ key: c.id, label: c.label, count: counter.get(c.id) || 0 });
     }
     return opts;
   }, [pool]);
 
-  /** 当前类别的维度标签筛选（「全部」或无维度类别不显示） */
+  /** 融资动态表格模式：分类声明 table 且构建产物有公司行（缺失/空表回退卡片流） */
+  const wantTable = categoryDisplay(cat) === "table";
+  const tableMode = wantTable && (fundingTable?.companies?.length ?? 0) > 0;
+  const tablePending = wantTable && !fundingReady;
+
+  /** 当前类别的维度标签筛选（「全部」或无维度类别不显示；融资表格使用专属维度） */
   const activeDims = useMemo(() => {
     if (cat === "all") return [];
+    if (tableMode) return FUNDING_DIM_IDS;
     return TAXONOMY_CATEGORIES.find((c) => c.id === cat)?.dims ?? [];
-  }, [cat]);
+  }, [cat, tableMode]);
 
   /** 每日最多 15 条精选 */
   const MAX_FEATURED_PER_DAY = 15;
@@ -138,6 +154,7 @@ export function FeaturedView() {
               setSrc(v);
               persisted.src = v;
             }}
+            showSourceFilter={!tableMode}
           />
         </div>
       </header>
@@ -197,18 +214,21 @@ export function FeaturedView() {
                 setDimSel(next);
                 persisted.dimSel = next;
               }}
+              dimsDef={tableMode ? FUNDING_DIMENSIONS : undefined}
             />
           </div>
         )}
       </div>
 
-      {/* 内容区 */}
-      {loading ? (
+      {/* 内容区：融资动态用公司表格；其余类别卡片流（表格产物缺失时回退卡片） */}
+      {loading || tablePending ? (
         <div className="flex flex-col gap-3.5">
           {[0, 1, 2].map((i) => (
             <div key={i} className="ah-card h-[120px] animate-pulse bg-surface-2" />
           ))}
         </div>
+      ) : tableMode && fundingTable ? (
+        <FundingTableView table={fundingTable} dimSel={dimSel} q={q} />
       ) : totalShown === 0 ? (
         <p className="ah-card p-8 text-center text-[13px] text-mut">
           无匹配内容{!liveOk && "（实时接口不可用，且快照为空）"}，试试切换分类、来源筛选或清空搜索词。
@@ -228,9 +248,11 @@ export function FeaturedView() {
         ))
       )}
 
-      <footer className="mt-10 border-t border-line pt-5 text-center text-[12px] text-mut-2">
-        共 {totalShown} 条精选 · 数据来源：AI HOT 开放 API · 时间为北京时间 · 摘要由 AI 生成，点击标题核对原文
-      </footer>
+      {!tableMode && (
+        <footer className="mt-10 border-t border-line pt-5 text-center text-[12px] text-mut-2">
+          共 {totalShown} 条精选 · 数据来源：AI HOT 开放 API · 时间为北京时间 · 摘要由 AI 生成，点击标题核对原文
+        </footer>
+      )}
     </div>
   );
 }

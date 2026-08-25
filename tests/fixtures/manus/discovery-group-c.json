@@ -6,7 +6,9 @@
     {"account_name": "十字路口Crossing", "source_status": "complete", "article_count": 1, "note": null},
     {"account_name": "投资界", "source_status": "complete", "article_count": 2, "note": null},
     {"account_name": "赛博禅心", "source_status": "complete", "article_count": 1, "note": null},
-    {"account_name": "elsewhere别处发生", "source_status": "complete", "article_count": 0, "note": "当天无文章"}
+    {"account_name": "elsewhere别处发生", "source_status": "complete", "article_count": 0, "note": "当天无文章"},
+    {"account_name": "新智元", "source_status": "complete", "article_count": 0, "note": "当天无文章"},
+    {"account_name": "硅星人", "source_status": "complete", "article_count": 0, "note": "当天无文章"}
   ],
   "articles": [
     {

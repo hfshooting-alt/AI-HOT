@@ -75,6 +75,32 @@ export interface Snapshot {
   weeklyNav: WeeklyNavEntry[];
 }
 
+/** /api/daily 上游日报条目（无 id/score/分类标签） */
+export interface DailyReportItem {
+  title: string;
+  summary?: string;
+  source?: { name?: string };
+  links?: { aihot?: string; original?: string };
+}
+
+/** /api/daily 上游日报响应（report 包裹层） */
+export interface DailyReport {
+  date: string;
+  lead?: { title?: string; summary?: string } | null;
+  sections: { label: string; items: DailyReportItem[] }[];
+  flashes?: DailyReportItem[];
+}
+
+/** public/weekly/{date}.json 周报期刊 */
+export interface WeeklyJournal {
+  weekStart: string;
+  weekEnd: string;
+  volLabel: string;
+  finalized: boolean;
+  aiReport?: unknown | null;
+  items: NewsItem[];
+}
+
 /** /api/v1/hot-topics 单条热点事件（实测结构） */
 export interface HotTopic {
   rank: number;
@@ -107,4 +133,49 @@ export interface AllFeedResponse {
   items: NewsItem[];
   tags: { tag: string; count: number }[];
   live: boolean;
+}
+
+/** 融资表格单行：一家公司/产品（scripts/funding_table.py 产物，public/funding-table.json） */
+export interface FundingCompany {
+  id: string;
+  company_name: string;
+  product_name: string | null;
+  founded: string | null;
+  country: string | null;
+  industry: string | null;
+  team: string | null;
+  business: string | null;
+  investors: string | null;
+  total_funding: string | null;
+  valuation: string | null;
+  /** 筛选标签（维度中文 label → 取值，与 classification.dims 对齐） */
+  dims?: Record<string, string>;
+  /** 经联网搜索补全的字段名 */
+  filledBySearch?: string[];
+  /** 搜索补全来源 URL */
+  searchSources?: string[];
+  /** 来源文章（publishedAt 倒序，[0] 为最新） */
+  sourceArticles: {
+    id: string;
+    title: string;
+    url: string;
+    publishedAt: string;
+    mpName: string;
+  }[];
+}
+
+/** 融资表格根结构（构建时离线生成，非实时） */
+export interface FundingTable {
+  schemaVersion: number;
+  generatedAt: string;
+  coverageNote?: string;
+  searchNote?: string;
+  stats: {
+    articlesProcessed: number;
+    extractionFailed?: number;
+    articlesWithoutFundingInfo?: number;
+    companiesTotal: number;
+    companiesSearched?: number;
+  };
+  companies: FundingCompany[];
 }

@@ -13,11 +13,13 @@ interface TagFilterBarProps {
   /** 已选标签（key 为维度中文名，与 classification.dims.label 对齐） */
   selection: DimSelection;
   onChange: (next: DimSelection) => void;
+  /** 可选维度定义注入；缺省使用全局 TAXONOMY_DIMENSIONS（其余 Tab 行为不变） */
+  dimsDef?: Record<string, { label: string; values: string[] }>;
 }
 
-function ChevronDownIcon({ className = "size-3.5" }: { className?: string }) {
+function ChevronDownIcon({ className = "" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 16 16" fill="none" aria-hidden>
+    <svg className={`size-3.5 ${className}`} viewBox="0 0 16 16" fill="none" aria-hidden>
       <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -36,15 +38,17 @@ function DimDropdown({
   selected,
   onToggle,
   onClear,
+  dimsDef,
 }: {
   dimId: string;
   selected: string[];
   onToggle: (value: string) => void;
   onClear: () => void;
+  dimsDef?: Record<string, { label: string; values: string[] }>;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
-  const dim = TAXONOMY_DIMENSIONS[dimId];
+  const dim = (dimsDef ?? TAXONOMY_DIMENSIONS)[dimId];
 
   useEffect(() => {
     if (!open) return;
@@ -115,8 +119,9 @@ function DimDropdown({
   );
 }
 
-export function TagFilterBar({ dims, selection, onChange }: TagFilterBarProps) {
+export function TagFilterBar({ dims, selection, onChange, dimsDef }: TagFilterBarProps) {
   if (!dims.length) return null;
+  const dimensions = dimsDef ?? TAXONOMY_DIMENSIONS;
   const toggle = (dimLabel: string, value: string) => {
     const cur = selection[dimLabel] || [];
     const next = cur.includes(value) ? cur.filter((v) => v !== value) : [...cur, value];
@@ -130,7 +135,7 @@ export function TagFilterBar({ dims, selection, onChange }: TagFilterBarProps) {
   return (
     <div className="flex flex-wrap items-center gap-2">
       {dims.map((dimId) => {
-        const dim = TAXONOMY_DIMENSIONS[dimId];
+        const dim = dimensions[dimId];
         if (!dim) return null;
         return (
           <DimDropdown
@@ -139,6 +144,7 @@ export function TagFilterBar({ dims, selection, onChange }: TagFilterBarProps) {
             selected={selection[dim.label] || []}
             onToggle={(v) => toggle(dim.label, v)}
             onClear={() => clear(dim.label)}
+            dimsDef={dimsDef}
           />
         );
       })}

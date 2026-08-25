@@ -22,6 +22,8 @@ interface SearchToolbarProps {
   src: SourceFilter;
   onSrcChange: (value: SourceFilter) => void;
   placeholder?: string;
+  /** 隐藏来源筛选（融资表格模式：表格行无单一来源属性）；默认显示 */
+  showSourceFilter?: boolean;
 }
 
 export function SearchToolbar({
@@ -30,6 +32,7 @@ export function SearchToolbar({
   src,
   onSrcChange,
   placeholder = "搜索标题、摘要、来源、公众号…",
+  showSourceFilter = true,
 }: SearchToolbarProps) {
   return (
     <div className="flex w-full max-w-[360px] flex-col gap-2.5 sm:w-auto sm:items-end">
@@ -51,23 +54,25 @@ export function SearchToolbar({
           搜索
         </button>
       </div>
-      {/* 来源筛选行 */}
-      <div className="flex flex-wrap items-center gap-1.5">
-        {(Object.keys(SOURCE_FILTER_LABELS) as SourceFilter[]).map((key) => (
-          <button
-            key={key}
-            type="button"
-            onClick={() => onSrcChange(key)}
-            className={`rounded-full border px-2.5 py-1 text-[12px] transition-colors ${
-              src === key
-                ? "border-brand bg-brand text-white"
-                : "border-line bg-surface text-ink-2 hover:border-brand/50"
-            }`}
-          >
-            {SOURCE_FILTER_LABELS[key]}
-          </button>
-        ))}
-      </div>
+      {/* 来源筛选行（表格模式下隐藏） */}
+      {showSourceFilter && (
+        <div className="flex flex-wrap items-center gap-1.5">
+          {(Object.keys(SOURCE_FILTER_LABELS) as SourceFilter[]).map((key) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => onSrcChange(key)}
+              className={`rounded-full border px-2.5 py-1 text-[12px] transition-colors ${
+                src === key
+                  ? "border-brand bg-brand text-white"
+                  : "border-line bg-surface text-ink-2 hover:border-brand/50"
+              }`}
+            >
+              {SOURCE_FILTER_LABELS[key]}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

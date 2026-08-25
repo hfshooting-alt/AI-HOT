@@ -1,15 +1,20 @@
 // 新分类标签体系（与 taxonomy.json 对齐）：精选 / 全部AI动态共用的分类与维度定义
 import type { NewsItem } from "./types";
 
-/** 新 6 类（展示顺序固定；dims 为该类别的并列筛选维度 id） */
+/** 新 6 类（展示顺序固定；dims 为该类别的并列筛选维度 id；display 对齐 taxonomy.json） */
 export const TAXONOMY_CATEGORIES = [
-  { id: "financing", label: "融资动态", dims: ["industry", "region"] },
-  { id: "interview", label: "深度访谈", dims: ["industry", "interviewee"] },
-  { id: "release", label: "产品和模型发布", dims: ["industry", "issuer"] },
-  { id: "paper", label: "论文研究", dims: [] },
-  { id: "bigtech", label: "大厂动态", dims: ["change_type", "company"] },
-  { id: "general", label: "泛行业新闻", dims: [] },
+  { id: "financing", label: "融资动态", dims: ["industry", "region"], display: "table" },
+  { id: "interview", label: "深度访谈", dims: ["industry", "interviewee"], display: "card" },
+  { id: "release", label: "产品和模型发布", dims: ["industry", "issuer"], display: "card" },
+  { id: "paper", label: "论文研究", dims: [], display: "card" },
+  { id: "bigtech", label: "大厂动态", dims: ["change_type", "company"], display: "card" },
+  { id: "general", label: "泛行业新闻", dims: [], display: "card" },
 ] as const;
+
+/** 类别内容呈现形式：table=公司维度表格（融资动态），card=文章卡片流 */
+export function categoryDisplay(catId: string): "table" | "card" {
+  return TAXONOMY_CATEGORIES.find((c) => c.id === catId)?.display ?? "card";
+}
 
 /** 维度定义（label/value 与 classification.dims 的中文 label 直接匹配） */
 export const TAXONOMY_DIMENSIONS: Record<string, { label: string; values: string[] }> = {

@@ -7,20 +7,26 @@
       {"account_name": "白鲸出海", "platform": "Official Baijing", "home_url": "https://www.baijing.cn/article/"},
       {"account_name": "机器之心", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMc3XlV5YcauTjR"},
       {"account_name": "ZFinance", "platform": "NetEase", "home_url": "https://www.163.com/dy/media/T1751873060579.html"},
-      {"account_name": "极客公园", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMX2ndU7oYcuTc%3D?tab=om_index"}
+      {"account_name": "极客公园", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMX2ndU7oYcuTc%3D?tab=om_index"},
+      {"account_name": "东西文娱", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QIf3n5d5YUdsTfQ4gs%3D"},
+      {"account_name": "娱乐资本论", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMd3HZd6IQcvDvR"}
     ],
     "group_b": [
       {"account_name": "FounderPark", "platform": "NetEase", "home_url": "https://www.163.com/dy/media/T1705485947430.html"},
       {"account_name": "瑞恩资本", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMY33Zd7YwduQ%3D%3D"},
       {"account_name": "DeepTech深科技", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMd2Hpe7owfuTk%3D"},
       {"account_name": "ZPotential", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QIf3nxd5YwYvz%2Fc5wM%3D"},
-      {"account_name": "华尔街见闻", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMf2HZV5I0a"}
+      {"account_name": "华尔街见闻", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMf2HZV5I0a"},
+      {"account_name": "量子位", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMc3Hle6oMZuDze"},
+      {"account_name": "智东西", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMc2XZf7IAfsD3Z"}
     ],
     "group_c": [
       {"account_name": "十字路口Crossing", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QIf3nxc74IbsT%2Fa5gc%3D"},
       {"account_name": "投资界", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMf13pd74EYuT7Q"},
       {"account_name": "赛博禅心", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QIf3n9U5I0buzbd4wc%3D"},
-      {"account_name": "elsewhere别处发生", "platform": "Official Elsewhere", "home_url": "https://elsewhere.news/zh/articles"}
+      {"account_name": "elsewhere别处发生", "platform": "Official Elsewhere", "home_url": "https://elsewhere.news/zh/articles"},
+      {"account_name": "新智元", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMc2Hpa6oYVujjQ"},
+      {"account_name": "硅星人", "platform": "NetEase", "home_url": "https://www.163.com/dy/media/T1506509934914.html"}
     ]
   }
 }

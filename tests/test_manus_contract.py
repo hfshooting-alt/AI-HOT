@@ -24,9 +24,9 @@ TAXONOMY_PATH = os.path.join(os.path.dirname(__file__), "..", "taxonomy.json")
 TARGET_DATE = "2026-08-16"
 
 GROUP_ACCOUNTS = {
-    "group_a": ["游戏葡萄", "白鲸出海", "机器之心", "ZFinance", "极客公园"],
-    "group_b": ["FounderPark", "瑞恩资本", "DeepTech深科技", "ZPotential", "华尔街见闻"],
-    "group_c": ["十字路口Crossing", "投资界", "赛博禅心", "elsewhere别处发生"],
+    "group_a": ["游戏葡萄", "白鲸出海", "机器之心", "ZFinance", "极客公园", "东西文娱", "娱乐资本论"],
+    "group_b": ["FounderPark", "瑞恩资本", "DeepTech深科技", "ZPotential", "华尔街见闻", "量子位", "智东西"],
+    "group_c": ["十字路口Crossing", "投资界", "赛博禅心", "elsewhere别处发生", "新智元", "硅星人"],
 }
 
 

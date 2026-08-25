@@ -7,7 +7,9 @@
     {"account_name": "白鲸出海", "source_status": "complete", "article_count": 0, "note": "当天无文章"},
     {"account_name": "机器之心", "source_status": "complete", "article_count": 1, "note": null},
     {"account_name": "ZFinance", "source_status": "failed", "article_count": 0, "note": "详情页无法打开，重试 5 次后仍失败"},
-    {"account_name": "极客公园", "source_status": "complete", "article_count": 1, "note": null}
+    {"account_name": "极客公园", "source_status": "complete", "article_count": 1, "note": null},
+    {"account_name": "东西文娱", "source_status": "complete", "article_count": 0, "note": "当天无文章"},
+    {"account_name": "娱乐资本论", "source_status": "complete", "article_count": 0, "note": "当天无文章"}
   ],
   "articles": [
     {

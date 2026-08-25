@@ -2,10 +2,13 @@
 // 优先级：/snapshot.json（构建产物）→ /api/*（服务端代理 aihot API）→ 空态
 import type {
   AllFeedResponse,
+  DailyReport,
+  FundingTable,
   HotTopicsResponse,
   ItemsPage,
   NewsItem,
   Snapshot,
+  WeeklyJournal,
 } from "./types";
 
 async function fetchJSON<T>(url: string): Promise<T> {
@@ -50,10 +53,27 @@ export async function loadAll(): Promise<AllFeedResponse | null> {
   }
 }
 
-/** 官方历史日报（/api/v1/dailies/{date} 代理），失败返回 null */
-export async function loadOfficialDaily(date: string): Promise<unknown | null> {
+/** 官方历史日报完整内容（含版块与条目），失败返回 null */
+export async function loadDailyReport(date: string): Promise<DailyReport | null> {
   try {
-    return await fetchJSON<unknown>(`/api/daily?date=${encodeURIComponent(date)}`);
+    const data = await fetchJSON<{ report?: DailyReport }>(`/api/daily?date=${encodeURIComponent(date)}`);
+    return data.report ?? null;
+  } catch {
+    return null;
+  }
+}
+
+/** 周报期刊数据（public/weekly/{weekStart}.json），classification 归一化为前端格式 */
+export async function loadWeeklyJournal(weekStart: string): Promise<WeeklyJournal | null> {
+  try {
+    const data = await fetchJSON<WeeklyJournal>(`/weekly/${encodeURIComponent(weekStart)}.json`);
+    data.items = (data.items || []).map((it) => {
+      const raw = it.classification as { category?: string } | undefined;
+      return raw?.category
+        ? { ...it, classification: { ...it.classification, cat: raw.category } }
+        : it;
+    });
+    return data;
   } catch {
     return null;
   }
@@ -68,6 +88,21 @@ export async function fetchItemsPage(cursor?: string, limit = 50): Promise<Items
   } catch {
     return null;
   }
+}
+
+/** 融资动态公司表格（构建时由 funding_table.py 离线生成）；模块级缓存跨视图复用，失败返回 null */
+let fundingTableCache: FundingTable | null = null;
+let fundingTableLoaded = false;
+
+export async function loadFundingTable(): Promise<FundingTable | null> {
+  if (fundingTableLoaded) return fundingTableCache;
+  try {
+    fundingTableCache = await fetchJSON<FundingTable>("/funding-table.json");
+  } catch {
+    fundingTableCache = null;
+  }
+  fundingTableLoaded = true;
+  return fundingTableCache;
 }
 
 /** 从快照 daily+weekly 合并出精选条目池（按 id 去重，publishedAt 降序） */
@@ -87,14 +122,19 @@ export function poolFromSnapshot(snap: Snapshot): NewsItem[] {
   return pool;
 }
 
-/** 合并快照池与实时精选流：实时条目覆盖同 id 快照条目，其余追加 */
+/** 合并快照池与实时精选流：实时条目覆盖同 id 快照条目（保留快照的 LLM 分类标签），其余追加 */
 export function mergePools(snapshotPool: NewsItem[], liveItems: NewsItem[]): NewsItem[] {
   const map = new Map<string, NewsItem>();
   for (const it of snapshotPool) map.set(it.id, it);
   for (const it of liveItems) {
     const key = it.id.startsWith("aihot:") ? it.id : `aihot:${it.id}`;
-    map.set(key, { ...it, id: key });
-    if (map.has(it.id)) map.set(it.id, { ...it });
+    const prev = map.get(key);
+    map.set(
+      key,
+      prev
+        ? { ...prev, ...it, id: key, classification: it.classification ?? prev.classification }
+        : { ...it, id: key },
+    );
   }
   const out = [...map.values()];
   out.sort((a, b) => new Date(b.publishedAt || 0).getTime() - new Date(a.publishedAt || 0).getTime());

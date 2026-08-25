@@ -2,9 +2,10 @@
 // settings-server.mjs — AI HOT 本地设置服务（仅绑定 127.0.0.1，局域网不可达）
 //
 // 用途：Next.js 设置页（SettingsView）通过 HTTP 读写项目根 .env，
-//       让 MANUS_API_KEY / DEEPSEEK_API_KEY / LLM_API_BASE / LLM_MODEL /
-//       MANUS_AGENT_PROFILE 在本地流水线（build_snapshot.py / manus runner）中
-//       免手动 export 即生效（Python 侧由 llm_common / manus_source.config 读取）。
+//       让 MANUS_API_KEY / DEEPSEEK_API_KEY / TAVILY_API_KEY / LLM_API_BASE /
+//       LLM_MODEL / MANUS_AGENT_PROFILE 在本地流水线（build_snapshot.py /
+//       manus runner / funding_table.py）中免手动 export 即生效
+//       （Python 侧由 llm_common / manus_source.config 读取）。
 //
 // 安全边界：
 //   - 只监听回环地址，只允许配置的浏览器来源（CORS）；
@@ -34,7 +35,7 @@ const DEFAULT_ENV_FILE = path.join(
 const DEFAULT_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"];
 
 // 密钥类变量：状态接口只回显尾 4 位，永不回明文。
-const SECRET_KEYS = new Set(["MANUS_API_KEY", "DEEPSEEK_API_KEY"]);
+const SECRET_KEYS = new Set(["MANUS_API_KEY", "DEEPSEEK_API_KEY", "TAVILY_API_KEY"]);
 const KEY_RE = /^[A-Z][A-Z0-9_]*$/;
 const MAX_BODY_BYTES = 64 * 1024;
 

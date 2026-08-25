@@ -45,6 +45,14 @@ const FIELDS: FieldDef[] = [
     desc: "打标签 + 正文加工（tag_news.py / enrich_news.py），DeepSeek 或其他 OpenAI 兼容服务",
   },
   {
+    key: "TAVILY_API_KEY",
+    label: "Tavily API Key",
+    type: "password",
+    secret: true,
+    placeholder: "tvly-...",
+    desc: "融资表格缺失字段搜索补全（funding_table.py），tavily.com 免费注册（1000 credits/月）；未配置时留空不报错",
+  },
+  {
     key: "LLM_API_BASE",
     label: "LLM Base URL",
     type: "text",
@@ -70,7 +78,7 @@ const FIELDS: FieldDef[] = [
   },
 ];
 
-const GH_SECRET_KEYS = ["MANUS_API_KEY", "DEEPSEEK_API_KEY"];
+const GH_SECRET_KEYS = ["MANUS_API_KEY", "DEEPSEEK_API_KEY", "TAVILY_API_KEY"];
 
 function isLocalHost(): boolean {
   if (typeof window === "undefined") return false;
@@ -470,6 +478,11 @@ export function SettingsView() {
               <td className="py-1.5 pr-3 font-mono">DEEPSEEK_API_KEY</td>
               <td className="py-1.5 pr-3">AI 打标签 + 正文加工</td>
               <td className="py-1.5">build_snapshot.py · enrich_news.py</td>
+            </tr>
+            <tr className="border-b border-line-2">
+              <td className="py-1.5 pr-3 font-mono">TAVILY_API_KEY</td>
+              <td className="py-1.5 pr-3">融资表格缺失字段搜索补全（可选）</td>
+              <td className="py-1.5">funding_table.py</td>
             </tr>
             <tr className="border-b border-line-2">
               <td className="py-1.5 pr-3 font-mono">LLM_API_BASE</td>

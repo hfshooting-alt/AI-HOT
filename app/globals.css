@@ -86,3 +86,14 @@ body {
   background: #d5dae0;
   border-radius: 999px;
 }
+
+/* 融资表格首列吸左侧（横向滚动时公司名始终可见；不透明底色遮挡滑过内容） */
+.sticky-col {
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  background: var(--surface);
+}
+th.sticky-col {
+  background: var(--surface-2);
+}

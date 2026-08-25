@@ -1,0 +1,196 @@
+{
+ "schemaVersion": 1,
+ "generatedAt": "2026-08-25T17:58:05+08:00",
+ "coverageNote": "覆盖快照日报+周报池与最新 Manus feed 中的融资类新闻（约最近一周）",
+ "searchNote": "已跳过搜索补全（--skip-search）",
+ "stats": {
+  "articlesProcessed": 5,
+  "extractionFailed": 0,
+  "articlesWithoutFundingInfo": 0,
+  "companiesTotal": 6,
+  "companiesSearched": 0
+ },
+ "companies": [
+  {
+   "id": "fund:5da901c116b57526",
+   "company_name": "自变量机器人",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "具身智能",
+   "team": "联合创始人兼CTO王昊",
+   "business": "通用具身智能机器人研发，提供家庭服务与物流分拣解决方案",
+   "investors": "小米、美团、阿里、字节跳动、红杉中国、IDG资本、中国移动链长基金等30余家机构",
+   "total_funding": null,
+   "valuation": "突破200亿人民币",
+   "dims": {
+    "所属行业": "具身智能/机器人",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "manus:68dc7e2c1cae51cd",
+     "title": "机器人「通用」到，能给我铲猫砂了？",
+     "url": "https://news.qq.com/rain/a/20260820A0CKHY00",
+     "publishedAt": "2026-08-20T12:00:00+08:00",
+     "mpName": "机器之心"
+    }
+   ]
+  },
+  {
+   "id": "fund:2a729fb48928e052",
+   "company_name": "宇树科技",
+   "product_name": null,
+   "founded": null,
+   "country": "中国",
+   "industry": "人形机器人",
+   "team": null,
+   "business": "人形机器人",
+   "investors": null,
+   "total_funding": null,
+   "valuation": "总市值突破4400亿元",
+   "dims": {
+    "所属行业": "具身智能/机器人",
+    "公司类型": "大厂/已上市",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "manus:8f33ed2af36581c4",
+     "title": "中国首次实现火箭陆地回收；宇树上市，市值最高超 4000 亿；蔡明同款机器人亮相，9.9 万元｜极客早知道",
+     "url": "https://news.qq.com/rain/a/20260820A03XYN00",
+     "publishedAt": "2026-08-20T12:00:00+08:00",
+     "mpName": "极客公园"
+    },
+    {
+     "id": "aihot:cmsx9jy2a05yerommy1e0jc6t",
+     "title": "A 股迎来\"人形机器人第一股\"，宇树科技官宣 8 月 19 日科创板上市",
+     "url": "https://www.ithome.com/0/990/812.htm",
+     "publishedAt": "2026-08-17T12:25:27.000Z",
+     "mpName": "IT之家（RSS）"
+    }
+   ]
+  },
+  {
+   "id": "fund:2c6ee24b09816a6f",
+   "company_name": "OpenAI",
+   "product_name": "ChatGPT",
+   "founded": null,
+   "country": "美国",
+   "industry": "AI模型/基础设施",
+   "team": null,
+   "business": "AI对话产品开发与运营",
+   "investors": null,
+   "total_funding": null,
+   "valuation": "8520亿美元",
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "大厂/已上市",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "manus:8f33ed2af36581c4",
+     "title": "中国首次实现火箭陆地回收；宇树上市，市值最高超 4000 亿；蔡明同款机器人亮相，9.9 万元｜极客早知道",
+     "url": "https://news.qq.com/rain/a/20260820A03XYN00",
+     "publishedAt": "2026-08-20T12:00:00+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:556dcd26a54fb752",
+   "company_name": "Anthropic",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "人工智能模型",
+   "team": null,
+   "business": "人工智能模型研发",
+   "investors": null,
+   "total_funding": null,
+   "valuation": "9650亿美元",
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "大厂/已上市",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "manus:8f33ed2af36581c4",
+     "title": "中国首次实现火箭陆地回收；宇树上市，市值最高超 4000 亿；蔡明同款机器人亮相，9.9 万元｜极客早知道",
+     "url": "https://news.qq.com/rain/a/20260820A03XYN00",
+     "publishedAt": "2026-08-20T12:00:00+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:f86d92d1d35213c9",
+   "company_name": "跨维智能",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "具身智能/物理AI",
+   "team": "创始人兼CEO为香港中文大学（深圳）教授贾奎",
+   "business": "具身智能机器人研发与物理AI技术",
+   "investors": null,
+   "total_funding": null,
+   "valuation": "超过百亿元",
+   "dims": {
+    "所属行业": "具身智能/机器人",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "manus:cec600530af7a6db",
+     "title": "Physical Token经济学：下一项能力更便宜，机器人才能真正规模化",
+     "url": "https://news.qq.com/rain/a/20260820A08RYD00",
+     "publishedAt": "2026-08-20T12:00:00+08:00",
+     "mpName": "机器之心"
+    }
+   ]
+  },
+  {
+   "id": "fund:46f91ae61c6b11d5",
+   "company_name": "DUSQ",
+   "product_name": "DUSQ",
+   "founded": null,
+   "country": "印度",
+   "industry": "健康硬件",
+   "team": "创始人Siddhant Bhargava是医生，曾两次战胜重病；联合创始人Gursakhi Lugani为连续创业者；技术负责人Mitansh Khurana为数学与计算机科学金牌得主；硬件与制造负责人Shalmali Kadu",
+   "business": "开发睡眠神经刺激贴片，整夜监测神经信号并施加微弱电流刺激以维持深度睡眠",
+   "investors": "Shark Tank India三位投资人",
+   "total_funding": "123万美元",
+   "valuation": null,
+   "dims": {
+    "所属行业": "其他",
+    "公司类型": "初创公司",
+    "国家/地区": "其他"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "manus:91fbd0ad4ce2cd7c",
+     "title": "睡觉时往脑袋上通电，4000 个美国人抢着买单",
+     "url": "https://news.qq.com/rain/a/20260820A05X2100",
+     "publishedAt": "2026-08-20T12:00:00+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  }
+ ]
+}

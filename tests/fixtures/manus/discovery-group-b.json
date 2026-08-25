@@ -7,7 +7,9 @@
     {"account_name": "瑞恩资本", "source_status": "complete", "article_count": 1, "note": null},
     {"account_name": "DeepTech深科技", "source_status": "complete", "article_count": 1, "note": null},
     {"account_name": "ZPotential", "source_status": "complete", "article_count": 1, "note": null},
-    {"account_name": "华尔街见闻", "source_status": "complete", "article_count": 0, "note": "当天无文章"}
+    {"account_name": "华尔街见闻", "source_status": "complete", "article_count": 0, "note": "当天无文章"},
+    {"account_name": "量子位", "source_status": "complete", "article_count": 0, "note": "当天无文章"},
+    {"account_name": "智东西", "source_status": "complete", "article_count": 0, "note": "当天无文章"}
   ],
   "articles": [
     {

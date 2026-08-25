@@ -23,6 +23,41 @@
   "concurrency": 3,
   "budget_seconds": 900
  },
+ "funding": {
+  "_comment": "融资动态表格（scripts/funding_table.py）抽取与搜索补全预算；search 为 Tavily 配置，缺 TAVILY_API_KEY 时自动跳过搜索。",
+  "content_input_chars": 16000,
+  "timeout_seconds": 90,
+  "concurrency": 3,
+  "budget_seconds": 600,
+  "search": {
+   "provider": "tavily",
+   "api_key_env": "TAVILY_API_KEY",
+   "max_results": 5,
+   "cache_ttl_days": 7
+  },
+  "industry_dim": {
+   "label": "所属行业",
+   "values": [
+    { "id": "game", "label": "AI游戏" },
+    { "id": "social", "label": "AI社交/陪伴" },
+    { "id": "interactive", "label": "AI互动内容/娱乐" },
+    { "id": "creation_tool", "label": "AI创作工具/生产力" },
+    { "id": "model_infra", "label": "AI模型/基础设施" },
+    { "id": "embodied", "label": "具身智能/机器人" },
+    { "id": "other", "label": "其他" }
+   ],
+   "fallbackValueId": "other"
+  },
+  "company_type_dim": {
+   "label": "公司类型",
+   "values": [
+    { "id": "startup", "label": "初创公司" },
+    { "id": "big_corp", "label": "大厂/已上市" },
+    { "id": "other", "label": "其他" }
+   ],
+   "fallbackValueId": "other"
+  }
+ },
  "thresholds": null,
  "dimensions": {
   "industry": {
