@@ -95,12 +95,33 @@ boundary_found = false
 
 # 四、输出字段与状态
 
+## 来源配置常量（字段身份 SSOT）
+
+account_name、source_platform、source_home_url 必须从来源配置常量逐字复制，禁止互换、翻译、缩写、改写或用页面显示值替换。三个字段必须始终来自同一个配置来源，组成固定的来源三元组。
+
+account_name = 当前来源配置的公众号名称
+source_platform = 当前来源配置的平台
+source_home_url = 当前来源配置的原始 url
+
+正确：
+account_name = 白鲸出海
+source_platform = Official Baijing
+source_home_url = https://www.baijing.cn/article/
+错误：
+account_name = null
+source_platform = 白鲸出海
+source_home_url = https://www.baijing.cn/
+
 ## source_audits（每个配置来源恰好一条）
 
 - account_name：来源列表中的公众号名称
 - source_status：complete（来源成功执行完全部协议）或 failed（任一门槛失败）
-- article_count：该来源 complete 文章数；来源成功但当天无文章时为 0，note 写“当天无文章”
+- article_count = 最终 articles 中 account_name 等于该账号且 extraction_status=complete 的记录数
 - note：无说明时为 null；failed 时必须写明失败原因
+
+source_audits 必须覆盖上方每个配置账号，每个配置账号恰好生成 1 条审计记录；不得漏记或重复。不得添加未配置账号。source_status=failed 时 article_count 必须为 0，note 必须为非空失败说明。failed 来源不得保留 complete 文章。
+
+complete 且当天无文章时 article_count=0、note=“当天无文章”。
 
 来源成功但当天没有文章，与来源采集失败，是两种不同状态：前者 source_status=complete 且 article_count=0，后者 source_status=failed。不得把“当天无文章”误报为失败，也不得把失败伪装成无文章。
 
@@ -120,7 +141,24 @@ boundary_found = false
 
 complete：通过本 Prompt 全部入口、顺序、日期、URL 和二次反查门槛；author 可为 null。
 
-# 五、最终回答
+每条 extraction_status=complete 的文章必须逐项检查字段完整性：account_name、source_platform、source_home_url、article_url、title、published_date、author、extraction_status、note 均必须存在；其中 author 与 note 可按本节规则使用 JSON null。
+
+- account_name 非空，并且等于当前来源配置的公众号名称。
+- source_platform 等于当前来源配置的平台。
+- source_home_url 等于当前来源配置的原始 url。
+- article_url 和 title 非空。
+- published_date 等于 target_date。
+- 二次反查不一致时，按第三节第 4 小节仅排除该候选。
+- 来源级门槛失败时，来源按既有协议标记 failed。
+
+# 五、提交前强制自检
+
+1. complete 字段门槛：逐条确认 extraction_status=complete 的文章具备上述全部字段，来源三元组逐字匹配同一配置账号，article_url、title、published_date 均有效且 published_date 等于 target_date。
+2. 最终计数重算：按公式 `article_count = 最终 articles 中 account_name 等于该账号且 extraction_status=complete 的记录数` 重算，并将结果写入对应 source_audits.article_count；任何排除的候选都不得计入。
+3. audit 完整性：逐一核对每个配置账号恰好 1 条 source_audits；不得添加未配置账号；source_status=failed 的记录 article_count 必须为 0 且 note 非空，failed 来源不得保留 complete 文章；complete 且当天无文章时 article_count=0、note=“当天无文章”。
+4. 最终格式检查：只输出一个合法 JSON 对象；根对象字段白名单为且仅为：source_group、target_date、source_audits、articles。每个对象只包含第四节和下方 JSON 示例规定的现有字段。检查所有对象字段完整、JSON null 使用正确；禁止输出 Markdown、解释文字或代码围栏。
+
+# 六、最终回答
 
 只输出合法 JSON，不要输出 Markdown、解释文字或代码围栏。根对象必须且只能包含 source_group、target_date、source_audits、articles。使用 JSON null，不得省略字段或以空字符串代替 null。
 
