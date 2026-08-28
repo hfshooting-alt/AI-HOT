@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Create and publish a concise Chinese `USER_GUIDE.md` for ordinary AI HOT readers, with a short Windows local-use appendix.
+**Goal:** Create and publish a concise Chinese `USER_GUIDE.md` for ordinary users of the local AI HOT Next.js dashboard.
 
 **Architecture:** Add one standalone Markdown file at the repository root. Derive every label and behavior from the current React components, keep operating details out of the main reading flow, and verify content plus the existing test suite before pushing.
 
@@ -23,7 +23,7 @@
 
 - [ ] **Step 1: Add the title, quick access, and reading path**
 
-Create `USER_GUIDE.md` with the title `# AI HOT 使用说明`, the CloudBase URL, a one-paragraph product description, and a short “第一次使用” sequence: open the site, choose a view, use filters, then open the original article.
+Create `USER_GUIDE.md` with the title `# AI HOT 使用说明`, the localhost URL, a one-paragraph product description, and a short “第一次使用” sequence: start or open the local site, choose a view, use filters, then open the original article. State that the old CloudBase page is retired.
 
 - [ ] **Step 2: Document the five views with current labels**
 
@@ -53,7 +53,7 @@ In a second terminal:
 node scripts/settings-server.mjs
 ```
 
-Explain that the settings page writes the repository-root `.env`, public deployments cannot write local files, and `.env` must never be committed.
+Explain that the settings page writes the repository-root `.env` through the local settings service, and `.env` must never be committed.
 
 ### Task 2: Review and verify the guide
 
@@ -66,7 +66,7 @@ Explain that the settings page writes the repository-root `.env`, public deploym
 Run:
 
 ```powershell
-rg -n "精选|全部 AI 动态|热点榜|AI 日报|设置|融资动态|一手信源|公众号|USER_GUIDE|CloudBase|\.env" USER_GUIDE.md
+rg -n "精选|全部 AI 动态|热点榜|AI 日报|设置|融资动态|一手信源|公众号|USER_GUIDE|localhost:3000|\.env" USER_GUIDE.md
 ```
 
 Expected: each required topic appears in the guide.
