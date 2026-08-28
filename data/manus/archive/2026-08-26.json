@@ -1,0 +1,159 @@
+{
+ "schemaVersion": 1,
+ "targetDate": "2026-08-26",
+ "generatedAt": "2026-08-27T18:21:39+08:00",
+ "collector": "manus",
+ "ok": true,
+ "degraded": true,
+ "stats": {
+  "configuredAccounts": 20,
+  "completeAccounts": 4,
+  "failedAccounts": 16,
+  "discoveredArticles": 6,
+  "publishedArticles": 6,
+  "fallbackArticles": 0
+ },
+ "items": [
+  {
+   "id": "manus:410a7ae29a045565",
+   "title": "网易《无限大》官宣定档：首曝上海杭州地图，传言不测试了直接上？",
+   "summary": "网易《无限大》在科隆之夜官宣将于2027年1月15日全球同步上线，登陆PC、PlayStation 5及移动端，并发布了融合上海与杭州地标（如东方明珠、西湖、雷峰塔）的第二张都市地图“重霄”。据接近网易的人士透露，该游戏发行逻辑可能接近单机产品，或不做多轮公开测试直接上线。",
+   "url": "https://news.qq.com/rain/a/20260826A01WQ400",
+   "source": "公众号：游戏葡萄",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "游戏葡萄",
+   "sourcePlatform": "Tencent News",
+   "author": "严锦彦",
+   "publishedAt": "2026-08-26T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "6784efc1824f6a16919fd61b2eabc7bb58fffedb8039972e83e41638525f4ff0",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   }
+  },
+  {
+   "id": "manus:aa17db91ed520bbe",
+   "title": "日常模板（不带推荐阅读）",
+   "summary": "该文章为公众号游戏葡萄发布的日常模板，标题为“日常模板（不带推荐阅读）”。正文包含“请输入导读”的占位提示，以及“这是第一段小标题，较长的话可以断开”的文字，并标注该小标题使用字体加粗、颜色为#3da742的样式。全文未涉及具体新闻事件或实质内容。",
+   "url": "https://news.qq.com/rain/a/20260826A01WQA00",
+   "source": "公众号：游戏葡萄",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "游戏葡萄",
+   "sourcePlatform": "Tencent News",
+   "author": null,
+   "publishedAt": "2026-08-26T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "2659a700721641d137b30fe00132d023b192d2d03be14de5971b93a415a7ffc5",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   }
+  },
+  {
+   "id": "manus:e4742ebccd0a7bd9",
+   "title": "Z Waves｜专访DiffuSpace龚珊三：扩散语言模型正在挑战GPT式生成范式",
+   "summary": "香港大学NLP实验室联合华为诺亚方舟实验室推出Dream系列扩散语言模型，使其在通用与推理能力上逼近同量级自回归模型。2026年，龚珊三与博士生导师孔令鹏等人共同创立DiffuSpace，致力于将Diffusion LLM研究工程化落地。龚珊三认为，扩散语言模型是自回归模型的更一般形式，支持并行生成和全局修改，在速度和成本上具有优势，未来一到两年内可能替代自回归模型。公司计划半年内发布新模型，一年内进行更大规模扩展。",
+   "url": "https://www.163.com/dy/article/L58VFPAJ0556EX0D.html?spss=dy_author",
+   "source": "公众号：ZFinance",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "ZFinance",
+   "sourcePlatform": "NetEase",
+   "author": null,
+   "publishedAt": "2026-08-26T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "c7435518bd03aaf670473a7342a0f2b3f94e464c22755075d7bdab14fe9c8aaa",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_model",
+     "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   }
+  },
+  {
+   "id": "manus:6bd746d46764c426",
+   "title": "机器人消费未来已来！第一批个人机器人进入家庭购物车",
+   "summary": "8月23日，上纬新材旗下启元机器人正式开启Q1和T1两款个人机器人预订，用户可通过官方小程序及天猫、抖音、B站等平台支付订金，9月支付尾款，首批产品预计同期发货。Q1高88厘米可折叠，T1支持轮足和四足形态切换。母公司上半年研发投入1.8亿元，其中具身智能业务1.6亿元，研发团队227人，累计申请专利273项。目前预收货款达2.1亿元，已在全国7座城市铺设线下体验门店，并与蓝思科技等合作启动万台级产线。",
+   "url": "https://news.qq.com/rain/a/20260826A0D1V500",
+   "source": "公众号：娱乐资本论",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "娱乐资本论",
+   "sourcePlatform": "Tencent News",
+   "author": "Jolene",
+   "publishedAt": "2026-08-26T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "406539aefeae740939a1ee09e5d656a6669ca55c8084bcb89ffe0e81703fda4d",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   }
+  },
+  {
+   "id": "manus:0f9bdb4fefcecc77",
+   "title": "共情打工人、复刻老聊斋，AI平替贾樟柯了｜一周AI爆款观察",
+   "summary": "娱乐资本论发布一周AI爆款观察，本期榜单中AI短视频《反正也没时间活》以超千万点赞居首，内容聚焦打工人时间困境；《非妖哉》以中式志怪风格获230.8万点赞，位列第二。榜单显示，职场焦虑与中式志怪两类内容合计贡献超六成点赞。创作者不吃榨菜表示，《非妖哉》单集成本超万元，延续老聊斋借妖写人的叙事思路，目前暂无商业化计划。文章指出，AI降低了制作门槛，但情绪与人文思考仍是内容创作的核心壁垒。",
+   "url": "https://news.qq.com/rain/a/20260826A0CWDB00",
+   "source": "公众号：娱乐资本论",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "娱乐资本论",
+   "sourcePlatform": "Tencent News",
+   "author": "啾啾",
+   "publishedAt": "2026-08-26T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "9a25e5e7e4c942c20723973bfb125253c8a14c5374c007bdae7f9848f1264413",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   }
+  },
+  {
+   "id": "manus:048920fd7cf41c06",
+   "title": "故事、美术和人才，优酷动漫三维度创新构筑平台差异化",
+   "summary": "文章报道优酷动漫在暑期档后的内容战略。据云合数据，上半年国漫有效播放110亿，同比下降9%。优酷动漫强调题材、故事、美术三维度创新，如《光阴之外》将修仙置于末世，《沧元图》采用水墨风格，《一斩苍穹》以喜剧和梗破局。优酷动漫还利用AI降低粘土风动画成本，并培养新人导演和编剧，以应对市场对垂类内容的需求。其作品《云深不知梦》已站稳女性向头部位置。",
+   "url": "https://news.qq.com/rain/a/20260826A0CQMD00",
+   "source": "公众号：娱乐资本论",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "娱乐资本论",
+   "sourcePlatform": "Tencent News",
+   "author": "吴晓宇",
+   "publishedAt": "2026-08-26T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "cf600aaaff28a23ed838d4efc462c77d05b5159cc9894e0e105d62e38f7f339a",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   }
+  }
+ ]
+}

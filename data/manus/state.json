@@ -1,17 +1,17 @@
 {
- "lastRunAt": "2026-08-21T13:41:20+08:00",
- "targetDate": "2026-08-20",
+ "lastRunAt": "2026-08-27T18:21:48+08:00",
+ "targetDate": "2026-08-27",
  "promoted": true,
  "failure": null,
  "taskUrls": {},
  "stats": {
-  "configuredAccounts": 14,
-  "completeAccounts": 13,
-  "failedAccounts": 1,
-  "discoveredArticles": 15,
-  "publishedArticles": 15,
-  "fallbackArticles": 6
+  "configuredAccounts": 20,
+  "completeAccounts": 4,
+  "failedAccounts": 16,
+  "discoveredArticles": 3,
+  "publishedArticles": 3,
+  "fallbackArticles": 0
  },
  "degraded": true,
- "lastSuccessDate": "2026-08-20"
+ "lastSuccessDate": "2026-08-27"
 }

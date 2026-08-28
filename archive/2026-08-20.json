@@ -1,8 +1,8 @@
 {
  "date": "2026-08-20",
- "finalized": false,
- "finalizedAt": null,
- "updatedAt": "2026-08-21T18:07:39.958221+08:00",
+ "finalized": true,
+ "finalizedAt": "2026-08-27T18:24:11.250643+08:00",
+ "updatedAt": "2026-08-27T18:24:11.250643+08:00",
  "items": [
   {
    "id": "cmt1k19bn06qgrokx1p75h1gv",
@@ -20,15 +20,6 @@
    "attribution": {
     "source": "AIHOT",
     "canonical": "https://aihot.virxact.com/items/cmt1k19bn06qgrokx1p75h1gv"
-   },
-   "classification": {
-    "category": "bigtech",
-    "tags": {
-     "change_type": "other",
-     "company": "anthropic"
-    },
-    "autoFallback": false,
-    "autoFilled": []
    }
   },
   {

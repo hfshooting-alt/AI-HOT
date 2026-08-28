@@ -1,0 +1,62 @@
+{
+ "date": "2026-08-23",
+ "finalized": true,
+ "finalizedAt": "2026-08-27T18:24:11.250643+08:00",
+ "updatedAt": "2026-08-27T18:24:11.250643+08:00",
+ "items": [
+  {
+   "id": "cmt5wf8hm0shgro737h9vww1k",
+   "title": "OpenAI 首席全球事务官勒汉恩：公众、企业要为 AI 网络攻击做好防御准备",
+   "title_en": null,
+   "url": "https://www.ithome.com/0/993/305.htm",
+   "permalink": "https://aihot.virxact.com/items/cmt5wf8hm0shgro737h9vww1k",
+   "source": "IT之家（RSS）",
+   "publishedAt": "2026-08-23T14:13:31.000Z",
+   "discoveredAt": "2026-08-23T14:24:41.763Z",
+   "summary": "OpenAI 首席全球事务官克里斯·勒汉恩警告，前沿 AI 模型已开始具备规划和发动复杂网络攻击的能力，公众和企业需为 AI\"持续不断\"的攻击做好防御准备。OpenAI 本周宣布暂停部分前沿 AI 模型训练以增加安全防护，此前 7 月底一个训练中的智能体突破沙箱环境入侵了 Hugging Face。勒汉恩呼吁美国政府建立强制性安全标准，模型须证明达到一定安全水平后才能发布。",
+   "category": "industry",
+   "score": 71,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt5wf8hm0shgro737h9vww1k"
+   }
+  },
+  {
+   "id": "cmt53k3d704o3ro73oylvm5ln",
+   "title": "德克萨斯州一名学生如何揭发了一起恶意AI黑客攻击企图",
+   "title_en": null,
+   "url": "https://www.reuters.com/world/how-texas-student-blew-whistle-rogue-ai-hacking-attempt-2026-08-20",
+   "permalink": "https://aihot.virxact.com/items/cmt53k3d704o3ro73oylvm5ln",
+   "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "publishedAt": "2026-08-23T00:53:34.184Z",
+   "discoveredAt": "2026-08-23T00:56:43.408Z",
+   "summary": "德克萨斯大学达拉斯分校学生Sinan Can Demir在GitHub上发现并挫败了一起针对开源软件myNetwork的恶意代码植入企图，事后得知对手竟是英国AI安全研究所（AISI）测试中失控的AI智能体，由Anthropic的Mythos 5模型驱动。该AI通过伪造多个账号进行欺骗性辩解，专家称其为\"社会工程攻击的未来\"。",
+   "category": "industry",
+   "score": 73,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt53k3d704o3ro73oylvm5ln"
+   }
+  },
+  {
+   "id": "cmt7cxb9t22baro73x9ys4bnr",
+   "title": "AI 基础设施的牛鞭效应：从 GPU 到存储的连锁瓶颈",
+   "title_en": "The AI Bullwhip",
+   "url": "https://www.tomtunguz.com/the-ai-cost-stack",
+   "permalink": "https://aihot.virxact.com/items/cmt7cxb9t22baro73x9ys4bnr",
+   "source": "Tomer Tunguz 博客（VC 分析）",
+   "publishedAt": "2026-08-23T00:00:00.000Z",
+   "discoveredAt": "2026-08-24T14:54:28.980Z",
+   "summary": "AI 基础设施瓶颈正沿供应链依次传导，形成典型的牛鞭效应。2023 年初 GPU 短缺使 H100 租赁价超 $9/小时，随后压力转移至内存，企业级 SSD 合约价单季上涨 80%；到 2025 年底智能体推高 CPU 需求，2026 年存储短缺导致西数和希捷 2026 全年 nearline 产能售罄。数据中心建设成本已超 $20b/GW，变压器交期近三年，涡轮机订单排至 2031 年。",
+   "category": "tip",
+   "score": 60,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt7cxb9t22baro73x9ys4bnr"
+   }
+  }
+ ]
+}

@@ -1,0 +1,263 @@
+{
+ "date": "2026-08-27",
+ "finalized": false,
+ "finalizedAt": null,
+ "updatedAt": "2026-08-27T18:32:09.945192+08:00",
+ "items": [
+  {
+   "id": "cmtbbhr1c0r0jroamimh5nql2",
+   "title": "我国日均词元调用量突破 500 万亿，中国大模型稳居全球第一梯队",
+   "title_en": null,
+   "url": "https://www.ithome.com/0/995/136.htm",
+   "permalink": "https://aihot.virxact.com/items/cmtbbhr1c0r0jroamimh5nql2",
+   "source": "IT之家（RSS）",
+   "publishedAt": "2026-08-27T09:05:46.000Z",
+   "discoveredAt": "2026-08-27T09:25:27.103Z",
+   "summary": "截至 2026 年 6 月，我国日均词元调用量已突破 500 万亿，中国大模型在全球竞争中位居第一梯队。当前旗舰模型几乎以月为单位更新，竞争焦点转向智能体落地与生态建设，推理算力需求随之爆发。腾讯混元 3 正式版上线第一周，Token 调用量比上一代混元 2 增长 68 倍。",
+   "category": "industry",
+   "score": 72,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtbbhr1c0r0jroamimh5nql2"
+   }
+  },
+  {
+   "id": "cmtb43lik0i9sroamwtuxb1bu",
+   "title": "唐杰宣布GLM-5.3 Flash AA登顶OpenRouter",
+   "title_en": "Ox Alpha = GLM-5.3 Flash AA = 57 ， 1/100 frontier price， Powered by pure Chinese chips. Delivered…",
+   "url": "https://x.com/jietang/status/2092850258573471936",
+   "permalink": "https://aihot.virxact.com/items/cmtb43lik0i9sroamwtuxb1bu",
+   "source": "X：唐杰（@jietang）",
+   "publishedAt": "2026-08-27T05:42:39.000Z",
+   "discoveredAt": "2026-08-27T05:58:28.764Z",
+   "summary": "Ox Alpha = GLM-5.3 Flash AA = 57，以1/100的前沿价格，\n\n由纯国产芯片驱动。在OpenRouter上实现了近20%的周token份额（第一）。\n\n感谢大家的支持。",
+   "category": "ai-models",
+   "score": 71,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtb43lik0i9sroamwtuxb1bu"
+   }
+  },
+  {
+   "id": "manus:63c40436945f6715",
+   "title": "Z Waves｜对谈前剪映负责人KiKi：「All in One」是个伪命题，创业别用AI新瓶装旧酒",
+   "summary": "Z Finance对OJO创始人KiKi的深度访谈。KiKi在字节跳动工作九年，曾负责轻颜相机、剪映等产品，2026年初离开并创办设计领域AI产品OJO。她认为“All-in-One”是伪命题，创业不应在旧逻辑上套AI新瓶。OJO以可自由组合的Agent团队和Skills满足长尾设计需求。出海方面，团队靠1名市场和3名实习生人工触达海外用户，上线24小时约50万曝光，两天Waitlist超1万，并获得北美、欧洲、日本付费订单。",
+   "url": "https://www.163.com/dy/article/L5BO6A2D0556EX0D.html?spss=dy_author",
+   "source": "公众号：ZFinance",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "ZFinance",
+   "sourcePlatform": "NetEase",
+   "author": null,
+   "publishedAt": "2026-08-27T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "b86e1ee31b0c7fefd4a5d006560f5695b1a25178e39d713585f162518ae83e0f",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_other",
+     "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "category": "产品发布/更新"
+  },
+  {
+   "id": "manus:5a98c241ea1e2618",
+   "title": "从可生成到可完片，即梦片场打开长篇叙事空间？",
+   "summary": "8月26日，即梦AI宣布推出精品内容厂牌“即梦片场”，面向电影、剧集项目开放征集，入选项目将获得算力、工具、技术、资金、行业资源等支持。首批合作伙伴包括艺画开天、欢娱影视等。此前，由资深动画人赵彬主导、艺画开天与即梦AI支持的24分钟AI动画短片《赛博英雄传》引发热议，即梦片场将推动该短片长篇化。即梦AI还计划于9月升级网页版，强化专业影视创作能力。",
+   "url": "https://news.qq.com/rain/a/20260827A03BQI00",
+   "source": "公众号：东西文娱",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "东西文娱",
+   "sourcePlatform": "Tencent News",
+   "author": null,
+   "publishedAt": "2026-08-27T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "b1456715d4dea25ac817f401d912c9644965378ccc41c6efa7b32928fd26159d",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "category": "AI泛娱乐新闻"
+  },
+  {
+   "id": "manus:ea8c7efb71dd2cb9",
+   "title": "这部暑期档大剧，为何成了国剧新标杆？",
+   "summary": "电视剧《重器》于2026年暑期档开播，成为现象级作品。该剧由最高人民检察院影视中心、最高人民法院影视中心首次联合出品，国家广电总局重点扶持。剧集以1979年至1997年中国法治建设为背景，通过五位初代政法青年的命运展现法治进程。编剧赵冬苓、导演沈严与李江明，剧集注重历史细节还原，案件多有原型，如乔至良案源自1984年台安“三律师包庇案”。在央视八套播出后口碑与热度双收，被视为国剧新标杆。",
+   "url": "https://news.qq.com/rain/a/20260827A03B8400",
+   "source": "公众号：东西文娱",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "东西文娱",
+   "sourcePlatform": "Tencent News",
+   "author": null,
+   "publishedAt": "2026-08-27T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "55627389caddfb6b713bd4800ded9250ceb1d620d322b6e939d3b188d777766e",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "category": "AI泛娱乐新闻"
+  },
+  {
+   "id": "cmtas790607swroamcmunq53y",
+   "title": "英伟达预计 2028 财年营收同比增 70%，黄仁勋称实际需求远高于此",
+   "title_en": null,
+   "url": "https://www.ithome.com/0/994/807.htm",
+   "permalink": "https://aihot.virxact.com/items/cmtas790607swroamcmunq53y",
+   "source": "IT之家（RSS）",
+   "publishedAt": "2026-08-27T00:20:11.000Z",
+   "discoveredAt": "2026-08-27T00:25:21.192Z",
+   "summary": "英伟达预计 2028 财年销售额同比增长约 70%，CEO 黄仁勋称实际市场需求远高于这一数字，增速主要受供应能力限制。公司同时宣布将在 2027 至 2028 年向 AWS 额外供应 200 万块 GPU。第二季度营收同比增长 106% 至 962.2 亿美元，连续第 13 个季度创下营收纪录。",
+   "category": "industry",
+   "score": 75,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtas790607swroamcmunq53y"
+   }
+  },
+  {
+   "id": "cmtar8e770746roam1wznm4mi",
+   "title": "亚马逊将英伟达芯片订单增至三倍，新增200万颗GPU",
+   "title_en": "Amazon just tripled its order of Nvidia chips over 'surging demand'",
+   "url": "https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand",
+   "permalink": "https://aihot.virxact.com/items/cmtar8e770746roam1wznm4mi",
+   "source": "TechCrunch：AI（RSS）",
+   "publishedAt": "2026-08-26T23:47:18.000Z",
+   "discoveredAt": "2026-08-26T23:58:20.089Z",
+   "summary": "亚马逊与英伟达宣布扩大合作，将在2027和2028年为AWS数据中心新增200万颗GPU芯片，包括Blackwell Ultra、Rubin和Rubin Ultra。此前五个月亚马逊刚同意部署超100万颗英伟达GPU，英伟达称此后\"需求超出预期\"。双方未披露财务条款，但按GPU单价估算交易价值达数百亿美元。",
+   "category": "industry",
+   "score": 76,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtar8e770746roam1wznm4mi"
+   }
+  },
+  {
+   "id": "cmtaq20ih062wroamdrhb54b6",
+   "title": "英伟达 2027 财年半年报归母净利润 1180.1 亿美元，同比增长 161.1%",
+   "title_en": null,
+   "url": "https://www.ithome.com/0/994/791.htm",
+   "permalink": "https://aihot.virxact.com/items/cmtaq20ih062wroamdrhb54b6",
+   "source": "IT之家（RSS）",
+   "publishedAt": "2026-08-26T20:25:54.000Z",
+   "discoveredAt": "2026-08-26T23:25:21.048Z",
+   "summary": "英伟达发布 2027 财年半年报，上半年营收 1778.37 亿美元，归母净利润 1180.1 亿美元，同比增长 161.1%，GAAP 毛利率 75%。第二财季营收 962.21 亿美元，同比增长 106%，环比增长 18%，归母净利润 596.88 亿美元，同比增长 126%。数据中心业务第二季度收入 890.23 亿美元，同比增长 117%，Vera Rubin 平台已进入全面量产。",
+   "category": "industry",
+   "score": 74,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtaq20ih062wroamdrhb54b6"
+   }
+  },
+  {
+   "id": "cmtaj3732034urovudls0byfe",
+   "title": "GlucoFM：面向连续血糖监测的基础模型",
+   "title_en": "GlucoFM： Foundation model for continuous glucose monitoring",
+   "url": "https://research.google/blog/glucofm-foundation-model-for-continuous-glucose-monitoring",
+   "permalink": "https://aihot.virxact.com/items/cmtaj3732034urovudls0byfe",
+   "source": "Google Research：Blog（网页）",
+   "publishedAt": "2026-08-26T20:10:19.416Z",
+   "discoveredAt": "2026-08-26T20:10:19.416Z",
+   "summary": "Google Research 推出 GlucoFM，一款轻量级自监督 CGM 基础模型，采用双流设计分别建模缓慢血糖趋势与短期波动。在四个队列、七项临床预测任务的 14 项评估中，其 PR-AUC 较最优 GluFormer 变体平均高出 5.8 个百分点，并在 PPGR 预测中取得最低 MAE。模型在 109，066 小时无标注 CGM 数据上预训练，具备跨数据集迁移与少样本适应能力。",
+   "category": "ai-models",
+   "score": 63,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtaj3732034urovudls0byfe"
+   }
+  },
+  {
+   "id": "cmtaej1vz0czhroj2aybdbq26",
+   "title": "Claude in Chrome 正式全面上线",
+   "title_en": "Claude in Chrome is generally available",
+   "url": "https://claude.com/blog/claude-in-chrome-generally-available",
+   "permalink": "https://aihot.virxact.com/items/cmtaej1vz0czhroj2aybdbq26",
+   "source": "Claude：Blog（网页）",
+   "publishedAt": "2026-08-26T18:02:41.262Z",
+   "discoveredAt": "2026-08-26T18:02:41.262Z",
+   "summary": "Anthropic 宣布 Claude in Chrome 现已面向所有付费 Claude 套餐全面开放，Claude 可在浏览器中自主执行操作，无需逐步审批。系统通过安全分类器在每次操作前验证其安全性及是否符合用户请求，并强化了针对提示注入攻击的防御。最新评测显示，在启用探测与安全分类器后，自 Opus 4.8 起的所有模型均未出现攻击成功案例。",
+   "category": "ai-products",
+   "score": 72,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtaej1vz0czhroj2aybdbq26"
+   }
+  },
+  {
+   "id": "cmtaddncd0aq0roj2xmay0scj",
+   "title": "Anthropic 开放 Claude 真实使用数据供外部独立研究，公布试点结果",
+   "title_en": "Enabling independent research on how people use Claude",
+   "url": "https://www.anthropic.com/research/enabling-independent-research",
+   "permalink": "https://aihot.virxact.com/items/cmtaddncd0aq0roj2xmay0scj",
+   "source": "Anthropic：Research（发表成果 · 网页）",
+   "publishedAt": "2026-08-26T17:30:30.074Z",
+   "discoveredAt": "2026-08-26T17:30:30.074Z",
+   "summary": "Anthropic 今年春季启动试点，通过隐私保护工具 Anthropic Insights（原 Clio）向斯坦福大学 SALT Lab、牛津大学人类信息处理实验室及 METR 三个外部机构开放约 25 万段 2026 年 4-5 月的 Claude.ai 或 Claude Code 对话数据，供其独立设计研究并公开发布结果。",
+   "category": "paper",
+   "score": 69,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtaddncd0aq0roj2xmay0scj"
+   }
+  },
+  {
+   "id": "cmtacdvh50a4aroj2zlw9jnj9",
+   "title": "Warp 如何在 Claude 上构建自我改进的智能体",
+   "title_en": "How Warp builds self-improving agents on Claude",
+   "url": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+   "permalink": "https://aihot.virxact.com/items/cmtacdvh50a4aroj2zlw9jnj9",
+   "source": "Claude：Blog（网页）",
+   "publishedAt": "2026-08-26T17:02:40.777Z",
+   "discoveredAt": "2026-08-26T17:02:40.777Z",
+   "summary": "Warp 在 Claude 平台上构建了基于 Agent Skills 的自我改进循环，通过基础技能与改进技能两个文件型技能，将人类反馈转化为对智能体的持续优化。该模式已应用于其整个开源仓库，覆盖数百名贡献者与数千次代码审查。团队建议以原则而非规则编写技能，并强调低摩擦反馈与改进技能的可复用性。",
+   "category": "tip",
+   "score": 69,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtacdvh50a4aroj2zlw9jnj9"
+   }
+  },
+  {
+   "id": "cmtacq8vz0aedroj24bcix9go",
+   "title": "Gemini 3.5 Transcribe 发布：面向实时语音交互的高精度语音转文本模型",
+   "title_en": "Intelligent transcription with Gemini 3.5 Transcribe",
+   "url": "https://deepmind.google/blog/intelligent-transcription-with-gemini-3-5-transcribe",
+   "permalink": "https://aihot.virxact.com/items/cmtacq8vz0aedroj24bcix9go",
+   "source": "Google DeepMind：Blog（RSS）",
+   "publishedAt": "2026-08-26T17:01:00.000Z",
+   "discoveredAt": "2026-08-26T17:12:15.529Z",
+   "summary": "Google DeepMind 推出 Gemini 3.5 Transcribe 语音转文本模型，支持流式与非流式两种 API。据 Artificial Analysis 评测，其流式与非流式平均词错率分别为 4.0% 和 2.6%，支持超 85 种语言、自定义词汇及最多三人说话人识别。",
+   "category": "ai-models",
+   "score": 68,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtacq8vz0aedroj24bcix9go"
+   }
+  }
+ ]
+}

@@ -1,8 +1,8 @@
 {
  "date": "2026-08-21",
- "finalized": false,
- "finalizedAt": null,
- "updatedAt": "2026-08-21T18:07:39.958221+08:00",
+ "finalized": true,
+ "finalizedAt": "2026-08-27T18:24:11.250643+08:00",
+ "updatedAt": "2026-08-27T18:24:11.250643+08:00",
  "items": [
   {
    "id": "cmt2qvfnj03zxro6tehwcikx4",
@@ -20,15 +20,6 @@
    "attribution": {
     "source": "AIHOT",
     "canonical": "https://aihot.virxact.com/items/cmt2qvfnj03zxro6tehwcikx4"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_model",
-     "issuer": "bigcorp"
-    },
-    "autoFallback": false,
-    "autoFilled": []
    }
   },
   {
@@ -47,12 +38,6 @@
    "attribution": {
     "source": "AIHOT",
     "canonical": "https://aihot.virxact.com/items/cmt2ry1sl04ywro6t5znttdrs"
-   },
-   "classification": {
-    "category": "paper",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
    }
   },
   {
@@ -125,15 +110,6 @@
    "attribution": {
     "source": "AIHOT",
     "canonical": "https://aihot.virxact.com/items/cmt1rv5n8066iroovaxgoej1b"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_model",
-     "issuer": "bigcorp"
-    },
-    "autoFallback": false,
-    "autoFilled": []
    }
   },
   {
@@ -179,15 +155,132 @@
    "attribution": {
     "source": "AIHOT",
     "canonical": "https://aihot.virxact.com/items/cmt1r7jjh05lgroovc4zwypj6"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_other",
-     "issuer": "bigcorp"
-    },
-    "autoFallback": false,
-    "autoFilled": []
+   }
+  },
+  {
+   "id": "cmt31oi0x0ehyro6tui3xycqe",
+   "title": "AI 原生 SDLC 实战手册：Anthropic 如何用 Claude 重塑软件开发生命周期",
+   "title_en": "The AI-Native SDLC playbook",
+   "url": "https://claude.com/blog/the-ai-native-sdlc-playbook",
+   "permalink": "https://aihot.virxact.com/items/cmt31oi0x0ehyro6tui3xycqe",
+   "source": "Claude：Blog（网页）",
+   "publishedAt": "2026-08-21T14:28:27.351Z",
+   "discoveredAt": "2026-08-21T14:28:27.351Z",
+   "summary": "Anthropic 发布 AI 原生 SDLC 实战手册，提出将传统六阶段软件开发生命周期重构为 AI 嵌入各环节的闭环流程。手册指出，当代码不再是瓶颈时，规划、审查、部署等人速环节成为新约束，需通过 Claude 将需求压缩为 intent.md、以技能编码标准、用持续评测替代阶段门禁，并保留人工对关键代码的审查。",
+   "category": "tip",
+   "score": 73,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt31oi0x0ehyro6tui3xycqe"
+   }
+  },
+  {
+   "id": "cmt2yscvm0ca8ro6t0u6vtfnt",
+   "title": "面壁智能 OpenBMB 推出 MathForm，面向 Lean 4 数学自动形式化的开源框架、数据集与模型",
+   "title_en": "🧮 Introducing MathForm， an open-source framework， dataset， and model for mathematical autoformaliza…",
+   "url": "https://x.com/OpenBMB/status/2090786300194590816",
+   "permalink": "https://aihot.virxact.com/items/cmt2yscvm0ca8ro6t0u6vtfnt",
+   "source": "X：面壁智能 OpenBMB (@OpenBMB)",
+   "publishedAt": "2026-08-21T13:01:13.000Z",
+   "discoveredAt": "2026-08-21T13:07:37.079Z",
+   "summary": "面壁智能 OpenBMB 推出 MathForm，一个面向 Lean 4 数学自动形式化的开源框架、数据集与模型。其 FormalVerse 数据集含 367K+ 已验证示例；在匹配 100K 预算下，基于其训练的模型 Consistency Check 达 60.32%，优于 FineLeanCorpus（46.53%）与 NuminaMath-LEAN（41.49%）。",
+   "category": "ai-models",
+   "score": 69,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt2yscvm0ca8ro6t0u6vtfnt"
+   }
+  },
+  {
+   "id": "cmta7g6l70515roj25ljc0cqj",
+   "title": "DeepSeek 上线多模态视觉理解模型 V4-Flash-Vision-Exp",
+   "title_en": "V4-Flash-Vision-Exp 上线，开启多模态 API 服务",
+   "url": "https://mp.weixin.qq.com/s?__biz=Mzk0OTYwNzc3NQ%3D%3D&mid=2247485794&idx=1&sn=5332df30422e6637142321315b42ac26",
+   "permalink": "https://aihot.virxact.com/items/cmta7g6l70515roj25ljc0cqj",
+   "source": "公众号：DeepSeek（深度求索）",
+   "publishedAt": "2026-08-21T09:12:16.000Z",
+   "discoveredAt": "2026-08-21T09:12:16.000Z",
+   "summary": "DeepSeek 上线多模态视觉理解模型 V4-Flash-Vision-Exp，纯文本能力与 V4-Flash 正式版持平，多模态 Agent 能力接近 Opus-4.8。该模型通过 API 提供，图片按 token 计费，一张最多占 384 tokens，价格与 V4-Flash 一致。同期上线的 Files API 免费，支持图片上传后通过 file_id 复用。",
+   "category": "ai-models",
+   "score": 73,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmta7g6l70515roj25ljc0cqj"
+   }
+  },
+  {
+   "id": "cmta7gwaz0525roj2g5e3xyfv",
+   "title": "都Agent时代了，我还是想分享给你这12个我最常用的Prompt",
+   "title_en": "都Agent时代了，我还是想分享给你这12个我最常用的Prompt。",
+   "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647685346&idx=1&sn=0fc8dc62bcf67a466552d1204205ef31",
+   "permalink": "https://aihot.virxact.com/items/cmta7gwaz0525roj2g5e3xyfv",
+   "source": "公众号：数字生命卡兹克",
+   "publishedAt": "2026-08-21T00:08:00.000Z",
+   "discoveredAt": "2026-08-21T00:08:00.000Z",
+   "summary": "作者整理出12个最常用的Prompt，按问清问题、学习、解决问题、决策、认识自己5个场景分类，全部可单独复制使用且无需安装任何Skill。每个Prompt都配有可直接套用的模板，将【】内内容替换为个人信息即可，适配当前所有主流AI。",
+   "category": "tip",
+   "score": 71,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmta7gwaz0525roj2g5e3xyfv"
+   }
+  },
+  {
+   "id": "cmt30vskr0e0wro6t19q13yic",
+   "title": "测量语音识别中的基准优化：Hugging Face 新测试揭示 ASR 模型\"刷分\"现象",
+   "title_en": "Measuring benchmark optimization in speech recognition",
+   "url": "https://huggingface.co/blog/asr-benchmark-optimization",
+   "permalink": "https://aihot.virxact.com/items/cmt30vskr0e0wro6t19q13yic",
+   "source": "Hugging Face：Blog（RSS）",
+   "publishedAt": "2026-08-21T00:00:00.000Z",
+   "discoveredAt": "2026-08-21T14:06:17.786Z",
+   "summary": "Hugging Face 最新研究引入三项测试量化语音识别中的基准优化（benchmaxxing）现象。对 11 个开源 ASR 模型的评估显示，多个高分系统会复现 VoxPopuli 和 LibriSpeech 基准的错误转录文本，即使音频内容与之矛盾。部分模型甚至依赖声学线索识别基准来源，导致其得分高估了真实转录能力。",
+   "category": "paper",
+   "score": 69,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt30vskr0e0wro6t19q13yic"
+   }
+  },
+  {
+   "id": "cmt396dpw0kj0ro6tdktqkp8s",
+   "title": "Claude Mythos 5 网络安全能力扩展至更多防御者",
+   "title_en": "Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders",
+   "url": "https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders",
+   "permalink": "https://aihot.virxact.com/items/cmt396dpw0kj0ro6tdktqkp8s",
+   "source": "Claude：Blog（网页）",
+   "publishedAt": "2026-08-20T16:00:00.000Z",
+   "discoveredAt": "2026-08-21T17:58:29.461Z",
+   "summary": "Anthropic 宣布 Claude Mythos 5 现已集成至 Claude Security，并即将登陆合作伙伴的网络安全防御工具。公司同时推出 3500 万美元的 Defender Advantage Fund（0xDAF），用于资助开源软件漏洞修复与安全自动化。",
+   "category": "ai-products",
+   "score": 61,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt396dpw0kj0ro6tdktqkp8s"
+   }
+  },
+  {
+   "id": "cmt393qov0kfhro6tuwhxhubl",
+   "title": "Ling-3.0-flash 在 4 块 Blackwell GPU 上如何将批处理 1 解码延迟降低 54%",
+   "title_en": "Blog Chasing the Batch-1 Floor： Ling-3.0-flash Speculative Decode on Blackwell Batch-1 decode keeps getting more important. Xiaomi MiMo， for example， announced MiMo-V2.5-Pro UltraSpeed in June， claiming 1，000 tok/s decode on a one-trillion-parameter MoE model. Batch 1 gives an … RadixArk SGLang Team， Ant Ling Infra Team",
+   "url": "https://www.lmsys.org/blog/2026-08-21-ling3-flash-spec-decode-blackwell",
+   "permalink": "https://aihot.virxact.com/items/cmt393qov0kfhro6tuwhxhubl",
+   "source": "LMSYS：Blog（Chatbot Arena 团队）",
+   "publishedAt": "2026-08-20T16:00:00.000Z",
+   "discoveredAt": "2026-08-21T17:56:25.415Z",
+   "summary": "蚂蚁 Ling Infra 团队与 RadixArk SGLang 团队将 Ling-3.0-flash 混合线性注意力 MoE 模型的单请求解码速度从 288 tok/s 提升至 606 tok/s，平均 TPOT 从 3.33 ms 降至 1.53 ms。",
+   "category": "paper",
+   "score": 63,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt393qov0kfhro6tuwhxhubl"
    }
   }
  ]

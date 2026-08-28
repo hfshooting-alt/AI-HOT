@@ -1,0 +1,115 @@
+{
+ "schemaVersion": 1,
+ "targetDate": "2026-08-25",
+ "generatedAt": "2026-08-27T18:21:30+08:00",
+ "collector": "manus",
+ "ok": true,
+ "degraded": true,
+ "stats": {
+  "configuredAccounts": 20,
+  "completeAccounts": 3,
+  "failedAccounts": 17,
+  "discoveredArticles": 4,
+  "publishedArticles": 4,
+  "fallbackArticles": 0
+ },
+ "items": [
+  {
+   "id": "manus:b7e060cc07914fa2",
+   "title": "三七互娱半年报：归母净利润超17亿元，预计分红6.8亿",
+   "summary": "三七互娱发布2026年半年度报告，实现营业收入72.75亿元，扣非归母净利润10.16亿元，归母净利润17.66亿元，同比增长26.14%。公司拟上半年分红6.82亿元。海外收入30.21亿元，同比增长10.90%。AI技术在美术、投放、翻译等环节应用比例较高。",
+   "url": "https://news.qq.com/rain/a/20260825A0C45G00",
+   "source": "公众号：游戏葡萄",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "游戏葡萄",
+   "sourcePlatform": "Tencent News",
+   "author": null,
+   "publishedAt": "2026-08-25T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "28f22bfe6e9d00baa17401f0789dbcf7c920390ec9879900e1ce7e558aabbb00",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   }
+  },
+  {
+   "id": "manus:516fc3016d792af4",
+   "title": "米哈游要做AI机器人了？已注册多个商标，并招聘硬件工程师",
+   "summary": "米哈游旗下海外发行主体Cognosphere在多个国家注册新商标，包括MIYOMI、HoYo-PUNI等，其中PUNI商标涵盖AI机器人、玩具机器人等类别。此外，米哈游曾于2025年5月招聘AI电子宠物产品设计专家，6月招聘高级硬件结构工程师，岗位职责涉及小型智能硬件和机器人。目前相关招聘信息已从官网下架，但仍有第三方结构工程师岗位在招。米哈游尚未正式公布相关计划，外界猜测其可能涉足AI玩具或陪伴型机器人领域。",
+   "url": "https://news.qq.com/rain/a/20260825A0C45C00",
+   "source": "公众号：游戏葡萄",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "游戏葡萄",
+   "sourcePlatform": "Tencent News",
+   "author": "严锦彦",
+   "publishedAt": "2026-08-25T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "ed287ac06c686b0653e269568932471705e2d8f3eb232cca51dd9cb2387144e3",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "business_line",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   }
+  },
+  {
+   "id": "manus:98180c0e7f5d2f87",
+   "title": "刚融资30亿的AI公司，要给游戏行业一点震撼",
+   "summary": "爱诗科技获得由阿里巴巴领投的29.8亿元C轮融资，并推出世界模型PixVerse R2。R2支持文字、语音、方向控制等多模态输入，可实时生成交互式视频，实现类似游戏的体验。文章介绍了R2的技术改进，包括新的管线、记忆系统和成本优化，并探讨了其对游戏行业可能产生的影响。",
+   "url": "https://news.qq.com/rain/a/20260825A0C45700",
+   "source": "公众号：游戏葡萄",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "游戏葡萄",
+   "sourcePlatform": "Tencent News",
+   "author": "秋秋",
+   "publishedAt": "2026-08-25T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "3b78e1c75b310e10f8744762d486eb07c0292640962b6c7d498e90f8e9ddfc10",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "financing",
+    "tags": {
+     "industry": "ai_model",
+     "region": "cn"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   }
+  },
+  {
+   "id": "manus:330764fd5e80ff6d",
+   "title": "ZPedia｜豆包工作发布，和飞书寻找 Agent 的下一个答案",
+   "summary": "豆包正式推出“豆包工作”，该产品通过独立应用、PC端整合及嵌入飞书，支持输出文档、表格、PPT和视频，并具备跨系统长任务执行与汇报能力。其与飞书实现底层账号打通，可在对话中@同事和飞书云文档，交付物直接落入飞书。文章提及Anthropic的Claude Tag已在Slack中融入团队，内部约65%产品代码由其生成。文章展示了两个实测案例，并引用数据称全球60%办公人群日常使用AI，76%用户认为现有工具无法触达内部数据。",
+   "url": "https://www.163.com/dy/article/L568FDOR0556EX0D.html?spss=dy_author",
+   "source": "公众号：ZFinance",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "ZFinance",
+   "sourcePlatform": "NetEase",
+   "author": null,
+   "publishedAt": "2026-08-25T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "d8c275c5b0053b43069edc17ed8a914c2a2e5828b76146088f2b03adee6babd0",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   }
+  }
+ ]
+}

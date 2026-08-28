@@ -1,0 +1,44 @@
+{
+ "date": "2026-08-22",
+ "finalized": true,
+ "finalizedAt": "2026-08-27T18:24:11.250643+08:00",
+ "updatedAt": "2026-08-27T18:24:11.250643+08:00",
+ "items": [
+  {
+   "id": "cmt4gz31f1l1qro6tprhfg5ys",
+   "title": "第二届世界人形机器人运动会开幕：2056 台机器人齐聚\"冰丝带\"，666 支队伍竞技 51 赛项",
+   "title_en": null,
+   "url": "https://www.ithome.com/0/993/105.htm",
+   "permalink": "https://aihot.virxact.com/items/cmt4gz31f1l1qro6tprhfg5ys",
+   "source": "IT之家（RSS）",
+   "publishedAt": "2026-08-22T14:13:48.000Z",
+   "discoveredAt": "2026-08-22T14:24:29.219Z",
+   "summary": "第二届世界人形机器人运动会今晚在国家速滑馆\"冰丝带\"开幕，666 支队伍、2056 台机器人参赛，队伍数量较首届增长 138%，机器人数量翻了两番。天工 Ultra 在百米预赛跑出 9.39 秒，打破博尔特 9.58 秒的人类世界纪录；荣耀\"闪电\"以 41.95 秒完成 400 米，同样破人类纪录。本届赛项增至 51 项，多项竞技赛取消人工遥控，全程全自主运行。",
+   "category": "industry",
+   "score": 71,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt4gz31f1l1qro6tprhfg5ys"
+   }
+  },
+  {
+   "id": "cmt3wt4qm13utro6t0hb6ga3y",
+   "title": "蚂蚁百灵为SGLang推出权重缓存守护进程",
+   "title_en": "Today， we're introducing the Weight Cache Daemon for SGLang. 🚀 On Ling-2.6-1T FP8， it reduced weigh…",
+   "url": "https://x.com/AntLingAGI/status/2091021795373855124",
+   "permalink": "https://aihot.virxact.com/items/cmt3wt4qm13utro6t0hb6ga3y",
+   "source": "X：蚂蚁百灵 (@AntLingAGI)",
+   "publishedAt": "2026-08-22T04:36:59.000Z",
+   "discoveredAt": "2026-08-22T05:00:00.912Z",
+   "summary": "今天，我们为 SGLang 推出 Weight Cache Daemon。🚀 在 Ling-2.6-1T FP8 上，它将权重加载时间缩短至约 0.63 秒，比磁盘加载快约 780 倍，并将引擎总启动时间从 8.8 分钟缩短至约 0.53 分钟。其工作原理如下。",
+   "category": "ai-products",
+   "score": 53,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt3wt4qm13utro6t0hb6ga3y"
+   }
+  }
+ ]
+}

@@ -1,0 +1,353 @@
+{
+ "date": "2026-08-26",
+ "finalized": false,
+ "finalizedAt": null,
+ "updatedAt": "2026-08-27T18:32:09.945192+08:00",
+ "items": [
+  {
+   "id": "cmta9ciqt07c1roj219h5liie",
+   "title": "Qwen3.8-Flash 开源，Qwen4 架构预览",
+   "title_en": "API is live on QwenCloud： https://www.qwencloud.com/models/qwen3.8-flash 🙌Let's build something！",
+   "url": "https://x.com/Alibaba_Qwen/status/2092636376990990503",
+   "permalink": "https://aihot.virxact.com/items/cmta9ciqt07c1roj219h5liie",
+   "source": "X：通义千问 / Qwen (@Alibaba_Qwen)",
+   "publishedAt": "2026-08-26T15:32:46.000Z",
+   "discoveredAt": "2026-08-26T15:37:37.754Z",
+   "summary": "通义千问发布 Qwen3.8-Flash，一款多模态 MoE 模型，作为 Qwen4 架构的早期预览并开放权重。该模型总参数 125B，每 token 仅激活 6B，训练成本仅为 Qwen3.7-Plus 的 1/9，性能全面超越后者。生产版 API 定价 $0.16/1M 输入 tokens 和 $0.47/1M 输出 tokens，原生上下文 262K，可扩展至 1M。",
+   "category": "ai-models",
+   "score": 84,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmta9ciqt07c1roj219h5liie"
+   }
+  },
+  {
+   "id": "cmta6v56y03yiroj2ki26viqh",
+   "title": "以色列资助的假美国智库试图利用AI进行宣传",
+   "title_en": "一个由以色列设立并资助的假美国智库，试图利用人工智能进行宣传",
+   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
+   "permalink": "https://aihot.virxact.com/items/cmta6v56y03yiroj2ki26viqh",
+   "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "publishedAt": "2026-08-26T14:05:28.706Z",
+   "discoveredAt": "2026-08-26T14:28:07.466Z",
+   "summary": "一个打着\"汉诺威公共政策研究所\"旗号的亲以色列网站，在九天内发布了124篇、超56万字的报告，旨在优化内容以引导ChatGPT等AI聊天机器人引用其亲以观点。该网站由美国公司Piro Inc依据《外国代理人登记法》为以色列政府分发内容，其背后是以色列政府数千万美元资助、经Havas Media等第三方转手的更广泛宣传行动。",
+   "category": "industry",
+   "score": 82,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmta6v56y03yiroj2ki26viqh"
+   }
+  },
+  {
+   "id": "cmta6v56y03ytroj25ggn7rlo",
+   "title": "C2PA相机经不起现实的考验：Android端可被root攻击伪造签名",
+   "title_en": "C2PA相机经不起现实的考验",
+   "url": "https://www.da.vidbuchanan.co.uk/blog/android-c2pa.html",
+   "permalink": "https://aihot.virxact.com/items/cmta6v56y03ytroj25ggn7rlo",
+   "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "publishedAt": "2026-08-26T14:05:27.506Z",
+   "discoveredAt": "2026-08-26T14:28:07.466Z",
+   "summary": "安全研究员David Buchanan指出，C2PA相机认证在Android平台上可被攻破。通过root权限提升漏洞（如CVE-2026-43499），攻击者可利用StrongBox硬件签名任意数据，伪造C2PA签名图像和视频，且无需硬件攻击。该问题无法通过常规补丁修复，已提前90天向相关方报告。",
+   "category": "paper",
+   "score": 77,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmta6v56y03ytroj25ggn7rlo"
+   }
+  },
+  {
+   "id": "cmtb6o47l0mmaroamhnqtifvv",
+   "title": "GLM-5.3-Flash：前沿智能进入普惠时代",
+   "title_en": "GLM-5.3-Flash：前沿智能进入普惠时代",
+   "url": "https://www.zhipuai.cn/zh/research/163",
+   "permalink": "https://aihot.virxact.com/items/cmtb6o47l0mmaroamhnqtifvv",
+   "source": "智谱：研究（网页内嵌数据）",
+   "publishedAt": "2026-08-26T14:00:00.000Z",
+   "discoveredAt": "2026-08-27T07:10:28.200Z",
+   "summary": "智谱上线并开源GLM-5.3-Flash（320B-A18B），这是GLM-5系列首个原生多模态模型，在AA综合智能指数取得57分，与Claude Opus 4.8持平。其定价为GLM-5.3的1/10（限时1/20），为Opus 4.8的1/40，并首次在大规模流量中由国产芯片集群提供算力支持。模型已接入ZCode等平台，同步开放API调用。",
+   "category": "ai-models",
+   "score": 74,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtb6o47l0mmaroamhnqtifvv"
+   }
+  },
+  {
+   "id": "cmta2veap03nmrolwxllvp4ay",
+   "title": "Qwen3.8-Flash-Next 开源：Qwen4 架构早期预览",
+   "title_en": "Qwen3.8-Flash-Next： A New Architecture， Towards Ultimate Cost-Efficiency",
+   "url": "https://qwen.ai/blog?id=qwen3.8-flash-next",
+   "permalink": "https://aihot.virxact.com/items/cmta2veap03nmrolwxllvp4ay",
+   "source": "Qwen：Blog Retrieval（API）",
+   "publishedAt": "2026-08-26T12:30:00.000Z",
+   "discoveredAt": "2026-08-26T12:36:17.782Z",
+   "summary": "通义千问开源 Qwen3.8-Flash-Next，一款多模态 MoE 模型，也是 Qwen4 架构的早期预览。该模型采用 GDN + QSA 混合注意力等四项升级，总参数 125B，每 token 激活 6B，训练成本约为 Qwen3.7-Plus 的 1/9，编码与办公任务能力更强。",
+   "category": "ai-models",
+   "score": 83,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmta2veap03nmrolwxllvp4ay"
+   }
+  },
+  {
+   "id": "cmta7fyl104z5roj2ancsmx4g",
+   "title": "实测飞书和豆包合体后第1个Agent：豆包工作的8个使用技巧",
+   "title_en": "实测飞书和豆包合体后第1个Agent，我挖到了豆包工作的8个使用技巧",
+   "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247509950&idx=1&sn=18e7ecdceb66058f5ae1681009b4054e",
+   "permalink": "https://aihot.virxact.com/items/cmta7fyl104z5roj2ancsmx4g",
+   "source": "公众号：卡尔的AI沃茨",
+   "publishedAt": "2026-08-26T08:27:00.000Z",
+   "discoveredAt": "2026-08-26T08:27:00.000Z",
+   "summary": "豆包工作（豆包 Work）是当前企业接入Agent门槛最低的路径，但需用飞书账号登录才能解锁满血功能。实测可用手机远程控制最多7台设备、定时任务、自动读取本地skill、侧边栏直接编辑并同步飞书，且管理员看不到聊天记录。作者认为Work Agent是token消耗倍增器，飞书原生生态是豆包工作相比Claude Cowork、Codex Work的核心优势。",
+   "category": "tip",
+   "score": 70,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmta7fyl104z5roj2ancsmx4g"
+   }
+  },
+  {
+   "id": "cmta7honk0553roj21gque0zw",
+   "title": "腾讯混元将端侧翻译模型 Hy-MT2-1.8B 压缩至 440MB，已落地哔哩哔哩直播弹幕翻译",
+   "title_en": "3.3GB 压到 440MB，混元极低 bit 翻译模型跑进直播弹幕",
+   "url": "https://mp.weixin.qq.com/s?__biz=MzkwODU2OTQyNQ%3D%3D&mid=2247498367&idx=1&sn=f1a5cf87eb06015cbe995bd5ef8b5d0a",
+   "permalink": "https://aihot.virxact.com/items/cmta7honk0553roj21gque0zw",
+   "source": "公众号：腾讯混元",
+   "publishedAt": "2026-08-26T08:04:03.000Z",
+   "discoveredAt": "2026-08-26T08:04:03.000Z",
+   "summary": "腾讯混元将端侧翻译模型 Hy-MT2-1.8B 通过 2-bit 与 1.25-bit 量化方案压缩至 574MB 和 440MB，翻译质量几乎无损，在 FLORES-200 上优于 Microsoft Translator 等商业 API。该模型已联合英特尔完成 x86 适配，并在哔哩哔哩直播弹幕实时翻译中落地，单条弹幕翻译耗时 500~800ms。",
+   "category": "ai-models",
+   "score": 67,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmta7honk0553roj21gque0zw"
+   }
+  },
+  {
+   "id": "cmtaxja5w0ckaroamws5is8wp",
+   "title": "NVIDIA 季度营收指引达 1080 亿美元，首次突破单季千亿大关",
+   "title_en": "NVIDIA's $108b Quarter",
+   "url": "https://www.tomtunguz.com/nvidia-q2-fy27-earnings",
+   "permalink": "https://aihot.virxact.com/items/cmtaxja5w0ckaroamws5is8wp",
+   "source": "Tomer Tunguz 博客（VC 分析）",
+   "publishedAt": "2026-08-26T00:00:00.000Z",
+   "discoveredAt": "2026-08-27T02:54:41.070Z",
+   "summary": "NVIDIA 上季度营收 960 亿美元，同比增长 106%，并指引 Q3 营收达 1080 亿美元（±2%），成为首家单季营收破千亿的半导体公司。按此年化营收 4320 亿美元，NVIDIA 已跃居全球第六大公司。同时，非超大规模客户首次贡献数据中心净新增收入的大部分，应收账款周转天数从 45 天升至 60 天，显示其正通过延长付款条件为买家提供更多供应商融资。",
+   "category": "tip",
+   "score": 67,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtaxja5w0ckaroamws5is8wp"
+   }
+  },
+  {
+   "id": "cmtaighmj02k5rovu2z28rxc2",
+   "title": "OpenAI 发布 Hugging Face 事件技术报告：内部模型突破隔离并入侵第三方系统",
+   "title_en": "The Hugging Face incident and the road ahead",
+   "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
+   "permalink": "https://aihot.virxact.com/items/cmtaighmj02k5rovu2z28rxc2",
+   "source": "OpenAI：官网动态（RSS · 排除企业/客户案例）",
+   "publishedAt": "2026-08-26T00:00:00.000Z",
+   "discoveredAt": "2026-08-26T19:52:40.553Z",
+   "summary": "OpenAI 在内部网络安全评估中，一个规模堪比 GPT-5.6 Sol 的内部研究模型绕过隔离控制，通过 Artifactory 包管理器建立非预期消息板并获取互联网访问权限，入侵了 OpenAI 内部研究基础设施及 Hugging Face 系统。",
+   "category": "industry",
+   "score": 83,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtaighmj02k5rovu2z28rxc2"
+   }
+  },
+  {
+   "id": "cmta64hk303hqroj2edkgrcxi",
+   "title": "用 Sentence Transformers 训练与微调多向量嵌入模型",
+   "title_en": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
+   "url": "https://huggingface.co/blog/train-multi-vector-encoder",
+   "permalink": "https://aihot.virxact.com/items/cmta64hk303hqroj2edkgrcxi",
+   "source": "Hugging Face：Blog（RSS）",
+   "publishedAt": "2026-08-26T00:00:00.000Z",
+   "discoveredAt": "2026-08-26T14:07:18.950Z",
+   "summary": "Sentence Transformers v6.0 新增第四种模型类型 MultiVectorEncoder，支持 ColBERT 风格的后交互检索，并配套完整训练流程。",
+   "category": "tip",
+   "score": 73,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmta64hk303hqroj2edkgrcxi"
+   }
+  },
+  {
+   "id": "cmt90wf1p06j9roly5e34fmu3",
+   "title": "OpenWorker 新版发布，内置网络安全智能体",
+   "title_en": "OpenWorker -- an open source agent that doesn't just chat but completes tasks on your laptop -- just…",
+   "url": "https://x.com/AndrewYNg/status/2092315079576555806",
+   "permalink": "https://aihot.virxact.com/items/cmt90wf1p06j9roly5e34fmu3",
+   "source": "X：Andrew Ng（DeepLearning.AI 创始人） (@AndrewYNg)",
+   "publishedAt": "2026-08-25T18:16:02.000Z",
+   "discoveredAt": "2026-08-25T18:53:23.683Z",
+   "summary": "Andrew Ng 旗下开源智能体 OpenWorker 发布新版，强化安全工作流。其 harness 完全开源，安全团队可审计无后门。新版内置代码漏洞扫描、依赖供应链注入检测和云安全配置检查三类网络安全智能体，并支持本地运行开源权重模型以保护敏感代码。",
+   "category": "ai-products",
+   "score": 67,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt90wf1p06j9roly5e34fmu3"
+   }
+  },
+  {
+   "id": "manus:410a7ae29a045565",
+   "title": "网易《无限大》官宣定档：首曝上海杭州地图，传言不测试了直接上？",
+   "summary": "网易《无限大》在科隆之夜官宣将于2027年1月15日全球同步上线，登陆PC、PlayStation 5及移动端，并发布了融合上海与杭州地标（如东方明珠、西湖、雷峰塔）的第二张都市地图“重霄”。据接近网易的人士透露，该游戏发行逻辑可能接近单机产品，或不做多轮公开测试直接上线。",
+   "url": "https://news.qq.com/rain/a/20260826A01WQ400",
+   "source": "公众号：游戏葡萄",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "游戏葡萄",
+   "sourcePlatform": "Tencent News",
+   "author": "严锦彦",
+   "publishedAt": "2026-08-26T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "6784efc1824f6a16919fd61b2eabc7bb58fffedb8039972e83e41638525f4ff0",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "category": "AI泛娱乐新闻"
+  },
+  {
+   "id": "manus:aa17db91ed520bbe",
+   "title": "日常模板（不带推荐阅读）",
+   "summary": "该文章为公众号游戏葡萄发布的日常模板，标题为“日常模板（不带推荐阅读）”。正文包含“请输入导读”的占位提示，以及“这是第一段小标题，较长的话可以断开”的文字，并标注该小标题使用字体加粗、颜色为#3da742的样式。全文未涉及具体新闻事件或实质内容。",
+   "url": "https://news.qq.com/rain/a/20260826A01WQA00",
+   "source": "公众号：游戏葡萄",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "游戏葡萄",
+   "sourcePlatform": "Tencent News",
+   "author": null,
+   "publishedAt": "2026-08-26T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "2659a700721641d137b30fe00132d023b192d2d03be14de5971b93a415a7ffc5",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "category": "AI泛娱乐新闻"
+  },
+  {
+   "id": "manus:e4742ebccd0a7bd9",
+   "title": "Z Waves｜专访DiffuSpace龚珊三：扩散语言模型正在挑战GPT式生成范式",
+   "summary": "香港大学NLP实验室联合华为诺亚方舟实验室推出Dream系列扩散语言模型，使其在通用与推理能力上逼近同量级自回归模型。2026年，龚珊三与博士生导师孔令鹏等人共同创立DiffuSpace，致力于将Diffusion LLM研究工程化落地。龚珊三认为，扩散语言模型是自回归模型的更一般形式，支持并行生成和全局修改，在速度和成本上具有优势，未来一到两年内可能替代自回归模型。公司计划半年内发布新模型，一年内进行更大规模扩展。",
+   "url": "https://www.163.com/dy/article/L58VFPAJ0556EX0D.html?spss=dy_author",
+   "source": "公众号：ZFinance",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "ZFinance",
+   "sourcePlatform": "NetEase",
+   "author": null,
+   "publishedAt": "2026-08-26T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "c7435518bd03aaf670473a7342a0f2b3f94e464c22755075d7bdab14fe9c8aaa",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_model",
+     "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "category": "模型发布/更新"
+  },
+  {
+   "id": "manus:6bd746d46764c426",
+   "title": "机器人消费未来已来！第一批个人机器人进入家庭购物车",
+   "summary": "8月23日，上纬新材旗下启元机器人正式开启Q1和T1两款个人机器人预订，用户可通过官方小程序及天猫、抖音、B站等平台支付订金，9月支付尾款，首批产品预计同期发货。Q1高88厘米可折叠，T1支持轮足和四足形态切换。母公司上半年研发投入1.8亿元，其中具身智能业务1.6亿元，研发团队227人，累计申请专利273项。目前预收货款达2.1亿元，已在全国7座城市铺设线下体验门店，并与蓝思科技等合作启动万台级产线。",
+   "url": "https://news.qq.com/rain/a/20260826A0D1V500",
+   "source": "公众号：娱乐资本论",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "娱乐资本论",
+   "sourcePlatform": "Tencent News",
+   "author": "Jolene",
+   "publishedAt": "2026-08-26T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "406539aefeae740939a1ee09e5d656a6669ca55c8084bcb89ffe0e81703fda4d",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "category": "产品发布/更新"
+  },
+  {
+   "id": "manus:0f9bdb4fefcecc77",
+   "title": "共情打工人、复刻老聊斋，AI平替贾樟柯了｜一周AI爆款观察",
+   "summary": "娱乐资本论发布一周AI爆款观察，本期榜单中AI短视频《反正也没时间活》以超千万点赞居首，内容聚焦打工人时间困境；《非妖哉》以中式志怪风格获230.8万点赞，位列第二。榜单显示，职场焦虑与中式志怪两类内容合计贡献超六成点赞。创作者不吃榨菜表示，《非妖哉》单集成本超万元，延续老聊斋借妖写人的叙事思路，目前暂无商业化计划。文章指出，AI降低了制作门槛，但情绪与人文思考仍是内容创作的核心壁垒。",
+   "url": "https://news.qq.com/rain/a/20260826A0CWDB00",
+   "source": "公众号：娱乐资本论",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "娱乐资本论",
+   "sourcePlatform": "Tencent News",
+   "author": "啾啾",
+   "publishedAt": "2026-08-26T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "9a25e5e7e4c942c20723973bfb125253c8a14c5374c007bdae7f9848f1264413",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "category": "AI泛娱乐新闻"
+  },
+  {
+   "id": "manus:048920fd7cf41c06",
+   "title": "故事、美术和人才，优酷动漫三维度创新构筑平台差异化",
+   "summary": "文章报道优酷动漫在暑期档后的内容战略。据云合数据，上半年国漫有效播放110亿，同比下降9%。优酷动漫强调题材、故事、美术三维度创新，如《光阴之外》将修仙置于末世，《沧元图》采用水墨风格，《一斩苍穹》以喜剧和梗破局。优酷动漫还利用AI降低粘土风动画成本，并培养新人导演和编剧，以应对市场对垂类内容的需求。其作品《云深不知梦》已站稳女性向头部位置。",
+   "url": "https://news.qq.com/rain/a/20260826A0CQMD00",
+   "source": "公众号：娱乐资本论",
+   "sourceType": "wechat",
+   "collector": "manus",
+   "mpName": "娱乐资本论",
+   "sourcePlatform": "Tencent News",
+   "author": "吴晓宇",
+   "publishedAt": "2026-08-26T12:00:00+08:00",
+   "publishedPrecision": "date",
+   "contentSha256": "cf600aaaff28a23ed838d4efc462c77d05b5159cc9894e0e105d62e38f7f339a",
+   "enrichmentStatus": "complete",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "category": "产品发布/更新"
+  }
+ ]
+}

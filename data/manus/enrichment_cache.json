@@ -192,5 +192,159 @@
    "autoFilled": []
   },
   "enrichmentStatus": "complete"
+ },
+ "1:2:deepseek-v4-flash:en:5e92366b8cf70868:ed287ac06c686b06": {
+  "summary": "米哈游旗下海外发行主体Cognosphere在多个国家注册新商标，包括MIYOMI、HoYo-PUNI等，其中PUNI商标涵盖AI机器人、玩具机器人等类别。此外，米哈游曾于2025年5月招聘AI电子宠物产品设计专家，6月招聘高级硬件结构工程师，岗位职责涉及小型智能硬件和机器人。目前相关招聘信息已从官网下架，但仍有第三方结构工程师岗位在招。米哈游尚未正式公布相关计划，外界猜测其可能涉足AI玩具或陪伴型机器人领域。",
+  "classification": {
+   "category": "bigtech",
+   "tags": {
+    "change_type": "business_line",
+    "company": "other"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete"
+ },
+ "1:2:deepseek-v4-flash:en:40529fdba77946e8:28f22bfe6e9d00ba": {
+  "summary": "三七互娱发布2026年半年度报告，实现营业收入72.75亿元，扣非归母净利润10.16亿元，归母净利润17.66亿元，同比增长26.14%。公司拟上半年分红6.82亿元。海外收入30.21亿元，同比增长10.90%。AI技术在美术、投放、翻译等环节应用比例较高。",
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete"
+ },
+ "1:2:deepseek-v4-flash:en:f8de6232218967e6:3b78e1c75b310e10": {
+  "summary": "爱诗科技获得由阿里巴巴领投的29.8亿元C轮融资，并推出世界模型PixVerse R2。R2支持文字、语音、方向控制等多模态输入，可实时生成交互式视频，实现类似游戏的体验。文章介绍了R2的技术改进，包括新的管线、记忆系统和成本优化，并探讨了其对游戏行业可能产生的影响。",
+  "classification": {
+   "category": "financing",
+   "tags": {
+    "industry": "ai_model",
+    "region": "cn"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete"
+ },
+ "1:2:deepseek-v4-flash:en:ecbff5ca1e3e3de2:d8c275c5b0053b43": {
+  "summary": "豆包正式推出“豆包工作”，该产品通过独立应用、PC端整合及嵌入飞书，支持输出文档、表格、PPT和视频，并具备跨系统长任务执行与汇报能力。其与飞书实现底层账号打通，可在对话中@同事和飞书云文档，交付物直接落入飞书。文章提及Anthropic的Claude Tag已在Slack中融入团队，内部约65%产品代码由其生成。文章展示了两个实测案例，并引用数据称全球60%办公人群日常使用AI，76%用户认为现有工具无法触达内部数据。",
+  "classification": {
+   "category": "release",
+   "tags": {
+    "industry": "ai_other",
+    "issuer": "bigcorp"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete"
+ },
+ "1:2:deepseek-v4-flash:en:7c339b8d387fef6c:c7435518bd03aaf6": {
+  "summary": "香港大学NLP实验室联合华为诺亚方舟实验室推出Dream系列扩散语言模型，使其在通用与推理能力上逼近同量级自回归模型。2026年，龚珊三与博士生导师孔令鹏等人共同创立DiffuSpace，致力于将Diffusion LLM研究工程化落地。龚珊三认为，扩散语言模型是自回归模型的更一般形式，支持并行生成和全局修改，在速度和成本上具有优势，未来一到两年内可能替代自回归模型。公司计划半年内发布新模型，一年内进行更大规模扩展。",
+  "classification": {
+   "category": "interview",
+   "tags": {
+    "industry": "ai_model",
+    "interviewee": "founder_ceo"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete"
+ },
+ "1:2:deepseek-v4-flash:en:a1c4328f40a77384:2659a700721641d1": {
+  "summary": "该文章为公众号游戏葡萄发布的日常模板，标题为“日常模板（不带推荐阅读）”。正文包含“请输入导读”的占位提示，以及“这是第一段小标题，较长的话可以断开”的文字，并标注该小标题使用字体加粗、颜色为#3da742的样式。全文未涉及具体新闻事件或实质内容。",
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete"
+ },
+ "1:2:deepseek-v4-flash:en:afd7c9c073974390:6784efc1824f6a16": {
+  "summary": "网易《无限大》在科隆之夜官宣将于2027年1月15日全球同步上线，登陆PC、PlayStation 5及移动端，并发布了融合上海与杭州地标（如东方明珠、西湖、雷峰塔）的第二张都市地图“重霄”。据接近网易的人士透露，该游戏发行逻辑可能接近单机产品，或不做多轮公开测试直接上线。",
+  "classification": {
+   "category": "release",
+   "tags": {
+    "industry": "ai_other",
+    "issuer": "bigcorp"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete"
+ },
+ "1:2:deepseek-v4-flash:en:ddcb2519ac3265a0:9a25e5e7e4c942c2": {
+  "summary": "娱乐资本论发布一周AI爆款观察，本期榜单中AI短视频《反正也没时间活》以超千万点赞居首，内容聚焦打工人时间困境；《非妖哉》以中式志怪风格获230.8万点赞，位列第二。榜单显示，职场焦虑与中式志怪两类内容合计贡献超六成点赞。创作者不吃榨菜表示，《非妖哉》单集成本超万元，延续老聊斋借妖写人的叙事思路，目前暂无商业化计划。文章指出，AI降低了制作门槛，但情绪与人文思考仍是内容创作的核心壁垒。",
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete"
+ },
+ "1:2:deepseek-v4-flash:en:bd9c2d1d46912e1a:cf600aaaff28a23e": {
+  "summary": "文章报道优酷动漫在暑期档后的内容战略。据云合数据，上半年国漫有效播放110亿，同比下降9%。优酷动漫强调题材、故事、美术三维度创新，如《光阴之外》将修仙置于末世，《沧元图》采用水墨风格，《一斩苍穹》以喜剧和梗破局。优酷动漫还利用AI降低粘土风动画成本，并培养新人导演和编剧，以应对市场对垂类内容的需求。其作品《云深不知梦》已站稳女性向头部位置。",
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete"
+ },
+ "1:2:deepseek-v4-flash:en:91a99f63f81b3aef:406539aefeae7409": {
+  "summary": "8月23日，上纬新材旗下启元机器人正式开启Q1和T1两款个人机器人预订，用户可通过官方小程序及天猫、抖音、B站等平台支付订金，9月支付尾款，首批产品预计同期发货。Q1高88厘米可折叠，T1支持轮足和四足形态切换。母公司上半年研发投入1.8亿元，其中具身智能业务1.6亿元，研发团队227人，累计申请专利273项。目前预收货款达2.1亿元，已在全国7座城市铺设线下体验门店，并与蓝思科技等合作启动万台级产线。",
+  "classification": {
+   "category": "release",
+   "tags": {
+    "industry": "ai_other",
+    "issuer": "startup"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete"
+ },
+ "1:2:deepseek-v4-flash:en:29e7cce470842891:b1456715d4dea25a": {
+  "summary": "8月26日，即梦AI宣布推出精品内容厂牌“即梦片场”，面向电影、剧集项目开放征集，入选项目将获得算力、工具、技术、资金、行业资源等支持。首批合作伙伴包括艺画开天、欢娱影视等。此前，由资深动画人赵彬主导、艺画开天与即梦AI支持的24分钟AI动画短片《赛博英雄传》引发热议，即梦片场将推动该短片长篇化。即梦AI还计划于9月升级网页版，强化专业影视创作能力。",
+  "classification": {
+   "category": "release",
+   "tags": {
+    "industry": "ai_other",
+    "issuer": "bigcorp"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete"
+ },
+ "1:2:deepseek-v4-flash:en:fd806c31fd8e07ab:55627389caddfb6b": {
+  "summary": "电视剧《重器》于2026年暑期档开播，成为现象级作品。该剧由最高人民检察院影视中心、最高人民法院影视中心首次联合出品，国家广电总局重点扶持。剧集以1979年至1997年中国法治建设为背景，通过五位初代政法青年的命运展现法治进程。编剧赵冬苓、导演沈严与李江明，剧集注重历史细节还原，案件多有原型，如乔至良案源自1984年台安“三律师包庇案”。在央视八套播出后口碑与热度双收，被视为国剧新标杆。",
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete"
+ },
+ "1:2:deepseek-v4-flash:en:02fa1443169530ae:b86e1ee31b0c7fef": {
+  "summary": "Z Finance对OJO创始人KiKi的深度访谈。KiKi在字节跳动工作九年，曾负责轻颜相机、剪映等产品，2026年初离开并创办设计领域AI产品OJO。她认为“All-in-One”是伪命题，创业不应在旧逻辑上套AI新瓶。OJO以可自由组合的Agent团队和Skills满足长尾设计需求。出海方面，团队靠1名市场和3名实习生人工触达海外用户，上线24小时约50万曝光，两天Waitlist超1万，并获得北美、欧洲、日本付费订单。",
+  "classification": {
+   "category": "interview",
+   "tags": {
+    "industry": "ai_other",
+    "interviewee": "founder_ceo"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete"
  }
 }

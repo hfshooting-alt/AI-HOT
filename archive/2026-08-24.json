@@ -1,0 +1,116 @@
+{
+ "date": "2026-08-24",
+ "finalized": true,
+ "finalizedAt": "2026-08-27T18:24:11.250643+08:00",
+ "updatedAt": "2026-08-27T18:24:11.250643+08:00",
+ "items": [
+  {
+   "id": "cmt7e0g7y232wro738qg82x67",
+   "title": "NVIDIA Vera Rubin NVL72 树立 AI 智能体效率新标准：每瓦特工作量提升至 30 倍",
+   "title_en": "Up to 30x More Work Per Watt： NVIDIA Vera Rubin NVL72 Sets a New Efficiency Standard for AI Agents",
+   "url": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-efficiency-ai-agents",
+   "permalink": "https://aihot.virxact.com/items/cmt7e0g7y232wro738qg82x67",
+   "source": "NVIDIA Blog（RSS）",
+   "publishedAt": "2026-08-24T15:00:19.000Z",
+   "discoveredAt": "2026-08-24T15:24:53.435Z",
+   "summary": "NVIDIA 实测数据显示，Vera Rubin NVL72 在智能体工作负载下每兆瓦吞吐量较 GB300 NVL72 最高提升 30 倍，每百万 token 成本降低至 35 倍。",
+   "category": "ai-products",
+   "score": 63,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt7e0g7y232wro738qg82x67"
+   }
+  },
+  {
+   "id": "cmt7e3m7h234gro73wwwhymb0",
+   "title": "OpenAI 正为一切构建 AI 智能体，但用户会愿意交出控制权吗？",
+   "title_en": "OpenAI is building AI agents for everything. Will everyone use them？",
+   "url": "https://techcrunch.com/2026/08/24/openai-is-building-an-ai-agent-for-everything-will-everyone-use-them",
+   "permalink": "https://aihot.virxact.com/items/cmt7e3m7h234gro73wwwhymb0",
+   "source": "TechCrunch：AI（RSS）",
+   "publishedAt": "2026-08-24T15:00:00.000Z",
+   "discoveredAt": "2026-08-24T15:27:22.134Z",
+   "summary": "OpenAI 推出 ChatGPT Work，将 Codex 改造为面向非工程师的智能体产品，最低订阅档每月 20 美元即可使用，旨在让白领通过 LLM 自主完成多步骤工作。OpenAI 内部 6 月有 98% 员工使用 Codex，但组织订阅者仅 17%、个人订阅者不足 1%。公司正通过简化界面扩大采用，以支撑其巨额训练投入。",
+   "category": "tip",
+   "score": 70,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt7e3m7h234gro73wwwhymb0"
+   }
+  },
+  {
+   "id": "cmt7nzq6i2c27ro73tqxagz44",
+   "title": "GPT-5.6 登陆 Kiro，为开发者提升性价比",
+   "title_en": "Advancing price-performance for developers with GPT-5.6 in Kiro",
+   "url": "https://openai.com/index/gpt-5-6-in-kiro",
+   "permalink": "https://aihot.virxact.com/items/cmt7nzq6i2c27ro73tqxagz44",
+   "source": "OpenAI：官网动态（RSS · 排除企业/客户案例）",
+   "publishedAt": "2026-08-24T12:00:00.000Z",
+   "discoveredAt": "2026-08-24T20:04:17.547Z",
+   "summary": "GPT-5.6 模型家族现已登陆软件开发智能体 Kiro，包含 Sol、Terra 和 Luna 三款模型。在 Terminal-Bench 2.1 测试中，GPT-5.6 Terra 在 Kiro 内完成任务成本降低约 82%。该更新由 OpenAI 与 AWS 合作优化，旨在以更少迭代和更高 token 价值帮助开发者产出更高质量的代码。",
+   "category": "ai-models",
+   "score": 59,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt7nzq6i2c27ro73tqxagz44"
+   }
+  },
+  {
+   "id": "cmtacjvfj0a9qroj2efx3z1xo",
+   "title": "开放世界多智能体环境中的自主数学发现",
+   "title_en": "Autonomous Mathematical Discovery in an Open-World Multi-Agent Environment",
+   "url": "https://arxiv.org/abs/2608.23691",
+   "permalink": "https://aihot.virxact.com/items/cmtacjvfj0a9qroj2efx3z1xo",
+   "source": "HuggingFace Daily Papers（社区热门论文）",
+   "publishedAt": "2026-08-24T00:00:00.000Z",
+   "discoveredAt": "2026-08-24T00:00:00.000Z",
+   "summary": "一项研究在开放世界多智能体环境Station中，让来自不同模型家族的AI智能体在无中央协调或脚本化流程下自主开展数学研究。在AlphaEvolve目录的12个构造问题及两个额外案例中，智能体在五个问题上取得了超越现有文献的新结果，包括有限域Kakeya集的新无限族、11维604点亲吻构型等，并生成了定理与分析使结果更具可解释性。所有原始智能体对话、证明和验证代码均已公开。",
+   "category": "paper",
+   "score": 71,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmtacjvfj0a9qroj2efx3z1xo"
+   }
+  },
+  {
+   "id": "cmt9588t109p9rolyegirxdgx",
+   "title": "AI 智能体应该活多久？",
+   "title_en": "How Long Should an AI Agent Live？",
+   "url": "https://www.tomtunguz.com/how-long-should-an-agent-live",
+   "permalink": "https://aihot.virxact.com/items/cmt9588t109p9rolyegirxdgx",
+   "source": "Tomer Tunguz 博客（VC 分析）",
+   "publishedAt": "2026-08-24T00:00:00.000Z",
+   "discoveredAt": "2026-08-25T20:54:34.789Z",
+   "summary": "长期运行的 AI 智能体会因上下文累积而注意力衰减、临时指令残留成永久规则，并带来安全风险。建议给日常助手 24 小时生命周期，午夜重置会话，将具体任务委派给只存活 30 秒的单一用途子智能体，并在重置前将持久偏好存入磁盘。",
+   "category": "tip",
+   "score": 61,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt9588t109p9rolyegirxdgx"
+   }
+  },
+  {
+   "id": "cmt8bo2db30oaro735zu90tig",
+   "title": "单个污染页面即可影响LLM推荐：FORGE基准揭示检索增强推荐系统的脆弱性",
+   "title_en": "One Polluted Page Is Enough： Evaluating Web Content Pollution in LLM Recommenders",
+   "url": "https://arxiv.org/abs/2606.13610",
+   "permalink": "https://aihot.virxact.com/items/cmt8bo2db30oaro735zu90tig",
+   "source": "HuggingFace Daily Papers（社区热门论文）",
+   "publishedAt": "2026-08-24T00:00:00.000Z",
+   "discoveredAt": "2026-08-25T07:07:04.194Z",
+   "summary": "检索增强型LLM在消费推荐中易受GEO内容污染影响，成为虚假产品的无意推广者。新基准FORGE在225个真实产品、15个类别和5个消费场景中测试12个商业及开源LLM，发现所有模型均易受攻击：单个污染页面即可造成最高27%的受骗率，替换全部前3个结果时升至73.8%。",
+   "category": "paper",
+   "score": 72,
+   "selected": true,
+   "attribution": {
+    "source": "AIHOT",
+    "canonical": "https://aihot.virxact.com/items/cmt8bo2db30oaro735zu90tig"
+   }
+  }
+ ]
+}
