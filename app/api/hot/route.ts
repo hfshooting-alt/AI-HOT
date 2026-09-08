@@ -1,6 +1,6 @@
 // 热点榜代理：GET /api/hot -> aihot /api/v1/hot-topics（60s 缓存）
 import { NextResponse } from "next/server";
-import { upstreamJSON } from "../../_lib/upstream";
+import { upstreamJSON } from "../../_lib/data/upstream";
 
 export async function GET() {
   const res = await upstreamJSON("/api/v1/hot-topics");

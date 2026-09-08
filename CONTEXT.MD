@@ -8,13 +8,16 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 
 ## 2. 当前代码基线
 
-- 2026-09-08 结构整理：融资阶段实现拆到 `scripts/funding/`，原 CLI/导出保留；日报与周报详情拆到 `app/_components/reports/`；全部/精选 API 共用分页和归一化；前端命令兼容 Windows。功能与数据保持原基线，验证与已知静态检查问题见 `docs/CODEBASE_GUIDE.md`。
+- 2026-09-08 目录迁移（基于 `438aaef`）：60 个文件按功能归位；业务配置移至 `config/`，前端组件与工具分层，测试按 pipeline/frontend/api/settings 分类，文档按 guides/architecture/operations/reference/history 分类。导入、默认配置路径、测试入口与文档链接同步更新。169 项 Python 与 23 项 Node 测试、生产构建通过；业务数据、配置内容与公开数据 URL 保持不变。路径溯源见 `docs/architecture/PATH_MIGRATION.json`。
+
+
+- 2026-09-08 结构整理：融资阶段实现拆到 `scripts/funding/`，原 CLI/导出保留；日报与周报详情拆到 `app/_components/reports/`；全部/精选 API 共用分页和归一化；前端命令兼容 Windows。功能与数据保持原基线，验证与已知静态检查问题见 `docs/architecture/CODEBASE_GUIDE.md`。
 
 - 权威仓库：当前目录，分支 `main`。本文只描述已提交状态；接手时另行运行 `git status` 检查本地改动。
 - 功能与数据基线：`645e2cf`（2026-08-28）`chore: 更新 Manus group_a 25-27 数据与快照 [skip ci]`；本次文档同步在此基础上追加，不改变功能与数据。
 - 近期关键提交：`da51733`（强化 Manus discovery Prompt 自检）、`107e682`（融资动态界面与数据链路）、`7bb563c`（新分类标签体系）、`ea592dc`（快照与归档刷新）。
 - 测试：2026-08-28 复核 169 个 Python 离线测试全部通过；Node 的渲染、来源类型和设置服务测试共 18 项全部通过。Pytest 仅提示 `.pytest_cache` 无写权限，不影响结果。
-- 账号配置：`manus_sources.json` 共 20 个账号，group_a 7 个、group_b 7 个、group_c 6 个。
+- 账号配置：`config/manus_sources.json` 共 20 个账号，group_a 7 个、group_b 7 个、group_c 6 个。
 - Manus 默认轮询超时：`MANUS_TIMEOUT_SECONDS=3600`，用于容纳超过 10 分钟的 discovery 任务。
 - 部署：仓库仅保留 `.github/workflows/fetch-manus.yml`，每日北京时间 01:00 执行 Manus 采集、正文提取、feed 晋升和融资表格生成；`update-snapshot.yml` 已删除，`public/snapshot.json` 没有自动重建工作流。
 

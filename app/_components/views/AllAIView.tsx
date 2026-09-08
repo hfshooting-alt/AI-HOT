@@ -3,18 +3,18 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { FundingTable, NewsItem } from "../../_lib/types";
-import { loadAll, loadFundingTable, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/api";
-import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/format";
-import { categoryDisplay, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/taxonomy";
-import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/fundingTaxonomy";
-import { matchItem, sourceKindOf } from "../../_lib/source";
-import { ArticleCard } from "../ArticleCard";
-import { CategoryTabs, type TabOption } from "../CategoryTabs";
-import { DateGroup } from "../DateGroup";
-import { FundingTableView } from "../FundingTableView";
-import { SearchToolbar, type SourceFilter } from "../SearchToolbar";
-import { TagFilterBar, type DimSelection } from "../TagFilterBar";
+import type { FundingTable, NewsItem } from "../../_lib/domain/types";
+import { loadAll, loadFundingTable, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/data/api";
+import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/display/format";
+import { categoryDisplay, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
+import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/domain/fundingTaxonomy";
+import { matchItem, sourceKindOf } from "../../_lib/display/source";
+import { ArticleCard } from "../news/ArticleCard";
+import { CategoryTabs, type TabOption } from "../news/CategoryTabs";
+import { DateGroup } from "../news/DateGroup";
+import { FundingTableView } from "../funding/FundingTableView";
+import { SearchToolbar, type SourceFilter } from "../news/SearchToolbar";
+import { TagFilterBar, type DimSelection } from "../news/TagFilterBar";
 
 /** 跨导航切换保留筛选状态（模块级缓存） */
 const persisted: { tag: string; q: string; src: SourceFilter; dimSel: DimSelection } = {

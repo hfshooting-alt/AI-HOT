@@ -1,17 +1,21 @@
 # AGENTS.MD — AI HOT 项目 Agent 开发守则
 
-> 本文件面向所有参与本项目的 coding agent，交接必读。最近同步：2026-08-28。
+> 本文件面向所有参与本项目的 coding agent，交接必读。最近同步：2026-09-08。
 
 ## 1. 目录地图（先看这里，避免迷路）
 
 | 路径 | 说明 |
 |------|------|
-| `.\` | **权威项目目录**（唯一在此工作，含 git 仓库） |
-| `..\README.md` | 项目层 README（在权威目录的上一层） |
-| `..\aihot-dashboard.html / .exe` | 旧版单文件 HTML 快照 + 本地启动器（历史产物，勿改） |
-| `..\..\..\ai hot-site\ai hot-site\aihot-site\` | 残留空骨架，**勿在其中工作** |
-| `..\..\..\ai news url crawler_20260810\` | 独立的早期爬虫副本，与主项目无关 |
-| `..\..\..\screenshots\` | 全部截图集中存放处（见 §7） |
+| 仓库根目录 | 权威项目目录，所有运行命令从这里执行 |
+| `app/` | 网站路由与按功能分类的组件、数据工具 |
+| `config/` | 当前信源、分类与候选账号配置 |
+| `scripts/` | 稳定 CLI 入口、Manus 与融资阶段实现 |
+| `tests/` | pipeline、frontend、api、settings 与 fixtures |
+| `docs/README.md` | 文档阅读入口 |
+| `docs/architecture/DIRECTORY_LAYOUT.md` | 目录分工与路径兼容边界 |
+| `docs/architecture/PATH_MIGRATION.json` | 2026-09-08 迁移前后的精确文件路径 |
+
+截图仍按 §7 集中存放。迁移了三份业务配置，显式路径参数使用 `config/` 前缀；脚本命令入口、公开 URL、数据与缓存位置保持稳定。
 
 - Shell 内联命令中的中文路径会被控制台编码破坏：执行脚本时先 `Set-Location`（chdir），或使用 ASCII 引号路径；PowerShell 不支持 `&&`，用分号 `;`。
 
@@ -19,7 +23,7 @@
 
 AI 情报日报/周报看板：
 
-- **数据链路**：Manus 采集公众号文章（唯一公众号信源，`manus_sources.json` 共 20 个账号：group_a 7、group_b 7、group_c 6）→ 两阶段流水线（discovery + content，正文阶段默认由本地脚本爬虫 trafilatura 提取，`MANUS_CONTENT_MODE=manus` 可回退）→ LLM 摘要/分类/打标签 → 原子晋升 `data/manus/current.json` → `build_snapshot.py` 合并 aihot API 数据 → 归档层 `archive/YYYY-MM-DD.json` → 生成 `public/snapshot.json`、历史页和周报页。
+- **数据链路**：Manus 采集公众号文章（唯一公众号信源，`config/manus_sources.json` 共 20 个账号：group_a 7、group_b 7、group_c 6）→ 两阶段流水线（discovery + content，正文阶段默认由本地脚本爬虫 trafilatura 提取，`MANUS_CONTENT_MODE=manus` 可回退）→ LLM 摘要/分类/打标签 → 原子晋升 `data/manus/current.json` → `build_snapshot.py` 合并 aihot API 数据 → 归档层 `archive/YYYY-MM-DD.json` → 生成 `public/snapshot.json`、历史页和周报页。
 - **融资数据链路**：Manus feed → `scripts/funding_table.py` 抽取融资字段，可选 Tavily 补全 → `data/funding/current.json` / `public/funding-table.json` → 前端融资动态表格。
 - **前端双形态**：
   - 静态历史产物位于 `public/history/`、`public/weekly/`；根静态页工作流已停用，`update-snapshot.yml` 已删除；
@@ -39,7 +43,7 @@ AI 情报日报/周报看板：
 | `templates/*.template.html` | 数据侧渲染 | 静态快照模板（index/history/weekly） |
 | `app/_components/`、`app/_lib/`、`app/api/` | 前端 | Next.js 组件、数据层、API 路由 |
 | `archive/`、`public/history/`、`public/weekly/` | 构建产物 | 归档统一数据源与历史页 |
-| `docs/MANUS_DATA_CONTRACT.md`、`docs/MANUS_SOURCE_RUNBOOK.md` | 契约文档 | 修改流水线前必读 |
+| `docs/architecture/MANUS_DATA_CONTRACT.md`、`docs/operations/MANUS_SOURCE_RUNBOOK.md` | 契约文档 | 修改流水线前必读 |
 | `tests/` | 全员 | 169 个 Python 离线测试 + Node 前端/渲染/设置服务测试，改动后必须全绿 |
 
 ## 4. 常用命令（均在权威目录下执行）
@@ -62,9 +66,9 @@ python scripts/build_manus_feed.py --date 2026-08-27 --no-promote
 
 # 全部离线测试
 python -m pytest tests/ -q
-node tests/rendered-html.test.mjs
-node tests/source-kind.test.mjs
-node tests/test_settings_server.mjs
+node tests/frontend/rendered-html.test.mjs
+node tests/frontend/source-kind.test.mjs
+node tests/settings/test_settings_server.mjs
 
 # Next.js 前端
 npm run dev      # 本地 http://localhost:3000
@@ -83,7 +87,7 @@ node scripts/settings-server.mjs
 - main 分支直推；本地提交前先 `git pull --rebase`，避免与 CI 的 Manus feed 提交冲突。
 - 若 CI 数据提交与本地分叉：优先重新生成受影响的数据产物后再提交，勿强推。
 - 快照类提交使用 `chore: 更新 AI HOT 静态快照 [skip ci]`。
-- 提交粒度参考 `docs/2026-08-17-manus-only-source-migration-plan.md` §5 的提交边界划分。
+- 提交粒度参考 `docs/history/2026-08-17-manus-only-source-migration-plan.md` §5 的提交边界划分。
 - 未经用户明确要求不得 push --force / reset --hard。
 
 ## 6. 硬性规范（用户明确要求，违反即返工）
@@ -94,7 +98,7 @@ node scripts/settings-server.mjs
 4. 结构化字段（score、publishedAt、category 等）与 AI 叙事内容（摘要/标签）边界分明：UI 展示结构化字段，叙事内容只读消费。
 5. 文档与代码必须同步修改：改流水线/契约时同步更新 PIPELINE.md、AGENT.md、README、DISTRIBUTE、使用说明。
 6. 写作风格：避免使用先否定 X、再强调 Y 的对照句式（所有对话与文档）。
-7. `accounts.json` 保留为扩容候选池（WeRead/搜狗已下线，勿恢复旧链路）。
+7. `config/accounts.json` 保留为扩容候选池（WeRead/搜狗已下线，勿恢复旧链路）。
 
 ## 7. 截图规范
 

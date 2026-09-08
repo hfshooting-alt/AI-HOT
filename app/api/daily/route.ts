@@ -1,6 +1,6 @@
 // 日报代理：GET /api/daily?date=YYYY-MM-DD -> aihot /api/v1/dailies/{date}（缺省 latest）
 import { NextResponse } from "next/server";
-import { upstreamJSON } from "../../_lib/upstream";
+import { upstreamJSON } from "../../_lib/data/upstream";
 
 export async function GET(request: Request) {
   const url = new URL(request.url);

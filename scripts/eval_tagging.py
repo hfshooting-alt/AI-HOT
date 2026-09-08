@@ -119,7 +119,7 @@ def gate(tx: dict, report: dict) -> bool:
 def main() -> int:
     parser = argparse.ArgumentParser(description="打标签准确性评测与回归门禁")
     parser.add_argument("--golden", default="eval/golden.json")
-    parser.add_argument("--taxonomy", default="taxonomy.json")
+    parser.add_argument("--taxonomy", default="config/taxonomy.json")
     parser.add_argument("--report-dir", default="eval")
     args = parser.parse_args()
 

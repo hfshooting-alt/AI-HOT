@@ -200,7 +200,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--feed", default="data/manus/current.json")
     parser.add_argument("--work-dir", default="work/manus")
     parser.add_argument("--cache-dir", default="data/funding")
-    parser.add_argument("--taxonomy", default="taxonomy.json")
+    parser.add_argument("--taxonomy", default="config/taxonomy.json")
     parser.add_argument("--no-promote", action="store_true", help="只生成校验，不写文件")
     parser.add_argument("--skip-search", action="store_true", help="跳过 Tavily 搜索补全")
     parser.add_argument("--selftest", action="store_true", help="离线自检（不发请求）")

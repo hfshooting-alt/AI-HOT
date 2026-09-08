@@ -2,26 +2,26 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { FundingTable, HotTopic, NewsItem } from "../../_lib/types";
-import { loadFeatured, loadFundingTable, loadHot, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/api";
+import type { FundingTable, HotTopic, NewsItem } from "../../_lib/domain/types";
+import { loadFeatured, loadFundingTable, loadHot, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/data/api";
 import {
   bjDayKey,
   fmtFullDay,
   fmtMonthDay,
   fmtWeekday,
   heatOf,
-} from "../../_lib/format";
-import { categoryDisplay, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/taxonomy";
-import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/fundingTaxonomy";
+} from "../../_lib/display/format";
+import { categoryDisplay, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
+import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/domain/fundingTaxonomy";
 import { useApp } from "../providers/AppDataProvider";
-import { ArticleCard } from "../ArticleCard";
-import { CategoryTabs, type TabOption } from "../CategoryTabs";
-import { DateGroup } from "../DateGroup";
-import { FundingTableView } from "../FundingTableView";
-import { ArrowRightIcon } from "../icons";
-import { SearchToolbar, type SourceFilter } from "../SearchToolbar";
-import { TagFilterBar, type DimSelection } from "../TagFilterBar";
-import { matchItem, sourceKindOf } from "../../_lib/source";
+import { ArticleCard } from "../news/ArticleCard";
+import { CategoryTabs, type TabOption } from "../news/CategoryTabs";
+import { DateGroup } from "../news/DateGroup";
+import { FundingTableView } from "../funding/FundingTableView";
+import { ArrowRightIcon } from "../shared/icons";
+import { SearchToolbar, type SourceFilter } from "../news/SearchToolbar";
+import { TagFilterBar, type DimSelection } from "../news/TagFilterBar";
+import { matchItem, sourceKindOf } from "../../_lib/display/source";
 
 /** 跨导航切换保留筛选状态（模块级缓存） */
 const persisted: { cat: string; q: string; src: SourceFilter; dimSel: DimSelection } = {

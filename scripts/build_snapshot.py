@@ -706,7 +706,7 @@ def main() -> int:
     parser.add_argument("--manus-max-stale-days", type=int, default=MANUS_MAX_STALE_DAYS,
                         help=f"Manus feed 允许的最大滞后天数（默认 {MANUS_MAX_STALE_DAYS}）")
     parser.add_argument("--days", type=int, default=7, help="周报窗口天数（默认 7）")
-    parser.add_argument("--taxonomy", default="taxonomy.json",
+    parser.add_argument("--taxonomy", default="config/taxonomy.json",
                         help="AI 打标签分类体系配置（缺失时跳过打标）")
     parser.add_argument("--tag-cache", default="tag_cache.json",
                         help="打标签结果缓存（键含 taxonomy/prompt/模型版本）")

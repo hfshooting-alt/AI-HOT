@@ -1,9 +1,9 @@
 // 全部 AI 动态聚合：GET /api/all
 // 聚合 /api/public/items 前 3 页全量条目，归一化分类并统计标签，供前端标签筛选
 import { NextResponse } from "next/server";
-import { fetchItemsPool } from "../../_lib/items-pool";
-import { newestFirst, normalizeUpstreamItem } from "../../_lib/news-normalization";
-import { upstreamJSON } from "../../_lib/upstream";
+import { fetchItemsPool } from "../../_lib/data/items-pool";
+import { newestFirst, normalizeUpstreamItem } from "../../_lib/data/news-normalization";
+import { upstreamJSON } from "../../_lib/data/upstream";
 
 export async function GET() {
   const { items: pool, live } = await fetchItemsPool(upstreamJSON);

@@ -1,6 +1,6 @@
 // items 分页透传代理：GET /api/items?limit=&cursor= -> aihot /api/public/items
 import { NextResponse } from "next/server";
-import { upstreamJSON } from "../../_lib/upstream";
+import { upstreamJSON } from "../../_lib/data/upstream";
 
 export async function GET(request: Request) {
   const url = new URL(request.url);

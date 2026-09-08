@@ -3,8 +3,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { HistoryEntry, Snapshot, WeeklyNavEntry } from "../../_lib/types";
-import { loadSnapshot } from "../../_lib/api";
+import type { HistoryEntry, Snapshot, WeeklyNavEntry } from "../../_lib/domain/types";
+import { loadSnapshot } from "../../_lib/data/api";
 import { DailyDetail } from "../reports/DailyDetail";
 import { WeeklyDetail } from "../reports/WeeklyDetail";
 

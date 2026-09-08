@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { DailyReportItem, HistoryEntry } from "../../_lib/types";
-import { loadDailyReport } from "../../_lib/api";
-import { fmtCnDate, fmtWeekday } from "../../_lib/format";
-import { ArrowRightIcon } from "../icons";
+import type { DailyReportItem, HistoryEntry } from "../../_lib/domain/types";
+import { loadDailyReport } from "../../_lib/data/api";
+import { fmtCnDate, fmtWeekday } from "../../_lib/display/format";
+import { ArrowRightIcon } from "../shared/icons";
 
 /** 日报条目轻量卡片：来源 chip + 标题（外链）+ 摘要（上游日报条目无 id/score/分类标签） */
 function ReportItemCard({ item }: { item: DailyReportItem }) {

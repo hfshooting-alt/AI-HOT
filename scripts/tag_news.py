@@ -36,7 +36,7 @@ MAX_INPUT_CHARS = 800  # 标题/摘要各自截断上限（仅轻调用；正文
 
 # ================= 配置加载 =================
 
-def load_taxonomy(path: str = "taxonomy.json") -> dict:
+def load_taxonomy(path: str = "config/taxonomy.json") -> dict:
     # 先加载项目根 .env（设置页写入的密钥），使 build_snapshot 的 key 预检、
     # CLI 单条调试在未手动 export 时也能命中配置。
     ensure_env_loaded()
@@ -275,7 +275,7 @@ def selftest(tx: dict) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="新闻打标签 harness（taxonomy 约束）")
-    parser.add_argument("--taxonomy", default="taxonomy.json")
+    parser.add_argument("--taxonomy", default="config/taxonomy.json")
     parser.add_argument("--title", default="")
     parser.add_argument("--summary", default="")
     parser.add_argument("--selftest", action="store_true", help="离线自检（不发请求）")

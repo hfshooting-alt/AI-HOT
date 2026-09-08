@@ -112,7 +112,7 @@ def build_sheet(pool: list[dict], tx: dict) -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser(description="生成打标签 golden set 待标注表")
     parser.add_argument("--archive-dir", default="archive")
-    parser.add_argument("--taxonomy", default="taxonomy.json")
+    parser.add_argument("--taxonomy", default="config/taxonomy.json")
     parser.add_argument("--out", default="eval/annotation_sheet.json")
     args = parser.parse_args()
 

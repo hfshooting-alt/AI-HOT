@@ -9,7 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import type { ViewKey } from "../../_lib/types";
+import type { ViewKey } from "../../_lib/domain/types";
 
 const VALID_VIEWS: ViewKey[] = ["featured", "hot", "all", "daily", "settings"];
 

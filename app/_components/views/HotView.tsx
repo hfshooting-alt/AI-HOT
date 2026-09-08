@@ -2,9 +2,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { HotTopic } from "../../_lib/types";
-import { loadHot } from "../../_lib/api";
-import { fmtRelative, heatOf, seededSeries } from "../../_lib/format";
+import type { HotTopic } from "../../_lib/domain/types";
+import { loadHot } from "../../_lib/data/api";
+import { fmtRelative, heatOf, seededSeries } from "../../_lib/display/format";
 
 /** 热度标签：爆（短时密集）/ 新（首报 6 小时内）/ 发酵中（信源仍在增加） */
 function heatTag(t: HotTopic): string | null {

@@ -62,7 +62,7 @@ class Settings:
             p = Path(os.getenv(env_value, default))
             return p if p.is_absolute() else project_root / p
 
-        sources_path = rel("MANUS_SOURCES_PATH", "manus_sources.json")
+        sources_path = rel("MANUS_SOURCES_PATH", "config/manus_sources.json")
         if not sources_path.exists():
             raise RuntimeError(f"Manus sources config does not exist: {sources_path}")
         discovery_prompt_path = rel("MANUS_DISCOVERY_PROMPT_PATH", "prompts/manus_discovery.md")

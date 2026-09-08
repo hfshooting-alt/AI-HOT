@@ -257,7 +257,7 @@ def selftest(tx: dict) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="正文加工 harness（摘要+分类+标签一次调用）")
-    parser.add_argument("--taxonomy", default="taxonomy.json")
+    parser.add_argument("--taxonomy", default="config/taxonomy.json")
     parser.add_argument("--selftest", action="store_true", help="离线自检（不发请求）")
     args = parser.parse_args()
     tx = tag_news.load_taxonomy(args.taxonomy)

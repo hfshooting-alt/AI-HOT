@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { NewsItem, WeeklyNavEntry } from "../../_lib/types";
-import { loadWeeklyJournal } from "../../_lib/api";
-import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/format";
-import { ArrowRightIcon } from "../icons";
-import { ArticleCard } from "../ArticleCard";
-import { DateGroup } from "../DateGroup";
+import type { NewsItem, WeeklyNavEntry } from "../../_lib/domain/types";
+import { loadWeeklyJournal } from "../../_lib/data/api";
+import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/display/format";
+import { ArrowRightIcon } from "../shared/icons";
+import { ArticleCard } from "../news/ArticleCard";
+import { DateGroup } from "../news/DateGroup";
 
 /** 周报详情：VOL 期刊头 + 按日期分组完整条目卡片 */
 export function WeeklyDetail({ entry }: { entry: WeeklyNavEntry }) {

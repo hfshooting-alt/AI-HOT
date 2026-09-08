@@ -34,6 +34,8 @@ npm run dev
 
 ## 目录
 
+从[完整目录地图](docs/architecture/DIRECTORY_LAYOUT.md)查看功能分工；[文档入口](docs/README.md)提供阅读顺序。
+
 | 目录/文件 | 职责 |
 | --- | --- |
 | `app/_components/` | 页面、新闻卡片、日报/周报详情 |
@@ -41,16 +43,17 @@ npm run dev
 | `scripts/manus_source/` | Manus 发现、正文抓取与校验 |
 | `scripts/funding/` | 融资输入、抽取、合并、补全与发布 |
 | `scripts/*.py` | 稳定 CLI 入口、快照构建、分类与摘要 |
-| `public/`、`data/`、`archive/`、`build/` | 快照、缓存与归档产物 |
+| `public/`、`data/`、`archive/` | 公开快照、流水线数据与历史归档 |
+| `build/`、`worker/`、`db/` | 构建插件与部署/数据库脚手架 |
 | `tests/` | Python、Node 测试及 fixtures |
 | `prompts/`、`templates/` | 提示词与静态归档模板 |
-| `manus_sources.json`、`taxonomy.json` | 当前信源与分类配置 |
+| `config/` | 当前信源、分类参数和候选账号配置 |
 | `.github/workflows/` | 自动任务 |
 
 ## 维护文档
 
-- [代码维护导航](docs/CODEBASE_GUIDE.md)：数据流、修改位置、兼容约定、验证结果。
-- [Manus 运行手册](docs/MANUS_SOURCE_RUNBOOK.md)、[数据契约](docs/MANUS_DATA_CONTRACT.md)。
-- [部署说明](docs/DEPLOY_WORKFLOW.md)、[使用说明](USER_GUIDE.md)。
-- [开发守则](AGENTS.MD)、[当前状态](CONTEXT.MD)、[长期经验](MEMORY.MD)。
-- [Sites 脚手架参考](docs/SITES_TEMPLATE.md)：保留原始模板的可选数据库、身份与托管说明。
+- [代码维护导航](./docs/architecture/CODEBASE_GUIDE.md)：数据流、修改位置、兼容约定、验证结果。
+- [Manus 运行手册](./docs/operations/MANUS_SOURCE_RUNBOOK.md)、[数据契约](./docs/architecture/MANUS_DATA_CONTRACT.md)。
+- [部署说明](./docs/operations/DEPLOY_WORKFLOW.md)、[使用说明](./docs/guides/USER_GUIDE.md)。
+- [开发守则](./AGENTS.MD)、[当前状态](./CONTEXT.MD)、[长期经验](./MEMORY.MD)。
+- [Sites 脚手架参考](./docs/reference/SITES_TEMPLATE.md)：保留原始模板的可选数据库、身份与托管说明。

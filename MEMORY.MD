@@ -4,7 +4,7 @@
 
 ## 1. 信源架构（已定论，勿走回头路）
 
-- **当前唯一公众号信源 = Manus**（`scripts/manus_source/`）。`manus_sources.json` 是唯一账号配置源，现有 20 个账号：group_a 7、group_b 7、group_c 6。搜狗与 WeRead 链路已于 2026-08-17 迁移时删除；`accounts.json` 仅作扩容候选池保留。
+- **当前唯一公众号信源 = Manus**（`scripts/manus_source/`）。`config/manus_sources.json` 是唯一账号配置源，现有 20 个账号：group_a 7、group_b 7、group_c 6。搜狗与 WeRead 链路已于 2026-08-17 迁移时删除；`config/accounts.json` 仅作扩容候选池保留。
 - **aihot 第三方 API**（`https://aihot.virxact.com`）：提供日报、周报、热度榜和 `score` 字段。`selected` 字段实测全为 true，高分筛选使用 score ≥75。
 - 分页参数存在，信源本身仍有结构性限制。公众号扩容遵循“验证一个、迁入一个”，不得恢复搜狗或 WeRead 旧链路。
 
@@ -26,7 +26,7 @@
 - 正式链路：discovery → content（默认本地 `crawler.py` + trafilatura；可切换 Manus）→ `enrich_news.py` 摘要/分类/标签 → `build_manus_feed.py` 全量校验 → 原子晋升 `data/manus/current.json` → `build_snapshot.py` 归档和快照。
 - `scripts/funding_table.py` 在 feed 晋升后抽取融资字段，可选 Tavily 补全，产出 `data/funding/current.json` 和 `public/funding-table.json`。
 - 正文批次由 `validate_content_batch` 检查风控、跳转、过短和标题漂移。全文与密钥不得进入 feed、诊断 Artifact 或 Git。
-- 修改流水线前必读 `docs/MANUS_DATA_CONTRACT.md` 与 `docs/MANUS_SOURCE_RUNBOOK.md`。
+- 修改流水线前必读 `docs/architecture/MANUS_DATA_CONTRACT.md` 与 `docs/operations/MANUS_SOURCE_RUNBOOK.md`。
 
 ### Manus 任务成功与契约通过
 
@@ -58,7 +58,7 @@
 - 分类体系现为六类：融资动态、深度访谈、产品和模型发布、论文研究、大厂动态、泛行业新闻。结构化字段由 UI 直接展示，摘要和标签作为只读叙事内容消费。
 - 融资动态使用独立 `FundingTableView`、专属枚举、来源列和筛选；数据生成由 `funding_table.py` 负责，Tavily key 缺失时字段留空，不阻塞主 feed。
 - 技术栈：Next.js 16 + React 19 + Tailwind 4 + vinext + Drizzle + Wrangler。`app/` 是当前前端主形态，线上发布切换仍待完成。
-- aihot API 没有结构化来源类型字段；公众号、推文、资讯和一手信源由 `app/_lib/source.ts` 依据域名和来源名判定。公众号范围包含 Manus 条目与 aihot 公众号条目。
+- aihot API 没有结构化来源类型字段；公众号、推文、资讯和一手信源由 `app/_lib/display/source.ts` 依据域名和来源名判定。公众号范围包含 Manus 条目与 aihot 公众号条目。
 - “全部 AI 动态”需合并 API 池和 `public/snapshot.json` 池，才能显示 Manus 条目。
 - 仓库当前只有 `fetch-manus.yml`。它更新 Manus feed、状态、归档、enrichment cache 和融资表格，不生成 `public/snapshot.json`；静态快照仍需手工 `build_snapshot.py` 或后续自动化。
 - CloudBase 固定地址为 `https://david-d5gb2azg2557337ab-1457311474.tcloudbaseapp.com/`。覆盖静态文件后需考虑 CDN 缓存。
@@ -96,3 +96,10 @@
 - 日期展示使用中文 numeral 格式；周报 VOL 使用 `VOL.2026·八月第 N 周`，周一为一周起点。
 - 后续规划包括定时抓取自动更新、收藏/待讨论标记和每周 Word 周报归档，执行前仍需用户明确授权。
 - 已确认决策：正文默认由本地脚本爬虫获取；“公众号”筛选包含 Manus 与 aihot 公众号条目；来源类型使用域名与来源名启发式；工作区中的 `ai news url crawler_20260810` 原型目录不改动；状态文档以已提交代码为基线。
+
+## 2026-09-08 目录维护约定
+
+- 新组件按 layout/views/news/funding/reports/shared 分工，数据工具按 data/domain/display 分层。
+- 当前三份业务配置仅维护 `config/` 中的一份；CLI 默认路径已跟随迁移。根目录 `.env` 与既有数据/缓存位置保留。
+- 文档从 `docs/README.md` 进入；旧设计计划集中到 `docs/history/`。精确旧新路径查 `docs/architecture/PATH_MIGRATION.json`，单文件历史用 `git log --follow -- <新路径>`。
+- Python 测试集中在 `tests/pipeline/`，保留 `__init__.py` 确保递归发现全部 169 项。
