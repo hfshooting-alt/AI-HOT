@@ -99,7 +99,8 @@ def build_funding_table(snapshot_path: Path, feed_path: Path, work_dir: Path, tx
     extracts = extract_articles(tx, articles, cache_dir / "extraction_cache.json", llm_fn)
 
     companies = merge_companies(articles, extracts)
-    extraction_failed = sum(1 for r in extracts.values() if r.get("status") != "complete")
+    extraction_failed = len(articles) - sum(
+        1 for art in articles if (extracts.get(art["id"]) or {}).get("status") == "complete")
     no_funding = sum(1 for r in extracts.values() if r.get("status") == "complete"
                      and not r.get("companies"))
 
@@ -200,6 +201,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--feed", default="data/manus/current.json")
     parser.add_argument("--work-dir", default="work/manus")
     parser.add_argument("--cache-dir", default="data/funding")
+    parser.add_argument("--data-dir", default="data/funding")
+    parser.add_argument("--public-dir", default="web/public")
     parser.add_argument("--taxonomy", default="config/taxonomy.json")
     parser.add_argument("--no-promote", action="store_true", help="只生成校验，不写文件")
     parser.add_argument("--skip-search", action="store_true", help="跳过 Tavily 搜索补全")
@@ -220,8 +223,8 @@ def main(argv: list[str] | None = None) -> int:
     if args.no_promote:
         print(f"融资表格校验通过（--no-promote）：{table['stats']}")
         return 0
-    current, web = promote_table(table, PROJECT_ROOT / "data" / "funding",
-                                 PROJECT_ROOT / "web" / "public")
+    current, web = promote_table(table, PROJECT_ROOT / args.data_dir,
+                                 PROJECT_ROOT / args.public_dir)
     print(f"已原子晋升 {current} 与 {web}：{table['stats']}；{table['searchNote']}")
     return 0
 

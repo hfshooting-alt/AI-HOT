@@ -75,7 +75,10 @@ def load_content_articles(raw_dir: Path, target_date: str,
                                                       min_content_chars)
         ok_all.extend(ok)
         failed_all.extend(failed)
-    return ok_all, failed_all
+    # 重试批次可能包含同一 URL；成功结果优先，旧失败不再重复计数。
+    by_url = {a["article_url"]: a for a in ok_all}
+    failed_by_url = {a["article_url"]: a for a in failed_all if a["article_url"] not in by_url}
+    return list(by_url.values()), list(failed_by_url.values())
 
 
 # ================= 规范化 item =================
@@ -154,10 +157,18 @@ def atomic_write_json(path: Path, data: dict) -> None:
 def promote_feed(feed: dict, data_dir: Path, taxonomy_path: Path) -> Path:
     """schema 全量校验通过后原子晋升 current.json，并落一份按日归档副本。"""
     contracts.validate_feed(feed, str(taxonomy_path))
+    validate_publishable(feed)
     current = Path(data_dir) / "current.json"
     atomic_write_json(current, feed)
     atomic_write_json(Path(data_dir) / "archive" / f"{feed['targetDate']}.json", feed)
     return current
+
+
+def validate_publishable(feed: dict) -> None:
+    """真实空新闻日可以发布；发现/正文全失败不能清空旧 feed。"""
+    stats = feed["stats"]
+    if not feed["items"] and (stats["discoveredArticles"] > 0 or stats["failedAccounts"] > 0):
+        raise contracts.ContractError("采集或正文加工失败导致空 feed，保留上次成功数据")
 
 
 def write_state(state_path: Path, target_date: str, promoted: bool, feed: dict | None,
@@ -241,7 +252,9 @@ def main(argv: list[str] | None = None) -> int:
     state_path = data_dir / "state.json"
     try:
         feed = build(args.date, work_dir, PROJECT_ROOT / args.sources,
-                     PROJECT_ROOT / args.taxonomy, generated_at=args.generated_at)
+                     PROJECT_ROOT / args.taxonomy, generated_at=args.generated_at,
+                     cache_path=data_dir / "enrichment_cache.json")
+        validate_publishable(feed)
     except contracts.ContractError as exc:
         # 组失败/schema 不合法：不覆盖上一次 current.json，只记失败状态
         write_state(state_path, args.date, promoted=False, feed=None, failure=str(exc))

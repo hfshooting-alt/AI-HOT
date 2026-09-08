@@ -198,7 +198,7 @@ def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict
     todo = []
     for it in items:
         k = enrich_cache_key(tx, it)
-        if k in cache:
+        if isinstance(cache.get(k), dict) and cache[k].get("enrichmentStatus") == "complete":
             results[enrich_item_key(it)] = cache[k]
         else:
             todo.append(it)
@@ -213,7 +213,11 @@ def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict
                     break
                 it = futs[fut]
                 r = fut.result()
-                cache[enrich_cache_key(tx, it)] = r
+                key = enrich_cache_key(tx, it)
+                if r.get("enrichmentStatus") == "complete":
+                    cache[key] = r
+                else:
+                    cache.pop(key, None)  # 清除旧降级缓存，下次运行可恢复。
                 results[enrich_item_key(it)] = r
                 done += 1
         tag_news.save_cache(cache_path, cache)

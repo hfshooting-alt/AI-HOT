@@ -21,6 +21,10 @@ def assemble_table(companies: list[dict], stats: dict, generated_at: str,
 
 def validate_table(table: dict, tx: dict) -> None:
     """输出 schema 校验：违规抛 ValueError（调用方不晋升产物）。"""
+    stats = table.get("stats") or {}
+    processed = stats.get("articlesProcessed", 0)
+    if processed > 0 and stats.get("extractionFailed", 0) >= processed:
+        raise ValueError("融资文章全部抽取失败或未完成，禁止覆盖上次成功表格")
     if table.get("schemaVersion") != TABLE_SCHEMA_VERSION:
         raise ValueError("schemaVersion 不合法")
     if not isinstance(table.get("generatedAt"), str) or not table["generatedAt"]:

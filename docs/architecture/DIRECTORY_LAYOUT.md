@@ -16,6 +16,8 @@
 
 前端内部的组件继续按 layout/providers/views/news/funding/reports/shared 划分，工具按 data/domain/display 分层。各目录 README 提供入口与依赖关系。
 
+自动运行的编排代码集中在 `scripts/automation/`，命令入口为 `scripts/run_pipeline.py`。运行状态、候选产物和发布前备份位于已忽略的 `work/runs/`；操作说明在 `docs/operations/AUTOMATED_PIPELINE.md`。
+
 ## 启动和路径
 
 从仓库根执行：

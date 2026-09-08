@@ -8,6 +8,9 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 
 ## 2. 当前代码基线
 
+- 2026-09-08 自动化加固（基于 `8b9e9f5`）：增加统一 doctor/run 入口、候选产物隔离、阶段恢复、发布回滚和过期候选保护；融资全部抽取失败禁止覆盖旧表，失败/fallback 缓存可重试。每日任务串联采集、正文、feed、快照/历史/周报和融资表。操作见 `docs/operations/AUTOMATED_PIPELINE.md`。离线验证通过；真实接口和部署仍待密钥及托管接通。本次未更新新闻数据。
+- 本轮验证：185 项 Python、23 项 Node 测试及生产构建通过。实际 doctor 的配置/依赖/权限检查通过，仅缺 Manus/DeepSeek 密钥；dry-run 成功，未执行付费采集或线上发布。
+
 - 2026-09-08 根目录收拢（基于 `8cb2bed`）：前端完整工程与 Node 测试归入 `web/`；requirements、提示词、模板归入 scripts；缓存和归档归入 data；完整交接文档归入 docs/maintenance。构建输出为 web/dist，Python 默认路径和自动任务已同步。历史迁移表保留当时位置，当前准确布局以 DIRECTORY_LAYOUT.md 为准。
 
 - 2026-09-08 目录迁移（基于 `438aaef`）：60 个文件按功能归位；业务配置移至 `config/`，前端组件与工具分层，测试按 pipeline/frontend/api/settings 分类，文档按 guides/architecture/operations/reference/history 分类。导入、默认配置路径、测试入口与文档链接同步更新。169 项 Python 与 23 项 Node 测试、生产构建通过；业务数据、配置内容与公开数据 URL 保持不变。路径溯源见 `docs/architecture/PATH_MIGRATION.json`。
@@ -20,7 +23,7 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 - 测试：2026-08-28 复核 169 个 Python 离线测试全部通过；Node 的渲染、来源类型和设置服务测试共 18 项全部通过。Pytest 仅提示 `.pytest_cache` 无写权限，不影响结果。
 - 账号配置：`config/manus_sources.json` 共 20 个账号，group_a 7 个、group_b 7 个、group_c 6 个。
 - Manus 默认轮询超时：`MANUS_TIMEOUT_SECONDS=3600`，用于容纳超过 10 分钟的 discovery 任务。
-- 部署：仓库仅保留 `.github/workflows/fetch-manus.yml`，每日北京时间 01:00 执行 Manus 采集、正文提取、feed 晋升和融资表格生成；`update-snapshot.yml` 已删除，`web/public/snapshot.json` 没有自动重建工作流。
+- 自动更新：`fetch-manus.yml` 每日北京时间 01:00 运行完整数据链路，含 `web/public/snapshot.json`、历史页及周报，全部阶段通过后提交正式产物。独立 `update-snapshot.yml` 已删除。线上托管构建/发布尚未接通。
 
 ### 当前 Manus 数据
 
@@ -57,9 +60,9 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 2. **Manus 结构化输出仍有波动**：任务显示成功只代表平台返回了结果。本地契约仍可能因账号字段错位、audit 计数与文章数不一致、字段缺失等问题拒绝结果。`da51733` 已强化 Prompt，自检可降低失败率，仍需通过多轮真实任务验证稳定性。
 3. **三日数据属于测试样本**：25–27 日只执行 group_a，16–17 个 failed 账号大多来自未执行组占位。该数据可证明更新流程可行，无法评价 group_b/group_c 的采集覆盖率。
 4. **业务内容过滤不足**：2026-08-26 数据中包含标题为“日常模板（不带推荐阅读）”的占位内容。契约保证字段和链路完整，暂未设置新闻有效性过滤门槛。
-5. **快照自动更新缺口**：`fetch-manus.yml` 会更新 feed 和融资表格，但不会运行 `build_snapshot.py`。线上 `web/public/snapshot.json` 仍依赖本地手动构建或后续恢复独立工作流。
+5. **自动数据更新已接通，真实运行待验证**：统一编排和失败保护通过离线测试；当前本地 doctor 仅报告缺少 MANUS_API_KEY 和 DEEPSEEK_API_KEY，未调用付费接口。GitHub Secrets 和全量 CI 实跑另行验证。
 6. **CI 与全账号覆盖待验证**：需确认 GitHub Secrets、数据中心 IP 抓取表现，以及 20 个账号完整运行的耗时和成功率。必要时启用 `MANUS_CRAWL_JINA_FALLBACK=true` 或 `MANUS_CONTENT_MODE=manus`。
-7. **Windows 前端命令兼容**：`package.json` 的 dev/build/start 仍使用类 Unix 环境变量前缀；Windows 需手工设置 `$env:WRANGLER_LOG_PATH`，长期修复方向为 cross-env。
+7. **Windows 前端命令兼容已修复**：dev/build/start 统一通过 `scripts/vinext.mjs` 设置环境并在 `web/` 执行；生产构建已验证。
 8. **Next.js 发布切换未完成**：CloudBase 线上仍以静态产物为主，`vinext build` 产物的正式上传路径尚未落地。
 
 ## 5. 2026-08-27 至 28 验证结论
@@ -75,8 +78,8 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 2. 完成一次 group_a/group_b/group_c 全量 discovery，验证 20 个账号、1 小时客户端超时和 CI 240 分钟作业上限。
 3. 设计正式 partial-run 模式，使未执行组与真实失败来源分开统计，并默认禁止部分结果覆盖生产 feed。
 4. 增加模板页、空内容和非新闻页面的业务质量门槛。
-5. 恢复或重建 `web/public/snapshot.json` 自动更新链路，并确认 Next.js 的线上发布方案。
-6. 修复 Windows npm 脚本兼容性。
+5. 配置密钥后先执行统一入口 `--no-promote` 实跑，检查候选数据，再 `--resume` 发布；验证 CI 全流程。
+6. 确认 Next.js 的线上发布方案并接通托管。
 
 ## 7. 变更日志
 

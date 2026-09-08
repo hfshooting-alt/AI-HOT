@@ -160,7 +160,11 @@ class TestEndToEndWithMockedAPI(unittest.TestCase):
 
     def run_main(self, feed_path):
         from datetime import datetime, timedelta
-        recent = (datetime.now(build_snapshot.BJ) - timedelta(hours=1)).isoformat()
+        class FixedDateTime(datetime):
+            @classmethod
+            def now(cls, tz=None):
+                return cls(2026, 8, 17, 8, 0, tzinfo=build_snapshot.BJ).astimezone(tz)
+        recent = (FixedDateTime.now(build_snapshot.BJ) - timedelta(hours=1)).isoformat()
         api_items = [{
             "id": "api-1", "title": "aihot 基础资讯一条", "summary": "s",
             "url": "https://example.com/1", "source": "AI HOT",
@@ -168,6 +172,10 @@ class TestEndToEndWithMockedAPI(unittest.TestCase):
             "score": 80,
         }]
         old_fetch = build_snapshot.fetch_items
+        old_datetime = build_snapshot.datetime
+        build_snapshot.datetime = FixedDateTime
+        old_hot = build_snapshot.fetch_hot_topics
+        build_snapshot.fetch_hot_topics = lambda base: {"topics": []}
         build_snapshot.fetch_items = lambda base, since: [dict(i) for i in api_items]
         argv = sys.argv
         sys.argv = ["build_snapshot.py",
@@ -187,6 +195,8 @@ class TestEndToEndWithMockedAPI(unittest.TestCase):
             return build_snapshot.main()
         finally:
             build_snapshot.fetch_items = old_fetch
+            build_snapshot.datetime = old_datetime
+            build_snapshot.fetch_hot_topics = old_hot
             sys.argv = argv
             build_snapshot.TAG_TAXONOMY = None
 

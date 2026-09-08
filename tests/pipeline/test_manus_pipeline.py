@@ -36,6 +36,15 @@ def all_discoveries() -> dict:
     }
 
 
+def successful_fixture():
+    fixture = load_fixture("content-batch.json")
+    expected = {a["article_url"]: a["title"] for g in all_discoveries().values() for a in g["articles"]}
+    for art in fixture["articles"]:
+        art.update(title=expected[art["article_url"]], content_status="complete",
+                   content_text="用于离线测试的完整正文。" * 30, note=None)
+    return fixture
+
+
 class FakeContentClient:
     """按请求清单（从 task brief 解析 URL）从正文夹具中回填结果。"""
 
@@ -114,31 +123,39 @@ class TestContentPipeline(unittest.TestCase):
         self.assertEqual(summary["ok_count"], 9)
 
     def test_full_resume_avoids_all_manus_calls(self):
-        fixture = load_fixture("content-batch.json")
+        fixture = successful_fixture()
         self.make_pipeline(FakeContentClient(fixture, TARGET_DATE)).run(all_discoveries())
         result = self.make_pipeline(AssertNotCalledClient()).run(all_discoveries())
         self.assertEqual(result.batches_resumed, 3)
         self.assertEqual(result.batches_run, 0)
-        self.assertEqual(len(result.ok_articles), 9)
+        self.assertEqual(len(result.ok_articles), 11)
 
     def test_partial_resume_only_reruns_missing_batch(self):
-        fixture = load_fixture("content-batch.json")
+        fixture = successful_fixture()
         self.make_pipeline(FakeContentClient(fixture, TARGET_DATE)).run(all_discoveries())
         os.remove(os.path.join(self.tmp, TARGET_DATE, "raw", "content-batch-02.json"))
         client = FakeContentClient(fixture, TARGET_DATE)
         result = self.make_pipeline(client).run(all_discoveries())
         self.assertEqual(result.batches_resumed, 2)
         self.assertEqual(result.batches_run, 1)
-        self.assertEqual(len(result.ok_articles), 9)
+        self.assertEqual(len(result.ok_articles), 11)
 
     def test_corrupted_batch_file_is_ignored(self):
-        fixture = load_fixture("content-batch.json")
+        fixture = successful_fixture()
         self.make_pipeline(FakeContentClient(fixture, TARGET_DATE)).run(all_discoveries())
         bad_path = os.path.join(self.tmp, TARGET_DATE, "raw", "content-batch-99.json")
         with open(bad_path, "w", encoding="utf-8") as f:
             f.write("{这不是合法 JSON")
         result = self.make_pipeline(AssertNotCalledClient()).run(all_discoveries())
         self.assertEqual(result.batches_resumed, 3)  # 损坏文件不影响合法批次复用
+
+    def test_failed_articles_retry_without_refetching_successes(self):
+        first = self.make_pipeline(FakeContentClient(load_fixture("content-batch.json"), TARGET_DATE)).run(all_discoveries())
+        client = FakeContentClient(successful_fixture(), TARGET_DATE)
+        second = self.make_pipeline(client).run(all_discoveries())
+        self.assertEqual({u for group in client.created for u in group}, {a["article_url"] for a in first.failed})
+        self.assertEqual(len(second.ok_articles), 11)
+        self.assertEqual(second.failed, [])
 
     def test_batch_result_url_mismatch_raises(self):
         class DroppingClient(FakeContentClient):

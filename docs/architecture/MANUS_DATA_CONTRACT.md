@@ -1,7 +1,15 @@
 # Manus 信源数据契约（MANUS_DATA_CONTRACT）
 
 > 版本：2026-08-17 初版。契约变更必须先改本文件与 `tests/pipeline/test_manus_contract.py`，再改生产代码。
-> 校验实现：`scripts/manus_source/contracts.py`（离线单测：`python -m unittest tests.test_manus_contract -v`）
+> 校验实现：`scripts/manus_source/contracts.py`（离线单测：`python -m unittest tests.pipeline.test_manus_contract -v`）
+
+## 2026-09-08 运行与发布补充
+
+JSON schema 保持不变。`build_manus_feed.validate_publishable()` 补充发布门槛：存在发现文章或失败账号而发布列表为空时拒绝覆盖；所有账号成功且真实无文章时允许空 feed。融资表存在输入但全部抽取失败（包含预算结束未处理项）时拒绝发布，成功抽取没有公司时允许空表。
+
+正文恢复仅复用成功 URL，后续成功记录优先于历史失败；enrichment 仅复用 complete 缓存，fallback 重试。发现 `--resume` 仅复用同日契约合法且来源全部成功的组。
+
+统一入口先写候选目录，再验证并发布所选阶段产物；失败保留正式数据，运行状态在 `work/runs/`。多目录发布、恢复与边界见 [自动流水线](../operations/AUTOMATED_PIPELINE.md)。原有单阶段 CLI 的输出 schema 与公开 URL 保持不变。
 
 ## 总览
 

@@ -61,6 +61,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Manus 公众号采集运行器")
     parser.add_argument("--date", default=default_target_date(), help="目标日期 YYYY-MM-DD（北京时间）")
     parser.add_argument("--groups", nargs="+", choices=GROUPS, default=list(GROUPS))
+    parser.add_argument("--resume", action="store_true", help="复用同日校验通过且来源全部成功的发现组")
     args = parser.parse_args(argv)
 
     settings = Settings.from_environment(PROJECT_ROOT)
@@ -84,6 +85,16 @@ def main(argv: list[str] | None = None) -> int:
             sources = groups_cfg[group]
             prompt_text = render_discovery_prompt(settings.discovery_prompt_path, sources)
             accounts = [s["account_name"] for s in sources]
+            if args.resume:
+                try:
+                    cached = json.loads((raw_dir / f"discovery-{group}.json").read_text(encoding="utf-8"))
+                    contracts.validate_discovery(cached, group, args.date, accounts)
+                    if all(a["source_status"] == "complete" for a in cached["source_audits"]):
+                        results[group] = cached
+                        print(f"[{group}] 复用已校验的发现结果", flush=True)
+                        continue
+                except (OSError, ValueError, contracts.ContractError):
+                    pass
             futs[ex.submit(run_discovery, client, group, args.date, prompt_text, accounts)] = group
         for fut in as_completed(futs):
             group = futs[fut]

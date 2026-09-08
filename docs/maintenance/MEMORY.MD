@@ -1,6 +1,6 @@
 # docs/maintenance/MEMORY.MD — AI HOT 长期记忆与经验教训精编
 
-> 供接手 agent 快速吸收历史结论，避免重复踩坑。按类别组织。最近同步：2026-08-28。
+> 供接手 agent 快速吸收历史结论，避免重复踩坑。按类别组织。最近同步：2026-09-08。
 
 ## 1. 信源架构（已定论，勿走回头路）
 
@@ -60,7 +60,7 @@
 - 技术栈：Next.js 16 + React 19 + Tailwind 4 + vinext + Drizzle + Wrangler。`web/app/` 是当前前端主形态，线上发布切换仍待完成。
 - aihot API 没有结构化来源类型字段；公众号、推文、资讯和一手信源由 `web/app/_lib/display/source.ts` 依据域名和来源名判定。公众号范围包含 Manus 条目与 aihot 公众号条目。
 - “全部 AI 动态”需合并 API 池和 `web/public/snapshot.json` 池，才能显示 Manus 条目。
-- 仓库当前只有 `fetch-manus.yml`。它更新 Manus feed、状态、归档、enrichment cache 和融资表格，不生成 `web/public/snapshot.json`；静态快照仍需手工 `build_snapshot.py` 或后续自动化。
+- 仓库当前只有 `fetch-manus.yml`，通过 `run_pipeline.py` 更新 Manus feed、快照、历史/周报、缓存和融资表；全部阶段成功后发布并提交。Next.js 托管部署仍待接通。
 - CloudBase 固定地址为 `https://david-d5gb2azg2557337ab-1457311474.tcloudbaseapp.com/`。覆盖静态文件后需考虑 CDN 缓存。
 
 ## 5. Git 与协作纪律
@@ -83,7 +83,7 @@
 | 测试污染 `web/public/snapshot.json` | 快照测试必须传 `--snapshot-json` 到临时目录；全量测试后核对该文件未变化 |
 | Windows 沙箱临时目录不可写 | 使用 `tests/_tempdir.py::make_temp_dir`，避免权限过严的 `tempfile.mkdtemp` |
 | Windows 下 Node/Vite 出现 spawn EPERM | Node 测试可逐文件直接执行；vinext 构建需要合适权限 |
-| npm 脚本的类 Unix 环境变量前缀在 Windows 无效 | 手工设置 `$env:WRANGLER_LOG_PATH`；长期使用 cross-env 修复 |
+| npm 脚本的类 Unix 环境变量前缀在 Windows 无效 | 已统一使用 `scripts/vinext.mjs`，保留跨平台入口 |
 | fallback 摘要过短或 LLM 摘要超过 220 字符 | 改进确定性摘要段落选择，并在 Prompt、重试、截断或上限之间明确策略 |
 | Shell 内联中文路径被控制台编码破坏 | 先切换到目标目录；避免在命令字符串中重写中文内容，文档编辑统一使用可靠补丁工具 |
 | Python `re.sub()` 替换串解释转义序列 | 使用函数替换形式 `lambda m: text` |
@@ -94,7 +94,7 @@
 - 公众号原文链接必须保留有效；不重写页面、不改新闻数据、不加未经要求的新功能。
 - 避免使用先否定 X、再强调 Y 的对照句式，适用于对话与文档。
 - 日期展示使用中文 numeral 格式；周报 VOL 使用 `VOL.2026·八月第 N 周`，周一为一周起点。
-- 后续规划包括定时抓取自动更新、收藏/待讨论标记和每周 Word 周报归档，执行前仍需用户明确授权。
+- 用户于 2026-09-08 授权完善定时数据更新与失败保护；收藏/待讨论标记和每周 Word 周报归档仍属于待确认规划。
 - 已确认决策：正文默认由本地脚本爬虫获取；“公众号”筛选包含 Manus 与 aihot 公众号条目；来源类型使用域名与来源名启发式；工作区中的 `ai news url crawler_20260810` 原型目录不改动；状态文档以已提交代码为基线。
 
 ## 2026-09-08 目录维护约定
@@ -103,3 +103,12 @@
 - 当前三份业务配置仅维护 `config/` 中的一份；CLI 默认路径已跟随迁移。根目录 `.env` 与既有数据/缓存位置保留。
 - 文档从 `docs/README.md` 进入；旧设计计划集中到 `docs/history/`。精确旧新路径查 `docs/architecture/PATH_MIGRATION.json`，单文件历史用 `git log --follow -- <新路径>`。
 - Python 测试集中在 `tests/pipeline/`，保留 `__init__.py` 确保递归发现全部 169 项。
+
+## 2026-09-08 自动化维护约定
+
+- 日常操作使用 `scripts/run_pipeline.py`；阶段实现继续维护在原业务模块。`--dry-run` 无接口调用，`--no-promote` 仍执行真实接口并保留候选。
+- 只缓存并复用成功正文、完整 enrichment；fallback 和失败应重试。发现恢复只复用全来源成功且契约合法的组。
+- 融资全部抽取失败与真实无公司必须区分；前者不能覆盖旧表。feed 的来源失败/正文失败导致空列表同样拒绝发布。
+- 候选产物位于 `work/runs/`，正式更新前验证与检查原数据是否变化。异常回滚通过目录备份和 publication.json 完成，多目录不具备并发读取的全局原子性。
+- 本地断点恢复需要同次运行文件和未变的代码/配置。CI 只上传状态，不上传原文，暂不支持跨 CI 作业恢复。
+- 快照测试固定时钟，并替换所有外部抓取（包括 hot API），避免时间变化或网络故障影响离线回归。

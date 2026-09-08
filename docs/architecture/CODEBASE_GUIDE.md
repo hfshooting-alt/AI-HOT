@@ -2,6 +2,8 @@
 
 ## 数据流与模块边界
 
+统一编排在 `scripts/run_pipeline.py` 和 `scripts/automation/`：检查、阶段命令、候选产物、恢复和发布保护。日常操作见[自动流水线](../operations/AUTOMATED_PIPELINE.md)，下列模块继续负责各自业务逻辑。
+
 1. `scripts/manus_source/` 负责发现任务、正文抓取与契约校验；配置来自 `config/manus_sources.json`。
 2. `scripts/enrich_news.py` 加工正文，`scripts/tag_news.py` 按 `config/taxonomy.json` 分类；两者复用 `llm_common.py` 调用模型。
 3. `scripts/build_manus_feed.py` 组装、校验并晋升 `data/manus/current.json`。
@@ -41,6 +43,8 @@
 - 历史方案已集中到 `docs/history/`；当前操作以 README、运行手册和现有代码为准。完整布局与旧路径映射见 [目录分工](./DIRECTORY_LAYOUT.md)。
 
 ## 验证
+
+2026-09-08 自动化加固验证：185 项 Python 离线测试、23 项 Node 测试和生产构建通过。新增覆盖失败缓存重试、全部抽取失败保护、阶段恢复、目录替换异常回滚、中断日志恢复、配置变化及旧候选覆盖拒绝，以及全流程固定样本联调。doctor 实际检查仅缺 Manus/DeepSeek 密钥；dry-run 正常。未调用付费接口，未重生成正式新闻数据。
 
 修改 Python 流水线后运行 `python -m unittest discover -s tests -p "test_*.py"`；修改前端/API 后运行 `npm --prefix web test`。`npm --prefix web run test:unit` 可快速检查来源、分页与设置服务。
 

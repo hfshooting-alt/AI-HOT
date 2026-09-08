@@ -4,6 +4,7 @@
 
 | 功能 | 入口/实现 | 主要输入 → 输出 |
 | --- | --- | --- |
+| 统一检查/运行/恢复 | `run_pipeline.py`、`automation/` | 配置与既有产物 → 隔离候选 → 校验发布；见[操作说明](../docs/operations/AUTOMATED_PIPELINE.md) |
 | Manus 发现与正文 | `manus_source/runner.py`、`content_phase.py` | `config/manus_sources.json`、`scripts/prompts/` → `work/manus/` |
 | 正文加工与分类 | `enrich_news.py`、`tag_news.py`、`llm_common.py` | 正文、`config/taxonomy.json` → 摘要、标签 |
 | Feed 发布 | `build_manus_feed.py` | Manus 工作产物 → `data/manus/` |

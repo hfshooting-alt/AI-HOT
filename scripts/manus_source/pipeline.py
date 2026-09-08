@@ -116,7 +116,7 @@ def load_resumed_records(raw_dir: Path, target_date: str, expected_titles: dict[
                                                            min_content_chars)
         except (OSError, json.JSONDecodeError, contracts.ContractError):
             continue
-        for art in batch.get("articles", []):
+        for art in ok:  # 仅复用成功正文；失败记录下次重新抓取。
             resumed[art["article_url"]] = art
     return resumed
 
@@ -253,13 +253,15 @@ class ContentPipeline:
                 result.batches_resumed += 1
                 batch_articles = [resumed[u] for u in urls]
             else:
-                payload = self.provider.fetch_content(batch, batch_index)
+                missing = [a for a in batch if a["article_url"] not in resumed]
+                missing_urls = {a["article_url"] for a in missing}
+                payload = self.provider.fetch_content(missing, batch_index)
                 # 批次结果必须与请求清单 URL 一一对应（不漏不增）
                 got_urls = {a.get("article_url") for a in payload["articles"]}
-                if got_urls != set(urls):
+                if got_urls != missing_urls:
                     raise contracts.ContractError(
                         f"batch{batch_index:02d} 正文结果 URL 集合与请求清单不一致："
-                        f"缺少 {sorted(set(urls) - got_urls)} 多出 {sorted(got_urls - set(urls))}")
+                        f"缺少 {sorted(missing_urls - got_urls)} 多出 {sorted(got_urls - missing_urls)}")
                 raw_path = self.raw_dir / f"content-batch-{batch_index:02d}.json"
                 raw_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2),
                                     encoding="utf-8")
@@ -268,7 +270,7 @@ class ContentPipeline:
                     encoding="utf-8")
                 result.batches_run += 1
                 batch_index += 1
-                batch_articles = payload["articles"]
+                batch_articles = [resumed[u] for u in urls if u in resumed] + payload["articles"]
 
             batch_obj = {"target_date": self.target_date, "articles": batch_articles}
             ok, failed = contracts.validate_content_batch(batch_obj, self.target_date,

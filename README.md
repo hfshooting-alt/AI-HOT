@@ -20,6 +20,8 @@ npm --prefix web run dev
 
 ## 常用命令
 
+自动更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。配置密钥后用 `python scripts/run_pipeline.py run` 执行采集到融资表的整套更新，支持 `--resume`、`--stage` 和 `--no-promote`。详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)。
+
 | 命令 | 用途 |
 | --- | --- |
 | `npm --prefix web run dev` | 本地开发 |
