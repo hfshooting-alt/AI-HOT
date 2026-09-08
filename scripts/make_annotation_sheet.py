@@ -2,13 +2,13 @@
 """make_annotation_sheet.py — 从历史归档抽样生成打标签 golden set 待标注表。
 
 抽样策略：随机 60 条打底 + 关键词启发式富集（各类别候选约 20 条），
-保证六类别候选覆盖。输出 eval/annotation_sheet.json，由人工回填 answer
-字段（category + 各绑定维度取值）后另存为 eval/golden.json 入库。
+保证六类别候选覆盖。输出 tests/evaluation/annotation_sheet.json，由人工回填 answer
+字段（category + 各绑定维度取值）后另存为 tests/evaluation/golden.json 入库。
 
 标注规则（写入 instructions）：多事件新闻按固定优先级链裁决归属。
 
 用法:
-    python3 scripts/make_annotation_sheet.py [--archive-dir archive] [--out eval/annotation_sheet.json]
+    python3 scripts/make_annotation_sheet.py [--archive-dir data/archive] [--out tests/evaluation/annotation_sheet.json]
 
 纯标准库实现。
 """
@@ -111,9 +111,9 @@ def build_sheet(pool: list[dict], tx: dict) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="生成打标签 golden set 待标注表")
-    parser.add_argument("--archive-dir", default="archive")
+    parser.add_argument("--archive-dir", default="data/archive")
     parser.add_argument("--taxonomy", default="config/taxonomy.json")
-    parser.add_argument("--out", default="eval/annotation_sheet.json")
+    parser.add_argument("--out", default="tests/evaluation/annotation_sheet.json")
     args = parser.parse_args()
 
     with open(args.taxonomy, "r", encoding="utf-8") as f:

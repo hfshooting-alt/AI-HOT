@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """funding_table.py — 融资动态表格生成 harness。
 
-链路：前端数据池（public/snapshot.json daily+weekly + data/manus/current.json）中
+链路：前端数据池（web/public/snapshot.json daily+weekly + data/manus/current.json）中
 classification 为 financing 的条目 → LLM 逐篇抽取公司级融资信息（缓存优先）
 → 确定性公司归一化去重合并 → Tavily 搜索 + LLM 综合补全缺失字段（可选）
-→ 原子晋升 data/funding/current.json + public/funding-table.json。
+→ 原子晋升 data/funding/current.json + web/public/funding-table.json。
 
 安全语义：
   - 未配置 TAVILY_API_KEY / 搜索失败：跳过补全，缺失字段留空，脚本不失败
@@ -196,7 +196,7 @@ def selftest(tx: dict) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="生成融资动态公司表格（funding-table.json）")
-    parser.add_argument("--snapshot", default="public/snapshot.json")
+    parser.add_argument("--snapshot", default="web/public/snapshot.json")
     parser.add_argument("--feed", default="data/manus/current.json")
     parser.add_argument("--work-dir", default="work/manus")
     parser.add_argument("--cache-dir", default="data/funding")
@@ -221,7 +221,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"融资表格校验通过（--no-promote）：{table['stats']}")
         return 0
     current, web = promote_table(table, PROJECT_ROOT / "data" / "funding",
-                                 PROJECT_ROOT / "public")
+                                 PROJECT_ROOT / "web" / "public")
     print(f"已原子晋升 {current} 与 {web}：{table['stats']}；{table['searchNote']}")
     return 0
 

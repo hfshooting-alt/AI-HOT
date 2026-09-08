@@ -2,11 +2,11 @@
 """build_snapshot.py — 抓取 aihot 公开 API，生成 AI HOT 仪表盘静态快照（单文件 HTML）。
 
 用法:
-    python3 scripts/build_snapshot.py [--out public/index.html]
-        [--template templates/index.template.html]
-        [--history-template templates/history.template.html]
-        [--history-dir public/history]
-        [--archive-dir archive] [--archive-days 30]
+    python3 scripts/build_snapshot.py [--out web/public/index.html]
+        [--template scripts/templates/index.template.html]
+        [--history-template scripts/templates/history.template.html]
+        [--history-dir web/public/history]
+        [--archive-dir data/archive] [--archive-days 30]
         [--api-base https://aihot.virxact.com]
         [--manus-json data/manus/current.json]
         [--days 7]
@@ -14,7 +14,7 @@
 流程:
     1. 分页抓取 /api/public/items（扁平条目流，天然去重）
     2. 合并 Manus 公众号 feed（data/manus/current.json，只读消费；缺失/损坏/过期时降级）
-    3. 历史归档（唯一数据源）：增量并集 upsert 进 archive/YYYY-MM-DD.json；
+    3. 历史归档（唯一数据源）：增量并集 upsert 进 data/archive/YYYY-MM-DD.json；
        定稿冻结前天及更早的归档（昨天保留开放，兜住迟到条目）；超 30 天滚动硬删
     4. 日报/周报视图从归档池推导（主页与历史页同源，天然一致）
     5. 按六版块分组、全局连续编号、北京时间人话时间
@@ -682,21 +682,21 @@ def render(template_path: str, out_path: str, data: dict) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="生成 AI HOT 仪表盘静态快照")
-    parser.add_argument("--out", default="public/index.html")
-    parser.add_argument("--snapshot-json", default="public/snapshot.json",
+    parser.add_argument("--out", default="web/public/index.html")
+    parser.add_argument("--snapshot-json", default="web/public/snapshot.json",
                         help="新版前端消费的 JSON 数据快照（与 HTML 快照同源同构）")
-    parser.add_argument("--template", default="templates/index.template.html")
-    parser.add_argument("--history-template", default="templates/history.template.html",
+    parser.add_argument("--template", default="scripts/templates/index.template.html")
+    parser.add_argument("--history-template", default="scripts/templates/history.template.html",
                         help="历史归档只读页模板")
-    parser.add_argument("--history-dir", default="public/history",
+    parser.add_argument("--history-dir", default="web/public/history",
                         help="历史归档页输出目录（按天一页）")
-    parser.add_argument("--weekly-template", default="templates/weekly.template.html",
+    parser.add_argument("--weekly-template", default="scripts/templates/weekly.template.html",
                         help="自然周期刊页模板")
-    parser.add_argument("--weekly-dir", default="public/weekly",
+    parser.add_argument("--weekly-dir", default="web/public/weekly",
                         help="周期刊输出目录（按周起始日一页）")
     parser.add_argument("--weekly-keep", type=int, default=5,
                         help="周期刊存量上限（默认 5 份，超存滚动清理）")
-    parser.add_argument("--archive-dir", default="archive",
+    parser.add_argument("--archive-dir", default="data/archive",
                         help="历史归档目录（按日 JSON，唯一数据源）")
     parser.add_argument("--archive-days", type=int, default=DEFAULT_ARCHIVE_DAYS,
                         help="历史归档保留天数（默认 30，滚动硬删）")
@@ -708,7 +708,7 @@ def main() -> int:
     parser.add_argument("--days", type=int, default=7, help="周报窗口天数（默认 7）")
     parser.add_argument("--taxonomy", default="config/taxonomy.json",
                         help="AI 打标签分类体系配置（缺失时跳过打标）")
-    parser.add_argument("--tag-cache", default="tag_cache.json",
+    parser.add_argument("--tag-cache", default="data/cache/tag_cache.json",
                         help="打标签结果缓存（键含 taxonomy/prompt/模型版本）")
     parser.add_argument("--no-tags", action="store_true",
                         help="跳过 AI 打标签（本地调试无 key 时用）")

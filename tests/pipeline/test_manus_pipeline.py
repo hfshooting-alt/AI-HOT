@@ -19,7 +19,7 @@ from manus_source.crawler import DEFAULT_USER_AGENT  # noqa: E402
 
 FIXTURE_DIR = os.path.join(os.path.dirname(__file__), "..", "fixtures", "manus")
 CRAWLER_FIXTURE_DIR = os.path.join(os.path.dirname(__file__), "..", "fixtures", "crawler")
-PROMPT_PATH = os.path.join(os.path.dirname(__file__), "..", "..", "prompts", "manus_content.md")
+PROMPT_PATH = os.path.join(os.path.dirname(__file__), "..", "..", "scripts", "prompts", "manus_content.md")
 TARGET_DATE = "2026-08-16"
 
 

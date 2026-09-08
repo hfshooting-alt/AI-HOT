@@ -21,7 +21,7 @@ Actions 页 → `Manus 公众号采集并晋升 feed` → Run workflow：
 
 推荐冒烟序列：`group_a + promote=false` → 全组 + `promote=false` → 全组 + `promote=true`。
 
-本地分阶段调试（需 `.env` 配置 `MANUS_API_KEY` / `DEEPSEEK_API_KEY`，参考 `.env.example`；
+本地分阶段调试（需 `.env` 配置 `MANUS_API_KEY` / `DEEPSEEK_API_KEY`，参考 `config/env.example`；
 也可用设置页免手改：`node scripts/settings-server.mjs` 后打开 Next.js 应用「设置」视图保存）：
 
 ```powershell

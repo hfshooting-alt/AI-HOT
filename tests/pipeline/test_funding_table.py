@@ -96,7 +96,7 @@ class TestPoolLoading(unittest.TestCase):
         feed_fin = feed_item("manus:a", "甲公司融资", "https://u1", "甲公司完成融资（feed 同 id 去重）")
         feed_new = feed_item("manus:c", "丙公司融资", "https://u3", "丙公司完成融资",
                              tags={"industry": "ai_model", "region": "us"})
-        snap_path = self.write("public/snapshot.json", snap)
+        snap_path = self.write("web/public/snapshot.json", snap)
         feed_path = self.write("data/manus/current.json",
                                {"ok": True, "items": [feed_fin, feed_new]})
         articles = funding_table.load_articles(snap_path, feed_path,
@@ -123,7 +123,7 @@ class TestPoolLoading(unittest.TestCase):
         title_only = snapshot_item("manus:d", "丙公司融资", "https://u4", "丙公司摘要")
         snap = {"daily": {"sections": [{"label": "融资动态", "items": [fin, title_only]}]},
                 "weekly": {"sections": []}}
-        snap_path = os.path.abspath(self.write("public/snapshot.json", snap))
+        snap_path = os.path.abspath(self.write("web/public/snapshot.json", snap))
         articles = funding_table.load_articles(
             snap_path, os.path.join(self.dir, "no-feed.json"), work, TX)
         by_title = {a["title"]: a for a in articles}

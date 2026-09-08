@@ -1,7 +1,7 @@
 # Manus 公众号采集工作流（唯一公众号信源 · 独立生产者）
 #
 # 与快照工作流（update-snapshot.yml）完全解耦：
-#   - 本工作流只写 data/manus/current.json + state.json + archive/ + enrichment cache
+#   - 本工作流只写 data/manus/current.json + state.json + data/archive/ + enrichment cache
 #   - 快照工作流只读取最近一次成功的 current.json，不调用、不等待 Manus
 #
 # 触发方式：
@@ -72,10 +72,10 @@ jobs:
           echo "目标日期：$DATE；分组：$GROUPS"
 
       - name: 契约自检（离线）
-        run: python3 -m unittest tests.test_manus_contract -v
+        run: python3 -m unittest discover -s tests/pipeline -p 'test_manus_contract.py' -v
 
       - name: 安装正文提取依赖（trafilatura）
-        run: pip install trafilatura
+        run: pip install -r scripts/requirements.txt
 
       - name: 阶段 A：Manus URL 发现
         env:
@@ -140,7 +140,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/manus/current.json data/manus/state.json data/manus/archive data/manus/enrichment_cache.json data/funding public/funding-table.json 2>/dev/null || true
+          git add data/manus/current.json data/manus/state.json data/manus/archive data/manus/enrichment_cache.json data/funding web/public/funding-table.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Manus feed 无变化，跳过提交"
           else

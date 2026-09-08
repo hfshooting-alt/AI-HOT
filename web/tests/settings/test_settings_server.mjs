@@ -5,7 +5,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, readFile, rm, writeFile, access } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
-import { createSettingsServer } from "../../scripts/settings-server.mjs";
+import { createSettingsServer } from "../../../scripts/settings-server.mjs";
 
 const ALLOWED_ORIGIN = "http://localhost:3000";
 

@@ -1,3 +1,5 @@
+> 2026-09-08 目录更新：当前前端工程根为 `web/`，构建产物为 `web/dist/`，托管配置为 `web/.openai/hosting.json`。下文涉及平台发布时，先按该工程根目录配置；本次目录整理没有执行重新部署。
+
 # 定时生成静态快照 → 自动部署到 GitHub Pages · 操作手册
 
 > 本文档由「AI HOT 看板」从 CloudBase 迁移到 GitHub Pages 的实战经验沉淀而成。
@@ -105,15 +107,15 @@ jobs:
       - name: 生成静态快照
         run: |
           echo "在此执行你的构建命令"
-          # 例：python3 scripts/build_snapshot.py --out public/index.html
-          # 例：npm run build && cp -r dist/* _site/
+          # 例：python3 scripts/build_snapshot.py --out web/public/index.html
+          # 例：npm --prefix web run build && cp -r dist/* _site/
       # =======================================
 
       - name: 提交产物回仓库（若内容有变化）
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/   # 按需调整要跟踪的产物路径
+          git add web/public/   # 按需调整要跟踪的产物路径
           if git diff --cached --quiet; then
             echo "产物无变化，跳过提交"
           else
@@ -128,7 +130,7 @@ jobs:
         if: ${{ !cancelled() && (github.event_name == 'schedule' || inputs.deploy != 'false') }}
         run: |
           mkdir -p _site
-          cp -r public/* _site/   # 把站点文件放进 _site，根目录必须有 index.html
+          cp -r web/public/* _site/   # 把站点文件放进 _site，根目录必须有 index.html
 
       - name: 上传 Pages 产物
         if: ${{ !cancelled() && (github.event_name == 'schedule' || inputs.deploy != 'false') }}
@@ -165,9 +167,9 @@ jobs:
 ### 3.1 用法
 
 ```bash
-python3 scripts/build_snapshot.py --out public/index.html
+python3 scripts/build_snapshot.py --out web/public/index.html
 # 可选参数：
-#   --template  templates/index.template.html   模板路径（含 __DATA__ 占位符）
+#   --template  scripts/templates/index.template.html   模板路径（含 __DATA__ 占位符）
 #   --api-base  https://aihot.virxact.com       数据源 API
 #   --days      7                                周报窗口天数
 ```
@@ -199,7 +201,7 @@ python3 scripts/build_snapshot.py --out public/index.html
 | 固定链接 | `workbuddy-d6g376q7d19b69f8f-1457344826.tcloudbaseapp.com`（长随机串） | `https://wadeliuastro.github.io/AI-HOT/`（用户名.github.io/仓库名） |
 | 密钥要求 | 需 3 个 GitHub Secrets：`TCB_SECRET_ID` / `TCB_SECRET_KEY` / `TCB_ENV_ID` | **零密钥**，只用内置 GITHUB_TOKEN |
 | 权限声明 | `contents: write` | `contents: write` + `pages: write` + `id-token: write` |
-| 部署命令 | `npm i -g @cloudbase/cli && tcb login --apiKeyId ... --apiKey ... && tcb hosting deploy public/index.html /index.html -e <envId>` | `actions/upload-pages-artifact@v3` + `actions/deploy-pages@v4`（官方 action） |
+| 部署命令 | `npm i -g @cloudbase/cli && tcb login --apiKeyId ... --apiKey ... && tcb hosting deploy web/public/index.html /index.html -e <envId>` | `actions/upload-pages-artifact@v3` + `actions/deploy-pages@v4`（官方 action） |
 | 前置条件 | CloudBase 环境存在 + 腾讯云 API 密钥 | 仓库 Settings → Pages → Source 选 **GitHub Actions** |
 | 国内访问速度 | 快（腾讯 CDN） | 一般（境外节点） |
 | 适用场景 | 需要国内加速、已用腾讯云生态、需要自定义域名备案 | 追求零配置零成本、内容公开、可接受境外访问速度 |
@@ -212,7 +214,7 @@ python3 scripts/build_snapshot.py --out public/index.html
 - name: 部署到 CloudBase 静态托管
   run: |
     tcb login --apiKeyId "${{ secrets.TCB_SECRET_ID }}" --apiKey "${{ secrets.TCB_SECRET_KEY }}"
-    tcb hosting deploy public/index.html /index.html -e "${{ secrets.TCB_ENV_ID }}"
+    tcb hosting deploy web/public/index.html /index.html -e "${{ secrets.TCB_ENV_ID }}"
 ```
 
 ---
@@ -236,7 +238,7 @@ python3 scripts/build_snapshot.py --out public/index.html
 1. **看步骤颜色**：红 = 失败（点开看日志）；灰/SKIPPED = 被 if 条件跳过（说明条件没满足，不是真执行了）。
 2. **看 job 汇总**：Job Summary 会显示 workflow 里写入的链接/结论。
 3. **失败步骤展开看原始输出**：`git push` 类错误会给出具体 reject 原因。
-4. **对比预期产物**：失败后检查 `public/index.html` 是否被提交回仓库（仓库 → commits 页看 `chore:` 提交）。
+4. **对比预期产物**：失败后检查 `web/public/index.html` 是否被提交回仓库（仓库 → commits 页看 `chore:` 提交）。
 5. **Pages 状态确认**：Settings → Pages 页面，部署成功后应出现 "Your site is live at ..." 提示。
 
 ---
@@ -261,8 +263,8 @@ python3 scripts/build_snapshot.py --out public/index.html
 | `.github/workflows/update-snapshot.yml` | 定时 + 手动触发，生成快照并部署到 Pages |
 | `.github/workflows/fetch-manus.yml` | Manus 公众号采集（独立生产者，cron 北京 01:00，Secrets：`MANUS_API_KEY`/`DEEPSEEK_API_KEY`） |
 | `scripts/build_snapshot.py` | 纯 Python 快照生成器（抓 API + 只读消费 Manus feed → 渲染 HTML） |
-| `templates/index.template.html` | 页面模板（含 `const DATA = __DATA__;` 占位符） |
-| `public/index.html` | 生成的最终快照（提交回仓库，供部署与归档） |
+| `scripts/templates/index.template.html` | 页面模板（含 `const DATA = __DATA__;` 占位符） |
+| `web/public/index.html` | 生成的最终快照（提交回仓库，供部署与归档） |
 | `data/manus/current.json` | Manus 规范化 feed（快照工作流唯一公众号输入，缺失/过期自动降级） |
 | `DEPLOY.md` | 部署说明（含 CloudBase 历史存档） |
 

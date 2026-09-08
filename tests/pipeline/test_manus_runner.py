@@ -81,8 +81,8 @@ class TestSettingsDefaults(unittest.TestCase):
                 }],
             },
         }), encoding="utf-8")
-        prompt_dir = temp_path / "prompts"
-        prompt_dir.mkdir()
+        prompt_dir = temp_path / "scripts" / "prompts"
+        prompt_dir.mkdir(parents=True)
         (prompt_dir / "manus_discovery.md").write_text("{{SOURCES}}", encoding="utf-8")
 
         with patch.dict(os.environ, {"MANUS_API_KEY": "isolated-test-key"}, clear=True):
@@ -93,7 +93,7 @@ class TestSettingsDefaults(unittest.TestCase):
 
 class TestDiscoveryPrompt(unittest.TestCase):
     def _render_prompt(self) -> str:
-        prompt_path = Path(__file__).resolve().parents[2] / "prompts" / "manus_discovery.md"
+        prompt_path = Path(__file__).resolve().parents[2] / "scripts" / "prompts" / "manus_discovery.md"
         return runner.render_discovery_prompt(prompt_path, [{
             "account_name": "白鲸出海",
             "platform": "Official Baijing",

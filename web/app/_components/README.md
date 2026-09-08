@@ -12,4 +12,4 @@
 | `reports/` | 日报与周报的正文、加载和失败状态 |
 | `shared/` | 跨功能共用的图标 |
 
-组件通过 `app/_lib/data/` 获取数据，类型和枚举来自 `domain/`，格式与来源工具来自 `display/`。页面样式仍在 `app/globals.css`；网站路由入口仍在 `app/page.tsx` 和 `app/api/`。
+组件通过 `web/app/_lib/data/` 获取数据，类型和枚举来自 `domain/`，格式与来源工具来自 `display/`。页面样式仍在 `web/app/globals.css`；网站路由入口仍在 `web/app/page.tsx` 和 `web/app/api/`。

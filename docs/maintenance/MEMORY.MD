@@ -1,4 +1,4 @@
-# MEMORY.MD — AI HOT 长期记忆与经验教训精编
+# docs/maintenance/MEMORY.MD — AI HOT 长期记忆与经验教训精编
 
 > 供接手 agent 快速吸收历史结论，避免重复踩坑。按类别组织。最近同步：2026-08-28。
 
@@ -16,7 +16,7 @@
 
 ## 2. 历史回溯系统设计要点
 
-- `archive/YYYY-MM-DD.json` 是日报、周报和历史视图的统一归档源；upsert 幂等，wechat/manus 条目用 `(账号名, 标题)` 作为稳定键。
+- `data/archive/YYYY-MM-DD.json` 是日报、周报和历史视图的统一归档源；upsert 幂等，wechat/manus 条目用 `(账号名, 标题)` 作为稳定键。
 - finalize 边界：前天及更早才固化，昨天保持开放以接纳迟到条目；cleanup 删除 30 天前归档与历史页，周报保留最近 5 期。
 - 自然周以周一为起点；VOL 标识格式为 `VOL.2026·八月第 N 周`；日期由 `fmt_cn_date()` 输出中文数字。周报生成循环应在“整周早于最早归档日”时退出。
 - 冷启动归档起点为 2026-08-07，首期八月第 1 周只有 3 天数据，属于预期。
@@ -24,7 +24,7 @@
 ## 3. Manus 流水线、契约与真实稳定性
 
 - 正式链路：discovery → content（默认本地 `crawler.py` + trafilatura；可切换 Manus）→ `enrich_news.py` 摘要/分类/标签 → `build_manus_feed.py` 全量校验 → 原子晋升 `data/manus/current.json` → `build_snapshot.py` 归档和快照。
-- `scripts/funding_table.py` 在 feed 晋升后抽取融资字段，可选 Tavily 补全，产出 `data/funding/current.json` 和 `public/funding-table.json`。
+- `scripts/funding_table.py` 在 feed 晋升后抽取融资字段，可选 Tavily 补全，产出 `data/funding/current.json` 和 `web/public/funding-table.json`。
 - 正文批次由 `validate_content_batch` 检查风控、跳转、过短和标题漂移。全文与密钥不得进入 feed、诊断 Artifact 或 Git。
 - 修改流水线前必读 `docs/architecture/MANUS_DATA_CONTRACT.md` 与 `docs/operations/MANUS_SOURCE_RUNBOOK.md`。
 
@@ -36,7 +36,7 @@
   - 极客公园的 `source_audits.article_count=4`，最终 `articles` 只有 3 条；
   - 文章 URL 含 `20260825`，返回的 `published_date` 却是 `2026-08-26`，属于契约之外仍需关注的数据质量信号。
 - 根因包含两层：早期 Prompt 对来源常量、计数重算和提交前自检约束不足；Manus 执行长链路浏览任务时具有概率波动。加强 Prompt 能显著收紧输出，无法保证每次都稳定通过，因此本地契约必须保留强校验和拒绝晋升机制。
-- `da51733` 已在 `prompts/manus_discovery.md` 增加：来源三元组逐字复制、白鲸出海正反例、complete 字段完整性、按最终文章重算 `article_count`、每个配置来源恰好一条 audit、failed 来源规则、根字段白名单和最终 JSON-only 自检。
+- `da51733` 已在 `scripts/prompts/manus_discovery.md` 增加：来源三元组逐字复制、白鲸出海正反例、complete 字段完整性、按最终文章重算 `article_count`、每个配置来源恰好一条 audit、failed 来源规则、根字段白名单和最终 JSON-only 自检。
 
 ### 超时与分组测试
 
@@ -57,10 +57,10 @@
 
 - 分类体系现为六类：融资动态、深度访谈、产品和模型发布、论文研究、大厂动态、泛行业新闻。结构化字段由 UI 直接展示，摘要和标签作为只读叙事内容消费。
 - 融资动态使用独立 `FundingTableView`、专属枚举、来源列和筛选；数据生成由 `funding_table.py` 负责，Tavily key 缺失时字段留空，不阻塞主 feed。
-- 技术栈：Next.js 16 + React 19 + Tailwind 4 + vinext + Drizzle + Wrangler。`app/` 是当前前端主形态，线上发布切换仍待完成。
-- aihot API 没有结构化来源类型字段；公众号、推文、资讯和一手信源由 `app/_lib/display/source.ts` 依据域名和来源名判定。公众号范围包含 Manus 条目与 aihot 公众号条目。
-- “全部 AI 动态”需合并 API 池和 `public/snapshot.json` 池，才能显示 Manus 条目。
-- 仓库当前只有 `fetch-manus.yml`。它更新 Manus feed、状态、归档、enrichment cache 和融资表格，不生成 `public/snapshot.json`；静态快照仍需手工 `build_snapshot.py` 或后续自动化。
+- 技术栈：Next.js 16 + React 19 + Tailwind 4 + vinext + Drizzle + Wrangler。`web/app/` 是当前前端主形态，线上发布切换仍待完成。
+- aihot API 没有结构化来源类型字段；公众号、推文、资讯和一手信源由 `web/app/_lib/display/source.ts` 依据域名和来源名判定。公众号范围包含 Manus 条目与 aihot 公众号条目。
+- “全部 AI 动态”需合并 API 池和 `web/public/snapshot.json` 池，才能显示 Manus 条目。
+- 仓库当前只有 `fetch-manus.yml`。它更新 Manus feed、状态、归档、enrichment cache 和融资表格，不生成 `web/public/snapshot.json`；静态快照仍需手工 `build_snapshot.py` 或后续自动化。
 - CloudBase 固定地址为 `https://david-d5gb2azg2557337ab-1457311474.tcloudbaseapp.com/`。覆盖静态文件后需考虑 CDN 缓存。
 
 ## 5. Git 与协作纪律
@@ -80,7 +80,7 @@
 | group_a-only 直接进入正文阶段 | 下游固定要求三组文件；常规试跑停在 discovery，或使用明确失败占位并执行 `--no-promote` |
 | 10 分钟 discovery 超时 | 保持 `MANUS_TIMEOUT_SECONDS=3600`；诊断时区分平台执行耗时与客户端等待上限 |
 | 契约通过但混入模板页 | 契约解决结构完整性，业务有效性需独立过滤；重点识别占位标题、模板正文和非新闻内容 |
-| 测试污染 `public/snapshot.json` | 快照测试必须传 `--snapshot-json` 到临时目录；全量测试后核对该文件未变化 |
+| 测试污染 `web/public/snapshot.json` | 快照测试必须传 `--snapshot-json` 到临时目录；全量测试后核对该文件未变化 |
 | Windows 沙箱临时目录不可写 | 使用 `tests/_tempdir.py::make_temp_dir`，避免权限过严的 `tempfile.mkdtemp` |
 | Windows 下 Node/Vite 出现 spawn EPERM | Node 测试可逐文件直接执行；vinext 构建需要合适权限 |
 | npm 脚本的类 Unix 环境变量前缀在 Windows 无效 | 手工设置 `$env:WRANGLER_LOG_PATH`；长期使用 cross-env 修复 |

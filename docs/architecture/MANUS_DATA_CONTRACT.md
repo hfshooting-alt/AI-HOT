@@ -9,7 +9,7 @@
 |---|---|---|---|
 | 发现结果（schema v2） | `work/manus/<date>/raw/discovery-<group>.json` | Manus 发现任务 | `validate_discovery()` |
 | 正文批次 | `work/manus/<date>/raw/content-batch-NN.json` | 本地脚本爬虫（`crawler.py`，trafilatura；可选 Manus 正文任务回退） | `validate_content_batch()` |
-| 规范化 feed | `data/manus/current.json` + `archive/YYYY-MM-DD.json` | `build_manus_feed.py` | `validate_feed()` |
+| 规范化 feed | `data/manus/current.json` + `data/archive/YYYY-MM-DD.json` | `build_manus_feed.py` | `validate_feed()` |
 | 运行状态 | `data/manus/state.json` | `build_manus_feed.py` / 工作流 | 无强校验（运维只读） |
 
 ## 1. 发现结果（schema_version=2）

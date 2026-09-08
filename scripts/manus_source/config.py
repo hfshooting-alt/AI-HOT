@@ -65,7 +65,7 @@ class Settings:
         sources_path = rel("MANUS_SOURCES_PATH", "config/manus_sources.json")
         if not sources_path.exists():
             raise RuntimeError(f"Manus sources config does not exist: {sources_path}")
-        discovery_prompt_path = rel("MANUS_DISCOVERY_PROMPT_PATH", "prompts/manus_discovery.md")
+        discovery_prompt_path = rel("MANUS_DISCOVERY_PROMPT_PATH", "scripts/prompts/manus_discovery.md")
         if not discovery_prompt_path.exists():
             raise RuntimeError(f"Manus discovery prompt does not exist: {discovery_prompt_path}")
         return cls(
@@ -87,7 +87,7 @@ class Settings:
             min_content_chars=int(os.getenv("MANUS_MIN_CONTENT_CHARS", "100")),
             sources_path=sources_path,
             discovery_prompt_path=discovery_prompt_path,
-            content_prompt_path=rel("MANUS_CONTENT_PROMPT_PATH", "prompts/manus_content.md"),
+            content_prompt_path=rel("MANUS_CONTENT_PROMPT_PATH", "scripts/prompts/manus_content.md"),
             work_dir=rel("MANUS_WORK_DIR", "work/manus"),
         )
 

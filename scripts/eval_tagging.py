@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """eval_tagging.py — 打标签准确性评测与回归门禁。
 
-对 eval/golden.json（人工标注）逐条走 tag_news 全链路（真实调用模型，不走缓存），
+对 tests/evaluation/golden.json（人工标注）逐条走 tag_news 全链路（真实调用模型，不走缓存），
 产出指标报告；taxonomy.json 配置了 thresholds 时执行门禁（不达标退出码非零）。
 
 指标：
@@ -11,7 +11,7 @@
     - 类别混淆对 top 列表
 
 用法:
-    python3 scripts/eval_tagging.py [--golden eval/golden.json] [--taxonomy taxonomy.json]
+    python3 scripts/eval_tagging.py [--golden tests/evaluation/golden.json] [--taxonomy taxonomy.json]
 
 纯标准库实现。
 """
@@ -118,7 +118,7 @@ def gate(tx: dict, report: dict) -> bool:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="打标签准确性评测与回归门禁")
-    parser.add_argument("--golden", default="eval/golden.json")
+    parser.add_argument("--golden", default="tests/evaluation/golden.json")
     parser.add_argument("--taxonomy", default="config/taxonomy.json")
     parser.add_argument("--report-dir", default="eval")
     args = parser.parse_args()
