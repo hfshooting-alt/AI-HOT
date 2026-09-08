@@ -1,0 +1,4 @@
+# 与现有 fetch-manus 工作流一致；其他流水线模块使用 Python 标准库。
+trafilatura
+# Windows 的 zoneinfo 需要 IANA 时区数据库。
+tzdata; sys_platform == "win32"

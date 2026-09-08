@@ -1,98 +1,56 @@
-# vinext-starter
+# AI HOT
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+中文 AI 情报看板，聚合 AIHOT API 与 Manus 采集内容，提供精选、全部动态、热点、日报/周报、融资公司表和本地模型设置。
 
-## Prerequisites
+前端使用 React、Next.js API 与 vinext/Vite；数据流水线使用 Python。现有数据以 JSON 快照与归档保存。
 
-- Node.js `>=22.13.0`
+## 本地启动
 
-## Quick Start
+需要 Node.js >=22.13.0 和 Python >=3.10。Windows、macOS、Linux 使用相同的前端命令：
 
-```bash
-npm install
+```sh
+npm ci
+python -m pip install -r requirements.txt
 npm run dev
-npm run build
 ```
 
-This starter does not use `wrangler.jsonc`.
+也可使用仓库现有的 pnpm 锁文件：`pnpm install --frozen-lockfile`。依赖安装遵循本地包管理器的构建审批策略；不要混用包管理器更新锁文件。
 
-## Included Shape
+按 `.env.example` 在根目录配置 `.env`，或运行 `node scripts/settings-server.mjs` 后使用设置页。仅查看已有快照无需调用付费采集/模型接口；运行采集需要配置相应密钥。
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+## 常用命令
 
-## Workspace Auth Headers
+| 命令 | 用途 |
+| --- | --- |
+| `npm run dev` | 本地开发 |
+| `npm run build` / `npm start` | 生产构建 / 启动 |
+| `npm test` | 构建及全部 Node 测试 |
+| `npm run test:unit` | 来源、分页和设置服务测试 |
+| `python -m unittest discover -s tests -p "test_*.py"` | Python 回归测试 |
+| `npm run typecheck` / `npm run lint` | 静态检查；已有问题见维护导航 |
+| `python scripts/funding_table.py --selftest` | 融资流程离线自检 |
 
-OpenAI workspace sites can read the current user's email from
-`oai-authenticated-user-email`.
+采集和快照命令会访问外部服务或更新数据，具体参数见运行手册。
 
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
+## 目录
 
-Treat the full name as optional and fall back to email when it is absent:
+| 目录/文件 | 职责 |
+| --- | --- |
+| `app/_components/` | 页面、新闻卡片、日报/周报详情 |
+| `app/_lib/`、`app/api/` | 类型、数据读取、展示工具与上游代理 |
+| `scripts/manus_source/` | Manus 发现、正文抓取与校验 |
+| `scripts/funding/` | 融资输入、抽取、合并、补全与发布 |
+| `scripts/*.py` | 稳定 CLI 入口、快照构建、分类与摘要 |
+| `public/`、`data/`、`archive/`、`build/` | 快照、缓存与归档产物 |
+| `tests/` | Python、Node 测试及 fixtures |
+| `prompts/`、`templates/` | 提示词与静态归档模板 |
+| `manus_sources.json`、`taxonomy.json` | 当前信源与分类配置 |
+| `.github/workflows/` | 自动任务 |
 
-```tsx
-import { headers } from "next/headers";
+## 维护文档
 
-export default async function Home() {
-  const requestHeaders = await headers();
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
-```
-
-## Optional Dispatch-Owned ChatGPT Sign-In
-
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
-
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
-
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
-
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
-
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+- [代码维护导航](docs/CODEBASE_GUIDE.md)：数据流、修改位置、兼容约定、验证结果。
+- [Manus 运行手册](docs/MANUS_SOURCE_RUNBOOK.md)、[数据契约](docs/MANUS_DATA_CONTRACT.md)。
+- [部署说明](docs/DEPLOY_WORKFLOW.md)、[使用说明](USER_GUIDE.md)。
+- [开发守则](AGENTS.MD)、[当前状态](CONTEXT.MD)、[长期经验](MEMORY.MD)。
+- [Sites 脚手架参考](docs/SITES_TEMPLATE.md)：保留原始模板的可选数据库、身份与托管说明。
