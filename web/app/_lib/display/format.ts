@@ -1,5 +1,5 @@
 // 展示层工具：北京时间格式化、六版块归一化、配色（与 build_snapshot.py 口径一致）
-import type { HotTopic, NewsItem } from "../domain/types";
+import type { NewsItem } from "../domain/types";
 
 /** 六版块固定顺序（与后端 SECTIONS 对应） */
 export const SECTIONS = [
@@ -139,28 +139,7 @@ export function fmtItemTime(item: NewsItem): string {
   return `${d.getUTCMonth() + 1}/${d.getUTCDate()} ${hm}`;
 }
 
-/** 热度值 = 精选信源数 + 氛围票数（与榜单口径一致） */
-export function heatOf(t: HotTopic): number {
-  return (t.sourceCount || 0) + (t.signalCount || 0);
-}
-
 /** 条目跳转链接：原文优先，缺省回退 permalink */
 export function itemUrl(item: NewsItem): string {
   return item.url || item.permalink || "#";
-}
-
-/** 稳定伪随机（热点榜趋势线装饰用，基于字符串散列） */
-export function seededSeries(seed: string, n: number, min: number, max: number): number[] {
-  let h = 2166136261;
-  for (let i = 0; i < seed.length; i++) {
-    h ^= seed.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  const out: number[] = [];
-  let x = h >>> 0;
-  for (let i = 0; i < n; i++) {
-    x = (Math.imul(x, 1103515245) + 12345) >>> 0;
-    out.push(min + (x % 1000) / 1000 * (max - min));
-  }
-  return out;
 }

@@ -9,7 +9,6 @@ import {
   fmtFullDay,
   fmtMonthDay,
   fmtWeekday,
-  heatOf,
 } from "../../_lib/display/format";
 import { categoryDisplay, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
 import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/domain/fundingTaxonomy";
@@ -191,7 +190,7 @@ export function FeaturedView() {
               <li key={t.id} className="flex items-center gap-3 py-2.5">
                 <span className="w-5 text-center text-[15px] font-extrabold text-heat-red">{t.rank}</span>
                 <a
-                  href={t.links.original}
+                  href={t.links.aihot || t.links.original}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="min-w-0 flex-1 truncate text-[13.5px] font-medium text-ink-2 hover:text-brand"
@@ -199,7 +198,7 @@ export function FeaturedView() {
                 >
                   {t.title}
                 </a>
-                <span className="text-[12px] font-bold whitespace-nowrap text-ink">{heatOf(t)} 热度</span>
+                <span className="text-[12px] font-bold whitespace-nowrap text-ink">{t.sourceCount} 个信源</span>
               </li>
             ))}
           </ol>

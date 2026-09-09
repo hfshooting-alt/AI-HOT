@@ -20,6 +20,8 @@ export interface NewsItem {
   sourceType?: "aihot" | "wechat";
   /** 中文六版块；API 原始英文分类经 API_CATEGORY_MAP 归一化 */
   category?: string;
+  /** 上游没有返回分类时为 true；展示层会暂时归入泛行业新闻并明确提示。 */
+  categoryUnclassified?: boolean;
   publishedAt?: string;
   discoveredAt?: string;
   score?: number | null;
@@ -28,6 +30,27 @@ export interface NewsItem {
   classification?: Classification | null;
   num?: number;
   timeText?: string;
+  /** AIHOT v1 的站内 canonical 与第三方原文，便于保留来源层级。 */
+  aihotUrl?: string;
+  originalUrl?: string;
+  reason?: string | null;
+  timeBasis?: "published" | "discovered";
+}
+
+/** AIHOT /api/v1/items 的原始条目。 */
+export interface AIHotV1Item {
+  id: string;
+  title: string;
+  originalTitle: string | null;
+  summary: string | null;
+  source: { name: string };
+  links: { aihot: string; original: string };
+  publishedAt: string | null;
+  discoveredAt: string;
+  category: string | null;
+  score: number | null;
+  selected: boolean;
+  reason: string | null;
 }
 
 export interface DigestSection {
@@ -77,6 +100,8 @@ export interface Snapshot {
   featured?: NewsItem[];
   hot?: Partial<HotTopicsResponse> & { items: HotTopic[] };
   all?: AllFeedResponse;
+  /** 静态站点内嵌的日报正文；键为 YYYY-MM-DD。 */
+  dailyReports?: Record<string, DailyReport>;
 }
 
 /** /api/daily 上游日报条目（无 id/score/分类标签） */
@@ -124,12 +149,15 @@ export interface HotTopicsResponse {
   items: HotTopic[];
 }
 
-/** /api/public/items 分页响应 */
+/** /api/v1/items 分页响应 */
 export interface ItemsPage {
-  count: number;
-  hasNext: boolean;
-  nextCursor?: string;
-  items: NewsItem[];
+  schemaVersion: number;
+  items: AIHotV1Item[];
+  page: {
+    count: number;
+    hasMore: boolean;
+    nextCursor: string | null;
+  };
 }
 
 /** /api/all 聚合响应（条目 + 分类标签统计） */

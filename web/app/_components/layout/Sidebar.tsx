@@ -79,7 +79,7 @@ export function SidebarContent() {
       {/* 底部：备案信息 */}
       <div className="mt-auto px-5 pb-5">
         <div className="mb-3 border-t border-line-2 pt-3 text-[11px] leading-relaxed text-mut-2">
-          数据来源：AI HOT 开放 API + 伴生公众号信源
+          数据来源：AIHOT 开放 API
         </div>
         <div className="text-[10.5px] text-mut-2">京ICP备2026012723号-2</div>
       </div>

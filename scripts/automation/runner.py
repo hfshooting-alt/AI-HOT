@@ -86,7 +86,8 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
     if ten_am:
         for stage in ("discovery", "content", "feed"):
             commands[stage].append("--ten-am")
-        commands["snapshot"].extend(("--window-date", date))
+        # 十点流水线只取最近 24 小时，减少分页请求并与采集窗口保持一致。
+        commands["snapshot"].extend(("--window-date", date, "--api-window", "24h"))
         commands["overview"].extend(("--work-dir", str(root / "work/manus/ten-am")))
         commands["funding"].extend(("--work-dir", str(root / "work/manus/ten-am")))
     return commands

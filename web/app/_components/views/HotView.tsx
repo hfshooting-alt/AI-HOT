@@ -1,33 +1,10 @@
-// 热点榜视图：调用 AI HOT API（/api/v1/hot-topics 代理）按热度排序展示
+// 热点榜视图：严格保留 AI HOT /api/v1/hot-topics 返回的排名，不推算内部热度。
 "use client";
 
 import { useEffect, useState } from "react";
 import type { HotTopic } from "../../_lib/domain/types";
 import { loadHot } from "../../_lib/data/api";
-import { fmtRelative, heatOf, seededSeries } from "../../_lib/display/format";
-
-/** 热度标签：爆（短时密集）/ 新（首报 6 小时内）/ 发酵中（信源仍在增加） */
-function heatTag(t: HotTopic): string | null {
-  const ageMs = Date.now() - new Date(t.latestAt).getTime();
-  if (t.signalCount >= 3) return "爆";
-  if (ageMs < 6 * 3600 * 1000) return "新";
-  if (t.sourceCount >= 3) return "发酵中";
-  return null;
-}
-
-/** 装饰性趋势线（基于事件 id 的稳定伪随机，终点圆点） */
-function Sparkline({ seed, rising }: { seed: string; rising: boolean }) {
-  const pts = seededSeries(seed, 7, 8, 26);
-  if (rising) pts.sort((a, b) => a - b);
-  const path = pts.map((y, i) => `${4 + i * 14},${34 - y}`).join(" ");
-  const [lx, ly] = [4 + 6 * 14, 34 - pts[6]];
-  return (
-    <svg viewBox="0 0 96 38" className="h-[38px] w-[96px] shrink-0" aria-hidden>
-      <polyline points={path} fill="none" stroke="#b9c2cc" strokeWidth="2" strokeLinecap="round" />
-      <circle cx={lx} cy={ly} r="3.5" fill="#6b7280" />
-    </svg>
-  );
-}
+import { fmtRelative } from "../../_lib/display/format";
 
 const RANK_COLOR = ["text-heat-red", "text-heat-orange", "text-heat-gold"];
 
@@ -42,7 +19,7 @@ export function HotView() {
     loadHot().then((r) => {
       if (cancelled) return;
       if (r) {
-        setTopics([...r.items].sort((a, b) => heatOf(b) - heatOf(a)).map((t, i) => ({ ...t, rank: i + 1 })));
+        setTopics([...r.items].sort((a, b) => a.rank - b.rank));
       } else {
         setError("热点榜接口暂不可用，请稍后再试");
       }
@@ -57,7 +34,7 @@ export function HotView() {
     <div>
       <header className="mb-7">
         <h1 className="text-[26px] font-extrabold text-ink">AI 热点榜</h1>
-        <p className="mt-1 text-[13px] text-mut">过去 48 小时最热的 AI 事件，按精选报道与讨论热度实时排序。</p>
+        <p className="mt-1 text-[13px] text-mut">AIHOT 当前聚合事件，严格保留接口返回排名。</p>
       </header>
 
       {/* NOW 当前热点 */}
@@ -78,8 +55,6 @@ export function HotView() {
       ) : (
         <ol className="flex flex-col gap-3">
           {topics.map((t) => {
-            const tag = heatTag(t);
-            const heat = heatOf(t);
             return (
               <li key={t.id} className="ah-card ah-card-hover p-5">
                 <div className="flex items-start gap-4">
@@ -91,7 +66,7 @@ export function HotView() {
                   {/* 标题 + 来源 */}
                   <div className="min-w-0 flex-1">
                     <a
-                      href={t.links.original}
+                      href={t.links.aihot || t.links.original}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[15.5px] leading-snug font-bold text-ink hover:text-brand"
@@ -102,30 +77,37 @@ export function HotView() {
                       <span className="truncate">{t.source?.name}</span>
                       <span aria-hidden>·</span>
                       <span>{fmtRelative(t.latestAt)}</span>
-                      {tag && (
-                        <span className="rounded-full bg-[var(--tag-beige-bg)] px-2 py-0.5 text-[11px] font-semibold text-[var(--tag-beige-ink)]">
-                          {tag}
-                        </span>
+                      {t.links.original && t.links.original !== t.links.aihot && (
+                        <>
+                          <span aria-hidden>·</span>
+                          <a
+                            href={t.links.original}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium text-brand hover:text-brand-strong"
+                          >
+                            原始报道
+                          </a>
+                        </>
                       )}
                     </div>
                   </div>
 
-                  {/* 趋势线 + 热度值 */}
-                  <div className="hidden items-center gap-5 sm:flex">
-                    <Sparkline seed={t.id} rising={heat >= 40} />
+                  {/* 来源数量来自 API；只用于展开来源名单，不作为热度值。 */}
+                  <div className="flex items-center">
                     <button
                       type="button"
                       onClick={() => setOpenSources(openSources === t.id ? null : t.id)}
-                      className="w-16 text-center"
+                      className="min-w-20 rounded-lg border border-line px-3 py-2 text-center hover:border-brand/30"
                       title="点击查看信源名单"
                     >
-                      <span className="block text-[22px] leading-none font-extrabold text-ink">{heat}</span>
-                      <span className="mt-1 block text-[11px] text-mut-2">热度值</span>
+                      <span className="block text-[18px] leading-none font-extrabold text-ink">{t.sourceCount}</span>
+                      <span className="mt-1 block text-[11px] text-mut-2">个信源</span>
                     </button>
                   </div>
                 </div>
 
-                {/* 信源名单（点击热度值展开） */}
+                {/* 信源名单（点击信源数展开） */}
                 {openSources === t.id && (
                   <div className="ah-dashed mt-4 flex flex-wrap gap-2 pt-4">
                     <span className="text-[12px] text-mut">信源名单：</span>
@@ -144,9 +126,7 @@ export function HotView() {
 
       {/* 榜单口径说明 */}
       <p className="mt-6 text-[12px] leading-relaxed text-mut-2">
-        榜单热度 = 精选信源权重 + 氛围票权重，并按 24 小时半衰期衰减；同一故事线的关联事件在榜单综合计算。标签含义：
-        <b className="text-mut">爆</b> 短时间密集报道、<b className="text-mut">新</b> 首报 6 小时内、
-        <b className="text-mut">发酵中</b> 信源仍在增加。点击右侧热度数字可查看信源名单。
+        排名由 AIHOT 热点接口直接提供；本站不根据报道数或讨论信号自行计算热度。点击右侧信源数可查看来源名单。
       </p>
     </div>
   );

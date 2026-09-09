@@ -174,8 +174,8 @@ python3 scripts/build_snapshot.py --out web/public/index.html
 #   --days      7                                周报窗口天数
 ```
 
-工作方式：分页抓取 `GET /api/public/items`（翻页参数用 `cursor`，**不是** `nextCursor`——
-后者会重复返回第一页，这是实战踩过的坑）→ 按北京时间组装日报（昨天 00:00 至生成时刻）/ 周报（以最新数据日期收尾的近 7 个完整自然日）
+工作方式：分页抓取稳定接口 `GET /api/v1/items`（请求用 `cursor`，下一页游标读取响应中的
+`page.nextCursor`）→ 按北京时间组装日报（昨天 00:00 至生成时刻）/ 周报（以最新数据日期收尾的近 7 个完整自然日）
 → 六版块分组、全局编号、北京时间人话时间 → 用模板渲染出单文件 HTML（数据内嵌 `const DATA = {...}`）。
 
 ### 3.2 在 Ubuntu runner 上运行的注意事项

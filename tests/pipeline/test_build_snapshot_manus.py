@@ -23,6 +23,34 @@ FIXTURE_FEED = os.path.join(os.path.dirname(__file__), "..", "fixtures", "manus"
 TAXONOMY = os.path.join(PROJECT_ROOT, "config/taxonomy.json")
 
 
+class TestAIHotV1Normalization(unittest.TestCase):
+    def test_preserves_source_links_and_discovered_time_fallback(self):
+        item = build_snapshot.normalize_v1_item({
+            "id": "abc",
+            "title": "测试新闻",
+            "summary": None,
+            "source": {"name": "测试信源"},
+            "links": {
+                "aihot": "https://aihot.news/items/abc",
+                "original": "https://example.com/news",
+            },
+            "publishedAt": None,
+            "discoveredAt": "2026-09-09T01:02:03.000Z",
+            "category": None,
+            "selected": False,
+        })
+
+        self.assertEqual(item["source"], "测试信源")
+        self.assertEqual(item["url"], "https://example.com/news")
+        self.assertEqual(item["permalink"], "https://aihot.news/items/abc")
+        self.assertEqual(item["originalUrl"], "https://example.com/news")
+        self.assertEqual(item["aihotUrl"], "https://aihot.news/items/abc")
+        self.assertEqual(item["publishedAt"], "2026-09-09T01:02:03.000Z")
+        self.assertEqual(item["timeBasis"], "discovered")
+        built = build_snapshot.build_item(item, 1, build_snapshot.datetime.now(build_snapshot.BJ))
+        self.assertTrue(built["categoryUnclassified"])
+
+
 class TestLoadManusFeed(unittest.TestCase):
     def test_valid_feed_loads_with_sections_and_status(self):
         items, status = build_snapshot.load_manus_feed(FIXTURE_FEED, TAXONOMY,
@@ -176,7 +204,7 @@ class TestEndToEndWithMockedAPI(unittest.TestCase):
         build_snapshot.datetime = FixedDateTime
         old_hot = build_snapshot.fetch_hot_topics
         build_snapshot.fetch_hot_topics = lambda base: {"topics": []}
-        build_snapshot.fetch_items = lambda base, since: [dict(i) for i in api_items]
+        build_snapshot.fetch_items = lambda base, since, window="7d": [dict(i) for i in api_items]
         argv = sys.argv
         sys.argv = ["build_snapshot.py",
                     "--out", os.path.join(self.tmp, "index.html"),

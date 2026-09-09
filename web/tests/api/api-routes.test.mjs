@@ -7,9 +7,9 @@ test("built all/featured routes preserve filtering, normalization and failure re
   globalThis.fetch = async () => fail
     ? new Response("Unavailable", { status: 503 })
     : Response.json({ items: [
-      { id: "older", title: "Alpha", summary: "keyword", selected: true, source: "公众号：甲", publishedAt: "2026-08-20" },
-      { id: "newer", title: "Beta", selected: false, source: "媒体", publishedAt: "2026-08-21" },
-    ] });
+      { id: "older", title: "Alpha", summary: "keyword", selected: true, source: { name: "公众号：甲" }, links: { original: "https://example.com/a", aihot: "https://aihot.news/items/older" }, category: null, publishedAt: "2026-08-20", discoveredAt: "2026-08-20", score: 70, reason: null, originalTitle: null },
+      { id: "newer", title: "Beta", summary: null, selected: false, source: { name: "媒体" }, links: { original: "https://example.com/b", aihot: "https://aihot.news/items/newer" }, category: null, publishedAt: "2026-08-21", discoveredAt: "2026-08-21", score: null, reason: null, originalTitle: null },
+    ], page: { count: 2, hasMore: false, nextCursor: null } });
   // vinext 捕获导入时的 fetch，因此先安装替身再加载构建产物。
   const { default: worker } = await import("../../dist/server/index.js");
   const request = (path) => worker.fetch(new Request(`http://localhost${path}`), {}, {
@@ -20,6 +20,7 @@ test("built all/featured routes preserve filtering, normalization and failure re
     const data = await all.json();
     assert.deepEqual(data.items.map((it) => it.id), ["aihot:newer", "aihot:older"]);
     assert.deepEqual(data.items.map((it) => it.sourceType), ["aihot", "wechat"]);
+    assert.deepEqual(data.items.map((it) => it.categoryUnclassified), [true, true]);
     assert.deepEqual(data.tags, [{ tag: "行业动态", count: 2 }]);
     assert.equal(data.live, true);
     const featured = await request("/api/featured?q=KEYWORD&category=" + encodeURIComponent("行业动态"));

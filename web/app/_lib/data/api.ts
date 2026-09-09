@@ -53,7 +53,7 @@ export async function loadHot(): Promise<HotTopicsResponse | null> {
   }
 }
 
-/** 精选条目流（代理 /api/public/items，仅 selected，服务端过滤分类/关键词） */
+/** 精选条目流（代理 AIHOT /api/v1/items，仅 selected，服务端过滤分类/关键词） */
 export async function loadFeatured(category?: string | null, q?: string): Promise<NewsItem[]> {
   if (STATIC_SITE) {
     const snap = await loadSnapshot();
@@ -87,7 +87,10 @@ export async function loadAll(): Promise<AllFeedResponse | null> {
 
 /** 官方历史日报完整内容（含版块与条目），失败返回 null */
 export async function loadDailyReport(date: string): Promise<DailyReport | null> {
-  if (STATIC_SITE) return null;
+  if (STATIC_SITE) {
+    const snap = await loadSnapshot();
+    return snap?.dailyReports?.[date] || null;
+  }
   try {
     const data = await fetchJSON<{ report?: DailyReport }>(`${publicAsset("api/daily")}?date=${encodeURIComponent(date)}`);
     return data.report ?? null;
@@ -153,8 +156,13 @@ export async function loadCompanyOverview(): Promise<CompanyOverview | null> {
   return companyOverviewCache;
 }
 
-/** 从快照 daily+weekly 合并出精选条目池（按 id 去重，publishedAt 降序） */
+/** 从快照生成精选条目池；新版快照优先使用 featured，旧快照回退 daily+weekly。 */
 export function poolFromSnapshot(snap: Snapshot): NewsItem[] {
+  if (snap.featured?.length) {
+    return [...snap.featured].sort(
+      (a, b) => new Date(b.publishedAt || 0).getTime() - new Date(a.publishedAt || 0).getTime(),
+    );
+  }
   const seen = new Set<string>();
   const pool: NewsItem[] = [];
   for (const view of [snap.daily, snap.weekly]) {

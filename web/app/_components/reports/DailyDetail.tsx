@@ -8,7 +8,7 @@ import { ArrowRightIcon } from "../shared/icons";
 
 /** 日报条目轻量卡片：来源 chip + 标题（外链）+ 摘要（上游日报条目无 id/score/分类标签） */
 function ReportItemCard({ item }: { item: DailyReportItem }) {
-  const url = item.links?.original || item.links?.aihot;
+  const url = item.links?.aihot || item.links?.original;
   return (
     <article className="ah-card ah-card-hover p-5">
       <div className="mb-2.5 flex flex-wrap items-center gap-x-3 gap-y-1.5">
@@ -20,6 +20,16 @@ function ReportItemCard({ item }: { item: DailyReportItem }) {
           >
             {item.source.name}
           </span>
+        )}
+        {item.links?.original && item.links.original !== item.links.aihot && (
+          <a
+            href={item.links.original}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11.5px] font-medium text-brand hover:text-brand-strong"
+          >
+            原始报道
+          </a>
         )}
       </div>
       <h3 className="text-[16px] leading-snug font-bold text-ink">
@@ -45,24 +55,25 @@ function ReportItemCard({ item }: { item: DailyReportItem }) {
 
 /** 日报详情：VOL 期刊头 + 导语/快讯 + 版块分组条目卡片 */
 export function DailyDetail({ entry }: { entry: HistoryEntry }) {
-  const [report, setReport] = useState<Awaited<ReturnType<typeof loadDailyReport>>>(null);
-  const [loading, setLoading] = useState(true);
+  type LoadedReport = { date: string; report: Awaited<ReturnType<typeof loadDailyReport>> };
+  const [loaded, setLoaded] = useState<LoadedReport | null>(null);
 
   useEffect(() => {
     if (!entry.date) return;
     let cancelled = false;
-    setLoading(true);
     (async () => {
       const data = await loadDailyReport(entry.date);
       if (!cancelled) {
-        setReport(data);
-        setLoading(false);
+        setLoaded({ date: entry.date, report: data });
       }
     })();
     return () => {
       cancelled = true;
     };
   }, [entry.date]);
+
+  const loading = loaded?.date !== entry.date;
+  const report = loaded?.date === entry.date ? loaded.report : null;
 
   const dateIso = `${entry.date}T00:00:00Z`;
   const total = report

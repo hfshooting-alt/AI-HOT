@@ -126,12 +126,15 @@ export function AllAIView() {
     return [...map.entries()];
   }, [filtered]);
 
+  const hasManus = items.some((item) => item.id.startsWith("manus:"));
+  const unclassifiedCount = items.filter((item) => item.categoryUnclassified).length;
+
   return (
     <div>
       <header className="mb-6 flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="text-[26px] font-extrabold text-ink">全部 AI 动态</h1>
-          <p className="mt-1 text-[13px] text-mut">AI 相关资讯全量信息流 · 自动分类与打标签</p>
+          <p className="mt-1 text-[13px] text-mut">AI 相关资讯聚合流 · 支持来源、分类与搜索筛选</p>
         </div>
         <SearchToolbar
           q={q}
@@ -177,7 +180,8 @@ export function AllAIView() {
       )}
 
       <p className="mb-5 text-[12px] text-mut-2">
-        数据来源：AI HOT 开放 API + Manus 公众号爬取 · 时间为北京时间 · 摘要由 AI 生成，点击标题核对原文。
+        数据来源：AIHOT 开放 API{hasManus ? " + Manus 公众号采集" : ""} · 时间为北京时间 · 摘要由 AI 生成，点击标题核对原文。
+        {unclassifiedCount > 0 && ` 其中 ${unclassifiedCount} 条未获 AIHOT 分类，暂列泛行业新闻。`}
         {!live && " 实时接口暂不可用，当前仅展示快照数据。"}
       </p>
 

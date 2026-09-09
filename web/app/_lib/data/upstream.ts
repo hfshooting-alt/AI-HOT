@@ -9,7 +9,10 @@ export type UpstreamResult =
 export async function upstreamJSON(path: string): Promise<UpstreamResult> {
   try {
     const r = await fetch(AIHOT_BASE + path, {
-      headers: { accept: "application/json" },
+      headers: {
+        accept: "application/json",
+        "user-agent": "AI-HOT-dashboard/1.0 (+https://github.com/hfshooting-alt/AI-HOT)",
+      },
     });
     if (!r.ok) return { ok: false, status: r.status };
     return { ok: true, data: await r.json() };

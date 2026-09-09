@@ -141,6 +141,9 @@ class TestTenAm(unittest.TestCase):
         upstream = [{"id": f"api-{i}", "title": f"上游样本 {i}", "publishedAt": t,
             "url": f"https://example.com/api-{i}", "category": "industry", "summary": "上游摘要"}
             for i, t in enumerate([WINDOW["start"], WINDOW["end"], "2026-09-08T09:00:00+08:00"])]
+        upstream.extend({"id": f"api-extra-{i}", "title": f"窗口上游样本 {i}",
+            "publishedAt": "2026-09-09T08:00:00+08:00", "url": f"https://example.com/api-extra-{i}",
+            "category": "industry", "summary": "上游摘要"} for i in range(205))
         class FixedDateTime(datetime):
             @classmethod
             def now(cls, tz=None):
@@ -156,8 +159,9 @@ class TestTenAm(unittest.TestCase):
             self.assertEqual(build_snapshot.main(), 0)
         self.assertEqual(fetch.call_args.args[1], timestamp(WINDOW["start"]))
         snapshot = json.loads((self.root / "snapshot.json").read_text(encoding="utf-8"))
-        self.assertEqual(snapshot["daily"]["total"], 4)
+        self.assertEqual(snapshot["daily"]["total"], 209)
         self.assertEqual(snapshot["daily"]["range"]["endAt"], WINDOW["end"])
+        self.assertEqual(len(snapshot["all"]["items"]), 209)
         all_ids = [i["id"] for f in (self.root / "archive").glob("*.json")
                    for i in json.loads(f.read_text(encoding="utf-8"))["items"]]
         self.assertNotIn("api-1", all_ids)
@@ -171,6 +175,9 @@ class TestTenAm(unittest.TestCase):
         self.assertEqual(plan["collectionWindow"], WINDOW)
         self.assertIn("--ten-am", plan["stages"][0]["command"])
         self.assertIn("--window-date", plan["stages"][3]["command"])
+        self.assertIn("--api-window", plan["stages"][3]["command"])
+        api_window = plan["stages"][3]["command"].index("--api-window")
+        self.assertEqual(plan["stages"][3]["command"][api_window + 1], "24h")
         orchestration.run(self.root, END_DATE, ["discovery"], ten_am=True, execute=lambda _: 1)
         latest = self.root / "work/runs" / END_DATE / "ten-am/latest.json"
         self.assertTrue(latest.exists())

@@ -12,7 +12,7 @@
         [--days 7]
 
 流程:
-    1. 分页抓取 /api/public/items（扁平条目流，天然去重）
+    1. 分页抓取 /api/v1/items（扁平条目流，天然去重）
     2. 合并 Manus 公众号 feed（data/manus/current.json，只读消费；缺失/损坏/过期时降级）
     3. 历史归档（唯一数据源）：增量并集 upsert 进 data/archive/YYYY-MM-DD.json；
        定稿冻结前天及更早的归档（昨天保留开放，兜住迟到条目）；超 30 天滚动硬删
@@ -90,7 +90,7 @@ def week_vol_label(ws: date) -> str:
     """自然周期刊号，如「八月第2周」（归属起始周一所在月）。"""
     return f"{cn_num(ws.month)}月第{week_index_of(ws)}周"
 
-MAX_PAGES = 20  # 分页上限（每页 50 条），防止死循环
+MAX_PAGES = 50  # 分页上限（v1 每页 100 条），防止异常游标导致死循环
 
 DEFAULT_ARCHIVE_DAYS = 30  # 历史归档保留天数（滚动硬删）
 
@@ -458,29 +458,45 @@ def week_data_for_date(d: date, all_days: dict[str, dict], now_bj: datetime,
             **view}
 
 
-def fetch_items(api_base: str, since_bj: datetime) -> list[dict]:
-    """分页抓取 items，直到覆盖 since_bj 之前的条目或翻完为止。
+def normalize_v1_item(raw: dict) -> dict:
+    """把稳定 v1 条目映射到既有归档/前端结构，并保留 canonical 与原文链接。"""
+    source = raw.get("source") or {}
+    links = raw.get("links") or {}
+    published_at = raw.get("publishedAt") or raw.get("discoveredAt") or ""
+    return {
+        **raw,
+        "source": source.get("name") if isinstance(source, dict) else str(source),
+        "url": links.get("original") or links.get("aihot") or "",
+        "permalink": links.get("aihot") or links.get("original") or "",
+        "originalUrl": links.get("original") or "",
+        "aihotUrl": links.get("aihot") or "",
+        "publishedAt": published_at,
+        "discoveredAt": raw.get("discoveredAt") or "",
+        "timeBasis": "published" if raw.get("publishedAt") else "discovered",
+    }
 
-    注意：API 的翻页参数是 cursor（实测 nextCursor 会重复返回第一页）。
-    """
+
+def fetch_items(api_base: str, since_bj: datetime, window: str = "7d") -> list[dict]:
+    """按 AIHOT 稳定 v1 契约分页抓取公开全量流。"""
     items: list[dict] = []
     cursor = None
     for _ in range(MAX_PAGES):
-        params = {"limit": "50"}
+        params = {"mode": "all", "window": window, "by": "timeline", "limit": "100"}
         if cursor:
             params["cursor"] = cursor
-        url = f"{api_base}/api/public/items?{urllib.parse.urlencode(params)}"
-        with urllib.request.urlopen(url, timeout=30) as resp:
+        url = f"{api_base}/api/v1/items?{urllib.parse.urlencode(params)}"
+        request = urllib.request.Request(url, headers={
+            "Accept": "application/json",
+            "User-Agent": "AI-HOT-dashboard/1.0 (+https://github.com/hfshooting-alt/AI-HOT)",
+        })
+        with urllib.request.urlopen(request, timeout=30) as resp:
             data = json.loads(resp.read().decode("utf-8"))
         batch = data.get("items") or []
-        items.extend(batch)
-        if not data.get("hasNext") or not data.get("nextCursor"):
+        items.extend(normalize_v1_item(item) for item in batch)
+        page = data.get("page") or {}
+        if not page.get("hasMore") or not page.get("nextCursor"):
             break
-        cursor = data["nextCursor"]
-        # 本页最旧条目已早于窗口起点，无需继续翻页
-        oldest = min((i.get("publishedAt") or "" for i in batch), default="")
-        if oldest and to_bj(oldest) < since_bj:
-            break
+        cursor = page["nextCursor"]
     return items
 
 
@@ -488,18 +504,19 @@ def fetch_hot_topics(api_base: str) -> dict:
     """抓取 AI HOT 热点榜（/api/v1/hot-topics），失败返回空列表结构。"""
     url = f"{api_base}/api/v1/hot-topics"
     try:
-        with urllib.request.urlopen(url, timeout=30) as resp:
+        request = urllib.request.Request(url, headers={
+            "Accept": "application/json",
+            "User-Agent": "AI-HOT-dashboard/1.0 (+https://github.com/hfshooting-alt/AI-HOT)",
+        })
+        with urllib.request.urlopen(request, timeout=30) as resp:
             data = json.loads(resp.read().decode("utf-8"))
     except Exception as exc:  # noqa: BLE001
         print(f"热点榜抓取失败: {exc}", file=sys.stderr)
         return {"items": []}
 
     items = data.get("items", [])
-    for it in items:
-        # API 原始字段无 heat，用来源数 + 信号数作为热度值
-        it.setdefault("heat", (it.get("sourceCount") or 0) + (it.get("signalCount") or 0))
-    items.sort(key=lambda x: x.get("heat", 0), reverse=True)
-    return {"items": items}
+    items.sort(key=lambda x: x.get("rank", 9999))
+    return {"schemaVersion": data.get("schemaVersion", 1), "count": data.get("count", len(items)), "items": items}
 
 
 def to_bj(iso: str) -> datetime:
@@ -547,9 +564,15 @@ def build_item(raw: dict, num: int, today: datetime) -> dict:
         "source": source,
         "sourceType": source_type,
         "category": category,
+        "categoryUnclassified": not bool(raw.get("category")),
         "publishedAt": raw.get("publishedAt") or "",
+        "discoveredAt": raw.get("discoveredAt") or "",
+        "timeBasis": raw.get("timeBasis") or ("published" if raw.get("publishedAt") else "discovered"),
         "score": raw.get("score") if isinstance(raw.get("score"), (int, float)) else None,
         "selected": bool(raw.get("selected")) if "selected" in raw else None,
+        "aihotUrl": raw.get("aihotUrl") or raw.get("permalink") or "",
+        "originalUrl": raw.get("originalUrl") or raw.get("url") or "",
+        "reason": raw.get("reason") if isinstance(raw.get("reason"), str) else None,
         "mpName": raw.get("mpName") if "mpName" in raw else None,
         # AI 两级分类结果（id → label 展示结构）；未打标条目为 None，前端自然隐藏徽章
         "classification": (tag_news.to_display(TAG_TAXONOMY, raw["classification"])
@@ -702,6 +725,8 @@ def main() -> int:
     parser.add_argument("--archive-days", type=int, default=DEFAULT_ARCHIVE_DAYS,
                         help="历史归档保留天数（默认 30，滚动硬删）")
     parser.add_argument("--api-base", default="https://aihot.virxact.com")
+    parser.add_argument("--api-window", choices=("24h", "7d"), default="7d",
+                        help="AIHOT v1 滚动窗口；本地候选预览推荐 24h")
     parser.add_argument("--manus-json", default="data/manus/current.json",
                         help="Manus 规范化 feed（只读消费；缺失/损坏/过期时降级为仅 aihot 数据）")
     parser.add_argument("--manus-max-stale-days", type=int, default=MANUS_MAX_STALE_DAYS,
@@ -721,7 +746,7 @@ def main() -> int:
     window_start = timestamp(window["start"]) if window else None
     window_end = timestamp(window["end"]) if window else None
     try:
-        items = fetch_items(args.api_base, window_start or now_bj - timedelta(days=args.days + 2))
+        items = fetch_items(args.api_base, window_start or now_bj - timedelta(days=args.days + 2), args.api_window)
     except Exception as exc:  # noqa: BLE001 - 抓取失败给出可读错误
         print(f"抓取失败: {exc}", file=sys.stderr)
         return 1
@@ -843,11 +868,14 @@ def main() -> int:
         daily_view["vol"] = f"VOL.{window_end.year}-{window_end.month:02d}-{window_end.day:02d}"
 
     # 新版前端字段：精选 / 热点榜 / 全部 AI 动态 / 日报周报导航 / 分类标签
-    featured_pool = format_items(items[:200], now_bj)
+    # 定时十点快照应完整展示该 24 小时窗口；非窗口构建沿用旧版 200 条上限，
+    # 避免把整个历史归档一次性塞进前端。
+    current_items = [i for i in items if matching_item(window, i)] if window else items[:200]
+    featured_pool = format_items(current_items, now_bj)
     selected_featured = [it for it in featured_pool if it.get("selected")]
     featured_items = selected_featured[:50] if selected_featured else featured_pool[:50]
 
-    all_pool = format_items(items[:200], now_bj)
+    all_pool = format_items(current_items, now_bj)
     category_counts: dict[str, int] = {}
     for it in all_pool:
         category_counts[it["category"]] = category_counts.get(it["category"], 0) + 1

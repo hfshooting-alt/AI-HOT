@@ -1,21 +1,21 @@
-// 上游列表的公共分页逻辑。空页也算成功；后续页失败保留已获取的数据。
-import type { ItemsPage, NewsItem } from "../domain/types";
+// AIHOT v1 上游列表的公共分页逻辑。空页也算成功；后续页失败保留已获取的数据。
+import type { AIHotV1Item, ItemsPage } from "../domain/types";
 import type { UpstreamResult } from "./upstream";
 
 export async function fetchItemsPool(fetchJSON: (path: string) => Promise<UpstreamResult>) {
-  const items: NewsItem[] = [];
+  const items: AIHotV1Item[] = [];
   let cursor: string | undefined;
   let live = false;
   for (let i = 0; i < 3; i++) {
-    const params = new URLSearchParams({ limit: "50" });
+    const params = new URLSearchParams({ mode: "all", window: "7d", by: "timeline", limit: "100" });
     if (cursor) params.set("cursor", cursor);
-    const res = await fetchJSON(`/api/public/items?${params}`);
+    const res = await fetchJSON(`/api/v1/items?${params}`);
     if (!res.ok) break;
     live = true;
     const page = res.data as ItemsPage;
     items.push(...(page.items || []));
-    if (!page.hasNext || !page.nextCursor) break;
-    cursor = page.nextCursor;
+    if (!page.page?.hasMore || !page.page.nextCursor) break;
+    cursor = page.page.nextCursor;
   }
   return { items, live };
 }

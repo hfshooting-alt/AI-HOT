@@ -16,6 +16,7 @@ export function ArticleCard({ item, showSection = true }: { item: NewsItem; show
         <span className="inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-ink-2">
           <span className="size-1.5 rounded-full bg-ink-2" aria-hidden />
           {fmtClock(item.publishedAt) || item.timeText}
+          {item.timeBasis === "discovered" && <span className="font-normal text-mut-2">AIHOT 收录</span>}
         </span>
         <span
           className={`max-w-[260px] truncate rounded-full border px-2 py-0.5 text-[11.5px] ${
@@ -25,6 +26,16 @@ export function ArticleCard({ item, showSection = true }: { item: NewsItem; show
         >
           {item.source || "AI HOT"}
         </span>
+        {item.aihotUrl && (
+          <a
+            href={item.aihotUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] font-medium text-brand hover:underline"
+          >
+            AIHOT 收录页
+          </a>
+        )}
         {item.selected !== false && (
           <span className="inline-flex items-center gap-1 text-[11.5px] font-semibold text-brand">
             <span aria-hidden>★</span> 精选

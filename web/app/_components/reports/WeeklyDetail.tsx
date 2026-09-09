@@ -13,24 +13,25 @@ export function WeeklyDetail({ entry }: { entry: WeeklyNavEntry }) {
   const m = entry.url.match(/weekly\/(\d{4})-(\d{2})-(\d{2})/);
   const year = m ? m[1] : "";
   const weekStart = m ? `${m[1]}-${m[2]}-${m[3]}` : "";
-  const [journal, setJournal] = useState<Awaited<ReturnType<typeof loadWeeklyJournal>>>(null);
-  const [loading, setLoading] = useState(true);
+  type LoadedJournal = { weekStart: string; journal: Awaited<ReturnType<typeof loadWeeklyJournal>> };
+  const [loaded, setLoaded] = useState<LoadedJournal | null>(null);
 
   useEffect(() => {
     if (!weekStart) return;
     let cancelled = false;
-    setLoading(true);
     (async () => {
       const data = await loadWeeklyJournal(weekStart);
       if (!cancelled) {
-        setJournal(data);
-        setLoading(false);
+        setLoaded({ weekStart, journal: data });
       }
     })();
     return () => {
       cancelled = true;
     };
   }, [weekStart]);
+
+  const loading = loaded?.weekStart !== weekStart;
+  const journal = loaded?.weekStart === weekStart ? loaded.journal : null;
 
   /** 按北京日期分组（时间戳倒序） */
   const groups = useMemo(() => {
