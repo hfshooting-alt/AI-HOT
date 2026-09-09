@@ -24,7 +24,7 @@ npm --prefix web run dev
 
 每日任务按北京时间 **10:00 开始**，固定采集前一天 10:00（含）至当天 10:00（不含）的新闻；全部加工成功后更新仓库中的网页产物，并触发 GitHub Pages 重新部署。GitHub 定时调度可能延迟。`--date` 在默认十点模式下表示窗口结束日，旧自然日流程使用 `--window-mode calendar-day`。
 
-当前公开站点使用无后端静态模式，地址为 [https://hfshooting-alt.github.io/AI-HOT/](https://hfshooting-alt.github.io/AI-HOT/)。它读取仓库已有快照，不需要 Manus 或模型 API；在新的采集数据尚未生成时会继续展示现有快照。首次启用需要在仓库 Settings → Pages 将 Source 设为 **GitHub Actions**。
+当前公开站点使用无后端静态模式，地址为 [https://hfshooting-alt.github.io/AI-HOT/](https://hfshooting-alt.github.io/AI-HOT/)。它读取仓库已有快照，不需要 Manus 或模型 API；在新的采集数据尚未生成时会继续展示现有快照。仓库 Pages Source 已设为 **GitHub Actions**。
 
 | 命令 | 用途 |
 | --- | --- |
