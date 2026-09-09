@@ -22,12 +22,15 @@ npm --prefix web run dev
 
 自动更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。配置密钥后用 `python scripts/run_pipeline.py run` 执行采集、公司与产品库及融资表的整套更新，支持 `--resume`、`--stage` 和 `--no-promote`。详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)。
 
-每日任务按北京时间 **10:00 开始**，固定采集前一天 10:00（含）至当天 10:00（不含）的新闻；全部加工成功后更新仓库中的网页产物。GitHub 定时调度可能延迟；网页托管发布通道尚未启用。`--date` 在默认十点模式下表示窗口结束日，旧自然日流程使用 `--window-mode calendar-day`。
+每日任务按北京时间 **10:00 开始**，固定采集前一天 10:00（含）至当天 10:00（不含）的新闻；全部加工成功后更新仓库中的网页产物，并触发 GitHub Pages 重新部署。GitHub 定时调度可能延迟。`--date` 在默认十点模式下表示窗口结束日，旧自然日流程使用 `--window-mode calendar-day`。
+
+当前公开站点使用无后端静态模式，地址为 [https://hfshooting-alt.github.io/AI-HOT/](https://hfshooting-alt.github.io/AI-HOT/)。它读取仓库已有快照，不需要 Manus 或模型 API；在新的采集数据尚未生成时会继续展示现有快照。首次启用需要在仓库 Settings → Pages 将 Source 设为 **GitHub Actions**。
 
 | 命令 | 用途 |
 | --- | --- |
 | `npm --prefix web run dev` | 本地开发 |
 | `npm --prefix web run build` / `npm --prefix web start` | 生产构建 / 启动 |
+| `npm --prefix web run build:pages` | 生成 `web/dist/client` 静态站点；不访问付费 API |
 | `npm --prefix web test` | 构建及全部 Node 测试 |
 | `npm --prefix web run test:unit` | 来源、分页和设置服务测试 |
 | `python scripts/test_pipeline.py` | Python 离线回归，禁止真实网络/子进程 |

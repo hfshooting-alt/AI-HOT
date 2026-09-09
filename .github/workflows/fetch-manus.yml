@@ -79,7 +79,7 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: 更新 AI HOT 全链路数据 [skip ci]"
+          git commit -m "chore: 更新 AI HOT 全链路数据"
           git pull --rebase origin main
           git push
       - name: 保存不含正文与密钥的阶段状态

@@ -35,7 +35,8 @@
 | 上游 ID、来源、分类转换与排序 | `web/app/_lib/data/news-normalization.ts` |
 | 页面搜索筛选、列表与融资表切换 | `web/app/_components/views/FeaturedView.tsx`、`AllAIView.tsx` |
 | 公司全景入口与六类资讯导航 | `web/app/_components/news/ContentNavigator.tsx`、`CategoryTabs.tsx` |
-| 公司与产品 Overview 表格 | `web/app/_components/company/CompanyOverviewTable.tsx` |
+| 公司与产品 Overview 表格、排序分页与详情来源 | `web/app/_components/company/CompanyOverviewTable.tsx`、`CompanyDetailDrawer.tsx` |
+| GitHub Pages 静态构建与部署 | `scripts/build_pages.mjs`、`.github/workflows/deploy-pages.yml` |
 | 日报/周报导航 | `web/app/_components/views/DailyReportView.tsx` |
 | 日报/周报详情与加载、失败展示 | `web/app/_components/reports/` |
 | 配色、布局、公共新闻卡片 | `web/app/globals.css`、`web/app/_components/news/ArticleCard.tsx` |
@@ -53,7 +54,9 @@
 
 ## 验证
 
-2026-09-09 前端视觉升级：生产构建和本次变更文件 ESLint 通过；使用离线公司样例检查 1440px 桌面布局与 390px 手机布局，样例检查后删除，未进入正式数据。全仓库 typecheck 仍仅报告下述既有问题。
+2026-09-09 静态站点与公司库增强：公司表新增排序、24 条分页、完整档案抽屉和逐字段/逐文章来源；GitHub Pages 构建在 `/AI-HOT/` 子路径下通过浏览器检查，精选、全部动态、热点榜和日报均可离线读取现有快照。全仓库 TypeScript 检查已修复并通过；Pages 构建本身不调用付费 API。
+
+2026-09-09 前端视觉升级：生产构建和本次变更文件 ESLint 通过；使用离线公司样例检查 1440px 桌面布局与 390px 手机布局，样例检查后删除，未进入正式数据。
 
 2026-09-09 十点窗口验证：202 项 Python 离线测试、23 项 Node 测试及生产构建通过，新增覆盖跨年窗口、十点边界、UTC 换算、延迟启动、未知时间拒绝、三组跨日正文恢复、真实时间透传、上游入库/日报窗口一致性及旧模式运行隔离。网页托管部署未开启。
 
@@ -65,7 +68,7 @@
 
 2026-09-08 整理验证：169 项 Python 测试、23 项 Node 测试和生产构建通过。新增回归覆盖分页边界及构建后的全部/精选接口过滤、来源、排序、缓存和失败响应。融资 35 个函数的 AST 与整理前相同；日报与周报详情函数体保持一致。现有测试使用模拟接口；不代表真实付费服务端到端验证。
 
-基线 `9cec544` 与整理后均存在以下静态检查问题：`api.ts` 周报分类的 `catLabel` 可选性不一致；Cloudflare 的 `cloudflare:workers`、`Fetcher`、`D1Database` 声明缺失；日报与周报详情的 effect 同步更新 loading 触发 React lint。`npm --prefix web run typecheck` 和相关 lint 尚未全绿。这些问题已在独立原始代码目录复现，本次保留运行逻辑，也未关闭检查规则。
+基线 `9cec544` 曾存在的 TypeScript 问题已修复：周报分类补齐 `catLabel`，Cloudflare/Vite 环境声明补齐，D1 示例导入路径已更正。日报与周报详情的 effect 同步更新 loading 仍属于既有 React lint 告警；本次没有关闭规则。
 
 依赖版本与两份锁文件保持不变。Python `scripts/requirements.txt` 延续现有工作流的依赖范围；尚未建立完整的 Python 版本锁定。
 

@@ -73,6 +73,10 @@ export interface Snapshot {
   weekly: DigestView;
   history: HistoryEntry[];
   weeklyNav: WeeklyNavEntry[];
+  /** 静态托管降级数据；Pages 无服务端 API 时直接读取。 */
+  featured?: NewsItem[];
+  hot?: Partial<HotTopicsResponse> & { items: HotTopic[] };
+  all?: AllFeedResponse;
 }
 
 /** /api/daily 上游日报条目（无 id/score/分类标签） */

@@ -12,6 +12,14 @@ import type {
   WeeklyJournal,
 } from "../domain/types";
 
+/** 兼容站点根目录与 GitHub Pages 的 /AI-HOT/ 子路径。 */
+function publicAsset(path: string): string {
+  const base = import.meta.env.BASE_URL || "/";
+  return `${base}${path.replace(/^\//, "")}`;
+}
+
+const STATIC_SITE = import.meta.env.VITE_STATIC_SITE === "true";
+
 async function fetchJSON<T>(url: string): Promise<T> {
   const r = await fetch(url, { headers: { accept: "application/json" } });
   if (!r.ok) throw new Error(`HTTP ${r.status} for ${url}`);
@@ -21,7 +29,7 @@ async function fetchJSON<T>(url: string): Promise<T> {
 /** 构建时生成的快照数据（精选流 / 日报周报索引的数据源） */
 export async function loadSnapshot(): Promise<Snapshot | null> {
   try {
-    return await fetchJSON<Snapshot>("/snapshot.json");
+    return await fetchJSON<Snapshot>(publicAsset("snapshot.json"));
   } catch {
     return null;
   }
@@ -29,35 +37,59 @@ export async function loadSnapshot(): Promise<Snapshot | null> {
 
 /** 热点榜（代理 /api/v1/hot-topics，60s 服务端缓存） */
 export async function loadHot(): Promise<HotTopicsResponse | null> {
+  if (STATIC_SITE) {
+    const snap = await loadSnapshot();
+    return snap?.hot ? { schemaVersion: snap.hot.schemaVersion ?? 1, count: snap.hot.count ?? snap.hot.items.length, items: snap.hot.items } : null;
+  }
   try {
-    return await fetchJSON<HotTopicsResponse>("/api/hot");
+    return await fetchJSON<HotTopicsResponse>(publicAsset("api/hot"));
   } catch {
-    return null;
+    const snap = await loadSnapshot();
+    return snap?.hot ? {
+      schemaVersion: snap.hot.schemaVersion ?? 1,
+      count: snap.hot.count ?? snap.hot.items.length,
+      items: snap.hot.items,
+    } : null;
   }
 }
 
 /** 精选条目流（代理 /api/public/items，仅 selected，服务端过滤分类/关键词） */
 export async function loadFeatured(category?: string | null, q?: string): Promise<NewsItem[]> {
+  if (STATIC_SITE) {
+    const snap = await loadSnapshot();
+    return snap?.featured || (snap ? poolFromSnapshot(snap) : []);
+  }
   const params = new URLSearchParams();
   if (category) params.set("category", category);
   if (q) params.set("q", q);
-  const data = await fetchJSON<{ items: NewsItem[]; live: boolean }>(`/api/featured?${params}`);
-  return data.items || [];
+  try {
+    const data = await fetchJSON<{ items: NewsItem[]; live: boolean }>(`${publicAsset("api/featured")}?${params}`);
+    return data.items || [];
+  } catch {
+    const snap = await loadSnapshot();
+    return snap?.featured || (snap ? poolFromSnapshot(snap) : []);
+  }
 }
 
 /** 全部 AI 动态（聚合条目 + 分类标签统计） */
 export async function loadAll(): Promise<AllFeedResponse | null> {
+  if (STATIC_SITE) {
+    const snap = await loadSnapshot();
+    return snap?.all || null;
+  }
   try {
-    return await fetchJSON<AllFeedResponse>("/api/all");
+    return await fetchJSON<AllFeedResponse>(publicAsset("api/all"));
   } catch {
-    return null;
+    const snap = await loadSnapshot();
+    return snap?.all || null;
   }
 }
 
 /** 官方历史日报完整内容（含版块与条目），失败返回 null */
 export async function loadDailyReport(date: string): Promise<DailyReport | null> {
+  if (STATIC_SITE) return null;
   try {
-    const data = await fetchJSON<{ report?: DailyReport }>(`/api/daily?date=${encodeURIComponent(date)}`);
+    const data = await fetchJSON<{ report?: DailyReport }>(`${publicAsset("api/daily")}?date=${encodeURIComponent(date)}`);
     return data.report ?? null;
   } catch {
     return null;
@@ -67,11 +99,11 @@ export async function loadDailyReport(date: string): Promise<DailyReport | null>
 /** 周报期刊数据（public/weekly/{weekStart}.json），classification 归一化为前端格式 */
 export async function loadWeeklyJournal(weekStart: string): Promise<WeeklyJournal | null> {
   try {
-    const data = await fetchJSON<WeeklyJournal>(`/weekly/${encodeURIComponent(weekStart)}.json`);
+    const data = await fetchJSON<WeeklyJournal>(publicAsset(`weekly/${encodeURIComponent(weekStart)}.json`));
     data.items = (data.items || []).map((it) => {
       const raw = it.classification as { category?: string } | undefined;
       return raw?.category
-        ? { ...it, classification: { ...it.classification, cat: raw.category } }
+        ? { ...it, classification: { ...it.classification, cat: raw.category, catLabel: it.classification?.catLabel || raw.category } }
         : it;
     });
     return data;
@@ -85,7 +117,7 @@ export async function fetchItemsPage(cursor?: string, limit = 50): Promise<Items
   try {
     const params = new URLSearchParams({ limit: String(limit) });
     if (cursor) params.set("cursor", cursor);
-    return await fetchJSON<ItemsPage>(`/api/items?${params}`);
+    return await fetchJSON<ItemsPage>(`${publicAsset("api/items")}?${params}`);
   } catch {
     return null;
   }
@@ -98,7 +130,7 @@ let fundingTableLoaded = false;
 export async function loadFundingTable(): Promise<FundingTable | null> {
   if (fundingTableLoaded) return fundingTableCache;
   try {
-    fundingTableCache = await fetchJSON<FundingTable>("/funding-table.json");
+    fundingTableCache = await fetchJSON<FundingTable>(publicAsset("funding-table.json"));
   } catch {
     fundingTableCache = null;
   }
@@ -113,7 +145,7 @@ let companyOverviewLoaded = false;
 export async function loadCompanyOverview(): Promise<CompanyOverview | null> {
   if (companyOverviewLoaded) return companyOverviewCache;
   try {
-    companyOverviewCache = await fetchJSON<CompanyOverview>("/company-overview.json");
+    companyOverviewCache = await fetchJSON<CompanyOverview>(publicAsset("company-overview.json"));
   } catch {
     companyOverviewCache = null;
   }

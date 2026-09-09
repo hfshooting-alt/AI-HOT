@@ -1,8 +1,12 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import type { CompanyFieldEvidence, CompanyOverview, CompanyProfile } from "../../_lib/domain/types";
 import type { DimSelection } from "../news/TagFilterBar";
+import { CompanyDetailDrawer } from "./CompanyDetailDrawer";
+
+const PAGE_SIZE = 24;
+type SortKey = "recent" | "name" | "sources" | "products";
 
 const COLUMNS: { key: keyof CompanyProfile; label: string; cellClass: string }[] = [
   { key: "company_name", label: "公司", cellClass: "sticky-col w-[190px]" },
@@ -87,7 +91,7 @@ function MissingValue() {
   return <span className="text-mut-2">未披露</span>;
 }
 
-function MobileCompanyCard({ rec }: { rec: CompanyProfile }) {
+function MobileCompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () => void }) {
   const industry = rec.dims?.["行业"];
   const region = rec.dims?.["国家/地区"];
   const detailRows: { label: string; key: string; value: string | null }[] = [
@@ -158,7 +162,21 @@ function MobileCompanyCard({ rec }: { rec: CompanyProfile }) {
           ))}
         </dl>
       </details>
+      <button type="button" onClick={onOpen} className="w-full border-t border-line px-4 py-3 text-left text-[12px] font-semibold text-brand hover:bg-brand-softer">
+        查看完整档案与全部来源
+      </button>
     </article>
+  );
+}
+
+function Pagination({ page, totalPages, onChange }: { page: number; totalPages: number; onChange: (page: number) => void }) {
+  if (totalPages <= 1) return null;
+  return (
+    <nav className="mt-5 flex items-center justify-center gap-2" aria-label="公司列表分页">
+      <button type="button" disabled={page === 1} onClick={() => onChange(page - 1)} className="rounded-lg border border-line bg-surface px-3 py-1.5 text-[12px] text-ink-2 hover:border-brand/35 disabled:cursor-not-allowed disabled:opacity-40">上一页</button>
+      <span className="px-2 text-[12px] text-mut">{page} / {totalPages}</span>
+      <button type="button" disabled={page === totalPages} onClick={() => onChange(page + 1)} className="rounded-lg border border-line bg-surface px-3 py-1.5 text-[12px] text-ink-2 hover:border-brand/35 disabled:cursor-not-allowed disabled:opacity-40">下一页</button>
+    </nav>
   );
 }
 
@@ -167,10 +185,27 @@ export function CompanyOverviewTable({ overview, dimSel, q }: {
   dimSel: DimSelection;
   q: string;
 }) {
-  const rows = useMemo(
+  const [sortKey, setSortKey] = useState<SortKey>("recent");
+  const [pagination, setPagination] = useState({ key: "", page: 1 });
+  const [selectedCompany, setSelectedCompany] = useState<CompanyProfile | null>(null);
+  const filteredRows = useMemo(
     () => overview.companies.filter((record) => matches(record, dimSel, q)),
     [overview, dimSel, q],
   );
+  const rows = useMemo(() => {
+    const sorted = [...filteredRows];
+    if (sortKey === "name") sorted.sort((a, b) => a.company_name.localeCompare(b.company_name, "zh-CN"));
+    else if (sortKey === "sources") sorted.sort((a, b) => b.sourceArticles.length - a.sourceArticles.length || b.lastSeenAt.localeCompare(a.lastSeenAt));
+    else if (sortKey === "products") sorted.sort((a, b) => b.product_names.length - a.product_names.length || b.lastSeenAt.localeCompare(a.lastSeenAt));
+    else sorted.sort((a, b) => b.lastSeenAt.localeCompare(a.lastSeenAt));
+    return sorted;
+  }, [filteredRows, sortKey]);
+  const paginationKey = `${q}\u0000${JSON.stringify(dimSel)}\u0000${sortKey}`;
+  const requestedPage = pagination.key === paginationKey ? pagination.page : 1;
+  const totalPages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
+  const page = Math.min(requestedPage, totalPages);
+  const visibleRows = rows.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const changePage = (nextPage: number) => setPagination({ key: paginationKey, page: nextPage });
   const generatedDate = new Date(overview.generatedAt);
   const generatedAt = overview.generatedAt && !Number.isNaN(generatedDate.getTime())
     ? new Intl.DateTimeFormat("zh-CN", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }).format(generatedDate)
@@ -190,15 +225,26 @@ export function CompanyOverviewTable({ overview, dimSel, q }: {
             当前显示 {rows.length} / {overview.stats.companiesTotal} 家公司；带来源标记的字段可直接核对原文
           </p>
         </div>
-        <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-mut-2">
-          <span>更新于 {generatedAt}</span>
-          <span>{overview.stats.articlesComplete} 篇已处理</span>
-          {overview.stats.articlesDeferred > 0 && <span>{overview.stats.articlesDeferred} 篇待后续批次</span>}
+        <div className="flex flex-col items-start gap-2 sm:items-end">
+          <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-mut-2">
+            <span>更新于 {generatedAt}</span>
+            <span>{overview.stats.articlesComplete} 篇已处理</span>
+            {overview.stats.articlesDeferred > 0 && <span>{overview.stats.articlesDeferred} 篇待后续批次</span>}
+          </div>
+          <label className="flex items-center gap-2 text-[11px] text-mut">
+            排序
+            <select value={sortKey} onChange={(event) => setSortKey(event.target.value as SortKey)} className="rounded-lg border border-line bg-surface px-2.5 py-1.5 text-[12px] font-medium text-ink-2 outline-none focus:border-brand">
+              <option value="recent">最近更新</option>
+              <option value="name">公司名称</option>
+              <option value="sources">报道数量</option>
+              <option value="products">产品数量</option>
+            </select>
+          </label>
         </div>
       </div>
 
       <div className="grid gap-3 md:hidden">
-        {rows.map((rec) => <MobileCompanyCard key={rec.id} rec={rec} />)}
+        {visibleRows.map((rec) => <MobileCompanyCard key={rec.id} rec={rec} onOpen={() => setSelectedCompany(rec)} />)}
       </div>
 
       <div className="ah-card ah-scroll hidden max-h-[72vh] overflow-auto md:block">
@@ -216,7 +262,7 @@ export function CompanyOverviewTable({ overview, dimSel, q }: {
             </tr>
           </thead>
           <tbody>
-            {rows.map((rec) => (
+            {visibleRows.map((rec) => (
               <tr key={rec.id} className="group border-b border-line-2/70 align-top last:border-b-0 hover:bg-[#f5faf9]">
                 {COLUMNS.map((col) => {
                   const key = String(col.key);
@@ -233,6 +279,7 @@ export function CompanyOverviewTable({ overview, dimSel, q }: {
                             <span key={item} className="rounded-full bg-brand-soft px-2 py-0.5 text-[10px] font-medium text-brand-strong">{item}</span>
                           ))}
                         </div>
+                        <button type="button" onClick={() => setSelectedCompany(rec)} className="mt-2 text-[10px] font-bold text-brand hover:underline">查看完整档案</button>
                       </td>
                     );
                   }
@@ -250,9 +297,12 @@ export function CompanyOverviewTable({ overview, dimSel, q }: {
         </table>
       </div>
 
+      <Pagination page={page} totalPages={totalPages} onChange={changePage} />
+
       <footer className="mt-7 border-t border-line pt-4 text-center text-[11px] leading-relaxed text-mut-2">
         缺失信息保留为“未披露” · 同名与别名按确定性规则合并 · {overview.coverageNote}
       </footer>
+      {selectedCompany && <CompanyDetailDrawer company={selectedCompany} onClose={() => setSelectedCompany(null)} />}
     </section>
   );
 }

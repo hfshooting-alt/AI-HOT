@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "node ../scripts/vinext.mjs dev",
     "build": "node ../scripts/vinext.mjs build",
+    "build:pages": "node ../scripts/build_pages.mjs",
     "start": "node ../scripts/vinext.mjs start",
     "test": "node ../scripts/vinext.mjs build && node --test tests/frontend/*.test.mjs tests/api/*.test.mjs tests/settings/test_settings_server.mjs",
     "test:unit": "node --test tests/frontend/source-kind.test.mjs tests/api/items-pool.test.mjs tests/settings/test_settings_server.mjs",

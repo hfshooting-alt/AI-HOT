@@ -44,6 +44,7 @@ export default defineConfig(async () => {
   const { cloudflare } = await import("@cloudflare/vite-plugin");
 
   return {
+    base: process.env.GITHUB_PAGES === "true" ? "/AI-HOT/" : "/",
     // host:true 同时监听 IPv4/IPv6（Windows 本地开发默认仅绑 ::1，浏览器走 IPv4 时无法访问）
     server: {
       host: true,

@@ -1,4 +1,4 @@
-> 2026-09-08 目录更新：当前前端工程根为 `web/`，构建产物为 `web/dist/`，托管配置为 `web/.openai/hosting.json`。下文涉及平台发布时，先按该工程根目录配置；本次目录整理没有执行重新部署。
+> 2026-09-09 当前实现：`.github/workflows/deploy-pages.yml` 在 main 每次提交后执行类型检查和 `npm --prefix web run build:pages`，上传 `web/dist/client`（包含 `.nojekyll`）并部署到 `https://hfshooting-alt.github.io/AI-HOT/`。静态模式直接读取 `web/public` 的快照，不请求本站 `/api/*`，因此没有 Manus/模型 API 也能展示现有数据。每日采集成功提交数据后会自然触发该工作流。首次部署前需在仓库 Settings → Pages 将 Source 设为 **GitHub Actions**。下文的 WadeLiuAstro/08:00 内容是历史案例，不是当前仓库配置。
 
 # 定时生成静态快照 → 自动部署到 GitHub Pages · 操作手册
 

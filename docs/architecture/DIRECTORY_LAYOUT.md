@@ -26,12 +26,13 @@
 npm --prefix web ci
 npm --prefix web run dev
 npm --prefix web test
+npm --prefix web run build:pages
 python -m pip install -r scripts/requirements.txt
 python -m unittest discover -s tests -p "test_*.py"
 python scripts/funding_table.py --selftest
 ```
 
-也可进入 `web/` 后使用 `npm run dev` 等原生命令。生产构建输出 `web/dist/`；部署工具的工程根目录设置为 `web/`。
+也可进入 `web/` 后使用 `npm run dev` 等原生命令。生产构建输出 `web/dist/`；GitHub Pages 上传 `web/dist/client/`，由 `scripts/build_pages.mjs` 校验首页并补充 `.nojekyll` 与 `404.html`。
 
 环境变量样例为 `config/env.example`，本地密钥仍写仓库根 `.env`，由前端启动工具、Python 和设置服务共用。根 `.env` 被忽略，不提交。
 
