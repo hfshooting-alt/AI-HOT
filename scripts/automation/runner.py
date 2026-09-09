@@ -68,7 +68,7 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
         "discovery": script("manus_source/runner.py", "--date", date, *(["--resume"] if resume else [])),
         "content": script("manus_source/content_phase.py", "--date", date),
         "feed": script("build_manus_feed.py", "--date", date, "--data-dir", out("data/manus")),
-        "snapshot": script("build_snapshot.py", "--out", out("web/public/index.html"),
+        "snapshot": script("build_snapshot.py", "--out", workspace / "legacy-index.html",
                            "--snapshot-json", out("web/public/snapshot.json"),
                            "--history-dir", out("web/public/history"), "--weekly-dir", out("web/public/weekly"),
                            "--archive-dir", out("data/archive"), "--tag-cache", out("data/cache/tag_cache.json"),
@@ -92,7 +92,7 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
         commands["overview"].extend(("--work-dir", str(root / "work/manus/ten-am")))
         commands["funding"].extend(("--work-dir", str(root / "work/manus/ten-am")))
     if source_mode == "aihot-only":
-        commands["snapshot"].append("--no-tags")
+        commands["snapshot"].extend(("--no-tags", "--exclude-wechat"))
     return commands
 
 

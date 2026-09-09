@@ -1,4 +1,4 @@
-// 全部 AI 动态视图：aihot 实时流 + 快照（含 Manus 公众号爬取）合并信息流
+// 全部 AI 动态视图：AIHOT 实时流 + 当前快照合并信息流
 // 支持：新 6 类分类 Tab + 维度标签筛选 + 来源筛选（一手信源/资讯/推文/公众号）+ 按来源/标题/摘要搜索
 "use client";
 
@@ -35,11 +35,12 @@ export function AllAIView() {
   /** 融资表格（构建产物）：null 且 ready 时回退卡片流 */
   const [fundingTable, setFundingTable] = useState<FundingTable | null>(null);
   const [fundingReady, setFundingReady] = useState(false);
+  const [snapshotGeneratedAt, setSnapshotGeneratedAt] = useState("");
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      // 快照池（含 Manus 公众号条目）+ aihot 实时流合并
+      // 快照池 + AIHOT 实时流合并
       const snap = await loadSnapshot();
       const base = snap ? poolFromSnapshot(snap) : [];
       const all = await loadAll();
@@ -50,6 +51,7 @@ export function AllAIView() {
         setLive(all.live);
       }
       if (cancelled) return;
+      setSnapshotGeneratedAt(snap?.daily.generatedAt || "");
       setItems(merged);
       setLoading(false);
     })();
@@ -80,7 +82,11 @@ export function AllAIView() {
 
   /** 融资动态表格模式：分类声明 table 且构建产物有公司行（缺失/空表回退卡片流） */
   const wantTable = categoryDisplay(tag) === "table";
-  const tableMode = wantTable && (fundingTable?.companies?.length ?? 0) > 0;
+  const fundingGenerated = Date.parse(fundingTable?.generatedAt || "");
+  const snapshotGenerated = Date.parse(snapshotGeneratedAt);
+  const fundingStale = Number.isFinite(fundingGenerated) && Number.isFinite(snapshotGenerated)
+    && fundingGenerated + 24 * 60 * 60 * 1000 < snapshotGenerated;
+  const tableMode = wantTable && !fundingStale && (fundingTable?.companies?.length ?? 0) > 0;
   const tablePending = wantTable && !fundingReady;
 
   /** 当前类别的维度标签筛选（「全部」或无维度类别不显示；融资表格使用专属维度） */
@@ -178,6 +184,12 @@ export function AllAIView() {
         {unclassifiedCount > 0 && ` 其中 ${unclassifiedCount} 条未获 AIHOT 分类，暂列泛行业新闻。`}
         {!live && " 实时接口暂不可用，当前仅展示快照数据。"}
       </p>
+
+      {wantTable && fundingStale && (
+        <p className="ah-card mb-5 border-l-4 border-l-brand px-4 py-3 text-[12px] leading-relaxed text-mut">
+          结构化融资表等待模型更新，本轮先展示当前资讯流。
+        </p>
+      )}
 
       {loading || tablePending ? (
         <div className="flex flex-col gap-3.5">

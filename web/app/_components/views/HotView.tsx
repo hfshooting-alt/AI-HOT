@@ -34,7 +34,7 @@ export function HotView() {
     <div>
       <header className="mb-7">
         <h1 className="text-[26px] font-extrabold text-ink">AI 热点榜</h1>
-        <p className="mt-1 text-[13px] text-mut">AIHOT 当前聚合事件，严格保留接口返回排名。</p>
+        <p className="mt-1 text-[13px] text-mut">AIHOT 当前聚合事件，保留接口返回排名。</p>
       </header>
 
       {/* NOW 当前热点 */}
@@ -93,7 +93,7 @@ export function HotView() {
                     </div>
                   </div>
 
-                  {/* 来源数量来自 API；只用于展开来源名单，不作为热度值。 */}
+                  {/* 来源数量对应当前数据范围；只用于展开来源名单，不作为热度值。 */}
                   <div className="flex items-center">
                     <button
                       type="button"
@@ -126,7 +126,7 @@ export function HotView() {
 
       {/* 榜单口径说明 */}
       <p className="mt-6 text-[12px] leading-relaxed text-mut-2">
-        排名由 AIHOT 热点接口直接提供；本站不根据报道数或讨论信号自行计算热度。点击右侧信源数可查看来源名单。
+        排名由 AIHOT 热点接口直接提供；信源数对应当前启用的数据范围。点击右侧信源数可查看来源名单。
       </p>
     </div>
   );

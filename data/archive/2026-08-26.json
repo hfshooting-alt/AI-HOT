@@ -1,7 +1,7 @@
 {
  "date": "2026-08-26",
- "finalized": false,
- "finalizedAt": null,
+ "finalized": true,
+ "finalizedAt": "2026-09-09T16:58:43.453358+08:00",
  "updatedAt": "2026-08-27T18:32:09.945192+08:00",
  "items": [
   {

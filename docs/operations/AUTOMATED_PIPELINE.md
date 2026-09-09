@@ -23,7 +23,7 @@ python scripts/run_pipeline.py doctor --source-mode aihot-only
 python scripts/run_pipeline.py run --source-mode aihot-only --no-promote
 ```
 
-`aihot-only` 自动收敛为 `snapshot` 阶段，并传入 `--no-tags`，不会调用 Manus、模型或 Tavily。候选仍写入 `work/runs/`，方便先 review。省略 `--no-promote` 会更新仓库正式快照。当前项目按公司内部 AI 情报用途使用 AIHOT；若未来改为收费、客户交付、代理接口、公开副本或对外批量再分发，再重新核对授权范围。
+`aihot-only` 自动收敛为 `snapshot` 阶段，并传入 `--no-tags --exclude-wechat`，不会调用 Manus、模型或 Tavily。它保留 AIHOT 及其 RSS、官网、社区等非公众号信源，排除 AIHOT 返回的公众号条目、热点中的公众号主条目/来源名以及仓库已有 Manus feed；候选仍写入 `work/runs/`，方便先 review。省略 `--no-promote` 会更新仓库正式快照。当前项目按公司内部 AI 情报用途使用 AIHOT；若未来改为收费、客户交付、代理接口、公开副本或对外批量再分发，再重新核对授权范围。
 
 按 `config/env.example` 在根目录 `.env` 配置 Manus 与模型密钥。Tavily 搜索为可选。完成配置后：
 

@@ -73,3 +73,10 @@ test("navigation defaults to all news and exposes company overview as the second
   assert.match(shell, /panel\("company", <CompanyOverviewView \/>\)/);
   assert.doesNotMatch(shell, /FeaturedView|featured/);
 });
+
+test("stale funding output falls back to the refreshed news stream", async () => {
+  const view = await readFile(new URL("../../app/_components/views/AllAIView.tsx", import.meta.url), "utf8");
+  assert.match(view, /fundingStale/);
+  assert.match(view, /结构化融资表等待模型更新，本轮先展示当前资讯流/);
+  assert.match(view, /wantTable && !fundingStale/);
+});

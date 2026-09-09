@@ -476,6 +476,42 @@ def normalize_v1_item(raw: dict) -> dict:
     }
 
 
+def is_wechat_item(item: dict) -> bool:
+    """识别 AIHOT 或本地归档中的公众号条目。"""
+    source = str(item.get("source") or "")
+    source_type = str(item.get("sourceType") or "").lower()
+    item_id = str(item.get("id") or "")
+    urls = " ".join(str(item.get(key) or "") for key in
+                    ("url", "permalink", "originalUrl", "aihotUrl"))
+    return (source_type == "wechat"
+            or source.startswith(("公众号：", "微信公众号"))
+            or item_id.startswith(("wechat:", "manus:"))
+            or "mp.weixin.qq.com" in urls.lower())
+
+
+def without_wechat_topics(payload: dict) -> dict:
+    """保留 AIHOT 排名，仅移除公众号主条目与信源名。"""
+    result = dict(payload)
+    topics = []
+    for topic in payload.get("items") or []:
+        primary = {
+            "source": (topic.get("source") or {}).get("name") if isinstance(topic.get("source"), dict)
+                      else topic.get("source"),
+            "url": (topic.get("links") or {}).get("original"),
+        }
+        if is_wechat_item(primary):
+            continue
+        clean = dict(topic)
+        clean_names = [name for name in topic.get("sourceNames") or []
+                       if not str(name).startswith(("公众号：", "微信公众号"))]
+        clean["sourceNames"] = clean_names
+        clean["sourceCount"] = len(clean_names)
+        topics.append(clean)
+    result["items"] = topics
+    result["count"] = len(topics)
+    return result
+
+
 def fetch_items(api_base: str, since_bj: datetime, window: str = "7d") -> list[dict]:
     """按 AIHOT 稳定 v1 契约分页抓取公开全量流。"""
     items: list[dict] = []
@@ -738,6 +774,8 @@ def main() -> int:
                         help="打标签结果缓存（键含 taxonomy/prompt/模型版本）")
     parser.add_argument("--no-tags", action="store_true",
                         help="跳过 AI 打标签（本地调试无 key 时用）")
+    parser.add_argument("--exclude-wechat", action="store_true",
+                        help="排除 AIHOT 与本地归档中的公众号内容，并跳过 Manus feed")
     parser.add_argument("--window-date", help="只采集此前一日十点至此日十点的新增新闻；日报使用相同窗口")
     args = parser.parse_args()
 
@@ -753,6 +791,13 @@ def main() -> int:
     if not items:
         print("抓取结果为空，放弃生成", file=sys.stderr)
         return 1
+    if args.exclude_wechat:
+        before = len(items)
+        items = [item for item in items if not is_wechat_item(item)]
+        print(f"公众号过滤：AIHOT 抓取结果移除 {before - len(items)} 条，保留 {len(items)} 条非公众号内容")
+        if not items:
+            print("排除公众号后抓取结果为空，放弃生成", file=sys.stderr)
+            return 1
 
     # 按 publishedAt 降序，去重（同 id 保留最新）
     items.sort(key=lambda i: to_bj(i.get("publishedAt") or ""), reverse=True)
@@ -768,8 +813,13 @@ def main() -> int:
 
     # 合并 Manus 公众号 feed：只读最近一次成功文件，不调用不等待 Manus；
     # 保留标题与 URL 去重，feed 自带 summary/classification，本脚本不覆盖
-    wechat_items, mp_status = load_manus_feed(args.manus_json, args.taxonomy,
-                                              args.manus_max_stale_days)
+    if args.exclude_wechat:
+        wechat_items = []
+        mp_status = {"connected": False, "collector": "excluded", "degraded": False,
+                     "note": "本次仅使用 AIHOT 非公众号信源；公众号来源已按配置排除"}
+    else:
+        wechat_items, mp_status = load_manus_feed(args.manus_json, args.taxonomy,
+                                                  args.manus_max_stale_days)
     if wechat_items:
         seen_urls = {norm_url(i.get("url") or i.get("permalink") or "") for i in items}
         seen_titles = {(i.get("title") or "").strip().lower() for i in items}
@@ -803,6 +853,9 @@ def main() -> int:
     for date_str in kept_dates:
         day = _load_day_file(_day_file_path(args.archive_dir, date_str))
         if day:
+            if args.exclude_wechat:
+                day = dict(day)
+                day["items"] = [item for item in day.get("items") or [] if not is_wechat_item(item)]
             all_days[date_str] = day
 
     # 归档为唯一数据源：主页与历史页从同一池推导，天然一致
@@ -887,7 +940,8 @@ def main() -> int:
         "history": [day_nav_entry(all_days[d]) for d in sorted(all_days, reverse=True)],
         "weeklyNav": weekly_nav,
         # 新版单页前端字段
-        "hot": fetch_hot_topics(args.api_base),
+        "hot": without_wechat_topics(fetch_hot_topics(args.api_base))
+               if args.exclude_wechat else fetch_hot_topics(args.api_base),
         "all": {"items": all_pool, "tags": all_tags, "live": True},
         "dailyNav": build_daily_nav(all_days, weekly_nav, now_bj),
         "categories": ["模型", "产品", "行业", "论文", "教程", "观点"],

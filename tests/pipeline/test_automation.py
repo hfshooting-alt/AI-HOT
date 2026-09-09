@@ -183,7 +183,10 @@ class WorkspaceTest(unittest.TestCase):
         commands = runner.plan(self.root, self.root / "candidate", "2026-09-09",
                                ten_am=True, source_mode="aihot-only")
         self.assertIn("--no-tags", commands["snapshot"])
+        self.assertIn("--exclude-wechat", commands["snapshot"])
         self.assertIn("24h", commands["snapshot"])
+        out_path = Path(commands["snapshot"][commands["snapshot"].index("--out") + 1])
+        self.assertEqual(out_path, self.root / "candidate/legacy-index.html")
 
     def test_dry_run_is_read_only_and_never_executes(self):
         with patch.object(run_pipeline, "ROOT", self.root), patch.object(run_pipeline, "run") as run_mock:
@@ -203,6 +206,7 @@ class WorkspaceTest(unittest.TestCase):
         self.assertEqual(payload["sourceMode"], "aihot-only")
         self.assertEqual([s["stage"] for s in payload["stages"]], ["snapshot"])
         self.assertIn("--no-tags", payload["stages"][0]["command"])
+        self.assertIn("--exclude-wechat", payload["stages"][0]["command"])
 
     def test_invalid_candidate_is_not_published(self):
         with self.assertRaises((FileNotFoundError, ValueError)):

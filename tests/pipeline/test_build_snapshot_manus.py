@@ -50,6 +50,28 @@ class TestAIHotV1Normalization(unittest.TestCase):
         built = build_snapshot.build_item(item, 1, build_snapshot.datetime.now(build_snapshot.BJ))
         self.assertTrue(built["categoryUnclassified"])
 
+    def test_wechat_filter_covers_upstream_manus_and_hot_topic_sources(self):
+        self.assertTrue(build_snapshot.is_wechat_item({
+            "source": "公众号：测试账号", "url": "https://example.com/item"}))
+        self.assertTrue(build_snapshot.is_wechat_item({
+            "source": "其他", "url": "https://mp.weixin.qq.com/s?id=1"}))
+        self.assertTrue(build_snapshot.is_wechat_item({"id": "manus:abc"}))
+        self.assertFalse(build_snapshot.is_wechat_item({
+            "source": "OpenAI：官网动态（RSS）", "url": "https://openai.com/news"}))
+
+        hot = build_snapshot.without_wechat_topics({"count": 2, "items": [
+            {"rank": 1, "source": {"name": "OpenAI：官网动态（RSS）"},
+             "links": {"original": "https://openai.com/news"},
+             "sourceNames": ["OpenAI：官网动态（RSS）", "公众号：测试账号"], "sourceCount": 2},
+            {"rank": 2, "source": {"name": "公众号：测试账号"},
+             "links": {"original": "https://mp.weixin.qq.com/s?id=1"},
+             "sourceNames": ["公众号：测试账号"], "sourceCount": 1},
+        ]})
+        self.assertEqual(hot["count"], 1)
+        self.assertEqual(hot["items"][0]["rank"], 1)
+        self.assertEqual(hot["items"][0]["sourceNames"], ["OpenAI：官网动态（RSS）"])
+        self.assertEqual(hot["items"][0]["sourceCount"], 1)
+
 
 class TestLoadManusFeed(unittest.TestCase):
     def test_valid_feed_loads_with_sections_and_status(self):

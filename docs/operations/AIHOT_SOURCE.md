@@ -8,7 +8,7 @@
 - `GET /api/v1/hot-topics`：热点榜及信源数量；
 - `GET /api/v1/daily`：日报索引和日报正文。
 
-条目同时保留 AIHOT 收录页和原始报道链接。热点排名、信源数均直接采用 API 返回值，站点不自行推算热度。
+条目同时保留 AIHOT 收录页和原始报道链接。热点排名直接采用 API 返回值，站点不自行推算热度；`aihot-only` 排除公众号时，信源数同步改为过滤后的实际名单数量。
 
 ## 本地候选数据
 
@@ -21,7 +21,7 @@ node scripts/build_aihot_preview.mjs `
   --output work/aihot-preview/site/snapshot.json
 ```
 
-脚本强制输出到 `work/`，避免未经审核的数据被误提交。候选快照包括过去 24 小时全部动态、热点榜和最新日报；站点不再建立单独的精选数据集。
+脚本强制输出到 `work/`，避免未经审核的数据被误提交。候选快照包括过去 24 小时全部动态、热点榜和最新日报；站点不再建立单独的精选数据集。统一入口的 `aihot-only` 模式会额外排除 AIHOT 中的公众号条目和已有 Manus feed，只保留 RSS、官网、社区等非公众号来源。
 
 每日十点流水线会向 `build_snapshot.py` 传入 `--api-window 24h`，正常约 5 页即可覆盖当前数据量。只有人工重建历史时才使用 7 天窗口，避免日常运行做无用分页。
 
@@ -31,7 +31,7 @@ node scripts/build_aihot_preview.mjs `
 python scripts/run_pipeline.py run --source-mode aihot-only --no-promote
 ```
 
-该模式只执行 snapshot，自动跳过模型打标，并保留 24 小时窗口内的全部条目。GitHub Actions 手动运行也提供同名 `source_mode` 选项。
+该模式只执行 snapshot，自动跳过模型打标，并保留 24 小时窗口内的非公众号条目。GitHub Actions 手动运行也提供同名 `source_mode` 选项。
 
 ## 当前用途与处理方式
 

@@ -3,7 +3,7 @@
  "weekEnd": "2026-08-17",
  "volLabel": "八月第2周",
  "finalized": true,
- "generatedAt": "2026-08-27T10:32:10.592733+00:00",
+ "generatedAt": "2026-09-09T08:58:50.706593+00:00",
  "aiReport": null,
  "items": [
   {
@@ -244,57 +244,6 @@
    }
   },
   {
-   "id": "cmsmlho8005dmrohfoz27j6em",
-   "title": "千问开放平台上线：租房、寄快递、查理财等十余领域服务可对话办理",
-   "title_en": "租房、寄快递、查理财……在千问都能办了！",
-   "url": "https://mp.weixin.qq.com/s?__biz=MzYzNDE5MDEwMQ%3D%3D&mid=2247488345&idx=1&sn=ef4e57c9c9350f9238d90211eb2dd453",
-   "permalink": "https://aihot.virxact.com/items/cmsmlho8005dmrohfoz27j6em",
-   "source": "公众号：千问APP（阿里）",
-   "publishedAt": "2026-08-10T02:07:18.000Z",
-   "discoveredAt": "2026-08-10T02:11:05.907Z",
-   "summary": "千问开放平台今日上线，面向生态伙伴和开发者开放手机、PC和AI眼镜三类终端的服务接入，首批覆盖物流运输、房产居住、本地生活、理财、汽车等十多个领域。用户可在对话中@相关服务或点击\"圆点角标\"进入智能体，完成从咨询、推荐到下单的完整流程。平台支持标准化协议接入、一键授权与端到端调测，并提供账号、AI支付、订单接入等基础设施。",
-   "category": "ai-products",
-   "score": 73,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmsmlho8005dmrohfoz27j6em"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_model",
-     "issuer": "bigcorp"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "id": "cmsmizpgb02yerohf3bh8jesi",
-   "title": "我花了54个小时，做了一个可能更公平的AI大模型排行榜。",
-   "title_en": null,
-   "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647685059&idx=1&sn=a329fe9999ac2419470c7eca9a97acd3",
-   "permalink": "https://aihot.virxact.com/items/cmsmizpgb02yerohf3bh8jesi",
-   "source": "公众号：数字生命卡兹克",
-   "publishedAt": "2026-08-10T00:52:19.000Z",
-   "discoveredAt": "2026-08-10T01:01:09.010Z",
-   "summary": "作者耗时54小时开发并免费开放了一个聚合多家可信榜单的AI大模型综合排行榜LatentRank。该榜单采用Bradley-Terry成对比较算法，并加入先验限制小样本结果，以解决不同榜单规模、领先幅度和模型缺失带来的评分偏差。目前榜单前五名中，Opus 5超过Fable 5位居前列。",
-   "category": "ai-products",
-   "score": 61,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmsmizpgb02yerohf3bh8jesi"
-   },
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
    "id": "cmsmjglqx034prohfslczvkpb",
    "title": "OpenChamber：一个基于代理的开发环境",
    "title_en": null,
@@ -529,53 +478,6 @@
    }
   },
   {
-   "title": "Claude/Codex能跨会话传消息，我重构工作流",
-   "summary": "",
-   "source": "公众号：卡尔的AI沃茨",
-   "publishedAt": "2026-08-11T14:15:29.000Z",
-   "url": "https://mp.weixin.qq.com/s/rUw343tbzLgm2uWEAqizGg",
-   "id": "wechat:be85015a52ae",
-   "category": "模型发布/更新",
-   "sourceType": "wechat",
-   "mpName": "卡尔的AI沃茨",
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_model",
-     "issuer": "bigcorp"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "id": "cmspk9ofu02cbrojej28w43eh",
-   "title": "跨会话传消息后，Codex 和 Claude 如何重构 vibe coding 工作流",
-   "title_en": "这两天正在重构vibe coding工作流，codex和claude都能跨会话互传消息后，我就不用写交接文档，不用每一步都用git备份，完全能探索所有可行路径还不丢上下文。 以前对话中途有个新想法，我面临三种选择👇 1️⃣ 继续在当前对话聊，主线容易被带偏。 2️⃣ 重新开一个对话，又得把背景、进度和之前踩过的坑解释一遍。为了不让新对话失忆，我还要维护一份交接文档，把重要信息复制过去。 3️⃣把当前对话完整复制下来做一个新对话，也就是对话分支功能，这样就既不影响主线还可以尝试新想法。但仅限于新想法跟原来想法相差不大的情况，不然上下文还是会污染新想法的实现。 新功能跨Session传消息就是，Claude和Codex的新对话可以从之前的所有对话里面选择自己能用的消息。 那可以直接换一种工作方式了，不用把一个Session当成必须从头聊到尾的总对话，而是把每一次Agent任务都当成一条可以随时分叉的工作线。主对话负责目标和最终决策；遇到一个需要认真展开的新想法，就另外开一条分支对话，让它独立研究尝试和推演。等支线跑完，再让主对话读取它的完整记录，决定该用哪些结论。 比方说我最近在优化AI热点Skill ai news radar，中途想到是否要加一个新域名重新做定位。这种任务不是一句话能回答的，这时单开一条分支对话就很合适。能跨Session传消息首先就省掉了做大量重复交接文档的时间。新对话不用只依赖我临时写的总结，可以读取旧对话里的决策、失败尝试和执行结果。 Codex和Claude用了两种不同的实现方式。Codex是精确寻址。打开我们要给新对话读取的目标对话，从左上角三个点里复制会话ID，再告诉主任务：读取 ID 为 xxx 的分支对话，提取核心结论、做过的尝试和待决策项，然后更新当前计划。 Claude Code不支持id搜索，而是做了一个能搜索对话历史的工具，通过内置的session management 查找旧对话，所以关键是把线索说清楚。刚开始的时候说【找一下上次某某网站对话】，基本都是噪音。现在已经换成了【搜索ai news radar项目在8月10日前后的会话，主题是新域名和产品定位。列出候选会话的时间、标题和首条任务，我确认后再读取完整记录。】 有一个我踩过的坑，Claude Code桌面端搜索的是它当前能够访问的会话记录。网页端URL 后面的 `session_…` 不能直接当成ID来搜索用。 总的来说， 我现在的工作流就是， 用一个主对话守住方向， 十几个甚至几十个分支对话负责把每个值得追下去的念头，认真走一遍。",
-   "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247509276&idx=1&sn=675b64d514b1179c8f2362941144bbb4",
-   "permalink": "https://aihot.virxact.com/items/cmspk9ofu02cbrojej28w43eh",
-   "source": "公众号：卡尔的AI沃茨",
-   "publishedAt": "2026-08-11T14:15:07.000Z",
-   "discoveredAt": "2026-08-12T04:00:11.403Z",
-   "summary": "Codex 和 Claude 新增跨 Session 传消息功能后，新对话可从之前所有对话中选择可用消息，省去交接文档和 git 备份。作者据此重构工作流：主对话守住目标与决策，分支对话独立探索新想法，完成后由主对话读取完整记录。Codex 通过复制会话 ID 精确寻址，Claude Code 则用内置 session management 搜索对话历史，但桌面端只能搜索当前可访问的会话记录。",
-   "category": "tip",
-   "score": 72,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmspk9ofu02cbrojej28w43eh"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_other",
-     "issuer": "bigcorp"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
    "id": "cmsopyoum028vrohd4dgeksz9",
    "title": "统一 Radix 缓存：为混合模型前缀缓存构建单一树结构",
    "title_en": "Blog Unified Radix Cache： One Tree for Hybrid Model Prefix Caching Prefix caching reuses KV when requests share the same token prefix. Under full attention， once the KV for a shared prefix is computed， it remains valid as more tokens are appended. A later request wit… Zhangheng Huang， Ke Bao， Yi Zhang， Jialin Ouyang， Sicheng Pan",
@@ -621,27 +523,6 @@
     "tags": {
      "industry": "ai_model",
      "issuer": "other"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "title": "剥离昔日“现金牛”闲徕互娱,昆仑万维为AI信仰“充值”7.5亿",
-   "summary": "",
-   "sogouLink": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS0wJUuXmWDUZ_rOy14-oqoKCOFSsZMr2zFqXa8Fplpd9GZOgAEk19_1dCOwa7fb-JEVCKfZTDw99eAFfHTwMTCViEGIl4aHK_XIz2jBFbIZawgdhdois_sPzYHAMyWDZXekC-NU8izPhac78gIvFF0x_01wsfgk4Ajk80N1jW0ohPivw7yRp7PFy9-WjYq0a2vnd271K8fLws_43dHb76XfwdVqCwyPdzA..&%3Btype=2&%3Bquery=%E6%98%86%E4%BB%91%E4%B8%87%E7%BB%B4&%3Btoken=3897CD3903E672F09690CE7CF341A59E96BC0F3E6A7D8F86",
-   "source": "公众号：昆仑万维",
-   "publishedAt": "2026-08-11T13:23:48.000Z",
-   "url": "https://mp.weixin.qq.com/s?src=11&timestamp=1786613638&ver=6902&signature=hOsJJ0eHEqtI1e1kqOEbsMP9qSdWHV64mXhH1J0nZkvxcobsSLnsVOxRp*P*GmNqXnoQGc9IAvTHkttOhuzlu*U0SNW1t6rsay*ZCGCqb4m2EqTy2mC-Lev7I*RvWag7&new=1",
-   "id": "wechat:60df9ebfd04e",
-   "category": "技巧与观点",
-   "sourceType": "wechat",
-   "mpName": "昆仑万维",
-   "classification": {
-    "category": "bigtech",
-    "tags": {
-     "change_type": "business_line",
-     "company": "other"
     },
     "autoFallback": false,
     "autoFilled": []
@@ -694,122 +575,6 @@
    "classification": {
     "category": "paper",
     "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "id": "cmsogatbh0qdgrofwzm7gdk0a",
-   "title": "Ling-3.0-tiny 正式开源：1.3B 激活参数如何进入真实任务",
-   "title_en": "Ling-3.0-tiny 正式开源：让 1.3B 激活参数，进入真实任务",
-   "url": "https://mp.weixin.qq.com/s?__biz=MzkyODk2MDQwNw%3D%3D&mid=2247487491&idx=1&sn=fcb14aceb054f9a24e22525d3dae6fa0",
-   "permalink": "https://aihot.virxact.com/items/cmsogatbh0qdgrofwzm7gdk0a",
-   "source": "公众号：蚂蚁百灵（Ling）",
-   "publishedAt": "2026-08-11T09:20:00.000Z",
-   "discoveredAt": "2026-08-11T09:21:20.968Z",
-   "summary": "蚂蚁百灵开源 Ling-3.0-tiny，一款总参数 7.9B、推理时仅激活 1.3B 参数的原生混合推理模型，同步提供 BF16、FP8 和 INT4 三个版本。",
-   "category": "ai-models",
-   "score": 72,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmsogatbh0qdgrofwzm7gdk0a"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_model",
-     "issuer": "bigcorp"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "title": "37亿元入手,昆仑万维7.5亿元甩卖闲来麻将",
-   "summary": "",
-   "sogouLink": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS0wJUuXmWDUZ_rOy14-oqoKCOFSsZMr2zFqXa8Fplpd9D06BDd8K4Tdf1E9TQHY9WLV51h__UExFW_n8h4bGkLKM6KH72mC5pNoL9_lhH2En96hyVGC47CDRmg33BObNcSlou1U6jVKyJnM35RTPA-cH-hQZCvcPbyBM5zNJy_GHfaQX-b6eyLuRWUwQIdnl-O6mNgZJ56Ik5EddtKcCF4Vf_71bqkOtiw..&%3Btype=2&%3Bquery=%E6%98%86%E4%BB%91%E4%B8%87%E7%BB%B4&%3Btoken=3897CD3903E672F09690CE7CF341A59E96BC0F3E6A7D8F86",
-   "source": "公众号：昆仑万维",
-   "publishedAt": "2026-08-11T07:11:40.000Z",
-   "url": "https://mp.weixin.qq.com/s?src=11&timestamp=1786613638&ver=6902&signature=ekVDGBN9JC9ZmDCtBnZ8P*PZ3OLu9mZrFPLyTni-aqiGEXB*UkmZeEb09vowUkK0ep-B2MDZGRcTDeFSEN*scbZgmtBokDMUZQsAYHMM3WjRFnKeePtBiK7vjtWPx-9j&new=1",
-   "id": "wechat:ba28136366b9",
-   "category": "技巧与观点",
-   "sourceType": "wechat",
-   "mpName": "昆仑万维",
-   "classification": {
-    "category": "bigtech",
-    "tags": {
-     "change_type": "business_line",
-     "company": "other"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "title": "机器之心对话罗平|机器人是具身大模型的「用户」:超维动力如何打通从人类经验到机器人行动?",
-   "summary": "",
-   "sogouLink": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS0wJUuXmWDUZESb6mMDMUEqCOFSsZMr2zFqXa8Fplpd9FrmOjPsHe76Nmb9Xfd1v2IiePxRneF7B3a5N8cxIR_00Cr5Kg1u3vVxkYd__eQi8CFHdIz6UZ1OQSb_WGVdJaGq8FAa6JwxgX9hS3H0Kx5Qlv1GtPKsAoBzhwIz3VnoqxaKHR2ysItYQlBM0RaD1vR38bM2nE-UhNnUEAj0_RswC2Qmj7RgGwQ..&%3Btype=2&%3Bquery=%E6%9C%BA%E5%99%A8%E4%B9%8B%E5%BF%83&%3Btoken=389767C603E672F09690CE7CF341A59E96BC0F3E6A7D8F71",
-   "source": "公众号：机器之心",
-   "publishedAt": "2026-08-11T06:01:35.000Z",
-   "url": "https://mp.weixin.qq.com/s?src=11&timestamp=1786613617&ver=6902&signature=0tfr7QJSfAD8uRnqD7WWNeBfvDORtrrPVQy-USAn0kICC7FAsHkfbJeLI*O8fwM*MFHQb2EOOH-YUGCtY4*BalsQvgEz*s8R0XMOJeMoqcanmUAv6MK1eYe51Pd8t*oe&new=1",
-   "id": "wechat:a0b90b61e393",
-   "category": "模型发布/更新",
-   "sourceType": "wechat",
-   "mpName": "机器之心",
-   "classification": {
-    "category": "interview",
-    "tags": {
-     "industry": "ai_model",
-     "interviewee": "founder_ceo"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "id": "cmso95agg0ig3rofwaqvy9crw",
-   "title": "ZCode全面升级：Goal、Subagents、Remote Control与闲时任务四大功能上线",
-   "title_en": "ZCode全面升级，GLM最佳Harness，让复杂任务自主交付",
-   "url": "https://mp.weixin.qq.com/s?__biz=MzkyMzI3NzQ0Mg%3D%3D&mid=2247494052&idx=1&sn=ee3ab3d0f4550e9120927c53a27522c9",
-   "permalink": "https://aihot.virxact.com/items/cmso95agg0ig3rofwaqvy9crw",
-   "source": "公众号：智谱（GLM）",
-   "publishedAt": "2026-08-11T05:52:25.000Z",
-   "discoveredAt": "2026-08-11T06:01:05.940Z",
-   "summary": "ZCode针对GLM深度优化，今日上线Goal、Subagents、Remote Control与闲时任务四大功能。在Z.ai Code Bench测试中，GLM-5.2搭配ZCode较搭配Claude Code任务整体通过率高2.39%；ZCode缓存命中率超98%，叠加1.5倍限时额度加成后，GLM Coding Plan整体使用量接近常规额度的1.8倍。",
-   "category": "ai-products",
-   "score": 71,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmso95agg0ig3rofwaqvy9crw"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_other",
-     "issuer": "startup"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "title": "ZCode全面升级，GLM最佳Harness，让复杂任务自主交付",
-   "summary": "",
-   "source": "公众号：智谱AI",
-   "publishedAt": "2026-08-11T05:52:25.000Z",
-   "url": "https://mp.weixin.qq.com/s/NwVPQ8zsyIp8BC0Z1dN90g",
-   "id": "wechat:016e67abe0ec",
-   "category": "模型发布/更新",
-   "sourceType": "wechat",
-   "mpName": "智谱AI",
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_model",
-     "issuer": "startup"
-    },
     "autoFallback": false,
     "autoFilled": []
    }
@@ -884,33 +649,6 @@
     "tags": {
      "industry": "ai_model",
      "region": "us"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "id": "cmsnx040k01glrofwfqxdc8h5",
-   "title": "微信小微AI帮写与AI点评内测：朋友圈最后一点人味正在消失",
-   "title_en": "微信的这几个AI新功能，正在杀死朋友圈最后一点人味。",
-   "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647685081&idx=1&sn=13a05578a3959c047209c8e74b56fa48",
-   "permalink": "https://aihot.virxact.com/items/cmsnx040k01glrofwfqxdc8h5",
-   "source": "公众号：数字生命卡兹克",
-   "publishedAt": "2026-08-11T00:12:00.000Z",
-   "discoveredAt": "2026-08-11T00:21:07.918Z",
-   "summary": "微信基于小微推出朋友圈AI帮写与AI点评内测功能，前者可根据图片和已写文字生成3条朋友圈文案，后者可长按文字生成评价或快捷评论。作者认为这两个功能将AI置于社交核心位置，可能鼓励AI内容、破坏朋友圈自2012年确立的\"记录美好生活\"基调。公众号端小微还常驻首位，自动总结常看公众号文章，作者担忧这会反向影响创作者内容生产。",
-   "category": "tip",
-   "score": 65,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmsnx040k01glrofwfqxdc8h5"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_social",
-     "issuer": "bigcorp"
     },
     "autoFallback": false,
     "autoFilled": []
@@ -992,23 +730,6 @@
    }
   },
   {
-   "title": "赶在DeepSeek涨价前，我猛烧1千测了6个省token的Skills",
-   "summary": "",
-   "source": "公众号：卡尔的AI沃茨",
-   "publishedAt": "2026-08-12T13:01:45.000Z",
-   "url": "https://mp.weixin.qq.com/s/D2yw6nwBf__-cTLmW6tnOw",
-   "id": "wechat:8f1d2226051e",
-   "category": "模型发布/更新",
-   "sourceType": "wechat",
-   "mpName": "卡尔的AI沃茨",
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
    "id": "cmsq5saxh051mro2e90h10exo",
    "title": "我写了一本 AI 教科书--AI 还要多久才能写得更好？",
    "title_en": "I wrote an AI textbook - how long until AI can do it better？",
@@ -1060,27 +781,6 @@
    }
   },
   {
-   "title": "AI科技评论对话星连被投 BeingBeyond 智在无界创始人卢宗青",
-   "summary": "",
-   "sogouLink": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS0wJUuXmWDUZsDvER78hZquCOFSsZMr2zFqXa8Fplpd9aw9yovhAZgOG5WJkdj1NaZ8zLhjECc2hGdfxSK-nmNkRLFgbxOJUolyKZyItB9ofLXlKJhxpxAp_IO2lZ9Hq9gWIWiYFQpVKVz-ES3RYKnoJ0DKj4MLC1CqkaczKSFj3FZBP95YElfwwob4ytccJ5f-ABy5ghZZgEIw7GaKEo0RFkDr8IT4KYw..&%3Btype=2&%3Bquery=AI%E7%A7%91%E6%8A%80%E8%AF%84%E8%AE%BA&%3Btoken=38978C3403E672F09690CE7CF341A59E96BC0F3E6A7D8F79",
-   "source": "公众号：AI科技评论",
-   "publishedAt": "2026-08-12T07:25:37.000Z",
-   "url": "https://mp.weixin.qq.com/s?src=11&timestamp=1786613625&ver=6902&signature=oHJHiPFvwfmMTKYu6L0JozGC1bCMYriqw5li8LgeaMkJ1sIEZ5caBNqhlJLoGUBCw8cACQmdo1nijryLv92uoFYrdG8ermGFFRdBne-LNM46tJ65t4Rh*3Shs8XyDkdC&new=1",
-   "id": "wechat:a7df804ccf26",
-   "category": "技巧与观点",
-   "sourceType": "wechat",
-   "mpName": "AI科技评论",
-   "classification": {
-    "category": "interview",
-    "tags": {
-     "industry": "ai_other",
-     "interviewee": "founder_ceo"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
    "id": "cmspr6h6s01hero4hjcdf95mw",
    "title": "LTX-2.5 模型登场：AI 生成 10 秒 720P 视频仅需 6.8 秒，原生集成 ComfyUI",
    "title_en": null,
@@ -1123,47 +823,6 @@
    "attribution": {
     "source": "AIHOT",
     "canonical": "https://aihot.virxact.com/items/cmspo193n05q2rojeue8j2k5a"
-   },
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "title": "从0开始，12步学会用好AI。",
-   "summary": "",
-   "source": "公众号：数字生命卡兹克",
-   "publishedAt": "2026-08-12T00:09:11.000Z",
-   "url": "https://mp.weixin.qq.com/s/62xZggROULpk34p2P7_TnA",
-   "id": "wechat:87f4945948ec",
-   "category": "技巧与观点",
-   "sourceType": "wechat",
-   "mpName": "数字生命卡兹克",
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "id": "cmspc30un0e4xrorts1kax9zg",
-   "title": "零基础用户半天上手AI的12步实操流程",
-   "title_en": "我们经常会感觉，AI已经这么火了，可是在我日常中，跟很多别的行业的朋友们聊，大家总是会天然的觉得，用AI，是一件很难的事情。 有很多人，不敢开始。 包括其实我日常被问的最多的问题，也是类似的： 卡老师，我想学AI、用AI，我要怎么开始。 所以呢，我今天就想写一个非常非常初级的小流程，如果你想用好AI，你就按着一步一步做，不仅可以入门，也基本有了最核心的心法。 1. 首先，你需要一台电脑，Mac最好，Windows也可以，内存不要低于16个G，你一定需要一台电脑，这个是我们用好AI的前提。 2. 如果你能使用海外产品，Google搜索ChatGPT，然后注册账号，冲一个月20美金的订阅费用，再在官网上，下载Codex，然后安装。 3. 如果你不能使用海外产品，百度搜索WorkBuddy，下载然后登录，可以先不充会员，记得嫖一下积分。 4. 在Codex中把模型选择为GPT-5.6 Sol最高，在WorkBuddy中选Kimi K3。 5. 下载一个语音输入法，Mac可以使用豆包输入法，Windows可以使用微信输入法，从此以后，你跟AI发送消息的时候，就不要再打字了，直接用嘴进行表达。 6. 把你脑海中你现在最头疼、最不想干、最抗拒的事情，一股脑的用语音输入法说给AI，记得用【背景、痛点、需求】的框架来去说，然后再附上一句，\"请你先不要开始干活，用苏格拉底提问法向我提问，一次只问一个问题，直到你认为已经完全理解这件事。\" 7. 回答AI跟你提出的问题。 8. 等AI跟你问的差不多了，输出了一个最终方案的时候，把你跟这个事情相关的所有文件，比如文档、表格、PPT、参考资料啥的，放在一个新建的文件夹里，扔给AI，然后说，\"这是我的所有的文件，请你帮我直接完成吧，遇到必须由我决定的地方，再停下来问我。\" 9. 调整AI给你的结果，千万别觉得AI不行然后就自己去干了，告诉AI，哪里不对，让它去调整，如果你说不出来，也可以说\"我现在讲不出来具体原因，但我就是不喜欢，请你对比几个方向，一次问我一个问题，帮我把判断标准找出来。\" 10. 大概2~3轮，你的这个最不想做的事，AI大概率就替你做完了。 11. 跟AI说，帮我把刚才的整个过程和这个事情，做成一个可以供我反复使用的Skill，以后，类似的事情，你就可以用AI自动化了。 12. 从此以后，遇到不想干的，扔给AI，提供你的文件和【背景、痛点、需求】，让AI帮你完成，同时沉淀成Skill。 好了。 现在，只需要半天时间，你已经学会使用AI了。 没错，就是如此简单。",
-   "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647685084&idx=1&sn=0899296dbc140eeb745f7a99f9d5ed9c",
-   "permalink": "https://aihot.virxact.com/items/cmspc30un0e4xrorts1kax9zg",
-   "source": "公众号：数字生命卡兹克",
-   "publishedAt": "2026-08-12T00:08:00.000Z",
-   "discoveredAt": "2026-08-12T00:11:05.004Z",
-   "summary": "文章给出一套零基础用户半天上手AI的12步实操流程：准备内存不低于16G的电脑，订阅ChatGPT并安装Codex或使用WorkBuddy，用语音输入法以【背景、痛点、需求】框架向AI交代任务，经苏格拉底提问澄清需求后投喂文件让AI直接完成，最后沉淀为可复用Skill。文中建议Codex选GPT-5.6 Sol最高模型，WorkBuddy选Kimi K3。",
-   "category": "tip",
-   "score": 70,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmspc30un0e4xrorts1kax9zg"
    },
    "classification": {
     "category": "general",
@@ -1512,27 +1171,6 @@
    }
   },
   {
-   "title": "周亚辉又来资本大戏:昆仑万维计划香港H股上市,35亿买的游戏公司7.5亿出售",
-   "summary": "",
-   "sogouLink": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS0wJUuXmWDUZ_rOy14-oqoKCOFSsZMr2zFqXa8Fplpd9ih06lRixmZNzwRxgivJuBE6MAeberrBUx2SmwzEpWHIfblZ_5MbiiXNcsjUc_i6b9IXWqWza2xeVHtb6SaYO4BW7Xw6TxM21WnI1Iee1yTFxujnIJxHVFss3CUPS9CG57qCS0p5fOSIsDgE5bt5vyCkupEwDnq2thJmj2ernEA6rCDCayYmfpA..&%3Btype=2&%3Bquery=%E6%98%86%E4%BB%91%E4%B8%87%E7%BB%B4&%3Btoken=3897CD3903E672F09690CE7CF341A59E96BC0F3E6A7D8F86",
-   "source": "公众号：昆仑万维",
-   "publishedAt": "2026-08-11T16:04:20.000Z",
-   "url": "https://mp.weixin.qq.com/s?src=11&timestamp=1786613638&ver=6902&signature=t8DzW45cydFpKgrwLuQhfdorWAacdyQAHMCLVa3seheH6RRm4e4TwgxDDCUVUfinZfFS4C2VRaKOGH-N0Af1p0DIIG-FQ7u7Hv5fbR0uQuIken-udLylrP0WZOp6P5Bz&new=1",
-   "id": "wechat:6ef2bcf0754b",
-   "category": "AI泛娱乐新闻",
-   "sourceType": "wechat",
-   "mpName": "昆仑万维",
-   "classification": {
-    "category": "financing",
-    "tags": {
-     "industry": "ai_other",
-     "region": "cn"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
    "id": "cmsqj4ly004izroxvzl349s3r",
    "title": "Claude in Chrome 侧边栏升级为 Claude Cowork 会话",
    "title_en": "The Claude in Chrome side panel is now Claude Cowork",
@@ -1746,136 +1384,6 @@
    }
   },
   {
-   "title": "MiniMax校园大使招募正式启动!",
-   "summary": "",
-   "sogouLink": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS0wJUuXmWDUZ7yx2VKQXfzM7QsJE5Dg-71qXa8Fplpd92Fn-iPRAWzfHBXFvURfqastzJnrtlAunoY8ca5HkMgb5op_ZzoWqYzW3Ix59qBwoDAYcEHH2QRykrDOGdL0MPnP1CqWOyZ5AVXm60y1Sxnrsfo4LTKLtd0V4HOPGUE4enbyEQ6Efa0-mf63gnsQfm25Wgihc1HL0pee_NOVoley00NVofL2iDw..&%3Btype=2&%3Bquery=MiniMax&%3Btoken=3E8F11497138700C9F99C7667D6D0100A079F0256A7E9376",
-   "source": "公众号：MiniMax 招聘",
-   "publishedAt": "2026-08-13T10:49:51.000Z",
-   "url": "https://mp.weixin.qq.com/s?src=11&timestamp=1786680183&ver=6903&signature=BqoSOZ2I6BGmtdUiNyqzabqx*VLyyonLQDzL*a-E9deZ2ifCeJmj*9p3DCcmpSC62Ubaer2RWPVqfybmZGgZmxnXi4oXtV4Lx9xErqnb*q9P04*91blhwvLOFx4FUnn9&new=1",
-   "id": "wechat:9ebc54de0ede",
-   "category": "技巧与观点",
-   "sourceType": "wechat",
-   "mpName": "MiniMax 招聘",
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "id": "cmsrcljcc0uanroz24r5ebcz9",
-   "title": "小红书开源连续自回归语音合成模型 dots.tts：打造可持续扩展的 TTS 基座",
-   "title_en": null,
-   "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496062&idx=1&sn=d4c48926c5d7607f129dfea03699a6c0",
-   "permalink": "https://aihot.virxact.com/items/cmsrcljcc0uanroz24r5ebcz9",
-   "source": "公众号：小红书技术（dots.llm）",
-   "publishedAt": "2026-08-13T09:59:00.000Z",
-   "discoveredAt": "2026-08-13T10:01:01.438Z",
-   "summary": "小红书 dots 团队开源 20 亿参数全连续端到端自回归语音合成模型 dots.tts，在 Seed-TTS-Eval 三个子集上取得最佳平均内容准确度和平均说话人相似度。",
-   "category": "ai-models",
-   "score": 75,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmsrcljcc0uanroz24r5ebcz9"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_model",
-     "issuer": "bigcorp"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "title": "量子位编辑作者招聘",
-   "summary": "",
-   "sogouLink": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS0wJUuXmWDUZ-7YyC6R6xPKCOFSsZMr2zFqXa8Fplpd9Mw3dlKd9S5OyCuCtYvhzILC1WHNz8q-JxUuHVZ1lYB3JwdB_Bt_84KqsnVMqGFY2ImBe88WbirnUKw_judXMv4d0vk_V-77vne20sTvHKDwV9rjBFc4s96AtfRbQas4oJFlQOrBR9z0AsendPIepb2MA1uMZgCNgc3TZbhlUOUHzAjcIGepUqA..&%3Btype=2&%3Bquery=%E9%87%8F%E5%AD%90%E4%BD%8D&%3Btoken=38977BC403E672F09690CE7CF341A59E96BC0F3E6A7D8F75",
-   "source": "公众号：量子位",
-   "publishedAt": "2026-08-13T07:39:02.000Z",
-   "url": "https://mp.weixin.qq.com/s?src=11&timestamp=1786613621&ver=6902&signature=Op2ECDWb4Ydrjsnqn5zr3E6d9oQ8OuiYwBX4OLHlGTxegkNR14j0dD8xAlWdLXR*wie-GGJVXqSCheArrGroXb9wAGyEAKENBestF4SpWzP6xJkvTsPp-tcAV4ItDeD-&new=1",
-   "id": "wechat:9f68d6da67c6",
-   "category": "技巧与观点",
-   "sourceType": "wechat",
-   "mpName": "量子位",
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "id": "cmsr160kg0dk0roz2mb20yxwk",
-   "title": "WorkBuddy上线远程控制，国内也有了最丝滑的Agent工作方式",
-   "title_en": "WorkBuddy上线远程控制，国内也有了最丝滑的Agent工作方式。",
-   "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647685179&idx=1&sn=4cbee32b677b57a9dc6ec2a79d6f72c7",
-   "permalink": "https://aihot.virxact.com/items/cmsr160kg0dk0roz2mb20yxwk",
-   "source": "公众号：数字生命卡兹克",
-   "publishedAt": "2026-08-13T04:32:24.000Z",
-   "discoveredAt": "2026-08-13T04:41:00.631Z",
-   "summary": "WorkBuddy更新上线远程控制功能，将PC、App和小程序打通，手机端可实时同步电脑端的任务、对话、工作空间和产物，支持一台手机连接多台电脑并随时切换。App需升级至1.2.0及以上，电脑端需升级至5.3.8及以上，连接无需扫码。本次更新还新增资料库（我的文档与团队空间）、Markdown多人共同编辑、AI原生审阅模式，以及将资料库内容生成可发布链接的HTML网站。",
-   "category": "ai-products",
-   "score": 65,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmsr160kg0dk0roz2mb20yxwk"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_other",
-     "issuer": "startup"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "title": "WorkBuddy上线远程控制，国内也有了最丝滑的Agent工作方式。",
-   "summary": "",
-   "source": "公众号：数字生命卡兹克",
-   "publishedAt": "2026-08-13T04:32:24.000Z",
-   "url": "https://mp.weixin.qq.com/s/Chd_7_KO8k1SSNjzgYcG4w",
-   "id": "wechat:5d1f73619dc3",
-   "category": "产品发布/更新",
-   "sourceType": "wechat",
-   "mpName": "数字生命卡兹克",
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_other",
-     "issuer": "startup"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "title": "这个封装了我3年实测经验的AI提示词案例网站，今天正式免费开放",
-   "summary": "",
-   "source": "公众号：卡尔的AI沃茨",
-   "publishedAt": "2026-08-13T01:52:29.000Z",
-   "url": "https://mp.weixin.qq.com/s/DrTsNHckOqtoMHJqQyY5Bg",
-   "id": "wechat:31b81b9e5721",
-   "category": "技巧与观点",
-   "sourceType": "wechat",
-   "mpName": "卡尔的AI沃茨",
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_other",
-     "issuer": "other"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
    "id": "cmsqu0nr604oeroz2rh6b6mqt",
    "title": "新兴多智能体系统的模式与问题",
    "title_en": "Patterns and problems in emerging multiagent systems",
@@ -1895,33 +1403,6 @@
    "classification": {
     "category": "paper",
     "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "id": "cmsqq3bc001snro7vo8picfbp",
-   "title": "DeepSeek V4 Pro与Grok 4.6同日发布，双双逼近Claude Fable 5体验",
-   "title_en": "一夜之间，DeepSeek V4 Pro和Grok 4.6把全球大模型推入了新的斩杀线。",
-   "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647685175&idx=1&sn=64c383b5b757945397894270c5f38301",
-   "permalink": "https://aihot.virxact.com/items/cmsqq3bc001snro7vo8picfbp",
-   "source": "公众号：数字生命卡兹克",
-   "publishedAt": "2026-08-12T22:22:28.000Z",
-   "discoveredAt": "2026-08-12T23:30:59.607Z",
-   "summary": "DeepSeek V4 Pro正式版与Grok 4.6在2小时内先后发布，均为1.6T/1.5T参数模型，逼近Claude Fable 5体验。",
-   "category": "tip",
-   "score": 69,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmsqq3bc001snro7vo8picfbp"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_model",
-     "issuer": "startup"
-    },
     "autoFallback": false,
     "autoFilled": []
    }
@@ -2005,53 +1486,6 @@
    }
   },
   {
-   "id": "cmssir12d047oroffnpn5pcx1",
-   "title": "GLM-5.3 发布：编程能力开源第一，并涌现网络安全能力",
-   "title_en": "GLM-5.3：前沿编程能力与涌现的网络安全能力",
-   "url": "https://mp.weixin.qq.com/s?__biz=MzkyMzI3NzQ0Mg%3D%3D&mid=2247494084&idx=1&sn=a2e5cd9a534a4825feb3633ea1b6d492",
-   "permalink": "https://aihot.virxact.com/items/cmssir12d047oroffnpn5pcx1",
-   "source": "公众号：智谱（GLM）",
-   "publishedAt": "2026-08-14T05:31:04.000Z",
-   "discoveredAt": "2026-08-14T05:41:00.950Z",
-   "summary": "智谱发布GLM-5.3，基于与GLM-5.2相同的基座，通过极致的后训练Scaling提升智能上界，编程能力较前代提升50%，在Terminal Bench 3.0等公开基准中取得开源第一，并接近Claude Fable 5。模型在白盒代码审查等安全任务中表现持平Mythos 5，在CyberGym测试中得分84.5%。模型权重将在两周后开源，即日起上线ZCode、AutoClaw等工具。",
-   "category": "ai-models",
-   "score": 73,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmssir12d047oroffnpn5pcx1"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_model",
-     "issuer": "startup"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "title": "GLM-5.3：前沿编程能力与涌现的网络安全能力",
-   "summary": "",
-   "source": "公众号：智谱AI",
-   "publishedAt": "2026-08-14T05:31:04.000Z",
-   "url": "https://mp.weixin.qq.com/s/JdBx3B12L7Mhxruf4Nfr4g",
-   "id": "wechat:c8d6b1143337",
-   "category": "模型发布/更新",
-   "sourceType": "wechat",
-   "mpName": "智谱AI",
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_model",
-     "issuer": "startup"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
    "id": "cmssi38vn03o9rofffr0z8lyb",
    "title": "DeepSeek V4 Pro 登陆硅基流动，1M 上下文",
    "title_en": "This time， it's official. DeepSeek V4 Pro just landed. 🚀 @deepseek_ai DeepSeek-V4-Pro-0813 is now l…",
@@ -2074,54 +1508,6 @@
      "industry": "ai_model",
      "issuer": "startup"
     },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "id": "cmssf79uf05rwrod09r9ocb2w",
-   "title": "蚂蚁百灵与 ASystem 团队打通单机 Agentic RL 后训练闭环",
-   "title_en": "从跑起来到训起来：Ling-3.0-tiny × ASystem AReno，打通单机 Agentic RL 闭环",
-   "url": "https://mp.weixin.qq.com/s?__biz=MzkyODk2MDQwNw%3D%3D&mid=2247487525&idx=1&sn=b9def9117e34b45fce50ab76eeed726c",
-   "permalink": "https://aihot.virxact.com/items/cmssf79uf05rwrod09r9ocb2w",
-   "source": "公众号：蚂蚁百灵（Ling）",
-   "publishedAt": "2026-08-14T04:00:00.000Z",
-   "discoveredAt": "2026-08-14T04:01:40.908Z",
-   "summary": "蚂蚁百灵与 ASystem 团队合作，用 Ling-3.0-tiny 和 AReno 在 DGX Spark 上跑通单机 Agentic RL 后训练闭环。以井字棋为最小验证任务，用 GSPO 算法训练 400 步后，rollout/rewards_mean 从约 -0.5 升至 0.4，response_len 降至约 850 tokens，工具调用与动作选择趋于稳定。",
-   "category": "tip",
-   "score": 62,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmssf79uf05rwrod09r9ocb2w"
-   },
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "id": "cmss6lsb701tsroib0kxz9q8q",
-   "title": "从0到1带你速通DeepSeek Harness。",
-   "title_en": null,
-   "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647685238&idx=1&sn=c3159dba0dd5a141f8dd726fd474e6e2",
-   "permalink": "https://aihot.virxact.com/items/cmss6lsb701tsroib0kxz9q8q",
-   "source": "公众号：数字生命卡兹克",
-   "publishedAt": "2026-08-13T23:58:00.000Z",
-   "discoveredAt": "2026-08-14T00:01:01.197Z",
-   "summary": null,
-   "category": "tip",
-   "score": 69,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmss6lsb701tsroib0kxz9q8q"
-   },
-   "classification": {
-    "category": "general",
-    "tags": {},
     "autoFallback": false,
     "autoFilled": []
    }
@@ -2307,33 +1693,6 @@
     "tags": {
      "industry": "ai_other",
      "region": "us"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "id": "cmssv94cg0h4mroffsb9e7a88",
-   "title": "dots3-note Preview 开源：280B 参数轻量模型，主打长程智能体与多模态推理",
-   "title_en": "dots3-note Preview：迈向服务真实生活的长程智能体，坚定的第一步",
-   "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496140&idx=1&sn=5239a5fbb115c58d2ae0056bb32789ff",
-   "permalink": "https://aihot.virxact.com/items/cmssv94cg0h4mroffsb9e7a88",
-   "source": "公众号：小红书技术（dots.llm）",
-   "publishedAt": "2026-08-14T11:25:29.000Z",
-   "discoveredAt": "2026-08-14T11:31:00.943Z",
-   "summary": "小红书技术开源 dots3-note Preview，这是 dots3 系列最轻量模型，总参数 280B、激活参数 16B，支持 512K 上下文及文本、视觉、语音多模态理解，并针对复杂推理和长程 Agent 任务优化。",
-   "category": "ai-models",
-   "score": 79,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmssv94cg0h4mroffsb9e7a88"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_model",
-     "issuer": "bigcorp"
     },
     "autoFallback": false,
     "autoFilled": []

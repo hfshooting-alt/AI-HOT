@@ -20,7 +20,7 @@ npm --prefix web run dev
 
 ## 常用命令
 
-自动更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。没有付费密钥时可用 `--source-mode aihot-only --no-promote` 生成免费 AIHOT 候选快照；配置密钥后用默认 `full` 模式执行采集、公司与产品库及融资表的整套更新。统一入口支持 `--resume`、`--stage` 和 `--no-promote`，详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)。
+自动更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。没有付费密钥时可用 `--source-mode aihot-only --no-promote` 生成免费 AIHOT 候选快照；该模式使用 AIHOT 及其现有 RSS 等非公众号信源，并排除 AIHOT 公众号条目与 Manus feed。配置密钥后用默认 `full` 模式执行采集、公司与产品库及融资表的整套更新。统一入口支持 `--resume`、`--stage` 和 `--no-promote`，详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)。
 
 每日任务按北京时间 **10:00 开始**，固定采集前一天 10:00（含）至当天 10:00（不含）的新闻；全部加工成功后更新仓库中的网页产物，并触发 GitHub Pages 重新部署。GitHub 定时调度可能延迟。`--date` 在默认十点模式下表示窗口结束日，旧自然日流程使用 `--window-mode calendar-day`。
 
