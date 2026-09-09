@@ -33,7 +33,7 @@ python scripts/run_pipeline.py run
 
 兼容旧数据时用 `--window-mode calendar-day --date YYYY-MM-DD`，含义仍为该自然日。原有 discovery/content/feed CLI 默认保留自然日模式，加 `--ten-am` 启用新窗口。旧三组文件与十点文件分开存储，不能混用。
 
-十点模式要求发现结果带详情页明确的 `published_at`，缺少具体时间的边界日来源会被标记失败，不能把中午 12 点等虚构时间当作采集证据。快照的上游新闻也按同一窗口过滤新增入库，日报显示明确起止时刻；周报、历史页和融资表继续保留各自历史范围，热点榜仍是抓取时的榜单。归档保留与过期规则按实际运行时间执行，历史补跑不回拨网站时钟，也不重写已定稿历史。
+十点模式要求发现结果带详情页明确的 `published_at`，缺少具体时间的边界日来源会被标记失败，不能把中午 12 点等虚构时间当作采集证据。快照的上游新闻也按同一窗口过滤新增入库，日报显示明确起止时刻；周报、历史页、公司与产品库及融资表继续保留各自历史范围，热点榜仍是抓取时的榜单。归档保留与过期规则按实际运行时间执行，历史补跑不回拨网站时钟，也不重写已定稿历史。
 
 ## 2. 阶段与输入
 
@@ -43,9 +43,12 @@ python scripts/run_pipeline.py run
 | `content` | 读取同日三组发现结果，默认脚本提取正文；成功正文可复用 |
 | `feed` | 读取发现和正文结果，经模型加工后生成候选 Manus feed |
 | `snapshot` | 合并 AIHOT 与候选/既有 Manus feed，生成快照、归档、历史页及周报 |
+| `overview` | 扫描全部新闻类别，更新独立公司/产品库及逐字段来源记录 |
 | `funding` | 从候选/既有快照和 feed 抽取融资表，可选搜索补全 |
 
-默认 `--stage all` 按上述顺序运行。`--stage <阶段>` 只运行指定阶段，不自动补齐其前置阶段。单独运行 content/feed 时需要同日期完整三组发现文件；funding 至少需要一份有效快照或 feed。
+默认 `--stage all` 按上述顺序运行。`--stage <阶段>` 只运行指定阶段，不自动补齐其前置阶段。单独运行 content/feed 时需要同日期完整三组发现文件；overview/funding 至少需要一份有效快照或 feed。
+
+Overview 成功抽取缓存永久复用，默认每轮最多对 20 篇新文章调用模型，每篇最多输入 8,000 字符，并发 2，总预算 300 秒；超额文章标记为待处理并进入下一轮。限制位于 `config/taxonomy.json → companyOverview`。每个公司字段在 `fieldSources` 保存值、原文 URL、文章 ID、来源和发布时间；同一公司按规范名与文章明确给出的别名合并。没有可靠依据的字段保留为空。
 
 `--skip-search` 跳过可选 Tavily 搜索。单组试采仍用原 CLI `python scripts/manus_source/runner.py --date YYYY-MM-DD --groups group_a`，下游生产契约继续要求三组结果。
 
@@ -55,11 +58,12 @@ python scripts/run_pipeline.py run
 
 - feed：`data/manus/`。
 - snapshot：`data/archive/`、`data/cache/`、`web/public/`。
+- overview：`data/company-overview/`、`web/public/`。
 - funding：`data/funding/`、`web/public/`。
 
 阶段失败时停止后续步骤，正式产物保持原样，候选数据和缓存保留。`--no-promote` 运行各阶段自身校验并保留候选；最终跨产物一致性检查在发布时执行。
 
-融资输入存在且全部抽取失败（含未完成任务）时拒绝覆盖旧表。发现过文章或账号失败、最终却没有可发布文章时，拒绝覆盖旧 feed。来源均成功且确实无新闻，或者融资抽取成功且没有公司，允许生成空结果。部分失败仍沿用现有 degraded/统计语义。
+Overview 输入存在但一篇都未成功抽取时拒绝覆盖旧公司库；历史公司继续保留，新报道补充字段、产品与来源。融资输入存在且全部抽取失败（含未完成任务）时拒绝覆盖旧表。发现过文章或账号失败、最终却没有可发布文章时，拒绝覆盖旧 feed。来源均成功且确实无新闻，或者抽取成功且没有公司，允许生成空结果。部分失败仍沿用现有统计语义。
 
 ```sh
 python scripts/run_pipeline.py run --date 2026-09-07 --resume
@@ -81,7 +85,7 @@ python scripts/run_pipeline.py run --date 2026-09-07 --resume
 
 ## 5. GitHub Actions
 
-`.github/workflows/fetch-manus.yml` 每天北京时间 10:00（UTC 02:00）开始全流程，测试通过后调用统一入口，成功后将整套正式数据提交到仓库；并非十点整完成更新。GitHub schedule 可能延迟，不能保证准点。手动输入为 `date`（窗口结束日）、`stage`、`promote`、`dry_run`、`skip_search`；可选阶段为 all/snapshot/funding。独立 content/feed 所需原始正文未存入 Git，所以这两个阶段仅在保留原始文件的本地运行。
+`.github/workflows/fetch-manus.yml` 每天北京时间 10:00（UTC 02:00）开始全流程，测试通过后调用统一入口，成功后将整套正式数据提交到仓库；并非十点整完成更新。GitHub schedule 可能延迟，不能保证准点。手动输入为 `date`（窗口结束日）、`stage`、`promote`、`dry_run`、`skip_search`；可选阶段为 all/snapshot/overview/funding。独立 content/feed 所需原始正文未存入 Git，所以这两个阶段仅在保留原始文件的本地运行。
 
 需要 GitHub Secrets `MANUS_API_KEY`、`DEEPSEEK_API_KEY`；可选 `TAVILY_API_KEY`，模型接口和模型名可用 Variables `LLM_API_BASE`、`LLM_MODEL`。如果修改 taxonomy 中 `api_key_env`，同步工作流的密钥注入。
 

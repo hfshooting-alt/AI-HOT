@@ -2,6 +2,7 @@
 // 优先级：/snapshot.json（构建产物）→ /api/*（服务端代理 aihot API）→ 空态
 import type {
   AllFeedResponse,
+  CompanyOverview,
   DailyReport,
   FundingTable,
   HotTopicsResponse,
@@ -103,6 +104,21 @@ export async function loadFundingTable(): Promise<FundingTable | null> {
   }
   fundingTableLoaded = true;
   return fundingTableCache;
+}
+
+let companyOverviewCache: CompanyOverview | null = null;
+let companyOverviewLoaded = false;
+
+/** 全类别新闻沉淀的公司/产品数据库；构建产物不可用时返回 null。 */
+export async function loadCompanyOverview(): Promise<CompanyOverview | null> {
+  if (companyOverviewLoaded) return companyOverviewCache;
+  try {
+    companyOverviewCache = await fetchJSON<CompanyOverview>("/company-overview.json");
+  } catch {
+    companyOverviewCache = null;
+  }
+  companyOverviewLoaded = true;
+  return companyOverviewCache;
 }
 
 /** 从快照 daily+weekly 合并出精选条目池（按 id 去重，publishedAt 降序） */

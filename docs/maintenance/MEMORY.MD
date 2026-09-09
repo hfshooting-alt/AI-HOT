@@ -25,6 +25,7 @@
 
 - 正式链路：discovery → content（默认本地 `crawler.py` + trafilatura；可切换 Manus）→ `enrich_news.py` 摘要/分类/标签 → `build_manus_feed.py` 全量校验 → 原子晋升 `data/manus/current.json` → `build_snapshot.py` 归档和快照。
 - `scripts/funding_table.py` 在 feed 晋升后抽取融资字段，可选 Tavily 补全，产出 `data/funding/current.json` 和 `web/public/funding-table.json`。
+- `scripts/build_company_overview.py` 扫描全部新闻类别，增量维护 `data/company-overview/current.json` 并输出 `web/public/company-overview.json`。字段证据保存在 `fieldSources`；成功抽取复用缓存，每轮新增调用和时间受 taxonomy 预算限制。
 - 正文批次由 `validate_content_batch` 检查风控、跳转、过短和标题漂移。全文与密钥不得进入 feed、诊断 Artifact 或 Git。
 - 修改流水线前必读 `docs/architecture/MANUS_DATA_CONTRACT.md` 与 `docs/operations/MANUS_SOURCE_RUNBOOK.md`。
 
@@ -57,6 +58,7 @@
 
 - 分类体系现为六类：融资动态、深度访谈、产品和模型发布、论文研究、大厂动态、泛行业新闻。结构化字段由 UI 直接展示，摘要和标签作为只读叙事内容消费。
 - 融资动态使用独立 `FundingTableView`、专属枚举、来源列和筛选；数据生成由 `funding_table.py` 负责，Tavily key 缺失时字段留空，不阻塞主 feed。
+- “公司与产品”是独立 Overview，覆盖六类新闻并持续保留历史公司；它不等同于融资动态。缺失字段显示未披露，字段来源可点击回到原文。
 - 技术栈：Next.js 16 + React 19 + Tailwind 4 + vinext + Drizzle + Wrangler。`web/app/` 是当前前端主形态，线上发布切换仍待完成。
 - aihot API 没有结构化来源类型字段；公众号、推文、资讯和一手信源由 `web/app/_lib/display/source.ts` 依据域名和来源名判定。公众号范围包含 Manus 条目与 aihot 公众号条目。
 - “全部 AI 动态”需合并 API 池和 `web/public/snapshot.json` 池，才能显示 Manus 条目。

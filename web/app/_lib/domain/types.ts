@@ -179,3 +179,57 @@ export interface FundingTable {
   };
   companies: FundingCompany[];
 }
+
+export interface CompanyFieldEvidence {
+  value: string;
+  articleId: string;
+  url: string;
+  title: string;
+  publishedAt: string;
+  sourceName: string;
+  origin: "article";
+}
+
+/** 全类别新闻共同沉淀的公司/产品档案。 */
+export interface CompanyProfile {
+  id: string;
+  company_name: string;
+  aliases: string[];
+  product_names: string[];
+  founded: string | null;
+  country: string | null;
+  team: string | null;
+  business: string | null;
+  investors: string | null;
+  total_funding: string | null;
+  valuation: string | null;
+  dims: Record<string, string>;
+  fieldSources: Record<string, CompanyFieldEvidence[]>;
+  sourceArticles: {
+    id: string;
+    title: string;
+    url: string;
+    publishedAt: string;
+    sourceName: string;
+    category: string;
+  }[];
+  firstSeenAt: string;
+  lastSeenAt: string;
+}
+
+export interface CompanyOverview {
+  schemaVersion: number;
+  generatedAt: string;
+  coverageNote: string;
+  stats: {
+    articlesProcessed: number;
+    articlesComplete: number;
+    articlesFailed: number;
+    articlesDeferred: number;
+    modelCalls: number;
+    cacheHits: number;
+    companiesTotal: number;
+    productsTotal: number;
+  };
+  companies: CompanyProfile[];
+}

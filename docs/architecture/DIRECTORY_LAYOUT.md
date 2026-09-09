@@ -7,14 +7,14 @@
 | 目录 | 维护内容 |
 | --- | --- |
 | `web/` | 完整前端工程：app、public、Node 清单与锁文件、框架配置、托管、构建工具与 Node 测试 |
-| `scripts/` | Python CLI、Manus/融资阶段、prompts、templates、requirements.txt、本地设置服务与前端启动工具 |
+| `scripts/` | Python CLI、Manus/公司库/融资阶段、prompts、templates、requirements.txt、本地设置服务与前端启动工具 |
 | `config/` | taxonomy、生产与候选信源、env.example |
-| `data/` | manus、funding、archive、cache |
+| `data/` | manus、company-overview、funding、archive、cache |
 | `tests/` | pipeline、fixtures、evaluation |
 | `docs/` | guides、architecture、operations、reference、maintenance、history |
 | `.github/` | 自动任务 |
 
-前端内部的组件继续按 layout/providers/views/news/funding/reports/shared 划分，工具按 data/domain/display 分层。各目录 README 提供入口与依赖关系。
+前端内部的组件继续按 layout/providers/views/news/company/funding/reports/shared 划分，工具按 data/domain/display 分层。各目录 README 提供入口与依赖关系。
 
 自动运行的编排代码集中在 `scripts/automation/`，命令入口为 `scripts/run_pipeline.py`。运行状态、候选产物和发布前备份位于已忽略的 `work/runs/`；操作说明在 `docs/operations/AUTOMATED_PIPELINE.md`。
 

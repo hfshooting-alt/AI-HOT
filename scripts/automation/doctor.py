@@ -50,7 +50,7 @@ def inspect(root: Path, stages: list[str], target_date: str | None = None, *, te
     keys = []
     if any(s in stages for s in ("discovery", "content")):
         keys.append("MANUS_API_KEY")  # 现有正文 CLI 的 Settings 也要求 Manus key。
-    if any(s in stages for s in ("feed", "snapshot", "funding")):
+    if any(s in stages for s in ("feed", "snapshot", "overview", "funding")):
         keys.append((tx.get("model") or {}).get("api_key_env", "DEEPSEEK_API_KEY"))
     for key in keys:
         value = os.getenv(key, "").strip()
@@ -71,7 +71,7 @@ def inspect(root: Path, stages: list[str], target_date: str | None = None, *, te
             check("前序发现结果", True, "三组结果契约通过")
         except (OSError, ValueError, KeyError, RuntimeError):
             check("前序发现结果", False, "请先运行同日期 discovery 阶段")
-    if stages == ["funding"]:
+    if stages in (["funding"], ["overview"]):
         readable = False
         for rel in ("web/public/snapshot.json", "data/manus/current.json"):
             try:
@@ -80,7 +80,7 @@ def inspect(root: Path, stages: list[str], target_date: str | None = None, *, te
                             isinstance(data.get("daily"), dict) and isinstance(data.get("weekly"), dict))
             except (OSError, ValueError):
                 pass
-        check("融资输入池", readable, "至少一份有效快照或 Manus feed")
+        check("数据输入池", readable, "至少一份有效快照或 Manus feed")
     for rel in ("work", "data", "web/public"):
         parent = root / rel
         while not parent.exists():

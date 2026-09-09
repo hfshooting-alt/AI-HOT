@@ -40,7 +40,8 @@ def recover(root: Path, run_dir: Path) -> None:
     save(journal, data)
 
 
-ALLOWED = ("data/manus", "data/archive", "data/cache", "data/funding", "web/public")
+ALLOWED = ("data/manus", "data/archive", "data/cache", "data/funding",
+           "data/company-overview", "web/public")
 
 
 def publish(root: Path, run_dir: Path, paths: list[str]) -> None:

@@ -12,7 +12,7 @@ on:
       stage:
         description: "执行阶段；正式每日更新使用 all"
         type: choice
-        options: [all, snapshot, funding]
+        options: [all, snapshot, overview, funding]
         default: all
       promote:
         description: "所选阶段全部成功后更新正式数据"
@@ -49,7 +49,7 @@ jobs:
         run: python -m pip install -r scripts/requirements.txt
       - name: 离线契约与流水线回归
         run: python scripts/test_pipeline.py offline
-      - name: 统一运行（检查 → 采集 → 正文 → feed → 快照/日报/周报 → 融资表 → 发布）
+      - name: 统一运行（检查 → 采集 → 正文 → feed → 快照/日报/周报 → 公司库 → 融资表 → 发布）
         env:
           MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
@@ -72,7 +72,7 @@ jobs:
       - name: 提交整套已发布数据
         if: ${{ success() && (github.event_name == 'schedule' || (inputs.promote && !inputs.dry_run)) }}
         run: |
-          git add data/manus data/funding data/archive data/cache web/public
+          git add data/manus data/funding data/company-overview data/archive data/cache web/public
           if git diff --cached --quiet; then
             echo "正式数据没有变化"
             exit 0

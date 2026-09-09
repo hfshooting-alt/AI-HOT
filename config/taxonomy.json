@@ -23,6 +23,14 @@
   "concurrency": 3,
   "budget_seconds": 900
  },
+ "companyOverview": {
+  "_comment": "全类别公司/产品库抽取预算。成功结果永久复用；每轮最多新增 20 篇模型调用，超出部分留到下轮。",
+  "content_input_chars": 8000,
+  "timeout_seconds": 90,
+  "concurrency": 2,
+  "budget_seconds": 300,
+  "max_new_articles_per_run": 20
+ },
  "funding": {
   "_comment": "融资动态表格（scripts/funding_table.py）抽取与搜索补全预算；search 为 Tavily 配置，缺 TAVILY_API_KEY 时自动跳过搜索。",
   "content_input_chars": 16000,

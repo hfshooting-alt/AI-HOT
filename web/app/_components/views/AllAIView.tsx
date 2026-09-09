@@ -3,8 +3,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { FundingTable, NewsItem } from "../../_lib/domain/types";
-import { loadAll, loadFundingTable, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/data/api";
+import type { CompanyOverview, FundingTable, NewsItem } from "../../_lib/domain/types";
+import { loadAll, loadCompanyOverview, loadFundingTable, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/data/api";
 import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/display/format";
 import { categoryDisplay, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
 import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/domain/fundingTaxonomy";
@@ -13,6 +13,7 @@ import { ArticleCard } from "../news/ArticleCard";
 import { CategoryTabs, type TabOption } from "../news/CategoryTabs";
 import { DateGroup } from "../news/DateGroup";
 import { FundingTableView } from "../funding/FundingTableView";
+import { CompanyOverviewTable } from "../company/CompanyOverviewTable";
 import { SearchToolbar, type SourceFilter } from "../news/SearchToolbar";
 import { TagFilterBar, type DimSelection } from "../news/TagFilterBar";
 
@@ -35,6 +36,8 @@ export function AllAIView() {
   /** 融资表格（构建产物）：null 且 ready 时回退卡片流 */
   const [fundingTable, setFundingTable] = useState<FundingTable | null>(null);
   const [fundingReady, setFundingReady] = useState(false);
+  const [companyOverview, setCompanyOverview] = useState<CompanyOverview | null>(null);
+  const [overviewReady, setOverviewReady] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -59,6 +62,12 @@ export function AllAIView() {
         setFundingReady(true);
       }
     });
+    loadCompanyOverview().then((data) => {
+      if (!cancelled) {
+        setCompanyOverview(data);
+        setOverviewReady(true);
+      }
+    });
     return () => {
       cancelled = true;
     };
@@ -71,21 +80,27 @@ export function AllAIView() {
       const key = categoryOf(it);
       counter.set(key, (counter.get(key) || 0) + 1);
     }
-    const opts: TabOption[] = [{ key: "all", label: "全部", count: items.length }];
+    const opts: TabOption[] = [
+      { key: "all", label: "全部", count: items.length },
+      { key: "overview", label: "公司与产品", count: companyOverview?.companies.length || 0 },
+    ];
     for (const c of TAXONOMY_CATEGORIES) {
       opts.push({ key: c.id, label: c.label, count: counter.get(c.id) || 0 });
     }
     return opts;
-  }, [items]);
+  }, [items, companyOverview]);
 
   /** 融资动态表格模式：分类声明 table 且构建产物有公司行（缺失/空表回退卡片流） */
   const wantTable = categoryDisplay(tag) === "table";
   const tableMode = wantTable && (fundingTable?.companies?.length ?? 0) > 0;
   const tablePending = wantTable && !fundingReady;
+  const overviewMode = tag === "overview";
+  const overviewPending = tag === "overview" && !overviewReady;
 
   /** 当前类别的维度标签筛选（「全部」或无维度类别不显示；融资表格使用专属维度） */
   const activeDims = useMemo(() => {
     if (tag === "all") return [];
+    if (tag === "overview") return ["industry", "region"];
     if (tableMode) return FUNDING_DIM_IDS;
     return TAXONOMY_CATEGORIES.find((c) => c.id === tag)?.dims ?? [];
   }, [tag, tableMode]);
@@ -131,7 +146,7 @@ export function AllAIView() {
             setSrc(v);
             persisted.src = v;
           }}
-          showSourceFilter={!tableMode}
+          showSourceFilter={!tableMode && !overviewMode}
         />
       </header>
 
@@ -168,12 +183,18 @@ export function AllAIView() {
         {!live && " 实时接口暂不可用，当前仅展示快照数据。"}
       </p>
 
-      {loading || tablePending ? (
+      {loading || tablePending || overviewPending ? (
         <div className="flex flex-col gap-3.5">
           {[0, 1, 2, 3].map((i) => (
             <div key={i} className="ah-card h-[110px] animate-pulse bg-surface-2" />
           ))}
         </div>
+      ) : overviewMode && companyOverview ? (
+        <CompanyOverviewTable overview={companyOverview} dimSel={dimSel} q={q} />
+      ) : overviewMode ? (
+        <p className="ah-card p-8 text-center text-[13px] text-mut">
+          公司与产品库尚未生成。配置模型后运行 overview 阶段即可产生首版数据。
+        </p>
       ) : tableMode && fundingTable ? (
         <FundingTableView table={fundingTable} dimSel={dimSel} q={q} />
       ) : groups.length === 0 ? (

@@ -16,6 +16,7 @@ from _tempdir import make_temp_dir
 import build_manus_feed
 import enrich_news
 import funding_table
+import build_company_overview
 import run_pipeline
 from automation import doctor, runner, publish
 from manus_source.contracts import ContractError
@@ -226,6 +227,14 @@ class WorkspaceTest(unittest.TestCase):
                 table = funding_table.build_funding_table(arg("--snapshot"), arg("--feed"), self.root / "work/manus",
                                                          TX, arg("--cache-dir"), skip_search=True)
                 funding_table.promote_table(table, arg("--data-dir"), arg("--public-dir"))
+            elif script == "build_company_overview.py":
+                def arg(name): return Path(command[command.index(name) + 1])
+                data = build_company_overview.build(
+                    arg("--snapshot"), arg("--feed"), self.root / "work/manus",
+                    arg("--previous"), arg("--cache-dir"), TX,
+                    llm_fn=lambda *a, **k: '{"companies": []}',
+                    generated_at="2026-08-16T10:05:00+08:00")
+                build_company_overview.promote(data, arg("--data-dir"), arg("--public-dir"))
             return 0
         # snapshot 模板仍读实际仓库，所有输出由计划显式指向临时候选目录。
         old_taxonomy = build_snapshot.TAG_TAXONOMY
@@ -238,6 +247,7 @@ class WorkspaceTest(unittest.TestCase):
         feed = json.loads((self.root / "data/manus/current.json").read_text(encoding="utf-8"))
         self.assertEqual(len(feed["items"]), 9)
         self.assertEqual(json.loads((self.root / "web/public/funding-table.json").read_text(encoding="utf-8"))["companies"], [])
+        self.assertEqual(json.loads((self.root / "web/public/company-overview.json").read_text(encoding="utf-8"))["companies"], [])
 
 
 if __name__ == "__main__":

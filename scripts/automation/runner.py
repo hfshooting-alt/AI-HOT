@@ -12,7 +12,7 @@ from pathlib import Path
 from .publish import ALLOWED, publish, recover, save
 from manus_source.window import ten_am_window
 
-STAGES = ("discovery", "content", "feed", "snapshot", "funding")
+STAGES = ("discovery", "content", "feed", "snapshot", "overview", "funding")
 
 
 def tree_digest(root: Path) -> str:
@@ -30,6 +30,7 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
     from build_manus_feed import validate_publishable
     from manus_source.contracts import validate_feed
     from funding.output import validate_table
+    from company_index.output import validate as validate_overview
     tx_path = root / "config/taxonomy.json"
     if "feed" in stages:
         feed = json.loads((workspace / "data/manus/current.json").read_text(encoding="utf-8"))
@@ -49,6 +50,12 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
         web_table = json.loads((workspace / "web/public/funding-table.json").read_text(encoding="utf-8"))
         if table != web_table:
             raise ValueError("候选融资产物不一致")
+    if "overview" in stages:
+        overview = json.loads((workspace / "data/company-overview/current.json").read_text(encoding="utf-8"))
+        validate_overview(overview, tag_news.load_taxonomy(str(tx_path)))
+        web_overview = json.loads((workspace / "web/public/company-overview.json").read_text(encoding="utf-8"))
+        if overview != web_overview:
+            raise ValueError("候选公司与产品产物不一致")
 
 
 def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False, *, ten_am=False):
@@ -65,6 +72,12 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
                            "--history-dir", out("web/public/history"), "--weekly-dir", out("web/public/weekly"),
                            "--archive-dir", out("data/archive"), "--tag-cache", out("data/cache/tag_cache.json"),
                            "--manus-json", out("data/manus/current.json")),
+        "overview": script("build_company_overview.py", "--snapshot", out("web/public/snapshot.json"),
+                           "--feed", out("data/manus/current.json"),
+                           "--previous", out("data/company-overview/current.json"),
+                           "--cache-dir", out("data/company-overview"),
+                           "--data-dir", out("data/company-overview"),
+                           "--public-dir", out("web/public")),
         "funding": script("funding_table.py", "--snapshot", out("web/public/snapshot.json"),
                           "--feed", out("data/manus/current.json"), "--data-dir", out("data/funding"),
                           "--cache-dir", out("data/funding"), "--public-dir", out("web/public"),
@@ -74,6 +87,7 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
         for stage in ("discovery", "content", "feed"):
             commands[stage].append("--ten-am")
         commands["snapshot"].extend(("--window-date", date))
+        commands["overview"].extend(("--work-dir", str(root / "work/manus/ten-am")))
         commands["funding"].extend(("--work-dir", str(root / "work/manus/ten-am")))
     return commands
 
@@ -154,6 +168,8 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
             outputs.update(("data/archive", "data/cache", "web/public"))
         if "funding" in stages:
             outputs.update(("data/funding", "web/public"))
+        if "overview" in stages:
+            outputs.update(("data/company-overview", "web/public"))
         if not no_promote and outputs:
             validate_candidates(run_dir / "workspace", root, stages)
             if any(tree_digest(root / rel) != state["baseline"][rel] for rel in outputs):

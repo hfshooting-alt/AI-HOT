@@ -9,9 +9,12 @@
 3. `scripts/build_manus_feed.py` 组装、校验并晋升 `data/manus/current.json`。
 4. `scripts/build_snapshot.py` 合并 AIHOT API 和 Manus feed，生成快照、日报与周报归档。它负责时间窗口、定稿与保留策略。
 5. `scripts/funding_table.py` 保留命令行与原有 Python 导入接口，协调 `scripts/funding/` 各阶段生成融资公司表。
+6. `scripts/build_company_overview.py` 协调 `scripts/company_index/`，从全部新闻类别持续更新公司/产品实体和逐字段来源。
 6. `web/app/_lib/data/api.ts` 读取快照和本站 API；`web/app/api/` 代理上游；`web/app/_components/` 渲染页面。
 
 融资模块依赖方向：`inputs`、`extraction`、`companies`、`search`、`output` → `config` 或公共 LLM/缓存工具；总流程位于兼容入口 `funding_table.py`。阶段模块不反向导入入口。
+
+公司库模块依赖方向：`inputs`、`extraction`、`entities`、`output` → `config` 或现有公司名归一化工具；成功抽取缓存和历史 `current.json` 共同保证增量更新。模型调用上限与时间预算由 taxonomy 配置，前端读取 `web/public/company-overview.json`。
 
 | 要修改的内容 | 优先查看 |
 | --- | --- |
@@ -23,10 +26,15 @@
 | 公司归一化、去重、新旧字段合并 | `scripts/funding/companies.py` |
 | 搜索补全、TTL、来源留痕 | `scripts/funding/search.py` |
 | 融资输出校验、原子写入 | `scripts/funding/output.py` |
+| 全类别公司/产品输入与正文匹配 | `scripts/company_index/inputs.py` |
+| 公司/产品抽取与调用预算 | `scripts/company_index/extraction.py` |
+| 实体去重、历史合并与字段溯源 | `scripts/company_index/entities.py` |
+| 公司库输出契约与晋升 | `scripts/company_index/output.py` |
 | 快照、归档、定稿、日期窗口 | `scripts/build_snapshot.py` |
 | 全部/精选 API 的分页 | `web/app/_lib/data/items-pool.ts` |
 | 上游 ID、来源、分类转换与排序 | `web/app/_lib/data/news-normalization.ts` |
 | 页面搜索筛选、列表与融资表切换 | `web/app/_components/views/FeaturedView.tsx`、`AllAIView.tsx` |
+| 公司与产品 Overview 表格 | `web/app/_components/company/CompanyOverviewTable.tsx` |
 | 日报/周报导航 | `web/app/_components/views/DailyReportView.tsx` |
 | 日报/周报详情与加载、失败展示 | `web/app/_components/reports/` |
 | 配色、布局、公共新闻卡片 | `web/app/globals.css`、`web/app/_components/news/ArticleCard.tsx` |

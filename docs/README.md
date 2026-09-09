@@ -6,6 +6,7 @@
 | [architecture/CODEBASE_GUIDE.md](./architecture/CODEBASE_GUIDE.md) | 理解数据流，定位修改位置 |
 | [architecture/DIRECTORY_LAYOUT.md](./architecture/DIRECTORY_LAYOUT.md) | 完整目录分工、路径兼容边界与溯源方法 |
 | [architecture/MANUS_DATA_CONTRACT.md](./architecture/MANUS_DATA_CONTRACT.md) | 采集数据、校验和发布契约 |
+| [architecture/COMPANY_OVERVIEW_CONTRACT.md](./architecture/COMPANY_OVERVIEW_CONTRACT.md) | 公司/产品实体、逐字段来源和成本契约 |
 | [operations/MANUS_SOURCE_RUNBOOK.md](./operations/MANUS_SOURCE_RUNBOOK.md) | 执行采集、排查失败 |
 | [operations/AUTOMATED_PIPELINE.md](./operations/AUTOMATED_PIPELINE.md) | 全流程运行、检查、恢复和发布保护 |
 | [operations/TESTING_COST_CONTROL.md](./operations/TESTING_COST_CONTROL.md) | 离线回归、只读认证、受限付费问答和消费记录 |

@@ -38,6 +38,7 @@ AI 情报日报/周报看板：
 | `scripts/manus_source/`（client/config/contracts/pipeline/content_phase/crawler）、`scripts/enrich_news.py`、`scripts/llm_common.py`、`scripts/build_manus_feed.py` | 数据/后端 | Manus 采集与加工流水线（llm_common 自动加载项目根 .env；阶段 B 默认脚本爬虫，依赖 trafilatura） |
 | `scripts/prompts/manus_discovery.md` | 数据/后端 | Manus 发现阶段 Prompt；含来源三元组、日期、顺序审计、计数重算及最终 JSON 自检 |
 | `scripts/funding_table.py`、`data/funding/`、`web/public/funding-table.json` | 数据/前端 | 融资条目抽取、归档与前端表格数据 |
+| `scripts/build_company_overview.py`、`scripts/company_index/`、`data/company-overview/` | 数据/前端 | 全类别公司/产品实体、增量合并、字段来源与调用预算 |
 | `scripts/tag_news.py`、`scripts/eval_tagging.py` | 数据/后端 | AI 打标签 harness 与评测门禁 |
 | `scripts/settings-server.mjs` | 工具 | 本地 API Key 设置服务（127.0.0.1:9731，写项目根 `.env`，供 Next.js 设置页调用） |
 | `scripts/templates/*.template.html` | 数据侧渲染 | 静态快照模板（index/history/weekly） |
