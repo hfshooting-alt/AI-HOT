@@ -1,10 +1,12 @@
 """测试成本保护：所有 Manus 响应均模拟，无真实任务。"""
 from pathlib import Path
+import os
 import shutil
 import socket
 import subprocess
 import sys
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -12,6 +14,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from _tempdir import make_temp_dir
 from testing.offline import OfflineViolation, isolated
 from testing.manus_probe import ProbeError, auth, smoke, MAX_POLLS, balance
+from testing.llm_probe import LLMProbeError, smoke as llm_smoke
 
 
 class TestCostSafety(unittest.TestCase):
@@ -140,6 +143,40 @@ class TestCostSafety(unittest.TestCase):
         with self.assertRaisesRegex(ProbeError, "probe_locked"):
             auth(self.root, "fake-key", send=self.send)
         self.assertFalse(self.calls)
+
+    def test_llm_smoke_is_one_tiny_daily_json_request(self):
+        tx = {"model": {"api_key_env": "DEEPSEEK_API_KEY", "api_base_env": "LLM_API_BASE",
+                        "default_base": "https://example.com", "model": "test-model"}}
+        sent = []
+        def send(payload):
+            sent.append(payload)
+            return {"choices": [{"message": {"content": '{"ok":true}'}}],
+                    "usage": {"prompt_tokens": 9, "completion_tokens": 5, "total_tokens": 14,
+                              "ignored": "value"}}
+        with patch.dict(os.environ, {"DEEPSEEK_API_KEY": "fake-key"}, clear=True):
+            result = llm_smoke(self.root, tx, allow_paid=True, send=send,
+                               today="2026-09-09", now=100)
+            self.assertTrue(result["ok"])
+            self.assertEqual(result["usage"], {"prompt_tokens": 9, "completion_tokens": 5,
+                                               "total_tokens": 14})
+            self.assertEqual(sent[0]["max_tokens"], 16)
+            self.assertEqual(len(sent), 1)
+            with self.assertRaisesRegex(LLMProbeError, "daily_llm_attempt_limit"):
+                llm_smoke(self.root, tx, allow_paid=True, send=send,
+                          today="2026-09-09", now=101)
+        self.assertEqual(len(sent), 1)
+
+    def test_llm_smoke_requires_opt_in_and_valid_json(self):
+        tx = {"model": {"api_key_env": "DEEPSEEK_API_KEY", "api_base_env": "LLM_API_BASE",
+                        "default_base": "https://example.com", "model": "test-model"}}
+        with patch.dict(os.environ, {"DEEPSEEK_API_KEY": "fake-key"}, clear=True):
+            with self.assertRaisesRegex(LLMProbeError, "paid_opt_in_required"):
+                llm_smoke(self.root, tx, send=lambda _: {})
+            result = llm_smoke(self.root, tx, allow_paid=True,
+                               send=lambda _: {"choices": [{"message": {"content": "no"}}]},
+                               today="2026-09-10", now=100)
+        self.assertFalse(result["ok"])
+        self.assertEqual(result["error"], "structured_result_invalid")
 
 
 if __name__ == "__main__":

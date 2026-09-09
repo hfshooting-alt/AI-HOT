@@ -113,6 +113,8 @@
 ## 2026-09-08 自动化维护约定
 
 - 日常操作使用 `scripts/run_pipeline.py`；阶段实现继续维护在原业务模块。`--dry-run` 无接口调用，`--no-promote` 仍执行真实接口并保留候选。
+- 无付费密钥的 AIHOT 快照使用 `--source-mode aihot-only --no-promote`；该模式只执行 snapshot 并跳过模型打标。模型连接用 `llm-smoke --allow-paid` 做每日一次、最多 16 token 的 JSON 探针。
+- 项目按公司内部 AI 情报用途接入 AIHOT；AIHOT 是多源加工链路中的一个上游，不把项目称为 AIHOT 镜像。公开可访问的 Pages 与内部用途应分别描述，敏感数据访问控制另行处理。
 - 只缓存并复用成功正文、完整 enrichment；fallback 和失败应重试。发现恢复只复用全来源成功且契约合法的组。
 - 融资全部抽取失败与真实无公司必须区分；前者不能覆盖旧表。feed 的来源失败/正文失败导致空列表同样拒绝发布。
 - 候选产物位于 `work/runs/`，正式更新前验证与检查原数据是否变化。异常回滚通过目录备份和 publication.json 完成，多目录不具备并发读取的全局原子性。

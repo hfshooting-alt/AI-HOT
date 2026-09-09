@@ -58,7 +58,8 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
             raise ValueError("候选公司与产品产物不一致")
 
 
-def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False, *, ten_am=False):
+def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False, *, ten_am=False,
+         source_mode="full"):
     def script(name, *args):
         return [sys.executable, str(root / "scripts" / name), *map(str, args)]
     def out(rel):
@@ -90,23 +91,25 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
         commands["snapshot"].extend(("--window-date", date, "--api-window", "24h"))
         commands["overview"].extend(("--work-dir", str(root / "work/manus/ten-am")))
         commands["funding"].extend(("--work-dir", str(root / "work/manus/ten-am")))
+    if source_mode == "aihot-only":
+        commands["snapshot"].append("--no-tags")
     return commands
 
 
-def fingerprint(root: Path, stages, skip_search, ten_am=False):
+def fingerprint(root: Path, stages, skip_search, ten_am=False, source_mode="full"):
     digest = hashlib.sha256()
     for folder in ("config", "scripts"):
         for path in sorted((root / folder).rglob("*")):
             if path.is_file() and path.suffix in (".py", ".json", ".md", ".html"):
                 digest.update(str(path.relative_to(root)).encode())
                 digest.update(path.read_bytes())
-    digest.update(json.dumps([stages, skip_search, ten_am, os.getenv("LLM_MODEL", ""),
+    digest.update(json.dumps([stages, skip_search, ten_am, source_mode, os.getenv("LLM_MODEL", ""),
                               os.getenv("LLM_API_BASE", ""), os.getenv("MANUS_CONTENT_MODE", "script")]).encode())
     return digest.hexdigest()
 
 
 def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=False,
-        skip_search=False, execute=None, ten_am=False):
+        skip_search=False, execute=None, ten_am=False, source_mode="full"):
     execute = execute or (lambda cmd: subprocess.run(cmd, cwd=root).returncode)
     runs = root / "work" / "runs" / date
     if ten_am:
@@ -117,7 +120,7 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
     os.close(fd)
     try:
         latest = runs / "latest.json"
-        sig = fingerprint(root, stages, skip_search, ten_am)
+        sig = fingerprint(root, stages, skip_search, ten_am, source_mode)
         if resume:
             run_id = json.loads(latest.read_text(encoding="utf-8"))["runId"]
             if not isinstance(run_id, str) or len(run_id) != 32 or any(c not in "0123456789abcdef" for c in run_id):
@@ -142,11 +145,13 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
                 else:
                     dest.mkdir(parents=True, exist_ok=True)
             state = {"date": date, "fingerprint": sig, "stages": {}, "published": False,
+                     "sourceMode": source_mode,
                      "collectionWindow": ten_am_window(date) if ten_am else None,
                      "baseline": {rel: tree_digest(root / rel) for rel in ALLOWED}}
             save(run_dir / "state.json", state)
             save(latest, {"runId": run_id})
-        commands = plan(root, run_dir / "workspace", date, resume, skip_search, ten_am=ten_am)
+        commands = plan(root, run_dir / "workspace", date, resume, skip_search, ten_am=ten_am,
+                        source_mode=source_mode)
         for stage in stages:
             if state["stages"].get(stage, {}).get("status") == "success":
                 print(f"[{stage}] 复用已成功阶段", flush=True)

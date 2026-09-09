@@ -14,6 +14,11 @@ on:
         type: choice
         options: [all, snapshot, overview, funding]
         default: all
+      source_mode:
+        description: "数据模式；aihot-only 不调用 Manus 或大模型"
+        type: choice
+        options: [full, aihot-only]
+        default: full
       promote:
         description: "所选阶段全部成功后更新正式数据"
         type: boolean
@@ -58,12 +63,13 @@ jobs:
           LLM_MODEL: ${{ vars.LLM_MODEL }}
           INPUT_DATE: ${{ inputs.date }}
           INPUT_STAGE: ${{ inputs.stage }}
+          INPUT_SOURCE_MODE: ${{ inputs.source_mode }}
           INPUT_PROMOTE: ${{ inputs.promote }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
           INPUT_SKIP_SEARCH: ${{ inputs.skip_search }}
         shell: bash
         run: |
-          args=(run --window-mode ten-am --stage "${INPUT_STAGE:-all}")
+          args=(run --window-mode ten-am --stage "${INPUT_STAGE:-all}" --source-mode "${INPUT_SOURCE_MODE:-full}")
           if [ -n "$INPUT_DATE" ]; then args+=(--date "$INPUT_DATE"); fi
           if [ "$INPUT_PROMOTE" = "false" ]; then args+=(--no-promote); fi
           if [ "$INPUT_DRY_RUN" = "true" ]; then args+=(--dry-run); fi

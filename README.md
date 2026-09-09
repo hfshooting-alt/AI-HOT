@@ -20,7 +20,7 @@ npm --prefix web run dev
 
 ## 常用命令
 
-自动更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。配置密钥后用 `python scripts/run_pipeline.py run` 执行采集、公司与产品库及融资表的整套更新，支持 `--resume`、`--stage` 和 `--no-promote`。详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)。
+自动更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。没有付费密钥时可用 `--source-mode aihot-only --no-promote` 生成免费 AIHOT 候选快照；配置密钥后用默认 `full` 模式执行采集、公司与产品库及融资表的整套更新。统一入口支持 `--resume`、`--stage` 和 `--no-promote`，详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)。
 
 每日任务按北京时间 **10:00 开始**，固定采集前一天 10:00（含）至当天 10:00（不含）的新闻；全部加工成功后更新仓库中的网页产物，并触发 GitHub Pages 重新部署。GitHub 定时调度可能延迟。`--date` 在默认十点模式下表示窗口结束日，旧自然日流程使用 `--window-mode calendar-day`。
 
@@ -35,6 +35,8 @@ npm --prefix web run dev
 | `npm --prefix web run test:unit` | 来源、分页和设置服务测试 |
 | `python scripts/test_pipeline.py` | Python 离线回归，禁止真实网络/子进程 |
 | `python scripts/test_pipeline.py manus-auth` | 只读检查 Manus 认证与余额，结果有缓存 |
+| `python scripts/test_pipeline.py llm-smoke --allow-paid` | 单次最多 16 token 的模型 JSON 能力检查，每日最多一次 |
+| `python scripts/run_pipeline.py run --source-mode aihot-only --no-promote` | 不调用 Manus/模型，生成 AIHOT 候选快照 |
 | `npm --prefix web run typecheck` / `npm --prefix web run lint` | 静态检查；已有问题见维护导航 |
 | `python scripts/build_company_overview.py --no-promote` | 生成并校验公司与产品库；会调用模型 |
 | `python scripts/funding_table.py --selftest` | 融资流程离线自检 |

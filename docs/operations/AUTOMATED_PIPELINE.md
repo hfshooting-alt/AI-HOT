@@ -16,6 +16,15 @@ python scripts/run_pipeline.py run --dry-run --date 2026-09-07
 
 `--dry-run` 仅打印阶段及命令，不写数据、不调用接口，也不要求配置密钥。
 
+没有 Manus 或模型密钥时，可以先验证 AIHOT、归档和前端快照链路：
+
+```sh
+python scripts/run_pipeline.py doctor --source-mode aihot-only
+python scripts/run_pipeline.py run --source-mode aihot-only --no-promote
+```
+
+`aihot-only` 自动收敛为 `snapshot` 阶段，并传入 `--no-tags`，不会调用 Manus、模型或 Tavily。候选仍写入 `work/runs/`，方便先 review。省略 `--no-promote` 会更新仓库正式快照。当前项目按公司内部 AI 情报用途使用 AIHOT；若未来改为收费、客户交付、代理接口、公开副本或对外批量再分发，再重新核对授权范围。
+
 按 `config/env.example` 在根目录 `.env` 配置 Manus 与模型密钥。Tavily 搜索为可选。完成配置后：
 
 ```sh
@@ -87,7 +96,7 @@ python scripts/run_pipeline.py run --date 2026-09-07 --resume
 
 `.github/workflows/fetch-manus.yml` 每天北京时间 10:00（UTC 02:00）开始全流程，测试通过后调用统一入口，成功后将整套正式数据提交到仓库；并非十点整完成更新。GitHub schedule 可能延迟，不能保证准点。手动输入为 `date`（窗口结束日）、`stage`、`promote`、`dry_run`、`skip_search`；可选阶段为 all/snapshot/overview/funding。独立 content/feed 所需原始正文未存入 Git，所以这两个阶段仅在保留原始文件的本地运行。
 
-需要 GitHub Secrets `MANUS_API_KEY`、`DEEPSEEK_API_KEY`；可选 `TAVILY_API_KEY`，模型接口和模型名可用 Variables `LLM_API_BASE`、`LLM_MODEL`。如果修改 taxonomy 中 `api_key_env`，同步工作流的密钥注入。
+默认 `full` 模式需要 GitHub Secrets `MANUS_API_KEY`、`DEEPSEEK_API_KEY`；可选 `TAVILY_API_KEY`，模型接口和模型名可用 Variables `LLM_API_BASE`、`LLM_MODEL`。手动任务可选 `source_mode=aihot-only`，只生成 AIHOT 快照且不读取这些付费密钥。定时任务仍默认执行 `full`。如果修改 taxonomy 中 `api_key_env`，同步工作流的密钥注入。
 
 工作流只上传 `state.json`，保留 7 天。原始结果、正文、候选产物和密钥不上传。CI 作业之间暂不支持断点续跑；本地保留 work 目录时可以恢复。失败查看 Actions 日志与状态 Artifact。
 

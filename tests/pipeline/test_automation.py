@@ -176,6 +176,15 @@ class WorkspaceTest(unittest.TestCase):
             checks = doctor.inspect(self.root, ["feed"])
         self.assertFalse(next(c for c in checks if c["check"] == "DEEPSEEK_API_KEY")["ok"])
 
+    def test_aihot_only_preflight_and_plan_need_no_paid_keys(self):
+        with patch.dict(os.environ, {}, clear=True):
+            checks = doctor.inspect(self.root, ["snapshot"], require_llm=False)
+        self.assertFalse(any(c["check"] in ("MANUS_API_KEY", "DEEPSEEK_API_KEY") for c in checks))
+        commands = runner.plan(self.root, self.root / "candidate", "2026-09-09",
+                               ten_am=True, source_mode="aihot-only")
+        self.assertIn("--no-tags", commands["snapshot"])
+        self.assertIn("24h", commands["snapshot"])
+
     def test_dry_run_is_read_only_and_never_executes(self):
         with patch.object(run_pipeline, "ROOT", self.root), patch.object(run_pipeline, "run") as run_mock:
             with contextlib.redirect_stdout(io.StringIO()) as out:
@@ -183,6 +192,17 @@ class WorkspaceTest(unittest.TestCase):
         run_mock.assert_not_called()
         self.assertFalse((self.root / "work").exists())
         self.assertEqual([s["stage"] for s in json.loads(out.getvalue())["stages"]], list(runner.STAGES))
+
+    def test_aihot_only_dry_run_contains_only_snapshot(self):
+        with patch.object(run_pipeline, "ROOT", self.root), patch.object(run_pipeline, "run") as run_mock:
+            with contextlib.redirect_stdout(io.StringIO()) as out:
+                self.assertEqual(run_pipeline.main(["run", "--dry-run", "--date", "2026-09-09",
+                                                    "--source-mode", "aihot-only"]), 0)
+        run_mock.assert_not_called()
+        payload = json.loads(out.getvalue())
+        self.assertEqual(payload["sourceMode"], "aihot-only")
+        self.assertEqual([s["stage"] for s in payload["stages"]], ["snapshot"])
+        self.assertIn("--no-tags", payload["stages"][0]["command"])
 
     def test_invalid_candidate_is_not_published(self):
         with self.assertRaises((FileNotFoundError, ValueError)):

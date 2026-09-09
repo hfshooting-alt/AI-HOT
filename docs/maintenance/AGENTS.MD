@@ -53,6 +53,7 @@ AI 情报日报/周报看板：
 # 统一入口（doctor 不调用外部 API；dry-run 仅打印计划）
 python scripts/run_pipeline.py doctor
 python scripts/run_pipeline.py run --dry-run
+python scripts/run_pipeline.py run --source-mode aihot-only --no-promote
 python scripts/run_pipeline.py run --date 2026-09-07 --no-promote
 python scripts/run_pipeline.py run --date 2026-09-07 --resume
 
@@ -73,6 +74,7 @@ python scripts/build_manus_feed.py --date 2026-08-27 --no-promote
 
 # 全部离线测试
 python scripts/test_pipeline.py offline
+python scripts/test_pipeline.py llm-smoke --allow-paid  # 显式极小真实请求，每日最多一次
 node web/tests/frontend/rendered-html.test.mjs
 node web/tests/frontend/source-kind.test.mjs
 node web/tests/settings/test_settings_server.mjs
@@ -95,6 +97,7 @@ node scripts/settings-server.mjs
 
 - 默认 `python scripts/test_pipeline.py offline`，禁止回归测试调用真实付费服务。CI 的离线测试也使用该入口。
 - 检查 Manus key 使用 `manus-auth`，不要启动生产采集来确认密钥。只有必要的小样本实测使用 `manus-smoke --allow-paid`，当前工作区每天最多一次 Lite 创建尝试，不重试创建，观察 120 秒/最多 12 次轮询，观察到 20 credits 时请求停止。
+- 检查 OpenAI-compatible 模型使用 `llm-smoke --allow-paid`：最多一次请求、输出上限 16 token、每天最多一次、不重试。它不验证新闻业务质量。
 - 所有后续真实测试都先明确调用/任务上限与样本范围，并复用成功结果；认证失败、创建响应不确定或停止失败时先排查，禁止自动扩大范围或重复启动。
 - 探针阈值不等于服务端硬性费用上限；生产入口不受探针台账限制，不能把 `--no-promote` 当作成本控制。细节与恢复见 `docs/operations/TESTING_COST_CONTROL.md`。
 - 本地 `.env`、额度、完整响应及测试台账不入 Git；密钥不得出现在回复、CLI 参数、提交或文档中。
