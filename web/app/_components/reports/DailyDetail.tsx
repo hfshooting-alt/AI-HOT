@@ -81,7 +81,7 @@ export function DailyDetail({ entry }: { entry: HistoryEntry }) {
             <span className="text-brand">AI HOT</span> <span className="text-ink">日报</span>
           </h2>
           <p className="mt-1 text-[12.5px] text-mut">
-            {fmtCnDate(dateIso)} {fmtWeekday(dateIso)} · DAILY · 每早八时
+            {fmtCnDate(dateIso)} {fmtWeekday(dateIso)} · DAILY · 每日上午十时
             {entry.finalized ? " · 已定稿" : " · 更新中"}
           </p>
         </div>

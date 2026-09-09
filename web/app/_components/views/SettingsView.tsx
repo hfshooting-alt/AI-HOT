@@ -150,7 +150,7 @@ export function SettingsView() {
     }
   }, []);
 
-  const OFFLINE_HINT = "本地设置服务未启动：请在项目目录（aihot-site，含 scripts/ 的目录）执行 node scripts/settings-server.mjs";
+  const OFFLINE_HINT = "本地设置服务未启动：请在项目目录（AI-HOT，含 scripts/ 的目录）执行 node scripts/settings-server.mjs";
 
   /** 探测本地设置服务并刷新在线状态；返回清理函数（中止未完成的探测）。 */
   const probe = useCallback(() => {
@@ -316,7 +316,7 @@ export function SettingsView() {
           {online === null ? "检测中…" : online ? "本地设置服务在线" : "本地设置服务离线"}
         </span>
         {online === false && (
-          <code className="text-xs text-mut-2">cd 项目目录（aihot-site）; node scripts/settings-server.mjs</code>
+          <code className="text-xs text-mut-2">cd 项目目录（AI-HOT）; node scripts/settings-server.mjs</code>
         )}
         <button
           type="button"
