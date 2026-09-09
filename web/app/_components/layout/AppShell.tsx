@@ -86,7 +86,7 @@ function ShellBody() {
 
       {/* 主内容区 */}
       <div className="lg:pl-[232px]">
-        <main className="mx-auto max-w-[960px] px-4 py-8 sm:px-6 lg:px-8">
+        <main className="mx-auto max-w-[1180px] px-4 py-7 sm:px-6 lg:px-8 lg:py-9">
           {visited.has("featured") && panel("featured", <FeaturedView />)}
           {visited.has("hot") && panel("hot", <HotView />)}
           {visited.has("all") && panel("all", <AllAIView />)}

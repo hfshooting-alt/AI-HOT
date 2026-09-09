@@ -1,4 +1,4 @@
-// 分类 Tab 栏（精选 / 全部动态共用：下划线激活态，对齐截图样式）
+// 分类 Tab 栏：紧凑胶囊式导航，适合情报工作台的高频切换。
 "use client";
 
 export interface TabOption {
@@ -17,7 +17,7 @@ export function CategoryTabs({
   onChange: (key: string) => void;
 }) {
   return (
-    <div className="flex flex-wrap items-center gap-x-5 gap-y-1 border-b border-line" role="tablist">
+    <div className="flex flex-wrap items-center gap-2" role="tablist">
       {options.map((opt) => {
         const on = opt.key === active;
         return (
@@ -27,15 +27,16 @@ export function CategoryTabs({
             role="tab"
             aria-selected={on}
             onClick={() => onChange(opt.key)}
-            className={`relative pb-2 text-[13.5px] transition-colors ${
-              on ? "font-semibold text-brand-strong" : "text-mut hover:text-ink"
+            className={`inline-flex min-h-9 items-center rounded-full border px-3.5 py-1.5 text-[13px] transition-all ${
+              on
+                ? "border-brand bg-brand font-semibold text-white shadow-[0_5px_14px_-8px_rgb(7_94_88/0.9)]"
+                : "border-line bg-surface text-mut hover:border-brand/35 hover:bg-brand-softer hover:text-brand-strong"
             }`}
           >
             {opt.label}
             {typeof opt.count === "number" && (
-              <span className="ml-1 text-[11px] text-mut-2">{opt.count}</span>
+              <span className={`ml-1.5 text-[11px] ${on ? "text-white/70" : "text-mut-2"}`}>{opt.count}</span>
             )}
-            {on && <span className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-brand" aria-hidden />}
           </button>
         );
       })}

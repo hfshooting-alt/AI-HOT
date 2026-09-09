@@ -10,7 +10,8 @@ import { categoryDisplay, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../
 import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/domain/fundingTaxonomy";
 import { matchItem, sourceKindOf } from "../../_lib/display/source";
 import { ArticleCard } from "../news/ArticleCard";
-import { CategoryTabs, type TabOption } from "../news/CategoryTabs";
+import type { TabOption } from "../news/CategoryTabs";
+import { ContentNavigator } from "../news/ContentNavigator";
 import { DateGroup } from "../news/DateGroup";
 import { FundingTableView } from "../funding/FundingTableView";
 import { CompanyOverviewTable } from "../company/CompanyOverviewTable";
@@ -80,15 +81,12 @@ export function AllAIView() {
       const key = categoryOf(it);
       counter.set(key, (counter.get(key) || 0) + 1);
     }
-    const opts: TabOption[] = [
-      { key: "all", label: "全部", count: items.length },
-      { key: "overview", label: "公司与产品", count: companyOverview?.companies.length || 0 },
-    ];
+    const opts: TabOption[] = [{ key: "all", label: "全部", count: items.length }];
     for (const c of TAXONOMY_CATEGORIES) {
       opts.push({ key: c.id, label: c.label, count: counter.get(c.id) || 0 });
     }
     return opts;
-  }, [items, companyOverview]);
+  }, [items]);
 
   /** 融资动态表格模式：分类声明 table 且构建产物有公司行（缺失/空表回退卡片流） */
   const wantTable = categoryDisplay(tag) === "table";
@@ -150,33 +148,32 @@ export function AllAIView() {
         />
       </header>
 
-      {/* 分类 Tab + 维度标签筛选 */}
-      <div className="mb-6">
-        <CategoryTabs
-          options={tabOptions}
-          active={tag}
-          onChange={(key) => {
-            setTag(key);
-            persisted.tag = key;
-            // 切换类别时清空上一类别的维度筛选（维度语义随类别变化）
-            setDimSel({});
-            persisted.dimSel = {};
-          }}
-        />
-        {activeDims.length > 0 && (
-          <div className="mt-3">
-            <TagFilterBar
-              dims={activeDims}
-              selection={dimSel}
-              onChange={(next) => {
-                setDimSel(next);
-                persisted.dimSel = next;
-              }}
-              dimsDef={tableMode ? FUNDING_DIMENSIONS : undefined}
-            />
-          </div>
-        )}
-      </div>
+      <ContentNavigator
+        options={tabOptions}
+        active={tag}
+        overview={companyOverview}
+        onChange={(key) => {
+          setTag(key);
+          persisted.tag = key;
+          setDimSel({});
+          persisted.dimSel = {};
+        }}
+      />
+
+      {/* 当前内容的维度标签筛选 */}
+      {activeDims.length > 0 && (
+        <div className="ah-card mb-6 px-4 py-3.5 sm:px-5">
+          <TagFilterBar
+            dims={activeDims}
+            selection={dimSel}
+            onChange={(next) => {
+              setDimSel(next);
+              persisted.dimSel = next;
+            }}
+            dimsDef={tableMode ? FUNDING_DIMENSIONS : undefined}
+          />
+        </div>
+      )}
 
       <p className="mb-5 text-[12px] text-mut-2">
         数据来源：AI HOT 开放 API + Manus 公众号爬取 · 时间为北京时间 · 摘要由 AI 生成，点击标题核对原文。

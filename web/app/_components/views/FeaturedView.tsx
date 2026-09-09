@@ -15,7 +15,8 @@ import { categoryDisplay, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../
 import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/domain/fundingTaxonomy";
 import { useApp } from "../providers/AppDataProvider";
 import { ArticleCard } from "../news/ArticleCard";
-import { CategoryTabs, type TabOption } from "../news/CategoryTabs";
+import type { TabOption } from "../news/CategoryTabs";
+import { ContentNavigator } from "../news/ContentNavigator";
 import { DateGroup } from "../news/DateGroup";
 import { FundingTableView } from "../funding/FundingTableView";
 import { CompanyOverviewTable } from "../company/CompanyOverviewTable";
@@ -97,15 +98,12 @@ export function FeaturedView() {
       const key = categoryOf(it);
       counter.set(key, (counter.get(key) || 0) + 1);
     }
-    const opts: TabOption[] = [
-      { key: "all", label: "全部", count: pool.length },
-      { key: "overview", label: "公司与产品", count: companyOverview?.companies.length || 0 },
-    ];
+    const opts: TabOption[] = [{ key: "all", label: "全部", count: pool.length }];
     for (const c of TAXONOMY_CATEGORIES) {
       opts.push({ key: c.id, label: c.label, count: counter.get(c.id) || 0 });
     }
     return opts;
-  }, [pool, companyOverview]);
+  }, [pool]);
 
   /** 融资动态表格模式：分类声明 table 且构建产物有公司行（缺失/空表回退卡片流） */
   const wantTable = categoryDisplay(cat) === "table";
@@ -207,33 +205,32 @@ export function FeaturedView() {
         </div>
       )}
 
-      {/* 分类 Tab + 维度标签筛选 */}
-      <div className="mb-6">
-        <CategoryTabs
-          options={tabOptions}
-          active={cat}
-          onChange={(key) => {
-            setCat(key);
-            persisted.cat = key;
-            // 切换类别时清空上一类别的维度筛选（维度语义随类别变化）
-            setDimSel({});
-            persisted.dimSel = {};
-          }}
-        />
-        {activeDims.length > 0 && (
-          <div className="mt-3">
-            <TagFilterBar
-              dims={activeDims}
-              selection={dimSel}
-              onChange={(next) => {
-                setDimSel(next);
-                persisted.dimSel = next;
-              }}
-              dimsDef={tableMode ? FUNDING_DIMENSIONS : undefined}
-            />
-          </div>
-        )}
-      </div>
+      <ContentNavigator
+        options={tabOptions}
+        active={cat}
+        overview={companyOverview}
+        onChange={(key) => {
+          setCat(key);
+          persisted.cat = key;
+          setDimSel({});
+          persisted.dimSel = {};
+        }}
+      />
+
+      {/* 当前内容的维度标签筛选 */}
+      {activeDims.length > 0 && (
+        <div className="ah-card mb-6 px-4 py-3.5 sm:px-5">
+          <TagFilterBar
+            dims={activeDims}
+            selection={dimSel}
+            onChange={(next) => {
+              setDimSel(next);
+              persisted.dimSel = next;
+            }}
+            dimsDef={tableMode ? FUNDING_DIMENSIONS : undefined}
+          />
+        </div>
+      )}
 
       {/* 内容区：融资动态用公司表格；其余类别卡片流（表格产物缺失时回退卡片） */}
       {loading || tablePending || overviewPending ? (

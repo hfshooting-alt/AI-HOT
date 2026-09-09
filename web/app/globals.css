@@ -2,19 +2,19 @@
 
 /* AI HOT 浅色主题令牌（对齐官网截图：浅灰白底 + 深青绿强调） */
 :root {
-  --page: #f5f7fa;
+  --page: #f3f7f7;
   --surface: #ffffff;
-  --surface-2: #f8fafc;
-  --ink: #111827;
-  --ink-2: #374151;
-  --mut: #6b7280;
-  --mut-2: #9ca3af;
-  --line: #e5e7eb;
-  --line-2: #eef1f4;
-  --brand: #1a5f7a;
-  --brand-strong: #0f4c63;
-  --brand-soft: #e8f0f4;
-  --brand-softer: #f2f7f9;
+  --surface-2: #f7faf9;
+  --ink: #102a2a;
+  --ink-2: #365252;
+  --mut: #698080;
+  --mut-2: #9aabab;
+  --line: #dfe9e7;
+  --line-2: #eaf0ef;
+  --brand: #128178;
+  --brand-strong: #075e58;
+  --brand-soft: #dcf2ef;
+  --brand-softer: #eff9f7;
   --heat-red: #dc2626;
   --heat-orange: #f97316;
   --heat-gold: #eab308;
@@ -50,7 +50,9 @@ html {
 }
 
 body {
-  background: var(--page);
+  background:
+    radial-gradient(circle at 78% -12%, rgb(18 129 120 / 0.08), transparent 32rem),
+    var(--page);
   color: var(--ink);
   font-family: var(--font-sans), "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -61,14 +63,14 @@ body {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 14px;
-  box-shadow: 0 1px 2px rgb(16 24 40 / 0.04);
+  box-shadow: 0 1px 2px rgb(16 42 42 / 0.04), 0 10px 30px -26px rgb(7 94 88 / 0.25);
 }
 .ah-card-hover {
   transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
 }
 .ah-card-hover:hover {
-  border-color: #d7dde3;
-  box-shadow: 0 6px 18px -8px rgb(16 24 40 / 0.16);
+  border-color: #bddbd7;
+  box-shadow: 0 10px 24px -14px rgb(7 94 88 / 0.22);
   transform: translateY(-1px);
 }
 
@@ -96,4 +98,11 @@ body {
 }
 th.sticky-col {
   background: var(--surface-2);
+}
+
+.intel-grid {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
