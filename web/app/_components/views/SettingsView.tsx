@@ -8,7 +8,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const SETTINGS_BASE = "http://127.0.0.1:9731";
 const STORAGE_KEY = "aihot.settings.form.v1";
-const REPO = "WadeLiuAstro/AI-HOT";
+const REPO = "hfshooting-alt/AI-HOT";
 const PROBE_TIMEOUT_MS = 1500;
 
 interface KeyStatus {
