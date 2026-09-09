@@ -6,16 +6,16 @@ import type { ViewKey } from "../../_lib/domain/types";
 import { AppDataProvider, useApp } from "../providers/AppDataProvider";
 import { Sidebar, SidebarContent } from "./Sidebar";
 import { BrandLogo, CloseIcon, MenuIcon } from "../shared/icons";
-import { FeaturedView } from "../views/FeaturedView";
 import { HotView } from "../views/HotView";
 import { AllAIView } from "../views/AllAIView";
+import { CompanyOverviewView } from "../views/CompanyOverviewView";
 import { DailyReportView } from "../views/DailyReportView";
 import { SettingsView } from "../views/SettingsView";
 
 function ShellBody() {
   const { view, sidebarOpen, setSidebarOpen } = useApp();
   const [mounted, setMounted] = useState(false);
-  const [visited, setVisited] = useState<Set<ViewKey>>(new Set(["featured"]));
+  const [visited, setVisited] = useState<Set<ViewKey>>(new Set(["all"]));
 
   // 客户端挂载后才渲染，避免日期/状态的服务端水合差异（延迟一拍，不产生同步级联渲染）
   useEffect(() => {
@@ -87,9 +87,9 @@ function ShellBody() {
       {/* 主内容区 */}
       <div className="lg:pl-[232px]">
         <main className="mx-auto max-w-[1180px] px-4 py-7 sm:px-6 lg:px-8 lg:py-9">
-          {visited.has("featured") && panel("featured", <FeaturedView />)}
-          {visited.has("hot") && panel("hot", <HotView />)}
           {visited.has("all") && panel("all", <AllAIView />)}
+          {visited.has("company") && panel("company", <CompanyOverviewView />)}
+          {visited.has("hot") && panel("hot", <HotView />)}
           {visited.has("daily") && panel("daily", <DailyReportView />)}
           {visited.has("settings") && panel("settings", <SettingsView />)}
         </main>

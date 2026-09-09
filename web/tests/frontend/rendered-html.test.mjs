@@ -57,3 +57,19 @@ test("page renders the real AppShell without starter skeleton leftovers", async 
     access(new URL("public/_sites-preview", templateRoot)),
   );
 });
+
+test("navigation defaults to all news and exposes company overview as the second page", async () => {
+  const [provider, sidebar, shell] = await Promise.all([
+    readFile(new URL("../../app/_components/providers/AppDataProvider.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../../app/_components/layout/Sidebar.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../../app/_components/layout/AppShell.tsx", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(provider, /return "all"/);
+  assert.match(provider, /replaceState\(null, "", normalizedHash\)/);
+  assert.doesNotMatch(provider, /featured/);
+  assert.ok(sidebar.indexOf("全部 AI 动态") < sidebar.indexOf("公司与产品全景"));
+  assert.doesNotMatch(sidebar, /精选|京ICP备2026012723号-2/);
+  assert.match(shell, /panel\("company", <CompanyOverviewView \/>\)/);
+  assert.doesNotMatch(shell, /FeaturedView|featured/);
+});

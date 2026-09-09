@@ -49,7 +49,6 @@ function normalizeItem(item) {
 }
 
 const baseline = readJSON(baselinePath);
-const selected = readJSON(resolve(inputDir, "selected-24h.json")).items.map(normalizeItem);
 const allItems = readJSON(resolve(inputDir, "all-24h.json")).items.map(normalizeItem);
 const hot = readJSON(resolve(inputDir, "hot-topics.json"));
 const dailyEnvelope = readJSON(resolve(inputDir, "daily-latest.json"));
@@ -73,7 +72,6 @@ const tags = Object.entries(Object.groupBy(allItems, (item) => item.category || 
 
 const snapshot = {
   ...baseline,
-  featured: selected,
   hot,
   all: { items: allItems, tags, live: true },
   history: [historyEntry, ...(baseline.history || []).filter((entry) => entry.date !== report.date)],
@@ -82,11 +80,10 @@ const snapshot = {
     localOnly: true,
     generatedAt: new Date().toISOString(),
     window: "24h",
-    selectedCount: selected.length,
     allCount: allItems.length,
   },
 };
 
 mkdirSync(dirname(outputPath), { recursive: true });
 writeFileSync(outputPath, JSON.stringify(snapshot), "utf8");
-console.log(`Local AIHOT preview snapshot: ${selected.length} selected, ${allItems.length} all, ${hot.items?.length || 0} hot, daily ${report.date}.`);
+console.log(`Local AIHOT preview snapshot: ${allItems.length} all, ${hot.items?.length || 0} hot, daily ${report.date}.`);

@@ -31,10 +31,10 @@
 | 实体去重、历史合并与字段溯源 | `scripts/company_index/entities.py` |
 | 公司库输出契约与晋升 | `scripts/company_index/output.py` |
 | 快照、归档、定稿、日期窗口 | `scripts/build_snapshot.py` |
-| 全部/精选 API 的分页 | `web/app/_lib/data/items-pool.ts` |
+| 全部动态 API 的分页 | `web/app/_lib/data/items-pool.ts` |
 | 上游 ID、来源、分类转换与排序 | `web/app/_lib/data/news-normalization.ts` |
-| 页面搜索筛选、列表与融资表切换 | `web/app/_components/views/FeaturedView.tsx`、`AllAIView.tsx` |
-| 公司全景入口与六类资讯导航 | `web/app/_components/news/ContentNavigator.tsx`、`CategoryTabs.tsx` |
+| 首页搜索筛选、列表与融资表切换 | `web/app/_components/views/AllAIView.tsx`、`web/app/_components/news/CategoryTabs.tsx` |
+| 公司全景独立页面 | `web/app/_components/views/CompanyOverviewView.tsx` |
 | 公司与产品 Overview 表格、排序分页与详情来源 | `web/app/_components/company/CompanyOverviewTable.tsx`、`CompanyDetailDrawer.tsx` |
 | GitHub Pages 静态构建与部署 | `scripts/build_pages.mjs`、`.github/workflows/deploy-pages.yml` |
 | 日报/周报导航 | `web/app/_components/views/DailyReportView.tsx` |
@@ -45,7 +45,7 @@
 ## 保持兼容的约定
 
 - 现有脚本路径和参数供工作流调用，拆模块后继续保留入口与导出。
-- 上游列表最多读取三页、每页 50 条；空页也代表连接成功；后续页失败保留前面的数据。精选首请求失败仍使用原有无缓存响应。
+- 上游列表最多读取三页、每页 50 条；空页也代表连接成功；后续页失败保留前面的数据。
 - ID、来源链接、分类枚举、排序、提示词版本、缓存键和输出字段均属于行为契约。
 - `web/public/`、`data/`、`data/archive/` 中有受版本管理的数据产物。结构整理不重新生成这些文件；`web/build/` 保存 Sites Vite 插件源码。
 - `config/accounts.json` 是候选来源池；线上 Manus 来源使用 `config/manus_sources.json`。
@@ -54,7 +54,9 @@
 
 ## 验证
 
-2026-09-09 静态站点与公司库增强：公司表新增排序、24 条分页、完整档案抽屉和逐字段/逐文章来源；GitHub Pages 已发布到 `https://hfshooting-alt.github.io/AI-HOT/`，精选、全部动态、热点榜和日报在 `/AI-HOT/` 子路径通过线上浏览器检查。全仓库 TypeScript 检查已修复并通过；Pages 构建本身不调用付费 API。
+2026-09-09 信息架构调整：删除独立精选视图、接口与快照字段；全部 AI 动态成为默认首页，公司与产品全景成为第二个独立页面并在无模型数据时展示完整空表结构。ICP 文案已移除。
+
+2026-09-09 静态站点与公司库增强：公司表新增排序、24 条分页、完整档案抽屉和逐字段/逐文章来源；GitHub Pages 已发布到 `https://hfshooting-alt.github.io/AI-HOT/`，全部动态、公司全景、热点榜和日报在 `/AI-HOT/` 子路径可访问。全仓库 TypeScript 检查已修复并通过；Pages 构建本身不调用付费 API。
 
 2026-09-09 前端视觉升级：生产构建和本次变更文件 ESLint 通过；使用离线公司样例检查 1440px 桌面布局与 390px 手机布局，样例检查后删除，未进入正式数据。
 
@@ -66,7 +68,7 @@
 
 修改 Python 流水线后运行 `python -m unittest discover -s tests -p "test_*.py"`；修改前端/API 后运行 `npm --prefix web test`。`npm --prefix web run test:unit` 可快速检查来源、分页与设置服务。
 
-2026-09-08 整理验证：169 项 Python 测试、23 项 Node 测试和生产构建通过。新增回归覆盖分页边界及构建后的全部/精选接口过滤、来源、排序、缓存和失败响应。融资 35 个函数的 AST 与整理前相同；日报与周报详情函数体保持一致。现有测试使用模拟接口；不代表真实付费服务端到端验证。
+2026-09-08 整理验证：169 项 Python 测试、23 项 Node 测试和生产构建通过。新增回归覆盖分页边界及构建后的全部动态接口、来源、排序、缓存和失败响应。融资 35 个函数的 AST 与整理前相同；日报与周报详情函数体保持一致。现有测试使用模拟接口；不代表真实付费服务端到端验证。
 
 基线 `9cec544` 曾存在的 TypeScript 问题已修复：周报分类补齐 `catLabel`，Cloudflare/Vite 环境声明补齐，D1 示例导入路径已更正。日报与周报详情的 effect 同步更新 loading 仍属于既有 React lint 告警；本次没有关闭规则。
 

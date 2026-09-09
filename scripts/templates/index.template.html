@@ -439,13 +439,13 @@
     <div class="nav-section">
       <div class="nav-label">内容</div>
       <nav id="nav">
-        <button class="nav-item active" data-view="featured" aria-current="page">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          <span>精选</span>
-        </button>
-        <button class="nav-item" data-view="all">
+        <button class="nav-item active" data-view="all" aria-current="page">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
           <span>全部 AI 动态</span>
+        </button>
+        <button class="nav-item" data-view="company">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/></svg>
+          <span>公司与产品全景</span>
         </button>
         <button class="nav-item" data-view="hot">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.48 7.533 16.48 10.48c0 .5-.04 1-.1 1.48M12 22a10 10 0 0010-10c0-5.523-4.477-10-10-10S2 6.477 2 12a10 10 0 0010 10z"/></svg>
@@ -462,8 +462,7 @@
       </nav>
     </div>
     <div class="sidebar-footer">
-      数据来源：AI HOT 开放 API + 伴生公众号信源<br>
-      京ICP备2026012723号-2
+      数据来源：AI HOT 开放 API + 伴生公众号信源
     </div>
   </aside>
 
@@ -476,8 +475,8 @@
     </div>
     <div class="main-header">
       <div class="main-title">
-        <h1 id="page-title">精选</h1>
-        <p id="page-desc">AI 筛选的今日重点</p>
+        <h1 id="page-title">全部 AI 动态</h1>
+        <p id="page-desc">完整 AI 资讯流，支持分类与搜索</p>
       </div>
       <div class="search-box">
         <input id="search" type="text" placeholder="搜索标题、摘要…">
@@ -503,15 +502,16 @@ const CATEGORIES = [
 ];
 
 const VIEW_TITLES = {
-  featured: { title: '精选', desc: 'AI 筛选的今日重点' },
-  all: { title: '全部 AI 动态', desc: '由 LLM 分类和打好标签的 AI 新闻' },
+  all: { title: '全部 AI 动态', desc: '完整 AI 资讯流，支持分类与搜索' },
+  company: { title: '公司与产品全景', desc: '从全部资讯沉淀的公司与产品情报库' },
   hot: { title: '热点榜', desc: '当前 AI 领域热度最高的话题' },
   daily: { title: 'AI 日报 / 周报', desc: '按月份组织的日报与周报入口' },
   fav: { title: '我的收藏', desc: '你收藏的新闻追踪' }
 };
 
+const savedView = localStorage.getItem('aihot_view');
 const state = {
-  view: localStorage.getItem('aihot_view') || 'featured',
+  view: ['all', 'company', 'hot', 'daily', 'fav'].includes(savedView) ? savedView : 'all',
   category: localStorage.getItem('aihot_category') || 'all',
   q: '',
   selectedDate: null,
@@ -534,14 +534,14 @@ function updateNav() {
     btn.classList.toggle('active', btn.dataset.view === state.view);
     btn.setAttribute('aria-current', btn.dataset.view === state.view ? 'page' : 'false');
   });
-  const t = VIEW_TITLES[state.view] || VIEW_TITLES.featured;
+  const t = VIEW_TITLES[state.view] || VIEW_TITLES.all;
   document.getElementById('page-title').textContent = t.title;
   document.getElementById('page-desc').textContent = t.desc;
 }
 
 function renderTabs() {
   const tabs = document.getElementById('category-tabs');
-  const show = state.view !== 'daily' && state.view !== 'fav';
+  const show = state.view === 'all';
   if (!show) { tabs.style.display = 'none'; return; }
   tabs.style.display = 'flex';
   tabs.innerHTML = CATEGORIES.map(c => `
@@ -591,22 +591,6 @@ function cardHTML(item, showFav = true) {
   `;
 }
 
-/* =============== 精选 =============== */
-function renderFeatured() {
-  const items = filterByCategory(DATA.featured || []).filter(it => matchesQ(it));
-  if (!items.length) {
-    document.getElementById('content').innerHTML = '<div class="empty">暂无精选内容</div>';
-    return;
-  }
-  const groups = groupByDay(items);
-  document.getElementById('content').innerHTML = groups.map(([day, list]) => `
-    <div class="date-group">
-      <div class="date-header"><span class="day">${esc(day)}</span></div>
-      ${list.map(it => cardHTML(it)).join('')}
-    </div>
-  `).join('');
-}
-
 /* =============== 全部 AI 动态 =============== */
 function renderAll() {
   const allItems = (DATA.all && DATA.all.items) || [];
@@ -625,6 +609,34 @@ function renderAll() {
     return;
   }
   document.getElementById('content').innerHTML = tagHtml + items.map(it => cardHTML(it)).join('');
+}
+
+/* =============== 公司与产品全景 =============== */
+async function renderCompany() {
+  const content = document.getElementById('content');
+  content.innerHTML = '<div class="empty">正在加载公司与产品数据…</div>';
+  let data = null;
+  try {
+    const response = await fetch('company-overview.json');
+    if (response.ok) data = await response.json();
+  } catch (_) {}
+  if (state.view !== 'company') return;
+  const rows = data && data.companies || [];
+  const labels = ['公司', '代表产品', '成立时间', '国家 / 地区', '主营业务', '团队情况', '历史投资人', '累计融资', '最新估值', '相关新闻'];
+  const head = labels.map(label => `<th style="padding:12px 14px;text-align:left;white-space:nowrap;background:#f4f8f7;border-bottom:1px solid var(--border)">${label}</th>`).join('');
+  const body = rows.map(rec => `<tr>
+    <td style="padding:12px 14px;font-weight:700">${esc(rec.company_name)}</td>
+    <td style="padding:12px 14px">${esc((rec.product_names || []).join('、')) || '未披露'}</td>
+    <td style="padding:12px 14px">${esc(rec.founded) || '未披露'}</td>
+    <td style="padding:12px 14px">${esc(rec.country) || '未披露'}</td>
+    <td style="padding:12px 14px;min-width:220px">${esc(rec.business) || '未披露'}</td>
+    <td style="padding:12px 14px;min-width:220px">${esc(rec.team) || '未披露'}</td>
+    <td style="padding:12px 14px">${esc(rec.investors) || '未披露'}</td>
+    <td style="padding:12px 14px">${esc(rec.total_funding) || '未披露'}</td>
+    <td style="padding:12px 14px">${esc(rec.valuation) || '未披露'}</td>
+    <td style="padding:12px 14px">${(rec.sourceArticles || []).length} 篇</td>
+  </tr>`).join('');
+  content.innerHTML = `<div class="card" style="padding:0;overflow:auto"><table style="border-collapse:collapse;min-width:1450px;width:100%;font-size:13px"><thead><tr>${head}</tr></thead><tbody>${body || `<tr><td colspan="10" class="empty">公司与产品库等待首次生成</td></tr>`}</tbody></table></div>`;
 }
 
 /* =============== 热点榜 =============== */
@@ -707,7 +719,6 @@ function renderDaily() {
 /* =============== 收藏 =============== */
 function renderFav() {
   const all = [];
-  (DATA.featured || []).forEach(it => { if (state.fav.includes(it.id)) all.push(it); });
   (DATA.all && DATA.all.items || []).forEach(it => { if (state.fav.includes(it.id)) all.push(it); });
   if (!all.length) {
     document.getElementById('content').innerHTML = '<div class="empty">还没有收藏任何新闻</div>';
@@ -720,8 +731,8 @@ function renderFav() {
 function render() {
   updateNav();
   renderTabs();
-  const views = { featured: renderFeatured, all: renderAll, hot: renderHot, daily: renderDaily, fav: renderFav };
-  const fn = views[state.view] || renderFeatured;
+  const views = { all: renderAll, company: renderCompany, hot: renderHot, daily: renderDaily, fav: renderFav };
+  const fn = views[state.view] || renderAll;
   fn();
 }
 

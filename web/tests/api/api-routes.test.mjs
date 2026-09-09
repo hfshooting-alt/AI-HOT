@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-test("built all/featured routes preserve filtering, normalization and failure responses", async () => {
+test("built all route preserves normalization, ordering and failure responses", async () => {
   const originalFetch = globalThis.fetch;
   let fail = false;
   globalThis.fetch = async () => fail
@@ -23,18 +23,10 @@ test("built all/featured routes preserve filtering, normalization and failure re
     assert.deepEqual(data.items.map((it) => it.categoryUnclassified), [true, true]);
     assert.deepEqual(data.tags, [{ tag: "行业动态", count: 2 }]);
     assert.equal(data.live, true);
-    const featured = await request("/api/featured?q=KEYWORD&category=" + encodeURIComponent("行业动态"));
-    assert.deepEqual((await featured.json()).items.map((it) => it.id), ["aihot:older"]);
-    assert.equal(featured.headers.get("cache-control"), "s-maxage=60, stale-while-revalidate=300");
-    assert.deepEqual((await (await request("/api/featured?q=missing")).json()).items, []);
     fail = true;
     const failedAll = await request("/api/all");
     assert.deepEqual(await failedAll.json(), { items: [], tags: [], live: false });
     assert.equal(failedAll.headers.get("cache-control"), "s-maxage=60, stale-while-revalidate=300");
-    const failedFeatured = await request("/api/featured");
-    assert.equal(failedFeatured.status, 200);
-    assert.deepEqual(await failedFeatured.json(), { items: [], live: false });
-    assert.equal(failedFeatured.headers.get("cache-control"), null);
   } finally {
     globalThis.fetch = originalFetch;
   }

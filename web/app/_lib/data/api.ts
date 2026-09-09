@@ -26,7 +26,7 @@ async function fetchJSON<T>(url: string): Promise<T> {
   return (await r.json()) as T;
 }
 
-/** 构建时生成的快照数据（精选流 / 日报周报索引的数据源） */
+/** 构建时生成的快照数据（全部动态 / 日报周报索引的数据源） */
 export async function loadSnapshot(): Promise<Snapshot | null> {
   try {
     return await fetchJSON<Snapshot>(publicAsset("snapshot.json"));
@@ -50,24 +50,6 @@ export async function loadHot(): Promise<HotTopicsResponse | null> {
       count: snap.hot.count ?? snap.hot.items.length,
       items: snap.hot.items,
     } : null;
-  }
-}
-
-/** 精选条目流（代理 AIHOT /api/v1/items，仅 selected，服务端过滤分类/关键词） */
-export async function loadFeatured(category?: string | null, q?: string): Promise<NewsItem[]> {
-  if (STATIC_SITE) {
-    const snap = await loadSnapshot();
-    return snap?.featured || (snap ? poolFromSnapshot(snap) : []);
-  }
-  const params = new URLSearchParams();
-  if (category) params.set("category", category);
-  if (q) params.set("q", q);
-  try {
-    const data = await fetchJSON<{ items: NewsItem[]; live: boolean }>(`${publicAsset("api/featured")}?${params}`);
-    return data.items || [];
-  } catch {
-    const snap = await loadSnapshot();
-    return snap?.featured || (snap ? poolFromSnapshot(snap) : []);
   }
 }
 
@@ -156,10 +138,10 @@ export async function loadCompanyOverview(): Promise<CompanyOverview | null> {
   return companyOverviewCache;
 }
 
-/** 从快照生成精选条目池；新版快照优先使用 featured，旧快照回退 daily+weekly。 */
+/** 从快照生成全部动态条目池；新版快照优先使用 all，旧快照回退 daily+weekly。 */
 export function poolFromSnapshot(snap: Snapshot): NewsItem[] {
-  if (snap.featured?.length) {
-    return [...snap.featured].sort(
+  if (snap.all?.items?.length) {
+    return [...snap.all.items].sort(
       (a, b) => new Date(b.publishedAt || 0).getTime() - new Date(a.publishedAt || 0).getTime(),
     );
   }
@@ -178,7 +160,7 @@ export function poolFromSnapshot(snap: Snapshot): NewsItem[] {
   return pool;
 }
 
-/** 合并快照池与实时精选流：实时条目覆盖同 id 快照条目（保留快照的 LLM 分类标签），其余追加 */
+/** 合并快照池与实时全部动态：实时条目覆盖同 id 快照条目（保留快照的 LLM 分类标签），其余追加 */
 export function mergePools(snapshotPool: NewsItem[], liveItems: NewsItem[]): NewsItem[] {
   const map = new Map<string, NewsItem>();
   for (const it of snapshotPool) map.set(it.id, it);

@@ -867,14 +867,10 @@ def main() -> int:
                                     label=label, cnLabel=label, startAt=window["start"], endAt=window["end"])
         daily_view["vol"] = f"VOL.{window_end.year}-{window_end.month:02d}-{window_end.day:02d}"
 
-    # 新版前端字段：精选 / 热点榜 / 全部 AI 动态 / 日报周报导航 / 分类标签
+    # 新版前端字段：全部 AI 动态 / 热点榜 / 日报周报导航 / 分类标签
     # 定时十点快照应完整展示该 24 小时窗口；非窗口构建沿用旧版 200 条上限，
     # 避免把整个历史归档一次性塞进前端。
     current_items = [i for i in items if matching_item(window, i)] if window else items[:200]
-    featured_pool = format_items(current_items, now_bj)
-    selected_featured = [it for it in featured_pool if it.get("selected")]
-    featured_items = selected_featured[:50] if selected_featured else featured_pool[:50]
-
     all_pool = format_items(current_items, now_bj)
     category_counts: dict[str, int] = {}
     for it in all_pool:
@@ -891,7 +887,6 @@ def main() -> int:
         "history": [day_nav_entry(all_days[d]) for d in sorted(all_days, reverse=True)],
         "weeklyNav": weekly_nav,
         # 新版单页前端字段
-        "featured": featured_items,
         "hot": fetch_hot_topics(args.api_base),
         "all": {"items": all_pool, "tags": all_tags, "live": True},
         "dailyNav": build_daily_nav(all_days, weekly_nav, now_bj),

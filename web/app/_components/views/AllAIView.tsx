@@ -3,18 +3,16 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { CompanyOverview, FundingTable, NewsItem } from "../../_lib/domain/types";
-import { loadAll, loadCompanyOverview, loadFundingTable, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/data/api";
+import type { FundingTable, NewsItem } from "../../_lib/domain/types";
+import { loadAll, loadFundingTable, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/data/api";
 import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/display/format";
 import { categoryDisplay, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
 import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/domain/fundingTaxonomy";
 import { matchItem, sourceKindOf } from "../../_lib/display/source";
 import { ArticleCard } from "../news/ArticleCard";
-import type { TabOption } from "../news/CategoryTabs";
-import { ContentNavigator } from "../news/ContentNavigator";
+import { CategoryTabs, type TabOption } from "../news/CategoryTabs";
 import { DateGroup } from "../news/DateGroup";
 import { FundingTableView } from "../funding/FundingTableView";
-import { CompanyOverviewTable } from "../company/CompanyOverviewTable";
 import { SearchToolbar, type SourceFilter } from "../news/SearchToolbar";
 import { TagFilterBar, type DimSelection } from "../news/TagFilterBar";
 
@@ -37,8 +35,6 @@ export function AllAIView() {
   /** 融资表格（构建产物）：null 且 ready 时回退卡片流 */
   const [fundingTable, setFundingTable] = useState<FundingTable | null>(null);
   const [fundingReady, setFundingReady] = useState(false);
-  const [companyOverview, setCompanyOverview] = useState<CompanyOverview | null>(null);
-  const [overviewReady, setOverviewReady] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -61,12 +57,6 @@ export function AllAIView() {
       if (!cancelled) {
         setFundingTable(t);
         setFundingReady(true);
-      }
-    });
-    loadCompanyOverview().then((data) => {
-      if (!cancelled) {
-        setCompanyOverview(data);
-        setOverviewReady(true);
       }
     });
     return () => {
@@ -92,13 +82,10 @@ export function AllAIView() {
   const wantTable = categoryDisplay(tag) === "table";
   const tableMode = wantTable && (fundingTable?.companies?.length ?? 0) > 0;
   const tablePending = wantTable && !fundingReady;
-  const overviewMode = tag === "overview";
-  const overviewPending = tag === "overview" && !overviewReady;
 
   /** 当前类别的维度标签筛选（「全部」或无维度类别不显示；融资表格使用专属维度） */
   const activeDims = useMemo(() => {
     if (tag === "all") return [];
-    if (tag === "overview") return ["industry", "region"];
     if (tableMode) return FUNDING_DIM_IDS;
     return TAXONOMY_CATEGORIES.find((c) => c.id === tag)?.dims ?? [];
   }, [tag, tableMode]);
@@ -138,7 +125,7 @@ export function AllAIView() {
         </div>
         <SearchToolbar
           q={q}
-          placeholder={overviewMode ? "搜索公司、产品、业务、团队…" : tableMode ? "搜索融资公司与业务…" : undefined}
+          placeholder={tableMode ? "搜索融资公司与业务…" : undefined}
           onQChange={(v) => {
             setQ(v);
             persisted.q = v;
@@ -148,21 +135,28 @@ export function AllAIView() {
             setSrc(v);
             persisted.src = v;
           }}
-          showSourceFilter={!tableMode && !overviewMode}
+          showSourceFilter={!tableMode}
         />
       </header>
 
-      <ContentNavigator
-        options={tabOptions}
-        active={tag}
-        overview={companyOverview}
-        onChange={(key) => {
-          setTag(key);
-          persisted.tag = key;
-          setDimSel({});
-          persisted.dimSel = {};
-        }}
-      />
+      <section className="ah-card mb-6 overflow-hidden" aria-label="资讯分类">
+        <div className="border-b border-line bg-gradient-to-r from-brand-softer to-surface px-4 py-3 sm:px-5">
+          <p className="text-[11px] font-bold tracking-[0.14em] text-brand">NEWS CATEGORIES</p>
+          <h2 className="mt-0.5 text-[15px] font-extrabold text-ink">资讯分类</h2>
+        </div>
+        <div className="px-4 py-4 sm:px-5">
+          <CategoryTabs
+            options={tabOptions}
+            active={tag}
+            onChange={(key) => {
+              setTag(key);
+              persisted.tag = key;
+              setDimSel({});
+              persisted.dimSel = {};
+            }}
+          />
+        </div>
+      </section>
 
       {/* 当前内容的维度标签筛选 */}
       {activeDims.length > 0 && (
@@ -185,18 +179,12 @@ export function AllAIView() {
         {!live && " 实时接口暂不可用，当前仅展示快照数据。"}
       </p>
 
-      {loading || tablePending || overviewPending ? (
+      {loading || tablePending ? (
         <div className="flex flex-col gap-3.5">
           {[0, 1, 2, 3].map((i) => (
             <div key={i} className="ah-card h-[110px] animate-pulse bg-surface-2" />
           ))}
         </div>
-      ) : overviewMode && companyOverview ? (
-        <CompanyOverviewTable overview={companyOverview} dimSel={dimSel} q={q} />
-      ) : overviewMode ? (
-        <p className="ah-card p-8 text-center text-[13px] text-mut">
-          公司与产品库尚未生成。配置模型后运行 overview 阶段即可产生首版数据。
-        </p>
       ) : tableMode && fundingTable ? (
         <FundingTableView table={fundingTable} dimSel={dimSel} q={q} />
       ) : groups.length === 0 ? (

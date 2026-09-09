@@ -1,4 +1,4 @@
-// 新分类标签体系（与 taxonomy.json 对齐）：精选 / 全部AI动态共用的分类与维度定义
+// 新分类标签体系（与 taxonomy.json 对齐）：全部 AI 动态的分类与维度定义。
 import type { NewsItem } from "./types";
 
 /** 新 6 类（展示顺序固定；dims 为该类别的并列筛选维度 id；display 对齐 taxonomy.json） */

@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "AI HOT · AI 情报仪表盘",
-  description: "精选 / 热点榜 / 全部 AI 动态 / 日报周报，一站式 AI 情报看板。",
+  description: "全部 AI 动态 / 公司与产品全景 / 热点榜 / 日报周报，一站式 AI 情报看板。",
   icons: {
     icon: `${assetBase}/favicon.svg`,
     shortcut: `${assetBase}/favicon.svg`,

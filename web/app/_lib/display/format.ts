@@ -20,7 +20,7 @@ export const API_CATEGORY_MAP: Record<string, string> = {
   tip: "技巧与观点",
 };
 
-/** 六版块短名（精选页分类 Tab 用） */
+/** 六版块短名（全部动态分类 Tab 用） */
 export const SECTION_SHORT: Record<string, string> = {
   "模型发布/更新": "模型",
   "产品发布/更新": "产品",

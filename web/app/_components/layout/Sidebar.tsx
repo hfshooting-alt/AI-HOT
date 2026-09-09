@@ -2,12 +2,12 @@
 "use client";
 
 import { useApp } from "../providers/AppDataProvider";
-import { BrandLogo, FlameIcon, GearIcon, ListIcon, NewsIcon, StarIcon } from "../shared/icons";
+import { BrandLogo, DatabaseIcon, FlameIcon, GearIcon, ListIcon, NewsIcon } from "../shared/icons";
 import type { ViewKey } from "../../_lib/domain/types";
 
 const NAV_ITEMS: { key: ViewKey; label: string; icon: (p: { className?: string }) => React.ReactNode }[] = [
-  { key: "featured", label: "精选", icon: StarIcon },
   { key: "all", label: "全部 AI 动态", icon: ListIcon },
+  { key: "company", label: "公司与产品全景", icon: DatabaseIcon },
   { key: "hot", label: "热点榜", icon: FlameIcon },
   { key: "daily", label: "AI 日报", icon: NewsIcon },
 ];
@@ -76,12 +76,11 @@ export function SidebarContent() {
         </nav>
       </div>
 
-      {/* 底部：备案信息 */}
+      {/* 底部：数据来源 */}
       <div className="mt-auto px-5 pb-5">
         <div className="mb-3 border-t border-line-2 pt-3 text-[11px] leading-relaxed text-mut-2">
           数据来源：AIHOT 开放 API
         </div>
-        <div className="text-[10.5px] text-mut-2">京ICP备2026012723号-2</div>
       </div>
     </div>
   );

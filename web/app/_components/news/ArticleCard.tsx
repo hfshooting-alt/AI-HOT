@@ -1,4 +1,4 @@
-// 新闻条目卡片（精选 / 全部动态共用，对齐官网卡片层级：时间·来源·标签 → 标题 → 摘要 → 评分）
+// 新闻条目卡片：时间·来源·标签 → 标题 → 摘要 → 评分。
 import type { NewsItem } from "../../_lib/domain/types";
 import { fmtClock, itemUrl } from "../../_lib/display/format";
 import { categoryOf, TAXONOMY_CATEGORY_COLORS, TAXONOMY_LABELS } from "../../_lib/domain/taxonomy";
@@ -35,11 +35,6 @@ export function ArticleCard({ item, showSection = true }: { item: NewsItem; show
           >
             AIHOT 收录页
           </a>
-        )}
-        {item.selected !== false && (
-          <span className="inline-flex items-center gap-1 text-[11.5px] font-semibold text-brand">
-            <span aria-hidden>★</span> 精选
-          </span>
         )}
         {showSection && item.category && <SectionTag label={TAXONOMY_LABELS[catId] || catId} color={color} />}
         <span className="ml-auto flex items-center gap-2">

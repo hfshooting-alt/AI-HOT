@@ -4,7 +4,7 @@
 
 站点使用 AIHOT 匿名只读 API，不需要 API Key，也不会产生模型调用费用。生产代码仅使用稳定的 `https://aihot.virxact.com/api/v1/*` 路径：
 
-- `GET /api/v1/items`：精选与全部动态；
+- `GET /api/v1/items`：全部动态；
 - `GET /api/v1/hot-topics`：热点榜及信源数量；
 - `GET /api/v1/daily`：日报索引和日报正文。
 
@@ -21,7 +21,7 @@ node scripts/build_aihot_preview.mjs `
   --output work/aihot-preview/site/snapshot.json
 ```
 
-脚本强制输出到 `work/`，避免未经审核的数据被误提交。候选快照包括过去 24 小时精选、全部动态、热点榜和最新日报。
+脚本强制输出到 `work/`，避免未经审核的数据被误提交。候选快照包括过去 24 小时全部动态、热点榜和最新日报；站点不再建立单独的精选数据集。
 
 每日十点流水线会向 `build_snapshot.py` 传入 `--api-window 24h`，正常约 5 页即可覆盖当前数据量。只有人工重建历史时才使用 7 天窗口，避免日常运行做无用分页。
 

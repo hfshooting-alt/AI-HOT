@@ -121,7 +121,7 @@ node scripts/settings-server.mjs
 ## 7. 截图规范
 
 - 全部截图集中存放在工作区根 `screenshots\` 目录。
-- 新截图按功能模块 + 阶段命名，如 `history-archive-ui.png`、`nextjs-featured-top.png`、`qa-stepN-xxx.png`。
+- 新截图按功能模块 + 阶段命名，如 `history-archive-ui.png`、`nextjs-all-top.png`、`qa-stepN-xxx.png`。
 - 勿再往根目录散落 png/jpg。
 
 ## 8. 交接文档体系

@@ -1,6 +1,6 @@
 // AI HOT 前端数据类型定义（与 build_snapshot.py / aihot API 对齐）
 
-export type ViewKey = "featured" | "hot" | "all" | "daily" | "settings";
+export type ViewKey = "all" | "company" | "hot" | "daily" | "settings";
 
 /** AI 两级分类（tag_news 打标签产物，展示结构；dims 与 to_display 输出对齐） */
 export interface Classification {
@@ -97,7 +97,6 @@ export interface Snapshot {
   history: HistoryEntry[];
   weeklyNav: WeeklyNavEntry[];
   /** 静态托管降级数据；Pages 无服务端 API 时直接读取。 */
-  featured?: NewsItem[];
   hot?: Partial<HotTopicsResponse> & { items: HotTopic[] };
   all?: AllFeedResponse;
   /** 静态站点内嵌的日报正文；键为 YYYY-MM-DD。 */
