@@ -4,6 +4,8 @@
 
 ## 1. 先检查，再运行
 
+后续测试统一遵循[测试成本控制](TESTING_COST_CONTROL.md)。默认先 `python scripts/test_pipeline.py`；确认 Manus 密钥用 `python scripts/test_pipeline.py manus-auth`。本页 `run` 生产命令会执行真实接口，`--no-promote` 不限制费用。
+
 ```sh
 python -m pip install -r scripts/requirements.txt
 python scripts/run_pipeline.py doctor

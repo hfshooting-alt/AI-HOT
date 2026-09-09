@@ -28,7 +28,8 @@ npm --prefix web run dev
 | `npm --prefix web run build` / `npm --prefix web start` | 生产构建 / 启动 |
 | `npm --prefix web test` | 构建及全部 Node 测试 |
 | `npm --prefix web run test:unit` | 来源、分页和设置服务测试 |
-| `python -m unittest discover -s tests -p "test_*.py"` | Python 回归测试 |
+| `python scripts/test_pipeline.py` | Python 离线回归，禁止真实网络/子进程 |
+| `python scripts/test_pipeline.py manus-auth` | 只读检查 Manus 认证与余额，结果有缓存 |
 | `npm --prefix web run typecheck` / `npm --prefix web run lint` | 静态检查；已有问题见维护导航 |
 | `python scripts/funding_table.py --selftest` | 融资流程离线自检 |
 

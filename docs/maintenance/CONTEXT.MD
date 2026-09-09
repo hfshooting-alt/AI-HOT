@@ -8,6 +8,9 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 
 ## 2. 当前代码基线
 
+- 2026-09-09 成本控制：新增 `scripts/test_pipeline.py` 与 `scripts/testing/`。默认 Python 测试阻断网络和子进程；只读认证探针缓存结果；显式付费探针每日最多一次 Lite 创建尝试，限制轮询并请求停止超时/高消费任务。195 项 Python 离线测试通过。
+- 2026-09-09 Manus 密钥检查：用户提供的密钥仅存本地已忽略 `.env`，两次官方余额只读请求均返回 401（含粘贴转义复核），尚未认证成功；没有创建真实任务，余额未知，DeepSeek 仍待配置。后续遵守 `docs/operations/TESTING_COST_CONTROL.md`。
+
 - 2026-09-08 自动化加固（基于 `8b9e9f5`）：增加统一 doctor/run 入口、候选产物隔离、阶段恢复、发布回滚和过期候选保护；融资全部抽取失败禁止覆盖旧表，失败/fallback 缓存可重试。每日任务串联采集、正文、feed、快照/历史/周报和融资表。操作见 `docs/operations/AUTOMATED_PIPELINE.md`。离线验证通过；真实接口和部署仍待密钥及托管接通。本次未更新新闻数据。
 - 本轮验证：185 项 Python、23 项 Node 测试及生产构建通过。实际 doctor 的配置/依赖/权限检查通过，仅缺 Manus/DeepSeek 密钥；dry-run 成功，未执行付费采集或线上发布。
 

@@ -71,7 +71,7 @@ python scripts/manus_source/runner.py --date 2026-08-27 --groups group_a
 python scripts/build_manus_feed.py --date 2026-08-27 --no-promote
 
 # 全部离线测试
-python -m pytest tests/ -q
+python scripts/test_pipeline.py offline
 node web/tests/frontend/rendered-html.test.mjs
 node web/tests/frontend/source-kind.test.mjs
 node web/tests/settings/test_settings_server.mjs
@@ -89,6 +89,14 @@ node scripts/settings-server.mjs
 - `MANUS_TIMEOUT_SECONDS` 默认值为 `3600`。长时间 discovery 任务不应再沿用 10 分钟上限。
 
 ## 5. Git 纪律（多 session 并行开发）
+
+### 测试成本约束（用户于 2026-09-09 明确要求）
+
+- 默认 `python scripts/test_pipeline.py offline`，禁止回归测试调用真实付费服务。CI 的离线测试也使用该入口。
+- 检查 Manus key 使用 `manus-auth`，不要启动生产采集来确认密钥。只有必要的小样本实测使用 `manus-smoke --allow-paid`，当前工作区每天最多一次 Lite 创建尝试，不重试创建，观察 120 秒/最多 12 次轮询，观察到 20 credits 时请求停止。
+- 所有后续真实测试都先明确调用/任务上限与样本范围，并复用成功结果；认证失败、创建响应不确定或停止失败时先排查，禁止自动扩大范围或重复启动。
+- 探针阈值不等于服务端硬性费用上限；生产入口不受探针台账限制，不能把 `--no-promote` 当作成本控制。细节与恢复见 `docs/operations/TESTING_COST_CONTROL.md`。
+- 本地 `.env`、额度、完整响应及测试台账不入 Git；密钥不得出现在回复、CLI 参数、提交或文档中。
 
 - main 分支直推；本地提交前先 `git pull --rebase`，避免与 CI 的 Manus feed 提交冲突。
 - 若 CI 数据提交与本地分叉：优先重新生成受影响的数据产物后再提交，勿强推。

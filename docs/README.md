@@ -8,6 +8,7 @@
 | [architecture/MANUS_DATA_CONTRACT.md](./architecture/MANUS_DATA_CONTRACT.md) | 采集数据、校验和发布契约 |
 | [operations/MANUS_SOURCE_RUNBOOK.md](./operations/MANUS_SOURCE_RUNBOOK.md) | 执行采集、排查失败 |
 | [operations/AUTOMATED_PIPELINE.md](./operations/AUTOMATED_PIPELINE.md) | 全流程运行、检查、恢复和发布保护 |
+| [operations/TESTING_COST_CONTROL.md](./operations/TESTING_COST_CONTROL.md) | 离线回归、只读认证、受限付费问答和消费记录 |
 | [operations/DEPLOY_WORKFLOW.md](./operations/DEPLOY_WORKFLOW.md) | 部署操作 |
 | [reference/SITES_TEMPLATE.md](./reference/SITES_TEMPLATE.md) | 可选托管、身份与数据库脚手架参考 |
 | [history/](history/) | 按原日期和文件名保留的设计、计划与排错记录 |
