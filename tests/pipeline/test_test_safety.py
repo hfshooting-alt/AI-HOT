@@ -125,6 +125,8 @@ class TestCostSafety(unittest.TestCase):
         self.assertEqual(result["stopError"], "connection_failed")
 
     def test_auth_or_low_balance_prevents_task_creation(self):
+        self.assertEqual(balance({"ok": True, "total_credits": 4350}), 4350)
+        self.assertEqual(balance({"ok": True, "data": {"total_credits": 100}}), 100)
         for data in ([], {}, {"total_credits": None}, {"total_credits": True}, {"total_credits": -1}):
             with self.assertRaisesRegex(ProbeError, "balance_unavailable"):
                 balance({"data": data})

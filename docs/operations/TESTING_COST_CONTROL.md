@@ -7,7 +7,7 @@
 | 命令 | 外部调用与范围 |
 | --- | --- |
 | `python scripts/test_pipeline.py` | 默认 offline，运行全部 Python 测试，阻断真实网络和子进程；使用假密钥和模拟响应 |
-| `python scripts/test_pipeline.py manus-auth` | 一次 GET `usage.availableCredits`，验证认证和可用 credits；不创建任务 |
+| `python scripts/test_pipeline.py manus-auth` | 一次 GET `usage.availableCredits`，验证认证和可用 credits；兼容当前顶层及旧版嵌套额度字段，不创建任务 |
 | `python scripts/test_pipeline.py manus-auth --refresh` | 忽略缓存，重新做一次只读认证检查 |
 | `python scripts/test_pipeline.py manus-smoke --allow-paid` | 可能收费：固定 Lite 问答，最多一次创建，不采集新闻、不发布数据 |
 | `python scripts/test_pipeline.py llm-smoke --allow-paid` | 可能收费：一次 OpenAI-compatible JSON 请求，输出上限 16 token，每日最多一次 |

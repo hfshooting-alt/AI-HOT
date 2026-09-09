@@ -50,8 +50,11 @@ def request(key, method, path, payload=None):
 
 
 def balance(response):
-    data = response.get("data")
-    value = data.get("total_credits") if isinstance(data, dict) else None
+    # API v2 当前把 total_credits 放在顶层；兼容早期 data.total_credits 响应。
+    value = response.get("total_credits")
+    if value is None:
+        data = response.get("data")
+        value = data.get("total_credits") if isinstance(data, dict) else None
     if type(value) is not int or value < 0:
         raise ProbeError("balance_unavailable")
     return value
