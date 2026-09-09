@@ -8,6 +8,8 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 
 ## 2. 当前代码基线
 
+- 2026-09-09 十点调度：每日任务改为北京时间 10:00 开始，默认固定前一天十点至当日十点。发现 v3 核实真实发布时间，正文支持跨日，feed/日报记录窗口；原自然日模式兼容保留。202 项 Python 离线测试通过，未调用付费接口、未更新新闻数据、未开启网页托管部署。
+
 - 2026-09-09 成本控制：新增 `scripts/test_pipeline.py` 与 `scripts/testing/`。默认 Python 测试阻断网络和子进程；只读认证探针缓存结果；显式付费探针每日最多一次 Lite 创建尝试，限制轮询并请求停止超时/高消费任务。195 项 Python 离线测试通过。
 - 2026-09-09 Manus 密钥检查：用户提供的密钥仅存本地已忽略 `.env`，两次官方余额只读请求均返回 401（含粘贴转义复核），尚未认证成功；没有创建真实任务，余额未知，DeepSeek 仍待配置。后续遵守 `docs/operations/TESTING_COST_CONTROL.md`。
 
@@ -26,7 +28,7 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 - 测试：2026-08-28 复核 169 个 Python 离线测试全部通过；Node 的渲染、来源类型和设置服务测试共 18 项全部通过。Pytest 仅提示 `.pytest_cache` 无写权限，不影响结果。
 - 账号配置：`config/manus_sources.json` 共 20 个账号，group_a 7 个、group_b 7 个、group_c 6 个。
 - Manus 默认轮询超时：`MANUS_TIMEOUT_SECONDS=3600`，用于容纳超过 10 分钟的 discovery 任务。
-- 自动更新：`fetch-manus.yml` 每日北京时间 01:00 运行完整数据链路，含 `web/public/snapshot.json`、历史页及周报，全部阶段通过后提交正式产物。独立 `update-snapshot.yml` 已删除。线上托管构建/发布尚未接通。
+- 自动更新：`fetch-manus.yml` 每日北京时间 10:00 开始运行完整数据链路，含 `web/public/snapshot.json`、历史页及周报，全部阶段通过后提交正式产物。默认固定十点 24 小时窗口，date 为结束日；独立 `update-snapshot.yml` 已删除，线上托管发布尚未接通。
 
 ### 当前 Manus 数据
 

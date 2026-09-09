@@ -17,3 +17,5 @@
 | 前端开发与构建 | `vinext.mjs` | 跨平台调用 vinext，构建输出 `web/dist/` |
 
 执行细节见 [运行手册](../docs/operations/MANUS_SOURCE_RUNBOOK.md)，字段契约见 [数据契约](../docs/architecture/MANUS_DATA_CONTRACT.md)。
+
+统一入口默认十点 24 小时窗口；时间边界实现在 `manus_source/window.py`，发现提示词为 `prompts/manus_discovery_window.md`。原始产物和恢复状态使用 ten-am 子目录，旧自然日模式仍可显式选择。

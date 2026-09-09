@@ -3,6 +3,15 @@
 > 版本：2026-08-17 初版。契约变更必须先改本文件与 `tests/pipeline/test_manus_contract.py`，再改生产代码。
 > 校验实现：`scripts/manus_source/contracts.py`（离线单测：`python -m unittest tests.pipeline.test_manus_contract -v`）
 
+## 2026-09-09 十点窗口契约
+
+- 默认统一入口使用北京时间前一日 10:00（含）至 date 当日 10:00（不含）的固定窗口。
+- 窗口发现结果为 `schema_version=3`，本地附加 `collectionWindow: {start, end, timezone}`，每篇 complete 文章新增 `published_at`（含时区 ISO8601）。`published_date` 必须等于该时间在北京时间的日期，允许跨两个自然日；时间必须处于窗口内。未知时间不能用日期推算。
+- 旧自然日发现结果 v2 继续可用。v2 保留“文章日期等于 target_date”的规则；不与 v3 三组混用。十点原始文件在 `work/manus/ten-am/<date>/raw/`。
+- 正文批次的 target_date 代表运行批次；窗口模式逐 URL 与发现结果的实际 published_date 校验，因此前一天与当日的正文均可通过，不能替换为批次日期。
+- feed 保留 schemaVersion=1，新增可选 collectionWindow；窗口 feed 的 publishedPrecision 为 datetime，publishedAt 为发现阶段核实的真实时间。历史 date 精度 feed 继续兼容，不能进入精确 24 小时日报。
+- 快照顶层新增 collectionWindow，daily.range 新增 startAt/endAt；上游新增入库和日报均按此过滤。历史归档、自然周与融资表的历史范围保留。以下 v2 章节描述旧自然日兼容模式。
+
 ## 2026-09-08 运行与发布补充
 
 JSON schema 保持不变。`build_manus_feed.validate_publishable()` 补充发布门槛：存在发现文章或失败账号而发布列表为空时拒绝覆盖；所有账号成功且真实无文章时允许空 feed。融资表存在输入但全部抽取失败（包含预算结束未处理项）时拒绝发布，成功抽取没有公司时允许空表。

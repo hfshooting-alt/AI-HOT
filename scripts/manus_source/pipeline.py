@@ -102,7 +102,7 @@ def _raw_batch_paths(raw_dir: Path) -> list[Path]:
 
 
 def load_resumed_records(raw_dir: Path, target_date: str, expected_titles: dict[str, str],
-                         min_content_chars: int) -> dict[str, dict]:
+                         min_content_chars: int, expected_dates=None) -> dict[str, dict]:
     """断点续跑：读取同一日期已有原始批次，返回可复用的 {url: 文章记录}。
 
     整个批次文件必须通过契约校验才可复用；任何损坏都放弃该文件（重跑该批）。
@@ -113,7 +113,7 @@ def load_resumed_records(raw_dir: Path, target_date: str, expected_titles: dict[
             with open(path, "r", encoding="utf-8") as f:
                 batch = json.load(f)
             ok, _failed = contracts.validate_content_batch(batch, target_date, expected_titles,
-                                                           min_content_chars)
+                                                           min_content_chars, expected_dates)
         except (OSError, json.JSONDecodeError, contracts.ContractError):
             continue
         for art in ok:  # 仅复用成功正文；失败记录下次重新抓取。
@@ -239,8 +239,10 @@ class ContentPipeline:
         batches, result.duplicates_dropped = plan_batches(discoveries, self.batch_size)
         expected_titles = {a["article_url"]: a["title"]
                            for batch in batches for a in batch}
+        expected_dates = ({a["article_url"]: a["published_date"] for batch in batches for a in batch}
+                          if any(d.get("collectionWindow") for d in discoveries.values()) else None)
         resumed = load_resumed_records(self.raw_dir, self.target_date,
-                                       expected_titles, self.min_content_chars)
+                                       expected_titles, self.min_content_chars, expected_dates)
 
         self.raw_dir.mkdir(parents=True, exist_ok=True)
         self.diag_dir.mkdir(parents=True, exist_ok=True)
@@ -274,7 +276,7 @@ class ContentPipeline:
 
             batch_obj = {"target_date": self.target_date, "articles": batch_articles}
             ok, failed = contracts.validate_content_batch(batch_obj, self.target_date,
-                                                          expected_titles, self.min_content_chars)
+                                                          expected_titles, self.min_content_chars, expected_dates)
             result.ok_articles.extend(ok)
             result.failed.extend(failed)
 

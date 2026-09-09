@@ -29,13 +29,17 @@ python scripts/run_pipeline.py run --date 2026-09-07 --resume
 python scripts/run_pipeline.py run
 ```
 
-省略日期时使用北京时间昨天。`--date` 指定采集目标日；快照仍按实际运行时间执行过期过滤和归档保留规则，因此它不是将网站时钟回拨到历史日期的参数。
+默认 `--window-mode ten-am`，`--date` 是窗口结束日。例如 `--date 2026-09-09` 固定覆盖 9 月 8 日 10:00（含）至 9 月 9 日 10:00（不含）。省略日期时取最近已经到达的北京时间十点：十点前取前一天，十点及以后取当天。子阶段复用这个已确定的日期，排队延迟和加工耗时不移动窗口。跨日补跑需显式填写窗口结束日。
+
+兼容旧数据时用 `--window-mode calendar-day --date YYYY-MM-DD`，含义仍为该自然日。原有 discovery/content/feed CLI 默认保留自然日模式，加 `--ten-am` 启用新窗口。旧三组文件与十点文件分开存储，不能混用。
+
+十点模式要求发现结果带详情页明确的 `published_at`，缺少具体时间的边界日来源会被标记失败，不能把中午 12 点等虚构时间当作采集证据。快照的上游新闻也按同一窗口过滤新增入库，日报显示明确起止时刻；周报、历史页和融资表继续保留各自历史范围，热点榜仍是抓取时的榜单。归档保留与过期规则按实际运行时间执行，历史补跑不回拨网站时钟，也不重写已定稿历史。
 
 ## 2. 阶段与输入
 
 | 阶段 | 输出/前置要求 |
 | --- | --- |
-| `discovery` | Manus 发现三组账号的目标日文章，原始结果在 `work/manus/<date>/raw/` |
+| `discovery` | Manus 发现三组账号的窗口文章，原始结果在 `work/manus/ten-am/<date>/raw/` |
 | `content` | 读取同日三组发现结果，默认脚本提取正文；成功正文可复用 |
 | `feed` | 读取发现和正文结果，经模型加工后生成候选 Manus feed |
 | `snapshot` | 合并 AIHOT 与候选/既有 Manus feed，生成快照、归档、历史页及周报 |
@@ -47,7 +51,7 @@ python scripts/run_pipeline.py run
 
 ## 3. 失败保护与断点恢复
 
-每次新运行把既有产物复制到 `work/runs/<date>/<run-id>/workspace/`。所有选定阶段成功后，再校验候选输出并替换对应正式目录：
+每次新运行把既有产物复制到 `work/runs/<date>/ten-am/<run-id>/workspace/`（旧自然日模式没有 ten-am 层）。所有选定阶段成功后，再校验候选输出并替换对应正式目录：
 
 - feed：`data/manus/`。
 - snapshot：`data/archive/`、`data/cache/`、`web/public/`。
@@ -71,13 +75,13 @@ python scripts/run_pipeline.py run --date 2026-09-07 --resume
 
 ## 4. 日志与溯源
 
-`work/runs/<date>/latest.json` 指向最近运行。每次运行的 `state.json` 保存阶段、状态、退出码、耗时和发布状态；`publication.json` 记录目录替换状态；`backup/` 保留发布前版本。运行目录和原始正文在 Git 忽略范围内，不会自动清理，磁盘维护时确认运行完成后按日期归档或移除。
+`work/runs/<date>/ten-am/latest.json` 指向最近十点运行，旧自然日模式使用 `work/runs/<date>/latest.json`。每次运行的 `state.json` 保存固定 collectionWindow、阶段、状态、退出码、耗时和发布状态；`publication.json` 记录目录替换状态；`backup/` 保留发布前版本。运行目录和原始正文在 Git 忽略范围内，不会自动清理，磁盘维护时确认运行完成后按日期归档或移除。
 
 正式数据失败时保留旧版本，因此应结合运行状态判断更新是否完成，不能只看页面能否打开。运行状态不含密钥或正文；排错时避免分享 `.env` 或原始全文。
 
 ## 5. GitHub Actions
 
-`.github/workflows/fetch-manus.yml` 每天北京时间 01:00 执行全流程，测试通过后调用统一入口，成功后将整套正式数据提交到仓库。手动输入为 `date`、`stage`、`promote`、`dry_run`、`skip_search`；可选阶段为 all/snapshot/funding。独立 content/feed 所需原始正文未存入 Git，所以这两个阶段仅在保留原始文件的本地运行。
+`.github/workflows/fetch-manus.yml` 每天北京时间 10:00（UTC 02:00）开始全流程，测试通过后调用统一入口，成功后将整套正式数据提交到仓库；并非十点整完成更新。GitHub schedule 可能延迟，不能保证准点。手动输入为 `date`（窗口结束日）、`stage`、`promote`、`dry_run`、`skip_search`；可选阶段为 all/snapshot/funding。独立 content/feed 所需原始正文未存入 Git，所以这两个阶段仅在保留原始文件的本地运行。
 
 需要 GitHub Secrets `MANUS_API_KEY`、`DEEPSEEK_API_KEY`；可选 `TAVILY_API_KEY`，模型接口和模型名可用 Variables `LLM_API_BASE`、`LLM_MODEL`。如果修改 taxonomy 中 `api_key_env`，同步工作流的密钥注入。
 

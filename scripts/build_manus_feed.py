@@ -26,6 +26,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import enrich_news  # noqa: E402
 import tag_news  # noqa: E402
 from manus_source import contracts  # noqa: E402
+from manus_source.window import ten_am_window  # noqa: E402
 from manus_source.config import load_sources  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -53,12 +54,15 @@ def load_discoveries(raw_dir: Path, target_date: str, groups_cfg: dict) -> dict[
         accounts = [s["account_name"] for s in groups_cfg[group]]
         contracts.validate_discovery(payload, group, target_date, accounts)
         discoveries[group] = payload
+    windows = [d.get("collectionWindow") for d in discoveries.values()]
+    if any(w != windows[0] for w in windows):
+        raise contracts.ContractError("三组发现结果时间窗口不一致")
     return discoveries
 
 
 def load_content_articles(raw_dir: Path, target_date: str,
                           expected_titles: dict[str, str],
-                          min_content_chars: int) -> tuple[list[dict], list[dict]]:
+                          min_content_chars: int, expected_dates=None) -> tuple[list[dict], list[dict]]:
     """汇总所有正文批次原始文件并通过本地门槛；损坏批次抛 ContractError（不静默跳过）。"""
     ok_all: list[dict] = []
     failed_all: list[dict] = []
@@ -72,7 +76,7 @@ def load_content_articles(raw_dir: Path, target_date: str,
         except json.JSONDecodeError as exc:
             raise contracts.ContractError(f"{path.name} 不是合法 JSON：{exc}") from exc
         ok, failed = contracts.validate_content_batch(batch, target_date, expected_titles,
-                                                      min_content_chars)
+                                                      min_content_chars, expected_dates)
         ok_all.extend(ok)
         failed_all.extend(failed)
     # 重试批次可能包含同一 URL；成功结果优先，旧失败不再重复计数。
@@ -110,8 +114,8 @@ def make_items(ok_articles: list[dict], enrich_results: dict[str, dict]) -> tupl
             "mpName": art["account_name"],
             "sourcePlatform": art.get("source_platform"),
             "author": art.get("author"),
-            "publishedAt": f"{art['published_date']}T12:00:00+08:00",
-            "publishedPrecision": "date",
+            "publishedAt": art.get("published_at") or f"{art['published_date']}T12:00:00+08:00",
+            "publishedPrecision": "datetime" if art.get("published_at") else "date",
             "contentSha256": contracts.content_sha256(art.get("content_text") or ""),
             "enrichmentStatus": enr["enrichmentStatus"],
             "classification": enr["classification"],
@@ -127,6 +131,8 @@ def assemble_feed(target_date: str, discoveries: dict[str, dict], items: list[di
     failed_accounts = sum(1 for a in audits if a["source_status"] == "failed")
     return {
         "schemaVersion": contracts.FEED_SCHEMA_VERSION,
+        **({"collectionWindow": discoveries[GROUPS[0]]["collectionWindow"]}
+           if discoveries[GROUPS[0]].get("collectionWindow") else {}),
         "targetDate": target_date,
         "generatedAt": generated_at,
         "collector": "manus",
@@ -196,11 +202,17 @@ def write_state(state_path: Path, target_date: str, promoted: bool, feed: dict |
 
 def build(target_date: str, work_dir: Path, sources_path: Path, taxonomy_path: Path,
           enrich_fn=None, generated_at: str | None = None,
-          min_content_chars: int = 100, cache_path: Path | None = None) -> dict:
+          min_content_chars: int = 100, cache_path: Path | None = None, window: dict | None = None) -> dict:
     """从运行时 work 目录生成规范化 feed；任何契约违规抛 ContractError。"""
     groups_cfg = load_sources(Path(sources_path))
     raw_dir = Path(work_dir) / target_date / "raw"
     discoveries = load_discoveries(raw_dir, target_date, groups_cfg)
+    if window is not None and discoveries[GROUPS[0]].get("collectionWindow") != window:
+        raise contracts.ContractError("发现结果不是请求的十点窗口")
+    window = discoveries[GROUPS[0]].get("collectionWindow")
+    metadata = {a["article_url"]: a for g in GROUPS for a in discoveries[g]["articles"]
+                if a["extraction_status"] == "complete"}
+    expected_dates = {u: a["published_date"] for u, a in metadata.items()} if window else None
     expected_titles = {a["article_url"]: a["title"]
                        for g in GROUPS for a in discoveries[g]["articles"]
                        if a["extraction_status"] == "complete"}
@@ -209,7 +221,7 @@ def build(target_date: str, work_dir: Path, sources_path: Path, taxonomy_path: P
         return assemble_feed(target_date, discoveries, [], 0,
                              generated_at or now_bj_iso())
     ok_articles, content_failed = load_content_articles(raw_dir, target_date, expected_titles,
-                                                        min_content_chars)
+                                                        min_content_chars, expected_dates)
     platform_by_url = {a["article_url"]: a.get("source_platform")
                        for g in GROUPS for a in discoveries[g]["articles"]}
     author_by_url = {a["article_url"]: a.get("author")
@@ -217,6 +229,8 @@ def build(target_date: str, work_dir: Path, sources_path: Path, taxonomy_path: P
     for art in ok_articles:  # 正文 schema 不含平台/作者，从发现结果回填
         art["source_platform"] = platform_by_url.get(art["article_url"])
         art["author"] = author_by_url.get(art["article_url"])
+        if window:
+            art["published_at"] = metadata[art["article_url"]]["published_at"]
 
     tx = tag_news.load_taxonomy(str(taxonomy_path))
     enrich_fn = enrich_fn or enrich_news.enrich_items
@@ -245,15 +259,19 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--taxonomy", default="config/taxonomy.json")
     parser.add_argument("--generated-at", default=None, help="覆盖生成时间（测试用）")
     parser.add_argument("--no-promote", action="store_true", help="只生成校验，不写 current.json")
+    parser.add_argument("--ten-am", action="store_true", help="读取 date 结束的十点窗口，工作目录追加 ten-am")
     args = parser.parse_args(argv)
 
     work_dir = PROJECT_ROOT / args.work_dir
+    if args.ten_am:
+        work_dir = work_dir / "ten-am"
     data_dir = PROJECT_ROOT / args.data_dir
     state_path = data_dir / "state.json"
     try:
         feed = build(args.date, work_dir, PROJECT_ROOT / args.sources,
                      PROJECT_ROOT / args.taxonomy, generated_at=args.generated_at,
-                     cache_path=data_dir / "enrichment_cache.json")
+                     cache_path=data_dir / "enrichment_cache.json",
+                     window=ten_am_window(args.date) if args.ten_am else None)
         validate_publishable(feed)
     except contracts.ContractError as exc:
         # 组失败/schema 不合法：不覆盖上一次 current.json，只记失败状态

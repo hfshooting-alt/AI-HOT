@@ -10,6 +10,8 @@
 import argparse
 import json
 import sys
+from copy import deepcopy
+from dataclasses import replace
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -17,7 +19,8 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from manus_source import contracts  # noqa: E402
-from manus_source.client import ManusClient  # noqa: E402
+from manus_source.client import ManusClient, DISCOVERY_OUTPUT_SCHEMA  # noqa: E402
+from manus_source.window import ten_am_window  # noqa: E402
 from manus_source.config import Settings, load_sources, render_sources_block  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -38,14 +41,21 @@ def render_discovery_prompt(template_path: Path, sources: list[dict]) -> str:
 
 
 def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text: str,
-                  expected_accounts: list[str]) -> dict:
+                  expected_accounts: list[str], window: dict | None = None) -> dict:
     """提交单组发现任务并等待结果；契约校验通过后返回原始 payload，失败抛异常。"""
+    schema = deepcopy(DISCOVERY_OUTPUT_SCHEMA)
+    if window:
+        article_schema = schema["properties"]["articles"]["items"]
+        article_schema["properties"]["published_at"] = {"type": ["string", "null"]}
+        article_schema["required"].append("published_at")
     task = client.create_crawl_task(
         prompt_text=prompt_text,
         source_group=group,
         target_date=target_date,
         title=f"AI 新闻采集 {target_date} · {group}",
-        task_brief=DISCOVERY_BRIEF,
+        task_brief=(f"只采集 {window['start']}（含）至 {window['end']}（不含）的文章；"
+                    "published_at 必须来自详情页明确时间。" if window else DISCOVERY_BRIEF),
+        output_schema=schema,
     )
     print(f"[{group}] Manus task created: {task.task_url}", flush=True)
     payload = client.wait_for_structured_result(task.task_id)
@@ -53,6 +63,9 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
     # （见 docs/2026-08-20-manus-pipeline-smoke-issues.md 问题 1）：不依赖 Manus
     # 回显，落盘校验前本地权威补充；校验端保持强制不变。
     payload["schema_version"] = contracts.DISCOVERY_SCHEMA_VERSION
+    if window:
+        payload["schema_version"] = contracts.WINDOW_DISCOVERY_SCHEMA_VERSION
+        payload["collectionWindow"] = window
     contracts.validate_discovery(payload, group, target_date, expected_accounts)
     return payload
 
@@ -62,9 +75,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--date", default=default_target_date(), help="目标日期 YYYY-MM-DD（北京时间）")
     parser.add_argument("--groups", nargs="+", choices=GROUPS, default=list(GROUPS))
     parser.add_argument("--resume", action="store_true", help="复用同日校验通过且来源全部成功的发现组")
+    parser.add_argument("--ten-am", action="store_true", help="date 为窗口结束日，采集前一日十点至当日十点")
     args = parser.parse_args(argv)
 
     settings = Settings.from_environment(PROJECT_ROOT)
+    window = ten_am_window(args.date) if args.ten_am else None
+    if window:
+        settings = replace(settings, work_dir=settings.work_dir / "ten-am",
+                           discovery_prompt_path=PROJECT_ROOT / "scripts/prompts/manus_discovery_window.md")
     groups_cfg = load_sources(settings.sources_path)
     client = ManusClient(
         api_key=settings.manus_api_key,
@@ -84,18 +102,20 @@ def main(argv: list[str] | None = None) -> int:
         for group in args.groups:
             sources = groups_cfg[group]
             prompt_text = render_discovery_prompt(settings.discovery_prompt_path, sources)
+            if window:
+                prompt_text = prompt_text.replace("{{WINDOW_START}}", window["start"]).replace("{{WINDOW_END}}", window["end"])
             accounts = [s["account_name"] for s in sources]
             if args.resume:
                 try:
                     cached = json.loads((raw_dir / f"discovery-{group}.json").read_text(encoding="utf-8"))
                     contracts.validate_discovery(cached, group, args.date, accounts)
-                    if all(a["source_status"] == "complete" for a in cached["source_audits"]):
+                    if cached.get("collectionWindow") == window and all(a["source_status"] == "complete" for a in cached["source_audits"]):
                         results[group] = cached
                         print(f"[{group}] 复用已校验的发现结果", flush=True)
                         continue
                 except (OSError, ValueError, contracts.ContractError):
                     pass
-            futs[ex.submit(run_discovery, client, group, args.date, prompt_text, accounts)] = group
+            futs[ex.submit(run_discovery, client, group, args.date, prompt_text, accounts, window)] = group
         for fut in as_completed(futs):
             group = futs[fut]
             try:

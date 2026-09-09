@@ -11,10 +11,12 @@
 """
 import argparse
 import sys
+from dataclasses import replace
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from manus_source.config import Settings, load_sources  # noqa: E402
+from manus_source.window import ten_am_window  # noqa: E402
 from manus_source.pipeline import (  # noqa: E402
     ContentPipeline, ManusContentProvider, ScriptContentProvider,
 )
@@ -28,12 +30,17 @@ import build_manus_feed  # noqa: E402
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Manus 正文提取阶段")
     parser.add_argument("--date", required=True, help="目标日期 YYYY-MM-DD")
+    parser.add_argument("--ten-am", action="store_true", help="读取 date 结束的十点窗口")
     args = parser.parse_args(argv)
 
     settings = Settings.from_environment(PROJECT_ROOT)
+    if args.ten_am:
+        settings = replace(settings, work_dir=settings.work_dir / "ten-am")
     groups_cfg = load_sources(settings.sources_path)
     discoveries = build_manus_feed.load_discoveries(
         settings.work_dir / args.date / "raw", args.date, groups_cfg)
+    if args.ten_am and any(d.get("collectionWindow") != ten_am_window(args.date) for d in discoveries.values()):
+        raise ValueError("发现结果不是请求的十点窗口")
     prompt_text = settings.content_prompt_path.read_text(encoding="utf-8")
 
     if settings.content_mode == "manus":

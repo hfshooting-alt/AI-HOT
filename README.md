@@ -22,6 +22,8 @@ npm --prefix web run dev
 
 自动更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。配置密钥后用 `python scripts/run_pipeline.py run` 执行采集到融资表的整套更新，支持 `--resume`、`--stage` 和 `--no-promote`。详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)。
 
+每日任务按北京时间 **10:00 开始**，固定采集前一天 10:00（含）至当天 10:00（不含）的新闻；全部加工成功后更新仓库中的网页产物。GitHub 定时调度可能延迟；网页托管发布通道尚未启用。`--date` 在默认十点模式下表示窗口结束日，旧自然日流程使用 `--window-mode calendar-day`。
+
 | 命令 | 用途 |
 | --- | --- |
 | `npm --prefix web run dev` | 本地开发 |

@@ -9,6 +9,7 @@ from zoneinfo import ZoneInfo
 
 from automation.doctor import inspect
 from automation.runner import STAGES, plan, run
+from manus_source.window import latest_cutoff_date, ten_am_window
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -26,22 +27,30 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("doctor", "run"))
     parser.add_argument("--date", type=valid_date,
-                        default=(datetime.now(ZoneInfo("Asia/Shanghai")).date() - timedelta(days=1)).isoformat())
+                        help="十点模式为窗口结束日；旧自然日模式为采集日")
+    parser.add_argument("--window-mode", choices=("ten-am", "calendar-day"), default="ten-am")
     parser.add_argument("--stage", choices=("all", *STAGES), default="all")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--no-promote", action="store_true", help="执行接口并生成候选产物，保留正式数据")
     parser.add_argument("--dry-run", action="store_true", help="只显示计划，不调用任何外部接口")
     parser.add_argument("--skip-search", action="store_true", help="跳过可选 Tavily 搜索")
     args = parser.parse_args(argv)
+    ten_am = args.window_mode == "ten-am"
+    args.date = args.date or (latest_cutoff_date() if ten_am else
+                             (datetime.now(ZoneInfo("Asia/Shanghai")).date() - timedelta(days=1)).isoformat())
     stages = list(STAGES) if args.stage == "all" else [args.stage]
     if args.dry_run:
-        commands = plan(ROOT, ROOT / "work" / "runs" / args.date / "<run-id>" / "workspace",
-                        args.date, args.resume, args.skip_search)
+        run_path = ROOT / "work" / "runs" / args.date
+        if ten_am:
+            run_path = run_path / "ten-am"
+        commands = plan(ROOT, run_path / "<run-id>" / "workspace",
+                        args.date, args.resume, args.skip_search, ten_am=ten_am)
         print(json.dumps({"date": args.date, "publish": not args.no_promote,
+                          "collectionWindow": ten_am_window(args.date) if ten_am else None,
                           "stages": [{"stage": s, "command": commands[s]} for s in stages]},
                          ensure_ascii=False, indent=2))
         return 0
-    checks = inspect(ROOT, stages, args.date)
+    checks = inspect(ROOT, stages, args.date, ten_am=ten_am)
     for result in checks:
         print(f"[{'OK' if result['ok'] else 'MISSING'}] {result['check']}: {result['detail']}")
     if any(not c["ok"] for c in checks):
@@ -50,7 +59,7 @@ def main(argv=None):
         return 0
     try:
         return run(ROOT, args.date, stages, resume=args.resume, no_promote=args.no_promote,
-                   skip_search=args.skip_search)
+                   skip_search=args.skip_search, ten_am=ten_am)
     except ValueError as exc:
         print(f"运行检查失败：{exc}", file=sys.stderr)
         return 1

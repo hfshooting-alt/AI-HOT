@@ -5,7 +5,7 @@
 
 ## 1. 日常运行（全自动）
 
-- 定时：每天北京时间 01:00（UTC 17:00），目标日期 = 北京时间昨天。
+- 定时：每天北京时间 10:00（UTC 02:00）开始；固定窗口为前一日十点至该日十点，含起点不含终点。`date` 是窗口结束日，实际启动可能因 GitHub 排队延迟。
 - `fetch-manus.yml` 依次执行 discovery、content、feed、snapshot（含历史/周报）、funding，全部成功后更新正式产物并提交。
 - 失败查看 Actions 日志和 `pipeline-status` Artifact；不自动发 Issue 或评论。
 
@@ -15,7 +15,7 @@ Actions 页 → `AI HOT 每日采集与完整数据更新` → Run workflow：
 
 | 输入 | 用途 |
 |---|---|
-| `date` | 固定历史日期补采/复现（留空 = 昨天） |
+| `date` | 固定窗口结束日补采/复现（留空取最近已到达的十点） |
 | `stage` | all/snapshot/funding，日常使用 all |
 | `promote=false` | 生成候选产物，保留正式数据；仍可能调用付费接口 |
 | `dry_run=true` | 仅输出计划，不调用接口、不更新数据 |
@@ -25,6 +25,8 @@ Actions 页 → `AI HOT 每日采集与完整数据更新` → Run workflow：
 
 本地分阶段调试（需 `.env` 配置 `MANUS_API_KEY` / `DEEPSEEK_API_KEY`，参考 `config/env.example`；
 也可用设置页免手改：`node scripts/settings-server.mjs` 后打开 Next.js 应用「设置」视图保存）：
+
+以下旧 CLI 示例仍按自然日运行。新的固定十点窗口需给 discovery/content/feed 三个 CLI 都加 `--ten-am`，date 改为窗口结束日；日常推荐统一入口，避免混用路径。
 
 ```powershell
 python scripts/manus_source/runner.py --date 2026-08-16 --groups group_a   # 阶段 A 发现

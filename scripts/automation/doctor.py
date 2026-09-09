@@ -9,7 +9,7 @@ from pathlib import Path
 from llm_common import load_dotenv
 
 
-def inspect(root: Path, stages: list[str], target_date: str | None = None) -> list[dict]:
+def inspect(root: Path, stages: list[str], target_date: str | None = None, *, ten_am=False) -> list[dict]:
     load_dotenv(root / ".env")
     checks = []
 
@@ -35,7 +35,7 @@ def inspect(root: Path, stages: list[str], target_date: str | None = None) -> li
             check(rel, False, "文件缺失、不可读或结构不合法")
     files = []
     if "discovery" in stages:
-        files.append("scripts/prompts/manus_discovery.md")
+        files.append("scripts/prompts/manus_discovery_window.md" if ten_am else "scripts/prompts/manus_discovery.md")
     if "content" in stages:
         files.append("scripts/prompts/manus_content.md")
         mode = os.getenv("MANUS_CONTENT_MODE", "script")
@@ -59,8 +59,15 @@ def inspect(root: Path, stages: list[str], target_date: str | None = None) -> li
         from build_manus_feed import load_discoveries
         from manus_source.config import load_sources
         try:
-            load_discoveries(root / "work/manus" / target_date / "raw", target_date,
-                             load_sources(root / "config/manus_sources.json"))
+            raw = root / "work/manus"
+            if ten_am:
+                raw = raw / "ten-am"
+            discoveries = load_discoveries(raw / target_date / "raw", target_date,
+                                          load_sources(root / "config/manus_sources.json"))
+            if ten_am:
+                from manus_source.window import ten_am_window
+                if any(d.get("collectionWindow") != ten_am_window(target_date) for d in discoveries.values()):
+                    raise ValueError("窗口不匹配")
             check("前序发现结果", True, "三组结果契约通过")
         except (OSError, ValueError, KeyError, RuntimeError):
             check("前序发现结果", False, "请先运行同日期 discovery 阶段")

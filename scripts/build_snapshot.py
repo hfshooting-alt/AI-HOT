@@ -32,6 +32,7 @@ from datetime import date, datetime, timedelta, timezone
 
 import tag_news  # 打标签 harness（同目录）
 from manus_source import contracts  # Manus feed 契约校验（同目录包）
+from manus_source.window import ten_am_window, timestamp, matching_item
 
 MANUS_MAX_STALE_DAYS = 3  # feed targetDate 旧于该窗口视为过期，降级为仅 aihot 数据
 
@@ -712,11 +713,15 @@ def main() -> int:
                         help="打标签结果缓存（键含 taxonomy/prompt/模型版本）")
     parser.add_argument("--no-tags", action="store_true",
                         help="跳过 AI 打标签（本地调试无 key 时用）")
+    parser.add_argument("--window-date", help="只采集此前一日十点至此日十点的新增新闻；日报使用相同窗口")
     args = parser.parse_args()
 
     now_bj = datetime.now(BJ)
+    window = ten_am_window(args.window_date) if args.window_date else None
+    window_start = timestamp(window["start"]) if window else None
+    window_end = timestamp(window["end"]) if window else None
     try:
-        items = fetch_items(args.api_base, now_bj - timedelta(days=args.days + 2))
+        items = fetch_items(args.api_base, window_start or now_bj - timedelta(days=args.days + 2))
     except Exception as exc:  # noqa: BLE001 - 抓取失败给出可读错误
         print(f"抓取失败: {exc}", file=sys.stderr)
         return 1
@@ -761,6 +766,10 @@ def main() -> int:
     else:
         print(f"Manus 公众号源降级：{mp_status['note']}", file=sys.stderr)
 
+    if window:
+        # 分页响应可能越过边界；只入库明确处于固定窗口内的新文章。
+        items = [i for i in items if matching_item(window, i)]
+
     # ---- 历史归档：增量并集 upsert → 定稿冻结 → 滚动硬删 ----
     upsert_archive(args.archive_dir, items, now_bj)
     finalized_n = finalize_archive(args.archive_dir, now_bj)
@@ -803,6 +812,9 @@ def main() -> int:
             print(f"AI 打标签失败（不阻断发布）: {exc}", file=sys.stderr)
 
     generated_at = datetime.now(timezone.utc)
+    report_ref = window_end or now_bj
+    if window:
+        items = [i for i in items if to_bj(i.get("publishedAt") or "") < window_end]
     today_start = datetime.combine(now_bj.date(), datetime.min.time(), tzinfo=BJ)
 
     # 周期刊：已完结自然周生成/保留/清理（周一起算，归属起始周一所在月）
@@ -810,10 +822,10 @@ def main() -> int:
                                        now_bj, generated_at, keep=args.weekly_keep)
 
     # 主页周报 = 当前进行中的自然周（周一起至今，实时更新；完结周转入周期刊）
-    this_ws = week_start_of(now_bj.date())
+    this_ws = week_start_of(report_ref.date())
     this_ws0 = datetime.combine(this_ws, datetime.min.time(), tzinfo=BJ)
     weekly_view = build_view("weekly", items, this_ws0, 1, generated_at, mp_status,
-                             time_ref=now_bj, end=now_bj)
+                             time_ref=now_bj, end=report_ref)
     weekly_view["range"]["label"] = f"{fmt_date(this_ws)} 至今"
     weekly_view["vol"] = f"VOL.{this_ws.year} · {week_vol_label(this_ws)}"
     weekly_view["range"]["cnLabel"] = f"{fmt_cn_date(this_ws)} {WEEKDAYS[this_ws.weekday()]} 至今 · 本周进行中"
@@ -822,6 +834,13 @@ def main() -> int:
                             time_ref=now_bj, end=now_bj)
     daily_view["vol"] = f"VOL.{now_bj.year}-{now_bj.month:02d}-{now_bj.day:02d}"
     daily_view["range"]["cnLabel"] = fmt_cn_date(now_bj.date()) + " " + WEEKDAYS[now_bj.weekday()]
+    if window:
+        daily_view = build_view("daily", [i for i in items if matching_item(window, i)],
+                                window_start, 1, generated_at, mp_status, time_ref=now_bj, end=window_end)
+        label = f"{fmt_cn_date(window_start.date())} 十点 至 {fmt_cn_date(window_end.date())} 十点"
+        daily_view["range"].update(start=window_start.date().isoformat(), end=window_end.date().isoformat(),
+                                    label=label, cnLabel=label, startAt=window["start"], endAt=window["end"])
+        daily_view["vol"] = f"VOL.{window_end.year}-{window_end.month:02d}-{window_end.day:02d}"
 
     # 新版前端字段：精选 / 热点榜 / 全部 AI 动态 / 日报周报导航 / 分类标签
     featured_pool = format_items(items[:200], now_bj)
@@ -835,6 +854,7 @@ def main() -> int:
     all_tags = [{"tag": cat, "count": category_counts.get(cat, 0)} for cat in SECTIONS if category_counts.get(cat, 0) > 0]
 
     data = {
+        **({"collectionWindow": window} if window else {}),
         # 日报：昨天 00:00 至今（今天没新文章时自然退化为昨日视图，标签相对真实今天）
         "daily": daily_view,
         # 周报：当前进行中的自然周（口径与周期刊统一）

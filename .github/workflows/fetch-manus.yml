@@ -2,11 +2,11 @@ name: AI HOT 每日采集与完整数据更新
 
 on:
   schedule:
-    - cron: "0 17 * * *" # 北京时间 01:00，采集昨天
+    - cron: "0 2 * * *" # 北京时间 10:00 开始，完成后更新数据；调度可能延迟
   workflow_dispatch:
     inputs:
       date:
-        description: "目标采集日期 YYYY-MM-DD，留空为北京时间昨天"
+        description: "窗口结束日 YYYY-MM-DD；采集前一日10:00至该日10:00，留空取最近已到达的十点"
         type: string
         default: ""
       stage:
@@ -63,7 +63,7 @@ jobs:
           INPUT_SKIP_SEARCH: ${{ inputs.skip_search }}
         shell: bash
         run: |
-          args=(run --stage "${INPUT_STAGE:-all}")
+          args=(run --window-mode ten-am --stage "${INPUT_STAGE:-all}")
           if [ -n "$INPUT_DATE" ]; then args+=(--date "$INPUT_DATE"); fi
           if [ "$INPUT_PROMOTE" = "false" ]; then args+=(--no-promote); fi
           if [ "$INPUT_DRY_RUN" = "true" ]; then args+=(--dry-run); fi
@@ -87,7 +87,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: pipeline-status-${{ github.run_id }}
-          path: work/runs/*/*/state.json
+          path: work/runs/**/state.json
           retention-days: 7
           if-no-files-found: ignore
       - name: 运行摘要

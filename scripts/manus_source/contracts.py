@@ -11,8 +11,10 @@ import hashlib
 import json
 import re
 from datetime import date, datetime
+from .window import ten_am_window, contains, timestamp
 
 DISCOVERY_SCHEMA_VERSION = 2
+WINDOW_DISCOVERY_SCHEMA_VERSION = 3
 FEED_SCHEMA_VERSION = 1
 MIN_CONTENT_CHARS = 100          # 正文最小长度门槛（可被上层配置覆盖）
 CONTENT_SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
@@ -57,8 +59,12 @@ def validate_discovery(payload: dict, expected_group: str, target_date: str,
     for field in ("schema_version", "source_group", "target_date", "source_audits", "articles"):
         if field not in payload:
             raise ContractError(f"发现结果缺少必填字段：{field}")
-    if payload["schema_version"] != DISCOVERY_SCHEMA_VERSION:
-        raise ContractError(f"发现结果 schema_version 应为 {DISCOVERY_SCHEMA_VERSION}，"
+    window = payload.get("collectionWindow")
+    version = WINDOW_DISCOVERY_SCHEMA_VERSION if window else DISCOVERY_SCHEMA_VERSION
+    if window is not None and window != ten_am_window(target_date):
+        raise ContractError("发现结果 collectionWindow 与目标日十点窗口不一致")
+    if payload["schema_version"] != version:
+        raise ContractError(f"发现结果 schema_version 应为 {version}，"
                             f"实际 {payload['schema_version']!r}")
     if payload["source_group"] != expected_group:
         raise ContractError(f"发现结果 source_group 不匹配：期望 {expected_group}，"
@@ -105,13 +111,21 @@ def validate_discovery(payload: dict, expected_group: str, target_date: str,
                 raise ContractError(f"账号 {account} 的 complete 文章缺少 article_url")
             if not (art.get("title") or "").strip():
                 raise ContractError(f"账号 {account} 的 complete 文章缺少 title")
-            if art.get("published_date") != target_date:
+            if window:
+                try:
+                    if not contains(window, art.get("published_at")):
+                        raise ValueError("不在窗口内")
+                    if timestamp(art["published_at"]).date().isoformat() != art.get("published_date"):
+                        raise ValueError("日期与时间不一致")
+                except (ValueError, TypeError) as exc:
+                    raise ContractError(f"账号 {account} 发布时间不合法或不在十点窗口内") from exc
+            elif art.get("published_date") != target_date:
                 raise ContractError(f"账号 {account} 的 complete 文章日期 {art.get('published_date')!r} "
                                     f"与请求日期 {target_date} 不匹配")
             per_account_complete[account] += 1
             complete.append(art)
         else:
-            for field in ("article_url", "title", "published_date", "author"):
+            for field in ("article_url", "title", "published_date", "author", *(["published_at"] if window else [])):
                 if art.get(field) is not None:
                     raise ContractError(f"账号 {account} 的 failed 记录字段 {field} 必须为 null")
             if not art.get("note"):
@@ -151,7 +165,8 @@ def _is_risk_page(text: str) -> bool:
 
 def validate_content_batch(batch: dict, target_date: str,
                            expected_titles: dict[str, str] | None = None,
-                           min_content_chars: int = MIN_CONTENT_CHARS) -> tuple[list[dict], list[dict]]:
+                           min_content_chars: int = MIN_CONTENT_CHARS,
+                           expected_dates: dict[str, str] | None = None) -> tuple[list[dict], list[dict]]:
     """校验正文批次；返回 (可加工文章, 失败记录[{article_url, account_name, reason}])。
 
     expected_titles：发现阶段记录的 {article_url: title}，用于拦截跳转漂移。
@@ -178,7 +193,8 @@ def validate_content_batch(batch: dict, target_date: str,
         if art.get("content_status") != "complete":
             fail(f"content_status 非法：{art.get('content_status')!r}")
             continue
-        if art.get("published_date") != target_date:
+        expected_date = expected_dates.get(url) if expected_dates is not None else target_date
+        if expected_date is None or art.get("published_date") != expected_date:
             raise ContractError(f"正文批次中 {account} 的日期 {art.get('published_date')!r} "
                                 f"与目标日期 {target_date} 不匹配")
         text = (art.get("content_text") or "").strip()
@@ -282,8 +298,8 @@ def validate_feed(feed: dict, taxonomy_path: str) -> None:
             raise ContractError(f"{ctx} sourceType 应为 wechat，实际 {it['sourceType']!r}")
         if it["collector"] != "manus":
             raise ContractError(f"{ctx} collector 应为 manus，实际 {it['collector']!r}")
-        if it["publishedPrecision"] != "date":
-            raise ContractError(f"{ctx} publishedPrecision 应为 date，实际 {it['publishedPrecision']!r}")
+        if it["publishedPrecision"] not in ("date", "datetime"):
+            raise ContractError(f"{ctx} publishedPrecision 非法")
         try:
             datetime.fromisoformat(it["publishedAt"])
         except (TypeError, ValueError) as exc:
@@ -309,3 +325,13 @@ def validate_feed(feed: dict, taxonomy_path: str) -> None:
         raise ContractError(f"stats.fallbackArticles={stats['fallbackArticles']} 与实际 fallback 条数 {fallback_count} 不一致")
     if stats["discoveredArticles"] < stats["publishedArticles"]:
         raise ContractError("stats 不自洽：discoveredArticles < publishedArticles")
+    if feed.get("collectionWindow") is not None:
+        window = feed["collectionWindow"]
+        if window != ten_am_window(feed["targetDate"]):
+            raise ContractError("feed 时间窗口与目标日期不一致")
+        for it in items:
+            try:
+                if it["publishedPrecision"] != "datetime" or not contains(window, it["publishedAt"]):
+                    raise ValueError("窗口外或时间未知")
+            except (ValueError, TypeError) as exc:
+                raise ContractError("feed 包含无法确认在十点窗口内的文章") from exc
