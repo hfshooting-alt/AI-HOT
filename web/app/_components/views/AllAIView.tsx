@@ -135,6 +135,7 @@ export function AllAIView() {
         </div>
         <SearchToolbar
           q={q}
+          placeholder={overviewMode ? "搜索公司、产品、业务、团队…" : tableMode ? "搜索融资公司与业务…" : undefined}
           onQChange={(v) => {
             setQ(v);
             persisted.q = v;

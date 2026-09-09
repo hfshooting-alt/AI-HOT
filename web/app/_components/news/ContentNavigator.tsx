@@ -11,9 +11,9 @@ export function ContentNavigator({ options, active, overview, onChange }: {
   onChange: (key: string) => void;
 }) {
   const selected = active === "overview";
-  const companies = overview?.stats.companiesTotal ?? 0;
-  const products = overview?.stats.productsTotal ?? 0;
-  const sources = overview?.stats.articlesComplete ?? 0;
+  const companies = overview?.stats.companiesTotal;
+  const products = overview?.stats.productsTotal;
+  const sources = overview?.stats.articlesComplete;
   return (
     <section className="mb-6" aria-label="内容导航">
       <button
@@ -41,9 +41,9 @@ export function ContentNavigator({ options, active, overview, onChange }: {
             </span>
           </span>
           <span className="flex items-center gap-5 sm:gap-7">
-            <span><strong className="block text-[21px] font-bold">{companies || "—"}</strong><small className="text-[11px] text-white/55">公司</small></span>
-            <span><strong className="block text-[21px] font-bold">{products || "—"}</strong><small className="text-[11px] text-white/55">产品</small></span>
-            <span><strong className="block text-[21px] font-bold">{sources || "—"}</strong><small className="text-[11px] text-white/55">已处理报道</small></span>
+            <span><strong className="block text-[21px] font-bold">{companies ?? "—"}</strong><small className="text-[11px] text-white/55">公司</small></span>
+            <span><strong className="block text-[21px] font-bold">{products ?? "—"}</strong><small className="text-[11px] text-white/55">产品</small></span>
+            <span><strong className="block text-[21px] font-bold">{sources ?? "—"}</strong><small className="text-[11px] text-white/55">已处理报道</small></span>
             <span className="flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/10 transition-transform group-hover:translate-x-1"><ArrowRightIcon className="size-4" /></span>
           </span>
         </span>

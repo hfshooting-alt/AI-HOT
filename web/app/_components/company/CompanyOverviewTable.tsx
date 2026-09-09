@@ -3,7 +3,6 @@
 import { useMemo } from "react";
 import type { CompanyFieldEvidence, CompanyOverview, CompanyProfile } from "../../_lib/domain/types";
 import type { DimSelection } from "../news/TagFilterBar";
-import { ArrowRightIcon } from "../shared/icons";
 
 const COLUMNS: { key: keyof CompanyProfile; label: string; cellClass: string }[] = [
   { key: "company_name", label: "公司", cellClass: "sticky-col w-[190px]" },
@@ -91,6 +90,11 @@ function MissingValue() {
 function MobileCompanyCard({ rec }: { rec: CompanyProfile }) {
   const industry = rec.dims?.["行业"];
   const region = rec.dims?.["国家/地区"];
+  const detailRows: { label: string; key: string; value: string | null }[] = [
+    { label: "注册国家 / 地区", key: "country", value: rec.country },
+    { label: "团队情况", key: "team", value: rec.team },
+    { label: "历史投资人", key: "investors", value: rec.investors },
+  ];
   return (
     <article className="ah-card overflow-hidden">
       <div className="border-b border-line bg-gradient-to-br from-white to-[#f3faf8] px-4 py-4">
@@ -103,8 +107,8 @@ function MobileCompanyCard({ rec }: { rec: CompanyProfile }) {
               {rec.product_names.length ? rec.product_names.join(" · ") : "产品信息暂未披露"}
             </p>
           </div>
-          <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-brand/15 bg-brand-soft text-brand">
-            <ArrowRightIcon />
+          <span className="shrink-0 rounded-full border border-brand/15 bg-brand-soft px-2.5 py-1 text-[10px] font-bold text-brand">
+            {rec.sourceArticles.length} 篇来源
           </span>
         </div>
         {(industry || region) && (
@@ -139,6 +143,21 @@ function MobileCompanyCard({ rec }: { rec: CompanyProfile }) {
           <SourceLinks rec={rec} compact />
         </div>
       </div>
+
+      <details className="group border-t border-line">
+        <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-[12px] font-semibold text-ink-2 hover:bg-surface-2">
+          查看团队与投资信息
+          <span className="text-brand transition-transform group-open:rotate-180" aria-hidden>⌄</span>
+        </summary>
+        <dl className="space-y-3 border-t border-line bg-surface-2/55 px-4 py-4 text-[12.5px] leading-relaxed">
+          {detailRows.map((row) => (
+            <div key={row.key}>
+              <dt className="mb-0.5 text-[10px] font-bold tracking-wide text-mut-2">{row.label}</dt>
+              <dd>{row.value ? <EvidenceValue value={row.value} evidence={evidenceFor(rec, row.key)} className="text-ink-2" /> : <MissingValue />}</dd>
+            </div>
+          ))}
+        </dl>
+      </details>
     </article>
   );
 }
@@ -152,8 +171,9 @@ export function CompanyOverviewTable({ overview, dimSel, q }: {
     () => overview.companies.filter((record) => matches(record, dimSel, q)),
     [overview, dimSel, q],
   );
-  const generatedAt = overview.generatedAt
-    ? new Intl.DateTimeFormat("zh-CN", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date(overview.generatedAt))
+  const generatedDate = new Date(overview.generatedAt);
+  const generatedAt = overview.generatedAt && !Number.isNaN(generatedDate.getTime())
+    ? new Intl.DateTimeFormat("zh-CN", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }).format(generatedDate)
     : "—";
 
   if (!rows.length) {
