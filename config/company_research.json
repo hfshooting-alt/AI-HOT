@@ -1,6 +1,153 @@
 {
   "checkedAt": "2026-09-10",
   "records": [
+  {
+    "record_name": "Google Forms",
+    "owner_company": "Google",
+    "entity_type": "brand",
+    "reviewed": true,
+    "facts": [
+      {
+        "field": "owner_company",
+        "value": "Google",
+        "url": "https://workspace.google.com/products/forms/",
+        "title": "Google Forms",
+        "quote": "Google Forms"
+      }
+    ]
+  },
+  {
+    "record_name": "MacBook",
+    "owner_company": "苹果",
+    "entity_type": "brand",
+    "reviewed": true,
+    "facts": [
+      {
+        "field": "owner_company",
+        "value": "苹果",
+        "url": "https://support.apple.com/mac/macbook",
+        "title": "MacBook - Official Apple Support",
+        "quote": "MacBook"
+      }
+    ]
+  },
+  {
+    "record_name": "Claude Code",
+    "owner_company": "Anthropic",
+    "entity_type": "brand",
+    "reviewed": true,
+    "facts": [
+      {
+        "field": "owner_company",
+        "value": "Anthropic",
+        "url": "https://code.claude.com/docs/en/overview",
+        "title": "Claude Code overview",
+        "quote": "Anthropic.ClaudeCode"
+      }
+    ]
+  },
+  {
+    "record_name": "GPT-5.5 Pro",
+    "owner_company": "OpenAI",
+    "entity_type": "brand",
+    "reviewed": true,
+    "facts": [
+      {
+        "field": "owner_company",
+        "value": "OpenAI",
+        "url": "https://openai.com/index/introducing-gpt-5-5/",
+        "title": "Introducing GPT-5.5",
+        "quote": "GPT‑5.5 Pro"
+      }
+    ]
+  },
+  {
+    "record_name": "GLM-5.3",
+    "owner_company": "Z .AI",
+    "entity_type": "brand",
+    "reviewed": true,
+    "facts": [
+      {
+        "field": "owner_company",
+        "value": "Z .AI",
+        "url": "https://z.ai/model-api",
+        "title": "Z.ai API Platform — Start building with GLM-5.3",
+        "quote": "GLM-5.3"
+      }
+    ]
+  },
+  {
+    "record_name": "GPT-6 Astra",
+    "owner_company": "OpenAI",
+    "entity_type": "brand",
+    "reviewed": true,
+    "reviewNote": "按已采集报道的产品系列归属合并，保留原拼写；不是官网型号核验。",
+    "facts": [
+      {
+        "field": "owner_company",
+        "value": "OpenAI",
+        "origin": "article",
+        "articleId": "aihot:cmtuvq7mr0gbqrorpwnrko1st",
+        "url": "https://www.ithome.com/1/000/577.htm",
+        "title": "OpenAI ChatGPT 语音模式支持调用 GPT-5.6 Sol 和 GPT-6 Astra",
+        "quote": "OpenAI ChatGPT 语音模式支持调用 GPT-5.6 Sol 和 GPT-6 Astra"
+      }
+    ]
+  },
+  {
+    "record_name": "GPT Images 2.5",
+    "owner_company": "OpenAI",
+    "entity_type": "brand",
+    "reviewed": true,
+    "reviewNote": "按已采集报道的产品系列归属合并，保留原拼写；不是官网型号核验。",
+    "facts": [
+      {
+        "field": "owner_company",
+        "value": "OpenAI",
+        "origin": "article",
+        "articleId": "aihot:cmtu2qhzo0xb2rofp6eaokqdd",
+        "url": "https://the-decoder.com/chatgpt-images-2-5-faster-more-precise-but-not-the-same-for-everyone",
+        "title": "OpenAI 发布 ChatGPT Images 2.5 双图像模型，主打更快生成与局部编辑",
+        "quote": "OpenAI 发布 ChatGPT Images 2.5，含 GPT-Image-2.5 Flare 和 GPT-Image-2.5 Sunburst 两个模型，主推更自然的光照、更可靠的参考图保留和局部编辑，Flare 延迟较 Images 2.0 降低最多 50%。"
+      }
+    ]
+  },
+  {
+    "record_name": "GPT Img 2.5",
+    "owner_company": "OpenAI",
+    "entity_type": "brand",
+    "reviewed": true,
+    "reviewNote": "按已采集报道的产品系列归属合并，保留原拼写；不是官网型号核验。",
+    "facts": [
+      {
+        "field": "owner_company",
+        "value": "OpenAI",
+        "origin": "article",
+        "articleId": "aihot:cmtu2qhzo0xb2rofp6eaokqdd",
+        "url": "https://the-decoder.com/chatgpt-images-2-5-faster-more-precise-but-not-the-same-for-everyone",
+        "title": "OpenAI 发布 ChatGPT Images 2.5 双图像模型，主打更快生成与局部编辑",
+        "quote": "OpenAI 发布 ChatGPT Images 2.5，含 GPT-Image-2.5 Flare 和 GPT-Image-2.5 Sunburst 两个模型，主推更自然的光照、更可靠的参考图保留和局部编辑，Flare 延迟较 Images 2.0 降低最多 50%。"
+      }
+    ]
+  },
+  {
+    "record_name": "GPT Image 2.5",
+    "owner_company": "OpenAI",
+    "entity_type": "brand",
+    "reviewed": true,
+    "reviewNote": "按已采集报道的产品系列归属合并，保留原拼写；不是官网型号核验。",
+    "facts": [
+      {
+        "field": "owner_company",
+        "value": "OpenAI",
+        "origin": "article",
+        "articleId": "aihot:cmtu2qhzo0xb2rofp6eaokqdd",
+        "url": "https://the-decoder.com/chatgpt-images-2-5-faster-more-precise-but-not-the-same-for-everyone",
+        "title": "OpenAI 发布 ChatGPT Images 2.5 双图像模型，主打更快生成与局部编辑",
+        "quote": "OpenAI 发布 ChatGPT Images 2.5，含 GPT-Image-2.5 Flare 和 GPT-Image-2.5 Sunburst 两个模型，主推更自然的光照、更可靠的参考图保留和局部编辑，Flare 延迟较 Images 2.0 降低最多 50%。"
+      }
+    ]
+  },
     {
       "entity_type": "brand",
       "owner_company": "月之暗面（Moonshot AI）",

@@ -15,3 +15,5 @@ python scripts/apply_quality_review.py --input work/review-20260910/full-review 
 输出公司库、快照及 `quality-audit.json`。输入目录保持不动；公司审阅规则已接入 build_company_overview，分类审阅规则已接入 build_snapshot；此命令仍可用于隔离复核。使用输出数据更新预览后，再检查表格排序、报道链接与分类。本地候选数据仍未晋升正式公开数据。
 
 2026-09-10 后续：依据本地已采集报道中的明确表述，将 ChatGPT/Claude/Gemini 归入 OpenAI/Anthropic/Google；证据标为 article，不冒充官网核验。候选公司仍为281条，待核实主体由17减为14条。
+
+2026-09-10 主体收尾：剩余14项中9项产品/模型按官网或已采集报道归并（完整原名与证据保留），5项确认为非公司，存入excludedEntities。当前名单pendingEntities=0，不等于全库事实均已核实。增量构建重新处理excludedEntities以保留其新增报道；规则会阻止其再次进入公司表。275 Python与31 Node测试通过，9项产品原来源文章集合保留检查通过。

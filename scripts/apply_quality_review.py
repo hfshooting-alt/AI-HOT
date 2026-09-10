@@ -21,7 +21,7 @@ def fingerprint(item):
 def apply(overview, snapshot, rules, tx):
     overview, snapshot = copy.deepcopy(overview), copy.deepcopy(snapshot)
     rows = overview['companies'] = apply_reviewed_research(overview['companies'])
-    audit = {'merged': [], 'pending': [], 'classifications': [], 'staleDecisions': []}
+    audit = {'merged': [], 'pending': [], 'excluded': [], 'classifications': [], 'staleDecisions': []}
     for source, owner in rules['aliases'].items():
         src = next((r for r in rows if r['company_name'] == source), None)
         dst = next((r for r in rows if r['company_name'] == owner), None)
@@ -47,7 +47,16 @@ def apply(overview, snapshot, rules, tx):
         rows.remove(src)
         audit['merged'].append({'from': source, 'to': owner})
     pending = overview.setdefault('pendingEntities', [])
+    excluded = overview.setdefault('excludedEntities', [])
     for row in list(rows):
+        disposition = rules.get('excluded', {}).get(row['company_name'])
+        if disposition:
+            if not disposition.get('url') or not disposition.get('reason'):
+                raise ValueError('非公司主体处理缺少证据')
+            excluded.append(dict(row, reviewDisposition=disposition, reviewStatus='confirmed_non_company'))
+            rows.remove(row)
+            audit['excluded'].append({'name': row['company_name'], **disposition})
+            continue
         reason = rules['pending'].get(row['company_name'])
         if reason:
             pending.append(dict(row, reviewReason=reason))
@@ -87,7 +96,7 @@ def apply(overview, snapshot, rules, tx):
                 group['count'] = len(group['items'])
         if grouped:
             snapshot[view]['sections'] = list(grouped.values())
-    overview['stats'].update(companiesTotal=len(rows), productsTotal=sum(len(r['product_names']) for r in rows), pendingEntities=len(pending))
+    overview['stats'].update(companiesTotal=len(rows), productsTotal=sum(len(r['product_names']) for r in rows), pendingEntities=len(pending), excludedEntities=len(excluded))
     overview['coverageNote'] += ' 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。'
     validate(overview, tx)
     return overview, snapshot, audit

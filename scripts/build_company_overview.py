@@ -29,7 +29,7 @@ def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
     cache_dir.mkdir(parents=True, exist_ok=True)
     extracts, cost = extract_articles(tx, articles, cache_dir / "extraction_cache.json", llm_fn)
     previous = load_previous(previous_path)
-    previous['companies'] = previous.get('companies', []) + previous.get('pendingEntities', [])
+    previous['companies'] = previous.get('companies', []) + previous.get('pendingEntities', []) + previous.get('excludedEntities', [])
     companies = apply_reviewed_research(merge_entities(articles, extracts, previous, tx))
     complete = sum(1 for r in extracts.values() if r.get("status") == "complete")
     failed = sum(1 for r in extracts.values() if r.get("status") == "failed")

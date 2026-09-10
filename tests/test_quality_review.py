@@ -44,6 +44,18 @@ class QualityReviewTests(unittest.TestCase):
         self.assertEqual(result['companies'], [])
         self.assertEqual(result['pendingEntities'][0]['sourceArticles'], [{'id':'article'}])
 
+    @patch('apply_quality_review.validate')
+    def test_confirmed_non_company_is_retained_and_idempotent(self, _):
+        self.overview['companies'] = [dict(company_name='Person', sourceArticles=[{'id':'article'}])]
+        self.rules['excluded'] = {'Person': {'reason':'person', 'url':'https://example.com/bio'}}
+        result, _, audit = apply(self.overview, {}, self.rules, self.tx)
+        self.assertFalse(result['companies'])
+        self.assertFalse(result['pendingEntities'])
+        self.assertEqual(result['excludedEntities'][0]['sourceArticles'], [{'id':'article'}])
+        repeated, _, _ = apply(result, {}, self.rules, self.tx)
+        self.assertEqual(len(repeated['excludedEntities']), 1)
+        self.assertEqual(audit['excluded'][0]['name'], 'Person')
+
 
 if __name__ == '__main__':
     unittest.main()
