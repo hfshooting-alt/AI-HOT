@@ -55,6 +55,7 @@ JSON schema 保持不变。`build_manus_feed.validate_publishable()` 补充发�
 硬性规则：
 
 - 三组（group_a/b/c）必须全部存在且合法，才允许晋升新一版 `current.json`。
+- 单账号 canary 只用同一 `validate_discovery()` 校验该账号，产物隔离在 `work/manus[/ten-am]/canary/`；它不能替代三组生产契约，也不能进入 feed 晋升。
 - 每个配置账号（`config/manus_sources.json`）恰好一条 `source_audits`；`complete + article_count=0`
   表示“来源成功但当天无文章”，不得与 `failed` 混淆。
 - `complete` 文章：账号、URL、标题、日期非空，`published_date` 必须等于 `target_date`。

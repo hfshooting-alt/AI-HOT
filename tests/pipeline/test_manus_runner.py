@@ -65,6 +65,88 @@ class TestRunnerTimeout(unittest.TestCase):
         self.assertEqual(exit_code, 0)
         self.assertEqual(captured["timeout_seconds"], 3600)
 
+    def test_failed_wait_requests_task_stop(self):
+        stopped = []
+        class FakeClient:
+            def create_crawl_task(self, **kwargs):
+                return SimpleNamespace(task_id="task-1", task_url="https://example.com/task-1")
+            def wait_for_structured_result(self, task_id, observed_credit_limit=None):
+                raise TimeoutError("timed out")
+            def stop_task(self, task_id):
+                stopped.append(task_id)
+        with self.assertRaises(runner.DiscoveryRunError) as ctx:
+            runner.run_discovery(FakeClient(), "group_a", "2026-08-27", "prompt", ["TestAccount"])
+        self.assertEqual(stopped, ["task-1"])
+        self.assertTrue(ctx.exception.stop_succeeded)
+        self.assertEqual(ctx.exception.task_id, "task-1")
+
+
+class TestSingleAccountCanary(unittest.TestCase):
+    def setUp(self):
+        self.root = Path(make_temp_dir("manus-canary-test-"))
+        self.addCleanup(shutil.rmtree, self.root, ignore_errors=True)
+        self.sources_path = self.root / "sources.json"
+        self.prompt_path = self.root / "prompt.md"
+        self.sources_path.write_text(json.dumps({"groups": {"group_a": [{
+            "account_name": "TestAccount", "platform": "Tencent News",
+            "home_url": "https://example.com/account",
+        }]}}), encoding="utf-8")
+        self.prompt_path.write_text("{{SOURCES}}", encoding="utf-8")
+        self.settings = runner.Settings(
+            manus_api_key="test-key", manus_agent_profile="manus-1.6", poll_seconds=10,
+            timeout_seconds=3600, register_grace_seconds=90, content_batch_size=4,
+            content_concurrency=2, content_mode="script", crawl_timeout_seconds=20,
+            crawl_retries=2, crawl_concurrency=4, crawl_request_delay_seconds=1,
+            crawl_user_agent=None, crawl_jina_fallback=False, max_content_chars=20000,
+            min_content_chars=100, sources_path=self.sources_path,
+            discovery_prompt_path=self.prompt_path, content_prompt_path=self.prompt_path,
+            work_dir=self.root / "work",
+        )
+
+    def test_account_requires_paid_opt_in_before_loading_settings(self):
+        with patch.object(runner.Settings, "from_environment") as load:
+            with self.assertRaises(SystemExit):
+                runner.main(["--account", "TestAccount"])
+        load.assert_not_called()
+
+    def test_account_canary_is_lite_single_attempt_and_isolated(self):
+        captured = {}
+        class FakeClient:
+            def __init__(self, **kwargs):
+                captured.update(kwargs)
+            def available_credits(self):
+                return 100 if "balance" not in captured else 98
+
+        balances = iter((100, 98))
+        FakeClient.available_credits = lambda self: next(balances)
+        payload = {"articles": [], "source_audits": [{
+            "account_name": "TestAccount", "source_status": "complete",
+            "article_count": 0, "note": "当天无文章",
+        }]}
+        with patch.object(runner.Settings, "from_environment", return_value=self.settings), \
+                patch.object(runner, "ManusClient", FakeClient), \
+                patch.object(runner, "run_discovery", return_value=payload) as run:
+            code = runner.main(["--date", "2026-09-10", "--account", "TestAccount",
+                                "--allow-paid"])
+        self.assertEqual(code, 0)
+        self.assertEqual(captured["agent_profile"], "manus-1.6-lite")
+        self.assertEqual(captured["create_retries"], 0)
+        self.assertEqual(captured["poll_seconds"], 5)
+        self.assertEqual(run.call_args.args[1], "group_a")
+        self.assertEqual(run.call_args.args[4], ["TestAccount"])
+        self.assertEqual(run.call_args.args[6], runner.CANARY_STOP_AT_CREDITS)
+        base = self.settings.work_dir / "canary" / runner.canary_slug("TestAccount") / "2026-09-10"
+        report = json.loads((base / "canary-report.json").read_text(encoding="utf-8"))
+        self.assertEqual(report["creditsUsed"], 2)
+        self.assertEqual(report["status"], "complete")
+        self.assertTrue((base / "raw" / "discovery-group_a.json").exists())
+        self.assertFalse((self.settings.work_dir / "2026-09-10").exists())
+
+    def test_account_name_must_be_unique(self):
+        with self.assertRaisesRegex(ValueError, "不唯一"):
+            runner.select_account({"group_a": [{"account_name": "same"}],
+                                   "group_b": [{"account_name": "same"}]}, "same")
+
 
 class TestSettingsDefaults(unittest.TestCase):
     def test_settings_defaults_timeout_to_one_hour_without_env_override(self):

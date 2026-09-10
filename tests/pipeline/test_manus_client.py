@@ -62,6 +62,24 @@ RESULT_VALUE = {"source_group": "group_a", "target_date": "2026-08-16",
 
 
 class TestCreateTask(unittest.TestCase):
+    def test_balance_and_stop_helpers(self):
+        client, transport = make_client([
+            {"ok": True, "total_credits": 42},
+            {"ok": True},
+        ])
+        self.assertEqual(client.available_credits(), 42)
+        client.stop_task("t-1")
+        self.assertEqual(transport.calls[1], ("POST", "task.stop", {"task_id": "t-1"}))
+
+    def test_balance_supports_legacy_nested_shape(self):
+        client, _ = make_client([{"ok": True, "data": {"total_credits": 41}}])
+        self.assertEqual(client.available_credits(), 41)
+
+    def test_invalid_balance_is_rejected(self):
+        client, _ = make_client([{"ok": True, "total_credits": None}])
+        with self.assertRaisesRegex(ManusAPIError, "balance unavailable"):
+            client.available_credits()
+
     def test_create_success_payload_shape(self):
         client, transport = make_client([OK_CREATE])
         task = client.create_crawl_task("PROMPT 正文", "group_a", "2026-08-16",
@@ -108,6 +126,15 @@ class TestCreateTask(unittest.TestCase):
 
 
 class TestWaitForResult(unittest.TestCase):
+    def test_observed_credit_limit_aborts_before_message_poll(self):
+        client, transport = make_client([
+            {"ok": True, "task": {"status": "running", "credit_usage": 20}},
+        ])
+        with self.assertRaisesRegex(ManusAPIError, "Observed credit threshold"):
+            client.wait_for_structured_result("t-1", observed_credit_limit=20)
+        self.assertEqual(len(transport.calls), 1)
+        self.assertTrue(transport.calls[0][1].startswith("task.detail?"))
+
     def test_immediate_structured_result(self):
         client, _ = make_client([page([structured_ok(RESULT_VALUE)])])
         self.assertEqual(client.wait_for_structured_result("t-1"), RESULT_VALUE)

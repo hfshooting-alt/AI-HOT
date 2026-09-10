@@ -37,6 +37,8 @@ npm --prefix web run dev
 | `python scripts/test_pipeline.py manus-auth` | 只读检查 Manus 认证与余额，结果有缓存 |
 | `python scripts/test_pipeline.py llm-smoke --allow-paid` | 单次最多 16 token 的模型 JSON 能力检查，每日最多一次 |
 | `python scripts/run_pipeline.py run --source-mode aihot-only --no-promote` | 不调用 Manus/模型，生成 AIHOT 候选快照 |
+| `python scripts/audit_manus_sources.py [--check-links]` | 离线审计公众号配置；可选每个主页一次无重试可达性检查 |
+| `python scripts/manus_source/runner.py --date YYYY-MM-DD --ten-am --account "账号名" --allow-paid` | 单账号 Lite 来源校准，结果与生产隔离 |
 | `npm --prefix web run typecheck` / `npm --prefix web run lint` | 静态检查；已有问题见维护导航 |
 | `python scripts/build_company_overview.py --no-promote` | 生成并校验公司与产品库；会调用模型 |
 | `python scripts/funding_table.py --selftest` | 融资流程离线自检 |

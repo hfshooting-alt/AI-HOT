@@ -69,6 +69,10 @@ python scripts/funding_table.py
 # 仅试跑 group_a 的发现阶段；默认 Manus 超时为 3600 秒
 python scripts/manus_source/runner.py --date 2026-08-27 --groups group_a
 
+# 单账号来源校准：先离线审计，再显式允许一个 Lite 任务
+python scripts/audit_manus_sources.py
+python scripts/manus_source/runner.py --date 2026-09-10 --ten-am --account "机器之心" --allow-paid
+
 # feed 校验但不晋升
 python scripts/build_manus_feed.py --date 2026-08-27 --no-promote
 
@@ -88,6 +92,7 @@ node scripts/settings-server.mjs
 ```
 
 - `runner.py --groups group_a` 只生成 group_a 发现结果。`content_phase.py` 与 `build_manus_feed.py` 仍按生产契约要求 group_a/group_b/group_c 三份发现文件齐全。
+- `runner.py --account` 是隔离的单账号 canary：强制 Lite、创建不重试、最长 600 秒、异常请求停止、同账号同日一次。产物位于 `work/manus[/ten-am]/canary/`，不得复制到生产 raw 目录绕过三组契约。
 - 若确需进行 group_a-only 全链路测试，可为未执行组生成明确的来源失败占位文件；这类 feed 会呈现 `degraded=true`，仅用于流程验证。未得到用户明确授权时使用 `--no-promote`，避免测试数据覆盖正式 feed。
 - `MANUS_TIMEOUT_SECONDS` 默认值为 `3600`。长时间 discovery 任务不应再沿用 10 分钟上限。
 

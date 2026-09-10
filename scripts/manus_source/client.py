@@ -141,6 +141,20 @@ class ManusClient:
             raise ManusAPIError(f"Manus error {error.get('code')}: {error.get('message')}")
         return data
 
+    def available_credits(self) -> int:
+        """读取当前余额；兼容 Manus v2 新旧两种返回位置。"""
+        response = self._request("GET", "usage.availableCredits")
+        value = response.get("total_credits")
+        if value is None and isinstance(response.get("data"), dict):
+            value = response["data"].get("total_credits")
+        if type(value) is not int or value < 0:
+            raise ManusAPIError("Manus balance unavailable")
+        return value
+
+    def stop_task(self, task_id: str) -> None:
+        """尽力停止已创建任务，供受限 canary 和超时收口使用。"""
+        self._request("POST", "task.stop", {"task_id": task_id})
+
     @staticmethod
     def _is_retryable(error_text: str) -> bool:
         return any(marker in error_text for marker in RETRYABLE_HTTP_MARKERS)
@@ -231,7 +245,8 @@ class ManusClient:
                     raise ManusAPIError(f"Task is waiting for {detail.get('waiting_for_event_type')}")
         return None, last_status, last_error
 
-    def wait_for_structured_result(self, task_id: str) -> dict[str, Any]:
+    def wait_for_structured_result(self, task_id: str,
+                                   observed_credit_limit: int | None = None) -> dict[str, Any]:
         """轮询直到拿到 structured output；注册延迟/瞬时错误继续轮询，终态与超时抛异常。"""
         deadline = time.monotonic() + self.timeout_seconds
         availability_deadline = time.monotonic() + self.register_grace_seconds
@@ -239,6 +254,12 @@ class ManusClient:
         last_status: str | None = None
         while time.monotonic() < deadline:
             try:
+                if observed_credit_limit is not None:
+                    detail = self._request("GET", "task.detail?" + urlencode({"task_id": task_id}))
+                    credits = (detail.get("task") or {}).get("credit_usage")
+                    if type(credits) in (int, float) and credits >= observed_credit_limit:
+                        raise ManusAPIError(
+                            f"Observed credit threshold reached: {credits} >= {observed_credit_limit}")
                 cursor: str | None = None
                 while True:
                     query = {"task_id": task_id, "order": "asc", "limit": str(self.page_limit)}

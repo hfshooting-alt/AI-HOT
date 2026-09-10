@@ -16,6 +16,8 @@
 
 `llm-smoke` 使用生产相同的 `LLM_API_BASE`、`LLM_MODEL` 和 taxonomy 密钥变量，只要求返回 `{"ok":true}`。DeepSeek V4 请求显式关闭思考模式，避免 reasoning tokens 消耗极小输出预算。请求发送前写入当日占位，网络超时也不重试；台账无论结构化校验成功或失败，都会保存服务端返回的 token 用量，但不保存密钥、请求全文或模型原始响应。它验证认证、模型名、`/chat/completions` 兼容性和 JSON mode，不能代表新闻摘要与分类质量。
 
+公众号来源校准使用 `runner.py --account <精确账号名> --allow-paid`。该模式强制 Manus Lite、只创建一个发现任务且不重试，等待上限 600 秒，轮询观察到 20 credits 或失败时请求停止；同一账号同一天已有 `canary-report.json` 时拒绝再次创建。结果隔离在 `work/manus[/ten-am]/canary/`，不允许进入生产 feed。20 credits 与余额差都是观测保护，不是服务端硬性费用上限。
+
 离线入口同时用于 GitHub Actions 的 Python 测试步骤。即使业务代码吞掉网络异常，保护层仍记录拦截并使测试失败。该保护适用于此 Python 进程，是防止误调用的开发保护，不是针对恶意代码的沙箱。前端沿用本地模拟接口测试，不注入真实服务密钥。
 
 ## 最小付费问答的限制
