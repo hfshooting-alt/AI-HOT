@@ -140,3 +140,5 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 本轮验证：274 Python、31 Node、TypeScript及Pages构建通过；分类require-tags和公司require-complete均在full模式启用。真实自动运行和新时间点部署仍待验收。
 
 2026-09-10：14项待核实主体已收尾；9项归并、5项非公司存入excludedEntities，候选公司281条、pending=0。预览entity-review.html已更新，未运行付费全链路。275 Python + 31 Node通过。
+
+2026-09-10 Paratera 切换：一次90秒上限重测在3.47秒返回正确JSON，输入131/输出5/总136 tokens。本地.env和taxonomy默认改为DeepSeek-V4-Pro、https://llmapi.paratera.com/v1；大小写模型名均关闭thinking。CI优先使用PARATERA_API_KEY，未配置时保留原DeepSeek接口/密钥配对；仓库新secret尚未设置。不是业务全链路验收。

@@ -87,6 +87,8 @@ class TestResolveModel(unittest.TestCase):
 
 class TestModelRequestOptions(unittest.TestCase):
     def test_deepseek_v4_disables_thinking(self):
+        self.assertEqual(llm_common.model_request_options('DeepSeek-V4-Pro'),
+                         {'thinking': {'type': 'disabled'}})
         self.assertEqual(llm_common.model_request_options("deepseek-v4-flash"),
                          {"thinking": {"type": "disabled"}})
 

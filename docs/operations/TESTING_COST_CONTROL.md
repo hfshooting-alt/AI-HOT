@@ -61,3 +61,5 @@ Manus 正文先经过相关性筛选，每篇最多一次短请求，输出上�
 新增保护机制使用模拟响应验证：离线联网拦截、认证缓存、未显式启用时拒绝付费、每日一次、创建超时不重试、轮询上限、消费阈值停止、停止失败阻止后续创建以及低余额保护。
 
 依据 Manus 官方文档：[认证](https://open.manus.im/docs/v2/authentication)、[余额](https://open.manus.im/docs/v2/usage.availableCredits)、[创建任务](https://open.manus.im/docs/v2/task.create)、[任务状态与消费](https://open.manus.im/docs/v2/task.detail)、[停止任务](https://open.manus.im/docs/v2/task.stop)。
+
+2026-09-10 用户明确授权延长等待的Paratera重测：仅1次请求，90秒超时，max_tokens=16，无自动重试；服务端用量136 tokens。配置默认DeepSeek-V4-Pro；GitHub需新增PARATERA_API_KEY Secret后自动选择新接口/模型，缺少时仍使用旧服务，避免把旧密钥发往新服务。

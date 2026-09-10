@@ -1,6 +1,7 @@
 """使用一次受预算控制的模型调用，从每篇文章抽取公司和产品。"""
 import hashlib
 import json
+import os
 import time
 from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 
@@ -57,7 +58,7 @@ def normalize_company(raw: dict, tx: dict) -> dict | None:
 
 def cache_key(tx: dict, article: dict) -> str:
     cfg = overview_cfg(tx)
-    raw = "|".join((str(PROMPT_VERSION), str((tx.get("model") or {}).get("model", "")),
+    raw = "|".join((str(PROMPT_VERSION), os.environ.get('LLM_MODEL', '').strip() or str((tx.get("model") or {}).get("model", "")),
                     article["id"], hashlib.sha256(article["content_text"].encode()).hexdigest(),
                     str(cfg["content_input_chars"])))
     return hashlib.sha256(raw.encode()).hexdigest()

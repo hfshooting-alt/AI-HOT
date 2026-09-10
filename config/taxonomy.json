@@ -7,11 +7,11 @@
  "model": {
   "api_key_env": "DEEPSEEK_API_KEY",
   "api_base_env": "LLM_API_BASE",
-  "default_base": "https://api.deepseek.com",
-  "model": "deepseek-v4-flash",
+  "default_base": "https://llmapi.paratera.com/v1",
+  "model": "DeepSeek-V4-Pro",
   "temperature": 0,
   "max_output_tokens": 1024,
-    "timeout_seconds": 20,
+    "timeout_seconds": 90,
     "concurrency": 8,
     "budget_seconds": 120,
     "max_new_items_per_run": 25

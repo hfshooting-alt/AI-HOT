@@ -58,10 +58,10 @@ jobs:
       - name: 统一运行（检查 → 采集 → 正文 → feed → 快照/日报/周报 → 公司库 → 融资表 → 发布）
         env:
           MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.PARATERA_API_KEY || secrets.DEEPSEEK_API_KEY }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
-          LLM_API_BASE: ${{ vars.LLM_API_BASE }}
-          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          LLM_API_BASE: ${{ secrets.PARATERA_API_KEY != '' && 'https://llmapi.paratera.com/v1' || vars.LLM_API_BASE || 'https://api.deepseek.com' }}
+          LLM_MODEL: ${{ secrets.PARATERA_API_KEY != '' && 'DeepSeek-V4-Pro' || vars.LLM_MODEL || 'deepseek-v4-flash' }}
           INPUT_DATE: ${{ inputs.date }}
           INPUT_STAGE: ${{ inputs.stage }}
           INPUT_SOURCE_MODE: ${{ inputs.source_mode }}

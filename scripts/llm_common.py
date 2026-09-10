@@ -58,7 +58,7 @@ def model_request_options(model: str) -> dict:
     显式关闭可避免 reasoning tokens 占用输出预算。其他 OpenAI-compatible
     模型不接收 DeepSeek 私有字段，因此保持空对象。
     """
-    if model.startswith("deepseek-v4-"):
+    if model.lower().startswith("deepseek-v4-"):
         return {"thinking": {"type": "disabled"}}
     return {}
 
