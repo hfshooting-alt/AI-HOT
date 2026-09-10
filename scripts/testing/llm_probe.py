@@ -10,7 +10,7 @@ from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
 from automation.publish import save
-from llm_common import parse_output, resolve_model
+from llm_common import model_request_options, parse_output, resolve_model
 from testing.manus_probe import locked
 
 
@@ -81,16 +81,17 @@ def smoke(root: Path, tx: dict, *, allow_paid=False, send=None, today=None, now=
                 {"role": "user", "content": 'Return exactly {"ok":true}.'},
             ],
         }
+        payload.update(model_request_options(model))
         try:
             response = send(payload)
+            usage = _safe_usage(response.get("usage"))
+            if usage:
+                state["usage"] = usage
             choices = response.get("choices")
             content = (choices[0].get("message") or {}).get("content") if isinstance(choices, list) and choices else None
             if parse_output(content or "") != {"ok": True}:
                 raise LLMProbeError("structured_result_invalid")
             state["ok"] = True
-            usage = _safe_usage(response.get("usage"))
-            if usage:
-                state["usage"] = usage
         except LLMProbeError as exc:
             state["error"] = exc.code
         except (KeyError, TypeError, IndexError):

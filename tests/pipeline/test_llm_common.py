@@ -83,5 +83,14 @@ class TestResolveModel(unittest.TestCase):
         self.assertEqual(llm_common.resolve_model(self.TX), "deepseek-chat")
 
 
+class TestModelRequestOptions(unittest.TestCase):
+    def test_deepseek_v4_disables_thinking(self):
+        self.assertEqual(llm_common.model_request_options("deepseek-v4-flash"),
+                         {"thinking": {"type": "disabled"}})
+
+    def test_other_openai_compatible_models_get_no_private_fields(self):
+        self.assertEqual(llm_common.model_request_options("custom-model"), {})
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

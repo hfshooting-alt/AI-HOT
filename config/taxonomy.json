@@ -8,7 +8,7 @@
   "api_key_env": "DEEPSEEK_API_KEY",
   "api_base_env": "LLM_API_BASE",
   "default_base": "https://api.deepseek.com",
-  "model": "deepseek-chat",
+  "model": "deepseek-v4-flash",
   "temperature": 0,
   "timeout_seconds": 20,
   "concurrency": 8,

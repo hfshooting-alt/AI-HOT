@@ -48,6 +48,18 @@ def resolve_model(tx: dict) -> str:
     return os.environ.get("LLM_MODEL", "").strip() or tx["model"]["model"]
 
 
+def model_request_options(model: str) -> dict:
+    """返回模型专用的低成本请求参数。
+
+    DeepSeek V4 默认启用思考模式；新闻分类和结构化抽取不需要思考过程，
+    显式关闭可避免 reasoning tokens 占用输出预算。其他 OpenAI-compatible
+    模型不接收 DeepSeek 私有字段，因此保持空对象。
+    """
+    if model.startswith("deepseek-v4-"):
+        return {"thinking": {"type": "disabled"}}
+    return {}
+
+
 def call_llm(tx: dict, system: str, user: str, timeout_seconds: int | None = None) -> str:
     """OpenAI 兼容 /chat/completions，返回原始文本。缺 key/网络错误抛异常由上层处理。
 
@@ -59,8 +71,9 @@ def call_llm(tx: dict, system: str, user: str, timeout_seconds: int | None = Non
     if not api_key:
         raise RuntimeError(f"环境变量 {m['api_key_env']} 未配置")
     base = os.environ.get(m["api_base_env"], "") or m["default_base"]
+    model = resolve_model(tx)
     body = {
-        "model": resolve_model(tx),
+        "model": model,
         "temperature": m.get("temperature", 0),
         "response_format": {"type": "json_object"},
         "messages": [
@@ -68,6 +81,7 @@ def call_llm(tx: dict, system: str, user: str, timeout_seconds: int | None = Non
             {"role": "user", "content": user},
         ],
     }
+    body.update(model_request_options(model))
     req = urllib.request.Request(
         base.rstrip("/") + "/chat/completions",
         data=json.dumps(body).encode("utf-8"),

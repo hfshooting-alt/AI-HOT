@@ -168,6 +168,21 @@ class TestCostSafety(unittest.TestCase):
                           today="2026-09-09", now=101)
         self.assertEqual(len(sent), 1)
 
+    def test_llm_smoke_disables_v4_thinking_and_records_failed_usage(self):
+        tx = {"model": {"api_key_env": "DEEPSEEK_API_KEY", "api_base_env": "LLM_API_BASE",
+                        "default_base": "https://example.com", "model": "deepseek-v4-flash"}}
+        sent = []
+        def send(payload):
+            sent.append(payload)
+            return {"choices": [{"message": {"content": ""}}],
+                    "usage": {"prompt_tokens": 12, "completion_tokens": 16, "total_tokens": 28}}
+        with patch.dict(os.environ, {"DEEPSEEK_API_KEY": "fake-key"}, clear=True):
+            result = llm_smoke(self.root, tx, allow_paid=True, send=send,
+                               today="2026-09-11", now=100)
+        self.assertEqual(sent[0]["thinking"], {"type": "disabled"})
+        self.assertEqual(result["error"], "structured_result_invalid")
+        self.assertEqual(result["usage"]["total_tokens"], 28)
+
     def test_llm_smoke_requires_opt_in_and_valid_json(self):
         tx = {"model": {"api_key_env": "DEEPSEEK_API_KEY", "api_base_env": "LLM_API_BASE",
                         "default_base": "https://example.com", "model": "test-model"}}
