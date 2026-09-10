@@ -275,6 +275,7 @@ class WorkspaceTest(unittest.TestCase):
                 build_manus_feed.promote_feed(feed, output, self.root / "config/taxonomy.json")
             elif script == "build_snapshot.py":
                 item = {"id": "mock-live", "title": "模拟实时资讯", "source": "AIHOT", "category": "industry",
+                        "classification": {"category": "general", "tags": {}, "autoFallback": False},
                         "url": "https://example.com/news", "publishedAt": datetime.now(build_snapshot.BJ).isoformat()}
                 with patch.object(sys, "argv", command[1:] + ["--no-tags", "--manus-max-stale-days", "100000", "--archive-days", "100000"]), \
                      patch.object(build_snapshot, "fetch_items", return_value=[item]), \
@@ -292,7 +293,7 @@ class WorkspaceTest(unittest.TestCase):
                     arg("--snapshot"), arg("--feed"), self.root / "work/manus",
                     arg("--previous"), arg("--cache-dir"), TX,
                     llm_fn=lambda *a, **k: '{"companies": []}',
-                    generated_at="2026-08-16T10:05:00+08:00")
+                    generated_at="2026-08-16T10:05:00+08:00", require_complete=True)
                 build_company_overview.promote(data, arg("--data-dir"), arg("--public-dir"))
             return 0
         # snapshot 模板仍读实际仓库，所有输出由计划显式指向临时候选目录。

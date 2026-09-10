@@ -200,7 +200,7 @@ def tag_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict]:
     todo = []
     for it in items:
         k = f"{prefix}:{item_key(it)}"
-        if k in cache:
+        if k in cache and not cache[k].get('autoFallback'):
             results[item_key(it)] = cache[k]
         else:
             todo.append(it)

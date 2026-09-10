@@ -10,6 +10,7 @@ from pathlib import Path
 
 import tag_news
 from company_index.entities import timestamp
+from company_index.identity import apply_reviewed_research
 from company_index.output import atomic_write, validate
 
 
@@ -19,7 +20,7 @@ def fingerprint(item):
 
 def apply(overview, snapshot, rules, tx):
     overview, snapshot = copy.deepcopy(overview), copy.deepcopy(snapshot)
-    rows = overview['companies']
+    rows = overview['companies'] = apply_reviewed_research(overview['companies'])
     audit = {'merged': [], 'pending': [], 'classifications': [], 'staleDecisions': []}
     for source, owner in rules['aliases'].items():
         src = next((r for r in rows if r['company_name'] == source), None)

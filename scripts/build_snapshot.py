@@ -26,6 +26,7 @@ import argparse
 import json
 import os
 import sys
+from pathlib import Path
 import urllib.parse
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
@@ -349,7 +350,7 @@ def tag_archive_days(archive_dir: str, all_days: dict[str, dict], tx: dict, cach
     pending: list[dict] = []
     for day in all_days.values():
         for it in day.get("items") or []:
-            if not it.get("classification"):
+            if not it.get("classification") or it['classification'].get('autoFallback'):
                 pending.append(it)
     if not pending:
         return False
@@ -360,7 +361,7 @@ def tag_archive_days(archive_dir: str, all_days: dict[str, dict], tx: dict, cach
     for date_str, day in all_days.items():
         dirty = False
         for it in day.get("items") or []:
-            if it.get("classification"):
+            if it.get("classification") and not it['classification'].get('autoFallback'):
                 continue
             r = results.get(tag_news.item_key(it))
             if r:
@@ -834,6 +835,7 @@ def main() -> int:
                         help="打标签结果缓存（键含 taxonomy/prompt/模型版本）")
     parser.add_argument("--no-tags", action="store_true",
                         help="跳过 AI 打标签（本地调试无 key 时用）")
+    parser.add_argument('--require-tags', action='store_true', help='完整分类后才生成候选快照')
     parser.add_argument("--exclude-wechat", action="store_true",
                         help="排除 AIHOT 与本地归档中的公众号内容，并跳过 Manus feed")
     parser.add_argument("--window-date", help="只采集此前一日十点至此日十点的新增新闻；AIHOT 成品日报独立同步")
@@ -935,6 +937,8 @@ def main() -> int:
     except Exception as exc:  # noqa: BLE001 - taxonomy 缺失时静默降级
         print(f"taxonomy 加载失败（跳过分类展示与打标）: {exc}", file=sys.stderr)
     if tx and not args.no_tags:
+        if args.require_tags:
+            tx['model'].update(max_new_items_per_run=len(items), budget_seconds=7200)
         try:
             if os.environ.get(tx["model"]["api_key_env"]):
                 if tag_archive_days(args.archive_dir, all_days, tx, args.tag_cache):
@@ -949,6 +953,9 @@ def main() -> int:
         except Exception as exc:  # noqa: BLE001 - 打标签失败静默降级
             print(f"AI 打标签失败（不阻断发布）: {exc}", file=sys.stderr)
 
+    if args.require_tags and any(not i.get('classification') or i['classification'].get('autoFallback') for i in items):
+        print('新闻分类尚有失败或待处理条目，禁止发布部分更新', file=sys.stderr)
+        return 1
     generated_at = datetime.now(timezone.utc)
     report_ref = window_end or now_bj
     if window:
@@ -1002,6 +1009,7 @@ def main() -> int:
         hot_topics = without_wechat_topics(hot_topics)
 
     data = {
+        **({'publicationMode': 'pipeline'} if window else {}),
         **({"collectionWindow": window} if window else {}),
         # 兼容旧模板的数据视图；新版“AI 日报”页面使用 dailyReports/dailyHistory。
         "daily": daily_view,
@@ -1018,6 +1026,13 @@ def main() -> int:
         "dailyNav": build_daily_nav(all_days, weekly_nav, now_bj),
         "categories": ["模型", "产品", "行业", "论文", "教程", "观点"],
     }
+    from apply_quality_review import apply as apply_quality
+    rules_path = Path(__file__).resolve().parents[1] / 'config/quality_review.json'
+    rules = json.loads(rules_path.read_text(encoding='utf-8'))
+    _, data, review_audit = apply_quality(
+        {'schemaVersion': 1, 'generatedAt': now_bj.isoformat(), 'companies': [], 'stats': {}, 'coverageNote': ''},
+        data, rules, tag_news.load_taxonomy(args.taxonomy))
+    data['qualityReview'] = review_audit
     render(args.template, args.out, data)
 
     # JSON 数据快照：新版前端（Next.js 页面）直接消费，结构与 HTML 内嵌 DATA 完全一致

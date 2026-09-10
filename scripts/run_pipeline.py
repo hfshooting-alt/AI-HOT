@@ -2,6 +2,7 @@
 """运行入口：doctor / run；--dry-run 仅显示计划，不调用接口、不写数据。"""
 import argparse
 import json
+import os
 import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -23,12 +24,13 @@ def valid_date(value):
         raise argparse.ArgumentTypeError("日期格式必须为 YYYY-MM-DD") from exc
 
 
-def main(argv=None):
+def _main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("doctor", "run"))
     parser.add_argument("--date", type=valid_date,
-                        help="十点模式为窗口结束日；旧自然日模式为采集日")
+                        help="固定24小时模式为窗口结束日；旧自然日模式为采集日")
     parser.add_argument("--window-mode", choices=("ten-am", "calendar-day"), default="ten-am")
+    parser.add_argument('--cutoff-time', default='09:30', help='北京时间固定24小时窗口结束时刻 HH:MM，默认09:30')
     parser.add_argument("--stage", choices=("all", *STAGES), default="all")
     parser.add_argument("--source-mode", choices=("full", "aihot-only"), default="full",
                         help="full 运行完整管线；aihot-only 仅生成免费 AIHOT 快照且跳过模型打标")
@@ -39,6 +41,12 @@ def main(argv=None):
     parser.add_argument("--manus-credit-limit", type=int, default=20,
                         help="full 模式每个 Manus 来源的观察止损线，范围 10-60（默认 20）")
     args = parser.parse_args(argv)
+    from manus_source.window import cutoff_time
+    os.environ['AIHOT_CUTOFF_TIME'] = args.cutoff_time
+    try:
+        cutoff_time()
+    except ValueError:
+        parser.error('--cutoff-time 必须为有效 HH:MM')
     ten_am = args.window_mode == "ten-am"
     args.date = args.date or (latest_cutoff_date() if ten_am else
                              (datetime.now(ZoneInfo("Asia/Shanghai")).date() - timedelta(days=1)).isoformat())
@@ -82,6 +90,17 @@ def main(argv=None):
     except (OSError, KeyError):
         print("运行文件缺失或不可写，请检查 work/runs 下的状态和磁盘权限。", file=sys.stderr)
         return 1
+
+
+def main(argv=None):
+    previous = os.environ.get('AIHOT_CUTOFF_TIME')
+    try:
+        return _main(argv)
+    finally:
+        if previous is None:
+            os.environ.pop('AIHOT_CUTOFF_TIME', None)
+        else:
+            os.environ['AIHOT_CUTOFF_TIME'] = previous
 
 
 if __name__ == "__main__":

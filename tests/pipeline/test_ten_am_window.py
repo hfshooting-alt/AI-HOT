@@ -69,6 +69,23 @@ class TestTenAm(unittest.TestCase):
             with self.assertRaises(ValueError):
                 timestamp(invalid)
 
+    def test_nine_thirty_cutoff_and_delayed_run(self):
+        with patch.dict('os.environ', {'AIHOT_CUTOFF_TIME': '09:30'}):
+            window = ten_am_window(END_DATE)
+            self.assertEqual(window['start'], '2026-09-08T09:30:00+08:00')
+            self.assertTrue(contains(window, window['start']))
+            self.assertFalse(contains(window, window['end']))
+            for hour, minute, expected in [(9,29,'2026-09-08'), (9,30,END_DATE), (12,0,END_DATE)]:
+                self.assertEqual(latest_cutoff_date(datetime(2026,9,9,hour,minute,tzinfo=BJ)), expected)
+
+    def test_daily_cli_defaults_to_nine_thirty_and_complete_company_stage(self):
+        output = io.StringIO()
+        with patch('sys.stdout', output):
+            self.assertEqual(run_pipeline.main(['run','--dry-run','--date',END_DATE]), 0)
+        plan = json.loads(output.getvalue())
+        self.assertEqual(plan['collectionWindow']['end'], '2026-09-09T09:30:00+08:00')
+        self.assertIn('--require-complete', next(s['command'] for s in plan['stages'] if s['stage']=='overview'))
+
     def test_discovery_rejects_unknown_time_outside_window_and_date_mismatch(self):
         groups = fixture_groups()
         payload = groups["group_a"]
@@ -171,7 +188,7 @@ class TestTenAm(unittest.TestCase):
     def test_cli_plan_and_resume_storage_distinguish_legacy_runs(self):
         output = io.StringIO()
         with patch("sys.stdout", output):
-            self.assertEqual(run_pipeline.main(["run", "--dry-run", "--date", END_DATE]), 0)
+            self.assertEqual(run_pipeline.main(["run", "--dry-run", "--date", END_DATE, '--cutoff-time', '10:00']), 0)
         plan = json.loads(output.getvalue())
         self.assertEqual(plan["collectionWindow"], WINDOW)
         self.assertIn("--ten-am", plan["stages"][0]["command"])

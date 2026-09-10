@@ -59,6 +59,24 @@ class CompanyOverviewTest(unittest.TestCase):
                               generated_at="2026-09-09T10:05:00+08:00")
         return data, mock
 
+    def test_complete_mode_covers_input_despite_small_default_budget(self):
+        import copy
+        tx = copy.deepcopy(TX)
+        tx['companyOverview']['max_new_articles_per_run'] = 1
+        model = MockLLM(['{"companies":[]}', '{"companies":[]}'])
+        result = overview.build(self.snapshot, self.feed, self.root/'work', self.previous,
+                                self.cache, tx, llm_fn=model, require_complete=True)
+        self.assertEqual(result['stats']['articlesComplete'], 2)
+        self.assertEqual(result['stats']['articlesDeferred'], 0)
+        self.assertEqual(len(model.calls), 2)
+
+    def test_one_failed_company_extraction_blocks_complete_mode(self):
+        model = MockLLM(['{"companies":[]}', 'invalid'])
+        with self.assertRaisesRegex(ValueError, '公司抽取未完整完成'):
+            overview.build(self.snapshot, self.feed, self.root/'work', self.previous,
+                           self.cache, TX, llm_fn=model, require_complete=True)
+        self.assertFalse(self.previous.exists())
+
     def test_all_categories_merge_company_products_and_field_sources(self):
         release = json.dumps({"companies": [{"company_name": "星河科技", "aliases": [],
             "product_names": ["小星"], "country": "中国", "business": "AI陪伴产品",

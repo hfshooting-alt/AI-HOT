@@ -30,7 +30,7 @@ npm --prefix web run dev
 
 自动更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。没有付费密钥时可用 `--source-mode aihot-only --no-promote` 生成免费 AIHOT 候选快照；该模式使用 AIHOT 及其现有 RSS 等非公众号信源，并排除 AIHOT 公众号条目与 Manus feed。配置密钥后用默认 `full` 模式执行采集、公司与产品库及融资表的整套更新。统一入口支持 `--resume`、`--stage` 和 `--no-promote`，详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)。
 
-每日任务按北京时间 **10:00 开始**，固定采集前一天 10:00（含）至当天 10:00（不含）的新闻；全部加工成功后更新仓库中的网页产物，并触发 GitHub Pages 重新部署。GitHub 定时调度可能延迟。`--date` 在默认十点模式下表示窗口结束日，旧自然日流程使用 `--window-mode calendar-day`。
+每日任务按北京时间 **09:30 开始**，固定采集前一天 09:30（含）至当天 09:30（不含）的新闻；全部加工成功后更新仓库中的网页产物，并触发 GitHub Pages 重新部署。GitHub 定时调度可能延迟。`--date` 在默认固定窗口模式下表示窗口结束日，旧自然日流程使用 `--window-mode calendar-day`。
 
 当前公开站点使用无后端静态模式，地址为 [https://hfshooting-alt.github.io/AI-HOT/](https://hfshooting-alt.github.io/AI-HOT/)。它读取仓库已有快照，不需要 Manus 或模型 API；在新的采集数据尚未生成时会继续展示现有快照。Manus 条目先经过 AI 相关性门禁，再进行摘要、标签和公司抽取；实际承载页会标记为官网资讯、腾讯新闻转载、网易号转载或已核实公众号。仓库 Pages Source 已设为 **GitHub Actions**。
 

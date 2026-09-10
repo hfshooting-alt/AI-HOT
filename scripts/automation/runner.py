@@ -82,6 +82,9 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
         web_overview = json.loads((workspace / "web/public/company-overview.json").read_text(encoding="utf-8"))
         if overview != web_overview:
             raise ValueError("候选公司与产品产物不一致")
+        stats = overview.get('stats', {})
+        if stats.get('articlesFailed', 0) or stats.get('articlesDeferred', 0):
+            raise ValueError('公司抽取仍有失败或待处理文章，禁止发布部分更新')
 
 
 def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False, *, ten_am=False,
@@ -100,6 +103,7 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
                            "--archive-dir", out("data/archive"), "--tag-cache", out("data/cache/tag_cache.json"),
                            "--manus-json", out("data/manus/current.json")),
         "overview": script("build_company_overview.py", "--snapshot", out("web/public/snapshot.json"),
+                           "--require-complete",
                            "--feed", out("data/manus/current.json"),
                            "--previous", out("data/company-overview/current.json"),
                            "--cache-dir", out("data/company-overview"),
@@ -121,6 +125,8 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
         commands["discovery"].extend(("--credit-limit-per-source", str(manus_credit_limit)))
     if source_mode == "aihot-only":
         commands["snapshot"].extend(("--no-tags", "--exclude-wechat"))
+    else:
+        commands['snapshot'].append('--require-tags')
     return commands
 
 
@@ -136,6 +142,7 @@ def fingerprint(root: Path, stages, skip_search, ten_am=False, source_mode="full
                               os.getenv("LLM_MODEL", ""), os.getenv("LLM_API_BASE", ""),
                               os.getenv("MANUS_AGENT_PROFILE", "manus-1.6"),
                               os.getenv("MANUS_CONTENT_MODE", "script")]).encode())
+    digest.update(os.getenv('AIHOT_CUTOFF_TIME', '10:00').encode())
     return digest.hexdigest()
 
 

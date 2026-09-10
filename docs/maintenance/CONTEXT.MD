@@ -134,3 +134,7 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 - 2026-08-28：同步 20 账号配置、融资动态、分类体系、Manus 1 小时超时、discovery Prompt 加固，以及 group_a 25–27 日完整链路测试和数据晋升结果。
 
 2026-09-10 公司库/分类抽查：新增 apply_quality_review.py 和 config/quality_review.json，离线重放4组别名合并、17条主体分离、6条分类修正。预览公司281条；原始302条模型结果保留。详见 docs/operations/QUALITY_REVIEW.md。270 Python + 31 Node测试通过。该复核为显式候选步骤，尚未自动接入生产。
+
+2026-09-10 每日09:30：统一CLI默认cutoff-time=09:30，工作流UTC01:30；全部子阶段复用固定24小时边界。公司阶段require-complete阻止部分成功发布，all池纳入抽取；审阅规则接入自动构建；每日首页锁定完成批次。ChatGPT/Claude/Gemini报道归属已复核，待核实主体14条。尚未执行新一轮真实付费全链路运行。
+
+本轮验证：274 Python、31 Node、TypeScript及Pages构建通过；分类require-tags和公司require-complete均在full模式启用。真实自动运行和新时间点部署仍待验收。

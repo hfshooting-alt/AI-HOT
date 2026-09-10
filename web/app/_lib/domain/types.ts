@@ -94,6 +94,7 @@ export interface WeeklyNavEntry {
 
 /** build_snapshot.py 输出的 snapshot.json 根结构 */
 export interface Snapshot {
+  publicationMode?: "pipeline";
   daily: DigestView;
   weekly: DigestView;
   history: HistoryEntry[];

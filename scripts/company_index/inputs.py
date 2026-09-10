@@ -69,6 +69,8 @@ def load_articles(snapshot_path: Path | str, feed_path: Path | str,
         }
 
     snapshot = _read(Path(snapshot_path))
+    for item in (snapshot.get('all') or {}).get('items') or []:
+        add(item)
     for view in (snapshot.get("daily") or {}, snapshot.get("weekly") or {}):
         for section in view.get("sections") or []:
             for item in section.get("items") or []:

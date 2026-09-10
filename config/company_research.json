@@ -268,6 +268,63 @@
           "reviewNote": "对应 Meta Platforms, Inc.，2025 年报注册信息"
         }
       ]
+    },
+    {
+      "record_name": "ChatGPT",
+      "owner_company": "OpenAI",
+      "entity_type": "brand",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "owner_company",
+          "value": "OpenAI",
+          "origin": "article",
+          "articleId": "aihot:cmtuvq7mr0gbqrorpwnrko1st",
+          "quote": "OpenAI ChatGPT 语音模式支持调用 GPT-5.6 Sol 和 GPT-6 Astra",
+          "url": "https://www.ithome.com/1/000/577.htm",
+          "title": "OpenAI ChatGPT 语音模式支持调用 GPT-5.6 Sol 和 GPT-6 Astra",
+          "publishedAt": "2026-09-10T01:11:41.000Z",
+          "sourceName": "IT之家（RSS）"
+        }
+      ]
+    },
+    {
+      "record_name": "Claude",
+      "owner_company": "Anthropic",
+      "entity_type": "brand",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "owner_company",
+          "value": "Anthropic",
+          "origin": "article",
+          "articleId": "aihot:cmturfvgl0c3drorpbiotkhkc",
+          "quote": "Anthropic 披露第四起 Claude 模型未经授权访问第三方系统的安全事件",
+          "url": "https://www.ithome.com/1/000/565.htm",
+          "title": "Anthropic 披露第四起 Claude 模型未经授权访问第三方系统的安全事件",
+          "publishedAt": "2026-09-09T23:53:07.000Z",
+          "sourceName": "IT之家（RSS）"
+        }
+      ]
+    },
+    {
+      "record_name": "Gemini",
+      "owner_company": "Google",
+      "entity_type": "brand",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "owner_company",
+          "value": "Google",
+          "origin": "article",
+          "articleId": "aihot:cmttva2tf0oeirofpquiogy98",
+          "quote": "谷歌向免费用户开放 Gemini 每日简报，无需订阅",
+          "url": "https://www.ithome.com/1/000/326.htm",
+          "title": "谷歌向免费用户开放 Gemini 每日简报，无需订阅",
+          "publishedAt": "2026-09-09T08:53:40.000Z",
+          "sourceName": "IT之家（RSS）"
+        }
+      ]
     }
   ]
 }

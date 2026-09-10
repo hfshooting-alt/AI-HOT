@@ -61,6 +61,11 @@ def apply_reviewed_research(companies, rules=None):
             evidence = dict(value=value, articleId='research:' + hashlib.sha256(fact['url'].encode()).hexdigest()[:16],
                             url=fact['url'], title=fact['title'], publishedAt='', sourceName='官网资料核验',
                             origin='research', quote=fact['quote'], checkedAt=rules['checkedAt'])
+            if fact.get('origin') == 'article':
+                if not fact.get('articleId'):
+                    raise ValueError('报道归属修正缺少文章标识')
+                evidence.update(origin='article', articleId=fact['articleId'],
+                                publishedAt=fact.get('publishedAt', ''), sourceName=fact.get('sourceName', '报道内容复核'))
             bucket = target['fieldSources'].setdefault(field, [])
             if not any(e['articleId'] == evidence['articleId'] and e['value'] == value for e in bucket):
                 bucket.append(evidence)

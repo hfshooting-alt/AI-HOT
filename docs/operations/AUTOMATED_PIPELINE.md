@@ -42,7 +42,7 @@ python scripts/run_pipeline.py run --date 2026-09-07 --resume
 python scripts/run_pipeline.py run
 ```
 
-默认 `--window-mode ten-am`，`--date` 是窗口结束日。例如 `--date 2026-09-09` 固定覆盖 9 月 8 日 10:00（含）至 9 月 9 日 10:00（不含）。省略日期时取最近已经到达的北京时间十点：十点前取前一天，十点及以后取当天。子阶段复用这个已确定的日期，排队延迟和加工耗时不移动窗口。跨日补跑需显式填写窗口结束日。
+默认 `--window-mode ten-am`，`--date` 是窗口结束日。例如 `--date 2026-09-09` 固定覆盖 9 月 8 日 09:30（含）至 9 月 9 日 09:30（不含）。省略日期时取最近已经到达的北京时间09:30：09:30前取前一天，09:30及以后取当天。子阶段复用这个已确定的日期，排队延迟和加工耗时不移动窗口。跨日补跑需显式填写窗口结束日。
 
 统一 full 入口现在逐来源创建发现任务，最多 3 个并发；默认每来源观察止损线 20 credits，可用 --manus-credit-limit 10..60 调整。20 个来源默认保留线合计 400 credits，实际消费可能因上报与停止延迟超出。创建不重试，费用报告保存在 work/manus[/ten-am]/<date>/cost-report.json，旧报告归入 cost-history。同窗口成功和失败结果默认都复用，显式 --retry-failed-sources 仅重试失败来源。已付费完成的模型结果会保存缓存；同窗口新候选继承缓存，不继承未审核新闻。
 
@@ -104,7 +104,7 @@ python scripts/run_pipeline.py run --date 2026-09-07 --resume
 
 ## 5. GitHub Actions
 
-`.github/workflows/fetch-manus.yml` 每天北京时间 10:00（UTC 02:00）开始全流程，测试通过后调用统一入口，成功后将整套正式数据提交到仓库；并非十点整完成更新。GitHub schedule 可能延迟，不能保证准点。手动输入为 `date`（窗口结束日）、`stage`、`promote`、`dry_run`、`skip_search`；可选阶段为 all/snapshot/overview/funding。独立 content/feed 所需原始正文未存入 Git，所以这两个阶段仅在保留原始文件的本地运行。
+`.github/workflows/fetch-manus.yml` 每天北京时间 09:30（UTC 01:30）开始全流程，测试通过后调用统一入口，成功后将整套正式数据提交到仓库；并非09:30整完成更新。GitHub schedule 可能延迟，不能保证准点。手动输入为 `date`（窗口结束日）、`stage`、`promote`、`dry_run`、`skip_search`；可选阶段为 all/snapshot/overview/funding。独立 content/feed 所需原始正文未存入 Git，所以这两个阶段仅在保留原始文件的本地运行。
 
 默认 `full` 模式需要 GitHub Secrets `MANUS_API_KEY`、`DEEPSEEK_API_KEY`；可选 `TAVILY_API_KEY`，模型接口和模型名可用 Variables `LLM_API_BASE`、`LLM_MODEL`。手动任务可选 `source_mode=aihot-only`，只生成 AIHOT 快照且不读取这些付费密钥。定时任务仍默认执行 `full`。如果修改 taxonomy 中 `api_key_env`，同步工作流的密钥注入。
 
@@ -115,3 +115,10 @@ python scripts/run_pipeline.py run --date 2026-09-07 --resume
 ## 2026-09-10 Pages 发布衔接
 
 每日工作流提交正式数据并成功推送 main 后，使用 GitHub CLI 显式触发 `deploy-pages.yml`。工作流需要 `actions: write`；沿用内置令牌，不新增个人令牌。没有数据变化、候选运行或 dry-run 不触发此次发布。触发成功只表示部署已排队，最终结果仍须检查 Pages 工作流。GitHub 内置令牌的 push 不会自行触发另一个 push 工作流。
+
+
+2026-09-10 更新：统一入口默认 `--cutoff-time 09:30`，通过 `AIHOT_CUTOFF_TIME` 传递到全部子阶段；`ten-am` 参数及目录名保留兼容，不表示实际时刻。旧独立 CLI 默认十点，复现旧窗口使用统一入口 `--cutoff-time 10:00`。窗口改变会改变恢复指纹，旧窗口缓存经契约检查不会作为新窗口采集结果复用。首次提前半小时会与旧批次重叠半小时，按文章标识/链接去重。
+
+完整管线的公司库阶段强制 `--require-complete`，复用成功抽取缓存，处理全部未缓存输入文章（包括 all 池）；任一失败或延后则阻止整批晋升，保留旧网页。公司资料按新文章增量更新，最新提及置顶；没有证据的字段保持空白。审阅过的归属和分类自动应用，产品归属未明时保留 pendingEntities。AIHOT-only 是显式免费快照模式，不执行模型公司更新。每日快照写入 publicationMode=pipeline，首页仅展示该完成批次。
+
+完整 full 模式同时要求 `--require-tags`，当轮归档池的未分类或fallback条目必须完成模型分类；失败缓存可重新处理，已成功缓存继续复用。异常时只保留候选目录，不提交网站数据。所有成功表示程序与结构化覆盖检查通过，不等同于所有信源无漏采或模型事实绝对正确。
