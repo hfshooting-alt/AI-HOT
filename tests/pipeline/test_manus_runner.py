@@ -14,6 +14,28 @@ from _tempdir import make_temp_dir  # noqa: E402
 from manus_source import runner  # noqa: E402
 
 
+class TestCostCircuit(unittest.TestCase):
+    def test_repeated_credit_stops_prevent_next_paid_task(self):
+        calls = []
+        circuit = runner.CostCircuit()
+        def billed_task():
+            calls.append(1)
+            raise RuntimeError('Observed credit threshold reached: 20 >= 20')
+        for _ in range(3):
+            with self.assertRaisesRegex(RuntimeError, 'threshold'):
+                circuit.call(billed_task)
+        with self.assertRaisesRegex(RuntimeError, 'task not created'):
+            circuit.call(billed_task)
+        self.assertEqual(len(calls), 3)
+
+    def test_unrelated_source_failure_does_not_trip_cost_circuit(self):
+        circuit = runner.CostCircuit()
+        for _ in range(4):
+            with self.assertRaisesRegex(RuntimeError, 'identity'):
+                circuit.call(lambda: (_ for _ in ()).throw(RuntimeError('identity mismatch')))
+        self.assertEqual(circuit.call(lambda: 'success'), 'success')
+
+
 class TestRunnerTimeout(unittest.TestCase):
     def test_runner_uses_one_hour_discovery_timeout(self):
         temp_path = Path(make_temp_dir("manus-runner-test-"))

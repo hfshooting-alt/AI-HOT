@@ -30,6 +30,27 @@ CANARY_STOP_AT_CREDITS = 20
 CANARY_MAX_CREDIT_LIMIT = 60
 MAX_DISCOVERY_CREDIT_LIMIT = 60
 SOURCE_CONCURRENCY = 3
+
+
+class CostCircuit:
+    """Stop queued task creation after repeated budget stops; allow in-flight tasks to settle."""
+    def __init__(self, limit=3):
+        from threading import Lock
+        self.lock = Lock()
+        self.failures = 0
+        self.limit = limit
+
+    def call(self, function, *args):
+        with self.lock:
+            if self.failures >= self.limit:
+                raise RuntimeError('cost_circuit_open: repeated credit stops; task not created')
+        try:
+            return function(*args)
+        except Exception as error:
+            if 'Observed credit threshold reached' in str(error):
+                with self.lock:
+                    self.failures += 1
+            raise
 DISCOVERY_BRIEF = ("仅处理该 source_group；仅采集 published_date 等于 target_date 的文章。"
                    "发现阶段只输出元数据与 URL，不提取正文。")
 
@@ -318,6 +339,7 @@ def main(argv: list[str] | None = None) -> int:
 
     source_failures: list[str] = []
     if args.credit_limit_per_source and not canary:
+        cost_circuit = CostCircuit()
         source_payloads: dict[str, dict[str, dict]] = {group: {} for group in args.groups}
         account_dir = raw_dir / "accounts"
         account_dir.mkdir(parents=True, exist_ok=True)
@@ -339,7 +361,7 @@ def main(argv: list[str] | None = None) -> int:
                             "{{WINDOW_START}}", window["start"]).replace(
                             "{{WINDOW_END}}", window["end"])
                     fut = ex.submit(
-                        run_discovery, client, group, args.date, prompt_text,
+                        cost_circuit.call, run_discovery, client, group, args.date, prompt_text,
                         [source["account_name"]], window, args.credit_limit_per_source)
                     futs[fut] = (group, source)
             for fut in as_completed(futs):
@@ -463,6 +485,8 @@ def main(argv: list[str] | None = None) -> int:
             for audit in payload.get("source_audits", [])
             if audit.get("source_status") == "failed"
         ]
+        if cost_circuit.failures >= cost_circuit.limit:
+            failures.append('cost_circuit_open: repeated credit stops; downstream publication blocked')
         cost_report["finishedAt"] = datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(timespec="seconds")
         cost_report["status"] = "failed" if failures else "complete"
         cost_report["failures"] = failures

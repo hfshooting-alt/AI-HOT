@@ -63,3 +63,5 @@ Manus 正文先经过相关性筛选，每篇最多一次短请求，输出上�
 依据 Manus 官方文档：[认证](https://open.manus.im/docs/v2/authentication)、[余额](https://open.manus.im/docs/v2/usage.availableCredits)、[创建任务](https://open.manus.im/docs/v2/task.create)、[任务状态与消费](https://open.manus.im/docs/v2/task.detail)、[停止任务](https://open.manus.im/docs/v2/task.stop)。
 
 2026-09-10 用户明确授权延长等待的Paratera重测：仅1次请求，90秒超时，max_tokens=16，无自动重试；服务端用量136 tokens。配置默认DeepSeek-V4-Pro；GitHub需新增PARATERA_API_KEY Secret后自动选择新接口/模型，缺少时仍使用旧服务，避免把旧密钥发往新服务。
+
+2026-09-10 全链路实测发现连续来源触发20-credit阈值而未完成结构化输出；新增三次费用止损后阻止排队任务创建的自动中止规则，已经开始的任务继续受单任务止损限制并收口。只读GitHub API配置检查工作流不创建Manus任务、不执行模型推理。

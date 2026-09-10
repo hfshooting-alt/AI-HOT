@@ -1,0 +1,43 @@
+name: 只读检查 API 配置
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/check-api-config.yml]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: 验证密钥与模型权限（不创建任务、不生成内容）
+        env:
+          PARATERA_API_KEY: ${{ secrets.PARATERA_API_KEY }}
+          MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os, sys, json
+          from urllib.request import Request, urlopen
+          sys.path.insert(0, 'scripts')
+          from manus_source.client import ManusClient
+          for key in ('PARATERA_API_KEY', 'MANUS_API_KEY'):
+              if not os.environ.get(key):
+                  raise SystemExit(f'{key}: missing')
+          try:
+              req = Request('https://llmapi.paratera.com/v1/models', headers={'Authorization': 'Bearer '+os.environ['PARATERA_API_KEY']})
+              with urlopen(req, timeout=30) as response:
+                  data = json.load(response)
+              if 'DeepSeek-V4-Pro' not in [r.get('id') for r in data.get('data', [])]:
+                  raise ValueError('model unavailable')
+              print('Paratera authentication and DeepSeek-V4-Pro access: OK')
+              client = ManusClient(api_key=os.environ['MANUS_API_KEY'], agent_profile='manus-1.6-lite', poll_seconds=5, timeout_seconds=30)
+              client.available_credits()
+              print('Manus read-only authentication: OK')
+          except Exception as error:
+              raise SystemExit('Read-only API check failed: '+type(error).__name__)
+          PY

@@ -142,3 +142,5 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 2026-09-10：14项待核实主体已收尾；9项归并、5项非公司存入excludedEntities，候选公司281条、pending=0。预览entity-review.html已更新，未运行付费全链路。275 Python + 31 Node通过。
 
 2026-09-10 Paratera 切换：一次90秒上限重测在3.47秒返回正确JSON，输入131/输出5/总136 tokens。本地.env和taxonomy默认改为DeepSeek-V4-Pro、https://llmapi.paratera.com/v1；大小写模型名均关闭thinking。CI优先使用PARATERA_API_KEY，未配置时保留原DeepSeek接口/密钥配对；仓库新secret尚未设置。不是业务全链路验收。
+
+2026-09-10 09:30全链路真实测试：discovery连续触发费用止损，人工中止本地队列并核实9个远端任务stopped；回报用量合计157 credits、一个null。尚未执行正文/模型/发布。补充CostCircuit安全门（277 Python通过），针对白鲸出海另做一次Lite、20-credit/300秒隔离诊断。旧GitHub运行34447993782失败为当时两项密钥缺失；新Secret使用只读工作流验证。
