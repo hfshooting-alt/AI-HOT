@@ -11,6 +11,9 @@ sys.path.insert(0, str(Path(__file__).parent))
 from _tempdir import make_temp_dir
 import build_company_overview as overview
 from company_index.extraction import extract_articles
+from company_index.extraction import build_prompt
+from company_index.entities import merge_entities
+from company_index.inputs import load_articles
 from company_index.output import promote, validate
 
 TX = json.loads((ROOT / "config/taxonomy.json").read_text(encoding="utf-8"))
@@ -76,6 +79,20 @@ class CompanyOverviewTest(unittest.TestCase):
                          {"release-1", "interview-1"})
         validate(data, TX)
 
+    def test_article_inputs_prioritize_latest_for_bounded_model_calls(self):
+        old = item("old", "旧闻", "https://example.com/old", "general", "旧闻摘要")
+        new = item("new", "新闻", "https://example.com/new", "general", "新闻摘要")
+        old["publishedAt"] = "2026-09-08T12:00:00+08:00"
+        new["publishedAt"] = "2026-09-10T09:00:00+08:00"
+        self.snapshot.write_text(json.dumps({
+            "daily": {"sections": [{"items": [old]}]},
+            "weekly": {"sections": [{"items": [new]}]},
+        }, ensure_ascii=False), encoding="utf-8")
+
+        articles = load_articles(self.snapshot, self.feed, self.root / "work", TX)
+
+        self.assertEqual([article["id"] for article in articles], ["new", "old"])
+
     def test_success_cache_prevents_repeat_cost(self):
         replies = [json.dumps({"companies": []}) for _ in range(2)]
         first, mock = self.build(replies)
@@ -83,6 +100,27 @@ class CompanyOverviewTest(unittest.TestCase):
         second, mock2 = self.build([])
         self.assertEqual(len(mock2.calls), 0)
         self.assertEqual(second["stats"]["cacheHits"], 2)
+
+    def test_prompt_limits_rows_to_core_company_and_uses_company_industry(self):
+        system, _ = build_prompt(TX, {
+            "title": "甲公司拟上市", "sourceName": "测试", "category": "financing",
+            "content_text": "甲公司聘请乙证券，丙公司是其投资方。",
+        })
+        self.assertIn("只保留新闻核心主体", system)
+        self.assertIn("财务顾问", system)
+        self.assertIn("公司自身业务", system)
+
+        articles = [{"id": "a", "title": "甲公司融资", "url": "u", "sourceName": "s",
+                     "publishedAt": "2026-09-10", "category": "financing",
+                     "dims": {"行业": "AI模型", "国家/地区": "中国"}}]
+        extracts = {"a": {"status": "complete", "companies": [{
+            "company_name": "甲游戏", "aliases": [], "product_names": [],
+            "industry_id": "ai_game_content", "country": "美国",
+            **{field: None for field in ("founded", "team", "business", "investors",
+                                         "total_funding", "valuation")},
+        }]}}
+        rows = merge_entities(articles, extracts, {}, TX)
+        self.assertEqual(rows[0]["dims"], {"行业": "AI游戏内容", "国家/地区": "美国"})
 
     def test_failed_extraction_does_not_overwrite_previous(self):
         with self.assertRaisesRegex(ValueError, "全部文章"):

@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from html.parser import HTMLParser
 from typing import Callable
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
@@ -103,20 +104,60 @@ def fetch_jina_text(url: str, timeout_seconds: float = 30,
 
 # ================= 提取与清洗 =================
 
+
+class _HeadTitleParser(HTMLParser):
+    """只读取 head 中的标准标题，避免正文提取器把导航标题当文章标题。"""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.in_title = False
+        self.title_parts: list[str] = []
+        self.meta_titles: dict[str, str] = {}
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = {key.lower(): value for key, value in attrs if value is not None}
+        if tag.lower() == "title":
+            self.in_title = True
+        elif tag.lower() == "meta":
+            key = (values.get("property") or values.get("name") or "").lower()
+            if key in ("og:title", "twitter:title") and values.get("content"):
+                self.meta_titles[key] = values["content"].strip()
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() == "title":
+            self.in_title = False
+
+    def handle_data(self, data: str) -> None:
+        if self.in_title:
+            self.title_parts.append(data)
+
+
+def extract_head_title(html_bytes: bytes) -> str | None:
+    parser = _HeadTitleParser()
+    try:
+        parser.feed(_html_text(html_bytes))
+    except Exception:  # noqa: BLE001 - 破损 HTML 回退给 trafilatura
+        return None
+    title = (parser.meta_titles.get("og:title") or
+             parser.meta_titles.get("twitter:title") or
+             "".join(parser.title_parts).strip())
+    return title or None
+
 def extract_text(html_bytes: bytes) -> tuple[str | None, str | None]:
-    """trafilatura 提取正文与元数据标题。返回 (text|None, meta_title|None)。"""
+    """提取正文；标题优先取 head 标准字段，再回退 trafilatura 元数据。"""
     tr = _trafilatura()
     text = None
-    meta_title = None
+    meta_title = extract_head_title(html_bytes)
     try:
         text = tr.extract(html_bytes, output_format="txt")
     except Exception:  # noqa: BLE001 - 提取器内部异常按"无法提取"处理
         text = None
-    try:
-        meta = tr.extract_metadata(html_bytes)
-        meta_title = meta.title if meta else None
-    except Exception:  # noqa: BLE001
-        meta_title = None
+    if not meta_title:
+        try:
+            meta = tr.extract_metadata(html_bytes)
+            meta_title = meta.title if meta else None
+        except Exception:  # noqa: BLE001
+            meta_title = None
     return text, meta_title
 
 

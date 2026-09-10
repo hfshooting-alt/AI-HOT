@@ -108,18 +108,20 @@ def validate_summary(tx: dict, summary) -> bool:
 
 
 def deterministic_summary(tx: dict, content: str) -> str:
-    """模型失败时的确定性兜底：取正文首个有效段落，截断到摘要上限。
+    """模型失败时的确定性兜底：依次拼接正文段落，截断到摘要上限。
 
     只使用正文原文，绝不臆造；正文为空时返回空串（调用方应拒绝发布该条）。
     """
     cfg = enrich_cfg(tx)
     paragraphs = [p.strip() for p in re.split(r"\n\s*\n|\n", content or "") if p.strip()]
-    text = ""
+    selected = []
     for p in paragraphs:
-        if len(p) < 15 and text:  # 过短碎片不单独成段
+        if len(p) < 15 and selected:  # 过短碎片不单独成段
             continue
-        text = p
-        break
+        selected.append(p)
+        if len(" ".join(selected)) >= cfg["summary_min_chars"]:
+            break
+    text = " ".join(selected)
     if not text:
         return ""
     if len(text) > cfg["summary_max_chars"]:
@@ -156,12 +158,25 @@ def enrich_one(tx: dict, item: dict) -> dict:
             text = call_llm(tx, system, user + ("\n注意：只输出 JSON 对象。" if attempt else ""),
                             timeout_seconds=cfg["timeout_seconds"])
             raw = parse_output(text)
-            # 重试条件：不可解析或摘要不合法。分类/标签交给 tag_news.validate() 的
-            # 既有兜底机制（非法类别→general+autoFallback 留痕；非法取值→注入 fallback）。
-            if isinstance(raw, dict) and validate_summary(tx, raw.get("summary")):
-                cls = tag_news.validate(tx, raw)
-                return {"summary": raw["summary"].strip(), "classification": cls,
-                        "enrichmentStatus": "complete"}
+            # 分类/标签交给 tag_news.validate() 的既有兜底机制。模型已经给出合法
+            # taxonomy 结构、但摘要长度不合格时，保留模型分类，只用原文段落生成
+            # 确定性摘要。这样不会为格式问题再付一次调用费用，也不会丢掉模型标签。
+            if isinstance(raw, dict):
+                valid_categories = {c["id"] for c in tx["categories"]}
+                classification_structured = (
+                    raw.get("category") in valid_categories and isinstance(raw.get("tags"), dict)
+                )
+                if validate_summary(tx, raw.get("summary")):
+                    return {"summary": raw["summary"].strip(),
+                            "summaryOrigin": "model",
+                            "classification": tag_news.validate(tx, raw),
+                            "enrichmentStatus": "complete"}
+                source_summary = deterministic_summary(tx, content)
+                if classification_structured and source_summary:
+                    return {"summary": source_summary,
+                            "summaryOrigin": "source_extract",
+                            "classification": tag_news.validate(tx, raw),
+                            "enrichmentStatus": "complete"}
         except Exception as exc:  # noqa: BLE001 - 网络/接口错误进入重试或兜底
             if attempt:
                 print(f"    正文加工失败（已兜底）: {exc}", file=sys.stderr)

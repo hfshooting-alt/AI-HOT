@@ -23,6 +23,10 @@ API_BASE_URL = "https://api.manus.ai/v2"
 RETRYABLE_HTTP_MARKERS = ("Manus HTTP 429", "Manus HTTP 500", "Manus HTTP 502",
                           "Manus HTTP 503", "Manus HTTP 504", "Cannot reach Manus API")
 
+# Manus 会把等待内部并行子任务返回标记为 waiting/cascadeJobCall。这个状态不需要
+# 用户输入，也不是终态；继续轮询即可。其他 waiting 类型仍按阻塞处理。
+INTERNAL_WAIT_EVENT_TYPES = {"cascadeJobCall"}
+
 # 发现阶段 structured output schema（v2：source_audits 区分“无文章”与“来源失败”）
 DISCOVERY_OUTPUT_SCHEMA = {
     "type": "object",
@@ -242,7 +246,9 @@ class ManusClient:
                     raise ManusAPIError(last_error or "Task failed")
                 if agent_status == "waiting":
                     detail = status_update.get("status_detail", {})
-                    raise ManusAPIError(f"Task is waiting for {detail.get('waiting_for_event_type')}")
+                    waiting_for = detail.get("waiting_for_event_type")
+                    if waiting_for not in INTERNAL_WAIT_EVENT_TYPES:
+                        raise ManusAPIError(f"Task is waiting for {waiting_for}")
         return None, last_status, last_error
 
     def wait_for_structured_result(self, task_id: str,

@@ -193,7 +193,7 @@ def save_cache(path: str, cache: dict) -> None:
 
 
 def tag_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict]:
-    """批量打标签：缓存优先，未命中者并发调用（带预算熔断）。返回 {item_key: result}。"""
+    """批量打标签：缓存优先，只提交本轮额度内的请求。返回 {item_key: result}。"""
     cache = load_cache(cache_path)
     prefix = cache_prefix(tx)
     results: dict[str, dict] = {}
@@ -206,21 +206,32 @@ def tag_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict]:
             todo.append(it)
     if todo:
         m = tx["model"]
+        limit = max(0, int(m.get("max_new_items_per_run", 25)))
+        selected = todo[:limit]
+        deferred = len(todo) - len(selected)
         deadline = time.time() + m.get("budget_seconds", 120)
         done = 0
         with ThreadPoolExecutor(max_workers=m.get("concurrency", 8)) as ex:
-            futs = {ex.submit(tag_one, tx, it): it for it in todo}
+            # 只把 selected 提交给线程池。若一次性提交 todo，时间预算到达时
+            # 未取回的 future 仍会继续调用外部模型，无法形成真实费用上限。
+            futs = {ex.submit(tag_one, tx, it): it for it in selected}
             for fut in as_completed(futs):
                 if time.time() > deadline:
-                    print("    打标签预算超时，剩余条目本轮跳过", file=sys.stderr)
-                    break
+                    # Running calls are already chargeable. Cancel queued calls, but
+                    # collect and cache every completed call so reruns do not repay.
+                    for pending in futs:
+                        pending.cancel()
+                if fut.cancelled():
+                    deferred += 1
+                    continue
                 it = futs[fut]
                 r = fut.result()
                 cache[f"{prefix}:{item_key(it)}"] = r
                 results[item_key(it)] = r
                 done += 1
         save_cache(cache_path, cache)
-        print(f"打标签：新增 {done} 条（缓存命中 {len(items) - len(todo)} 条）")
+        print(f"打标签：新增 {done} 条（缓存命中 {len(items) - len(todo)} 条，"
+              f"本轮额度外 {deferred} 条）")
     return results
 
 

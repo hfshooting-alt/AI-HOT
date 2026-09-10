@@ -25,6 +25,19 @@ TX = json.loads((ROOT / "config/taxonomy.json").read_text(encoding="utf-8"))
 
 
 class WorkspaceTest(unittest.TestCase):
+    def test_candidate_cache_reuse_does_not_copy_news(self):
+        runs = self.root / "work/runs/2026-09-10"
+        old = runs / ("a" * 32) / "workspace"
+        new = runs / ("b" * 32) / "workspace"
+        rel = "data/cache/tag_cache.json"
+        publish.save(old / rel, {"version:article": {"category": "release"}})
+        publish.save(new / rel, {"version:existing": {"category": "paper"}})
+        publish.save(old / "web/public/snapshot.json", {"unreviewed": True})
+        runner.reuse_candidate_caches(runs, new)
+        cache = json.loads((new / rel).read_text(encoding="utf-8"))
+        self.assertEqual(set(cache), {"version:article", "version:existing"})
+        self.assertFalse((new / "web/public/snapshot.json").exists())
+
     def setUp(self):
         self.root = Path(make_temp_dir("automation-test-"))
         self.addCleanup(shutil.rmtree, self.root, ignore_errors=True)
@@ -187,6 +200,12 @@ class WorkspaceTest(unittest.TestCase):
         self.assertIn("24h", commands["snapshot"])
         out_path = Path(commands["snapshot"][commands["snapshot"].index("--out") + 1])
         self.assertEqual(out_path, self.root / "candidate/legacy-index.html")
+
+    def test_full_plan_applies_manus_per_task_credit_limit(self):
+        commands = runner.plan(self.root, self.root / "candidate", "2026-09-10",
+                               ten_am=True, manus_credit_limit=80)
+        discovery = commands["discovery"]
+        self.assertEqual(discovery[discovery.index("--credit-limit-per-source") + 1], "80")
 
     def test_dry_run_is_read_only_and_never_executes(self):
         with patch.object(run_pipeline, "ROOT", self.root), patch.object(run_pipeline, "run") as run_mock:

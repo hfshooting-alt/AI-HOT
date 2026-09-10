@@ -142,10 +142,109 @@ class TestSingleAccountCanary(unittest.TestCase):
         self.assertTrue((base / "raw" / "discovery-group_a.json").exists())
         self.assertFalse((self.settings.work_dir / "2026-09-10").exists())
 
+    def test_account_canary_accepts_bounded_credit_limit(self):
+        captured = {}
+
+        class FakeClient:
+            def __init__(self, **kwargs):
+                pass
+
+            def available_credits(self):
+                return 100
+
+        payload = {"articles": [], "source_audits": [{
+            "account_name": "TestAccount", "source_status": "complete",
+            "article_count": 0, "note": "当天无文章",
+        }]}
+        with patch.object(runner.Settings, "from_environment", return_value=self.settings), \
+                patch.object(runner, "ManusClient", FakeClient), \
+                patch.object(runner, "run_discovery", return_value=payload) as run:
+            code = runner.main(["--date", "2026-09-11", "--account", "TestAccount",
+                                "--allow-paid", "--canary-credit-limit", "40"])
+        self.assertEqual(code, 0)
+        self.assertEqual(run.call_args.args[6], 40)
+        report_path = (self.settings.work_dir / "canary" / runner.canary_slug("TestAccount")
+                       / "2026-09-11" / "canary-report.json")
+        report = json.loads(report_path.read_text(encoding="utf-8"))
+        self.assertEqual(report["creditLimit"], 40)
+
+    def test_account_canary_rejects_unbounded_credit_limit(self):
+        with patch.object(runner.Settings, "from_environment") as load:
+            with self.assertRaises(SystemExit):
+                runner.main(["--account", "TestAccount", "--allow-paid",
+                             "--canary-credit-limit", "61"])
+        load.assert_not_called()
+
+    def test_production_credit_limit_is_bounded_and_disables_create_retry(self):
+        captured = {}
+        balances = iter((100, 95))
+
+        class FakeClient:
+            def __init__(self, **kwargs):
+                captured.update(kwargs)
+
+            def available_credits(self):
+                return next(balances)
+
+        payload = {"articles": [], "source_audits": [{
+            "account_name": "TestAccount", "source_status": "complete",
+            "article_count": 0, "note": "当天无文章",
+        }]}
+        with patch.object(runner.Settings, "from_environment", return_value=self.settings), \
+                patch.object(runner, "ManusClient", FakeClient), \
+                patch.object(runner, "run_discovery", return_value=payload) as run:
+            code = runner.main(["--date", "2026-09-12", "--groups", "group_a",
+                                "--credit-limit-per-task", "60"])
+        self.assertEqual(code, 0)
+        self.assertEqual(captured["create_retries"], 0)
+        self.assertEqual(run.call_args.args[6], 60)
+        report = json.loads((self.settings.work_dir / "2026-09-12" / "cost-report.json")
+                            .read_text(encoding="utf-8"))
+        self.assertEqual(report["maxObservedRunCredits"], 60)
+        self.assertEqual(report["creditsUsed"], 5)
+
     def test_account_name_must_be_unique(self):
         with self.assertRaisesRegex(ValueError, "不唯一"):
             runner.select_account({"group_a": [{"account_name": "same"}],
                                    "group_b": [{"account_name": "same"}]}, "same")
+
+    def test_retry_failed_keeps_successful_source_cached(self):
+        source = {"account_name": "TestAccount"}
+        raw_dir = self.settings.work_dir / "2026-09-10" / "raw"
+        account_dir = raw_dir / "accounts"
+        account_dir.mkdir(parents=True)
+        payload = runner.failed_source_payload("group_a", "2026-09-10", source, None, "test")
+        payload["source_audits"][0].update(source_status="complete", note="当天无文章")
+        (account_dir / f"{runner.canary_slug('TestAccount')}.json").write_text(
+            json.dumps(payload), encoding="utf-8")
+        cached, origin = runner.load_reusable_source_payload(
+            raw_dir, self.settings.work_dir, "group_a", "2026-09-10", source,
+            None, retry_failed=True)
+        self.assertEqual(cached, payload)
+        self.assertEqual(origin, "account-attempt")
+
+    def test_failed_source_attempt_is_reused_without_paid_retry(self):
+        source = {"account_name": "TestAccount", "platform": "Tencent News",
+                  "home_url": "https://example.com"}
+        window = runner.ten_am_window("2026-09-10")
+        raw_dir = self.settings.work_dir / "ten-am" / "2026-09-10" / "raw"
+        account_dir = raw_dir / "accounts"
+        account_dir.mkdir(parents=True)
+        payload = runner.failed_source_payload(
+            "group_a", "2026-09-10", source, window, "credit threshold")
+        (account_dir / f"{runner.canary_slug('TestAccount')}.json").write_text(
+            json.dumps(payload), encoding="utf-8")
+
+        cached, origin = runner.load_reusable_source_payload(
+            raw_dir, self.settings.work_dir / "ten-am", "group_a", "2026-09-10",
+            source, window)
+
+        self.assertEqual(origin, "account-attempt")
+        self.assertEqual(cached["source_audits"][0]["source_status"], "failed")
+        retry, _ = runner.load_reusable_source_payload(
+            raw_dir, self.settings.work_dir / "ten-am", "group_a", "2026-09-10",
+            source, window, retry_failed=True)
+        self.assertIsNone(retry)
 
 
 class TestSettingsDefaults(unittest.TestCase):

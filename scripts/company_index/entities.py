@@ -75,9 +75,10 @@ def merge_entities(articles: list[dict], extracts: dict[str, dict], previous: di
                     rec[field] = value
                     _add_evidence(rec, field, value, article)
             industry = industry_labels.get(item.get("industry_id"), "其他AI应用")
-            article_industry = (article.get("dims") or {}).get("行业")
-            rec["dims"]["行业"] = article_industry or industry
-            region = (article.get("dims") or {}).get("国家/地区") or _country_to_region_label(item.get("country"))
+            rec["dims"]["行业"] = industry
+            company_region = _country_to_region_label(item.get("country"))
+            region = (company_region if company_region != "其他"
+                      else (article.get("dims") or {}).get("国家/地区") or "其他")
             if region != "其他" or rec["dims"].get("国家/地区") == "其他":
                 rec["dims"]["国家/地区"] = region
             if not any(s.get("id") == article["id"] for s in rec["sourceArticles"]):

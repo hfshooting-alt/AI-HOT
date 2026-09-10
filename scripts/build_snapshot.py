@@ -353,6 +353,8 @@ def tag_archive_days(archive_dir: str, all_days: dict[str, dict], tx: dict, cach
                 pending.append(it)
     if not pending:
         return False
+    # 每轮额度有限时优先给最新资讯打标，使当天前端先得到模型分类。
+    pending.sort(key=lambda it: to_bj(it.get("publishedAt") or ""), reverse=True)
     results = tag_news.tag_items(pending, tx, cache_path)
     changed = 0
     for date_str, day in all_days.items():

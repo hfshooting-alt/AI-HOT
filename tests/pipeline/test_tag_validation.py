@@ -6,7 +6,9 @@
 import json
 import os
 import sys
+import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "scripts"))
 import tag_news  # noqa: E402
@@ -114,6 +116,32 @@ class TestPromptAndContract(unittest.TestCase):
         d = tag_news.to_display(TX, r)
         self.assertEqual(d["catLabel"], "融资动态")
         self.assertEqual([x["value"] for x in d["dims"]], ["AI模型", "中国"])
+
+
+class TestBatchCostLimit(unittest.TestCase):
+    def test_completed_result_is_cached_after_deadline(self):
+        tx = json.loads(json.dumps(TX))
+        tx["model"].update(max_new_items_per_run=1, budget_seconds=-1)
+        with tempfile.TemporaryDirectory() as folder, patch.object(
+                tag_news, "tag_one", return_value={"category": "general", "tags": {}}) as call:
+            path = os.path.join(folder, "cache.json")
+            items = [{"id": "finished", "title": "test"}]
+            self.assertEqual(len(tag_news.tag_items(items, tx, path)), 1)
+            self.assertEqual(len(tag_news.tag_items(items, tx, path)), 1)
+            self.assertEqual(call.call_count, 1)
+
+    def test_only_submits_configured_number_of_new_items(self):
+        tx = json.loads(json.dumps(TX))
+        tx["model"]["max_new_items_per_run"] = 1
+        items = [{"id": f"i-{i}", "title": f"新闻 {i}", "summary": "摘要"}
+                 for i in range(3)]
+        with tempfile.TemporaryDirectory() as folder, patch.object(
+                tag_news, "tag_one",
+                return_value={"category": "general", "tags": {},
+                              "autoFallback": False, "autoFilled": []}) as call:
+            result = tag_news.tag_items(items, tx, os.path.join(folder, "cache.json"))
+        self.assertEqual(call.call_count, 1)
+        self.assertEqual(len(result), 1)
 
 
 if __name__ == "__main__":

@@ -13,14 +13,16 @@ def build_prompt(tx: dict, article: dict) -> tuple[str, str]:
     industries = " / ".join(
         f"{v['id']}({v['label']})" for v in tx["dimensions"]["industry"]["values"])
     fields = "\n".join(f"- {field}：字符串或 null" for field in SCALAR_FIELDS)
-    system = f"""你是公司与产品实体抽取引擎。读取新闻并抽取其中明确出现、且与新闻事实有关的公司和产品。
+    system = f"""你是公司与产品情报库抽取引擎。读取新闻并抽取新闻核心事件直接涉及的公司和产品。
+
+只保留新闻核心主体：标题或核心事件中的公司、融资/上市/产品发布/团队变动的直接当事公司，以及明确归属于它的产品。不要收录仅作为投资方、财务顾问、交易所、供应商、媒体来源、同业对比或背景材料出现的公司。一篇融资或上市新闻通常只输出融资或拟上市主体；没有合格核心主体时 companies 为空数组。
 
 每家公司一条记录：
 - company_name：文章采用的公司名称，必填
 - aliases：文章明确给出的别名、英文名或简称，字符串数组
 - product_names：该公司在文章中明确关联的产品名称，字符串数组；无法确认归属时不要猜测
 {fields}
-- industry_id：只能取 {industries}；无法判定时取 ai_other
+- industry_id：按该公司自身业务选择，只能取 {industries}；不得直接继承整篇文章的行业标签，无法判定时取 ai_other
 
 只使用文章明确表达的事实。缺失字段为 null，数组缺失为 []。不得根据常识补全，不得把媒体来源本身当作被报道公司。
 只输出 JSON：{{"companies":[{{"company_name":"...","aliases":[],"product_names":[],"founded":null,"country":null,"team":null,"business":null,"investors":null,"total_funding":null,"valuation":null,"industry_id":"ai_other"}}]}}"""

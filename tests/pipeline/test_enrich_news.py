@@ -69,6 +69,7 @@ class TestEnrichOne(unittest.TestCase):
         r, mock = self.run_with([payload])
         self.assertEqual(r["enrichmentStatus"], "complete")
         self.assertEqual(r["summary"], GOOD_SUMMARY)
+        self.assertEqual(r["summaryOrigin"], "model")
         self.assertEqual(r["classification"]["category"], "release")
         self.assertFalse(r["classification"]["autoFallback"])
         # 正文确实进入模型请求
@@ -102,22 +103,25 @@ class TestEnrichOne(unittest.TestCase):
         self.assertEqual(r["classification"]["tags"]["industry"], "ai_other")
         self.assertEqual(r["classification"]["autoFilled"], ["industry"])
 
-    def test_empty_summary_retries_then_fallback(self):
+    def test_empty_summary_keeps_structured_model_classification(self):
         payload = json.dumps({"summary": "", "category": "release",
                               "tags": {"industry": "ai_model", "issuer": "startup"}},
                              ensure_ascii=False)
         r, mock = self.run_with([payload])
-        self.assertEqual(len(mock.calls), 2)  # 摘要非法触发一次重试
-        self.assertEqual(r["enrichmentStatus"], "fallback")
-        self.assertEqual(r["classification"]["category"], "general")
-        self.assertTrue(r["classification"]["autoFallback"])
-        self.assertTrue(r["summary"].startswith("第一段"))  # 确定性摘要取首段
+        self.assertEqual(len(mock.calls), 1)
+        self.assertEqual(r["enrichmentStatus"], "complete")
+        self.assertEqual(r["summaryOrigin"], "source_extract")
+        self.assertEqual(r["classification"]["category"], "release")
+        self.assertFalse(r["classification"]["autoFallback"])
+        self.assertTrue(r["summary"].startswith("第一段"))
 
-    def test_too_long_summary_falls_back(self):
+    def test_too_long_summary_uses_source_summary_and_keeps_classification(self):
         payload = json.dumps({"summary": "字" * 300, "category": "general", "tags": {}},
                              ensure_ascii=False)
         r, _ = self.run_with([payload])
-        self.assertEqual(r["enrichmentStatus"], "fallback")
+        self.assertEqual(r["enrichmentStatus"], "complete")
+        self.assertEqual(r["classification"]["category"], "general")
+        self.assertEqual(r["summaryOrigin"], "source_extract")
 
     def test_network_errors_twice_fall_back(self):
         r, mock = self.run_with([RuntimeError("connection reset"), RuntimeError("timeout")])

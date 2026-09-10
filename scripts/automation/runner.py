@@ -14,6 +14,31 @@ from manus_source.window import ten_am_window
 
 STAGES = ("discovery", "content", "feed", "snapshot", "overview", "funding")
 
+CACHE_FILES = ("data/cache/tag_cache.json", "data/manus/enrichment_cache.json",
+               "data/company-overview/extraction_cache.json", "data/funding/extraction_cache.json")
+
+
+def reuse_candidate_caches(runs: Path, workspace: Path) -> None:
+    """Carry versioned model caches across same-window attempts, never candidate news."""
+    attempts = sorted((p for p in runs.iterdir() if p.is_dir() and len(p.name) == 32
+                       and all(c in "0123456789abcdef" for c in p.name)
+                       and p / "workspace" != workspace),
+                      key=lambda p: p.stat().st_mtime)
+    for rel in CACHE_FILES:
+        target = workspace / rel
+        merged = {}
+        for path in [target, *(p / "workspace" / rel for p in attempts)]:
+            if path != target and not path.resolve().is_relative_to(runs.resolve()):
+                continue
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+                if isinstance(data, dict):
+                    merged.update(data)
+            except (OSError, ValueError):
+                continue
+        if merged:
+            save(target, merged)
+
 
 def tree_digest(root: Path) -> str:
     digest = hashlib.sha256()
@@ -59,7 +84,7 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
 
 
 def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False, *, ten_am=False,
-         source_mode="full"):
+         source_mode="full", manus_credit_limit=20):
     def script(name, *args):
         return [sys.executable, str(root / "scripts" / name), *map(str, args)]
     def out(rel):
@@ -91,25 +116,31 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
         commands["snapshot"].extend(("--window-date", date, "--api-window", "24h"))
         commands["overview"].extend(("--work-dir", str(root / "work/manus/ten-am")))
         commands["funding"].extend(("--work-dir", str(root / "work/manus/ten-am")))
+    if source_mode == "full" and manus_credit_limit:
+        commands["discovery"].extend(("--credit-limit-per-source", str(manus_credit_limit)))
     if source_mode == "aihot-only":
         commands["snapshot"].extend(("--no-tags", "--exclude-wechat"))
     return commands
 
 
-def fingerprint(root: Path, stages, skip_search, ten_am=False, source_mode="full"):
+def fingerprint(root: Path, stages, skip_search, ten_am=False, source_mode="full",
+                manus_credit_limit=20):
     digest = hashlib.sha256()
     for folder in ("config", "scripts"):
         for path in sorted((root / folder).rglob("*")):
             if path.is_file() and path.suffix in (".py", ".json", ".md", ".html"):
                 digest.update(str(path.relative_to(root)).encode())
                 digest.update(path.read_bytes())
-    digest.update(json.dumps([stages, skip_search, ten_am, source_mode, os.getenv("LLM_MODEL", ""),
-                              os.getenv("LLM_API_BASE", ""), os.getenv("MANUS_CONTENT_MODE", "script")]).encode())
+    digest.update(json.dumps([stages, skip_search, ten_am, source_mode, manus_credit_limit,
+                              os.getenv("LLM_MODEL", ""), os.getenv("LLM_API_BASE", ""),
+                              os.getenv("MANUS_AGENT_PROFILE", "manus-1.6"),
+                              os.getenv("MANUS_CONTENT_MODE", "script")]).encode())
     return digest.hexdigest()
 
 
 def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=False,
-        skip_search=False, execute=None, ten_am=False, source_mode="full"):
+        skip_search=False, execute=None, ten_am=False, source_mode="full",
+        manus_credit_limit=20):
     execute = execute or (lambda cmd: subprocess.run(cmd, cwd=root).returncode)
     runs = root / "work" / "runs" / date
     if ten_am:
@@ -120,7 +151,7 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
     os.close(fd)
     try:
         latest = runs / "latest.json"
-        sig = fingerprint(root, stages, skip_search, ten_am, source_mode)
+        sig = fingerprint(root, stages, skip_search, ten_am, source_mode, manus_credit_limit)
         if resume:
             run_id = json.loads(latest.read_text(encoding="utf-8"))["runId"]
             if not isinstance(run_id, str) or len(run_id) != 32 or any(c not in "0123456789abcdef" for c in run_id):
@@ -144,6 +175,7 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
                     shutil.copytree(source, dest)
                 else:
                     dest.mkdir(parents=True, exist_ok=True)
+            reuse_candidate_caches(runs, workspace)
             state = {"date": date, "fingerprint": sig, "stages": {}, "published": False,
                      "sourceMode": source_mode,
                      "collectionWindow": ten_am_window(date) if ten_am else None,
@@ -151,7 +183,7 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
             save(run_dir / "state.json", state)
             save(latest, {"runId": run_id})
         commands = plan(root, run_dir / "workspace", date, resume, skip_search, ten_am=ten_am,
-                        source_mode=source_mode)
+                        source_mode=source_mode, manus_credit_limit=manus_credit_limit)
         for stage in stages:
             if state["stages"].get(stage, {}).get("status") == "success":
                 print(f"[{stage}] 复用已成功阶段", flush=True)

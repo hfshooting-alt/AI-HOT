@@ -1,5 +1,6 @@
 """从快照和 Manus feed 装配全类别文章输入。"""
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -76,7 +77,14 @@ def load_articles(snapshot_path: Path | str, feed_path: Path | str,
     if feed.get("ok"):
         for item in feed.get("items") or []:
             add(item, feed=True)
-    return sorted(merged.values(), key=lambda a: a.get("publishedAt") or "")
+    # 模型额度有限时必须优先处理最新文章，否则 weekly 历史会挤占当天情报。
+    def published_time(article):
+        try:
+            dt = datetime.fromisoformat(article["publishedAt"].replace("Z", "+00:00"))
+            return dt.timestamp() if dt.tzinfo else dt.replace(tzinfo=timezone.utc).timestamp()
+        except (ValueError, TypeError):
+            return float("-inf")
+    return sorted(merged.values(), key=published_time, reverse=True)
 
 
 def load_previous(path: Path | str) -> dict:

@@ -36,12 +36,16 @@ def main(argv=None):
     parser.add_argument("--no-promote", action="store_true", help="执行接口并生成候选产物，保留正式数据")
     parser.add_argument("--dry-run", action="store_true", help="只显示计划，不调用任何外部接口")
     parser.add_argument("--skip-search", action="store_true", help="跳过可选 Tavily 搜索")
+    parser.add_argument("--manus-credit-limit", type=int, default=20,
+                        help="full 模式每个 Manus 来源的观察止损线，范围 10-60（默认 20）")
     args = parser.parse_args(argv)
     ten_am = args.window_mode == "ten-am"
     args.date = args.date or (latest_cutoff_date() if ten_am else
                              (datetime.now(ZoneInfo("Asia/Shanghai")).date() - timedelta(days=1)).isoformat())
     if args.source_mode == "aihot-only" and args.stage not in ("all", "snapshot"):
         parser.error("aihot-only 只支持 all（自动收敛为 snapshot）或 snapshot 阶段")
+    if not 10 <= args.manus_credit_limit <= 60:
+        parser.error("--manus-credit-limit 必须在 10-60 credits 之间")
     stages = (["snapshot"] if args.source_mode == "aihot-only" else
               list(STAGES) if args.stage == "all" else [args.stage])
     if args.dry_run:
@@ -50,7 +54,7 @@ def main(argv=None):
             run_path = run_path / "ten-am"
         commands = plan(ROOT, run_path / "<run-id>" / "workspace",
                         args.date, args.resume, args.skip_search, ten_am=ten_am,
-                        source_mode=args.source_mode)
+                        source_mode=args.source_mode, manus_credit_limit=args.manus_credit_limit)
         print(json.dumps({"date": args.date, "publish": not args.no_promote,
                           "sourceMode": args.source_mode,
                           "collectionWindow": ten_am_window(args.date) if ten_am else None,
@@ -67,7 +71,8 @@ def main(argv=None):
         return 0
     try:
         return run(ROOT, args.date, stages, resume=args.resume, no_promote=args.no_promote,
-                   skip_search=args.skip_search, ten_am=ten_am, source_mode=args.source_mode)
+                   skip_search=args.skip_search, ten_am=ten_am, source_mode=args.source_mode,
+                   manus_credit_limit=args.manus_credit_limit)
     except ValueError as exc:
         print(f"运行检查失败：{exc}", file=sys.stderr)
         return 1

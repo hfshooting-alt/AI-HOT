@@ -11,9 +11,10 @@
   "model": "deepseek-v4-flash",
   "temperature": 0,
   "max_output_tokens": 1024,
-  "timeout_seconds": 20,
-  "concurrency": 8,
-  "budget_seconds": 120
+    "timeout_seconds": 20,
+    "concurrency": 8,
+    "budget_seconds": 120,
+    "max_new_items_per_run": 25
  },
  "enrich": {
   "_comment": "正文加工（摘要+分类+标签一次调用）独立预算；长正文单次耗时远高于 800 字符轻调用，不得沿用 model.budget_seconds。",

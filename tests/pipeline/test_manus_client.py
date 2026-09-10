@@ -182,6 +182,18 @@ class TestWaitForResult(unittest.TestCase):
             client.wait_for_structured_result("t-1")
         self.assertIn("waiting", str(ctx.exception))
 
+    def test_internal_cascade_wait_continues_polling(self):
+        client, transport = make_client([
+            page([{
+                "type": "status_update",
+                "status_update": {"agent_status": "waiting",
+                                  "status_detail": {"waiting_for_event_type": "cascadeJobCall"}},
+            }]),
+            page([structured_ok(RESULT_VALUE)]),
+        ])
+        self.assertEqual(client.wait_for_structured_result("t-1"), RESULT_VALUE)
+        self.assertEqual(len(transport.calls), 2)
+
     def test_error_status_raises_with_last_error(self):
         client, _ = make_client([page([
             {"type": "error_message", "error_message": {"content": "浏览器会话崩溃"}},

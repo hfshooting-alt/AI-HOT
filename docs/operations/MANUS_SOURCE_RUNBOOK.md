@@ -43,9 +43,11 @@ python scripts/audit_manus_sources.py --check-links
 python scripts/manus_source/runner.py --date 2026-09-10 --ten-am --account "机器之心" --allow-paid
 ```
 
+单账号 canary 默认在观察到 20 credits 时停止。仅在默认阈值已经安全收口、且需要判断任务是否接近完成时，可显式设置 `--canary-credit-limit 10..60`；每次仍只创建一个 Lite 任务、无创建重试，并在报告中记录阈值。
+
 `--check-links` 对每个主页发送一次小体积 GET，不重试、不读取或保存正文，也不调用 Manus/模型。账号级状态保存到已忽略的 `work/source-audit/source-health-<date>.json`，用于发现主页失效、跳转和访问限制；它不能代替文章日期、身份和发现质量校验。
 
-单账号 canary 只提交一个 Manus Lite 发现任务，创建不重试，最长等待 600 秒；轮询观察到 20 credits 或异常时请求停止。同一账号同一天只能尝试一次，调用前后余额和结果写入 `work/manus/ten-am/canary/<账号哈希>/<date>/canary-report.json`。发现 JSON 保存在同目录的 `raw/`，不会写入生产 discovery 路径，不能被正文、feed 或统一发布入口消费。20 credits 是观察停止线，不是服务端硬性账单上限。
+单账号 canary 只提交一个 Manus Lite 发现任务，创建不重试，最长等待 600 秒；轮询观察到 20 credits 或异常时请求停止。同一账号同一天只能尝试一次，调用前后余额和结果写入 `work/manus/ten-am/canary/<账号哈希>/<date>/canary-report.json`。发现 JSON 保存在同目录的 `raw/`，通过同账号、同窗口契约验证的成功结果可由逐来源生产入口复用；仍须合并并验证完整三组审计，不能直接复制绕过组契约。20 credits 是观察停止线，不是服务端硬性账单上限。
 
 上例 group_a 仅用于发现阶段冒烟；进入正文和 feed 前必须补齐同日三组发现结果。原 CLI 独立执行，不具备统一入口的整套产物保护。
 
@@ -56,12 +58,12 @@ python scripts/manus_source/runner.py --date 2026-09-10 --ten-am --account "机�
 ## 3. 断点续跑与重试
 
 - 同一日期重跑正文时仅复用契约通过的成功 URL，失败和缺失 URL 重新抓取。
-- 发现阶段 `--resume` 复用同日契约通过且所有来源成功的组，其余整组重跑。
+- 统一入口按来源复用同窗口尝试；失败来源默认不重新付费。旧按组 CLI 的 `--resume` 仍仅复用全来源成功的组。
 - feed 契约或可发布性校验失败时保留上一次 `current.json`。统一入口失败状态在 `work/runs/`，原 feed CLI 状态在指定 data-dir。
 
 ## 4. 成本控制
 
-- 每天 Manus 任务数 = 3（发现）固定；正文阶段默认本地脚本爬取，**不再产生 Manus 正文任务**。
+- 统一入口逐来源创建发现任务，最多 20 个、并发 3 个；同窗口缓存命中的来源不创建任务；正文阶段默认本地脚本爬取，**不再产生 Manus 正文任务**。
   回退 `MANUS_CONTENT_MODE=manus` 时任务数取决于批次大小与失败重试。当前配置为 20 个账号。
 - 控制成本：只运行必要阶段，复用成功缓存，单组 discovery 冒烟。`promote=false` 仅控制发布，不能免除接口费用。
 - 账号来源校准优先使用单账号 canary。首次接入逐个验证账号身份、主页、文章时间和原文链接；日常按失败率轮换复测，不每天重复创建 20 个测试任务。

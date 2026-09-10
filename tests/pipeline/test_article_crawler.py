@@ -88,6 +88,17 @@ class TestUrlDrift(unittest.TestCase):
 
 
 class TestTitleMismatch(unittest.TestCase):
+    def test_head_title_wins_over_navigation_heading(self):
+        html = (b"<html><head><title>Expected article title</title></head>"
+                b"<body><h1>Contact the CEO</h1><p>" + b"content " * 40 + b"</p></body></html>")
+        _, title = crawler.extract_text(html)
+        self.assertEqual(title, "Expected article title")
+
+    def test_open_graph_title_wins_over_document_title(self):
+        html = (b'<html><head><title>Site title</title>'
+                b'<meta property="og:title" content="Article title"></head></html>')
+        self.assertEqual(crawler.extract_head_title(html), "Article title")
+
     def test_exact_match(self):
         self.assertFalse(crawler._title_mismatch(TENCENT_TITLE, TENCENT_TITLE))
 
