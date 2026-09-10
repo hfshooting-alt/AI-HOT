@@ -27,12 +27,15 @@ from llm_common import call_llm, parse_output  # noqa: E402
 ENRICH_DEFAULTS = {
     "content_input_chars": 16000,
     "summary_min_chars": 100,
+    "summary_sentence_min_chars": 60,
     "summary_max_chars": 220,
     "timeout_seconds": 90,
     "concurrency": 3,
     "budget_seconds": 900,
     "max_new_items_per_run": 20,
+    "max_attempts": 1,
 }
+ENRICH_PROMPT_VERSION = 2
 # 摘要中不允许出现的模型自述/Markdown 痕迹
 SELF_REF_MARKERS = ("作为AI", "作为 AI", "作为语言模型", "我无法", "我不能")
 
@@ -49,12 +52,14 @@ def build_enrich_prompt(tx: dict, title: str, mp_name: str, content: str) -> tup
     """system 内嵌 taxonomy 全量 + 摘要约束；user 携带标题/公众号名/正文（截断到上限）。"""
     cfg = enrich_cfg(tx)
     lines = [
-        "你是新闻加工引擎。对给定公众号文章执行两件事：",
+        "你是新闻加工引擎。对给定媒体文章执行两件事：",
         f"1. 写一段 {cfg['summary_min_chars']}—{cfg['summary_max_chars']} 字的中文事实摘要；",
         "2. 执行两级分类：先判定类别（6 选 1，互斥），再在该类别绑定的维度内各选 1 个取值。",
         "",
         "## 摘要约束",
         "- 只陈述文章中的事实，不评价、不预测、不添加文章没有的信息",
+        "- 从具体事件直接起笔，不重复标题、栏目名、作者、导语或版权声明；必须以完整句子结束",
+        "- 对早报、速递等多事件汇编，通读全文并概括其中与 AI 有关的事件，不得只摘第一条；避免把非 AI 开场新闻当作主事件",
         "- 不得使用 Markdown 标题、列表符号或链接",
         "- 不得出现“本文”“作者认为”之外的引导语，不得自述 AI 身份",
         "",
@@ -84,7 +89,7 @@ def build_enrich_prompt(tx: dict, title: str, mp_name: str, content: str) -> tup
         '{"summary": "<中文事实摘要>", "category": "<类别id>", "tags": {"<维度id>": "<取值id>"}}',
     ]
     system = "\n".join(lines)
-    user = f"标题：{title}\n公众号：{mp_name}\n\n正文：\n{content[:cfg['content_input_chars']]}"
+    user = f"标题：{title}\n媒体：{mp_name}\n\n正文：\n{content[:cfg['content_input_chars']]}"
     return system, user
 
 
@@ -95,7 +100,9 @@ def validate_summary(tx: dict, summary) -> bool:
     if not isinstance(summary, str):
         return False
     s = summary.strip()
-    if not (cfg["summary_min_chars"] <= len(s) <= cfg["summary_max_chars"]):
+    # 完整短摘要可以保留，避免为凑字数退回正文导语或额外调用。
+    minimum = min(cfg["summary_min_chars"], cfg["summary_sentence_min_chars"]) if re.search(r'[。！？!?][”’"]?$', s) else cfg["summary_min_chars"]
+    if not (minimum <= len(s) <= cfg["summary_max_chars"]):
         return False
     if re.search(r"^\s{0,3}#{1,6}\s", s, re.M):  # Markdown 标题
         return False
@@ -108,13 +115,28 @@ def validate_summary(tx: dict, summary) -> bool:
     return True
 
 
-def deterministic_summary(tx: dict, content: str) -> str:
+def fit_model_summary(tx: dict, summary):
+    """模型超长时仅按完整句子缩短，不再退回正文开头。"""
+    if not isinstance(summary, str):
+        return summary
+    summary = summary.strip()
+    if len(summary) > enrich_cfg(tx)["summary_max_chars"]:
+        head = summary[:enrich_cfg(tx)["summary_max_chars"]]
+        ends = list(re.finditer(r"[。！？!?](?:[”’\"])?", head))
+        if ends:
+            summary = head[:ends[-1].end()]
+    return summary
+
+
+def deterministic_summary(tx: dict, content: str, title: str = "") -> str:
     """模型失败时的确定性兜底：依次拼接正文段落，截断到摘要上限。
 
     只使用正文原文，绝不臆造；正文为空时返回空串（调用方应拒绝发布该条）。
     """
     cfg = enrich_cfg(tx)
-    paragraphs = [p.strip() for p in re.split(r"\n\s*\n|\n", content or "") if p.strip()]
+    paragraphs = [p.strip() for p in re.split(r"\n\s*\n|\n", content or "")
+                  if p.strip() and p.strip().lstrip("# ") != title.strip()
+                  and not re.match(r"^(作者|编辑|来源|原创|转载声明|版权声明)[:：\s]", p.strip())]
     selected = []
     for p in paragraphs:
         if len(p) < 15 and selected:  # 过短碎片不单独成段
@@ -126,13 +148,16 @@ def deterministic_summary(tx: dict, content: str) -> str:
     if not text:
         return ""
     if len(text) > cfg["summary_max_chars"]:
-        text = text[:cfg["summary_max_chars"]]
+        head = text[:cfg["summary_max_chars"]]
+        ends = list(re.finditer(r"[。！？!?](?:[”’\"])?", head))
+        text = head[:ends[-1].end()] if ends else head[:-1].rstrip() + "…"
     return text
 
 
-def fallback_enrichment(tx: dict, content: str) -> dict:
+def fallback_enrichment(tx: dict, content: str, title: str = "") -> dict:
     return {
-        "summary": deterministic_summary(tx, content),
+        "summary": deterministic_summary(tx, content, title),
+        "summaryOrigin": "source_extract",
         "classification": {"category": tx["fallbackCategoryId"], "tags": {},
                            "autoFallback": True, "autoFilled": []},
         "enrichmentStatus": "fallback",
@@ -154,7 +179,7 @@ def enrich_one(tx: dict, item: dict) -> dict:
         return {"summary": "", "classification": tag_news.fallback_result(tx),
                 "enrichmentStatus": "failed"}
     system, user = build_enrich_prompt(tx, title, item.get("mpName") or "", content)
-    for attempt in range(2):
+    for attempt in range(max(1, min(2, int(cfg["max_attempts"])))):
         try:
             text = call_llm(tx, system, user + ("\n注意：只输出 JSON 对象。" if attempt else ""),
                             timeout_seconds=cfg["timeout_seconds"], operation="news_enrichment")
@@ -163,6 +188,7 @@ def enrich_one(tx: dict, item: dict) -> dict:
             # taxonomy 结构、但摘要长度不合格时，保留模型分类，只用原文段落生成
             # 确定性摘要。这样不会为格式问题再付一次调用费用，也不会丢掉模型标签。
             if isinstance(raw, dict):
+                raw["summary"] = fit_model_summary(tx, raw.get("summary"))
                 valid_categories = {c["id"] for c in tx["categories"]}
                 classification_structured = (
                     raw.get("category") in valid_categories and isinstance(raw.get("tags"), dict)
@@ -172,16 +198,17 @@ def enrich_one(tx: dict, item: dict) -> dict:
                             "summaryOrigin": "model",
                             "classification": tag_news.validate(tx, raw),
                             "enrichmentStatus": "complete"}
-                source_summary = deterministic_summary(tx, content)
+                source_summary = deterministic_summary(tx, content, title)
                 if classification_structured and source_summary:
                     return {"summary": source_summary,
+                            "rejectedModelSummary": raw.get("summary"),
                             "summaryOrigin": "source_extract",
                             "classification": tag_news.validate(tx, raw),
                             "enrichmentStatus": "complete"}
         except Exception as exc:  # noqa: BLE001 - 网络/接口错误进入重试或兜底
             if attempt:
                 print(f"    正文加工失败（已兜底）: {exc}", file=sys.stderr)
-    return fallback_enrichment(tx, content)
+    return fallback_enrichment(tx, content, title)
 
 
 # ================= 缓存与批量 =================
@@ -200,7 +227,7 @@ def enrich_cache_key(tx: dict, item: dict) -> str:
     正文、prompt、taxonomy 或模型任一变更都会自动失效旧结果；缓存只存加工结果。
     """
     content_sha = hashlib.sha256((item.get("content_text") or "").encode("utf-8")).hexdigest()[:16]
-    return f"{tag_news.cache_prefix(tx)}:{enrich_item_key(item)}:{content_sha}"
+    return f"{tag_news.cache_prefix(tx)}:enrich-v{ENRICH_PROMPT_VERSION}:{enrich_item_key(item)}:{content_sha}"
 
 
 def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict]:

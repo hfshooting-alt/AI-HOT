@@ -101,6 +101,8 @@ node scripts/settings-server.mjs
 
 ### 测试成本约束（用户于 2026-09-09 明确要求）
 
+- 缓存新闻复核用 `review_cached_news.py`：付费请求前占位，摘要/公司抽取共用累计预算；默认8次，最多40次。同一输出目录仅运行一个进程。模型缓存按提示词版本区分，不能为了复用而把旧结果冒充新版本；人工修正保留独立记录。
+
 - 默认 `python scripts/test_pipeline.py offline`，禁止回归测试调用真实付费服务。CI 的离线测试也使用该入口。
 - 检查 Manus key 使用 `manus-auth`，不要启动生产采集来确认密钥。只有必要的小样本实测使用 `manus-smoke --allow-paid`，当前工作区每天最多一次 Lite 创建尝试，不重试创建，观察 120 秒/最多 12 次轮询，观察到 20 credits 时请求停止。
 - 检查 OpenAI-compatible 模型使用 `llm-smoke --allow-paid`：最多一次请求、输出上限 16 token、每天最多一次、不重试。它不验证新闻业务质量。

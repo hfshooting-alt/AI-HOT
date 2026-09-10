@@ -1,6 +1,7 @@
 """公司实体合并、产品归属和逐字段来源留痕。"""
 import copy
 import hashlib
+import re
 
 from funding.companies import normalize_company_key, _country_to_region_label
 from .config import ALL_EVIDENCE_FIELDS, SCALAR_FIELDS
@@ -66,7 +67,8 @@ def merge_entities(articles: list[dict], extracts: dict[str, dict], previous: di
                 if rec.get("firstSeenAt") and article.get("publishedAt") else (rec.get("firstSeenAt") or article.get("publishedAt") or "")
             _add_evidence(rec, "company_name", item["company_name"], article)
             for product in item.get("product_names", []):
-                if product not in rec["product_names"]:
+                product_key = re.sub(r"\s+", "", product).casefold()
+                if not any(re.sub(r"\s+", "", p).casefold() == product_key for p in rec["product_names"]):
                     rec["product_names"].append(product)
                 _add_evidence(rec, "product_names", product, article)
             for field in SCALAR_FIELDS:

@@ -4,6 +4,8 @@
 
 前端使用 React、Next.js API 与 vinext/Vite；数据流水线使用 Python。现有数据以 JSON 快照与归档保存。
 
+已筛选新闻可用 `scripts/review_cached_news.py` 在 `work/` 中复核摘要和公司库：默认4篇、累计最多8次模型请求，显式 `--allow-paid` 才调用；不抓取信源、不更新正式数据。来源异常定位见 [9月10日复核记录](docs/operations/SOURCE_DIAGNOSIS_20260910.md)。
+
 ## 本地启动
 
 需要 Node.js >=22.13.0 和 Python >=3.10。Windows、macOS、Linux 使用相同的前端命令：

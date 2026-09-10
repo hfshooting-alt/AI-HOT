@@ -13,9 +13,9 @@
     ],
     "group_b": [
       {"account_name": "FounderPark", "platform": "NetEase", "home_url": "https://www.163.com/dy/media/T1705485947430.html"},
-      {"account_name": "瑞恩资本", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMY33Zd7YwduQ%3D%3D"},
+      {"account_name": "瑞恩资本", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMY33Zd7YwduQ%3D%3D", "verified_display_names": ["瑞恩资本RyanBenCapital"]},
       {"account_name": "DeepTech深科技", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMd2Hpe7owfuTk%3D"},
-      {"account_name": "ZPotential", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QIf3nxd5YwYvz%2Fc5wM%3D"},
+      {"account_name": "ZPotential", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QIf3nxd5YwYvz%2Fc5wM%3D", "verified_display_names": ["ZPotentials"]},
       {"account_name": "华尔街见闻", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMf2HZV5I0a"},
       {"account_name": "量子位", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMc3Hle6oMZuDze"},
       {"account_name": "智东西", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMc2XZf7IAfsD3Z"}

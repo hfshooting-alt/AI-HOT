@@ -16,6 +16,7 @@ def build_prompt(tx: dict, article: dict) -> tuple[str, str]:
     system = f"""你是公司与产品情报库抽取引擎。读取新闻并抽取新闻核心事件直接涉及的公司和产品。
 
 只保留新闻核心主体：标题或核心事件中的公司、融资/上市/产品发布/团队变动的直接当事公司，以及明确归属于它的产品。不要收录仅作为投资方、财务顾问、交易所、供应商、媒体来源、同业对比或背景材料出现的公司。一篇融资或上市新闻通常只输出融资或拟上市主体；没有合格核心主体时 companies 为空数组。
+对多事件早报逐条识别 AI 相关事件，只收录这些事件的核心公司与产品，跳过普通电商、汽车销量、游戏榜单等无 AI 关联事件。
 
 每家公司一条记录：
 - company_name：文章采用的公司名称，必填
@@ -25,9 +26,11 @@ def build_prompt(tx: dict, article: dict) -> tuple[str, str]:
 - industry_id：按该公司自身业务选择，只能取 {industries}；不得直接继承整篇文章的行业标签，无法判定时取 ai_other
 
 只使用文章明确表达的事实。缺失字段为 null，数组缺失为 []。不得根据常识补全，不得把媒体来源本身当作被报道公司。
+country 必须是公司所属国家而不是市场覆盖范围。total_funding 是累计融资，不能把单轮融资填为累计融资；valuation 保留币种与估值时点，不能使用市值代替。不要以模型记忆补全团队和成立时间。
 只输出 JSON：{{"companies":[{{"company_name":"...","aliases":[],"product_names":[],"founded":null,"country":null,"team":null,"business":null,"investors":null,"total_funding":null,"valuation":null,"industry_id":"ai_other"}}]}}"""
     cfg = overview_cfg(tx)
     user = (f"标题：{article['title']}\n来源：{article['sourceName']}\n"
+            f"发布时间：{article.get('publishedAt') or '未知'}（今年/去年以此时间为基准；未知时保留相对时间）\n"
             f"类别：{article['category']}\n\n正文：\n"
             f"{article['content_text'][:cfg['content_input_chars']]}")
     return system, user

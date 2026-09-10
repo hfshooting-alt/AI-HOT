@@ -4,6 +4,8 @@
 
 ## 1. 先检查，再运行
 
+来源费用阈值停止后，查看对应运行目录 `diagnostics/` 的任务ID与停止状态，再读取历史任务消息定位阶段。八个失败来源的对照复核见 [SOURCE_DIAGNOSIS_20260910.md](SOURCE_DIAGNOSIS_20260910.md)。不要把浏览器入口可读等同于完整时间窗口采集成功。
+
 后续测试统一遵循[测试成本控制](TESTING_COST_CONTROL.md)。默认先 `python scripts/test_pipeline.py`；确认 Manus 密钥用 `python scripts/test_pipeline.py manus-auth`。本页 `run` 生产命令会执行真实接口，`--no-promote` 不限制费用。
 
 ```sh

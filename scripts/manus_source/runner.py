@@ -338,6 +338,15 @@ def main(argv: list[str] | None = None) -> int:
                     else:
                         print(f"[{group}/{name}] 来源审计失败：{audit['note']}", flush=True)
                 except Exception as error:  # noqa: BLE001 - 单来源失败不拖垮其他来源
+                    if isinstance(error, DiscoveryRunError):
+                        diagnostics = account_dir.parent.parent / "diagnostics"
+                        diagnostics.mkdir(parents=True, exist_ok=True)
+                        record = {"accountName": name, "taskId": error.task_id,
+                                  "reason": str(error), "stopSucceeded": error.stop_succeeded,
+                                  "stopError": error.stop_error,
+                                  "recordedAt": datetime.now(ZoneInfo("Asia/Shanghai")).isoformat()}
+                        (diagnostics / f"{canary_slug(name)}.json").write_text(
+                            json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
                     if isinstance(error, DiscoveryRunError) and not error.stop_succeeded:
                         failures.append(f"{name}: task {error.task_id} stop unresolved")
                         for pending in futs:

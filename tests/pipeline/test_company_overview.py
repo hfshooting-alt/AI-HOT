@@ -102,25 +102,30 @@ class CompanyOverviewTest(unittest.TestCase):
         self.assertEqual(second["stats"]["cacheHits"], 2)
 
     def test_prompt_limits_rows_to_core_company_and_uses_company_industry(self):
-        system, _ = build_prompt(TX, {
+        system, user = build_prompt(TX, {
             "title": "甲公司拟上市", "sourceName": "测试", "category": "financing",
+            "publishedAt": "2026-09-10T10:00:00+08:00",
             "content_text": "甲公司聘请乙证券，丙公司是其投资方。",
         })
         self.assertIn("只保留新闻核心主体", system)
         self.assertIn("财务顾问", system)
         self.assertIn("公司自身业务", system)
+        self.assertIn("2026-09-10", user)
+        self.assertIn("不能把单轮融资", system)
 
         articles = [{"id": "a", "title": "甲公司融资", "url": "u", "sourceName": "s",
                      "publishedAt": "2026-09-10", "category": "financing",
                      "dims": {"行业": "AI模型", "国家/地区": "中国"}}]
         extracts = {"a": {"status": "complete", "companies": [{
-            "company_name": "甲游戏", "aliases": [], "product_names": [],
+            "company_name": "甲游戏", "aliases": [], "product_names": ["X9 Ultra", "X9Ultra"],
             "industry_id": "ai_game_content", "country": "美国",
             **{field: None for field in ("founded", "team", "business", "investors",
                                          "total_funding", "valuation")},
         }]}}
         rows = merge_entities(articles, extracts, {}, TX)
         self.assertEqual(rows[0]["dims"], {"行业": "AI游戏内容", "国家/地区": "美国"})
+        self.assertEqual(rows[0]["product_names"], ["X9 Ultra"])
+        self.assertEqual(len(rows[0]["fieldSources"]["product_names"]), 2)
 
     def test_failed_extraction_does_not_overwrite_previous(self):
         with self.assertRaisesRegex(ValueError, "全部文章"):

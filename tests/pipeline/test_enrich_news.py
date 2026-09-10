@@ -124,16 +124,32 @@ class TestEnrichOne(unittest.TestCase):
         self.assertEqual(r["classification"]["category"], "general")
         self.assertEqual(r["summaryOrigin"], "source_extract")
 
-    def test_network_errors_twice_fall_back(self):
+    def test_network_errors_do_not_repeat_paid_request(self):
         r, mock = self.run_with([RuntimeError("connection reset"), RuntimeError("timeout")])
-        self.assertEqual(len(mock.calls), 2)
+        self.assertEqual(len(mock.calls), 1)
         self.assertEqual(r["enrichmentStatus"], "fallback")
         self.assertTrue(r["summary"].startswith("第一段"))
 
     def test_unparseable_output_falls_back(self):
         r, mock = self.run_with(["完全不是 JSON", "[1,2,3]"])
-        self.assertEqual(len(mock.calls), 2)
+        self.assertEqual(len(mock.calls), 1)
         self.assertEqual(r["enrichmentStatus"], "fallback")
+
+    def test_source_extract_drops_title_and_finishes_sentence(self):
+        content = '重复标题\n作者：某某\n' + '这是一个完整的新闻事实。' * 30
+        summary = enrich_news.deterministic_summary(TX, content, '重复标题')
+        self.assertNotIn('重复标题', summary)
+        self.assertNotIn('作者', summary)
+        self.assertTrue(summary.endswith('。'))
+
+    def test_long_model_summary_keeps_complete_model_sentences(self):
+        sentence = '某公司发布一款用于企业客户的人工智能产品，并介绍了功能和部署方式。'
+        payload = json.dumps({'summary': sentence * 9, 'category': 'general', 'tags': {}}, ensure_ascii=False)
+        result, mock = self.run_with([payload])
+        self.assertEqual(result['summaryOrigin'], 'model')
+        self.assertTrue(result['summary'].endswith('。'))
+        self.assertLessEqual(len(result['summary']), 220)
+        self.assertEqual(len(mock.calls), 1)
 
     def test_no_content_never_fabricates(self):
         for bad in ("", None, "太短"):

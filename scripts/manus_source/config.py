@@ -104,6 +104,9 @@ def load_sources(path: Path) -> dict:
         if not isinstance(sources, list) or not sources:
             raise RuntimeError(f"manus_sources.json 分组 {group} 为空或非法")
         for s in sources:
+            aliases = s.get("verified_display_names", [])
+            if not isinstance(aliases, list) or any(not isinstance(v, str) or not v.strip() for v in aliases):
+                raise RuntimeError(f"manus_sources.json 分组 {group} 页面显示名必须是非空字符串数组")
             for field in ("account_name", "platform", "home_url"):
                 if not s.get(field):
                     raise RuntimeError(f"manus_sources.json 分组 {group} 来源缺少字段 {field}")
@@ -117,4 +120,6 @@ def render_sources_block(sources: list[dict]) -> str:
         lines.append(f"{i}. 媒体名称：{s['account_name']}")
         lines.append(f"   - url：{s['home_url']}")
         lines.append(f"   - 平台：{s['platform']}")
+        if s.get("verified_display_names"):
+            lines.append("   - 已核实页面显示名：" + "、".join(s["verified_display_names"]))
     return "\n".join(lines)
