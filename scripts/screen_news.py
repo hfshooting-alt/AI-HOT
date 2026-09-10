@@ -84,7 +84,7 @@ def screen_one(tx: dict, item: dict, llm_fn=call_llm) -> dict:
     try:
         c = cfg(tx)
         raw = parse_output(llm_fn(tx, system, user, timeout_seconds=c["timeout_seconds"],
-                                  max_tokens=c["max_output_tokens"]))
+                                  max_tokens=c["max_output_tokens"], operation="relevance_screen"))
         if not isinstance(raw, dict) or not isinstance(raw.get("relevant"), bool):
             raise ValueError("模型输出缺少 relevant 布尔值")
         evidence = raw.get("evidence")

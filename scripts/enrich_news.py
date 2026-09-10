@@ -157,7 +157,7 @@ def enrich_one(tx: dict, item: dict) -> dict:
     for attempt in range(2):
         try:
             text = call_llm(tx, system, user + ("\n注意：只输出 JSON 对象。" if attempt else ""),
-                            timeout_seconds=cfg["timeout_seconds"])
+                            timeout_seconds=cfg["timeout_seconds"], operation="news_enrichment")
             raw = parse_output(text)
             # 分类/标签交给 tag_news.validate() 的既有兜底机制。模型已经给出合法
             # taxonomy 结构、但摘要长度不合格时，保留模型分类，只用原文段落生成

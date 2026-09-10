@@ -118,5 +118,18 @@ class TestModelRequestOptions(unittest.TestCase):
         self.assertEqual(captured["body"]["thinking"], {"type": "disabled"})
 
 
+class TestUsageLog(unittest.TestCase):
+    def test_records_only_usage_metadata(self):
+        target = Path(make_temp_dir("usage-log-test-"), "usage.jsonl")
+        with patch.dict(os.environ, {"LLM_USAGE_LOG": str(target)}, clear=False):
+            llm_common.record_usage("deepseek-v4-flash", {
+                "prompt_tokens": 12, "completion_tokens": 3, "total_tokens": 15,
+                "untrusted_extra": "must-not-be-written"}, "relevance_screen")
+        row = json.loads(target.read_text(encoding="utf-8"))
+        self.assertEqual(row["operation"], "relevance_screen")
+        self.assertEqual(row["usage"]["total_tokens"], 15)
+        self.assertNotIn("untrusted_extra", target.read_text(encoding="utf-8"))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

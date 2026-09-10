@@ -10,12 +10,15 @@
 import json
 import os
 import re
+import threading
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 # 项目根 = 本文件（scripts/）的上级目录；.env 真实文件已被 .gitignore 忽略。
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
 _DOTENV_LOADED = False
+_USAGE_LOCK = threading.Lock()
 
 
 def load_dotenv(path: str | Path) -> None:
@@ -60,8 +63,29 @@ def model_request_options(model: str) -> dict:
     return {}
 
 
+def record_usage(model: str, usage, operation: str = "unspecified") -> None:
+    """将服务端 token 统计写入本地忽略目录；不记录 prompt、正文或密钥。"""
+    if not isinstance(usage, dict):
+        return
+    allowed = {key: usage.get(key) for key in (
+        "prompt_tokens", "completion_tokens", "total_tokens",
+        "prompt_cache_hit_tokens", "prompt_cache_miss_tokens") if isinstance(usage.get(key), int)}
+    if not allowed:
+        return
+    raw_path = os.environ.get("LLM_USAGE_LOG", "").strip()
+    path = Path(raw_path) if raw_path else _PROJECT_ROOT / "work" / "llm-usage.jsonl"
+    if not path.is_absolute():
+        path = _PROJECT_ROOT / path
+    row = {"at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+           "model": model, "operation": operation, "usage": allowed}
+    with _USAGE_LOCK:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps(row, ensure_ascii=False, separators=(",", ":")) + "\n")
+
+
 def call_llm(tx: dict, system: str, user: str, timeout_seconds: int | None = None,
-             max_tokens: int | None = None) -> str:
+             max_tokens: int | None = None, operation: str = "unspecified") -> str:
     """OpenAI 兼容 /chat/completions，返回原始文本。缺 key/网络错误抛异常由上层处理。
 
     timeout_seconds 缺省沿用 taxonomy model 配置；长正文加工可传入更大值。
@@ -91,6 +115,7 @@ def call_llm(tx: dict, system: str, user: str, timeout_seconds: int | None = Non
     )
     with urllib.request.urlopen(req, timeout=timeout_seconds or m.get("timeout_seconds", 20)) as resp:
         d = json.loads(resp.read().decode("utf-8"))
+    record_usage(model, d.get("usage"), operation)
     return d["choices"][0]["message"]["content"] or ""
 
 

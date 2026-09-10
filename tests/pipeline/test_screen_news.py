@@ -49,6 +49,7 @@ class RelevanceScreenTest(unittest.TestCase):
         self.assertEqual(stats, {"input": 2, "cacheHits": 0, "calls": 1, "relevant": 0,
                                  "irrelevant": 1, "failed": 0, "pending": 1})
         self.assertEqual(calls[0]["max_tokens"], 180)
+        self.assertEqual(calls[0]["operation"], "relevance_screen")
         _, second = screen_news.screen_items(items[:1], TX, self.tmp / "cache.json", model,
                                              max_new_items=0)
         self.assertEqual(second["cacheHits"], 1)

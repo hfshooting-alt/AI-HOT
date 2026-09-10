@@ -37,7 +37,7 @@ class MockLLM:
         self.outputs = list(outputs)
         self.calls = []
 
-    def __call__(self, tx, system, user, timeout_seconds=None):
+    def __call__(self, tx, system, user, timeout_seconds=None, operation="unspecified"):
         self.calls.append({"system": system, "user": user, "timeout": timeout_seconds})
         out = self.outputs.pop(0) if len(self.outputs) > 1 else self.outputs[0]
         if isinstance(out, Exception):
