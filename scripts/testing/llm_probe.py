@@ -49,16 +49,17 @@ def _safe_usage(value) -> dict | None:
     return result or None
 
 
-def smoke(root: Path, tx: dict, *, allow_paid=False, send=None, today=None, now=None) -> dict:
-    """每天最多一次 16-token JSON 请求；结果只记录状态和 token 数。"""
+def smoke(root: Path, tx: dict, *, allow_paid=False, allow_retry_after_fix=False,
+          send=None, today=None, now=None) -> dict:
+    """每天一次 16-token JSON 请求；修复后仅允许补一次结构化失败。"""
     if not allow_paid:
         raise LLMProbeError("paid_opt_in_required")
     model_cfg = tx["model"]
+    model = resolve_model(tx)  # 同时先加载项目 .env，避免 base/key 在前后两次解析不一致。
     key = os.getenv(model_cfg["api_key_env"], "").strip()
     if not key or key.lower().startswith("your-"):
         raise LLMProbeError("missing_api_key")
     base = (os.getenv(model_cfg["api_base_env"], "").strip() or model_cfg["default_base"]).rstrip("/")
-    model = resolve_model(tx)
     endpoint = base + "/chat/completions"
     send = send or (lambda payload: request(endpoint, key, payload))
     today = today or datetime.now(ZoneInfo("Asia/Shanghai")).date().isoformat()
@@ -66,10 +67,25 @@ def smoke(root: Path, tx: dict, *, allow_paid=False, send=None, today=None, now=
     signature = hashlib.sha256(f"{key}\0{base}\0{model}".encode()).hexdigest()
     with locked(root) as folder:
         path = folder / f"llm-smoke-{today}.json"
+        previous = None
         if path.exists():
-            raise LLMProbeError("daily_llm_attempt_limit")
+            try:
+                previous = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                raise LLMProbeError("invalid_previous_state") from None
+            eligible = (
+                allow_retry_after_fix
+                and previous.get("error") == "structured_result_invalid"
+                and previous.get("requestAttempts") == 1
+                and previous.get("keyFingerprint") == signature
+            )
+            if not eligible:
+                raise LLMProbeError("daily_llm_attempt_limit")
         state = {"date": today, "checkedAt": checked_at, "ok": False,
-                 "keyFingerprint": signature, "model": model, "requestAttempts": 1}
+                 "keyFingerprint": signature, "model": model,
+                 "requestAttempts": 2 if previous else 1}
+        if previous:
+            state.update(retryAfterFix=True, initialError=previous["error"])
         save(path, state)  # 请求前占位；超时或断连也不自动重试。
         payload = {
             "model": model,

@@ -4,9 +4,11 @@
 运行：python -m unittest tests.test_llm_common -v
 """
 import os
+import json
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "scripts"))
 sys.path.insert(0, os.path.dirname(__file__))
@@ -90,6 +92,30 @@ class TestModelRequestOptions(unittest.TestCase):
 
     def test_other_openai_compatible_models_get_no_private_fields(self):
         self.assertEqual(llm_common.model_request_options("custom-model"), {})
+
+    def test_production_call_has_output_cap_and_disables_v4_thinking(self):
+        tx = {"model": {
+            "api_key_env": "DEEPSEEK_API_KEY", "api_base_env": "LLM_API_BASE",
+            "default_base": "https://example.com", "model": "deepseek-v4-flash",
+            "temperature": 0, "max_output_tokens": 1024, "timeout_seconds": 20,
+        }}
+        captured = {}
+        class Response:
+            def __enter__(self): return self
+            def __exit__(self, *args): return False
+            def read(self):
+                return b'{"choices":[{"message":{"content":"{}"}}]}'
+        def open_request(request, timeout):
+            captured.update(body=json.loads(request.data), timeout=timeout)
+            return Response()
+        with patch.dict(os.environ, {
+                "DEEPSEEK_API_KEY": "fake-key", "LLM_API_BASE": "https://example.com",
+                "LLM_MODEL": "deepseek-v4-flash"}, clear=True), \
+                patch.object(llm_common, "_DOTENV_LOADED", True), \
+                patch.object(llm_common.urllib.request, "urlopen", side_effect=open_request):
+            self.assertEqual(llm_common.call_llm(tx, "system", "user"), "{}")
+        self.assertEqual(captured["body"]["max_tokens"], 1024)
+        self.assertEqual(captured["body"]["thinking"], {"type": "disabled"})
 
 
 if __name__ == "__main__":

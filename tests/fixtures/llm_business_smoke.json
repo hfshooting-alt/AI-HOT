@@ -1,0 +1,13 @@
+{
+  "caseVersion": 1,
+  "sampleId": "release-google-sheets-canvas",
+  "title": "Google Sheets 推出 Sheets canvas，用 Gemini 将数据表变为交互式响应应用",
+  "summary": "Google Sheets 发布 Sheets canvas，用户可通过 Gemini 和自然语言提示把电子表格数据转化为交互式仪表盘、学习追踪器等响应式应用。",
+  "expected": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "bigcorp"
+    }
+  }
+}

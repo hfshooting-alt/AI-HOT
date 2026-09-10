@@ -16,6 +16,12 @@
 
 `llm-smoke` 使用生产相同的 `LLM_API_BASE`、`LLM_MODEL` 和 taxonomy 密钥变量，只要求返回 `{"ok":true}`。DeepSeek V4 请求显式关闭思考模式，避免 reasoning tokens 消耗极小输出预算。请求发送前写入当日占位，网络超时也不重试；台账无论结构化校验成功或失败，都会保存服务端返回的 token 用量，但不保存密钥、请求全文或模型原始响应。它验证认证、模型名、`/chat/completions` 兼容性和 JSON mode，不能代表新闻摘要与分类质量。
 
+默认同日第二次请求仍被拒绝。若第一次已经收到响应但仅因 `structured_result_invalid` 失败，修复请求参数后可在用户明确授权下增加 `--allow-retry-after-fix`；该入口只允许同密钥、同 base、同模型补一次，第三次请求继续拒绝。连接失败、认证失败或未知状态不能使用该入口。
+
+`llm-business-smoke` 使用一条固定、可公开的新闻分类样本验证完整 taxonomy Prompt。它每天最多一个请求、输出上限 128 token、关闭 DeepSeek V4 思考且不重试；台账只保存样本 ID/版本、预期、预测和 token，不保存新闻输入全文。单条命中只能证明基本业务链路可用，不能代表整体准确率。
+
+生产 `call_llm()` 同样显式关闭 DeepSeek V4 思考，并读取 taxonomy 的 `max_output_tokens`；当前硬上限 1024，避免 JSON 异常扩写造成无界输出费用。
+
 公众号来源校准使用 `runner.py --account <精确账号名> --allow-paid`。该模式强制 Manus Lite、只创建一个发现任务且不重试，等待上限 600 秒，轮询观察到 20 credits 或失败时请求停止；同一账号同一天已有 `canary-report.json` 时拒绝再次创建。结果隔离在 `work/manus[/ten-am]/canary/`，不允许进入生产 feed。20 credits 与余额差都是观测保护，不是服务端硬性费用上限。
 
 离线入口同时用于 GitHub Actions 的 Python 测试步骤。即使业务代码吞掉网络异常，保护层仍记录拦截并使测试失败。该保护适用于此 Python 进程，是防止误调用的开发保护，不是针对恶意代码的沙箱。前端沿用本地模拟接口测试，不注入真实服务密钥。

@@ -75,6 +75,7 @@ def call_llm(tx: dict, system: str, user: str, timeout_seconds: int | None = Non
     body = {
         "model": model,
         "temperature": m.get("temperature", 0),
+        "max_tokens": m.get("max_output_tokens", 1024),
         "response_format": {"type": "json_object"},
         "messages": [
             {"role": "system", "content": system},

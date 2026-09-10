@@ -1,5 +1,6 @@
 """测试成本保护：所有 Manus 响应均模拟，无真实任务。"""
 from pathlib import Path
+import json
 import os
 import shutil
 import socket
@@ -15,6 +16,7 @@ from _tempdir import make_temp_dir
 from testing.offline import OfflineViolation, isolated
 from testing.manus_probe import ProbeError, auth, smoke, MAX_POLLS, balance
 from testing.llm_probe import LLMProbeError, smoke as llm_smoke
+from testing.llm_business_probe import smoke as llm_business_smoke
 
 
 class TestCostSafety(unittest.TestCase):
@@ -194,6 +196,62 @@ class TestCostSafety(unittest.TestCase):
                                today="2026-09-10", now=100)
         self.assertFalse(result["ok"])
         self.assertEqual(result["error"], "structured_result_invalid")
+
+    def test_llm_smoke_allows_one_explicit_retry_after_structured_fix(self):
+        tx = {"model": {"api_key_env": "DEEPSEEK_API_KEY", "api_base_env": "LLM_API_BASE",
+                        "default_base": "https://example.com", "model": "deepseek-v4-flash"}}
+        responses = iter((
+            {"choices": [{"message": {"content": ""}}],
+             "usage": {"prompt_tokens": 10, "completion_tokens": 16, "total_tokens": 26}},
+            {"choices": [{"message": {"content": '{"ok":true}'}}],
+             "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15}},
+        ))
+        sent = []
+        def send(payload):
+            sent.append(payload)
+            return next(responses)
+        with patch.dict(os.environ, {"DEEPSEEK_API_KEY": "fake-key"}, clear=True):
+            first = llm_smoke(self.root, tx, allow_paid=True, send=send,
+                              today="2026-09-12", now=100)
+            second = llm_smoke(self.root, tx, allow_paid=True, allow_retry_after_fix=True,
+                               send=send, today="2026-09-12", now=101)
+            with self.assertRaisesRegex(LLMProbeError, "daily_llm_attempt_limit"):
+                llm_smoke(self.root, tx, allow_paid=True, allow_retry_after_fix=True,
+                          send=send, today="2026-09-12", now=102)
+        self.assertEqual(first["error"], "structured_result_invalid")
+        self.assertTrue(second["ok"])
+        self.assertTrue(second["retryAfterFix"])
+        self.assertEqual(second["requestAttempts"], 2)
+        self.assertEqual(second["usage"]["total_tokens"], 15)
+        self.assertEqual(len(sent), 2)
+
+    def test_llm_business_smoke_is_one_bounded_request(self):
+        case = self.root / "case.json"
+        case.write_text(json.dumps({
+            "caseVersion": 1, "sampleId": "case-1", "title": "发布新产品", "summary": "摘要",
+            "expected": {"category": "general", "tags": {}},
+        }), encoding="utf-8")
+        tx = {"model": {"api_key_env": "DEEPSEEK_API_KEY", "api_base_env": "LLM_API_BASE",
+                        "default_base": "https://example.com", "model": "deepseek-v4-flash"},
+              "fallbackCategoryId": "general", "categories": [
+                  {"id": "general", "label": "泛行业新闻", "criteria": "兜底", "dims": []}],
+              "dimensions": {}}
+        sent = []
+        def send(payload):
+            sent.append(payload)
+            return {"choices": [{"message": {"content": '{"category":"general","tags":{}}'}}],
+                    "usage": {"prompt_tokens": 80, "completion_tokens": 12, "total_tokens": 92}}
+        with patch.dict(os.environ, {"DEEPSEEK_API_KEY": "fake-key"}, clear=True):
+            result = llm_business_smoke(self.root, tx, case, allow_paid=True, send=send,
+                                        today="2026-09-13", now=100)
+            with self.assertRaisesRegex(LLMProbeError, "daily_business_attempt_limit"):
+                llm_business_smoke(self.root, tx, case, allow_paid=True, send=send,
+                                   today="2026-09-13", now=101)
+        self.assertTrue(result["ok"])
+        self.assertEqual(result["usage"]["total_tokens"], 92)
+        self.assertEqual(sent[0]["max_tokens"], 128)
+        self.assertEqual(sent[0]["thinking"], {"type": "disabled"})
+        self.assertEqual(len(sent), 1)
 
 
 if __name__ == "__main__":
