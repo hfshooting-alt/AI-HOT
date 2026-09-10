@@ -49,8 +49,10 @@ def validate(data: dict, tx: dict) -> None:
             if field not in ALL_EVIDENCE_FIELDS or not isinstance(evidence, list):
                 raise ValueError(f"{rid} 字段来源结构不合法")
             for item in evidence:
-                if not item.get("value") or not item.get("articleId") or item.get("origin") != "article":
+                if not item.get("value") or not item.get("articleId") or item.get("origin") not in ("article", "research"):
                     raise ValueError(f"{rid} 字段来源内容不合法")
+                if item.get("origin") == "research" and (not item.get("quote") or not item.get("url", "").startswith("https://") or not item.get("checkedAt")):
+                    raise ValueError(f"{rid} 外部补全缺少网页证据与核验时间")
 
 
 def atomic_write(path: Path, data: dict) -> None:

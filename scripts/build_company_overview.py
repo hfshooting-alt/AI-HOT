@@ -11,6 +11,7 @@ from company_index.config import now_bj_iso
 from company_index.inputs import load_articles, load_previous
 from company_index.extraction import extract_articles
 from company_index.entities import merge_entities
+from company_index.identity import apply_reviewed_research
 from company_index.output import assemble, promote, validate
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,7 +24,7 @@ def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
     cache_dir.mkdir(parents=True, exist_ok=True)
     extracts, cost = extract_articles(tx, articles, cache_dir / "extraction_cache.json", llm_fn)
     previous = load_previous(previous_path)
-    companies = merge_entities(articles, extracts, previous, tx)
+    companies = apply_reviewed_research(merge_entities(articles, extracts, previous, tx))
     complete = sum(1 for r in extracts.values() if r.get("status") == "complete")
     failed = sum(1 for r in extracts.values() if r.get("status") == "failed")
     stats = {"articlesProcessed": len(articles), "articlesComplete": complete,

@@ -223,11 +223,14 @@ export interface CompanyFieldEvidence {
   title: string;
   publishedAt: string;
   sourceName: string;
-  origin: "article";
+  origin: "article" | "research";
+  quote?: string;
+  checkedAt?: string;
 }
 
 /** 全类别新闻共同沉淀的公司/产品档案。 */
 export interface CompanyProfile {
+  brandProfiles?: Record<string, CompanyProfile>;
   id: string;
   company_name: string;
   aliases: string[];

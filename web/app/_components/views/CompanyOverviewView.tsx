@@ -137,7 +137,7 @@ export function CompanyOverviewView() {
       {loading ? (
         <div className="ah-card h-[340px] animate-pulse bg-surface-2" aria-label="正在加载公司与产品数据" />
       ) : overview?.companies.length ? (
-        <CompanyOverviewTable overview={overview} dimSel={dimSel} onDimChange={setDimSel} q={q} />
+        <CompanyOverviewTable overview={overview} dimSel={dimSel} onDimChange={setDimSel} q={q} onClearSearch={() => setQ("")} />
       ) : (
         <EmptyCompanyTable dimSel={dimSel} onDimChange={setDimSel} />
       )}

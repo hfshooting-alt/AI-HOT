@@ -1,0 +1,123 @@
+{
+  "checkedAt": "2026-09-10",
+  "records": [
+    {
+      "entity_type": "brand",
+      "owner_company": "月之暗面（Moonshot AI）",
+      "facts": [
+        {
+          "field": "owner_company",
+          "value": "月之暗面（Moonshot AI）",
+          "source_index": 0,
+          "quote": "月之暗面（Moonshot AI）正式成立",
+          "url": "https://www.moonshot.ai/zh/about",
+          "title": "Moonshot AI 关于我们"
+        },
+        {
+          "field": "product_names",
+          "value": "Kimi",
+          "source_index": 0,
+          "quote": "Kimi",
+          "url": "https://www.moonshot.ai/zh/about",
+          "title": "Moonshot AI 关于我们"
+        },
+        {
+          "field": "founded",
+          "value": "2023年春",
+          "url": "https://www.moonshot.ai/zh/about",
+          "title": "Moonshot AI 关于我们",
+          "quote": "2023年 春天\n月之暗面（Moonshot AI）正式成立。",
+          "reviewNote": "官网时间轴补充，指公司成立时间"
+        }
+      ],
+      "record_name": "Kimi",
+      "reviewed": true
+    },
+    {
+      "entity_type": "brand",
+      "owner_company": "字节跳动",
+      "facts": [
+        {
+          "field": "owner_company",
+          "value": "字节跳动",
+          "source_index": 0,
+          "quote": "字节跳动旗下AI 工作平台",
+          "url": "https://www.feishu.cn/content/article/7598492868155608024",
+          "title": "飞书官网：产品功能与应用场景"
+        },
+        {
+          "field": "product_names",
+          "value": "飞书",
+          "source_index": 0,
+          "quote": "飞书是「字节跳动旗下AI 工作平台」",
+          "url": "https://www.feishu.cn/content/article/7598492868155608024",
+          "title": "飞书官网：产品功能与应用场景"
+        }
+      ],
+      "record_name": "飞书",
+      "reviewed": true
+    },
+    {
+      "entity_type": "brand",
+      "owner_company": "One 97 Communications Limited",
+      "facts": [
+        {
+          "field": "owner_company",
+          "value": "One 97 Communications Limited",
+          "source_index": 0,
+          "quote": "One 97 Communications Limited, the parent entity that operates the Paytm brand.",
+          "url": "https://paytm.com/support/investor-relations/paytm-becomes-an-indian-owned-and-controlled-company",
+          "title": "Paytm Investor Relations：品牌运营实体"
+        }
+      ],
+      "record_name": "Paytm",
+      "reviewed": true
+    },
+    {
+      "entity_type": "company",
+      "owner_company": null,
+      "facts": [
+        {
+          "field": "founded",
+          "value": "2017年",
+          "source_index": 0,
+          "quote": "Founded in 2017",
+          "url": "https://www.ecoflow.com/us/blog/ces-2026-ecoflow-and-homey-by-lg-announce-partnership-to-enable-smarter-whole-home-energy-management",
+          "title": "EcoFlow CES 2026 官方公告"
+        },
+        {
+          "field": "team",
+          "value": "Bruce Wang Lei（创始人兼 CEO）",
+          "source_index": 0,
+          "quote": "Dr. Bruce Wang Lei, Founder & CEO of EcoFlow",
+          "url": "https://www.ecoflow.com/us/blog/ces-2026-ecoflow-and-homey-by-lg-announce-partnership-to-enable-smarter-whole-home-energy-management",
+          "title": "EcoFlow CES 2026 官方公告"
+        }
+      ],
+      "record_name": "正浩EcoFlow",
+      "reviewed": true
+    },
+    {
+      "record_name": "豆包",
+      "owner_company": "字节跳动",
+      "reviewed": true,
+      "reviewNote": "模型请求超时，本轮未重试；按官网页面标题人工核验归属",
+      "facts": [
+        {
+          "field": "owner_company",
+          "value": "字节跳动",
+          "quote": "豆包 - 字节跳动旗下 AI 智能助手",
+          "url": "https://www.doubao.com/share?botId=7356055716631232575",
+          "title": "豆包官网"
+        },
+        {
+          "field": "product_names",
+          "value": "豆包",
+          "quote": "豆包 - 字节跳动旗下 AI 智能助手",
+          "url": "https://www.doubao.com/share?botId=7356055716631232575",
+          "title": "豆包官网"
+        }
+      ]
+    }
+  ]
+}

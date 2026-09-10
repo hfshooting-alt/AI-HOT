@@ -26,7 +26,8 @@ const COLUMNS: { key: CompanyColumnKey; label: string; cellClass: string }[] = [
 
 function matches(rec: CompanyProfile, selection: DimSelection, query: string): boolean {
   for (const [label, values] of Object.entries(selection)) {
-    if (values.length && !values.includes(rec.dims?.[label])) return false;
+    const value = label === "国家/地区" ? rec.country || "未披露" : rec.dims?.[label];
+    if (values.length && !values.includes(value)) return false;
   }
   const q = query.trim().toLowerCase();
   if (!q) return true;
@@ -37,6 +38,7 @@ function matches(rec: CompanyProfile, selection: DimSelection, query: string): b
     rec.business,
     rec.team,
     rec.investors,
+    rec.country,
     rec.dims?.["行业"],
     rec.dims?.["国家/地区"],
   ].some((value) => (value || "").toLowerCase().includes(q));
@@ -94,9 +96,9 @@ function MissingValue() {
   return <span className="text-mut-2">未披露</span>;
 }
 
-function MobileCompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () => void }) {
+function CompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () => void }) {
   const industry = rec.dims?.["行业"];
-  const region = rec.dims?.["国家/地区"];
+  const region = rec.country;
   const detailRows: { label: string; key: string; value: string | null }[] = [
     { label: "行业", key: "industry", value: industry || null },
     { label: "注册国家 / 地区", key: "country", value: rec.country },
@@ -104,7 +106,7 @@ function MobileCompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () =>
     { label: "历史投资人", key: "investors", value: rec.investors },
   ];
   return (
-    <article className="ah-card overflow-hidden">
+    <article id={`company-card-${rec.id}`} tabIndex={-1} className="ah-card scroll-mt-6 overflow-hidden focus:outline-2 focus:outline-brand">
       <div className="border-b border-line bg-gradient-to-br from-white to-[#f3faf8] px-4 py-4">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
@@ -166,6 +168,17 @@ function MobileCompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () =>
           ))}
         </dl>
       </details>
+      {rec.brandProfiles && <details className="border-t border-line">
+        <summary className="cursor-pointer px-4 py-3 text-[12px] font-semibold text-brand">旗下品牌与产品资料</summary>
+        <div className="space-y-4 px-4 pb-4 text-[12px] leading-relaxed">
+          {Object.values(rec.brandProfiles).map((brand) => <div key={brand.id}>
+            <h4 className="font-bold text-ink">{brand.company_name}</h4>
+            {brand.founded && <p className="text-mut">品牌 / 产品时间：<EvidenceValue value={brand.founded} evidence={evidenceFor(brand, "founded")} /></p>}
+            {brand.business && <p><EvidenceValue value={brand.business} evidence={evidenceFor(brand, "business")} /></p>}
+            <SourceLinks rec={brand} compact />
+          </div>)}
+        </div>
+      </details>}
       <button type="button" onClick={onOpen} className="w-full border-t border-line px-4 py-3 text-left text-[12px] font-semibold text-brand hover:bg-brand-softer">
         查看完整档案与全部来源
       </button>
@@ -184,15 +197,20 @@ function Pagination({ page, totalPages, onChange }: { page: number; totalPages: 
   );
 }
 
-export function CompanyOverviewTable({ overview, dimSel, onDimChange, q }: {
+export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClearSearch }: {
   overview: CompanyOverview;
   dimSel: DimSelection;
   onDimChange: (next: DimSelection) => void;
   q: string;
+  onClearSearch?: () => void;
 }) {
   const [sortKey, setSortKey] = useState<SortKey>("recent");
   const [pagination, setPagination] = useState({ key: "", page: 1 });
   const [selectedCompany, setSelectedCompany] = useState<CompanyProfile | null>(null);
+  const filterDimensions = useMemo(() => ({
+    industry: { label: "行业", values: [...new Set(overview.companies.map((rec) => rec.dims?.["行业"] || "未披露"))].sort() },
+    region: { label: "国家/地区", values: [...new Set(overview.companies.map((rec) => rec.country || "未披露"))].sort() },
+  }), [overview]);
   const filteredRows = useMemo(
     () => overview.companies.filter((record) => matches(record, dimSel, q)),
     [overview, dimSel, q],
@@ -216,12 +234,8 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q }: {
     ? new Intl.DateTimeFormat("zh-CN", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }).format(generatedDate)
     : "—";
 
-  if (!rows.length) {
-    return <p className="ah-card p-10 text-center text-[13px] text-mut">无匹配公司或产品，请清空筛选后重试。</p>;
-  }
-
   return (
-    <section aria-label="公司与产品全景">
+    <section id="company-table" aria-label="公司与产品全景">
       <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-[11px] font-bold tracking-[0.14em] text-brand">COMPANY OVERVIEW</p>
@@ -231,7 +245,8 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q }: {
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-2">
             <span className="text-[11px] font-bold tracking-[0.12em] text-mut-2">筛选字段</span>
-            <TagFilterBar dims={["industry", "region"]} selection={dimSel} onChange={onDimChange} />
+            <TagFilterBar dims={["industry", "region"]} selection={dimSel} onChange={onDimChange} dimsDef={filterDimensions} />
+            <button type="button" onClick={() => { onDimChange({}); onClearSearch?.(); }} className="rounded-lg px-3 py-1.5 text-[12px] font-semibold text-brand hover:bg-brand-soft">清空筛选与搜索</button>
           </div>
         </div>
         <div className="flex flex-col items-start gap-2 sm:items-end">
@@ -252,12 +267,10 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q }: {
         </div>
       </div>
 
-      <div className="grid gap-3 md:hidden">
-        {visibleRows.map((rec) => <MobileCompanyCard key={rec.id} rec={rec} onOpen={() => setSelectedCompany(rec)} />)}
-      </div>
-
-      <div className="ah-card ah-scroll hidden max-h-[72vh] overflow-auto md:block">
-        <table className="min-w-[1910px] border-collapse text-[13px]">
+      {!rows.length && <p role="status" className="mb-3 rounded-xl bg-brand-soft p-4 text-[13px] text-ink-2">无匹配公司或产品。可调整上方筛选条件，或清空筛选与搜索。</p>}
+      <p className="mb-2 text-[12px] text-mut">点击公司名称查看下方档案；左右滑动表格查看全部字段。</p>
+      <div className="ah-card ah-scroll max-h-[65vh] overflow-auto">
+        <table aria-label="公司与产品筛选表格" className="min-w-[1910px] border-collapse text-[13px]">
           <thead className="sticky top-0 z-20">
             <tr className="border-b border-line text-left text-mut">
               {COLUMNS.map((col) => (
@@ -271,6 +284,7 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q }: {
             </tr>
           </thead>
           <tbody>
+            {!visibleRows.length && <tr><td colSpan={COLUMNS.length} className="p-6 text-[13px] text-mut">暂无匹配记录</td></tr>}
             {visibleRows.map((rec) => (
               <tr key={rec.id} className="group border-b border-line-2/70 align-top last:border-b-0 hover:bg-[#f5faf9]">
                 {COLUMNS.map((col) => {
@@ -281,7 +295,12 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q }: {
                   if (col.key === "company_name") {
                     return (
                       <td key={key} className={`px-4 py-3.5 group-hover:bg-[#f5faf9] ${col.cellClass}`}>
-                        <EvidenceValue value={rec.company_name} evidence={evidenceFor(rec, key)} className="font-bold text-ink" />
+                        <a href="#/company" aria-controls={`company-card-${rec.id}`} className="font-bold text-brand underline decoration-brand/30 underline-offset-4 hover:decoration-brand" onClick={(event) => {
+                          event.preventDefault();
+                          const card = document.getElementById(`company-card-${rec.id}`);
+                          card?.focus({ preventScroll: true });
+                          card?.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }}>{rec.company_name}</a>
                         {rec.aliases.length > 0 && <p className="mt-1 line-clamp-2 text-[11px] leading-relaxed text-mut-2">别名：{rec.aliases.join("、")}</p>}
                         <button type="button" onClick={() => setSelectedCompany(rec)} className="mt-2 text-[10px] font-bold text-brand hover:underline">查看完整档案</button>
                       </td>
@@ -310,6 +329,16 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q }: {
       </div>
 
       <Pagination page={page} totalPages={totalPages} onChange={changePage} />
+
+      {visibleRows.length > 0 && <section className="mt-8" aria-label="公司详情卡片">
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-[20px] font-extrabold text-ink">公司与产品档案</h2>
+          <a href="#/company" className="text-[12px] font-semibold text-brand" onClick={(event) => { event.preventDefault(); document.getElementById("company-table")?.scrollIntoView({ behavior: "smooth" }); }}>返回筛选表格 ↑</a>
+        </div>
+        <div className="grid items-start gap-4 lg:grid-cols-2">
+          {visibleRows.map((rec) => <CompanyCard key={rec.id} rec={rec} onOpen={() => setSelectedCompany(rec)} />)}
+        </div>
+      </section>}
 
       <footer className="mt-7 border-t border-line pt-4 text-center text-[11px] leading-relaxed text-mut-2">
         缺失信息保留为“未披露” · 同名与别名按确定性规则合并 · {overview.coverageNote}

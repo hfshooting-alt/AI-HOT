@@ -73,9 +73,9 @@ export function CompanyDetailDrawer({ company, onClose }: {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="rounded-full bg-brand-soft px-2 py-0.5 text-[10px] font-semibold text-brand hover:bg-brand hover:text-white"
-                          title={source.title}
+                          title={[source.title, source.quote, source.checkedAt ? `核验于 ${source.checkedAt}` : null].filter(Boolean).join(" · ")}
                         >
-                          字段来源 {index + 1}
+                          {source.origin === "research" ? "官网核验" : "字段来源"} {index + 1}
                         </a>
                       ))}
                     </div>
