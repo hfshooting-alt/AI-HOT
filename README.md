@@ -4,7 +4,7 @@
 
 前端使用 React、Next.js API 与 vinext/Vite；数据流水线使用 Python。现有数据以 JSON 快照与归档保存。
 
-已筛选新闻可用 `scripts/review_cached_news.py` 在 `work/` 中复核摘要和公司库：默认4篇、累计最多8次模型请求，显式 `--allow-paid` 才调用；不抓取信源、不更新正式数据。来源异常定位见 [9月10日复核记录](docs/operations/SOURCE_DIAGNOSIS_20260910.md)。
+已筛选新闻可用 `scripts/review_cached_news.py` 在 `work/` 中复核摘要和公司库：默认4篇、累计最多8次模型请求，显式 `--allow-paid` 才调用；不抓取信源、不更新正式数据。来源异常定位见 [9月10日复核记录](docs/history/2026-09-10/SOURCE_DIAGNOSIS_20260910.md)。
 
 ## 本地启动
 
@@ -80,6 +80,6 @@ AI-HOT/
 
 ## 每日数据与网页发布
 
-机器之心采集入口已改为官网产业资讯页，只收录机器之心署名文章，按官网渠道展示；配置切换不代表完整采集已验收。ZPotential 的备用入口及覆盖限制见 `docs/operations/SOURCE_DIAGNOSIS_20260910.md`。
+机器之心采集入口已改为官网产业资讯页，只收录机器之心署名文章，按官网渠道展示；配置切换不代表完整采集已验收。ZPotential 的备用入口及覆盖限制见 `docs/history/2026-09-10/SOURCE_DIAGNOSIS_20260910.md`。
 
 每日采集完成并提交正式数据后，工作流显式触发 GitHub Pages 部署；没有数据变化时跳过。候选测试不更新正式网页，部署是否完成以 Pages 工作流结果为准。
