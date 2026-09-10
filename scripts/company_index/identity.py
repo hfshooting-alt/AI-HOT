@@ -50,6 +50,9 @@ def apply_reviewed_research(companies, rules=None):
             if not fact.get('quote') or not fact.get('url', '').startswith('https://'):
                 raise ValueError('已审阅补全缺少来源')
             if field in SCALAR_FIELDS:
+                if target.get(field) and target[field] != value:
+                    # 保留原值时，不把相矛盾的官网事实挂成该值的证据。
+                    continue
                 if not target.get(field):
                     target[field] = value
             elif field == 'product_names' and value not in target['product_names']:

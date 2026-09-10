@@ -1,5 +1,7 @@
 # AI HOT
 
+最近进展：[公司国家补全与 Manus 来源排障](docs/history/2026-09-10/COUNTRY_AND_MANUS_REVIEW.md)。
+
 中文 AI 情报看板，聚合 AIHOT API 与 Manus 核验的媒体内容，以全部动态为首页，并提供公司与产品全景、热点、AIHOT 八点日报、本站周报、融资公司表和本地模型设置。
 
 前端使用 React、Next.js API 与 vinext/Vite；数据流水线使用 Python。现有数据以 JSON 快照与归档保存。

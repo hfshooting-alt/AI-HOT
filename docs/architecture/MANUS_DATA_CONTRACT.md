@@ -5,6 +5,8 @@
 
 ## 2026-09-09 十点窗口契约
 
+- 2026-09-10：逐来源本地缓存可附加 `sourceIdentity: {account_name, platform, home_url}`，由 runner 写入，不要求 Manus 生成，不进入合并 feed。缓存入口改变或旧零条结果无法核实入口时，返回失败审计 `source_config_unverified` 并保留费用锁，不能冒充当前配置通过。
+
 - 默认统一入口使用北京时间前一日 10:00（含）至 date 当日 10:00（不含）的固定窗口。
 - 窗口发现结果为 `schema_version=3`，本地附加 `collectionWindow: {start, end, timezone}`，每篇 complete 文章新增 `published_at`（含时区 ISO8601）。`published_date` 必须等于该时间在北京时间的日期，允许跨两个自然日；时间必须处于窗口内。未知时间不能用日期推算。
 - 旧自然日发现结果 v2 继续可用。v2 保留“文章日期等于 target_date”的规则；不与 v3 三组混用。十点原始文件在 `work/manus/ten-am/<date>/raw/`。

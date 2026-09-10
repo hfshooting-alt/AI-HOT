@@ -12,6 +12,16 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class ResearchTest(unittest.TestCase):
+    def test_country_fill_preserves_existing_value_and_evidence(self):
+        rules = {'checkedAt':'2026-09-10','records':[{'record_name':'X','reviewed':True,'facts':[{'field':'country','value':'美国','url':'https://example.com','title':'Official','quote':'incorporated in Delaware'}]}]}
+        row = {'company_name':'X','country':None,'fieldSources':{}}
+        filled = apply_reviewed_research([row], rules)
+        self.assertEqual(filled[0]['country'], '美国')
+        self.assertEqual(filled[0]['fieldSources']['country'][0]['origin'], 'research')
+        self.assertEqual(apply_reviewed_research(filled, rules), filled)
+        row['country'] = '爱尔兰'
+        self.assertEqual(apply_reviewed_research([row], rules), [row])
+
     def test_failed_request_is_not_repeated(self):
         tx = tag_news.load_taxonomy(str(ROOT / 'config/taxonomy.json'))
         packet = {'record_name':'X', 'sources':[{'url':'https://example.com','title':'Official','text':'Company X'}]}

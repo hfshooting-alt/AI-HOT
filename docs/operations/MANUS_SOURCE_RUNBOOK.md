@@ -57,6 +57,9 @@ python scripts/manus_source/runner.py --date 2026-09-10 --ten-am --account "机�
 
 ## 3. 断点续跑与重试
 
+- 逐来源缓存与成功 canary 记录 `sourceIdentity`（账号、平台、主页）。换入口或旧零条缓存缺少入口证据时，默认返回 `source_config_unverified`，保留费用锁；明确核对预算后才使用失败重试。旧缓存中的文章三元组全部匹配当前入口时仍可复用。修改模板不会自行重试同窗口失败来源。
+- 十点窗口使用 `manus_discovery_window.md`：同 URL 的已核实别名、每次最多 30 秒列表等待、图文选择一次、原 URL 重开一次；失败区分身份、列表、详情时间、扫描边界。阶段进度只供排障，未通过最终 JSON/窗口契约的文章不入库。
+
 - 同一日期重跑正文时仅复用契约通过的成功 URL，失败和缺失 URL 重新抓取。
 - 统一入口按来源复用同窗口尝试；失败来源默认不重新付费。旧按组 CLI 的 `--resume` 仍仅复用全来源成功的组。
 - feed 契约或可发布性校验失败时保留上一次 `current.json`。统一入口失败状态在 `work/runs/`，原 feed CLI 状态在指定 data-dir。

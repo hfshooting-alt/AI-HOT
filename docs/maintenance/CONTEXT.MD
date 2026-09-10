@@ -10,6 +10,8 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 
 ## 2. 当前代码基线
 
+- 2026-09-10 公司国家及来源排障：本地候选31家公司中新增10条国家依据，21家有值、10家待法人核实；官网依据加入company_research配置，正式公司库未晋升。十点实际模板补齐有限等待、显示名和阶段诊断；来源缓存记录入口身份，入口变化或旧零条身份未知时保留费用锁并显式失败。本轮DeepTech一次Lite，任务消息报告已核实2篇后继续扫描边界，观测21 credits停止且收口成功，无最终JSON；无DeepSeek调用。265项Python、30项Node通过。详见 [本轮报告](../history/2026-09-10/COUNTRY_AND_MANUS_REVIEW.md)。
+
 - 2026-09-10 轻量整理：两份日期型诊断报告归入 docs/history/2026-09-10，README与运行手册链接同步；代码、配置、正式数据和运行缓存不变。wechat-article-exporter官方已于2026-07-30宣布停止维护并说明核心同步接口关闭，本轮未安装或登录；详情见当日 CLEANUP_AND_EXPORTER_REVIEW.md。不能把该公告推定为WeRSS所有模式均不可用。
 
 - 2026-09-10 用户确认机器之心切换到 `https://jigou.jiqizhixin.com/industry`，平台为 Official Jiqizhixin；两种发现提示词限制为机器之心署名，官网来源口径由现有 feed 转换支持。仅完成配置切换，尚未创建官网付费采集任务；旧腾讯窗口失败记录保留，不能视为官网测试结果。ZPotential 找到虎嗅作者主页、Substack及LinkedIn，但每日同步覆盖未确认，暂不替换生产入口。

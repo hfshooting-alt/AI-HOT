@@ -8,12 +8,13 @@
 
 Official Jiqizhixin 使用配置的机器之心「产业报道」列表。列表包含多个发布者，只纳入明确署名「机器之心」的文章；ScienceAI、新闻资讯及其他机构文章不归入机器之心。打开详情核实署名和完整发布时间；保留官网文章 URL，不能标成微信公众号原文。列表若不能加载、详情身份不明或分页边界无法核实，按失败规则记录，不推定窗口无文章。
 
-1. 配置 URL 是唯一入口，不猜账号、不搜索替代入口。核对页面身份，失败时按原 URL 重开一次；仍失败就在 source_audits 标明 failed 和原因，不输出该来源的 complete 文章。
+1. 配置 URL 是唯一入口，不猜账号、不搜索替代入口。同一配置 URL 的页面名称可匹配媒体名称或明确列出的“已核实页面显示名”，不扩展别名。账号信息出现而列表未出现时，等待列表累计最多 30 秒；如有“图文”标签，最多选择一次。仍未加载或身份不符时按原 URL 重开一次，第二次同样最多等待 30 秒；仍失败就在 source_audits 标明 failed，不输出该来源的 complete 文章。不得不断刷新。
 2. 从来源列表顶部按顺序打开详情。只信详情页明确的绝对发布时间，包括年月日、时分及时区；不使用“昨天”“几小时前”、URL 数字或模型推断代替发布时间。明确属于中国媒体的页面本地时间按 Asia/Shanghai 解释。
 3. 发布时刻 >= 窗口结束时继续向下扫描；start <= 时刻 < end 时加入候选；遇到早于 start 的普通非置顶文章可结束。置顶文章不能作为结束边界。没有找到边界或列表尾部时继续翻页/加载，不得声称已覆盖。
 4. 详情页仅有日期时：日期早于窗口开始日可作为日期边界；日期晚于结束日跳过；在窗口涉及的两个日期内但没有具体时间，无法确认是否应收录，标记该来源 failed 并说明“发布时间精度不足”，不伪造时分、不声称当天无文章。对于其他失败/无法覆盖的来源同样失败。
 5. source_audits 覆盖每个配置账号且恰好一次。complete 且 article_count=0 仅表示已完成窗口检查、确实没有匹配文章。failed 来源 article_count=0，articles 中不保留该来源的成功文章。
 6. 同来源候选去重。account_name/source_platform/source_home_url 必须逐字复制同一配置行，不能互换。published_at 用含时区的 ISO8601（例如 2026-09-09T09:30:00+08:00），published_date 为它在北京时间的日期。
+7. 失败 note 以阶段码开头：identity_mismatch（身份不符）、list_not_loaded（列表未加载）、detail_time_unavailable（详情时间无法核实）、boundary_unverified（未核实窗口结束边界）。附上最后实际核实的标题/时间或未能核实的详情 URL；没有证据则明确写未获得，不推测根因。可在执行中用短进度消息记录已到达的阶段与已核实条数，最终结果仍严格遵守下述 JSON 契约。
 
 只输出一个 JSON 对象，根字段为 source_group、target_date、source_audits、articles。
 source_audits 每项包含 account_name、source_status（complete/failed）、article_count、note（成功可为 null，失败必须说明原因）。

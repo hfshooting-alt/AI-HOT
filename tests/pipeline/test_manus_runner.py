@@ -209,12 +209,13 @@ class TestSingleAccountCanary(unittest.TestCase):
                                    "group_b": [{"account_name": "same"}]}, "same")
 
     def test_retry_failed_keeps_successful_source_cached(self):
-        source = {"account_name": "TestAccount"}
+        source = {"account_name": "TestAccount", "platform": "Tencent News", "home_url": "https://example.com"}
         raw_dir = self.settings.work_dir / "2026-09-10" / "raw"
         account_dir = raw_dir / "accounts"
         account_dir.mkdir(parents=True)
         payload = runner.failed_source_payload("group_a", "2026-09-10", source, None, "test")
         payload["source_audits"][0].update(source_status="complete", note="当天无文章")
+        payload['sourceIdentity'] = runner.source_identity(source)
         (account_dir / f"{runner.canary_slug('TestAccount')}.json").write_text(
             json.dumps(payload), encoding="utf-8")
         cached, origin = runner.load_reusable_source_payload(
@@ -232,6 +233,7 @@ class TestSingleAccountCanary(unittest.TestCase):
         account_dir.mkdir(parents=True)
         payload = runner.failed_source_payload(
             "group_a", "2026-09-10", source, window, "credit threshold")
+        payload['sourceIdentity'] = runner.source_identity(source)
         (account_dir / f"{runner.canary_slug('TestAccount')}.json").write_text(
             json.dumps(payload), encoding="utf-8")
 
@@ -245,6 +247,25 @@ class TestSingleAccountCanary(unittest.TestCase):
             raw_dir, self.settings.work_dir / "ten-am", "group_a", "2026-09-10",
             source, window, retry_failed=True)
         self.assertIsNone(retry)
+
+    def test_changed_or_unknown_cached_source_stays_blocked_without_paid_retry(self):
+        source = {'account_name':'TestAccount', 'platform':'Official Jiqizhixin',
+                  'home_url':'https://example.com/new'}
+        raw_dir = self.settings.work_dir / '2026-09-10' / 'raw'
+        account_dir = raw_dir / 'accounts'
+        account_dir.mkdir(parents=True)
+        payload = runner.failed_source_payload('group_a', '2026-09-10', source, None, 'old')
+        payload['source_audits'][0].update(source_status='complete', note=None)
+        for identity in (None, dict(source, home_url='https://example.com/old')):
+            payload['sourceIdentity'] = identity
+            (account_dir / f"{runner.canary_slug('TestAccount')}.json").write_text(json.dumps(payload), encoding='utf-8')
+            cached, origin = runner.load_reusable_source_payload(raw_dir, self.settings.work_dir,
+                'group_a', '2026-09-10', source, None)
+            self.assertEqual(origin, 'source-config-unverified')
+            self.assertEqual(cached['source_audits'][0]['source_status'], 'failed')
+            retry, _ = runner.load_reusable_source_payload(raw_dir, self.settings.work_dir,
+                'group_a', '2026-09-10', source, None, retry_failed=True)
+            self.assertIsNone(retry)
 
 
 class TestSettingsDefaults(unittest.TestCase):
@@ -358,6 +379,22 @@ class TestDiscoveryPrompt(unittest.TestCase):
         self.assertIn("最终格式检查：只输出一个合法 JSON 对象", rendered)
         self.assertIn("每个对象只包含第四节和下方 JSON 示例规定的现有字段。", rendered)
         self.assertIn("禁止输出 Markdown、解释文字或代码围栏", rendered)
+
+
+class TestWindowPrompt(unittest.TestCase):
+    def test_actual_window_template_has_bounded_loading_and_identity_rules(self):
+        rendered = runner.render_discovery_prompt(
+            runner.PROJECT_ROOT / 'scripts/prompts/manus_discovery_window.md',
+            [{'account_name':'ZPotential','platform':'Tencent News',
+              'home_url':'https://example.com/author','verified_display_names':['ZPotentials']}])
+        self.assertIn('ZPotentials', rendered)
+        self.assertIn('最多 30 秒', rendered)
+        self.assertIn('按原 URL 重开一次', rendered)
+        self.assertIn('list_not_loaded', rendered)
+        self.assertIn('detail_time_unavailable', rendered)
+        self.assertIn('boundary_unverified', rendered)
+        self.assertIn('start <= 时刻 < end', rendered)
+        self.assertIn('不能互换', rendered)
 
 
 if __name__ == "__main__":

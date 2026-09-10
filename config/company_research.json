@@ -118,6 +118,156 @@
           "title": "豆包官网"
         }
       ]
+    },
+    {
+      "record_name": "Anthropic",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "美国",
+          "url": "https://www.anthropic.com/news/the-long-term-benefit-trust?subjects=alignment",
+          "title": "Anthropic: The Long-Term Benefit Trust",
+          "quote": "Anthropic is incorporated in Delaware",
+          "reviewNote": "美国特拉华州注册；官网治理说明"
+        }
+      ]
+    },
+    {
+      "record_name": "Google",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "美国",
+          "url": "https://policies.google.com/terms/embedded?hl=en-US",
+          "title": "Google Terms of Service",
+          "quote": "organized under the laws of the State of Delaware, USA",
+          "reviewNote": "对应 Google LLC，不将各地服务子公司混为同一法人"
+        }
+      ]
+    },
+    {
+      "record_name": "OpenAI",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "美国",
+          "url": "https://openai.com/policies/eu-terms-of-use/",
+          "title": "OpenAI Europe Terms of Use",
+          "quote": "OpenAI OpCo, LLC, a Delaware company",
+          "reviewNote": "对应美国运营实体 OpenAI OpCo, LLC；欧洲另有爱尔兰实体"
+        }
+      ]
+    },
+    {
+      "record_name": "Amazon",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "美国",
+          "url": "https://ir.aboutamazon.com/faqs/default.aspx/1000/",
+          "title": "Amazon Investor Relations FAQ",
+          "quote": "The company was incorporated in 1994 in the state of Washington and reincorporated in 1996 in Delaware.",
+          "reviewNote": "美国注册；仅引用历史注册事实，不采用该 FAQ 的旧管理层称谓"
+        }
+      ]
+    },
+    {
+      "record_name": "埃森哲",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "爱尔兰",
+          "url": "https://investor.accenture.com/~/media/Files/A/accenture-v4/investors/annual-shareholder-meeting/2026/2025-irish-plc-statutory-accounts.pdf",
+          "title": "Accenture 2025 Irish plc Statutory Accounts",
+          "quote": "We are incorporated in Ireland",
+          "reviewNote": "对应 Accenture plc 注册地"
+        }
+      ]
+    },
+    {
+      "record_name": "One 97 Communications Limited",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "印度",
+          "url": "https://ir.paytm.com/contacts",
+          "title": "Paytm Investor Relations Fact Sheet",
+          "quote": "First Floor, Devika Tower,\nNehru Place, New Delhi - 110019",
+          "reviewNote": "官网 Registered office 位于印度新德里；不沿用 Paytm 品牌成立年份"
+        }
+      ]
+    },
+    {
+      "record_name": "三星电子",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "韩国",
+          "url": "https://images.samsung.com/is/content/samsung/assets/global/ir/docs/2026_1Q_Interim_Report.pdf",
+          "title": "Samsung Electronics 2026 Q1 Interim Report",
+          "quote": "was incorporated under the laws of the Republic of Korea",
+          "reviewNote": "对应 Samsung Electronics Co., Ltd.，采用 2026 年第一季度财报注册地"
+        }
+      ]
+    },
+    {
+      "record_name": "脉脉",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "中国",
+          "url": "https://maimai.cn/article/detail?efid=TYvSTtld6mS3gL5BrQEo5Q&fid=1506937502",
+          "title": "脉脉隐私政策",
+          "quote": "北京淘友天下科技发展有限公司的注册地址为北京市海淀区学院路甲5号2幢平房B-2202室",
+          "reviewNote": "国内运营实体注册地；公司全称与当前官网页脚交叉核对"
+        }
+      ]
+    },
+    {
+      "record_name": "月之暗面（Moonshot AI）",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "中国",
+          "url": "https://www.kimi.com/user/agreement/modelUse?version=v2",
+          "title": "Kimi 用户服务协议（2026-08-31 生效）",
+          "quote": "北京月之暗面科技股份有限公司",
+          "reviewNote": "对应 Kimi 最新服务协议所列中国运营实体；不推定境外控股结构"
+        }
+      ]
+    },
+    {
+      "record_name": "Meta",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "美国",
+          "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
+          "title": "Meta Platforms 2025 Form 10-K",
+          "quote": "We were incorporated in Delaware in July 2004.",
+          "reviewNote": "对应 Meta Platforms, Inc.，2025 年报注册信息"
+        }
+      ]
     }
   ]
 }

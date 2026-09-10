@@ -112,6 +112,10 @@ def canary_slug(account_name: str) -> str:
     return hashlib.sha256(account_name.encode("utf-8")).hexdigest()[:12]
 
 
+def source_identity(source: dict) -> dict:
+    return {key: source[key] for key in ('account_name', 'platform', 'home_url')}
+
+
 def failed_source_payload(group: str, target_date: str, source: dict,
                           window: dict | None, reason: str) -> dict:
     """把单来源任务失败显式写入审计，使其他来源仍可进入后续管线。"""
@@ -171,6 +175,21 @@ def load_reusable_source_payload(raw_dir: Path, work_dir: Path, group: str,
             contracts.validate_discovery(
                 payload, group, target_date, [source["account_name"]])
             audit = payload["source_audits"][0]
+            expected_identity = source_identity(source)
+            cached_identity = payload.get('sourceIdentity')
+            articles = [a for a in payload['articles'] if a.get('extraction_status') == 'complete']
+            if cached_identity is None and articles:
+                identities = [{'account_name': a['account_name'], 'platform': a['source_platform'],
+                               'home_url': a['source_home_url']} for a in articles]
+                if all(identity == expected_identity for identity in identities):
+                    cached_identity = expected_identity
+            if payload.get('collectionWindow') == window and cached_identity != expected_identity:
+                if retry_failed:
+                    continue
+                # 换入口或旧零条结果身份未知时保持成本锁，不将旧结果视为新入口验证。
+                blocked = failed_source_payload(group, target_date, source, window,
+                    'source_config_unverified: 缓存入口不同或未记录入口；未验证当前配置。显式重试前核对来源与预算。')
+                return blocked, 'source-config-unverified'
             reusable_status = audit["source_status"] == "complete" or (
                 origin == "account-attempt" and not retry_failed)
             if payload.get("collectionWindow") == window and reusable_status:
@@ -328,6 +347,7 @@ def main(argv: list[str] | None = None) -> int:
                 name = source["account_name"]
                 try:
                     payload = fut.result()
+                    payload['sourceIdentity'] = source_identity(source)
                     source_payloads[group][name] = payload
                     (account_dir / f"{canary_slug(name)}.json").write_text(
                         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -353,6 +373,7 @@ def main(argv: list[str] | None = None) -> int:
                             pending.cancel()
                     reason = str(error)
                     payload = failed_source_payload(group, args.date, source, window, reason)
+                    payload['sourceIdentity'] = source_identity(source)
                     source_payloads[group][name] = payload
                     (account_dir / f"{canary_slug(name)}.json").write_text(
                         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -401,6 +422,8 @@ def main(argv: list[str] | None = None) -> int:
                 group = futs[fut]
                 try:
                     payload = fut.result()
+                    if canary:
+                        payload['sourceIdentity'] = source_identity(groups_cfg[group][0])
                     results[group] = payload
                     out = raw_dir / f"discovery-{group}.json"
                     out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
