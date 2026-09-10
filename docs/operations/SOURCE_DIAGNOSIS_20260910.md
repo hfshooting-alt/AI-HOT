@@ -23,6 +23,18 @@
 
 ## 微信原文与官网备用入口
 
+后续用户已确认切换机器之心到产业资讯页：`config/manus_sources.json` 改为 Official Jiqizhixin / `https://jigou.jiqizhixin.com/industry`。下文腾讯配置描述为切换前历史；官网发现尚待真实验证。两个发现提示词只接受机器之心署名，不混入列表中的其他发布者。旧窗口失败缓存仍保留；不得将旧腾讯结果当作新官网结果，新窗口正常执行，历史同窗口补采须明确隔离旧结果并保持预算门禁。
+
+### ZPotential 非腾讯候选（2026-09-10 核验）
+
+| 入口 | 身份证据与当前可见更新 | 用途与限制 |
+|---|---|---|
+| https://www.huxiu.com/member/11250708.html | 作者 Z Potentials©；https://www.huxiu.com/article/4839599.html 明示来自微信公众号 Z Potentials。当前网页检索可见最新日期2026-03-06 | 中文文章备用候选；不能证明每日同步或公众号完整覆盖 |
+| https://zpotentials.substack.com/ | Z Potentials 发布页；LinkedIn主页直接链接其 Kepler AI 文章。当前首页可见最新日期2025-09-17 | 英文访谈补充；不能替代中文每日更新 |
+| https://www.linkedin.com/company/z-potentials | 账号自述AI/XR/Robotics，与Substack相互佐证，近期可见活动动态 | 组织活动补充，不作为公众号文章库 |
+
+未找到经过核实且能证明近期完整同步的网易号入口。Substack `/feed` 在web工具返回XML类型不支持；随后普通脚本单次GET成功解析20条RSS记录，最新pubDate为2025-09-17 21:24:33 GMT，证明免费RSS可读，但内容并未更新到当前日期。以上候选仅作诊断记录，未新增付费扫描或改动ZPotential生产来源。
+
 14:28—14:32 对 ZPotential 执行一次 Lite canary，20 credits观察停止线、300秒等待上限，无创建重试。实际观测消耗20 credits后请求停止，停止成功，未产出结构化发现JSON。任务消息确认识别到ZPotentials并计划核验详情，但没有足够日志证明已读取哪些文章。该来源仍失败；当前不能把修复显示名视为完整恢复。本次无DeepSeek调用、无正式数据晋升。机器之心今日已有一次canary，未重跑、未重置台账。
 
 机器之心生产配置仍为腾讯作者主页 `https://news.qq.com/omn/author/8QMc3XlV5YcauTjR`。用户提供的微信单篇链接只能作为已知文章入口，不能证明已经发现过去24小时的全部文章。此次微信原文被浏览器站点安全策略阻止，未读取、未改用其他通道绕过，也未将它加入正文或生产数据。

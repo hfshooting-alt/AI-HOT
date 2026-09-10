@@ -10,6 +10,8 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 
 ## 2. 当前代码基线
 
+- 2026-09-10 用户确认机器之心切换到 `https://jigou.jiqizhixin.com/industry`，平台为 Official Jiqizhixin；两种发现提示词限制为机器之心署名，官网来源口径由现有 feed 转换支持。仅完成配置切换，尚未创建官网付费采集任务；旧腾讯窗口失败记录保留，不能视为官网测试结果。ZPotential 找到虎嗅作者主页、Substack及LinkedIn，但每日同步覆盖未确认，暂不替换生产入口。
+
 - 2026-09-10 ZPotential复测：一次Lite任务观测20 credits后安全停止，无结构化发现结果，仍未恢复。消息确认识别ZPotentials；无具体文章核验记录，不能确定详情阶段根因。机器之心今日canary台账保留，未重复创建；本轮未调用DeepSeek、未晋升数据。
 
 - 2026-09-10 发布衔接检查：上一前端提交 ca7ebc0 的 Pages 作业已成功。发现数据工作流内置令牌 push 不触发 Pages push 工作流，已补数据提交成功后显式 workflow_dispatch；无变化/候选/dry-run 不触发。262项Python、30项Node离线测试通过，真实自动采集到发布仍待CI验收。机器之心官网备用入口普通GET无文章链接，微信样本被浏览器站点安全策略阻止，均未接入生产。
