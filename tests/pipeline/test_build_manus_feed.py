@@ -113,6 +113,14 @@ class TestBuildManusFeed(unittest.TestCase):
         self.assertEqual([it["mpName"] for it in fallback], ["赛博禅心"])
         self.assertTrue(fallback[0]["classification"]["autoFallback"])
 
+    def test_source_identity_uses_actual_carrier(self):
+        feed = self.do_build()
+        self.assertEqual(feed["schemaVersion"], 2)
+        by_platform = {it["sourcePlatform"]: it for it in feed["items"]}
+        self.assertEqual(by_platform["Tencent News"]["sourceType"], "media")
+        self.assertEqual(by_platform["Tencent News"]["sourceChannel"], "tencent_syndication")
+        self.assertTrue(by_platform["Tencent News"]["source"].startswith("腾讯新闻转载："))
+
     def test_missing_group_raises_and_old_feed_survives(self):
         feed = self.do_build()
         build_manus_feed.promote_feed(feed, self.data_dir, TAXONOMY_PATH)

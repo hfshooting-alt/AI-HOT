@@ -132,12 +132,12 @@ def load_manus_feed(path: str, taxonomy_path: str,
                     max_stale_days: int = MANUS_MAX_STALE_DAYS) -> tuple[list[dict], dict]:
     """只读消费 Manus 规范化 feed（data/manus/current.json）。
 
-    返回 (公众号条目, mp_status)。缺失/损坏/过期/ok=false 时返回空条目与降级状态，
+    返回 (Manus 核验条目, mp_status)。缺失/损坏/过期/ok=false 时返回空条目与降级状态，
     坏数据绝不进入归档；展示版块仍由现有关键词规则生成，classification 作为语义标签透传。
     """
     def degraded(reason: str) -> tuple[list[dict], dict]:
         return [], {"connected": False, "collector": "manus",
-                    "note": f"公众号源不可用（Manus feed {reason}），仅显示 aihot 数据"}
+                    "note": f"Manus 核验源不可用（feed {reason}），仅显示 aihot 数据"}
 
     try:
         with open(path, "r", encoding="utf-8") as f:
@@ -163,9 +163,9 @@ def load_manus_feed(path: str, taxonomy_path: str,
         out.append(it)
     status = {"connected": True, "collector": "manus", "targetDate": feed["targetDate"],
               "degraded": bool(feed.get("degraded")),
-              "note": (f"Manus 采集已接入（目标日期 {feed['targetDate']}"
+              "note": (f"Manus 核验信源已接入（目标日期 {feed['targetDate']}"
                        + ("，本轮存在来源级失败" if feed.get("degraded") else "")
-                       + f"，共 {len(out)} 篇公众号文章）")}
+                       + f"，共 {len(out)} 篇核验文章）")}
     return out, status
 
 
@@ -892,14 +892,14 @@ def main() -> int:
             items.append(w)
             merged += 1
         items.sort(key=lambda i: to_bj(i.get("publishedAt") or ""), reverse=True)
-        print(f"Manus 公众号源：feed 共 {len(wechat_items)} 条，去重后合并 {merged} 条")
+        print(f"Manus 核验源：feed 共 {len(wechat_items)} 条，去重后合并 {merged} 条")
         mp_status["note"] = (mp_status["note"].rstrip("）")
                              + f"，去重后合并 {merged} 条新文章）")
     elif mp_status.get("connected"):
         # feed 有效但无条目可合并（当天无文章或全部重复）：仍属已接入
-        print("Manus 公众号源：feed 有效，本次无新增条目")
+        print("Manus 核验源：feed 有效，本次无新增条目")
     else:
-        print(f"Manus 公众号源降级：{mp_status['note']}", file=sys.stderr)
+        print(f"Manus 核验源降级：{mp_status['note']}", file=sys.stderr)
 
     if window:
         # 分页响应可能越过边界；只入库明确处于固定窗口内的新文章。

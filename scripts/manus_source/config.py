@@ -114,7 +114,7 @@ def render_sources_block(sources: list[dict]) -> str:
     """把一组来源渲染成 prompt 中的编号清单（与原 prompt 版式一致）。"""
     lines = []
     for i, s in enumerate(sources, 1):
-        lines.append(f"{i}. 公众号名称：{s['account_name']}")
+        lines.append(f"{i}. 媒体名称：{s['account_name']}")
         lines.append(f"   - url：{s['home_url']}")
         lines.append(f"   - 平台：{s['platform']}")
     return "\n".join(lines)

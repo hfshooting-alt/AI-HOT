@@ -285,14 +285,14 @@ class TestDiscoveryPrompt(unittest.TestCase):
         rendered = self._render_prompt()
 
         self.assertNotIn("{{SOURCES}}", rendered)
-        self.assertIn("公众号名称：白鲸出海", rendered)
+        self.assertIn("媒体名称：白鲸出海", rendered)
         self.assertIn("- url：https://www.baijing.cn/article/", rendered)
         self.assertIn("- 平台：Official Baijing", rendered)
         self.assertIn(
             "account_name、source_platform、source_home_url 必须从来源配置常量逐字复制",
             rendered,
         )
-        self.assertIn("account_name = 当前来源配置的公众号名称", rendered)
+        self.assertIn("account_name = 当前来源配置的媒体名称", rendered)
         self.assertIn("source_platform = 当前来源配置的平台", rendered)
         self.assertIn("source_home_url = 当前来源配置的原始 url", rendered)
         self.assertIn(
@@ -317,7 +317,7 @@ class TestDiscoveryPrompt(unittest.TestCase):
             rendered,
         )
         for rule in (
-            "account_name 非空，并且等于当前来源配置的公众号名称。",
+            "account_name 非空，并且等于当前来源配置的媒体名称。",
             "source_platform 等于当前来源配置的平台。",
             "source_home_url 等于当前来源配置的原始 url。",
             "article_url 和 title 非空。",

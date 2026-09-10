@@ -8,6 +8,7 @@
 运行：python -m unittest tests.test_enrich_news -v
 """
 import json
+import copy
 import os
 import shutil
 import sys
@@ -175,6 +176,22 @@ class TestCache(unittest.TestCase):
     def test_prompt_version_bump_invalidates_old_cache(self):
         old_prefix = tag_news.cache_prefix(TX)
         self.assertTrue(old_prefix.startswith("1:2:"))  # version:promptVersion:model
+
+    def test_new_item_limit_prevents_unbounded_batch(self):
+        tx = copy.deepcopy(TX)
+        tx["enrich"]["max_new_items_per_run"] = 1
+        payload = json.dumps({"summary": GOOD_SUMMARY, "category": "general", "tags": {}},
+                             ensure_ascii=False)
+        mock = MockLLM([payload])
+        old = enrich_news.call_llm
+        enrich_news.call_llm = mock
+        try:
+            results = enrich_news.enrich_items(
+                [make_item(title="第一条"), make_item(title="第二条")], tx, self.cache_path)
+        finally:
+            enrich_news.call_llm = old
+        self.assertEqual(len(mock.calls), 1)
+        self.assertEqual(len(results), 1)
 
 
 class TestSelftest(unittest.TestCase):

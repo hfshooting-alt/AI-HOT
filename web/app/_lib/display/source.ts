@@ -75,6 +75,12 @@ export function sourceKindOf(item: SourceCandidate): SourceKind {
   if (item.sourceType === "wechat" || source.startsWith("公众号：") || WECHAT_HOSTS.includes(host)) {
     return "wechat";
   }
+  if (item.sourceType === "media") {
+    return "media";
+  }
+  if (item.sourceType === "direct") {
+    return "direct";
+  }
   if (TWEET_HOSTS.includes(host) || source.includes("X：")) {
     return "tweet";
   }

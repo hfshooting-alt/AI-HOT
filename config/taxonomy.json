@@ -23,7 +23,17 @@
   "summary_max_chars": 220,
   "timeout_seconds": 90,
   "concurrency": 3,
-  "budget_seconds": 900
+  "budget_seconds": 900,
+  "max_new_items_per_run": 20
+ },
+ "relevance": {
+  "_comment": "Manus 正文进入摘要、标签和实体抽取前的 AI 相关性门禁。一次请求、证据逐字校验；成功结果按正文哈希缓存。",
+  "content_input_chars": 5000,
+  "timeout_seconds": 45,
+  "concurrency": 2,
+  "budget_seconds": 300,
+  "max_new_items_per_run": 40,
+  "max_output_tokens": 180
  },
  "companyOverview": {
   "_comment": "全类别公司/产品库抽取预算。成功结果永久复用；每轮最多新增 20 篇模型调用，超出部分留到下轮。",

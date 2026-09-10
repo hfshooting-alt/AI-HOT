@@ -17,7 +17,7 @@ import json
 import re
 import sys
 import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -31,6 +31,7 @@ ENRICH_DEFAULTS = {
     "timeout_seconds": 90,
     "concurrency": 3,
     "budget_seconds": 900,
+    "max_new_items_per_run": 20,
 }
 # 摘要中不允许出现的模型自述/Markdown 痕迹
 SELF_REF_MARKERS = ("作为AI", "作为 AI", "作为语言模型", "我无法", "我不能")
@@ -218,25 +219,43 @@ def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict
         else:
             todo.append(it)
     if todo:
-        deadline = time.time() + cfg["budget_seconds"]
+        limit = max(0, int(cfg["max_new_items_per_run"]))
+        selected, deferred = todo[:limit], todo[limit:]
+        deadline = time.monotonic() + cfg["budget_seconds"]
         done = 0
         with ThreadPoolExecutor(max_workers=cfg["concurrency"]) as ex:
-            futs = {ex.submit(enrich_one, tx, it): it for it in todo}
-            for fut in as_completed(futs):
-                if time.time() > deadline:
-                    print("    正文加工预算超时，剩余条目本轮跳过", file=sys.stderr)
+            queue = iter(selected)
+            futs = {}
+
+            def submit_next() -> bool:
+                if time.monotonic() >= deadline:
+                    return False
+                try:
+                    item = next(queue)
+                except StopIteration:
+                    return False
+                futs[ex.submit(enrich_one, tx, item)] = item
+                return True
+
+            for _ in range(max(1, int(cfg["concurrency"]))):
+                if not submit_next():
                     break
-                it = futs[fut]
-                r = fut.result()
-                key = enrich_cache_key(tx, it)
-                if r.get("enrichmentStatus") == "complete":
-                    cache[key] = r
-                else:
-                    cache.pop(key, None)  # 清除旧降级缓存，下次运行可恢复。
-                results[enrich_item_key(it)] = r
-                done += 1
+            while futs:
+                finished, _ = wait(futs, return_when=FIRST_COMPLETED)
+                for fut in finished:
+                    it = futs.pop(fut)
+                    r = fut.result()
+                    key = enrich_cache_key(tx, it)
+                    if r.get("enrichmentStatus") == "complete":
+                        cache[key] = r
+                    else:
+                        cache.pop(key, None)  # 清除旧降级缓存，下次运行可恢复。
+                    results[enrich_item_key(it)] = r
+                    done += 1
+                    submit_next()
         tag_news.save_cache(cache_path, cache)
-        print(f"正文加工：新增 {done} 条（缓存命中 {len(items) - len(todo)} 条）")
+        print(f"正文加工：新增 {done} 条（缓存命中 {len(items) - len(todo)} 条，"
+              f"本轮上限外 {len(deferred)} 条）")
     return results
 
 

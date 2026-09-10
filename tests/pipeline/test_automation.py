@@ -38,6 +38,16 @@ class WorkspaceTest(unittest.TestCase):
         self.assertEqual(set(cache), {"version:article", "version:existing"})
         self.assertFalse((new / "web/public/snapshot.json").exists())
 
+    def test_candidate_relevance_cache_is_reused(self):
+        runs = self.root / "work/runs/2026-09-10"
+        old = runs / ("c" * 32) / "workspace"
+        new = runs / ("d" * 32) / "workspace"
+        rel = "data/manus/relevance_cache.json"
+        publish.save(old / rel, {"article": {"status": "complete", "relevant": True}})
+        runner.reuse_candidate_caches(runs, new)
+        self.assertEqual(json.loads((new / rel).read_text()),
+                         {"article": {"status": "complete", "relevant": True}})
+
     def setUp(self):
         self.root = Path(make_temp_dir("automation-test-"))
         self.addCleanup(shutil.rmtree, self.root, ignore_errors=True)
@@ -71,6 +81,11 @@ class WorkspaceTest(unittest.TestCase):
                     "discoveredArticles": discovered, "failedAccounts": failed}})
         build_manus_feed.validate_publishable({"items": [], "stats": {
             "discoveredArticles": 0, "failedAccounts": 0}})
+        with self.assertRaisesRegex(ContractError, "相关性筛选"):
+            build_manus_feed.validate_publishable({"items": [{"id": "kept"}], "stats": {
+                "discoveredArticles": 2, "failedAccounts": 0,
+                "relevanceFailedArticles": 1, "relevancePendingArticles": 0,
+                "relevanceExcludedArticles": 0}})
 
     def test_legacy_fallback_retries_then_success_is_cached(self):
         item = {"title": "报道", "content_text": "真实正文" * 50}

@@ -60,7 +60,8 @@ def model_request_options(model: str) -> dict:
     return {}
 
 
-def call_llm(tx: dict, system: str, user: str, timeout_seconds: int | None = None) -> str:
+def call_llm(tx: dict, system: str, user: str, timeout_seconds: int | None = None,
+             max_tokens: int | None = None) -> str:
     """OpenAI 兼容 /chat/completions，返回原始文本。缺 key/网络错误抛异常由上层处理。
 
     timeout_seconds 缺省沿用 taxonomy model 配置；长正文加工可传入更大值。
@@ -75,7 +76,7 @@ def call_llm(tx: dict, system: str, user: str, timeout_seconds: int | None = Non
     body = {
         "model": model,
         "temperature": m.get("temperature", 0),
-        "max_tokens": m.get("max_output_tokens", 1024),
+        "max_tokens": max_tokens if max_tokens is not None else m.get("max_output_tokens", 1024),
         "response_format": {"type": "json_object"},
         "messages": [
             {"role": "system", "content": system},

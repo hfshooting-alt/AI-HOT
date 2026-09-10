@@ -15,6 +15,7 @@ from manus_source.window import ten_am_window
 STAGES = ("discovery", "content", "feed", "snapshot", "overview", "funding")
 
 CACHE_FILES = ("data/cache/tag_cache.json", "data/manus/enrichment_cache.json",
+               "data/manus/relevance_cache.json",
                "data/company-overview/extraction_cache.json", "data/funding/extraction_cache.json")
 
 

@@ -181,7 +181,7 @@ def load_reusable_source_payload(raw_dir: Path, work_dir: Path, group: str,
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Manus 公众号采集运行器")
+    parser = argparse.ArgumentParser(description="Manus 配置媒体信源采集运行器")
     parser.add_argument("--date", default=default_target_date(), help="目标日期 YYYY-MM-DD（北京时间）")
     parser.add_argument("--groups", nargs="+", choices=GROUPS, default=list(GROUPS))
     parser.add_argument("--resume", action="store_true", help="复用同日校验通过且来源全部成功的发现组")

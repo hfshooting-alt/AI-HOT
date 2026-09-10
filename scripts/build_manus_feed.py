@@ -24,6 +24,7 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import enrich_news  # noqa: E402
+import screen_news  # noqa: E402
 import tag_news  # noqa: E402
 from manus_source import contracts  # noqa: E402
 from manus_source.window import ten_am_window  # noqa: E402
@@ -87,6 +88,22 @@ def load_content_articles(raw_dir: Path, target_date: str,
 
 # ================= 规范化 item =================
 
+def source_identity(article: dict) -> tuple[str, str, str]:
+    """根据实际承载页面标识来源；账号名相同不等于微信公众号原文。"""
+    platform = article.get("source_platform") or ""
+    url = article.get("article_url") or ""
+    name = article["account_name"]
+    if "mp.weixin.qq.com" in url:
+        return "wechat", "wechat_original", f"公众号：{name}"
+    if platform == "Tencent News":
+        return "media", "tencent_syndication", f"腾讯新闻转载：{name}"
+    if platform == "NetEase":
+        return "media", "netease_syndication", f"网易号转载：{name}"
+    if platform.startswith("Official"):
+        return "media", "publisher_site", f"官网资讯：{name}"
+    return "media", "media_page", f"媒体页面：{name}"
+
+
 def make_items(ok_articles: list[dict], enrich_results: dict[str, dict]) -> tuple[list[dict], int, int]:
     """正文 + 加工结果 → §2.4 规范化 item。返回 (items, fallback 数, 因加工失败丢弃数)。"""
     items: list[dict] = []
@@ -102,14 +119,16 @@ def make_items(ok_articles: list[dict], enrich_results: dict[str, dict]) -> tupl
             continue
         if enr["enrichmentStatus"] == "fallback":
             fallback += 1
+        source_type, source_channel, source_label = source_identity(art)
         items.append({
             "id": contracts.stable_article_id(art["account_name"], art["published_date"],
                                               art["title"]),
             "title": art["title"],
             "summary": enr["summary"],
             "url": art["article_url"],
-            "source": f"公众号：{art['account_name']}",
-            "sourceType": "wechat",
+            "source": source_label,
+            "sourceType": source_type,
+            "sourceChannel": source_channel,
             "collector": "manus",
             "mpName": art["account_name"],
             "sourcePlatform": art.get("source_platform"),
@@ -124,7 +143,7 @@ def make_items(ok_articles: list[dict], enrich_results: dict[str, dict]) -> tupl
 
 
 def assemble_feed(target_date: str, discoveries: dict[str, dict], items: list[dict],
-                  fallback_count: int, generated_at: str) -> dict:
+                  fallback_count: int, generated_at: str, screening: dict | None = None) -> dict:
     audits = [a for g in GROUPS for a in discoveries[g]["source_audits"]]
     discovered = sum(1 for g in GROUPS
                      for a in discoveries[g]["articles"] if a["extraction_status"] == "complete")
@@ -145,6 +164,11 @@ def assemble_feed(target_date: str, discoveries: dict[str, dict], items: list[di
             "discoveredArticles": discovered,
             "publishedArticles": len(items),
             "fallbackArticles": fallback_count,
+            **({"screenedArticles": screening["input"],
+                "relevanceIncludedArticles": screening["relevant"],
+                "relevanceExcludedArticles": screening["irrelevant"],
+                "relevanceFailedArticles": screening["failed"],
+                "relevancePendingArticles": screening["pending"]} if screening else {}),
         },
         "items": items,
     }
@@ -173,7 +197,12 @@ def promote_feed(feed: dict, data_dir: Path, taxonomy_path: Path) -> Path:
 def validate_publishable(feed: dict) -> None:
     """真实空新闻日可以发布；发现/正文全失败不能清空旧 feed。"""
     stats = feed["stats"]
-    if not feed["items"] and (stats["discoveredArticles"] > 0 or stats["failedAccounts"] > 0):
+    uncertain = stats.get("relevanceFailedArticles", 0) + stats.get("relevancePendingArticles", 0)
+    known_irrelevant = stats.get("relevanceExcludedArticles", 0)
+    if uncertain > 0:
+        raise contracts.ContractError("AI 相关性筛选存在失败或待处理文章，保留上次成功数据")
+    if not feed["items"] and (stats["failedAccounts"] > 0
+                              or (stats["discoveredArticles"] > 0 and known_irrelevant == 0)):
         raise contracts.ContractError("采集或正文加工失败导致空 feed，保留上次成功数据")
 
 
@@ -202,7 +231,9 @@ def write_state(state_path: Path, target_date: str, promoted: bool, feed: dict |
 
 def build(target_date: str, work_dir: Path, sources_path: Path, taxonomy_path: Path,
           enrich_fn=None, generated_at: str | None = None,
-          min_content_chars: int = 100, cache_path: Path | None = None, window: dict | None = None) -> dict:
+          min_content_chars: int = 100, cache_path: Path | None = None, window: dict | None = None,
+          relevance_fn=None, relevance_cache_path: Path | None = None,
+          relevance_max_new: int | None = None) -> dict:
     """从运行时 work 目录生成规范化 feed；任何契约违规抛 ContractError。"""
     groups_cfg = load_sources(Path(sources_path))
     raw_dir = Path(work_dir) / target_date / "raw"
@@ -233,6 +264,20 @@ def build(target_date: str, work_dir: Path, sources_path: Path, taxonomy_path: P
             art["published_at"] = metadata[art["article_url"]]["published_at"]
 
     tx = tag_news.load_taxonomy(str(taxonomy_path))
+    screening = None
+    if relevance_fn:
+        relevance_input = [{"title": a["title"], "mpName": a["account_name"],
+                            "published_date": a["published_date"], "content_text": a["content_text"]}
+                           for a in ok_articles]
+        relevance_cache_path = (Path(relevance_cache_path) if relevance_cache_path else
+                                PROJECT_ROOT / "data" / "manus" / "relevance_cache.json")
+        relevance_cache_path.parent.mkdir(parents=True, exist_ok=True)
+        relevance_results, screening = relevance_fn(relevance_input, tx, str(relevance_cache_path),
+                                                     max_new_items=relevance_max_new)
+        ok_articles = [a for a in ok_articles if
+                       (relevance_results.get(screen_news.item_key({
+                           "title": a["title"], "mpName": a["account_name"],
+                           "published_date": a["published_date"]})) or {}).get("relevant") is True]
     enrich_fn = enrich_fn or enrich_news.enrich_items
     enrich_input = [{"title": a["title"], "mpName": a["account_name"],
                      "published_date": a["published_date"], "content_text": a["content_text"]}
@@ -243,7 +288,7 @@ def build(target_date: str, work_dir: Path, sources_path: Path, taxonomy_path: P
 
     items, fallback_count, dropped = make_items(ok_articles, enrich_results)
     feed = assemble_feed(target_date, discoveries, items, fallback_count,
-                         generated_at or now_bj_iso())
+                         generated_at or now_bj_iso(), screening)
     if content_failed or dropped:
         print(f"正文失败 {len(content_failed)} 篇，加工失败丢弃 {dropped} 篇（不进入发布数据）",
               file=sys.stderr)
@@ -259,6 +304,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--taxonomy", default="config/taxonomy.json")
     parser.add_argument("--generated-at", default=None, help="覆盖生成时间（测试用）")
     parser.add_argument("--no-promote", action="store_true", help="只生成校验，不写 current.json")
+    parser.add_argument("--skip-ai-screen", action="store_true", help="跳过 AI 相关性门禁（仅离线兼容测试）")
+    parser.add_argument("--screen-limit", type=int, default=None, help="覆盖本轮相关性模型调用上限")
     parser.add_argument("--ten-am", action="store_true", help="读取 date 结束的十点窗口，工作目录追加 ten-am")
     args = parser.parse_args(argv)
 
@@ -271,7 +318,10 @@ def main(argv: list[str] | None = None) -> int:
         feed = build(args.date, work_dir, PROJECT_ROOT / args.sources,
                      PROJECT_ROOT / args.taxonomy, generated_at=args.generated_at,
                      cache_path=data_dir / "enrichment_cache.json",
-                     window=ten_am_window(args.date) if args.ten_am else None)
+                     window=ten_am_window(args.date) if args.ten_am else None,
+                     relevance_fn=None if args.skip_ai_screen else screen_news.screen_items,
+                     relevance_cache_path=data_dir / "relevance_cache.json",
+                     relevance_max_new=args.screen_limit)
         validate_publishable(feed)
     except contracts.ContractError as exc:
         # 组失败/schema 不合法：不覆盖上一次 current.json，只记失败状态

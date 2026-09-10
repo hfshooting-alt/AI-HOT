@@ -9,7 +9,7 @@
 - 窗口发现结果为 `schema_version=3`，本地附加 `collectionWindow: {start, end, timezone}`，每篇 complete 文章新增 `published_at`（含时区 ISO8601）。`published_date` 必须等于该时间在北京时间的日期，允许跨两个自然日；时间必须处于窗口内。未知时间不能用日期推算。
 - 旧自然日发现结果 v2 继续可用。v2 保留“文章日期等于 target_date”的规则；不与 v3 三组混用。十点原始文件在 `work/manus/ten-am/<date>/raw/`。
 - 正文批次的 target_date 代表运行批次；窗口模式逐 URL 与发现结果的实际 published_date 校验，因此前一天与当日的正文均可通过，不能替换为批次日期。
-- feed 保留 schemaVersion=1，新增可选 collectionWindow；窗口 feed 的 publishedPrecision 为 datetime，publishedAt 为发现阶段核实的真实时间。历史 date 精度 feed 继续兼容，不能进入精确 24 小时日报。
+- feed 当前生成 schemaVersion=2，并继续读取历史 schemaVersion=1。v2 新增真实承载页来源类型；collectionWindow 仍为可选，窗口 feed 的 publishedPrecision 为 datetime，publishedAt 为发现阶段核实的真实时间。
 - 快照顶层新增 collectionWindow，daily.range 新增 startAt/endAt；上游新增入库和日报均按此过滤。历史归档、自然周与融资表的历史范围保留。以下 v2 章节描述旧自然日兼容模式。
 
 ## 2026-09-08 运行与发布补充
@@ -92,18 +92,19 @@ JSON schema 保持不变。`build_manus_feed.validate_publishable()` 补充发�
 标题一致性由爬虫宽松比较（剥离空白 + 双向子串）容忍站点后缀与空格漂移。
 回退模式 `MANUS_CONTENT_MODE=manus` 保留 Manus 正文任务路径，产出同一契约。
 
-## 3. 规范化 feed（`data/manus/current.json`，schemaVersion=1）
+## 3. 规范化 feed（`data/manus/current.json`，schemaVersion=2）
 
 字段与 `tests/fixtures/manus/current.json` 一致。要点：
 
 - `ok=true` 才可消费；`degraded=true` 表示存在来源级失败（成功文章照常发布）。
-- `sourceType` 恒为 `"wechat"`（兼容现有“仅看公众号”筛选），`collector` 恒为 `"manus"`。
+- `sourceType` 按实际承载页写为 `wechat`、`media` 或 `direct`；`sourceChannel` 进一步区分 `wechat_original`、`tencent_syndication`、`netease_syndication`、`publisher_site` 和 `media_page`。账号名相同不能作为公众号身份依据。历史 schemaVersion=1 的 `wechat` 条目继续兼容。
 - `id` = `manus:` + sha256(账号|日期|归一化标题) 前 16 位（`stable_article_id`）。
+- 正文先经过 `screen_news.py` 的 AI 相关性门禁。模型必须返回可在标题或正文中核对的原文证据；无关文章在摘要、标签、公司与融资抽取前排除，失败或超过本轮上限的文章不发布。
 - 只有日期时用北京时间 12:00 占位且 `publishedPrecision="date"`，页面不得展示为精确时间。
 - `classification` 保存 taxonomy id；渲染时经 `tag_news.to_display()` 转中文。
 - `contentSha256` 为正文哈希；**全文绝不进入 feed**。
 - stats 自洽：`configuredAccounts = complete + failed`；`publishedArticles = len(items)`；
-  `fallbackArticles` = `enrichmentStatus=fallback` 条数；`discovered >= published`。
+  `fallbackArticles` = `enrichmentStatus=fallback` 条数；`discovered >= published`。v2 另外记录相关性筛选的输入、保留、排除、失败和待处理数量。
 - 空 `items` + `ok=true` 是合法的“当天无文章”，不是故障。
 
 ## 4. state.json

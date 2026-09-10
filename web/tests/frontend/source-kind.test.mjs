@@ -19,6 +19,8 @@ test("sourceKindOf: 推文", () => {
 });
 
 test("sourceKindOf: 资讯（媒体域名/名称）", () => {
+  assert.equal(sourceKindOf({ sourceType: "media", source: "官网资讯：白鲸出海" }), "media");
+  assert.equal(sourceKindOf({ sourceType: "media", source: "腾讯新闻转载：极客公园" }), "media");
   assert.equal(sourceKindOf({ url: "https://www.ithome.com/0/991/886.htm" }), "media");
   assert.equal(sourceKindOf({ source: "IT之家（RSS）", url: "https://www.ithome.com/0/990/812.htm" }), "media");
   assert.equal(sourceKindOf({ source: "Hacker News 热门（buzzing.cc 中文翻译）" }), "media");
@@ -27,6 +29,7 @@ test("sourceKindOf: 资讯（媒体域名/名称）", () => {
 });
 
 test("sourceKindOf: 一手信源（兜底）", () => {
+  assert.equal(sourceKindOf({ sourceType: "direct", source: "公司官网" }), "direct");
   assert.equal(sourceKindOf({ source: "Claude：Blog（网页）", url: "https://claude.com/blog/x" }), "direct");
   assert.equal(sourceKindOf({ source: "Cursor Blog", url: "https://cursor.com/blog/joining-spacex" }), "direct");
   assert.equal(sourceKindOf({ source: "OpenAI：官网动态（RSS · 排除企业/客户案例）", url: "https://openai.com/index/x" }), "direct");

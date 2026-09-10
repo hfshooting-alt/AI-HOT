@@ -174,6 +174,24 @@ class TestFeedContract(unittest.TestCase):
     def test_fixture_passes(self):
         contracts.validate_feed(load_fixture("current.json"), TAXONOMY_PATH)
 
+    def test_v2_media_source_passes(self):
+        feed = load_fixture("current.json")
+        feed["schemaVersion"] = 2
+        for item in feed["items"]:
+            item.update(sourceType="media", sourceChannel="tencent_syndication",
+                        source="腾讯新闻转载：" + item["mpName"])
+        contracts.validate_feed(feed, TAXONOMY_PATH)
+
+    def test_relevance_stats_must_be_complete_and_consistent(self):
+        feed = load_fixture("current.json")
+        feed["stats"].update({"screenedArticles": 10, "relevanceIncludedArticles": 9,
+                              "relevanceExcludedArticles": 1, "relevanceFailedArticles": 0,
+                              "relevancePendingArticles": 0})
+        contracts.validate_feed(feed, TAXONOMY_PATH)
+        feed["stats"]["relevanceExcludedArticles"] = 2
+        with self.assertRaisesRegex(contracts.ContractError, "不自洽"):
+            contracts.validate_feed(feed, TAXONOMY_PATH)
+
     def test_stats_self_consistency(self):
         bad = copy.deepcopy(load_fixture("current.json"))
         bad["stats"]["publishedArticles"] = len(bad["items"]) + 1

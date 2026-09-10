@@ -15,7 +15,8 @@ from .window import ten_am_window, contains, timestamp
 
 DISCOVERY_SCHEMA_VERSION = 2
 WINDOW_DISCOVERY_SCHEMA_VERSION = 3
-FEED_SCHEMA_VERSION = 1
+FEED_SCHEMA_VERSION = 2
+SUPPORTED_FEED_SCHEMA_VERSIONS = (1, 2)
 MIN_CONTENT_CHARS = 100          # 正文最小长度门槛（可被上层配置覆盖）
 CONTENT_SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 # 风控/验证页特征：正文过短且命中特征词时判为风控页而非普通短文
@@ -250,8 +251,8 @@ def validate_feed(feed: dict, taxonomy_path: str) -> None:
                   "ok", "degraded", "stats", "items"):
         if field not in feed:
             raise ContractError(f"feed 缺少必填字段：{field}")
-    if feed["schemaVersion"] != FEED_SCHEMA_VERSION:
-        raise ContractError(f"feed schemaVersion 应为 {FEED_SCHEMA_VERSION}，实际 {feed['schemaVersion']!r}")
+    if feed["schemaVersion"] not in SUPPORTED_FEED_SCHEMA_VERSIONS:
+        raise ContractError(f"feed schemaVersion 不受支持：{feed['schemaVersion']!r}")
     if feed["collector"] != "manus":
         raise ContractError(f"feed collector 应为 manus，实际 {feed['collector']!r}")
     if not isinstance(feed["ok"], bool) or not isinstance(feed["degraded"], bool):
@@ -294,8 +295,13 @@ def validate_feed(feed: dict, taxonomy_path: str) -> None:
         for field in ("title", "summary", "url", "source", "mpName"):
             if not isinstance(it[field], str) or not it[field].strip():
                 raise ContractError(f"{ctx} 字段 {field} 不能为空")
-        if it["sourceType"] != "wechat":
-            raise ContractError(f"{ctx} sourceType 应为 wechat，实际 {it['sourceType']!r}")
+        allowed_source_types = ("wechat",) if feed["schemaVersion"] == 1 else ("wechat", "media", "direct")
+        if it["sourceType"] not in allowed_source_types:
+            raise ContractError(f"{ctx} sourceType 非法：{it['sourceType']!r}")
+        if feed["schemaVersion"] >= 2 and it.get("sourceChannel") not in (
+                "wechat_original", "tencent_syndication", "netease_syndication",
+                "publisher_site", "media_page"):
+            raise ContractError(f"{ctx} sourceChannel 非法：{it.get('sourceChannel')!r}")
         if it["collector"] != "manus":
             raise ContractError(f"{ctx} collector 应为 manus，实际 {it['collector']!r}")
         if it["publishedPrecision"] not in ("date", "datetime"):
@@ -325,6 +331,18 @@ def validate_feed(feed: dict, taxonomy_path: str) -> None:
         raise ContractError(f"stats.fallbackArticles={stats['fallbackArticles']} 与实际 fallback 条数 {fallback_count} 不一致")
     if stats["discoveredArticles"] < stats["publishedArticles"]:
         raise ContractError("stats 不自洽：discoveredArticles < publishedArticles")
+    relevance_fields = ("screenedArticles", "relevanceIncludedArticles",
+                        "relevanceExcludedArticles", "relevanceFailedArticles",
+                        "relevancePendingArticles")
+    present = [field in stats for field in relevance_fields]
+    if any(present):
+        if not all(present) or any(not isinstance(stats[field], int) or stats[field] < 0
+                                   for field in relevance_fields):
+            raise ContractError("相关性筛选 stats 字段必须完整且为非负整数")
+        if stats["screenedArticles"] != sum(stats[field] for field in relevance_fields[1:]):
+            raise ContractError("相关性筛选 stats 不自洽")
+        if stats["relevanceIncludedArticles"] < stats["publishedArticles"]:
+            raise ContractError("相关性保留文章数不能小于发布文章数")
     if feed.get("collectionWindow") is not None:
         window = feed["collectionWindow"]
         if window != ten_am_window(feed["targetDate"]):

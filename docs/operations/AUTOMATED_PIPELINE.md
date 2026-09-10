@@ -52,7 +52,7 @@ python scripts/run_pipeline.py run
 | --- | --- |
 | `discovery` | Manus 发现三组账号的窗口文章，原始结果在 `work/manus/ten-am/<date>/raw/` |
 | `content` | 读取同日三组发现结果，默认脚本提取正文；成功正文可复用 |
-| `feed` | 读取发现和正文结果，经模型加工后生成候选 Manus feed |
+| `feed` | 读取发现和正文结果，先做带原文证据的 AI 相关性筛选，再对保留文章做摘要与分类，生成候选 Manus feed |
 | `snapshot` | 合并 AIHOT 与候选/既有 Manus feed，生成快照、归档、历史页及周报 |
 | `overview` | 扫描全部新闻类别，更新独立公司/产品库及逐字段来源记录 |
 | `funding` | 从候选/既有快照和 feed 抽取融资表，可选搜索补全 |

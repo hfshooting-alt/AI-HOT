@@ -23,7 +23,7 @@
 
 AI 情报日报/周报看板：
 
-- **数据链路**：Manus 采集公众号文章（唯一公众号信源，`config/manus_sources.json` 共 20 个账号：group_a 7、group_b 7、group_c 6）→ 两阶段流水线（discovery + content，正文阶段默认由本地脚本爬虫 trafilatura 提取，`MANUS_CONTENT_MODE=manus` 可回退）→ LLM 摘要/分类/打标签 → 原子晋升 `data/manus/current.json` → `build_snapshot.py` 合并 aihot API 数据 → 归档层 `data/archive/YYYY-MM-DD.json` → 生成 `web/public/snapshot.json`、历史页和周报页。
+- **数据链路**：Manus 扫描配置媒体入口（官网资讯页、腾讯新闻作者页、网易号或已核实公众号，共 20 个来源）→ 两阶段 discovery + content → 带原文证据的 AI 相关性门禁 → LLM 摘要/分类/打标签 → 原子晋升 `data/manus/current.json` → `build_snapshot.py` 合并 aihot API 数据 → 归档层与前端快照。feed v2 按真实承载页写入来源类型；媒体名称相同不得视为公众号身份相同。
 - **融资数据链路**：Manus feed → `scripts/funding_table.py` 抽取融资字段，可选 Tavily 补全 → `data/funding/current.json` / `web/public/funding-table.json` → 前端融资动态表格。
 - **前端双形态**：
   - 静态历史产物位于 `web/public/history/`、`web/public/weekly/`；根静态页工作流已停用，`update-snapshot.yml` 已删除；

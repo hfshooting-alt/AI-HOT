@@ -180,7 +180,7 @@ export function AllAIView() {
       )}
 
       <p className="mb-5 text-[12px] text-mut-2">
-        Garena投资部专用{hasManus ? " · 已接入公众号信源" : ""} · 时间为北京时间 · 摘要由 AI 生成，点击标题核对原文。
+        Garena投资部专用{hasManus ? " · 已接入 Manus 核验信源" : ""} · 时间为北京时间 · 摘要由 AI 生成，点击标题核对原文。
         {unclassifiedCount > 0 && ` 其中 ${unclassifiedCount} 条未获 AIHOT 分类，暂列泛行业新闻。`}
         {!live && " 实时接口暂不可用，当前仅展示快照数据。"}
       </p>

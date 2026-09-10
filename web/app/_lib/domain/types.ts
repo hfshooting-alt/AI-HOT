@@ -17,7 +17,8 @@ export interface NewsItem {
   url?: string;
   permalink?: string;
   source?: string;
-  sourceType?: "aihot" | "wechat";
+  sourceType?: "aihot" | "wechat" | "media" | "direct";
+  sourceChannel?: "wechat_original" | "tencent_syndication" | "netease_syndication" | "publisher_site" | "media_page";
   /** 中文六版块；API 原始英文分类经 API_CATEGORY_MAP 归一化 */
   category?: string;
   /** 上游没有返回分类时为 true；展示层会暂时归入泛行业新闻并明确提示。 */

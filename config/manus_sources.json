@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "_comment": "Manus 公众号采集唯一账号配置源。扩容策略（见迁移方案 §1.4）：验证可爬取一个、扩充一个，从 accounts.json 候选池逐步迁入。",
+  "_comment": "Manus 媒体信源唯一配置源。当前入口包含官网资讯页、腾讯新闻作者页和网易号；账号同名不代表微信公众号原文。扩容时验证实际承载页面后再迁入。",
   "groups": {
     "group_a": [
       {"account_name": "游戏葡萄", "platform": "Tencent News", "home_url": "https://news.qq.com/omn/author/8QMc3npU5YQZujvd?tab=om_article"},
