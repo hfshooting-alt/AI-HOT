@@ -96,8 +96,8 @@ class TestValidate(unittest.TestCase):
 class TestPromptAndContract(unittest.TestCase):
     def test_prompt_contains_priority_order(self):
         system, _ = tag_news.build_prompt(TX, "测试标题", "测试摘要")
-        idx = [system.find(c) for c in ["financing", "release", "bigtech",
-                                        "paper", "interview", "general"]]
+        idx = [system.find(f'{i}. {c}（') for i,c in enumerate(["financing", "release", "bigtech",
+                                        "paper", "interview", "general"],1)]
         self.assertTrue(all(i >= 0 for i in idx))
         self.assertEqual(idx, sorted(idx))  # 优先级链顺序与配置一致
 

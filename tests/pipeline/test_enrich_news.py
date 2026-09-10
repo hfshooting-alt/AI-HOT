@@ -191,7 +191,9 @@ class TestCache(unittest.TestCase):
 
     def test_prompt_version_bump_invalidates_old_cache(self):
         old_prefix = tag_news.cache_prefix(TX)
-        self.assertTrue(old_prefix.startswith("1:2:"))  # version:promptVersion:model
+        changed = copy.deepcopy(TX)
+        changed['promptVersion'] += 1
+        self.assertNotEqual(old_prefix, tag_news.cache_prefix(changed))
 
     def test_new_item_limit_prevents_unbounded_batch(self):
         tx = copy.deepcopy(TX)

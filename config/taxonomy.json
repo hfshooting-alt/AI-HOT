@@ -1,7 +1,7 @@
 {
  "_comment": "新闻打标签分类体系（harness 固定清单）。categories 按 priority 从高到低排列；维度均为单选；模型只能从枚举取值。",
  "version": 1,
- "promptVersion": 2,
+ "promptVersion": 3,
  "priority": ["financing", "release", "bigtech", "paper", "interview", "general"],
  "fallbackCategoryId": "general",
  "model": {
@@ -161,14 +161,14 @@
    "id": "release",
    "label": "产品和模型发布",
    "display": "card",
-   "criteria": "新闻内容涉及新产品发布、新模型发布、重大版本更新等事件",
+   "criteria": "核心事件必须是明确推出新的AI应用/产品、新模型，或对外发布实质性重大版本。仅使用已有或内部模型的实践、客户案例、安全审计、漏洞修复、人员投入、性能讨论、预告或传闻不属于发布。OpenAI动员250多人在数百系统用自家模型发现修复漏洞，归bigtech；明星公司正式发布新模型、初创公司推出新AI应用才归release。优先级仅在真正符合该标准时适用，不能见到模型名或最新两字就归发布。",
    "dims": ["industry", "issuer"]
   },
   {
    "id": "bigtech",
    "label": "大厂动态",
    "display": "card",
-   "criteria": "新闻内容涉及大型科技公司的组织架构调整、人事变动、业务战略变化等非产品发布类事件",
+   "criteria": "大型科技公司的组织、人事、战略、经营、合作、内部AI应用实践及网络安全行动等非正式新品发布事件。包括OpenAI用自家模型修复漏洞；其他主体的类似行业趋势与应用实践归general。",
    "dims": ["change_type", "company"]
   },
   {

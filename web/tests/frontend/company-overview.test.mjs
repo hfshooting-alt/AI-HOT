@@ -28,6 +28,7 @@ test('zero results retain filter controls, table headings, and recovery action',
   assert.match(html, /清空筛选与搜索/);
   assert.match(html, /<table/);
   assert.match(html, /成立时间/);
+  assert.match(html, /更新日期/);
   assert.match(html, /暂无匹配记录/);
   assert.doesNotMatch(html, /id="company-card-company:sample"/);
 });

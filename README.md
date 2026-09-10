@@ -1,5 +1,7 @@
 # AI HOT
 
+全量测试既有扫描内容：`python scripts/review_all_scanned.py --snapshot <快照> --feed <feed> --previous <已有公司库> --output work/<候选目录> --allow-paid`。逐篇 DeepSeek 重打标并抽取被提及公司，成功结果缓存；公司更新日期表示最新报道时间，旧资料回填不覆盖较新字段。不会触发 Manus 或发布正式数据。
+
 最近进展：[公司国家补全与 Manus 来源排障](docs/history/2026-09-10/COUNTRY_AND_MANUS_REVIEW.md)。
 
 中文 AI 情报看板，聚合 AIHOT API 与 Manus 核验的媒体内容，以全部动态为首页，并提供公司与产品全景、热点、AIHOT 八点日报、本站周报、融资公司表和本地模型设置。

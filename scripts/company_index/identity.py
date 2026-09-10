@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from .config import SCALAR_FIELDS
+from .entities import timestamp
 from .entities import entity_id
 from funding.companies import normalize_company_key
 
@@ -38,8 +39,8 @@ def apply_reviewed_research(companies, rules=None):
                     product_evidence.append(evidence)
             existing = {a['id'] for a in target['sourceArticles']}
             target['sourceArticles'].extend(a for a in source['sourceArticles'] if a['id'] not in existing)
-            target['lastSeenAt'] = max(target['lastSeenAt'], source['lastSeenAt'])
-            target['firstSeenAt'] = min(target['firstSeenAt'], source['firstSeenAt'])
+            target['lastSeenAt'] = max((target['lastSeenAt'], source['lastSeenAt']), key=timestamp)
+            target['firstSeenAt'] = min((target['firstSeenAt'], source['firstSeenAt']), key=timestamp)
             rows.remove(source)
         for fact in rule.get('facts', []):
             field, value = fact['field'], fact['value']
@@ -63,4 +64,7 @@ def apply_reviewed_research(companies, rules=None):
             bucket = target['fieldSources'].setdefault(field, [])
             if not any(e['articleId'] == evidence['articleId'] and e['value'] == value for e in bucket):
                 bucket.append(evidence)
-    return rows
+    for rec in rows:
+        rec['updatedAt'] = rec.get('lastSeenAt') or ''
+        rec.get('sourceArticles', []).sort(key=lambda a: timestamp(a.get('publishedAt')), reverse=True)
+    return sorted(rows, key=lambda r: timestamp(r.get('lastSeenAt')), reverse=True)

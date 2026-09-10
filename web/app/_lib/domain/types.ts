@@ -29,6 +29,7 @@ export interface NewsItem {
   selected?: boolean;
   mpName?: string | null;
   classification?: Classification | null;
+  classificationOrigin?: string;
   num?: number;
   timeText?: string;
   /** AIHOT v1 的站内 canonical 与第三方原文，便于保留来源层级。 */
@@ -254,6 +255,7 @@ export interface CompanyProfile {
   }[];
   firstSeenAt: string;
   lastSeenAt: string;
+  updatedAt?: string;
 }
 
 export interface CompanyOverview {

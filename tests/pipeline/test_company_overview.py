@@ -107,8 +107,8 @@ class CompanyOverviewTest(unittest.TestCase):
             "publishedAt": "2026-09-10T10:00:00+08:00",
             "content_text": "甲公司聘请乙证券，丙公司是其投资方。",
         })
-        self.assertIn("只保留新闻核心主体", system)
-        self.assertIn("财务顾问", system)
+        self.assertIn("全部相关公司", system)
+        self.assertIn("投资方", system)
         self.assertIn("公司自身业务", system)
         self.assertIn("2026-09-10", user)
         self.assertIn("不能把单轮融资", system)

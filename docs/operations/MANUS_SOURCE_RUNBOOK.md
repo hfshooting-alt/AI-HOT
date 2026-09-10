@@ -11,6 +11,10 @@
 
 ## 2. 手动运行与调试
 
+### 获取能力样本（2026-09-10）
+
+`python scripts/probe_source_capability.py --date 2026-09-10 --accounts "机器之心" --allow-paid` 只获取1篇、最多2篇样本后结束，不检查全天边界。每来源每天一次，Lite、240秒、20 credits观察止损线、创建不重试、并发2。输出在 `work/source-capability/<date>/`。`capability` 表示文章/发布者/精确时间样本可取得；`sampleWindowVerified` 单独验证固定窗口；`coverage` 保留 unconfirmed。时间越窗样本可证明访问能力，但不进入该窗口新闻。旧任务仅有进度叙述时明确标注证据级别，不伪造成结构化样本。
+
 Actions 页 → `AI HOT 每日采集与完整数据更新` → Run workflow：
 
 | 输入 | 用途 |

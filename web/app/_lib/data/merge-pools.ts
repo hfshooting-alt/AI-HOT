@@ -10,7 +10,8 @@ export function mergePools(snapshotPool: NewsItem[], liveItems: NewsItem[]): New
     map.set(
       key,
       prev
-        ? { ...prev, ...it, id: key, classification: it.classification ?? prev.classification }
+        ? { ...prev, ...it, id: key, classification: prev.classificationOrigin === "deepseek-review" ? prev.classification : it.classification ?? prev.classification,
+            ...((prev.classificationOrigin || it.classificationOrigin) ? { classificationOrigin: prev.classificationOrigin === "deepseek-review" ? prev.classificationOrigin : it.classificationOrigin } : {}) }
         : { ...it, id: key },
     );
   }

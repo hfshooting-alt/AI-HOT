@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { CompanyFieldEvidence, CompanyOverview, CompanyProfile } from "../../_lib/domain/types";
 import { TagFilterBar, type DimSelection } from "../news/TagFilterBar";
 import { CompanyDetailDrawer } from "./CompanyDetailDrawer";
+import { fmtCnDate } from "../../_lib/display/format";
 
 const PAGE_SIZE = 24;
 type SortKey = "recent" | "name" | "sources" | "products";
@@ -12,6 +13,7 @@ type CompanyColumnKey = keyof CompanyProfile | "industry";
 
 const COLUMNS: { key: CompanyColumnKey; label: string; cellClass: string }[] = [
   { key: "company_name", label: "公司", cellClass: "sticky-col w-[190px]" },
+  { key: "updatedAt", label: "更新日期", cellClass: "w-[140px]" },
   { key: "product_names", label: "代表产品", cellClass: "w-[170px]" },
   { key: "founded", label: "成立时间", cellClass: "w-[100px]" },
   { key: "industry", label: "行业", cellClass: "w-[140px]" },
@@ -101,7 +103,7 @@ function CompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () => void 
   const region = rec.country;
   const detailRows: { label: string; key: string; value: string | null }[] = [
     { label: "行业", key: "industry", value: industry || null },
-    { label: "注册国家 / 地区", key: "country", value: rec.country },
+    { label: "国家 / 地区", key: "country", value: rec.country },
     { label: "团队情况", key: "team", value: rec.team },
     { label: "历史投资人", key: "investors", value: rec.investors },
   ];
@@ -116,6 +118,7 @@ function CompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () => void 
             <p className="mt-1 line-clamp-2 text-[13px] leading-relaxed text-mut">
               {rec.product_names.length ? rec.product_names.join(" · ") : "产品信息暂未披露"}
             </p>
+            <p className="mt-2 text-[11px] text-mut" title="最新关联报道的发布时间">更新日期：{fmtCnDate(rec.updatedAt || rec.lastSeenAt) || "未披露"}</p>
           </div>
           <span className="shrink-0 rounded-full border border-brand/15 bg-brand-soft px-2.5 py-1 text-[10px] font-bold text-brand">
             {rec.sourceArticles.length} 篇来源
@@ -220,7 +223,7 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
     if (sortKey === "name") sorted.sort((a, b) => a.company_name.localeCompare(b.company_name, "zh-CN"));
     else if (sortKey === "sources") sorted.sort((a, b) => b.sourceArticles.length - a.sourceArticles.length || b.lastSeenAt.localeCompare(a.lastSeenAt));
     else if (sortKey === "products") sorted.sort((a, b) => b.product_names.length - a.product_names.length || b.lastSeenAt.localeCompare(a.lastSeenAt));
-    else sorted.sort((a, b) => b.lastSeenAt.localeCompare(a.lastSeenAt));
+    else sorted.sort((a, b) => (Date.parse(b.updatedAt || b.lastSeenAt) || 0) - (Date.parse(a.updatedAt || a.lastSeenAt) || 0));
     return sorted;
   }, [filteredRows, sortKey]);
   const paginationKey = `${q}\u0000${JSON.stringify(dimSel)}\u0000${sortKey}`;
@@ -289,6 +292,9 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
               <tr key={rec.id} className="group border-b border-line-2/70 align-top last:border-b-0 hover:bg-[#f5faf9]">
                 {COLUMNS.map((col) => {
                   const key = String(col.key);
+                  if (col.key === "updatedAt") {
+                    return <td key={key} className="px-4 py-3 text-[12px] text-mut" title="最近一次关联报道的发布时间（北京时间）">{fmtCnDate(rec.updatedAt || rec.lastSeenAt) || "未披露"}</td>;
+                  }
                   if (col.key === "sourceArticles") {
                     return <td key={key} className={`px-4 py-3.5 leading-relaxed ${col.cellClass}`}><SourceLinks rec={rec} /></td>;
                   }

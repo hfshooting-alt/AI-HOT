@@ -15,8 +15,8 @@ def build_prompt(tx: dict, article: dict) -> tuple[str, str]:
     fields = "\n".join(f"- {field}：字符串或 null" for field in SCALAR_FIELDS)
     system = f"""你是公司与产品情报库抽取引擎。读取新闻并抽取新闻核心事件直接涉及的公司和产品。
 
-只保留新闻核心主体：标题或核心事件中的公司、融资/上市/产品发布/团队变动的直接当事公司，以及明确归属于它的产品。不要收录仅作为投资方、财务顾问、交易所、供应商、媒体来源、同业对比或背景材料出现的公司。一篇融资或上市新闻通常只输出融资或拟上市主体；没有合格核心主体时 companies 为空数组。
-对多事件早报逐条识别 AI 相关事件，只收录这些事件的核心公司与产品，跳过普通电商、汽车销量、游戏榜单等无 AI 关联事件。
+覆盖文章实际提及的全部相关公司，包括事件主体、合作方、投资方、供应商及有明确业务关系或对比内容的公司；不能只抽标题主角。逐段识别，多事件早报逐条覆盖。仅页脚、广告导航、转载署名中的媒体不作为被提及公司。组织不一定是公司：大学、政府、交易所不收录。公司有被实际提及就保留，缺少资料可留空。
+产品明确归属于某公司时归入该公司，不能将产品另造为公司；归属不明确则保留产品主体名称待核实，禁止凭常识猜母公司。
 
 每家公司一条记录：
 - company_name：文章采用的公司名称，必填
@@ -64,7 +64,7 @@ def cache_key(tx: dict, article: dict) -> str:
 
 
 def extract_one(tx: dict, article: dict, llm_fn) -> dict:
-    if len((article.get("content_text") or "").strip()) < 20:
+    if len((article.get("content_text") or "").strip()) < 4:
         return {"status": "failed", "companies": [], "reason": "文章内容不足"}
     system, user = build_prompt(tx, article)
     try:

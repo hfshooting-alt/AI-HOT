@@ -20,7 +20,9 @@ class ResearchTest(unittest.TestCase):
         self.assertEqual(filled[0]['fieldSources']['country'][0]['origin'], 'research')
         self.assertEqual(apply_reviewed_research(filled, rules), filled)
         row['country'] = '爱尔兰'
-        self.assertEqual(apply_reviewed_research([row], rules), [row])
+        result = apply_reviewed_research([row], rules)[0]
+        self.assertEqual(result['country'], row['country'])
+        self.assertEqual(result['fieldSources'], row['fieldSources'])
 
     def test_failed_request_is_not_repeated(self):
         tx = tag_news.load_taxonomy(str(ROOT / 'config/taxonomy.json'))

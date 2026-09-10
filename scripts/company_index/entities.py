@@ -2,6 +2,7 @@
 import copy
 import hashlib
 import re
+from datetime import datetime, timezone
 
 from funding.companies import normalize_company_key, _country_to_region_label
 from .config import ALL_EVIDENCE_FIELDS, SCALAR_FIELDS
@@ -9,6 +10,14 @@ from .config import ALL_EVIDENCE_FIELDS, SCALAR_FIELDS
 
 def entity_id(key: str) -> str:
     return "company:" + hashlib.sha256(key.encode()).hexdigest()[:16]
+
+
+def timestamp(value):
+    try:
+        dt = datetime.fromisoformat((value or '').replace('Z', '+00:00'))
+        return (dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)).timestamp()
+    except (ValueError, TypeError):
+        return float('-inf')
 
 
 def _source(article: dict, value: str) -> dict:
@@ -41,7 +50,7 @@ def merge_entities(articles: list[dict], extracts: dict[str, dict], previous: di
             if key:
                 lookup[key] = rec["id"]
     industry_labels = {v["id"]: v["label"] for v in tx["dimensions"]["industry"]["values"]}
-    for article in sorted(articles, key=lambda a: a.get("publishedAt") or ""):
+    for article in sorted(articles, key=lambda a: timestamp(a.get("publishedAt"))):
         for item in (extracts.get(article["id"]) or {}).get("companies") or []:
             names = [item["company_name"], *item.get("aliases", [])]
             keys = [normalize_company_key(n) for n in names if normalize_company_key(n)]
@@ -57,13 +66,15 @@ def merge_entities(articles: list[dict], extracts: dict[str, dict], previous: di
                     "lastSeenAt": article.get("publishedAt") or "",
                 }
             rec = companies[rid]
+            is_latest = timestamp(article.get('publishedAt')) >= timestamp(rec.get('lastSeenAt'))
             for key in keys:
                 lookup[key] = rid
             for alias in names:
                 if alias != rec["company_name"] and alias not in rec["aliases"]:
                     rec["aliases"].append(alias)
-            rec["lastSeenAt"] = max(rec.get("lastSeenAt") or "", article.get("publishedAt") or "")
-            rec["firstSeenAt"] = min(filter(None, [rec.get("firstSeenAt"), article.get("publishedAt")])) \
+            if is_latest:
+                rec['lastSeenAt'] = article.get('publishedAt') or rec.get('lastSeenAt') or ''
+            rec["firstSeenAt"] = min(filter(None, [rec.get("firstSeenAt"), article.get("publishedAt")] ), key=timestamp) \
                 if rec.get("firstSeenAt") and article.get("publishedAt") else (rec.get("firstSeenAt") or article.get("publishedAt") or "")
             _add_evidence(rec, "company_name", item["company_name"], article)
             for product in item.get("product_names", []):
@@ -73,11 +84,12 @@ def merge_entities(articles: list[dict], extracts: dict[str, dict], previous: di
                 _add_evidence(rec, "product_names", product, article)
             for field in SCALAR_FIELDS:
                 value = item.get(field)
-                if value:
+                if value and (is_latest or not rec.get(field)):
                     rec[field] = value
                     _add_evidence(rec, field, value, article)
             industry = industry_labels.get(item.get("industry_id"), "其他AI应用")
-            rec["dims"]["行业"] = industry
+            if is_latest:
+                rec["dims"]["行业"] = industry
             company_region = _country_to_region_label(item.get("country"))
             region = (company_region if company_region != "其他"
                       else (article.get("dims") or {}).get("国家/地区") or "其他")
@@ -87,9 +99,10 @@ def merge_entities(articles: list[dict], extracts: dict[str, dict], previous: di
                 rec["sourceArticles"].append({"id": article["id"], "title": article.get("title") or "",
                     "url": article.get("url") or "", "publishedAt": article.get("publishedAt") or "",
                     "sourceName": article.get("sourceName") or "", "category": article.get("category") or ""})
-    rows = sorted(companies.values(), key=lambda r: r.get("lastSeenAt") or "", reverse=True)
+    rows = sorted(companies.values(), key=lambda r: timestamp(r.get("lastSeenAt")), reverse=True)
     for rec in rows:
-        rec["sourceArticles"].sort(key=lambda s: s.get("publishedAt") or "", reverse=True)
+        rec['updatedAt'] = rec.get('lastSeenAt') or ''
+        rec["sourceArticles"].sort(key=lambda s: timestamp(s.get("publishedAt")), reverse=True)
         for field in ALL_EVIDENCE_FIELDS:
             if field in rec["fieldSources"]:
                 rec["fieldSources"][field].sort(key=lambda e: e.get("publishedAt") or "", reverse=True)
