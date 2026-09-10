@@ -143,4 +143,4 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 
 2026-09-10 Paratera 切换：一次90秒上限重测在3.47秒返回正确JSON，输入131/输出5/总136 tokens。本地.env和taxonomy默认改为DeepSeek-V4-Pro、https://llmapi.paratera.com/v1；大小写模型名均关闭thinking。CI优先使用PARATERA_API_KEY，未配置时保留原DeepSeek接口/密钥配对；仓库新secret尚未设置。不是业务全链路验收。
 
-2026-09-10 09:30全链路真实测试：discovery连续触发费用止损，人工中止本地队列并核实9个远端任务stopped；回报用量合计157 credits、一个null。尚未执行正文/模型/发布。补充CostCircuit安全门（277 Python通过），针对白鲸出海另做一次Lite、20-credit/300秒隔离诊断。旧GitHub运行34447993782失败为当时两项密钥缺失；新Secret使用只读工作流验证。
+2026-09-10 09:30全链路真实测试：discovery连续触发费用止损，人工中止本地队列并核实9个远端任务stopped；回报用量合计157 credits、一个null。尚未执行正文/模型/发布。补充CostCircuit安全门（277 Python通过）。白鲸出海Lite隔离诊断在300秒超时后停止，消耗6 credits，未能提取结构化输出；不据此判定来源不可获取。账户余额3468→3311→3305，合计差额163 credits。新只读GitHub检查34456301387确认MANUS_API_KEY不可见，PARATERA_API_KEY非空但尚未执行云端认证。中断run已标记失败并清理锁，正式数据未发布；本地可视报告为work/review-20260910/pipeline-test.html。
