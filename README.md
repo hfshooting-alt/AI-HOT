@@ -77,3 +77,7 @@ AI-HOT/
 - [部署说明](./docs/operations/DEPLOY_WORKFLOW.md)、[使用说明](./docs/guides/USER_GUIDE.md)。
 - [开发守则](./docs/maintenance/AGENTS.MD)、[当前状态](./docs/maintenance/CONTEXT.MD)、[长期经验](./docs/maintenance/MEMORY.MD)。
 - [Sites 脚手架参考](./docs/reference/SITES_TEMPLATE.md)：保留原始模板的可选数据库、身份与托管说明。
+
+## 每日数据与网页发布
+
+每日采集完成并提交正式数据后，工作流显式触发 GitHub Pages 部署；没有数据变化时跳过。候选测试不更新正式网页，部署是否完成以 Pages 工作流结果为准。

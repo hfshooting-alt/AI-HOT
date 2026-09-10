@@ -34,6 +34,7 @@ on:
 
 permissions:
   contents: write
+  actions: write # 数据提交后显式触发 Pages；GITHUB_TOKEN 的 push 不会触发其他工作流
 
 concurrency:
   group: ai-hot-data-pipeline
@@ -77,6 +78,8 @@ jobs:
           python scripts/run_pipeline.py "${args[@]}"
       - name: 提交整套已发布数据
         if: ${{ success() && (github.event_name == 'schedule' || (inputs.promote && !inputs.dry_run)) }}
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git add data/manus data/funding data/company-overview data/archive data/cache web/public
           if git diff --cached --quiet; then
@@ -88,6 +91,7 @@ jobs:
           git commit -m "chore: 更新 AI HOT 全链路数据"
           git pull --rebase origin main
           git push
+          gh workflow run deploy-pages.yml --ref main
       - name: 保存不含正文与密钥的阶段状态
         if: always()
         uses: actions/upload-artifact@v4
