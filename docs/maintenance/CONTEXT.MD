@@ -132,3 +132,5 @@ AI 情报日报/周报看板：聚合 aihot 第三方 API 与 Manus 采集的公
 - 2026-08-19：首次建立三份交接文档（AGENTS/MEMORY/CONTEXT），截图归档至工作区 `screenshots\`。
 - 2026-08-21：同步正文脚本爬虫、schema_version 修复、Next.js 搜索与来源筛选。
 - 2026-08-28：同步 20 账号配置、融资动态、分类体系、Manus 1 小时超时、discovery Prompt 加固，以及 group_a 25–27 日完整链路测试和数据晋升结果。
+
+2026-09-10 公司库/分类抽查：新增 apply_quality_review.py 和 config/quality_review.json，离线重放4组别名合并、17条主体分离、6条分类修正。预览公司281条；原始302条模型结果保留。详见 docs/operations/QUALITY_REVIEW.md。270 Python + 31 Node测试通过。该复核为显式候选步骤，尚未自动接入生产。
