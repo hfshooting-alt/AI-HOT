@@ -95,6 +95,8 @@ export interface Snapshot {
   daily: DigestView;
   weekly: DigestView;
   history: HistoryEntry[];
+  /** AIHOT 每日约 08:00 发布的成品日报索引。 */
+  dailyHistory?: HistoryEntry[];
   weeklyNav: WeeklyNavEntry[];
   /** 静态托管降级数据；Pages 无服务端 API 时直接读取。 */
   hot?: Partial<HotTopicsResponse> & { items: HotTopic[] };
@@ -114,9 +116,11 @@ export interface DailyReportItem {
 /** /api/daily 上游日报响应（report 包裹层） */
 export interface DailyReport {
   date: string;
+  generatedAt?: string;
   lead?: { title?: string; summary?: string } | null;
   sections: { label: string; items: DailyReportItem[] }[];
   flashes?: DailyReportItem[];
+  links?: { aihot?: string };
 }
 
 /** public/weekly/{date}.json 周报期刊 */

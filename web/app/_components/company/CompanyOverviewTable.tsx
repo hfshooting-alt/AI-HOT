@@ -2,16 +2,19 @@
 
 import { useMemo, useState } from "react";
 import type { CompanyFieldEvidence, CompanyOverview, CompanyProfile } from "../../_lib/domain/types";
-import type { DimSelection } from "../news/TagFilterBar";
+import { TagFilterBar, type DimSelection } from "../news/TagFilterBar";
 import { CompanyDetailDrawer } from "./CompanyDetailDrawer";
 
 const PAGE_SIZE = 24;
 type SortKey = "recent" | "name" | "sources" | "products";
 
-const COLUMNS: { key: keyof CompanyProfile; label: string; cellClass: string }[] = [
+type CompanyColumnKey = keyof CompanyProfile | "industry";
+
+const COLUMNS: { key: CompanyColumnKey; label: string; cellClass: string }[] = [
   { key: "company_name", label: "公司", cellClass: "sticky-col w-[190px]" },
   { key: "product_names", label: "代表产品", cellClass: "w-[170px]" },
   { key: "founded", label: "成立时间", cellClass: "w-[100px]" },
+  { key: "industry", label: "行业", cellClass: "w-[140px]" },
   { key: "country", label: "国家 / 地区", cellClass: "w-[110px]" },
   { key: "business", label: "主营业务", cellClass: "w-[250px]" },
   { key: "team", label: "团队情况", cellClass: "w-[240px]" },
@@ -95,6 +98,7 @@ function MobileCompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () =>
   const industry = rec.dims?.["行业"];
   const region = rec.dims?.["国家/地区"];
   const detailRows: { label: string; key: string; value: string | null }[] = [
+    { label: "行业", key: "industry", value: industry || null },
     { label: "注册国家 / 地区", key: "country", value: rec.country },
     { label: "团队情况", key: "team", value: rec.team },
     { label: "历史投资人", key: "investors", value: rec.investors },
@@ -180,9 +184,10 @@ function Pagination({ page, totalPages, onChange }: { page: number; totalPages: 
   );
 }
 
-export function CompanyOverviewTable({ overview, dimSel, q }: {
+export function CompanyOverviewTable({ overview, dimSel, onDimChange, q }: {
   overview: CompanyOverview;
   dimSel: DimSelection;
+  onDimChange: (next: DimSelection) => void;
   q: string;
 }) {
   const [sortKey, setSortKey] = useState<SortKey>("recent");
@@ -224,6 +229,10 @@ export function CompanyOverviewTable({ overview, dimSel, q }: {
           <p className="mt-1 text-[12px] leading-relaxed text-mut">
             当前显示 {rows.length} / {overview.stats.companiesTotal} 家公司；带来源标记的字段可直接核对原文
           </p>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <span className="text-[11px] font-bold tracking-[0.12em] text-mut-2">筛选字段</span>
+            <TagFilterBar dims={["industry", "region"]} selection={dimSel} onChange={onDimChange} />
+          </div>
         </div>
         <div className="flex flex-col items-start gap-2 sm:items-end">
           <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-mut-2">
@@ -248,7 +257,7 @@ export function CompanyOverviewTable({ overview, dimSel, q }: {
       </div>
 
       <div className="ah-card ah-scroll hidden max-h-[72vh] overflow-auto md:block">
-        <table className="min-w-[1770px] border-collapse text-[13px]">
+        <table className="min-w-[1910px] border-collapse text-[13px]">
           <thead className="sticky top-0 z-20">
             <tr className="border-b border-line text-left text-mut">
               {COLUMNS.map((col) => (
@@ -274,12 +283,15 @@ export function CompanyOverviewTable({ overview, dimSel, q }: {
                       <td key={key} className={`px-4 py-3.5 group-hover:bg-[#f5faf9] ${col.cellClass}`}>
                         <EvidenceValue value={rec.company_name} evidence={evidenceFor(rec, key)} className="font-bold text-ink" />
                         {rec.aliases.length > 0 && <p className="mt-1 line-clamp-2 text-[11px] leading-relaxed text-mut-2">别名：{rec.aliases.join("、")}</p>}
-                        <div className="mt-2 flex flex-wrap gap-1">
-                          {[rec.dims?.["行业"], rec.dims?.["国家/地区"]].filter(Boolean).map((item) => (
-                            <span key={item} className="rounded-full bg-brand-soft px-2 py-0.5 text-[10px] font-medium text-brand-strong">{item}</span>
-                          ))}
-                        </div>
                         <button type="button" onClick={() => setSelectedCompany(rec)} className="mt-2 text-[10px] font-bold text-brand hover:underline">查看完整档案</button>
+                      </td>
+                    );
+                  }
+                  if (col.key === "industry") {
+                    const value = rec.dims?.["行业"] || "";
+                    return (
+                      <td key={key} className={`px-4 py-3.5 leading-relaxed text-ink-2 ${col.cellClass}`}>
+                        {value ? <span className="inline-flex rounded-full bg-brand-soft px-2.5 py-1 text-[11px] font-medium text-brand-strong">{value}</span> : <MissingValue />}
                       </td>
                     );
                   }

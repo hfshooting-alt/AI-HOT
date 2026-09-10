@@ -74,7 +74,7 @@ const snapshot = {
   ...baseline,
   hot,
   all: { items: allItems, tags, live: true },
-  history: [historyEntry, ...(baseline.history || []).filter((entry) => entry.date !== report.date)],
+  dailyHistory: [historyEntry, ...(baseline.dailyHistory || []).filter((entry) => entry.date !== report.date)],
   dailyReports: { ...(baseline.dailyReports || {}), [report.date]: report },
   preview: {
     localOnly: true,

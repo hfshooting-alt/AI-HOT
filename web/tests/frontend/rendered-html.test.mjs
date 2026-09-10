@@ -70,12 +70,29 @@ test("navigation defaults to all news and exposes company overview as the second
   assert.doesNotMatch(provider, /featured/);
   assert.ok(sidebar.indexOf("全部 AI 动态") < sidebar.indexOf("公司与产品全景"));
   assert.doesNotMatch(sidebar, /精选|京ICP备2026012723号-2/);
+  assert.match(sidebar, /Garena投资部专用/);
+  assert.doesNotMatch(sidebar, /数据来源：AIHOT 开放 API/);
   assert.match(shell, /panel\("company", <CompanyOverviewView \/>\)/);
   assert.doesNotMatch(shell, /FeaturedView|featured/);
 });
 
+test("company database exposes filterable industry and country fields below its title", async () => {
+  const [view, table] = await Promise.all([
+    readFile(new URL("../../app/_components/views/CompanyOverviewView.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../../app/_components/company/CompanyOverviewTable.tsx", import.meta.url), "utf8"),
+  ]);
+  assert.match(view, /"行业"/);
+  assert.match(view, /"国家 \/ 地区"/);
+  assert.match(table, /key: "industry", label: "行业"/);
+  assert.match(table, /key: "country", label: "国家 \/ 地区"/);
+  assert.ok(table.indexOf("公司与产品情报库") < table.indexOf("<TagFilterBar"));
+  assert.match(table, /dims=\{\["industry", "region"\]\}/);
+});
+
 test("stale funding output falls back to the refreshed news stream", async () => {
   const view = await readFile(new URL("../../app/_components/views/AllAIView.tsx", import.meta.url), "utf8");
+  assert.match(view, /Garena投资部专用/);
+  assert.doesNotMatch(view, /数据来源：AIHOT 开放 API/);
   assert.match(view, /fundingStale/);
   assert.match(view, /结构化融资表等待模型更新，本轮先展示当前资讯流/);
   assert.match(view, /wantTable && !fundingStale/);

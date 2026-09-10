@@ -155,7 +155,8 @@ class TestTenAm(unittest.TestCase):
             "--taxonomy", str(TAXONOMY)]
         with patch.object(sys, "argv", argv), patch.object(build_snapshot, "datetime", FixedDateTime), \
              patch.object(build_snapshot, "fetch_items", return_value=upstream) as fetch, \
-             patch.object(build_snapshot, "fetch_hot_topics", return_value={"items": []}):
+             patch.object(build_snapshot, "fetch_hot_topics", return_value={"items": []}), \
+             patch.object(build_snapshot, "fetch_latest_daily", return_value=None):
             self.assertEqual(build_snapshot.main(), 0)
         self.assertEqual(fetch.call_args.args[1], timestamp(WINDOW["start"]))
         snapshot = json.loads((self.root / "snapshot.json").read_text(encoding="utf-8"))

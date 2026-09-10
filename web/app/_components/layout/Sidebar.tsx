@@ -76,10 +76,10 @@ export function SidebarContent() {
         </nav>
       </div>
 
-      {/* 底部：数据来源 */}
+      {/* 底部：站点用途 */}
       <div className="mt-auto px-5 pb-5">
         <div className="mb-3 border-t border-line-2 pt-3 text-[11px] leading-relaxed text-mut-2">
-          数据来源：AIHOT 开放 API
+          Garena投资部专用
         </div>
       </div>
     </div>

@@ -13,6 +13,7 @@ const EMPTY_COLUMNS = [
   "公司",
   "代表产品",
   "成立时间",
+  "行业",
   "国家 / 地区",
   "主营业务",
   "团队情况",
@@ -33,16 +34,23 @@ function MetricCard({ label, value, note }: { label: string; value: string; note
   );
 }
 
-function EmptyCompanyTable() {
+function EmptyCompanyTable({ dimSel, onDimChange }: {
+  dimSel: DimSelection;
+  onDimChange: (next: DimSelection) => void;
+}) {
   return (
     <section aria-label="公司与产品全景空表">
       <div className="mb-4">
         <p className="text-[11px] font-bold tracking-[0.14em] text-brand">COMPANY OVERVIEW</p>
         <h2 className="mt-1 text-[20px] font-extrabold tracking-tight text-ink">公司与产品情报库</h2>
         <p className="mt-1 text-[12px] text-mut">字段结构已经就绪，首次模型抽取完成后会自动填入公司记录。</p>
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <span className="text-[11px] font-bold tracking-[0.12em] text-mut-2">筛选字段</span>
+          <TagFilterBar dims={["industry", "region"]} selection={dimSel} onChange={onDimChange} />
+        </div>
       </div>
       <div className="ah-card ah-scroll overflow-auto">
-        <table className="min-w-[1480px] border-collapse text-[13px]">
+        <table className="min-w-[1620px] border-collapse text-[13px]">
           <thead>
             <tr className="border-b border-line text-left text-mut">
               {EMPTY_COLUMNS.map((label, index) => (
@@ -126,20 +134,12 @@ export function CompanyOverviewView() {
         {metrics.map((metric) => <MetricCard key={metric.label} {...metric} />)}
       </div>
 
-      <div className="ah-card mb-6 flex flex-wrap items-center justify-between gap-3 px-4 py-3.5 sm:px-5">
-        <div>
-          <p className="text-[11px] font-bold tracking-[0.12em] text-mut-2">FILTERS</p>
-          <p className="mt-0.5 text-[12px] text-mut">按行业与国家 / 地区缩小范围</p>
-        </div>
-        <TagFilterBar dims={["industry", "region"]} selection={dimSel} onChange={setDimSel} />
-      </div>
-
       {loading ? (
         <div className="ah-card h-[340px] animate-pulse bg-surface-2" aria-label="正在加载公司与产品数据" />
       ) : overview?.companies.length ? (
-        <CompanyOverviewTable overview={overview} dimSel={dimSel} q={q} />
+        <CompanyOverviewTable overview={overview} dimSel={dimSel} onDimChange={setDimSel} q={q} />
       ) : (
-        <EmptyCompanyTable />
+        <EmptyCompanyTable dimSel={dimSel} onDimChange={setDimSel} />
       )}
     </div>
   );

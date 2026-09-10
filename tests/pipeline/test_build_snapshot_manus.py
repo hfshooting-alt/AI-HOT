@@ -12,6 +12,7 @@ import shutil
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "scripts"))
 sys.path.insert(0, os.path.dirname(__file__))
@@ -71,6 +72,37 @@ class TestAIHotV1Normalization(unittest.TestCase):
         self.assertEqual(hot["items"][0]["rank"], 1)
         self.assertEqual(hot["items"][0]["sourceNames"], ["OpenAI：官网动态（RSS）"])
         self.assertEqual(hot["items"][0]["sourceCount"], 1)
+
+    def test_latest_daily_uses_index_date_then_exact_report(self):
+        class Response:
+            def __init__(self, data):
+                self.data = data
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+            def read(self):
+                return json.dumps(self.data).encode("utf-8")
+
+        calls = []
+        responses = iter([
+            Response({"items": [{"date": "2026-09-10"}]}),
+            Response({"report": {"date": "2026-09-10", "sections": [],
+                                  "links": {"aihot": "https://aihot.news/daily/2026-09-10"}}}),
+        ])
+
+        def open_url(request, timeout):
+            calls.append((request.full_url, timeout))
+            return next(responses)
+
+        with patch.object(build_snapshot.urllib.request, "urlopen", side_effect=open_url):
+            report = build_snapshot.fetch_latest_daily("https://aihot.virxact.com")
+        self.assertEqual(report["date"], "2026-09-10")
+        self.assertTrue(calls[0][0].endswith("/api/v1/dailies?limit=1"))
+        self.assertTrue(calls[1][0].endswith("/api/v1/dailies/2026-09-10"))
 
 
 class TestLoadManusFeed(unittest.TestCase):
@@ -226,6 +258,14 @@ class TestEndToEndWithMockedAPI(unittest.TestCase):
         build_snapshot.datetime = FixedDateTime
         old_hot = build_snapshot.fetch_hot_topics
         build_snapshot.fetch_hot_topics = lambda base: {"topics": []}
+        old_daily = build_snapshot.fetch_latest_daily
+        build_snapshot.fetch_latest_daily = lambda base: {
+            "date": "2026-08-17", "generatedAt": "2026-08-17T00:02:00Z",
+            "lead": None, "sections": [{"label": "行业动态", "items": [{
+                "title": "AIHOT 八点日报样本", "summary": "日报摘要",
+                "links": {"aihot": "https://aihot.news/items/daily", "original": "https://example.com/daily"},
+            }]}], "flashes": [], "links": {"aihot": "https://aihot.news/daily/2026-08-17"},
+        }
         build_snapshot.fetch_items = lambda base, since, window="7d": [dict(i) for i in api_items]
         argv = sys.argv
         sys.argv = ["build_snapshot.py",
@@ -247,6 +287,7 @@ class TestEndToEndWithMockedAPI(unittest.TestCase):
             build_snapshot.fetch_items = old_fetch
             build_snapshot.datetime = old_datetime
             build_snapshot.fetch_hot_topics = old_hot
+            build_snapshot.fetch_latest_daily = old_daily
             sys.argv = argv
             build_snapshot.TAG_TAXONOMY = None
 
@@ -273,6 +314,9 @@ class TestEndToEndWithMockedAPI(unittest.TestCase):
         self.assertTrue(data["daily"]["mpStatus"]["connected"])
         self.assertIn("Manus", data["daily"]["mpStatus"]["note"])
         self.assertTrue(data["daily"]["total"] > 0 and data["weekly"]["total"] > 0)
+        self.assertEqual(data["dailyHistory"][0]["date"], "2026-08-17")
+        self.assertEqual(data["dailyReports"]["2026-08-17"]["sections"][0]["items"][0]["title"],
+                         "AIHOT 八点日报样本")
 
     def test_snapshot_without_feed_still_builds(self):
         rc = self.run_main(os.path.join(self.tmp, "no-such-feed.json"))

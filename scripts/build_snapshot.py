@@ -16,7 +16,7 @@
     2. 合并 Manus 公众号 feed（data/manus/current.json，只读消费；缺失/损坏/过期时降级）
     3. 历史归档（唯一数据源）：增量并集 upsert 进 data/archive/YYYY-MM-DD.json；
        定稿冻结前天及更早的归档（昨天保留开放，兜住迟到条目）；超 30 天滚动硬删
-    4. 日报/周报视图从归档池推导（主页与历史页同源，天然一致）
+    4. AIHOT 成品日报按索引实际日期同步；本站周报继续从归档池推导
     5. 按六版块分组、全局连续编号、北京时间人话时间
     6. 用模板渲染主快照 + history/YYYY-MM-DD.html 只读归档页（近 N 天可回溯）
 
@@ -555,6 +555,64 @@ def fetch_hot_topics(api_base: str) -> dict:
     return {"schemaVersion": data.get("schemaVersion", 1), "count": data.get("count", len(items)), "items": items}
 
 
+def fetch_latest_daily(api_base: str) -> dict | None:
+    """先读日报索引，再按实际日期抓取 AIHOT 成品日报；失败不阻断新闻快照。"""
+    headers = {
+        "Accept": "application/json",
+        "User-Agent": "AI-HOT-dashboard/1.0 (+https://github.com/hfshooting-alt/AI-HOT)",
+    }
+    try:
+        index_url = f"{api_base}/api/v1/dailies?limit=1"
+        with urllib.request.urlopen(urllib.request.Request(index_url, headers=headers), timeout=30) as resp:
+            index = json.loads(resp.read().decode("utf-8"))
+        entries = index.get("items") or []
+        daily_date = entries[0].get("date") if entries and isinstance(entries[0], dict) else None
+        if not isinstance(daily_date, str):
+            raise ValueError("日报索引为空")
+        date.fromisoformat(daily_date)
+        detail_url = f"{api_base}/api/v1/dailies/{urllib.parse.quote(daily_date)}"
+        with urllib.request.urlopen(urllib.request.Request(detail_url, headers=headers), timeout=30) as resp:
+            detail = json.loads(resp.read().decode("utf-8"))
+        report = detail.get("report")
+        if not isinstance(report, dict) or report.get("date") != daily_date \
+                or not isinstance(report.get("sections"), list):
+            raise ValueError("日报正文契约不合法")
+        return report
+    except Exception as exc:  # noqa: BLE001 - 日报短暂不可用时保留上次快照
+        print(f"AIHOT 日报同步失败，保留已有日报: {exc}", file=sys.stderr)
+        return None
+
+
+def load_daily_reports(snapshot_json: str) -> dict[str, dict]:
+    """读取上次快照中已同步的 AIHOT 日报，坏文件按空集合处理。"""
+    try:
+        with open(snapshot_json, "r", encoding="utf-8") as f:
+            raw = json.load(f).get("dailyReports") or {}
+        return {key: value for key, value in raw.items()
+                if isinstance(key, str) and isinstance(value, dict)
+                and value.get("date") == key and isinstance(value.get("sections"), list)}
+    except (OSError, ValueError, AttributeError):
+        return {}
+
+
+def daily_report_entry(report: dict) -> dict:
+    """将 AIHOT 日报正文转换为前端日期导航项。"""
+    report_date = date.fromisoformat(report["date"])
+    items = [item for section in report.get("sections") or []
+             for item in section.get("items") or [] if isinstance(item, dict)]
+    flashes = [item for item in report.get("flashes") or [] if isinstance(item, dict)]
+    lead = report.get("lead") if isinstance(report.get("lead"), dict) else {}
+    title = lead.get("title") or ((items + flashes)[0].get("title") if items or flashes else "AIHOT 日报")
+    return {
+        "date": report["date"],
+        "label": f"{report_date.month}月{report_date.day}日 {WEEKDAYS[report_date.weekday()]}",
+        "title": title,
+        "total": len(items) + len(flashes),
+        "finalized": True,
+        "url": (report.get("links") or {}).get("aihot") or f"https://aihot.news/daily/{report['date']}",
+    }
+
+
 def to_bj(iso: str) -> datetime:
     """ISO8601 -> 北京时间 datetime（无法解析时返回遥远的过去）。"""
     try:
@@ -776,7 +834,7 @@ def main() -> int:
                         help="跳过 AI 打标签（本地调试无 key 时用）")
     parser.add_argument("--exclude-wechat", action="store_true",
                         help="排除 AIHOT 与本地归档中的公众号内容，并跳过 Manus feed")
-    parser.add_argument("--window-date", help="只采集此前一日十点至此日十点的新增新闻；日报使用相同窗口")
+    parser.add_argument("--window-date", help="只采集此前一日十点至此日十点的新增新闻；AIHOT 成品日报独立同步")
     args = parser.parse_args()
 
     now_bj = datetime.now(BJ)
@@ -930,18 +988,30 @@ def main() -> int:
         category_counts[it["category"]] = category_counts.get(it["category"], 0) + 1
     all_tags = [{"tag": cat, "count": category_counts.get(cat, 0)} for cat in SECTIONS if category_counts.get(cat, 0) > 0]
 
+    # AIHOT 每日约 08:00 产出成品日报；十点流水线只同步，不再把本站新闻窗口冒充日报。
+    daily_reports = load_daily_reports(args.snapshot_json)
+    latest_daily = fetch_latest_daily(args.api_base)
+    if latest_daily:
+        daily_reports[latest_daily["date"]] = latest_daily
+    daily_reports = dict(sorted(daily_reports.items(), reverse=True)[:31])
+    daily_history = [daily_report_entry(report) for report in daily_reports.values()]
+    hot_topics = fetch_hot_topics(args.api_base)
+    if args.exclude_wechat:
+        hot_topics = without_wechat_topics(hot_topics)
+
     data = {
         **({"collectionWindow": window} if window else {}),
-        # 日报：昨天 00:00 至今（今天没新文章时自然退化为昨日视图，标签相对真实今天）
+        # 兼容旧模板的数据视图；新版“AI 日报”页面使用 dailyReports/dailyHistory。
         "daily": daily_view,
         # 周报：当前进行中的自然周（口径与周期刊统一）
         "weekly": weekly_view,
         # 历史归档日期导航（新到旧）+ 周期刊导航
         "history": [day_nav_entry(all_days[d]) for d in sorted(all_days, reverse=True)],
+        "dailyHistory": daily_history,
+        "dailyReports": daily_reports,
         "weeklyNav": weekly_nav,
         # 新版单页前端字段
-        "hot": without_wechat_topics(fetch_hot_topics(args.api_base))
-               if args.exclude_wechat else fetch_hot_topics(args.api_base),
+        "hot": hot_topics,
         "all": {"items": all_pool, "tags": all_tags, "live": True},
         "dailyNav": build_daily_nav(all_days, weekly_nav, now_bj),
         "categories": ["模型", "产品", "行业", "论文", "教程", "观点"],

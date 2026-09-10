@@ -1,6 +1,6 @@
 # AI HOT
 
-中文 AI 情报看板，聚合 AIHOT API 与 Manus 采集内容，以全部动态为首页，并提供公司与产品全景、热点、日报/周报、融资公司表和本地模型设置。
+中文 AI 情报看板，聚合 AIHOT API 与 Manus 采集内容，以全部动态为首页，并提供公司与产品全景、热点、AIHOT 八点日报、本站周报、融资公司表和本地模型设置。
 
 前端使用 React、Next.js API 与 vinext/Vite；数据流水线使用 Python。现有数据以 JSON 快照与归档保存。
 

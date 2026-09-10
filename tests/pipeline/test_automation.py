@@ -244,7 +244,8 @@ class WorkspaceTest(unittest.TestCase):
                         "url": "https://example.com/news", "publishedAt": datetime.now(build_snapshot.BJ).isoformat()}
                 with patch.object(sys, "argv", command[1:] + ["--no-tags", "--manus-max-stale-days", "100000", "--archive-days", "100000"]), \
                      patch.object(build_snapshot, "fetch_items", return_value=[item]), \
-                     patch.object(build_snapshot, "fetch_hot_topics", return_value={"topics": []}):
+                     patch.object(build_snapshot, "fetch_hot_topics", return_value={"topics": []}), \
+                     patch.object(build_snapshot, "fetch_latest_daily", return_value=None):
                     return build_snapshot.main()
             elif script == "funding_table.py":
                 def arg(name): return Path(command[command.index(name) + 1])

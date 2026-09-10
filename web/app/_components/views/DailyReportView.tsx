@@ -1,5 +1,5 @@
 // AI 日报视图：仅日报 / 周报两种粒度（无月报）
-// 日报/周报正文在日期栏右侧直接渲染（统一卡片风格），旧版归档页保留为次要入口
+// 日报直接同步 AIHOT 每日约 08:00 的成品；周报继续读取本站自然周归档。
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -19,7 +19,8 @@ export function DailyReportView() {
   useEffect(() => {
     loadSnapshot().then((s) => {
       setSnap(s);
-      if (s?.history?.length) setSelectedDate(s.history[0].date);
+      const dailyHistory = s?.dailyHistory?.length ? s.dailyHistory : s?.history;
+      if (dailyHistory?.length) setSelectedDate(dailyHistory[0].date);
       if (s?.weeklyNav?.length) setSelectedWeek(s.weeklyNav[0].url);
     });
   }, []);
@@ -27,7 +28,8 @@ export function DailyReportView() {
   /** 日报按月份分组（新到旧） */
   const dailyMonths = useMemo(() => {
     const map = new Map<string, HistoryEntry[]>();
-    for (const h of snap?.history || []) {
+    const history = snap?.dailyHistory?.length ? snap.dailyHistory : snap?.history || [];
+    for (const h of history) {
       const key = h.date.slice(0, 7); // YYYY-MM
       const arr = map.get(key);
       if (arr) arr.push(h);
@@ -50,7 +52,8 @@ export function DailyReportView() {
     return [...map.entries()];
   }, [snap]);
 
-  const currentDaily = (snap?.history || []).find((h) => h.date === selectedDate) || null;
+  const dailyHistory = snap?.dailyHistory?.length ? snap.dailyHistory : snap?.history || [];
+  const currentDaily = dailyHistory.find((h) => h.date === selectedDate) || null;
   const currentWeekly = (snap?.weeklyNav || []).find((w) => w.url === selectedWeek) || null;
 
   const monthLabel = (key: string) => {
@@ -78,7 +81,7 @@ export function DailyReportView() {
       <header className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="text-[26px] font-extrabold text-ink">AI 日报</h1>
-          <p className="mt-1 text-[13px] text-mut">每日晨报与每周综述 · 按月份归档组织</p>
+          <p className="mt-1 text-[13px] text-mut">AIHOT 每日上午八点发布 · 本站十点任务同步；周报按本站归档生成</p>
         </div>
         <div className="flex gap-1 rounded-xl border border-line bg-surface p-1">
           {tabBtn("daily", "日报")}

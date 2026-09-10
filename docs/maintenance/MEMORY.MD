@@ -5,7 +5,7 @@
 ## 1. 信源架构（已定论，勿走回头路）
 
 - **当前唯一公众号信源 = Manus**（`scripts/manus_source/`）。`config/manus_sources.json` 是唯一账号配置源，现有 20 个账号：group_a 7、group_b 7、group_c 6。搜狗与 WeRead 链路已于 2026-08-17 迁移时删除；`config/accounts.json` 仅作扩容候选池保留。
-- **aihot 第三方 API**（`https://aihot.virxact.com`）：提供日报、周报、热度榜和 `score` 字段。`selected` 字段实测全为 true，高分筛选使用 score ≥75。
+- **aihot 第三方 API**（`https://aihot.virxact.com`）：提供资讯、正式日报、热点榜和 `score` 字段；正式周报没有 v1 API。日报先查 `/api/v1/dailies?limit=1` 的实际日期，再请求日期端点，十点流水线同步当日上午八点版成品。
 - 分页参数存在，信源本身仍有结构性限制。公众号扩容遵循“验证一个、迁入一个”，不得恢复搜狗或 WeRead 旧链路。
 
 ### 搜狗路线的历史结论（下线原因，供参考）
