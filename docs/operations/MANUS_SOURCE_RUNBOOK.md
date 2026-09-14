@@ -128,3 +128,6 @@ python scripts/manus_source/runner.py --date 2026-09-10 --ten-am --account "机�
 “N小时前/分钟前”保存原始文字，publishedPrecision=relative；published_at仅用于排序和窗口估算。以接收时间换算，并保守要求估算时刻前后各一个单位均在固定窗口内，边界不确定则隔离。网页明确显示估算。绝对日期但无时刻、无“昨天”证据的记录仍不作为窗口内文章。Manus原始输出用published_time_text，本地生成timeEvidence与精度字段；快照/feed保留这些字段。
 
 逐来源公开状态新增可选reasonCode；原status契约保持。熔断未启动与已启动费用止损分别展示，partial表示部分覆盖，不能一概称为正文失败。候选发布操作见docs/operations/AUTOMATED_PIPELINE.md。
+
+
+用户于2026-09-14确认：最多并发3个来源，普通单来源费用止损不再取消其他排队来源，全部来源依次获得启动机会。每来源20 credits观察止损和已核实文章checkpoint／停止后只读回收保持。已实际尝试的同窗口失败结果不自动付费重试；明确标记task not created的旧熔断占位不算一次尝试，允许首次启动。余额不足、无法确认远端任务停止等系统性异常仍保留保护，不能保证异常或作业超时情况下全部完成。

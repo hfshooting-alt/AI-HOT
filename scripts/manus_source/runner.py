@@ -4,7 +4,7 @@
     python scripts/manus_source/runner.py --date 2026-08-16 --groups group_a group_b group_c
     python scripts/manus_source/runner.py                 # 默认昨天（北京时间）、全部组
 
-行为：按组并发提交 Manus 发现任务 → 轮询 structured output → contracts 严格校验
+行为：生产入口逐来源最多并发3个，正常止损不取消其余排队来源；旧直连按组并发提交 Manus 发现任务 → 轮询 structured output → contracts 严格校验
 → 原始结果写 work/manus/<date>/raw/discovery-<group>.json。任一组失败 exit 1。
 """
 import argparse
@@ -32,25 +32,6 @@ MAX_DISCOVERY_CREDIT_LIMIT = 60
 SOURCE_CONCURRENCY = 3
 
 
-class CostCircuit:
-    """Stop queued task creation after repeated budget stops; allow in-flight tasks to settle."""
-    def __init__(self, limit=3):
-        from threading import Lock
-        self.lock = Lock()
-        self.failures = 0
-        self.limit = limit
-
-    def call(self, function, *args):
-        with self.lock:
-            if self.failures >= self.limit:
-                raise RuntimeError('cost_circuit_open: repeated credit stops; task not created')
-        try:
-            return function(*args)
-        except Exception as error:
-            if 'Observed credit threshold reached' in str(error):
-                with self.lock:
-                    self.failures += 1
-            raise
 DISCOVERY_BRIEF = ("仅处理该 source_group；仅采集 published_date 等于 target_date 的文章。"
                    "发现阶段只输出元数据与 URL，不提取正文。")
 
@@ -276,6 +257,12 @@ def load_reusable_source_payload(raw_dir: Path, work_dir: Path, group: str,
                 blocked = failed_source_payload(group, target_date, source, window,
                     'source_config_unverified: 缓存入口不同或未记录入口；未验证当前配置。显式重试前核对来源与预算。')
                 return blocked, 'source-config-unverified'
+            # A previous global circuit never created these tasks. They remain
+            # eligible; genuine attempts keep their existing paid-retry guard.
+            note = str(audit.get('note') or '')
+            if ('cost_circuit_open' in note and 'task not created' in note
+                    and not articles and cached_identity == expected_identity):
+                continue
             reusable_status = audit["source_status"] == "complete" or (
                 origin == "account-attempt" and not retry_failed)
             if payload.get("collectionWindow") == window and reusable_status:
@@ -404,7 +391,6 @@ def main(argv: list[str] | None = None) -> int:
 
     source_failures: list[str] = []
     if args.credit_limit_per_source and not canary:
-        cost_circuit = CostCircuit()
         source_payloads: dict[str, dict[str, dict]] = {group: {} for group in args.groups}
         account_dir = raw_dir / "accounts"
         account_dir.mkdir(parents=True, exist_ok=True)
@@ -426,7 +412,7 @@ def main(argv: list[str] | None = None) -> int:
                             "{{WINDOW_START}}", window["start"]).replace(
                             "{{WINDOW_END}}", window["end"])
                     fut = ex.submit(
-                        cost_circuit.call, run_discovery, client, group, args.date, prompt_text,
+                        run_discovery, client, group, args.date, prompt_text,
                         [source["account_name"]], window, args.credit_limit_per_source,
                         [source], account_dir / f"{canary_slug(source['account_name'])}.checkpoints.json")
                     futs[fut] = (group, source)
@@ -558,8 +544,6 @@ def main(argv: list[str] | None = None) -> int:
             for audit in payload.get("source_audits", [])
             if audit.get("source_status") != "complete"
         ]
-        if cost_circuit.failures >= cost_circuit.limit:
-            failures.append('cost_circuit_open: repeated credit stops; downstream publication blocked')
         cost_report["finishedAt"] = datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(timespec="seconds")
         cost_report["status"] = "failed" if failures else "complete"
         cost_report["failures"] = failures

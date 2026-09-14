@@ -14,28 +14,6 @@ from _tempdir import make_temp_dir  # noqa: E402
 from manus_source import runner  # noqa: E402
 
 
-class TestCostCircuit(unittest.TestCase):
-    def test_repeated_credit_stops_prevent_next_paid_task(self):
-        calls = []
-        circuit = runner.CostCircuit()
-        def billed_task():
-            calls.append(1)
-            raise RuntimeError('Observed credit threshold reached: 20 >= 20')
-        for _ in range(3):
-            with self.assertRaisesRegex(RuntimeError, 'threshold'):
-                circuit.call(billed_task)
-        with self.assertRaisesRegex(RuntimeError, 'task not created'):
-            circuit.call(billed_task)
-        self.assertEqual(len(calls), 3)
-
-    def test_unrelated_source_failure_does_not_trip_cost_circuit(self):
-        circuit = runner.CostCircuit()
-        for _ in range(4):
-            with self.assertRaisesRegex(RuntimeError, 'identity'):
-                circuit.call(lambda: (_ for _ in ()).throw(RuntimeError('identity mismatch')))
-        self.assertEqual(circuit.call(lambda: 'success'), 'success')
-
-
 class TestRunnerTimeout(unittest.TestCase):
     def test_runner_uses_one_hour_discovery_timeout(self):
         temp_path = Path(make_temp_dir("manus-runner-test-"))
@@ -224,6 +202,46 @@ class TestSingleAccountCanary(unittest.TestCase):
                             .read_text(encoding="utf-8"))
         self.assertEqual(report["maxObservedRunCredits"], 60)
         self.assertEqual(report["creditsUsed"], 5)
+
+    def test_all_twenty_sources_start_despite_budget_stops_with_three_workers(self):
+        from threading import Barrier, Lock
+        barrier, lock = Barrier(3), Lock()
+        active = peak = 0
+        names = []
+        sources = [{'account_name':f'Source{i}', 'platform':'Tencent News',
+                    'home_url':f'https://example.com/{i}'} for i in range(20)]
+        self.settings.sources_path.write_text(json.dumps({'groups':{'group_a':sources}}),encoding='utf-8')
+        class FakeClient:
+            def __init__(self, **kwargs): pass
+            def available_credits(self): return 1000
+        def stopped(client, group, date, prompt, accounts, window, credit, specs, checkpoint):
+            nonlocal active, peak
+            with lock:
+                names.append(accounts[0]); position=len(names)
+                active+=1; peak=max(peak,active)
+            try:
+                if position<=3: barrier.wait(timeout=3)
+                raise runner.DiscoveryRunError(accounts[0],
+                    RuntimeError('Observed credit threshold reached: 20 >= 20'), stop_succeeded=True)
+            finally:
+                with lock: active-=1
+        with patch.object(runner.Settings,'from_environment',return_value=self.settings), \
+                patch.object(runner,'ManusClient',FakeClient), \
+                patch.object(runner,'run_discovery',side_effect=stopped):
+            runner.main(['--date','2026-09-12','--groups','group_a','--credit-limit-per-source','20'])
+        self.assertEqual(set(names),{s['account_name'] for s in sources})
+        self.assertEqual(len(names),20)
+        self.assertEqual(peak,3)
+
+    def test_never_started_circuit_placeholder_does_not_block_first_attempt(self):
+        source={'account_name':'TestAccount','platform':'Tencent News','home_url':'https://example.com'}
+        raw=self.settings.work_dir/'2026-09-10'/'raw';(raw/'accounts').mkdir(parents=True)
+        payload=runner.failed_source_payload('group_a','2026-09-10',source,None,
+                    'cost_circuit_open: repeated credit stops; task not created')
+        payload['sourceIdentity']=runner.source_identity(source)
+        (raw/'accounts'/f"{runner.canary_slug('TestAccount')}.json").write_text(json.dumps(payload),encoding='utf-8')
+        self.assertEqual(runner.load_reusable_source_payload(raw,self.settings.work_dir,
+                    'group_a','2026-09-10',source,None),(None,None))
 
     def test_account_name_must_be_unique(self):
         with self.assertRaisesRegex(ValueError, "不唯一"):

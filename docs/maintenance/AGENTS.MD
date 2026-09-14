@@ -147,3 +147,6 @@ node scripts/settings-server.mjs
 - `docs/maintenance/MEMORY.MD`：长期记忆与经验教训精编（按类别），供无记忆系统的 agent 使用。
 
 候选审核入口为run_pipeline.py review-candidate / publish-candidate，操作见运行手册；必须保留审核来源和校验值，禁止修改旧state伪造重跑成功。沿用已确认业务规则，新增业务范围、信源、预算或发布行为须先具体说明并确认。
+
+
+用户于2026-09-14确认：最多并发3个来源，普通单来源费用止损不再取消其他排队来源，全部来源依次获得启动机会。每来源20 credits观察止损和已核实文章checkpoint／停止后只读回收保持。已实际尝试的同窗口失败结果不自动付费重试；明确标记task not created的旧熔断占位不算一次尝试，允许首次启动。余额不足、无法确认远端任务停止等系统性异常仍保留保护，不能保证异常或作业超时情况下全部完成。

@@ -146,3 +146,6 @@ python scripts/run_pipeline.py publish-candidate --candidate work/reviewed-candi
 发布只更新本地整套正式产物；之后提交data和web/public到main，Pages工作流构建部署。私有inputs、review.json、正文及日志仍在work，不提交。
 
 信源status保持complete/partial/failed/not_requested契约；公开reasonCode区分not_started_budget（熔断后未创建）、budget_stopped（已启动后止损）、boundary_unverified（未扫完窗口）、content_incomplete（部分正文缺失）等。只输出白名单原因码，不把原始错误或密钥带入网页。缺少证据时显示原因待核实。
+
+
+用户于2026-09-14确认：最多并发3个来源，普通单来源费用止损不再取消其他排队来源，全部来源依次获得启动机会。每来源20 credits观察止损和已核实文章checkpoint／停止后只读回收保持。已实际尝试的同窗口失败结果不自动付费重试；明确标记task not created的旧熔断占位不算一次尝试，允许首次启动。余额不足、无法确认远端任务停止等系统性异常仍保留保护，不能保证异常或作业超时情况下全部完成。
