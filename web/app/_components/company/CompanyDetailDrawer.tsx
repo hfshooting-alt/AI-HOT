@@ -1,11 +1,12 @@
 "use client";
+import { productText, ProductUpdates } from "./ProductUpdates";
 
 import { useEffect } from "react";
 import type { CompanyProfile } from "../../_lib/domain/types";
 import { CloseIcon } from "../shared/icons";
 
 const FIELD_ROWS: { key: keyof CompanyProfile; label: string }[] = [
-  { key: "product_names", label: "代表产品" },
+  { key: "product_names", label: "产品动态" },
   { key: "founded", label: "成立时间" },
   { key: "country", label: "国家 / 地区" },
   { key: "business", label: "主营业务" },
@@ -16,7 +17,7 @@ const FIELD_ROWS: { key: keyof CompanyProfile; label: string }[] = [
 ];
 
 function displayValue(company: CompanyProfile, key: keyof CompanyProfile): string {
-  if (key === "product_names") return company.product_names.join("、");
+  if (key === "product_names") return productText(company);
   const value = company[key];
   return typeof value === "string" ? value : "";
 }
@@ -63,7 +64,7 @@ export function CompanyDetailDrawer({ company, onClose }: {
               return (
                 <div key={key} className={key === "business" || key === "team" || key === "investors" ? "sm:col-span-2" : ""}>
                   <dt className="text-[10px] font-bold tracking-[0.12em] text-mut-2">{label}</dt>
-                  <dd className="mt-1 text-[13px] leading-relaxed text-ink-2">{value || "未披露"}</dd>
+                  <dd className="mt-1 text-[13px] leading-relaxed text-ink-2">{key === "product_names" && company.productUpdates?.length ? <ProductUpdates company={company} /> : value || "未披露"}</dd>
                   {evidence.length > 0 && (
                     <div className="mt-1.5 flex flex-wrap gap-1.5">
                       {evidence.map((source, index) => (

@@ -1,4 +1,5 @@
 "use client";
+import { productText } from "./ProductUpdates";
 
 import { useMemo, useState } from "react";
 import type { CompanyFieldEvidence, CompanyOverview, CompanyProfile } from "../../_lib/domain/types";
@@ -15,7 +16,7 @@ const COLUMNS: { key: CompanyColumnKey; label: string; cellClass: string }[] = [
   { key: "company_name", label: "公司", cellClass: "sticky-col w-[190px]" },
   { key: "latestReportAt", label: "最新报道日期", cellClass: "w-[140px]" },
   { key: "profileUpdatedAt", label: "资料更新日期", cellClass: "w-[140px]" },
-  { key: "product_names", label: "代表产品", cellClass: "w-[170px]" },
+  { key: "product_names", label: "产品动态", cellClass: "w-[170px]" },
   { key: "founded", label: "成立时间", cellClass: "w-[100px]" },
   { key: "industry", label: "行业", cellClass: "w-[140px]" },
   { key: "country", label: "国家 / 地区", cellClass: "w-[110px]" },
@@ -117,7 +118,7 @@ function CompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () => void 
               <EvidenceValue value={rec.company_name} evidence={evidenceFor(rec, "company_name")} />
             </h3>
             <p className="mt-1 line-clamp-2 text-[13px] leading-relaxed text-mut">
-              {rec.product_names.length ? rec.product_names.join(" · ") : "产品信息暂未披露"}
+              {rec.product_names.length ? productText(rec) : "产品信息暂未披露"}
             </p>
             <p className="mt-2 text-[11px] text-mut">最新报道：{fmtCnDate(rec.latestReportAt || rec.lastSeenAt) || "未披露"} · 资料更新：{fmtCnDate(rec.profileUpdatedAt || "") || "未记录"}</p>
           </div>
@@ -330,7 +331,7 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
                       </td>
                     );
                   }
-                  const raw = col.key === "product_names" ? rec.product_names.join("、") : rec[col.key];
+                  const raw = col.key === "product_names" ? productText(rec) : rec[col.key];
                   const value = typeof raw === "string" ? raw : "";
                   return (
                     <td key={key} className={`px-4 py-3.5 leading-relaxed text-ink-2 ${col.cellClass}`}>

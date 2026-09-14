@@ -4,7 +4,7 @@ from zoneinfo import ZoneInfo
 
 
 SCHEMA_VERSION = 1
-PROMPT_VERSION = 8
+PROMPT_VERSION = 9
 SCALAR_FIELDS = (
     "founded", "country", "team", "business", "investors",
     "total_funding", "valuation",

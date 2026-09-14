@@ -34,6 +34,11 @@ def validate(data: dict, tx: dict) -> None:
             raise ValueError(f"{rid} 公司名称缺失")
         if not isinstance(rec.get("product_names"), list) or not isinstance(rec.get("aliases"), list):
             raise ValueError(f"{rid} aliases/product_names 类型不合法")
+        for update in rec.get("productUpdates", []):
+            if not update.get("name") or update.get("relationship") not in {"owned", "integrated", "used", "unknown"}:
+                raise ValueError(f"{rid} 产品关系不合法")
+            if update["relationship"] != "unknown" and (not update.get("quote") or not update.get("articleId") or not update.get("url")):
+                raise ValueError(f"{rid} 产品关系缺少原文证据")
         for field in SCALAR_FIELDS:
             if rec.get(field) is not None and not isinstance(rec[field], str):
                 raise ValueError(f"{rid} 字段 {field} 类型不合法")

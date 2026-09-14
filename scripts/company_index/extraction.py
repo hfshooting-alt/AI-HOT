@@ -7,6 +7,7 @@ from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 
 import tag_news
 from llm_common import parse_output
+from .products import normalize as normalize_products
 from .config import PROMPT_VERSION, SCALAR_FIELDS, overview_cfg
 
 
@@ -20,11 +21,15 @@ def build_prompt(tx: dict, article: dict) -> tuple[str, str]:
 产品明确归属于某公司时归入该公司，不能将产品另造为公司；归属不明确则保留产品主体名称待核实，禁止凭常识猜母公司。
 自然人、个人开发者、作者、博主均不能作为公司。独立开发者的产品没有明确公司时仍返回一条记录：company_name填产品名、entity_type填product，进入归属待核实；不要返回空数组丢失产品。例如Simon Willison发布commit-rewriter，保留commit-rewriter产品主体，不创建Simon Willison公司。Meta Muse/Meta的Muse明确归Meta，不另建Muse公司；只写Muse无归属时标product，不猜母公司。这里的归属状态不改变新闻发布类别。
 
+纯论文、架构、算法方法不作为产品返回；已经实际可用的开源工具继续保留。
+产品归属只认开发或运营主体。集成、使用第三方产品同样保留到该公司的产品动态，但绝不能标成自有产品；只提到产品名不能推断归属。
+
 每家公司一条记录：
 - company_name：文章采用的公司名称，必填
 - entity_type：company（明确公司）或product（公司归属待核实的产品）
 - aliases：文章明确给出的别名、英文名或简称，字符串数组
-- product_names：该公司在文章中明确关联的产品名称，字符串数组；无法确认归属时不要猜测
+- product_names：实际产品名称数组（包括自有、集成、使用）；排除纯论文和算法方法
+- products：每项包含name、relationship（owned自有／integrated集成／used使用／unknown关系待核实）、quote（支持该关系的原文逐字引文）、kind（product或tool）；关系证据不足用unknown
 {fields}
 - industry_id：按该公司自身业务选择，只能取 {industries}；不得直接继承整篇文章的行业标签，无法判定时取 ai_other
 
@@ -45,13 +50,16 @@ def normalize_company(raw: dict, tx: dict) -> dict | None:
     name = raw["company_name"].strip()
     if not name:
         return None
-    if raw.get('entity_type') == 'person':
+    if raw.get("entity_type") in {"person", "paper", "algorithm", "method"}:
         return None
     out = {"company_name": name, 'entity_type': 'company' if raw.get('entity_type') == 'company' else 'product'}
     for field in ("aliases", "product_names"):
         values = raw.get(field)
         out[field] = list(dict.fromkeys(v.strip() for v in values
                                         if isinstance(v, str) and v.strip())) if isinstance(values, list) else []
+    out["products"] = normalize_products(raw.get("products"))
+    if isinstance(raw.get("products"), list):
+        out["product_names"] = list(dict.fromkeys(p["name"] for p in out["products"]))
     for field in SCALAR_FIELDS:
         value = raw.get(field)
         out[field] = value.strip() if isinstance(value, str) and value.strip() else None
@@ -78,6 +86,8 @@ def extract_one(tx: dict, article: dict, llm_fn) -> dict:
         if not isinstance(raw, dict) or not isinstance(raw.get("companies"), list):
             raise ValueError("模型输出结构不合法")
         companies = [c for c in (normalize_company(v, tx) for v in raw["companies"]) if c]
+        for company in companies:
+            company["products"] = normalize_products(company.get("products"), article)
         return {"status": "complete", "companies": companies}
     except Exception as exc:  # noqa: BLE001 - 单篇失败由统计与发布门槛处理
         return {"status": "failed", "companies": [], "reason": str(exc)[:160]}

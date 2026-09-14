@@ -43,6 +43,27 @@ def item(article_id, title, url, category, summary, dims=None):
 
 
 class CompanyOverviewTest(unittest.TestCase):
+    def test_product_relationships_update_order_without_claiming_ownership(self):
+        from company_index.products import merge_updates
+        row = {"product_names": [], "fieldSources": {}}
+        a = {"id": "old", "publishedAt": "2026-09-13T09:30:00+08:00"}
+        b = {"id": "new", "publishedAt": "2026-09-14T09:30:00+08:00"}
+        merge_updates(row, {"products": [{"name": "Own", "relationship": "owned", "quote": "开发"}]}, a)
+        merge_updates(row, {"products": [{"name": "Grok", "relationship": "integrated", "quote": "集成"}]}, b)
+        merge_updates(row, {"products": [{"name": "Grok", "relationship": "integrated", "quote": "集成"}]}, b)
+        self.assertEqual(row['product_names'], ['Grok', 'Own'])
+        self.assertEqual(len(row['productUpdates']), 2)
+        self.assertEqual(row['productUpdates'][0]['relationship'], 'integrated')
+
+    def test_methods_excluded_and_unsupported_ownership_downgraded(self):
+        from company_index.extraction import normalize_company
+        from company_index.products import normalize
+        self.assertIsNone(normalize_company({'company_name': 'RLT', 'entity_type': 'method'}, TX))
+        self.assertEqual(normalize([{'name': 'RLT', 'kind': 'method'}]), [])
+        result = normalize([{'name': 'Tool', 'kind': 'tool', 'relationship': 'owned', 'quote': '开发'}], {'content_text': '使用工具'})
+        self.assertEqual(result[0]['relationship'], 'unknown')
+        self.assertEqual(result[0]['name'], 'Tool')
+
     def setUp(self):
         self.root = Path(make_temp_dir("overview-test-"))
         self.addCleanup(shutil.rmtree, self.root, ignore_errors=True)

@@ -244,6 +244,7 @@ export interface CompanyFieldEvidence {
 
 /** 全类别新闻共同沉淀的公司/产品档案。 */
 export interface CompanyProfile {
+  productUpdates?: { name: string; relationship: "owned" | "integrated" | "used" | "unknown"; quote: string; articleId: string; url: string; title: string; publishedAt: string }[];
   brandProfiles?: Record<string, CompanyProfile>;
   id: string;
   company_name: string;

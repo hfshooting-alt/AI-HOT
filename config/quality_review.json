@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-09-10",
+  "reviewedAt": "2026-09-14",
   "scope": "本地候选公司主体检查及分类抽查；不是全部字段的外部事实核验。",
   "aliases": {
     "Microsoft": "微软",
@@ -9,12 +9,34 @@
   },
   "pending": {},
   "excluded": {
-    "NASA": {"reason":"美国政府机构，不是公司。","url":"https://www.nasa.gov/about/"},
-    "中国气象局": {"reason":"国务院直属事业单位，不是公司。","url":"https://www.gov.cn/fuwu/2014-02/22/content_2618847.htm"},
-    "美国教师联合会": {"reason":"AFT 工会，不是公司。","url":"https://www.aft.org/about"},
-    "UFT": {"reason":"United Federation of Teachers 工会，不是公司；与 AFT 分别保留。","url":"https://www.uft.org/your-union/about-uft"},
-    "Emad Mostaque": {"reason":"个人，不将个人观点自动归为任职公司动态。","url":"https://ii.inc/blog/post/master-plan"},
-    "Simon Willison": {"reason": "个人开发者，不作为公司主体；其产品保留为归属待核实。", "url": "https://simonwillison.net/about/"}
+    "NASA": {
+      "reason": "美国政府机构，不是公司。",
+      "url": "https://www.nasa.gov/about/"
+    },
+    "中国气象局": {
+      "reason": "国务院直属事业单位，不是公司。",
+      "url": "https://www.gov.cn/fuwu/2014-02/22/content_2618847.htm"
+    },
+    "美国教师联合会": {
+      "reason": "AFT 工会，不是公司。",
+      "url": "https://www.aft.org/about"
+    },
+    "UFT": {
+      "reason": "United Federation of Teachers 工会，不是公司；与 AFT 分别保留。",
+      "url": "https://www.uft.org/your-union/about-uft"
+    },
+    "Emad Mostaque": {
+      "reason": "个人，不将个人观点自动归为任职公司动态。",
+      "url": "https://ii.inc/blog/post/master-plan"
+    },
+    "Simon Willison": {
+      "reason": "个人开发者，不作为公司主体；其产品保留为归属待核实。",
+      "url": "https://simonwillison.net/about/"
+    },
+    "Recurrent Looped Transformer": {
+      "reason": "纯论文架构方法，不是实际可用产品；保留论文新闻。",
+      "url": "https://www.marktechpost.com/2026/09/13/a-princeton-researcher-proposes-recurrent-looped-transformer-rlt"
+    }
   },
   "classifications": {
     "aihot:cmtul95tj1hctrofp9oe0r50g": {
@@ -59,5 +81,21 @@
       "title": "DeepSeek 计划 9 月 10 日前后发布 V4.1 Flash，各项指标全面超越 V4 Pro",
       "url": "https://www.ithome.com/1/000/222.htm"
     }
-  }
+  },
+  "productRelationships": [
+    {
+      "company": "xAI",
+      "product": "Grok",
+      "articleId": "aihot:cmu0f6bsx0lvzrorykvvl8lvi",
+      "relationship": "owned",
+      "quote": "微软将 xAI Grok 模型整合进 Word、Excel 和 PowerPoint 的 Copilot"
+    },
+    {
+      "company": "特斯拉",
+      "product": "Grok",
+      "articleId": "aihot:cmtzgtsbu036dro97c3qfiik7",
+      "relationship": "integrated",
+      "quote": "特斯拉车主手册披露：Grok 将支持语音收发短信"
+    }
+  ]
 }

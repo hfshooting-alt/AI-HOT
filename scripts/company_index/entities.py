@@ -37,6 +37,7 @@ def _add_evidence(rec: dict, field: str, value: str, article: dict) -> None:
 
 def merge_entities(articles: list[dict], extracts: dict[str, dict], previous: dict,
                    tx: dict) -> list[dict]:
+    from .products import merge_updates, refresh
     companies = {r["id"]: copy.deepcopy(r) for r in previous.get("companies", [])
                  if isinstance(r, dict) and str(r.get("id", "")).startswith("company:")}
     lookup = {}
@@ -83,6 +84,7 @@ def merge_entities(articles: list[dict], extracts: dict[str, dict], previous: di
                 if not any(re.sub(r"\s+", "", p).casefold() == product_key for p in rec["product_names"]):
                     rec["product_names"].append(product)
                 _add_evidence(rec, "product_names", product, article)
+            merge_updates(rec, item, article)
             for field in SCALAR_FIELDS:
                 value = item.get(field)
                 if value and (is_latest or not rec.get(field)):
@@ -101,6 +103,7 @@ def merge_entities(articles: list[dict], extracts: dict[str, dict], previous: di
                     "sourceName": article.get("sourceName") or "", "category": article.get("category") or ""})
     rows = sorted(companies.values(), key=lambda r: timestamp(r.get("lastSeenAt")), reverse=True)
     for rec in rows:
+        refresh(rec)
         rec['updatedAt'] = rec.get('lastSeenAt') or ''
         rec["sourceArticles"].sort(key=lambda s: timestamp(s.get("publishedAt")), reverse=True)
         for field in ALL_EVIDENCE_FIELDS:

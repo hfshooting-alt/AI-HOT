@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 
 import tag_news
+from company_index.products import refresh
 from company_index.entities import timestamp
 from company_index.identity import apply_reviewed_research
 from company_index.output import atomic_write, validate
@@ -29,6 +30,7 @@ def apply(overview, snapshot, rules, tx):
             continue
         dst.setdefault('reviewMergedRecords', {})[source] = copy.deepcopy(src)
         dst['aliases'] = list(dict.fromkeys(dst['aliases'] + [source] + src['aliases']))
+        dst.setdefault('productUpdates', []).extend(u for u in src.get('productUpdates', []) if u not in dst.get('productUpdates', []))
         dst['product_names'] = list(dict.fromkeys(dst['product_names'] + src['product_names']))
         existing = {a['id'] for a in dst['sourceArticles']}
         dst['sourceArticles'].extend(a for a in src['sourceArticles'] if a['id'] not in existing)
@@ -64,6 +66,14 @@ def apply(overview, snapshot, rules, tx):
             pending.append(dict(row, reviewReason=reason))
             rows.remove(row)
             audit['pending'].append({'name': row['company_name'], 'reason': reason})
+    for row in [*rows, *pending]:
+        refresh(row)
+        for decision in rules.get('productRelationships', []):
+            if row['company_name'] != decision['company']:
+                continue
+            for update in row['productUpdates']:
+                if update['name'] == decision['product'] and update.get('articleId') == decision['articleId']:
+                    update.update(relationship=decision['relationship'], quote=decision['quote'], reviewedAt=rules['reviewedAt'])
     for row in rows:
         row['updatedAt'] = row['lastSeenAt']
         row['sourceArticles'].sort(key=lambda a: timestamp(a.get('publishedAt')), reverse=True)
