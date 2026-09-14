@@ -1,6 +1,30 @@
 """Recover explicit article checkpoints; prose and incomplete claims are never articles."""
 import json
+from datetime import datetime
+from urllib.parse import urlparse
 from . import contracts
+from .window import BJ
+
+
+def normalize_article_time(article):
+    """Chinese media wall-clock timestamps are Beijing time; explicit offsets convert."""
+    result = dict(article)
+    value = result.get('published_at')
+    if not isinstance(value, str) or not any(c in value for c in ('T', ' ')):
+        return result
+    try:
+        dt = datetime.fromisoformat(value.replace('Z', '+00:00'))
+        host = (urlparse(result.get('source_home_url') or '').hostname or '').lower()
+        chinese = any(host == d or host.endswith('.' + d) for d in
+                      ('qq.com', '163.com', 'jiqizhixin.com', 'baijing.cn', 'weixin.qq.com'))
+        if dt.tzinfo is None:
+            if not chinese:
+                return result
+            dt = dt.replace(tzinfo=BJ)
+        result['published_at'] = dt.astimezone(BJ).isoformat()
+    except ValueError:
+        pass
+    return result
 
 
 def checkpoint_articles(response):

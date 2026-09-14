@@ -74,7 +74,11 @@ export function normalizeCategory(cat?: string): string {
 /** ISO8601 -> 北京时刻度（用 UTC getter 读取北京时间分量） */
 export function bjDate(iso?: string): Date | null {
   if (!iso) return null;
-  const t = new Date(iso).getTime();
+  // Legacy wall-clock values must not depend on the viewer's computer timezone.
+  const value = /^\d{4}-\d{2}-\d{2}$/.test(iso) ? `${iso}T00:00:00+08:00`
+    : /^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?$/.test(iso)
+      ? `${iso.replace(" ", "T")}+08:00` : iso;
+  const t = new Date(value).getTime();
   if (Number.isNaN(t)) return null;
   return new Date(t + 8 * 3600 * 1000);
 }
@@ -134,8 +138,9 @@ export function fmtItemTime(item: NewsItem): string {
   if (!d) return item.timeText || "";
   const now = new Date(Date.now() + 8 * 3600 * 1000);
   const hm = fmtClock(item.publishedAt);
-  if (d.toDateString() === now.toDateString()) return `今天 ${hm}`;
-  if (new Date(now.getTime() - 86400000).toDateString() === d.toDateString()) return `昨天 ${hm}`;
+  const day = (value: Date) => value.toISOString().slice(0, 10);
+  if (day(d) === day(now)) return `今天 ${hm}`;
+  if (day(new Date(now.getTime() - 86400000)) === day(d)) return `昨天 ${hm}`;
   return `${d.getUTCMonth() + 1}/${d.getUTCDate()} ${hm}`;
 }
 

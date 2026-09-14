@@ -96,9 +96,10 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
         output_schema=schema,
     )
     print(f"[{group}] Manus task created: {task.task_url}", flush=True)
-    from manus_source.checkpoints import accept_article, partial_payload
+    from manus_source.checkpoints import accept_article, partial_payload, normalize_article_time
     verified = {}
     def checkpoint(article):
+        article = normalize_article_time(article)
         if accept_article(article, group, target_date, expected_accounts, window, source_specs):
             verified[article['article_url']] = article
             if checkpoint_path:
@@ -140,6 +141,7 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
     if window:
         payload["schema_version"] = contracts.WINDOW_DISCOVERY_SCHEMA_VERSION
         payload["collectionWindow"] = window
+        payload['articles'] = [normalize_article_time(a) for a in payload['articles']]
     try:
         if source_specs is not None and any(a.get('extraction_status') == 'complete'
                 and not accept_article(a, group, target_date, expected_accounts, window, source_specs)

@@ -6,7 +6,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
-from manus_source.checkpoints import accept_article, checkpoint_articles, partial_payload
+from manus_source.checkpoints import accept_article, checkpoint_articles, partial_payload, normalize_article_time
 from manus_source.client import ManusClient, ManusAPIError, CreatedTask
 from manus_source.runner import run_discovery, DiscoveryRunError
 
@@ -19,6 +19,15 @@ ARTICLE = {'account_name': 'Test', 'source_platform': 'Website', 'source_home_ur
 
 
 class CheckpointTest(unittest.TestCase):
+    def test_chinese_naive_time_is_beijing_without_changing_explicit_instant(self):
+        a = {**ARTICLE, 'source_home_url': 'https://news.qq.com/author/example',
+             'published_at': '2026-09-14 08:30:00'}
+        self.assertEqual(normalize_article_time(a)['published_at'], '2026-09-14T08:30:00+08:00')
+        a['published_at'] = '2026-09-14T00:30:00Z'
+        self.assertEqual(normalize_article_time(a)['published_at'], '2026-09-14T08:30:00+08:00')
+        a['published_at'] = '14小时前'
+        self.assertEqual(normalize_article_time(a)['published_at'], '14小时前')
+
     def setUp(self):
         env = patch.dict(os.environ, {'AIHOT_CUTOFF_TIME': '09:30'})
         env.start()
