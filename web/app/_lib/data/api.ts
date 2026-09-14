@@ -21,7 +21,9 @@ function publicAsset(path: string): string {
 const STATIC_SITE = import.meta.env.VITE_STATIC_SITE === "true";
 
 async function fetchJSON<T>(url: string): Promise<T> {
-  const r = await fetch(url, { headers: { accept: "application/json" } });
+  // Revalidate mutable JSON after a Pages deployment instead of using a fresh
+  // browser-cache entry from the previous published batch.
+  const r = await fetch(url, { cache: "no-cache", headers: { accept: "application/json" } });
   if (!r.ok) throw new Error(`HTTP ${r.status} for ${url}`);
   return (await r.json()) as T;
 }

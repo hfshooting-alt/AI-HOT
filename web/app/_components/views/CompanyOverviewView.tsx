@@ -12,7 +12,7 @@ import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/domain/fundingTa
 import { DatabaseIcon } from "../shared/icons";
 
 const EMPTY_COLUMNS = [
-  "公司",
+  "公司 / 组织",
   "产品动态",
   "成立时间",
   "行业",
@@ -123,7 +123,7 @@ export function CompanyOverviewView() {
   const metrics = useMemo(() => {
     const stats = overview?.stats;
     return [
-      { label: "COMPANIES", value: stats ? String(stats.companiesTotal) : "—", note: "已归档公司主体" },
+      { label: "COMPANIES & ORGANIZATIONS", value: stats ? String(stats.companiesTotal) : "—", note: "已归档公司与组织" },
       { label: "PRODUCTS", value: stats ? String(stats.productsTotal) : "—", note: "已识别产品与服务" },
       { label: "SOURCES", value: stats ? String(stats.articlesComplete) : "—", note: "已完成结构化的报道" },
     ];
