@@ -51,11 +51,19 @@ def apply(overview, snapshot, rules, tx):
     pending = overview.setdefault('pendingEntities', [])
     excluded = overview.setdefault('excludedEntities', [])
     for row in list(rows):
+        identity_reviews = [d for d in rules.get('productIdentityReviews', []) if d['name'] == row['company_name']]
+        reviewed_ids = {d['articleId'] for d in identity_reviews}
+        source_ids = {a['id'] for a in row.get('sourceArticles', [])}
+        if source_ids and source_ids.issubset(reviewed_ids):
+            row['entityType'] = 'product'
+            row['identityReview'] = identity_reviews
+            for update in row.get('productUpdates', []):
+                update['relationship'] = 'unknown'
         disposition = rules.get('excluded', {}).get(row['company_name'])
         if disposition:
             if not disposition.get('url') or not disposition.get('reason'):
                 raise ValueError('非公司主体处理缺少证据')
-            excluded.append(dict(row, reviewDisposition=disposition, reviewStatus='confirmed_non_company'))
+            excluded.append(dict(row, reviewDisposition=disposition, reviewStatus=disposition.get('status', 'confirmed_non_company')))
             rows.remove(row)
             audit['excluded'].append({'name': row['company_name'], **disposition})
             continue
@@ -67,6 +75,22 @@ def apply(overview, snapshot, rules, tx):
             rows.remove(row)
             audit['pending'].append({'name': row['company_name'], 'reason': reason})
     for row in [*rows, *pending]:
+        for decision in rules.get('productNameReviews', []):
+            if row['company_name'] != decision['company']:
+                continue
+            for update in row.get('productUpdates', []):
+                if update.get('articleId') == decision['articleId'] and update['name'] == decision['from']:
+                    update.update(name=decision['to'], originalName=decision['from'], quote=decision['quote'])
+            for evidence in row.get('fieldSources', {}).get('product_names', []):
+                if evidence.get('articleId') == decision['articleId'] and evidence['value'] == decision['from']:
+                    evidence['value'] = decision['to']
+            row['product_names'] = [p for p in row['product_names'] if p != decision['from'] or any(u['name'] == p for u in row.get('productUpdates', []))]
+        for decision in rules.get('excludedProducts', []):
+            if row['company_name'] != decision['company']:
+                continue
+            row['productUpdates'] = [u for u in row.get('productUpdates', []) if not (u.get('articleId') == decision['articleId'] and u['name'] == decision['name'])]
+            row['fieldSources']['product_names'] = [e for e in row['fieldSources'].get('product_names', []) if not (e.get('articleId') == decision['articleId'] and e['value'] == decision['name'])]
+            row['product_names'] = [p for p in row['product_names'] if p != decision['name'] or any(u['name'] == p for u in row['productUpdates'])]
         refresh(row)
         for decision in rules.get('productRelationships', []):
             if row['company_name'] != decision['company']:

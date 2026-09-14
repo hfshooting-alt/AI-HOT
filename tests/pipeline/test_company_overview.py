@@ -80,6 +80,20 @@ class CompanyOverviewTest(unittest.TestCase):
         reviewed[1]['products'][0].update(relationship='owned', quote='T工具公司开发的 T工具')
         self.assertEqual(guard_integrated_product_identities(reviewed)[1]['entity_type'], 'company')
 
+    def test_reprocessing_replaces_only_successful_article_product_contributions(self):
+        from company_index.products import replace_article_products
+        original = {"companies": [{"product_names": ["错误关联", "历史产品", "失败保留", "官网产品"],
+            "fieldSources": {"product_names": [
+                {"value": "错误关联", "articleId": "success", "origin": "article"},
+                {"value": "历史产品", "articleId": "old", "origin": "article"},
+                {"value": "失败保留", "articleId": "failed", "origin": "article"},
+                {"value": "官网产品", "articleId": "success", "origin": "research"}]},
+            "productUpdates": [{"name": "错误关联", "articleId": "success"}]}]}
+        result = replace_article_products(original, {"success"})
+        self.assertEqual(result['companies'][0]['product_names'], ['历史产品', '失败保留', '官网产品'])
+        self.assertEqual(len(original['companies'][0]['product_names']), 4)
+        self.assertEqual(result['companies'][0]['productUpdates'], [])
+
     def setUp(self):
         self.root = Path(make_temp_dir("overview-test-"))
         self.addCleanup(shutil.rmtree, self.root, ignore_errors=True)

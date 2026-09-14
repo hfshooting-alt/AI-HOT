@@ -492,6 +492,25 @@
       "checkedAt": "2026-09-14"
     }
   ]
+},
+{
+  "record_name": "Grok",
+  "owner_company": "xAI",
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "owner_company",
+      "value": "xAI",
+      "url": "https://www.ithome.com/1/001/875.htm",
+      "title": "微软将 xAI Grok 模型整合进 Word、Excel 和 PowerPoint 的 Copilot",
+      "quote": "微软将 xAI 的 Grok 模型整合进 Microsoft 365 Copilot",
+      "origin": "article",
+      "articleId": "aihot:cmu0f6bsx0lvzrorykvvl8lvi",
+      "publishedAt": "2026-09-13T22:59:20.000Z",
+      "checkedAt": "2026-09-14",
+      "sourceName": "IT之家（RSS）"
+    }
+  ]
 }
 ]
 }

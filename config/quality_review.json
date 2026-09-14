@@ -36,6 +36,11 @@
     "Recurrent Looped Transformer": {
       "reason": "纯论文架构方法，不是实际可用产品；保留论文新闻。",
       "url": "https://www.marktechpost.com/2026/09/13/a-princeton-researcher-proposes-recurrent-looped-transformer-rlt"
+    },
+    "NextNewThing": {
+      "reason": "该文只包含解读者署名，没有可收录的公司实质业务信息。",
+      "url": "https://x.com/dexhorthy/status/2099160648576090492",
+      "status": "insufficient_entity_evidence"
     }
   },
   "classifications": {
@@ -96,6 +101,40 @@
       "articleId": "aihot:cmtzgtsbu036dro97c3qfiik7",
       "relationship": "integrated",
       "quote": "特斯拉车主手册披露：Grok 将支持语音收发短信"
+    }
+  ],
+  "productIdentityReviews": [
+    {
+      "name": "Fable",
+      "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+      "reason": "该报道仅比较模型，没有证明存在同名公司。"
+    },
+    {
+      "name": "Opus",
+      "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+      "reason": "该报道仅比较模型，没有证明存在同名公司。"
+    },
+    {
+      "name": "GLM",
+      "articleId": "manus:ca9c16453725ee8b",
+      "reason": "报道中的GLM为模型名称，未证明同名公司身份。"
+    }
+  ],
+  "productNameReviews": [
+    {
+      "company": "Tripo",
+      "articleId": "aihot:cmtz6tjeq0wgkroup6tqxaq1g",
+      "from": "Codex",
+      "to": "Tripo Codex 插件",
+      "quote": "Tripo 展示其 Codex 插件"
+    }
+  ],
+  "excludedProducts": [
+    {
+      "company": "Techaro",
+      "articleId": "aihot:cmtz6em7r0w0wroupc3l2ajzv",
+      "name": "Lygma AGI",
+      "reason": "原文将其称为实验室，不是产品。"
     }
   ]
 }

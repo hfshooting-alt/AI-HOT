@@ -73,3 +73,25 @@ def guard_integrated_product_identities(companies):
         for product in products:
             product["relationship"] = "unknown"
     return companies
+
+
+def replace_article_products(previous, article_ids):
+    """Remove only superseded article contributions before merging new results.
+
+    Keep other days, failed extractions, unscoped legacy names and reviewed
+    research evidence. The caller supplies successfully reprocessed article IDs.
+    """
+    import copy
+    result = copy.deepcopy(previous)
+    for rec in result.get("companies", []):
+        sources = rec.setdefault("fieldSources", {})
+        evidence = sources.get("product_names", [])
+        updates = rec.get("productUpdates", [])
+        removed = {key(e["value"]) for e in evidence if e.get("articleId") in article_ids and e.get("origin") != "research"}
+        removed.update(key(u["name"]) for u in updates if u.get("articleId") in article_ids)
+        sources["product_names"] = [e for e in evidence if e.get("articleId") not in article_ids or e.get("origin") == "research"]
+        rec["productUpdates"] = [u for u in updates if u.get("articleId") not in article_ids]
+        surviving = {key(e["value"]) for e in sources["product_names"]}
+        surviving.update(key(u["name"]) for u in rec["productUpdates"])
+        rec["product_names"] = [p for p in rec.get("product_names", []) if key(p) not in removed or key(p) in surviving]
+    return result
