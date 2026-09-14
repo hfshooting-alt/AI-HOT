@@ -64,6 +64,22 @@ class CompanyOverviewTest(unittest.TestCase):
         self.assertEqual(result[0]['relationship'], 'unknown')
         self.assertEqual(result[0]['name'], 'Tool')
 
+    def test_integration_does_not_prove_same_name_supplier_identity(self):
+        from company_index.products import guard_integrated_product_identities
+        companies = [
+            {"company_name": "A公司", "entity_type": "company", "products": [
+                {"name": "T工具", "relationship": "integrated", "quote": "接入虚拟组网工具 T工具"}]},
+            {"company_name": "T工具", "entity_type": "company", "products": [
+                {"name": "T工具", "relationship": "owned", "quote": "虚拟组网工具 T工具"}]},
+        ]
+        reviewed = guard_integrated_product_identities(companies)
+        self.assertEqual(reviewed[0]['products'][0]['relationship'], 'integrated')
+        self.assertEqual(reviewed[1]['entity_type'], 'product')
+        self.assertEqual(reviewed[1]['products'][0]['relationship'], 'unknown')
+        reviewed[1]['entity_type'] = 'company'
+        reviewed[1]['products'][0].update(relationship='owned', quote='T工具公司开发的 T工具')
+        self.assertEqual(guard_integrated_product_identities(reviewed)[1]['entity_type'], 'company')
+
     def setUp(self):
         self.root = Path(make_temp_dir("overview-test-"))
         self.addCleanup(shutil.rmtree, self.root, ignore_errors=True)

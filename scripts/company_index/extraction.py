@@ -7,7 +7,7 @@ from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 
 import tag_news
 from llm_common import parse_output
-from .products import normalize as normalize_products
+from .products import normalize as normalize_products, guard_integrated_product_identities
 from .config import PROMPT_VERSION, SCALAR_FIELDS, overview_cfg
 
 
@@ -24,6 +24,9 @@ def build_prompt(tx: dict, article: dict) -> tuple[str, str]:
 纯论文、架构、算法方法不作为产品返回；已经实际可用的开源工具继续保留。
 产品归属只认开发或运营主体。集成、使用第三方产品同样保留到该公司的产品动态，但绝不能标成自有产品；只提到产品名不能推断归属。
 
+关系方向以company_name为主语、products.name为宾语：A公司把B公司开发的X接入自己的Y时，A的X关系是integrated，B的X关系是owned；A的Y若原文确认自有则是owned，不能因Y接收了集成而把Y标integrated。必须保留A所集成的X，不能只列Y。used同理表示该公司使用的第三方产品。
+文章只把某名称称为工具、产品或模型，不足以证明存在同名公司；即使你知道其商业背景，也不能补造company实体。合作产品已挂到集成公司的products时，无需再创建同名公司。独立产品没有公司归属时仍按entity_type=product保留。
+
 每家公司一条记录：
 - company_name：文章采用的公司名称，必填
 - entity_type：company（明确公司）或product（公司归属待核实的产品）
@@ -35,7 +38,7 @@ def build_prompt(tx: dict, article: dict) -> tuple[str, str]:
 
 只使用文章明确表达的事实。缺失字段为 null，数组缺失为 []。不得根据常识补全，不得把媒体来源本身当作被报道公司。
 country 必须是公司所属国家而不是市场覆盖范围。total_funding 是累计融资，不能把单轮融资填为累计融资；valuation 保留币种与估值时点，不能使用市值代替。不要以模型记忆补全团队和成立时间。
-只输出 JSON：{{"companies":[{{"company_name":"...","entity_type":"company","aliases":[],"product_names":[],"founded":null,"country":null,"team":null,"business":null,"investors":null,"total_funding":null,"valuation":null,"industry_id":"ai_other"}}]}}"""
+只输出 JSON：{{"companies":[{{"company_name":"...","entity_type":"company","aliases":[],"product_names":[],"products":[{{"name":"产品名","relationship":"unknown","quote":"原文逐字引文","kind":"product"}}],"founded":null,"country":null,"team":null,"business":null,"investors":null,"total_funding":null,"valuation":null,"industry_id":"ai_other"}}]}}"""
     cfg = overview_cfg(tx)
     user = (f"标题：{article['title']}\n来源：{article['sourceName']}\n"
             f"发布时间：{article.get('publishedAt') or '未知'}（今年/去年以此时间为基准；未知时保留相对时间）\n"
@@ -88,7 +91,7 @@ def extract_one(tx: dict, article: dict, llm_fn) -> dict:
         companies = [c for c in (normalize_company(v, tx) for v in raw["companies"]) if c]
         for company in companies:
             company["products"] = normalize_products(company.get("products"), article)
-        return {"status": "complete", "companies": companies}
+        return {"status": "complete", "companies": guard_integrated_product_identities(companies)}
     except Exception as exc:  # noqa: BLE001 - 单篇失败由统计与发布门槛处理
         return {"status": "failed", "companies": [], "reason": str(exc)[:160]}
 

@@ -46,3 +46,30 @@ def merge_updates(rec, item, article):
         updates[:] = [old for old in updates if not (key(old["name"]) == key(u["name"]) and old.get("articleId") == article["id"])]
         updates.append(u)
     refresh(rec)
+
+
+def guard_integrated_product_identities(companies):
+    """A same-name supplier needs more than another company's integration evidence.
+
+    Preserve the product when its sole ownership quote describes the integrated
+    tool itself. This is a narrow evidence guard, not a company name dictionary.
+    """
+    integrated = {key(p["name"]) for c in companies for p in c.get("products", [])
+                  if p["relationship"] in {"integrated", "used"} and key(c["company_name"]) != key(p["name"])}
+    for company in companies:
+        name = key(company["company_name"])
+        products = company.get("products", [])
+        if company.get("entity_type") != "company" or name not in integrated or not products:
+            continue
+        if not all(key(p["name"]) == name for p in products):
+            continue
+        # A tool label is not an ownership assertion. Explicit company/team or
+        # development/operation evidence keeps the company available for review.
+        if any(re.search(r"公司|团队|开发|运营|旗下|成立|创办|创始|company|develop|operat|founded", p.get("quote", ""), re.I) for p in products):
+            continue
+        if not all(re.search(r"工具|产品|模型|应用|tool|product|model|app", p.get("quote", ""), re.I) for p in products):
+            continue
+        company["entity_type"] = "product"
+        for product in products:
+            product["relationship"] = "unknown"
+    return companies
