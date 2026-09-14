@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-14T16:21:50+08:00",
-  "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
+  "generatedAt": "2026-09-14T16:43:06+08:00",
+  "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
   "stats": {
     "articlesProcessed": 199,
     "articlesComplete": 199,
@@ -10,9 +10,9 @@
     "modelCalls": 0,
     "cacheHits": 199,
     "companiesTotal": 64,
-    "productsTotal": 78,
-    "pendingEntities": 17,
-    "excludedEntities": 0
+    "productsTotal": 77,
+    "pendingEntities": 16,
+    "excludedEntities": 1
   },
   "companies": [
     {
@@ -106,7 +106,27 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T01:29:40.000Z",
       "latestReportAt": "2026-09-14T01:29:40.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "iOS 27",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0lmcgu0tq7rorylexr05pu",
+          "url": "https://www.ithome.com/1/001/921.htm",
+          "publishedAt": "2026-09-14T01:29:40.000Z",
+          "title": "苹果 iOS 27 正式版前瞻：升级 Siri AI、液态玻璃优化、隔空投送提速 80%"
+        },
+        {
+          "name": "Siri AI",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0lmcgu0tq7rorylexr05pu",
+          "url": "https://www.ithome.com/1/001/921.htm",
+          "publishedAt": "2026-09-14T01:29:40.000Z",
+          "title": "苹果 iOS 27 正式版前瞻：升级 Siri AI、液态玻璃优化、隔空投送提速 80%"
+        }
+      ]
     },
     {
       "id": "company:12b0c8b376b8375e",
@@ -115,14 +135,14 @@
         "Microsoft"
       ],
       "product_names": [
-        "MAI 模型",
+        "Foundry",
         "MAI",
+        "MAI 模型",
         "Microsoft 365 Copilot",
         "Word",
         "Excel",
         "PowerPoint",
-        "Microsoft Frontier",
-        "Foundry"
+        "Microsoft Frontier"
       ],
       "founded": null,
       "country": "美国",
@@ -404,7 +424,108 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T01:27:30.000Z",
       "latestReportAt": "2026-09-14T01:27:30.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Foundry",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0km70g0sjyrory1ix2f1cz",
+          "url": "https://x.com/satyanadella/status/2099309030816813378",
+          "publishedAt": "2026-09-14T01:27:30.000Z",
+          "title": "微软 Foundry 让长时运行智能体企业级落地"
+        },
+        {
+          "name": "MAI",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0g1xxl0n1proryfcdzkdoc",
+          "url": "https://x.com/AISafetyMemes/status/2099274308204060739",
+          "publishedAt": "2026-09-13T23:09:32.000Z",
+          "title": "Microsoft CEO Nadella 表态支持审慎推进超级智能，并将公开 MAI 模型行为准则"
+        },
+        {
+          "name": "MAI 模型",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0f6bsx0lvyroryli19klv3",
+          "url": "https://www.ithome.com/1/001/876.htm",
+          "publishedAt": "2026-09-13T23:00:21.000Z",
+          "title": "微软 CEO 纳德拉：支持 AI 审慎发展与独立审计，AI 行为准则明日公布"
+        },
+        {
+          "name": "Microsoft 365 Copilot",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0f6bsx0lvzrorykvvl8lvi",
+          "url": "https://www.ithome.com/1/001/875.htm",
+          "publishedAt": "2026-09-13T22:59:20.000Z",
+          "title": "微软将 xAI Grok 模型整合进 Word、Excel 和 PowerPoint 的 Copilot"
+        },
+        {
+          "name": "Word",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0f6bsx0lvzrorykvvl8lvi",
+          "url": "https://www.ithome.com/1/001/875.htm",
+          "publishedAt": "2026-09-13T22:59:20.000Z",
+          "title": "微软将 xAI Grok 模型整合进 Word、Excel 和 PowerPoint 的 Copilot"
+        },
+        {
+          "name": "Excel",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0f6bsx0lvzrorykvvl8lvi",
+          "url": "https://www.ithome.com/1/001/875.htm",
+          "publishedAt": "2026-09-13T22:59:20.000Z",
+          "title": "微软将 xAI Grok 模型整合进 Word、Excel 和 PowerPoint 的 Copilot"
+        },
+        {
+          "name": "PowerPoint",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0f6bsx0lvzrorykvvl8lvi",
+          "url": "https://www.ithome.com/1/001/875.htm",
+          "publishedAt": "2026-09-13T22:59:20.000Z",
+          "title": "微软将 xAI Grok 模型整合进 Word、Excel 和 PowerPoint 的 Copilot"
+        },
+        {
+          "name": "Microsoft Frontier",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0f6bsx0lvzrorykvvl8lvi",
+          "url": "https://www.ithome.com/1/001/875.htm",
+          "publishedAt": "2026-09-13T22:59:20.000Z",
+          "title": "微软将 xAI Grok 模型整合进 Word、Excel 和 PowerPoint 的 Copilot"
+        },
+        {
+          "name": "MAI 模型",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu09ovja0d7hroryma8dzprx",
+          "url": "https://x.com/testingcatalog/status/2099228834260242606",
+          "publishedAt": "2026-09-13T20:08:50.000Z",
+          "title": "纳德拉：前沿AI发展需有意识放慢节奏"
+        },
+        {
+          "name": "MAI",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu094cjy0cp8rory22zejojn",
+          "url": "https://x.com/mustafasuleyman/status/2099223582434083103",
+          "publishedAt": "2026-09-13T19:47:58.000Z",
+          "title": "微软AI CEO呼应纳德拉：AI须服务人类"
+        },
+        {
+          "name": "MAI 模型",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0937420cn4rory1zyvcm4l",
+          "url": "https://x.com/rohanpaul_ai/status/2099222293633524064",
+          "publishedAt": "2026-09-13T19:42:51.000Z",
+          "title": "纳德拉称追求超级智能需要刻意放慢节奏以做对对齐"
+        }
+      ]
     },
     {
       "id": "company:ea3bd73e2b506e00",
@@ -414,11 +535,10 @@
       ],
       "product_names": [
         "muse",
-        "MSL",
         "Muse Spark 1.3",
         "muse code",
-        "Muse",
-        "Muse Feed"
+        "Muse Feed",
+        "MSL"
       ],
       "founded": null,
       "country": "美国",
@@ -1091,7 +1211,135 @@
         }
       },
       "latestReportAt": "2026-09-14T01:04:39.000Z",
-      "profileUpdatedAt": "2026-09-14T16:11:39+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "muse",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0juoe90rv6roryu2phpb41",
+          "url": "https://x.com/alexandr_wang/status/2099303280308564355",
+          "publishedAt": "2026-09-14T01:04:39.000Z",
+          "title": "Meta Muse 可帮你办理机票退款"
+        },
+        {
+          "name": "muse",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0iripj0q8hrory237w8gih",
+          "url": "https://x.com/alexandr_wang/status/2099290523895021773",
+          "publishedAt": "2026-09-14T00:13:58.000Z",
+          "title": "Meta muse 现身美网公开赛"
+        },
+        {
+          "name": "muse",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0iripj0q8irorynv5aq55s",
+          "url": "https://x.com/alexandr_wang/status/2099290395763204201",
+          "publishedAt": "2026-09-14T00:13:27.000Z",
+          "title": "Muse 助力美国医疗系统导航"
+        },
+        {
+          "name": "muse",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu00jnpt07u7roymeayeokkv",
+          "url": "https://x.com/alexandr_wang/status/2099164106490347745",
+          "publishedAt": "2026-09-13T15:51:38.000Z",
+          "title": "Alexandr Wang 盛赞 Muse 团队打造产品与模型"
+        },
+        {
+          "name": "muse",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzzh2o306f8roymn1f3dl02",
+          "url": "https://x.com/alexandr_wang/status/2099159560103825579",
+          "publishedAt": "2026-09-13T15:33:34.000Z",
+          "title": "Meta 的 Muse 将安全作为发布前提"
+        },
+        {
+          "name": "muse",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzzh2o306faroymhhznthty",
+          "url": "https://x.com/alexandr_wang/status/2099157906319085847",
+          "publishedAt": "2026-09-13T15:26:59.000Z",
+          "title": "Meta Muse 获赞比肩 ChatGPT"
+        },
+        {
+          "name": "Muse Spark 1.3",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+          "publishedAt": "2026-09-13T15:25:02.000Z",
+          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿"
+        },
+        {
+          "name": "muse code",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+          "publishedAt": "2026-09-13T15:25:02.000Z",
+          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿"
+        },
+        {
+          "name": "muse",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzzh2o306fcroym5vyvtav5",
+          "url": "https://x.com/alexandr_wang/status/2099156773039231143",
+          "publishedAt": "2026-09-13T15:22:29.000Z",
+          "title": "Meta Muse 智能体易用性设计"
+        },
+        {
+          "name": "Muse Feed",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzyewl905boroym32h6athk",
+          "url": "https://x.com/alexandr_wang/status/2099150117156888757",
+          "publishedAt": "2026-09-13T14:56:02.000Z",
+          "title": "Alexandr Wang：Muse Feed 功能出自我的构想"
+        },
+        {
+          "name": "muse",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtznk3ta02zoro5ebx6vczaa",
+          "url": "https://x.com/AYi_AInotes/status/2099076449109975471",
+          "publishedAt": "2026-09-13T10:03:19.000Z",
+          "title": "Meta 个人 AI 助手 Muse 官方接入 Tailscale，云端 AI 可进入用户家庭内网"
+        },
+        {
+          "name": "MSL",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzh853g03xxro97q8z8lauz",
+          "url": "https://x.com/kimmonismus/status/2099029815852413325",
+          "publishedAt": "2026-09-13T06:58:00.000Z",
+          "title": "Meta MSL 加码对齐投入，或无需牺牲扩展速度"
+        },
+        {
+          "name": "muse",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzatq2e04m5ro2ogvetcbu8",
+          "url": "https://x.com/alexandr_wang/status/2098985326060683625",
+          "publishedAt": "2026-09-13T04:01:13.000Z",
+          "title": "Muse 帮用户省下 2500 美元"
+        },
+        {
+          "name": "muse",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtz6je770w81roupxk2l9085",
+          "url": "https://x.com/alexandr_wang/status/2098955288204415317",
+          "publishedAt": "2026-09-13T02:01:52.000Z",
+          "title": "Meta 推出 muse money challenge"
+        }
+      ]
     },
     {
       "id": "company:754c490bd199c21a",
@@ -1100,11 +1348,11 @@
         "蚂蚁灵波科技"
       ],
       "product_names": [
-        "LingBot-VLA",
-        "Robbyant R2",
         "LingBot-World 2.0 Small",
         "LingBot-World 2.0 Bidirectional",
-        "LingBot-World 2.0 Causal Pretrain"
+        "LingBot-World 2.0 Causal Pretrain",
+        "LingBot-VLA",
+        "Robbyant R2"
       ],
       "founded": null,
       "country": null,
@@ -1226,7 +1474,54 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:45:00.000Z",
       "latestReportAt": "2026-09-14T00:45:00.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "LingBot-World 2.0 Small",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzy0bd904l4roym4l9j372k",
+          "url": "https://www.ithome.com/1/001/863.htm",
+          "publishedAt": "2026-09-13T14:34:46.000Z",
+          "title": "蚂蚁灵波开源三款 LingBot-World 2.0 世界模型：Small 参数 1.3B 面向消费级单卡 GPU 设计"
+        },
+        {
+          "name": "LingBot-World 2.0 Bidirectional",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzy0bd904l4roym4l9j372k",
+          "url": "https://www.ithome.com/1/001/863.htm",
+          "publishedAt": "2026-09-13T14:34:46.000Z",
+          "title": "蚂蚁灵波开源三款 LingBot-World 2.0 世界模型：Small 参数 1.3B 面向消费级单卡 GPU 设计"
+        },
+        {
+          "name": "LingBot-World 2.0 Causal Pretrain",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzy0bd904l4roym4l9j372k",
+          "url": "https://www.ithome.com/1/001/863.htm",
+          "publishedAt": "2026-09-13T14:34:46.000Z",
+          "title": "蚂蚁灵波开源三款 LingBot-World 2.0 世界模型：Small 参数 1.3B 面向消费级单卡 GPU 设计"
+        },
+        {
+          "name": "LingBot-VLA",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtznv7t102pvro70ldz1kmk2",
+          "url": "https://x.com/robbyant_brain/status/2099076876639875317",
+          "publishedAt": "2026-09-13T10:05:01.000Z",
+          "title": "蚂蚁灵波 LingBot-VLA 亮相外滩大会"
+        },
+        {
+          "name": "Robbyant R2",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtznv7t102pvro70ldz1kmk2",
+          "url": "https://x.com/robbyant_brain/status/2099076876639875317",
+          "publishedAt": "2026-09-13T10:05:01.000Z",
+          "title": "蚂蚁灵波 LingBot-VLA 亮相外滩大会"
+        }
+      ]
     },
     {
       "id": "company:70c6f617fc8e39aa",
@@ -1272,7 +1567,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:45:00.000Z",
       "latestReportAt": "2026-09-14T00:45:00.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:8dc72a4672894e0f",
@@ -1318,7 +1614,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:45:00.000Z",
       "latestReportAt": "2026-09-14T00:45:00.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:5a77fbb292a78277",
@@ -1364,7 +1661,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:45:00.000Z",
       "latestReportAt": "2026-09-14T00:45:00.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:07a94d554b75cbb5",
@@ -1445,7 +1743,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:22:28.000Z",
       "latestReportAt": "2026-09-14T00:22:28.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "EAI 机器人",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0jgo260r4drory55yz87bf",
+          "url": "https://www.ithome.com/1/001/904.htm",
+          "publishedAt": "2026-09-14T00:22:28.000Z",
+          "title": "法拉第未来预告北京时间 9 月 20 日 EAI 机器人\"四核全智\"发布会，将推 9 款机器人本体"
+        }
+      ]
     },
     {
       "id": "company:c70eca6b0f88f44d",
@@ -1453,9 +1762,9 @@
       "aliases": [],
       "product_names": [
         "Claude Code",
-        "Claude",
         "Antspace",
-        "Baku"
+        "Baku",
+        "Claude"
       ],
       "founded": null,
       "country": "美国",
@@ -2002,7 +2311,81 @@
         }
       },
       "latestReportAt": "2026-09-14T00:20:10.000Z",
-      "profileUpdatedAt": "2026-09-14T16:11:39+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Claude Code",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0imxej0q29rorys85odi22",
+          "url": "https://x.com/hongming731/status/2099292084335427991",
+          "publishedAt": "2026-09-14T00:20:10.000Z",
+          "title": "BestBlogs 早报：Claude Code 运行时逆向与 GPT-Live 1 上线"
+        },
+        {
+          "name": "Antspace",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0imxej0q29rorys85odi22",
+          "url": "https://x.com/hongming731/status/2099292084335427991",
+          "publishedAt": "2026-09-14T00:20:10.000Z",
+          "title": "BestBlogs 早报：Claude Code 运行时逆向与 GPT-Live 1 上线"
+        },
+        {
+          "name": "Baku",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0imxej0q29rorys85odi22",
+          "url": "https://x.com/hongming731/status/2099292084335427991",
+          "publishedAt": "2026-09-14T00:20:10.000Z",
+          "title": "BestBlogs 早报：Claude Code 运行时逆向与 GPT-Live 1 上线"
+        },
+        {
+          "name": "Claude Code",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0imxej0q2arorypg0m4ev3",
+          "url": "https://x.com/hongming731/status/2099291986146828668",
+          "publishedAt": "2026-09-14T00:19:47.000Z",
+          "title": "BestBlogs 早报：AI 采用提升是选择效应，Evernote 团队缩至 50-60 人提速三倍，Claude Code 逆向挖出 Antspace"
+        },
+        {
+          "name": "Antspace",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0imxej0q2arorypg0m4ev3",
+          "url": "https://x.com/hongming731/status/2099291986146828668",
+          "publishedAt": "2026-09-14T00:19:47.000Z",
+          "title": "BestBlogs 早报：AI 采用提升是选择效应，Evernote 团队缩至 50-60 人提速三倍，Claude Code 逆向挖出 Antspace"
+        },
+        {
+          "name": "Claude",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu080nja0b7croryy3aohmek",
+          "url": "https://x.com/rohanpaul_ai/status/2099217778121355723",
+          "publishedAt": "2026-09-13T19:24:54.000Z",
+          "title": "Dario Amodei 在 CBS 访谈中称愿在合适条件下向政府组合交出 Anthropic 技术"
+        },
+        {
+          "name": "Claude",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu05vgtn08rmrorym4u3h9ih",
+          "url": "https://x.com/rohanpaul_ai/status/2099206571880579463",
+          "publishedAt": "2026-09-13T18:40:22.000Z",
+          "title": "Dario Amodei 谈 AI 风险与安全防护争议"
+        },
+        {
+          "name": "Claude Code",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu01iavi08reroymepsxnar2",
+          "url": "https://clashreport.com/world/articles/houthis-used-claude-code-to-develop-missile-guidance-software-anthropic-s52mnx4pwpo",
+          "publishedAt": "2026-09-13T14:15:40.000Z",
+          "title": "Anthropic 报告称胡塞组织用 Claude Code 开发导弹制导软件"
+        }
+      ]
     },
     {
       "id": "company:367c1475e4bbbdf7",
@@ -2061,16 +2444,27 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:19:47.000Z",
       "latestReportAt": "2026-09-14T00:19:47.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Evernote",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0imxej0q2arorypg0m4ev3",
+          "url": "https://x.com/hongming731/status/2099291986146828668",
+          "publishedAt": "2026-09-14T00:19:47.000Z",
+          "title": "BestBlogs 早报：AI 采用提升是选择效应，Evernote 团队缩至 50-60 人提速三倍，Claude Code 逆向挖出 Antspace"
+        }
+      ]
     },
     {
       "id": "company:6fcba5d96a4fadfd",
       "company_name": "xAI",
       "aliases": [],
       "product_names": [
-        "Grok Bot",
+        "Grok Build",
         "Grok",
-        "Grok Build"
+        "Grok Bot"
       ],
       "founded": null,
       "country": null,
@@ -2174,7 +2568,37 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:13:22.000Z",
       "latestReportAt": "2026-09-14T00:13:22.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Grok Build",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0iow520q50rorykrqq21uu",
+          "url": "https://x.com/elonmusk/status/2099290373046599959",
+          "publishedAt": "2026-09-14T00:13:22.000Z",
+          "title": "马斯克推荐 Grok Build 图像视频编辑工具"
+        },
+        {
+          "name": "Grok",
+          "relationship": "owned",
+          "quote": "微软将 xAI Grok 模型整合进 Word、Excel 和 PowerPoint 的 Copilot",
+          "articleId": "aihot:cmu0f6bsx0lvzrorykvvl8lvi",
+          "url": "https://www.ithome.com/1/001/875.htm",
+          "publishedAt": "2026-09-13T22:59:20.000Z",
+          "title": "微软将 xAI Grok 模型整合进 Word、Excel 和 PowerPoint 的 Copilot",
+          "reviewedAt": "2026-09-14"
+        },
+        {
+          "name": "Grok Bot",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0dbz8h0k1groryya6jx61n",
+          "url": "https://x.com/elonmusk/status/2099256569737207873",
+          "publishedAt": "2026-09-13T21:59:03.000Z",
+          "title": "xAI 将直播用 Grok Bot 从零搭建公司"
+        }
+      ]
     },
     {
       "id": "company:8bcef51236d613cd",
@@ -2336,7 +2760,36 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:03:00.000Z",
       "latestReportAt": "2026-09-14T00:03:00.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "GLM",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0jgo260r4froryczn18ma5",
+          "url": "https://www.ithome.com/1/001/899.htm",
+          "publishedAt": "2026-09-14T00:03:00.000Z",
+          "title": "IT早报 0914：马斯克、奥尔特曼响应 Anthropic 呼吁放缓前沿 AI 开发；智谱官宣 50 亿美元融资"
+        },
+        {
+          "name": "GLM",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzwtyf403bbroymkmhniatu",
+          "url": "https://x.com/frxiaobei/status/2099142001623179438",
+          "publishedAt": "2026-09-13T14:23:48.000Z",
+          "title": "智谱一晚融约50亿美元，作者感叹大模型越来越像重工业"
+        },
+        {
+          "name": "GLM",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzpegzo036croxqz63t5d0k",
+          "url": "https://www.ithome.com/1/001/833.htm",
+          "publishedAt": "2026-09-13T10:50:49.000Z",
+          "title": "智谱宣布完成约 50 亿美元融资，用于下一代 GLM 基础模型研发"
+        }
+      ]
     },
     {
       "id": "company:72e8088a05b38ae3",
@@ -2423,7 +2876,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T23:49:27.000Z",
       "latestReportAt": "2026-09-13T23:49:27.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "AI for Empowerment",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu000znc06y8roymon8a387e",
+          "url": "https://x.com/cohere/status/2099158779564609775",
+          "publishedAt": "2026-09-13T15:30:28.000Z",
+          "title": "Cohere 亮相柏林艺术周"
+        }
+      ]
     },
     {
       "id": "company:7d1507284a5757ca",
@@ -2501,7 +2965,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T23:21:13.000Z",
       "latestReportAt": "2026-09-13T23:21:13.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Pizza Bot",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzkd6qr02z1ro7vsonc95va",
+          "url": "https://www.marktechpost.com/2026/09/13/aws-introduces-pizza-bot-an-open-source-inbox-for-background-ai-agents",
+          "publishedAt": "2026-09-13T08:10:51.000Z",
+          "title": "AWS 开源 Pizza Bot：面向后台 AI 智能体的自托管收件箱应用"
+        }
+      ]
     },
     {
       "id": "company:373b3921ce6ac401",
@@ -2577,16 +3052,27 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T23:13:35.000Z",
       "latestReportAt": "2026-09-13T23:13:35.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Artificial Analysis Intelligence Index",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0ftyht0mujrory0h5aomll",
+          "url": "https://x.com/ArtificialAnlys/status/2099275327012999193",
+          "publishedAt": "2026-09-13T23:13:35.000Z",
+          "title": "Artificial Analysis 成为韩国主权 AI 模型官方评估伙伴"
+        }
+      ]
     },
     {
       "id": "company:7d3194f79e645c42",
       "company_name": "OpenAI",
       "aliases": [],
       "product_names": [
+        "GPT-2",
         "GPT-6 Astra",
-        "GPT Images 2.5",
-        "GPT-2"
+        "GPT Images 2.5"
       ],
       "founded": null,
       "country": "美国",
@@ -3147,7 +3633,54 @@
         }
       },
       "latestReportAt": "2026-09-13T23:11:17.000Z",
-      "profileUpdatedAt": "2026-09-14T16:11:39+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "GPT-2",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0ira720q70rory9qd68dg9",
+          "url": "https://openai.com/index/better-language-models",
+          "publishedAt": "2026-09-13T23:11:17.000Z",
+          "title": "OpenAI 因担忧恶意应用未发布 GPT-2 完整模型"
+        },
+        {
+          "name": "GPT-6 Astra",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzzck780685roym4l67h203",
+          "url": "https://x.com/EMostaque/status/2099158132484100600",
+          "publishedAt": "2026-09-13T15:27:53.000Z",
+          "title": "Emad Mostaque 转发 OpenAI 宣布智能体求解 Navier-Stokes 千禧年难题"
+        },
+        {
+          "name": "GPT-6 Astra",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzpqxc403rzroxqf54hxz65",
+          "url": "https://the-decoder.com/gpt-6-astra-pilots-a-surveillance-drone-and-runs-a-business-on-its-own",
+          "publishedAt": "2026-09-13T10:52:16.000Z",
+          "title": "Andon Labs 评测：GPT-6 Astra 在 Vending-Bench 2 和 Drone-Bench 上大幅领先 Claude Fable 5.1"
+        },
+        {
+          "name": "GPT-6 Astra",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzjd9lb02kvrol5wo7lx98g",
+          "url": "https://x.com/kimmonismus/status/2099045668241457529",
+          "publishedAt": "2026-09-13T08:01:00.000Z",
+          "title": "GPT-6 Astra 或成快速迭代绝响"
+        },
+        {
+          "name": "GPT Images 2.5",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "",
+          "url": "",
+          "publishedAt": "",
+          "title": ""
+        }
+      ]
     },
     {
       "id": "company:3c6d89173e6636d7",
@@ -3208,7 +3741,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T22:54:33.000Z",
       "latestReportAt": "2026-09-13T22:54:33.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "L4 级全自动驾驶电动摆渡车",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0f6bsx0lw0rory3rsvhd4n",
+          "url": "https://www.ithome.com/1/001/874.htm",
+          "publishedAt": "2026-09-13T22:54:33.000Z",
+          "title": "苏黎世机场联合文远知行部署两辆 L4 级全自动驾驶电动摆渡车"
+        }
+      ]
     },
     {
       "id": "company:a9f54b85ea8f98e3",
@@ -3265,7 +3809,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T22:54:33.000Z",
       "latestReportAt": "2026-09-13T22:54:33.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:06dfd59757fc3780",
@@ -3311,7 +3856,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T22:54:33.000Z",
       "latestReportAt": "2026-09-13T22:54:33.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:d73182bcaf0a46d7",
@@ -3357,7 +3903,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T22:54:33.000Z",
       "latestReportAt": "2026-09-13T22:54:33.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:bbdefa2950f49882",
@@ -3366,11 +3913,11 @@
         "谷歌"
       ],
       "product_names": [
-        "Google AI Pro",
-        "YouTube Premium Lite",
-        "Procedural Graph",
         "Gemini",
-        "YouTube"
+        "YouTube",
+        "Procedural Graph",
+        "Google AI Pro",
+        "YouTube Premium Lite"
       ],
       "founded": null,
       "country": "美国",
@@ -3553,7 +4100,54 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T22:45:06.000Z",
       "latestReportAt": "2026-09-13T22:45:06.000Z",
-      "profileUpdatedAt": "2026-09-14T16:11:39+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Gemini",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu06wnce0a3sroryppdwq0gt",
+          "url": "https://www.atomic14.com/2026/09/13/why-is-google-still-serving-dodgy-ads",
+          "publishedAt": "2026-09-13T19:01:14.712Z",
+          "title": "为什么谷歌还在投放可疑广告？Gemini 秒判违规，人工审核却两次放行"
+        },
+        {
+          "name": "YouTube",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu06wnce0a3sroryppdwq0gt",
+          "url": "https://www.atomic14.com/2026/09/13/why-is-google-still-serving-dodgy-ads",
+          "publishedAt": "2026-09-13T19:01:14.712Z",
+          "title": "为什么谷歌还在投放可疑广告？Gemini 秒判违规，人工审核却两次放行"
+        },
+        {
+          "name": "Procedural Graph",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0147kg08beroymmgzdgutw",
+          "url": "https://x.com/dair_ai/status/2099168306863190147",
+          "publishedAt": "2026-09-13T16:08:19.000Z",
+          "title": "DAIR.AI 本周 Top AI 论文精选"
+        },
+        {
+          "name": "Google AI Pro",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzvrbtc0386rogjalykcdtm",
+          "url": "https://x.com/frxiaobei/status/2099132215426977814",
+          "publishedAt": "2026-09-13T13:44:54.000Z",
+          "title": "Google AI Pro 订阅一年 199 美元值不值"
+        },
+        {
+          "name": "YouTube Premium Lite",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzvrbtc0386rogjalykcdtm",
+          "url": "https://x.com/frxiaobei/status/2099132215426977814",
+          "publishedAt": "2026-09-13T13:44:54.000Z",
+          "title": "Google AI Pro 订阅一年 199 美元值不值"
+        }
+      ]
     },
     {
       "id": "company:2bca0ae7f983a8da",
@@ -3629,7 +4223,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T18:49:36.000Z",
       "latestReportAt": "2026-09-13T18:49:36.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "DAIR.AI Academy",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzrux4z05liro1br07c30v0",
+          "url": "https://x.com/AYi_AInotes/status/2099107617264066755",
+          "publishedAt": "2026-09-13T12:07:10.000Z",
+          "title": "DAIR.AI 创始人：为垂直领域构建专属 Harness"
+        }
+      ]
     },
     {
       "id": "company:ec99ce30dc2316d9",
@@ -3692,7 +4297,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T18:45:18.039Z",
       "latestReportAt": "2026-09-13T18:45:18.039Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:a231b41219c8921a",
@@ -3760,7 +4366,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T17:42:38.853Z",
       "latestReportAt": "2026-09-13T17:42:38.853Z",
-      "profileUpdatedAt": "2026-09-14T16:11:39+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:da58e43b1b1c833f",
@@ -3821,7 +4428,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T15:37:53.000Z",
       "latestReportAt": "2026-09-13T15:37:53.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "skills",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzzg8wi06daroym5jarmiou",
+          "url": "https://x.com/dexhorthy/status/2099160648576090492",
+          "publishedAt": "2026-09-13T15:37:53.000Z",
+          "title": "HumanLayer skills 获 NextNewThing 解读"
+        }
+      ]
     },
     {
       "id": "company:69337578b2468a88",
@@ -3901,7 +4519,27 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T14:03:53.000Z",
       "latestReportAt": "2026-09-13T14:03:53.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "OriginOS 7",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzy0bd904l7roymidk6w1yj",
+          "url": "https://www.ithome.com/1/001/857.htm",
+          "publishedAt": "2026-09-13T14:03:53.000Z",
+          "title": "vivo OriginOS 7 预热：全新蓝心小 V 一句话办事，搭载液态动效"
+        },
+        {
+          "name": "蓝心小 V",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzy0bd904l7roymidk6w1yj",
+          "url": "https://www.ithome.com/1/001/857.htm",
+          "publishedAt": "2026-09-13T14:03:53.000Z",
+          "title": "vivo OriginOS 7 预热：全新蓝心小 V 一句话办事，搭载液态动效"
+        }
+      ]
     },
     {
       "id": "company:60094bcf5292c490",
@@ -3947,16 +4585,17 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T13:48:46.987Z",
       "latestReportAt": "2026-09-13T13:48:46.987Z",
-      "profileUpdatedAt": "2026-09-14T16:11:39+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:ec9d55cbf3097cf8",
       "company_name": "Tripo",
       "aliases": [],
       "product_names": [
+        "Tripothon S1",
         "Codex",
-        "Tripo API",
-        "Tripothon S1"
+        "Tripo API"
       ],
       "founded": null,
       "country": null,
@@ -4043,7 +4682,36 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T13:47:22.000Z",
       "latestReportAt": "2026-09-13T13:47:22.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Tripothon S1",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzvgwb402usrogj1m2u17ao",
+          "url": "https://x.com/tripoai/status/2099132834464358690",
+          "publishedAt": "2026-09-13T13:47:22.000Z",
+          "title": "Tripo 启动 Tripothon S1 线上活动"
+        },
+        {
+          "name": "Codex",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtz6tjeq0wgkroup6tqxaq1g",
+          "url": "https://x.com/tripoai/status/2098954222947729590",
+          "publishedAt": "2026-09-13T01:57:38.000Z",
+          "title": "Tripo Codex 插件实现全自动 3D 建模流程"
+        },
+        {
+          "name": "Tripo API",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtz6tjeq0wgkroup6tqxaq1g",
+          "url": "https://x.com/tripoai/status/2098954222947729590",
+          "publishedAt": "2026-09-13T01:57:38.000Z",
+          "title": "Tripo Codex 插件实现全自动 3D 建模流程"
+        }
+      ]
     },
     {
       "id": "company:e853b4e183ed0870",
@@ -4112,7 +4780,27 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T13:40:36.000Z",
       "latestReportAt": "2026-09-13T13:40:36.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "ElevenMusic",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzw6gkg02o4roymrcizzc25",
+          "url": "https://the-decoder.com/elevenlabs-makes-music-v2-5-available-via-app-and-api-with-free-and-pro-tier-options",
+          "publishedAt": "2026-09-13T13:40:36.000Z",
+          "title": "ElevenLabs 发布 Music v2.5，开放应用与 API 并提供免费和 Pro 档位"
+        },
+        {
+          "name": "Music v2.5",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzw6gkg02o4roymrcizzc25",
+          "url": "https://the-decoder.com/elevenlabs-makes-music-v2-5-available-via-app-and-api-with-free-and-pro-tier-options",
+          "publishedAt": "2026-09-13T13:40:36.000Z",
+          "title": "ElevenLabs 发布 Music v2.5，开放应用与 API 并提供免费和 Pro 档位"
+        }
+      ]
     },
     {
       "id": "company:a998d43ae529559d",
@@ -4181,7 +4869,27 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T12:58:18.000Z",
       "latestReportAt": "2026-09-13T12:58:18.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Iris-mini",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzu1b4303hyro394wkmr8wg",
+          "url": "https://the-decoder.com/iris-mini-and-iris-pro-are-the-strongest-open-weight-search-agents-in-their-class",
+          "publishedAt": "2026-09-13T12:58:18.000Z",
+          "title": "AllSpark 发布 Iris-mini 和 Iris-pro 开源搜索智能体"
+        },
+        {
+          "name": "Iris-pro",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzu1b4303hyro394wkmr8wg",
+          "url": "https://the-decoder.com/iris-mini-and-iris-pro-are-the-strongest-open-weight-search-agents-in-their-class",
+          "publishedAt": "2026-09-13T12:58:18.000Z",
+          "title": "AllSpark 发布 Iris-mini 和 Iris-pro 开源搜索智能体"
+        }
+      ]
     },
     {
       "id": "company:5926e79c686d177c",
@@ -4258,7 +4966,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T12:21:32.000Z",
       "latestReportAt": "2026-09-13T12:21:32.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:8d4321d936320802",
@@ -4382,7 +5091,36 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T16:11:39+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "B300",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "manus:ca9c16453725ee8b",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "publishedAt": "2026-09-13T20:16:29+08:00",
+          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？"
+        },
+        {
+          "name": "cuML",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtz6f3680w3kroup83gyk9jn",
+          "url": "https://www.marktechpost.com/2026/09/12/implementation-of-machine-learning-workflows-with-nvidia-cuml-rapids-gpu-benchmarking-explainability-clustering-and-model-inference",
+          "publishedAt": "2026-09-13T01:42:58.000Z",
+          "title": "用 NVIDIA cuML 和 RAPIDS 实现机器学习工作流的完整教程"
+        },
+        {
+          "name": "RAPIDS",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtz6f3680w3kroup83gyk9jn",
+          "url": "https://www.marktechpost.com/2026/09/12/implementation-of-machine-learning-workflows-with-nvidia-cuml-rapids-gpu-benchmarking-explainability-clustering-and-model-inference",
+          "publishedAt": "2026-09-13T01:42:58.000Z",
+          "title": "用 NVIDIA cuML 和 RAPIDS 实现机器学习工作流的完整教程"
+        }
+      ]
     },
     {
       "id": "company:862b6627b54a53bf",
@@ -4452,7 +5190,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Gen-1 Slides",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "manus:ca9c16453725ee8b",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "publishedAt": "2026-09-13T20:16:29+08:00",
+          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？"
+        }
+      ]
     },
     {
       "id": "company:e1517be14d06cdb7",
@@ -4522,7 +5271,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "MiniMax M3",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "manus:ca9c16453725ee8b",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "publishedAt": "2026-09-13T20:16:29+08:00",
+          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？"
+        }
+      ]
     },
     {
       "id": "company:0caee180da9d0f3f",
@@ -4579,7 +5339,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:c9fd53f3265ef997",
@@ -4660,7 +5421,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Tenet",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "manus:ca9c16453725ee8b",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "publishedAt": "2026-09-13T20:16:29+08:00",
+          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？"
+        }
+      ]
     },
     {
       "id": "company:46a4eebd20d881ec",
@@ -4730,7 +5502,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Composer 2",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "manus:ca9c16453725ee8b",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "publishedAt": "2026-09-13T20:16:29+08:00",
+          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？"
+        }
+      ]
     },
     {
       "id": "company:2bf548d8056029c7",
@@ -4800,7 +5583,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "GLM-5.2",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "manus:ca9c16453725ee8b",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "publishedAt": "2026-09-13T20:16:29+08:00",
+          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？"
+        }
+      ]
     },
     {
       "id": "company:9ba8bec5d58fb025",
@@ -4857,15 +5651,16 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:481243d2f2a235c1",
       "company_name": "月之暗面（Moonshot AI）",
       "aliases": [],
       "product_names": [
-        "Kimi",
-        "Kimi K2.5"
+        "Kimi K2.5",
+        "Kimi"
       ],
       "founded": "2023年春",
       "country": "中国",
@@ -5026,7 +5821,27 @@
         }
       },
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Kimi K2.5",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "manus:ca9c16453725ee8b",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "publishedAt": "2026-09-13T20:16:29+08:00",
+          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？"
+        },
+        {
+          "name": "Kimi",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "research:d7bb891adb4b5ef3",
+          "url": "https://www.moonshot.ai/zh/about",
+          "publishedAt": "",
+          "title": "Moonshot AI 关于我们"
+        }
+      ]
     },
     {
       "id": "company:7931b6d10b3c8a5f",
@@ -5094,7 +5909,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T11:32:25.000Z",
       "latestReportAt": "2026-09-13T11:32:25.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:5d37b83b91686c44",
@@ -5140,7 +5956,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:52:16.000Z",
       "latestReportAt": "2026-09-13T10:52:16.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:c478ca9e4f4ab8fd",
@@ -5243,7 +6060,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:29:21.000Z",
       "latestReportAt": "2026-09-13T10:29:21.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:24c3be896337e2d5",
@@ -5300,7 +6118,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:29:21.000Z",
       "latestReportAt": "2026-09-13T10:29:21.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:636ee30352b814ee",
@@ -5346,7 +6165,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:05:01.000Z",
       "latestReportAt": "2026-09-13T10:05:01.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:9e4d6b563efd88a8",
@@ -5392,7 +6212,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:05:01.000Z",
       "latestReportAt": "2026-09-13T10:05:01.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:4f6af63c040d3b79",
@@ -5438,7 +6259,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:05:01.000Z",
       "latestReportAt": "2026-09-13T10:05:01.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:795b104abe3e4134",
@@ -5484,7 +6306,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:03:19.000Z",
       "latestReportAt": "2026-09-13T10:03:19.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:d5ac7e039c4dc4be",
@@ -5552,7 +6375,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T09:45:43.000Z",
       "latestReportAt": "2026-09-13T09:45:43.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:1bc7326d38e0e31b",
@@ -5621,7 +6445,27 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T09:08:00.000Z",
       "latestReportAt": "2026-09-13T09:08:00.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "RHTV",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+          "publishedAt": "2026-09-13T09:08:00.000Z",
+          "title": "从4秒到两小时，AI视频长叙事正在走向完整故事"
+        },
+        {
+          "name": "RHSTORY",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+          "publishedAt": "2026-09-13T09:08:00.000Z",
+          "title": "从4秒到两小时，AI视频长叙事正在走向完整故事"
+        }
+      ]
     },
     {
       "id": "company:ae679821f0649c15",
@@ -5680,7 +6524,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T09:08:00.000Z",
       "latestReportAt": "2026-09-13T09:08:00.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Gen-2",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+          "publishedAt": "2026-09-13T09:08:00.000Z",
+          "title": "从4秒到两小时，AI视频长叙事正在走向完整故事"
+        }
+      ]
     },
     {
       "id": "company:916a98f0fa2a39af",
@@ -5749,7 +6604,27 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T07:35:37.000Z",
       "latestReportAt": "2026-09-13T07:35:37.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "STAIR",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzi7d12033mrojehmlpinsy",
+          "url": "https://x.com/AYi_AInotes/status/2099039280827912318",
+          "publishedAt": "2026-09-13T07:35:37.000Z",
+          "title": "IBM STAIR 用目录树检索替代碎纸式 RAG"
+        },
+        {
+          "name": "SearchTome",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzi7d12033mrojehmlpinsy",
+          "url": "https://x.com/AYi_AInotes/status/2099039280827912318",
+          "publishedAt": "2026-09-13T07:35:37.000Z",
+          "title": "IBM STAIR 用目录树检索替代碎纸式 RAG"
+        }
+      ]
     },
     {
       "id": "company:22047743d7f6b4ea",
@@ -5819,7 +6694,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T07:32:12.000Z",
       "latestReportAt": "2026-09-13T07:32:12.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "国产 GPU + 类脑芯片大模型异构混合推理系统",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtziyyjw042grojebujak077",
+          "url": "https://www.ithome.com/1/001/793.htm",
+          "publishedAt": "2026-09-13T07:32:12.000Z",
+          "title": "国内首个国产 GPU + 类脑芯片大模型异构混合推理系统发布，较同类国产 GPU 算力集群性价比提升一倍以上"
+        }
+      ]
     },
     {
       "id": "company:5d23d6aef5cdb928",
@@ -5889,7 +6775,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T07:32:12.000Z",
       "latestReportAt": "2026-09-13T07:32:12.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "国产 GPU + 类脑芯片大模型异构混合推理系统",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtziyyjw042grojebujak077",
+          "url": "https://www.ithome.com/1/001/793.htm",
+          "publishedAt": "2026-09-13T07:32:12.000Z",
+          "title": "国内首个国产 GPU + 类脑芯片大模型异构混合推理系统发布，较同类国产 GPU 算力集群性价比提升一倍以上"
+        }
+      ]
     },
     {
       "id": "company:d04a90247c162cf0",
@@ -5959,7 +6856,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T07:32:12.000Z",
       "latestReportAt": "2026-09-13T07:32:12.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "国产 GPU + 类脑芯片大模型异构混合推理系统",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtziyyjw042grojebujak077",
+          "url": "https://www.ithome.com/1/001/793.htm",
+          "publishedAt": "2026-09-13T07:32:12.000Z",
+          "title": "国内首个国产 GPU + 类脑芯片大模型异构混合推理系统发布，较同类国产 GPU 算力集群性价比提升一倍以上"
+        }
+      ]
     },
     {
       "id": "company:509f226edbb9f410",
@@ -6029,7 +6937,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T07:32:12.000Z",
       "latestReportAt": "2026-09-13T07:32:12.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "国产 GPU + 类脑芯片大模型异构混合推理系统",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtziyyjw042grojebujak077",
+          "url": "https://www.ithome.com/1/001/793.htm",
+          "publishedAt": "2026-09-13T07:32:12.000Z",
+          "title": "国内首个国产 GPU + 类脑芯片大模型异构混合推理系统发布，较同类国产 GPU 算力集群性价比提升一倍以上"
+        }
+      ]
     },
     {
       "id": "company:ddadc7e89f7cd629",
@@ -6088,7 +7007,19 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T06:43:03.000Z",
       "latestReportAt": "2026-09-13T06:43:03.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Grok",
+          "relationship": "integrated",
+          "quote": "特斯拉车主手册披露：Grok 将支持语音收发短信",
+          "articleId": "aihot:cmtzgtsbu036dro97c3qfiik7",
+          "url": "https://www.ithome.com/1/001/755.htm",
+          "publishedAt": "2026-09-13T06:43:03.000Z",
+          "title": "特斯拉车主手册披露：Grok 将支持语音收发短信",
+          "reviewedAt": "2026-09-14"
+        }
+      ]
     },
     {
       "id": "company:e7330f82f0657d55",
@@ -6147,7 +7078,18 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T06:25:24.000Z",
       "latestReportAt": "2026-09-13T06:25:24.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "TuringQ Gen3",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzgtsbv036fro97quiplowc",
+          "url": "https://www.ithome.com/1/001/752.htm",
+          "publishedAt": "2026-09-13T06:25:24.000Z",
+          "title": "图灵量子发布 TuringQ Gen3 第三代光量子计算机：标准 IDC 机柜形态，采用自研 XLink 低延迟互联架构"
+        }
+      ]
     },
     {
       "id": "company:53b69ef92c836777",
@@ -6193,7 +7135,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T06:19:32.000Z",
       "latestReportAt": "2026-09-13T06:19:32.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:166fb78f0f44d271",
@@ -6272,7 +7215,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T06:19:32.000Z",
       "latestReportAt": "2026-09-13T06:19:32.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:e7722ccdbf4d9c02",
@@ -6318,7 +7262,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T06:03:06.000Z",
       "latestReportAt": "2026-09-13T06:03:06.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:90d08a2d45d94e95",
@@ -6398,7 +7343,27 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T03:11:15.000Z",
       "latestReportAt": "2026-09-13T03:11:15.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "OpenArm",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtz9ml7a031qro2oi613brcu",
+          "url": "https://x.com/AYi_AInotes/status/2098972751570645375",
+          "publishedAt": "2026-09-13T03:11:15.000Z",
+          "title": "日本团队 enactic_ai 全面开源 7 自由度人形机械臂 OpenArm"
+        },
+        {
+          "name": "Leader Arm",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtz9ml7a031qro2oi613brcu",
+          "url": "https://x.com/AYi_AInotes/status/2098972751570645375",
+          "publishedAt": "2026-09-13T03:11:15.000Z",
+          "title": "日本团队 enactic_ai 全面开源 7 自由度人形机械臂 OpenArm"
+        }
+      ]
     },
     {
       "id": "company:105260ea5c192101",
@@ -6455,7 +7420,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T02:21:05.000Z",
       "latestReportAt": "2026-09-13T02:21:05.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:ca4b1c09fa5f134d",
@@ -6514,10 +7480,97 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T02:05:04.827Z",
       "latestReportAt": "2026-09-13T02:05:04.827Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Intelliga",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtz6em7r0w0wroupc3l2ajzv",
+          "url": "https://xeiaso.net/notes/2026/everyone-slowdown-but-me",
+          "publishedAt": "2026-09-13T02:05:04.827Z",
+          "title": "除了我之外，大家都应该放缓人工智能的发展步伐"
+        }
+      ]
     }
   ],
   "articleFailures": [],
+  "qualityReview": {
+    "merged": [],
+    "pending": [
+      {
+        "name": "commit-rewriter",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Seedance 2.5",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Fable 5.1",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "CUDA-for-AMD-Windows",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "JAX3D",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "OpenClaw",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Astra",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Claw",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Siri",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Instinct",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Recurrent Looped Transformer",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Fable",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Grok",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Opus",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "PaperRoute",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Seedance",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Grok Bot",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      }
+    ],
+    "excluded": [],
+    "classifications": [],
+    "staleDecisions": []
+  },
   "pendingEntities": [
     {
       "id": "company:44f06c1e018b2fcc",
@@ -6577,7 +7630,18 @@
       "updatedAt": "2026-09-14T00:28:10.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-14T00:28:10.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "commit-rewriter",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0jggkp0r2qrorysh4jf1f5",
+          "url": "https://simonwillison.net/2026/Sep/14/commit-rewriter",
+          "publishedAt": "2026-09-14T00:28:10.000Z",
+          "title": "Simon Willison 发布 commit-rewriter 0.1，用于改写 Git 提交信息"
+        }
+      ]
     },
     {
       "id": "company:a566130385b742f5",
@@ -6624,7 +7688,8 @@
       "updatedAt": "2026-09-14T00:08:00.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-14T00:08:00.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:c2707515bb30190d",
@@ -6703,7 +7768,18 @@
       "updatedAt": "2026-09-13T21:06:13.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T21:06:13.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Fable 5.1",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmu0egfor0l2hroryrgx9uj4c",
+          "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
+          "publishedAt": "2026-09-13T21:06:13.000Z",
+          "title": "Fable 5.1 用 44 分钟解开 370 年历史的 Cyphral Distich 密码"
+        }
+      ]
     },
     {
       "id": "company:181bbb15941f21f1",
@@ -6750,7 +7826,8 @@
       "updatedAt": "2026-09-13T20:03:57.746Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T20:03:57.746Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:d469cefe02317c80",
@@ -6797,7 +7874,8 @@
       "updatedAt": "2026-09-13T19:46:38.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T19:46:38.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:96a4bc2602655473",
@@ -6844,7 +7922,8 @@
       "updatedAt": "2026-09-13T18:49:44.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T18:49:44.000Z",
-      "profileUpdatedAt": "2026-09-14T16:11:39+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:693b286515bd1dd0",
@@ -6925,7 +8004,8 @@
       "updatedAt": "2026-09-13T18:13:29.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T18:13:29.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:06deac5b8d4a128e",
@@ -6972,7 +8052,8 @@
       "updatedAt": "2026-09-13T18:13:29.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T18:13:29.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:81ed341348bed14c",
@@ -7019,7 +8100,8 @@
       "updatedAt": "2026-09-13T18:13:29.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T18:13:29.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:26e59d6a3c92de80",
@@ -7066,69 +8148,8 @@
       "updatedAt": "2026-09-13T18:03:27.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T18:03:27.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
-    },
-    {
-      "id": "company:730dfb0364b1a130",
-      "company_name": "Recurrent Looped Transformer",
-      "aliases": [
-        "RLT"
-      ],
-      "product_names": [
-        "Recurrent Looped Transformer"
-      ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "AI模型",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "Recurrent Looped Transformer",
-            "articleId": "aihot:cmu02oggx02phroryt2e5j6nj",
-            "url": "https://www.marktechpost.com/2026/09/13/a-princeton-researcher-proposes-recurrent-looped-transformer-rlt",
-            "title": "普林斯顿研究者提出 Recurrent Looped Transformer（RLT）：跨 token 传递解码器状态，每 token 执行 96 个块",
-            "publishedAt": "2026-09-13T17:02:26.000Z",
-            "sourceName": "MarkTechPost（RSS）",
-            "origin": "article"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "Recurrent Looped Transformer",
-            "articleId": "aihot:cmu02oggx02phroryt2e5j6nj",
-            "url": "https://www.marktechpost.com/2026/09/13/a-princeton-researcher-proposes-recurrent-looped-transformer-rlt",
-            "title": "普林斯顿研究者提出 Recurrent Looped Transformer（RLT）：跨 token 传递解码器状态，每 token 执行 96 个块",
-            "publishedAt": "2026-09-13T17:02:26.000Z",
-            "sourceName": "MarkTechPost（RSS）",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmu02oggx02phroryt2e5j6nj",
-          "title": "普林斯顿研究者提出 Recurrent Looped Transformer（RLT）：跨 token 传递解码器状态，每 token 执行 96 个块",
-          "url": "https://www.marktechpost.com/2026/09/13/a-princeton-researcher-proposes-recurrent-looped-transformer-rlt",
-          "publishedAt": "2026-09-13T17:02:26.000Z",
-          "sourceName": "MarkTechPost（RSS）",
-          "category": "paper"
-        }
-      ],
-      "firstSeenAt": "2026-09-13T17:02:26.000Z",
-      "lastSeenAt": "2026-09-13T17:02:26.000Z",
-      "entityType": "product",
-      "updatedAt": "2026-09-13T17:02:26.000Z",
-      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
-      "latestReportAt": "2026-09-13T17:02:26.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:09cf980b5ff304ac",
@@ -7224,7 +8245,18 @@
       "updatedAt": "2026-09-13T16:11:40.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T16:11:40.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Fable 5.1",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+          "publishedAt": "2026-09-13T15:25:02.000Z",
+          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿"
+        }
+      ]
     },
     {
       "id": "company:add92b9cde2bdbf3",
@@ -7284,7 +8316,18 @@
       "updatedAt": "2026-09-13T15:25:02.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T15:25:02.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Grok 4.6",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+          "publishedAt": "2026-09-13T15:25:02.000Z",
+          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿"
+        }
+      ]
     },
     {
       "id": "company:e12ce8285efc67c6",
@@ -7344,7 +8387,18 @@
       "updatedAt": "2026-09-13T15:25:02.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T15:25:02.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Opus 5",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+          "publishedAt": "2026-09-13T15:25:02.000Z",
+          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿"
+        }
+      ]
     },
     {
       "id": "company:e819fbec006def3e",
@@ -7404,7 +8458,18 @@
       "updatedAt": "2026-09-13T10:57:40.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T10:57:40.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "PaperRoute",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtzpp93c03qoroxq9jdfi8xq",
+          "url": "https://x.com/AYi_AInotes/status/2099090127452524615",
+          "publishedAt": "2026-09-13T10:57:40.000Z",
+          "title": "开发者用 GPT 5.6 Astra 做出 3D 送报游戏 PaperRoute，四天消耗 15.6 亿 Token"
+        }
+      ]
     },
     {
       "id": "company:1472950b8ae0b5cd",
@@ -7464,7 +8529,18 @@
       "updatedAt": "2026-09-13T09:08:00.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T09:08:00.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": [
+        {
+          "name": "Seedance 2.5",
+          "relationship": "unknown",
+          "quote": "",
+          "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+          "publishedAt": "2026-09-13T09:08:00.000Z",
+          "title": "从4秒到两小时，AI视频长叙事正在走向完整故事"
+        }
+      ]
     },
     {
       "id": "company:6cb784e0f985cba2",
@@ -7511,84 +8587,77 @@
       "updatedAt": "2026-09-13T06:54:23.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T06:54:23.000Z",
-      "profileUpdatedAt": "2026-09-14T16:03:30+08:00"
+      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
+      "productUpdates": []
     }
   ],
-  "excludedEntities": [],
-  "qualityReview": {
-    "merged": [],
-    "pending": [
-      {
-        "name": "commit-rewriter",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+  "excludedEntities": [
+    {
+      "id": "company:730dfb0364b1a130",
+      "company_name": "Recurrent Looped Transformer",
+      "aliases": [
+        "RLT"
+      ],
+      "product_names": [
+        "Recurrent Looped Transformer"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "AI模型",
+        "国家/地区": "其他"
       },
-      {
-        "name": "Seedance 2.5",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "Recurrent Looped Transformer",
+            "articleId": "aihot:cmu02oggx02phroryt2e5j6nj",
+            "url": "https://www.marktechpost.com/2026/09/13/a-princeton-researcher-proposes-recurrent-looped-transformer-rlt",
+            "title": "普林斯顿研究者提出 Recurrent Looped Transformer（RLT）：跨 token 传递解码器状态，每 token 执行 96 个块",
+            "publishedAt": "2026-09-13T17:02:26.000Z",
+            "sourceName": "MarkTechPost（RSS）",
+            "origin": "article"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "Recurrent Looped Transformer",
+            "articleId": "aihot:cmu02oggx02phroryt2e5j6nj",
+            "url": "https://www.marktechpost.com/2026/09/13/a-princeton-researcher-proposes-recurrent-looped-transformer-rlt",
+            "title": "普林斯顿研究者提出 Recurrent Looped Transformer（RLT）：跨 token 传递解码器状态，每 token 执行 96 个块",
+            "publishedAt": "2026-09-13T17:02:26.000Z",
+            "sourceName": "MarkTechPost（RSS）",
+            "origin": "article"
+          }
+        ]
       },
-      {
-        "name": "Fable 5.1",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu02oggx02phroryt2e5j6nj",
+          "title": "普林斯顿研究者提出 Recurrent Looped Transformer（RLT）：跨 token 传递解码器状态，每 token 执行 96 个块",
+          "url": "https://www.marktechpost.com/2026/09/13/a-princeton-researcher-proposes-recurrent-looped-transformer-rlt",
+          "publishedAt": "2026-09-13T17:02:26.000Z",
+          "sourceName": "MarkTechPost（RSS）",
+          "category": "paper"
+        }
+      ],
+      "firstSeenAt": "2026-09-13T17:02:26.000Z",
+      "lastSeenAt": "2026-09-13T17:02:26.000Z",
+      "entityType": "product",
+      "updatedAt": "2026-09-13T17:02:26.000Z",
+      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+      "latestReportAt": "2026-09-13T17:02:26.000Z",
+      "profileUpdatedAt": "2026-09-14T16:03:30+08:00",
+      "reviewDisposition": {
+        "reason": "纯论文架构方法，不是实际可用产品；保留论文新闻。",
+        "url": "https://www.marktechpost.com/2026/09/13/a-princeton-researcher-proposes-recurrent-looped-transformer-rlt"
       },
-      {
-        "name": "CUDA-for-AMD-Windows",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "JAX3D",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "OpenClaw",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Astra",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Claw",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Siri",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Instinct",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Recurrent Looped Transformer",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Fable",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Grok",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Opus",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "PaperRoute",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Seedance",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Grok Bot",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      }
-    ],
-    "excluded": [],
-    "classifications": [],
-    "staleDecisions": []
-  }
+      "reviewStatus": "confirmed_non_company"
+    }
+  ]
 }
