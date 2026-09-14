@@ -1,19 +1,16 @@
 // 全部 AI 动态视图：AIHOT 实时流 + 当前快照合并信息流
-// 支持：新 6 类分类 Tab + 维度标签筛选 + 来源筛选（一手信源/资讯/推文/公众号）+ 按来源/标题/摘要搜索
+// 支持：新闻分类 Tab（融资移至公司全景） + 维度标签筛选 + 来源筛选（一手信源/资讯/推文/公众号）+ 按来源/标题/摘要搜索
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { FundingTable, NewsItem, Snapshot } from "../../_lib/domain/types";
-import { loadAll, loadFundingTable, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/data/api";
+import type { NewsItem } from "../../_lib/domain/types";
+import { loadAll, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/data/api";
 import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/display/format";
-import { collectionLabel } from "../../_lib/display/collection";
-import { categoryDisplay, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
-import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/domain/fundingTaxonomy";
+import { categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
 import { matchItem, sourceKindOf } from "../../_lib/display/source";
 import { ArticleCard } from "../news/ArticleCard";
 import { CategoryTabs, type TabOption } from "../news/CategoryTabs";
 import { DateGroup } from "../news/DateGroup";
-import { FundingTableView } from "../funding/FundingTableView";
 import { SearchToolbar, type SourceFilter } from "../news/SearchToolbar";
 import { TagFilterBar, type DimSelection } from "../news/TagFilterBar";
 
@@ -27,19 +24,11 @@ const persisted: { tag: string; q: string; src: SourceFilter; dimSel: DimSelecti
 
 export function AllAIView() {
   const [items, setItems] = useState<NewsItem[]>([]);
-  const [tag, setTag] = useState(persisted.tag);
+  const [tag, setTag] = useState(persisted.tag === "financing" ? "all" : persisted.tag);
   const [q, setQ] = useState(persisted.q);
   const [src, setSrc] = useState<SourceFilter>(persisted.src);
   const [dimSel, setDimSel] = useState<DimSelection>(persisted.dimSel);
   const [loading, setLoading] = useState(true);
-  const [live, setLive] = useState(true);
-  const [publishedBatch, setPublishedBatch] = useState(false);
-  const [collection, setCollection] = useState<Snapshot["collectionStatus"]>();
-  /** 融资表格（构建产物）：null 且 ready 时回退卡片流 */
-  const [fundingTable, setFundingTable] = useState<FundingTable | null>(null);
-  const [fundingReady, setFundingReady] = useState(false);
-  const [snapshotGeneratedAt, setSnapshotGeneratedAt] = useState("");
-
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -49,30 +38,20 @@ export function AllAIView() {
       const batch = snap?.publicationMode === "pipeline";
       const all = batch ? null : await loadAll();
       if (cancelled) return;
-      setPublishedBatch(batch);
-      setCollection(snap?.collectionStatus);
       let merged: NewsItem[] = base;
       if (all && all.items.length) {
         merged = base.length ? mergePools(base, all.items) : all.items;
-        setLive(all.live);
       }
       if (cancelled) return;
-      setSnapshotGeneratedAt(snap?.daily.generatedAt || "");
       setItems(merged);
       setLoading(false);
     })();
-    loadFundingTable().then((t) => {
-      if (!cancelled) {
-        setFundingTable(t);
-        setFundingReady(true);
-      }
-    });
     return () => {
       cancelled = true;
     };
   }, []);
 
-  /** 分类 Tab：全部 + 新 6 类（固定顺序，计数基于 categoryOf，0 也显示以保证类别齐全） */
+  /** 分类 Tab：全部 + 新闻分类（固定顺序，计数基于 categoryOf，0 也显示以保证类别齐全） */
   const tabOptions = useMemo<TabOption[]>(() => {
     const counter = new Map<string, number>();
     for (const it of items) {
@@ -80,27 +59,13 @@ export function AllAIView() {
       counter.set(key, (counter.get(key) || 0) + 1);
     }
     const opts: TabOption[] = [{ key: "all", label: "全部", count: items.length }];
-    for (const c of TAXONOMY_CATEGORIES) {
+    for (const c of TAXONOMY_CATEGORIES.filter(c => c.id !== "financing")) {
       opts.push({ key: c.id, label: c.label, count: counter.get(c.id) || 0 });
     }
     return opts;
   }, [items]);
 
-  /** 融资动态表格模式：分类声明 table 且构建产物有公司行（缺失/空表回退卡片流） */
-  const wantTable = categoryDisplay(tag) === "table";
-  const fundingGenerated = Date.parse(fundingTable?.generatedAt || "");
-  const snapshotGenerated = Date.parse(snapshotGeneratedAt);
-  const fundingStale = Number.isFinite(fundingGenerated) && Number.isFinite(snapshotGenerated)
-    && fundingGenerated + 24 * 60 * 60 * 1000 < snapshotGenerated;
-  const tableMode = wantTable && !fundingStale && (fundingTable?.companies?.length ?? 0) > 0;
-  const tablePending = wantTable && !fundingReady;
-
-  /** 当前类别的维度标签筛选（「全部」或无维度类别不显示；融资表格使用专属维度） */
-  const activeDims = useMemo(() => {
-    if (tag === "all") return [];
-    if (tableMode) return FUNDING_DIM_IDS;
-    return TAXONOMY_CATEGORIES.find((c) => c.id === tag)?.dims ?? [];
-  }, [tag, tableMode]);
+  const activeDims = useMemo(() => tag === "all" ? [] : TAXONOMY_CATEGORIES.find(c => c.id === tag)?.dims ?? [], [tag]);
 
   const filtered = useMemo(
     () =>
@@ -125,9 +90,6 @@ export function AllAIView() {
     return [...map.entries()];
   }, [filtered]);
 
-  const hasManus = items.some((item) => item.id.startsWith("manus:"));
-  const unclassifiedCount = items.filter((item) => item.categoryUnclassified).length;
-
   return (
     <div>
       <header className="mb-6 flex flex-wrap items-start justify-between gap-4">
@@ -137,7 +99,6 @@ export function AllAIView() {
         </div>
         <SearchToolbar
           q={q}
-          placeholder={tableMode ? "搜索融资公司与业务…" : undefined}
           onQChange={(v) => {
             setQ(v);
             persisted.q = v;
@@ -147,7 +108,7 @@ export function AllAIView() {
             setSrc(v);
             persisted.src = v;
           }}
-          showSourceFilter={!tableMode}
+          showSourceFilter={true}
         />
       </header>
 
@@ -180,45 +141,16 @@ export function AllAIView() {
               setDimSel(next);
               persisted.dimSel = next;
             }}
-            dimsDef={tableMode ? FUNDING_DIMENSIONS : undefined}
           />
         </div>
       )}
 
-      <p className="mb-5 text-[12px] text-mut-2">
-        Garena投资部专用{hasManus ? " · 已接入 Manus 核验信源" : ""} · 时间为北京时间 · 摘要由 AI 生成，点击标题核对原文。
-        {unclassifiedCount > 0 && ` 其中 ${unclassifiedCount} 条未获 AIHOT 分类，暂列泛行业新闻。`}
-        {publishedBatch ? " 当前展示最近一次已发布批次的数据。" : !live && " 实时接口暂不可用，当前仅展示快照数据。"}
-      </p>
-
-      {collection && (
-        <aside className="ah-card mb-5 px-4 py-3 text-[12px] leading-relaxed text-mut" aria-label="本批次信源状态">
-          <p className="font-bold text-ink">{collection.degraded ? "部分信源未完成，已发布成功来源的资讯" : "本批次已完成所选信源处理"}</p>
-          <p>采集窗口：{new Date(collection.collectionWindow.start).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", hour12: false })} 至 {new Date(collection.collectionWindow.end).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", hour12: false })}（北京时间）</p>
-          {collection.sources.some((s) => s.status === "failed" || s.status === "partial") && (
-            <p>未完成：{collection.sources.filter((s) => s.status === "failed" || s.status === "partial").map((s) => `${s.name}（${collectionLabel(s)}）`).join("、")}</p>
-          )}
-          {collection.sources.some((s) => s.status === "not_requested") && <p>本批次未启用 Manus 信源。</p>}
-          <p>合并候选 {collection.candidateArticles} 篇 · 相关性排除 {collection.excludedArticles} 篇 · 发布 {collection.publishedArticles} 篇。未完成来源不计为“今日无更新”。</p>
-          <p>原文标注“昨天”的文章按采集时的北京时间归入前一自然日，全天纳入；具体时刻未知时明确标注。</p>
-          {!!collection.quarantinedArticles && <details className="mt-2"><summary>另有 {collection.quarantinedArticles} 篇隔离待核查，未进入新闻和公司更新</summary><ul>{collection.quarantined?.map((item) => <li key={item.id}><a href={item.url} target="_blank" rel="noreferrer" className="text-brand underline">{item.title}</a>：{item.reason}</li>)}</ul></details>}
-        </aside>
-      )}
-
-      {wantTable && fundingStale && (
-        <p className="ah-card mb-5 border-l-4 border-l-brand px-4 py-3 text-[12px] leading-relaxed text-mut">
-          结构化融资表等待模型更新，本轮先展示当前资讯流。
-        </p>
-      )}
-
-      {loading || tablePending ? (
+      {loading ? (
         <div className="flex flex-col gap-3.5">
           {[0, 1, 2, 3].map((i) => (
             <div key={i} className="ah-card h-[110px] animate-pulse bg-surface-2" />
           ))}
         </div>
-      ) : tableMode && fundingTable ? (
-        <FundingTableView table={fundingTable} dimSel={dimSel} q={q} />
       ) : groups.length === 0 ? (
         <p className="ah-card p-8 text-center text-[13px] text-mut">
           无匹配内容，试试切换分类、标签、来源筛选或清空搜索词。

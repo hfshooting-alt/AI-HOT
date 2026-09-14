@@ -12,6 +12,17 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class ResearchTest(unittest.TestCase):
+    def test_unnamed_collections_do_not_survive_cached_product_refresh(self):
+        from company_index.products import normalize, refresh
+        row = {'product_names': ['9款机器人本体', '4套行业解决方案', 'FF 91'],
+               'productUpdates': [{'name': '9款机器人本体', 'articleId': 'a'}],
+               'fieldSources': {'product_names': [{'value': '4套行业解决方案', 'articleId': 'b'}]}}
+        refresh(row)
+        self.assertEqual(row['product_names'], ['FF 91'])
+        self.assertEqual(row['fieldSources']['product_names'], [])
+        self.assertEqual(normalize([{'name': '9款机器人本体'}]), [])
+        self.assertEqual(refresh(row), row)
+
     def test_country_fill_preserves_existing_value_and_evidence(self):
         rules = {'checkedAt':'2026-09-10','records':[{'record_name':'X','reviewed':True,'facts':[{'field':'country','value':'美国','url':'https://example.com','title':'Official','quote':'incorporated in Delaware'}]}]}
         row = {'company_name':'X','country':None,'fieldSources':{}}
@@ -23,6 +34,19 @@ class ResearchTest(unittest.TestCase):
         result = apply_reviewed_research([row], rules)[0]
         self.assertEqual(result['country'], row['country'])
         self.assertEqual(result['fieldSources'], row['fieldSources'])
+
+    def test_verified_owner_keeps_report_recency_and_other_company_integration(self):
+        article = {'id': 'a', 'publishedAt': '2026-09-14T08:00:00+08:00', 'url': 'https://example.com/news', 'title': 'Product launch'}
+        base = dict(aliases=[], product_names=[], fieldSources={}, sourceArticles=[article], firstSeenAt=article['publishedAt'], lastSeenAt=article['publishedAt'])
+        product = dict(base, id='p', company_name='Product', entityType='product')
+        integrator = dict(base, id='i', company_name='Integrator', productUpdates=[dict(name='Product', relationship='integrated', articleId='a')])
+        rules = {'checkedAt': '2026-09-14', 'records': [{'record_name': 'Product', 'owner_company': 'Owner', 'owned_products': ['Product'], 'reviewed': True, 'facts': [{'field': 'owner_company', 'value': 'Owner', 'url': 'https://example.com/official', 'title': 'Official', 'quote': 'Product by Owner'}]}]}
+        result = apply_reviewed_research([product, integrator], rules)
+        owner = next(r for r in result if r['company_name'] == 'Owner')
+        self.assertEqual(owner['productUpdates'][0]['relationship'], 'owned')
+        self.assertEqual(owner['productUpdates'][0]['publishedAt'], article['publishedAt'])
+        self.assertEqual(next(r for r in result if r['company_name'] == 'Integrator')['productUpdates'][0]['relationship'], 'integrated')
+        self.assertEqual(apply_reviewed_research(result, rules), result)
 
     def test_failed_request_is_not_repeated(self):
         tx = tag_news.load_taxonomy(str(ROOT / 'config/taxonomy.json'))

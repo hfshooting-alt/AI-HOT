@@ -7,7 +7,7 @@ from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 
 import tag_news
 from llm_common import parse_output
-from .products import normalize as normalize_products, guard_integrated_product_identities
+from .products import normalize as normalize_products, guard_integrated_product_identities, is_named_product
 from .config import PROMPT_VERSION, SCALAR_FIELDS, overview_cfg
 
 
@@ -22,6 +22,7 @@ def build_prompt(tx: dict, article: dict) -> tuple[str, str]:
 自然人、个人开发者、作者、博主均不能作为公司。独立开发者的产品没有明确公司时仍返回一条记录：company_name填产品名、entity_type填product，进入归属待核实；不要返回空数组丢失产品。例如Simon Willison发布commit-rewriter，保留commit-rewriter产品主体，不创建Simon Willison公司。Meta Muse/Meta的Muse明确归Meta，不另建Muse公司；只写Muse无归属时标product，不猜母公司。这里的归属状态不改变新闻发布类别。
 
 纯论文、架构、算法方法不作为产品返回；已经实际可用的开源工具继续保留。
+产品必须有可识别的名称或型号；“9款机器人本体”“4套行业解决方案”等未具名集合只保留在公司业务或新闻中，product_names/products不得收录，也不得创建同名待归属产品。
 产品归属只认开发或运营主体。集成、使用第三方产品同样保留到该公司的产品动态，但绝不能标成自有产品；只提到产品名不能推断归属。
 
 关系方向以company_name为主语、products.name为宾语：A公司把B公司开发的X接入自己的Y时，A的X关系是integrated，B的X关系是owned；A的Y若原文确认自有则是owned，不能因Y接收了集成而把Y标integrated。必须保留A所集成的X，不能只列Y。used同理表示该公司使用的第三方产品。
@@ -55,12 +56,15 @@ def normalize_company(raw: dict, tx: dict) -> dict | None:
         return None
     if raw.get("entity_type") in {"person", "paper", "algorithm", "method"}:
         return None
+    if raw.get("entity_type") != "company" and not is_named_product(name):
+        return None
     out = {"company_name": name, 'entity_type': 'company' if raw.get('entity_type') == 'company' else 'product'}
     for field in ("aliases", "product_names"):
         values = raw.get(field)
         out[field] = list(dict.fromkeys(v.strip() for v in values
                                         if isinstance(v, str) and v.strip())) if isinstance(values, list) else []
     out["products"] = normalize_products(raw.get("products"))
+    out["product_names"] = [p for p in out["product_names"] if is_named_product(p)]
     if isinstance(raw.get("products"), list):
         out["product_names"] = list(dict.fromkeys(p["name"] for p in out["products"]))
     for field in SCALAR_FIELDS:

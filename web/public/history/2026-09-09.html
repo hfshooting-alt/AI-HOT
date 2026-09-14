@@ -146,7 +146,6 @@ function cardHTML(i, n){
       '<span class="' + (wx?'source wx':'source') + '">' + esc(i.source) + '</span>' +
       (i.classification ? '<span class="cat-badge" style="--cc:' + (CATEGORY_COLORS[i.classification.cat]||'#64748b') + '">' + esc(i.classification.catLabel) + '</span>' +
         (i.classification.dims||[]).slice(0,2).map(d=>'<span class="dim-pill">' + esc(d.value) + '</span>').join('') : '') +
-      (typeof i.score === 'number' ? '<span class="score-badge ' + (i.score>=80?'hi':(i.score>=70?'mid':'lo')) + '">AI ' + i.score + '</span>' : '') +
       '<span class="time">' + esc(i.timeText||'') + '</span></div>' +
     '<h3 class="title"><a href="' + esc(i.url) + '" target="_blank" rel="noopener noreferrer">' + esc(i.title) + '</a></h3>' +
     '<p class="summary">' + esc(i.summary) + '</p>' +

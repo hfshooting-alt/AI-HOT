@@ -37,7 +37,11 @@ def validate(data: dict, tx: dict) -> None:
         for update in rec.get("productUpdates", []):
             if not update.get("name") or update.get("relationship") not in {"owned", "integrated", "used", "unknown"}:
                 raise ValueError(f"{rid} 产品关系不合法")
-            if update["relationship"] != "unknown" and (not update.get("quote") or not update.get("articleId") or not update.get("url")):
+            ownership = update.get("ownershipEvidence") or {}
+            researched = (update["relationship"] == "owned" and ownership.get("field") == "owner_company"
+                          and ownership.get("value") == rec["company_name"] and ownership.get("quote")
+                          and ownership.get("url", "").startswith("https://") and ownership.get("checkedAt"))
+            if update["relationship"] != "unknown" and (not (update.get("quote") or researched) or not update.get("articleId") or not update.get("url")):
                 raise ValueError(f"{rid} 产品关系缺少原文证据")
         for field in SCALAR_FIELDS:
             if rec.get(field) is not None and not isinstance(rec[field], str):

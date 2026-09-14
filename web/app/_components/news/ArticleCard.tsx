@@ -1,8 +1,8 @@
-// 新闻条目卡片：时间·来源·标签 → 标题 → 摘要 → 评分。
+// 新闻条目卡片：时间·来源·标签 → 标题 → 摘要。
 import type { NewsItem } from "../../_lib/domain/types";
 import { fmtClock, fmtItemTime, itemUrl } from "../../_lib/display/format";
 import { categoryOf, TAXONOMY_CATEGORY_COLORS, TAXONOMY_LABELS } from "../../_lib/domain/taxonomy";
-import { ScoreBadge, SectionTag } from "./ScoreBadge";
+import { SectionTag } from "./ScoreBadge";
 import { BookmarkIcon } from "../shared/icons";
 
 export function ArticleCard({ item, showSection = true }: { item: NewsItem; showSection?: boolean }) {
@@ -39,7 +39,6 @@ export function ArticleCard({ item, showSection = true }: { item: NewsItem; show
         )}
         {showSection && item.category && <SectionTag label={TAXONOMY_LABELS[catId] || catId} color={color} />}
         <span className="ml-auto flex items-center gap-2">
-          <ScoreBadge score={item.score} />
           <BookmarkIcon className="size-4 text-mut-2" />
         </span>
       </div>

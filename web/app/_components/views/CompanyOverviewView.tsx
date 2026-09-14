@@ -2,16 +2,18 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { loadCompanyOverview } from "../../_lib/data/api";
-import type { CompanyOverview } from "../../_lib/domain/types";
+import { loadCompanyOverview, loadFundingTable, loadSnapshot } from "../../_lib/data/api";
+import type { CompanyOverview, FundingTable } from "../../_lib/domain/types";
 import { CompanyOverviewTable } from "../company/CompanyOverviewTable";
 import { SearchToolbar } from "../news/SearchToolbar";
 import { TagFilterBar, type DimSelection } from "../news/TagFilterBar";
+import { FundingTableView } from "../funding/FundingTableView";
+import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/domain/fundingTaxonomy";
 import { DatabaseIcon } from "../shared/icons";
 
 const EMPTY_COLUMNS = [
   "公司",
-  "代表产品",
+  "产品动态",
   "成立时间",
   "行业",
   "国家 / 地区",
@@ -83,6 +85,23 @@ function EmptyCompanyTable({ dimSel, onDimChange }: {
 }
 
 export function CompanyOverviewView() {
+  const [funding, setFunding] = useState<FundingTable | null>(null);
+  const [fundingDims, setFundingDims] = useState<DimSelection>({});
+  const [snapshotGeneratedAt, setSnapshotGeneratedAt] = useState("");
+  useEffect(() => {
+    let active = true;
+    Promise.all([loadFundingTable(), loadSnapshot()]).then(([table, snapshot]) => {
+      if (active) {
+        setFunding(table);
+        setSnapshotGeneratedAt(snapshot?.daily.generatedAt || "");
+      }
+    });
+    return () => { active = false; };
+  }, []);
+  const fundingGenerated = Date.parse(funding?.generatedAt || "");
+  const snapshotGenerated = Date.parse(snapshotGeneratedAt);
+  const fundingStale = Number.isFinite(fundingGenerated) && Number.isFinite(snapshotGenerated)
+    && fundingGenerated + 24 * 60 * 60 * 1000 < snapshotGenerated;
   const [overview, setOverview] = useState<CompanyOverview | null>(null);
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
@@ -141,6 +160,13 @@ export function CompanyOverviewView() {
       ) : (
         <EmptyCompanyTable dimSel={dimSel} onDimChange={setDimSel} />
       )}
+      {funding && <section className="mt-8" aria-label="融资情报">
+        <h2 className="mb-3 text-[20px] font-extrabold text-ink">融资情报</h2>
+        {fundingStale ? <p className="text-[13px] text-mut">融资情报等待更新，相关报道可在全部 AI 动态中阅读。</p> : <>
+          <div className="ah-card mb-4 p-4"><TagFilterBar dims={FUNDING_DIM_IDS} selection={fundingDims} onChange={setFundingDims} dimsDef={FUNDING_DIMENSIONS} /></div>
+          <FundingTableView table={funding} dimSel={fundingDims} q={q} />
+        </>}
+      </section>}
     </div>
   );
 }

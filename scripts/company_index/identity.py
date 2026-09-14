@@ -24,6 +24,12 @@ def apply_reviewed_research(companies, rules=None):
         target = next((c for c in rows if c['company_name'] == owner), None) if owner else source
         if source is None and target is None:
             continue
+        source_articles = copy.deepcopy(source.get('sourceArticles', [])) if source else []
+        owned = rule.get('owned_products', [])
+        owner_fact = next((f for f in rule.get('facts', []) if f.get('field') == 'owner_company'
+                           and f.get('value') == owner and f.get('quote') and f.get('url', '').startswith('https://')), None)
+        if owned and not owner_fact:
+            raise ValueError('自有产品补全缺少归属证据')
         if source is not None and owner and source['company_name'] != owner:
             if target is None:
                 target = copy.deepcopy(source)
@@ -71,6 +77,17 @@ def apply_reviewed_research(companies, rules=None):
             bucket = target['fieldSources'].setdefault(field, [])
             if not any(e['articleId'] == evidence['articleId'] and e['value'] == value for e in bucket):
                 bucket.append(evidence)
+        # Research proves ownership; retain the original report date and link.
+        # Do not change integrations belonging to other company records.
+        for name in owned:
+            updates = target.setdefault('productUpdates', [])
+            for article in source_articles:
+                if not any(u['name'] == name and u.get('articleId') == article['id'] for u in updates):
+                    updates.append(dict(name=name, relationship='unknown', quote='', articleId=article['id'],
+                                        **{k: article.get(k, '') for k in ('url', 'title', 'publishedAt')}))
+            for update in updates:
+                if update['name'] == name and update.get('relationship') == 'unknown':
+                    update.update(relationship='owned', ownershipEvidence=copy.deepcopy(owner_fact))
     for rec in rows:
         rec['updatedAt'] = rec.get('lastSeenAt') or ''
         rec.get('sourceArticles', []).sort(key=lambda a: timestamp(a.get('publishedAt')), reverse=True)

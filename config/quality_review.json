@@ -135,6 +135,24 @@
       "articleId": "aihot:cmtz6em7r0w0wroupc3l2ajzv",
       "name": "Lygma AGI",
       "reason": "原文将其称为实验室，不是产品。"
+    },
+    {
+      "company": "法拉第未来",
+      "articleId": "aihot:cmu0jgo260r4drory55yz87bf",
+      "name": "EAI 机器人",
+      "reason": "2026-09-14用户确认：未具名集合与类别描述不进入产品列表，保留公司和新闻。"
+    },
+    {
+      "company": "法拉第未来",
+      "articleId": "aihot:cmu0jgo260r4drory55yz87bf",
+      "name": "9款机器人本体",
+      "reason": "2026-09-14用户确认：未具名集合与类别描述不进入产品列表，保留公司和新闻。"
+    },
+    {
+      "company": "法拉第未来",
+      "articleId": "aihot:cmu0jgo260r4drory55yz87bf",
+      "name": "4套行业解决方案",
+      "reason": "2026-09-14用户确认：未具名集合与类别描述不进入产品列表，保留公司和新闻。"
     }
   ]
 }

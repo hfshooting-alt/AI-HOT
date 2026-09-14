@@ -511,6 +511,177 @@
       "sourceName": "IT之家（RSS）"
     }
   ]
+},
+{
+  "record_name": "Fable 5.1",
+  "owner_company": "Anthropic",
+  "entity_type": "brand",
+  "owned_products": [
+    "Fable 5.1"
+  ],
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "owner_company",
+      "value": "Anthropic",
+      "quote": "Claude Fable \\ Anthropic",
+      "url": "https://www.anthropic.com/claude/fable",
+      "title": "Claude Fable - Anthropic",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "Fable",
+  "owner_company": "Anthropic",
+  "entity_type": "brand",
+  "owned_products": [
+    "Fable"
+  ],
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "owner_company",
+      "value": "Anthropic",
+      "quote": "Claude Fable \\ Anthropic",
+      "url": "https://www.anthropic.com/claude/fable",
+      "title": "Claude Fable - Anthropic",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "Opus",
+  "owner_company": "Anthropic",
+  "entity_type": "brand",
+  "owned_products": [
+    "Opus"
+  ],
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "owner_company",
+      "value": "Anthropic",
+      "quote": "Claude Opus \\ Anthropic",
+      "url": "https://www.anthropic.com/claude/opus",
+      "title": "Claude Opus - Anthropic",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "Siri",
+  "owner_company": "苹果",
+  "entity_type": "brand",
+  "owned_products": [
+    "Siri"
+  ],
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "owner_company",
+      "value": "苹果",
+      "quote": "Apple Intelligence and Siri - Apple",
+      "url": "https://www.apple.com/apple-intelligence/",
+      "title": "Apple Intelligence and Siri - Apple",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "Seedance",
+  "owner_company": "字节跳动",
+  "entity_type": "brand",
+  "owned_products": [
+    "Seedance"
+  ],
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "owner_company",
+      "value": "字节跳动",
+      "quote": "ByteDance Seed Team",
+      "url": "https://seed.bytedance.com/en/blog/seedance-2-0-official-launch",
+      "title": "Seed News - ByteDance Seed Team",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "Seedance 2.5",
+  "owner_company": "字节跳动",
+  "entity_type": "brand",
+  "owned_products": [
+    "Seedance 2.5"
+  ],
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "owner_company",
+      "value": "字节跳动",
+      "quote": "ByteDance Seed Team",
+      "url": "https://seed.bytedance.com/en/blog/seedance-2-0-official-launch",
+      "title": "Seed News - ByteDance Seed Team",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "GPT-5.6 Sol",
+  "owner_company": "OpenAI",
+  "entity_type": "brand",
+  "owned_products": [
+    "GPT-5.6 Sol"
+  ],
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "owner_company",
+      "value": "OpenAI",
+      "quote": "Previewing GPT-5.6 Sol: a next-generation model | OpenAI",
+      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+      "title": "Previewing GPT-5.6 Sol: a next-generation model | OpenAI",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "Tailscale",
+  "owner_company": "Tailscale Inc.",
+  "entity_type": "brand",
+  "owned_products": [
+    "Tailscale"
+  ],
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "owner_company",
+      "value": "Tailscale Inc.",
+      "quote": "Tailscale is a registered trademark of Tailscale Inc.",
+      "url": "https://tailscale.com/terms",
+      "title": "Terms of Service · Tailscale",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "GLM",
+  "owner_company": "智谱",
+  "entity_type": "brand",
+  "owned_products": [
+    "GLM"
+  ],
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "owner_company",
+      "value": "智谱",
+      "quote": "ZhipuAI ChatGLM, one of China's first registered large model products, officially launched.",
+      "url": "https://z.ai/company",
+      "title": "Z.ai API Platform — Start building with GLM-5.3",
+      "checkedAt": "2026-09-14"
+    }
+  ]
 }
 ]
 }

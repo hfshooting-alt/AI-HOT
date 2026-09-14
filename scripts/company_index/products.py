@@ -7,12 +7,17 @@ RELATIONS = {"owned", "integrated", "used", "unknown"}
 def key(name):
     return re.sub(r"\s+", "", name).casefold()
 
+def is_named_product(name):
+    """Quantity-only collections are business descriptions, not product identities."""
+    return isinstance(name, str) and bool(name.strip()) and not re.match(
+        r"^(?:[0-9一二三四五六七八九十百多数几]+)\s*(?:款|套|种|个)\s*", name.strip())
+
 def normalize(raw, article=None):
     out = []
     for item in raw if isinstance(raw, list) else []:
         if not isinstance(item, dict) or not isinstance(item.get("name"), str) or not item["name"].strip():
             continue
-        if item.get("kind") in {"paper", "algorithm", "method"}:
+        if not is_named_product(item["name"]) or item.get("kind") in {"paper", "algorithm", "method"}:
             continue
         relation = item.get("relationship", "unknown")
         quote = item.get("quote", "")
@@ -24,6 +29,11 @@ def normalize(raw, article=None):
     return out
 
 def refresh(rec):
+    rec["product_names"] = [p for p in rec.get("product_names", []) if is_named_product(p)]
+    rec["productUpdates"] = [u for u in rec.get("productUpdates", []) if is_named_product(u.get("name"))]
+    sources = rec.get("fieldSources", {})
+    if "product_names" in sources:
+        sources["product_names"] = [e for e in sources["product_names"] if is_named_product(e.get("value"))]
     updates = rec.setdefault("productUpdates", [])
     for name in rec.get("product_names", []):
         evidence = [e for e in rec.get("fieldSources", {}).get("product_names", []) if key(e["value"]) == key(name)]

@@ -89,11 +89,12 @@ test("company database exposes filterable industry and country fields below its 
   assert.match(table, /dims=\{\["industry", "region"\]\}/);
 });
 
-test("stale funding output falls back to the refreshed news stream", async () => {
-  const view = await readFile(new URL("../../app/_components/views/AllAIView.tsx", import.meta.url), "utf8");
-  assert.match(view, /Garena投资部专用/);
-  assert.doesNotMatch(view, /数据来源：AIHOT 开放 API/);
-  assert.match(view, /fundingStale/);
-  assert.match(view, /结构化融资表等待模型更新，本轮先展示当前资讯流/);
-  assert.match(view, /wantTable && !fundingStale/);
+test("funding moves to company panorama and keeps its stale-data guard", async () => {
+  const news = await readFile(new URL("../../app/_components/views/AllAIView.tsx", import.meta.url), "utf8");
+  const company = await readFile(new URL("../../app/_components/views/CompanyOverviewView.tsx", import.meta.url), "utf8");
+  assert.doesNotMatch(news, /Garena投资部专用|部分信源未完成|FundingTableView/);
+  assert.match(news, /c.id !== "financing"/);
+  assert.match(company, /fundingStale/);
+  assert.match(company, /融资情报等待更新/);
+  assert.match(company, /FundingTableView/);
 });

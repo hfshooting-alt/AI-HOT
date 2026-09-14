@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-14T17:05:26+08:00",
-  "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
+  "generatedAt": "2026-09-14T17:30:25+08:00",
+  "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
   "stats": {
     "articlesProcessed": 199,
     "articlesComplete": 199,
@@ -9,9 +9,9 @@
     "articlesDeferred": 0,
     "modelCalls": 199,
     "cacheHits": 0,
-    "companiesTotal": 62,
-    "productsTotal": 74,
-    "pendingEntities": 18,
+    "companiesTotal": 64,
+    "productsTotal": 82,
+    "pendingEntities": 9,
     "excludedEntities": 2
   },
   "companies": [
@@ -23,7 +23,8 @@
       ],
       "product_names": [
         "iOS 27",
-        "Siri AI"
+        "Siri AI",
+        "Siri"
       ],
       "founded": null,
       "country": "美国",
@@ -57,6 +58,17 @@
             "origin": "research",
             "quote": "MacBook",
             "checkedAt": "2026-09-10"
+          },
+          {
+            "value": "苹果",
+            "articleId": "research:bce813dff2d6abac",
+            "url": "https://www.apple.com/apple-intelligence/",
+            "title": "Apple Intelligence and Siri - Apple",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "Apple Intelligence and Siri - Apple",
+            "checkedAt": "2026-09-14"
           }
         ],
         "product_names": [
@@ -99,14 +111,22 @@
           "publishedAt": "2026-09-14T01:29:40.000Z",
           "sourceName": "IT之家（RSS）",
           "category": "general"
+        },
+        {
+          "id": "aihot:cmu05ejmj089lroryk1mwul4k",
+          "title": "远程连接AI将削弱Siri价值",
+          "url": "https://x.com/emollick/status/2099199806543421772",
+          "publishedAt": "2026-09-13T18:13:29.000Z",
+          "sourceName": "X：Ethan Mollick (@emollick)",
+          "category": "general"
         }
       ],
-      "firstSeenAt": "2026-09-14T01:29:40.000Z",
+      "firstSeenAt": "2026-09-13T18:13:29.000Z",
       "lastSeenAt": "2026-09-14T01:29:40.000Z",
       "entityType": "company",
       "updatedAt": "2026-09-14T01:29:40.000Z",
       "latestReportAt": "2026-09-14T01:29:40.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
       "productUpdates": [
         {
           "name": "iOS 27",
@@ -125,8 +145,76 @@
           "url": "https://www.ithome.com/1/001/921.htm",
           "title": "苹果 iOS 27 正式版前瞻：升级 Siri AI、液态玻璃优化、隔空投送提速 80%",
           "publishedAt": "2026-09-14T01:29:40.000Z"
+        },
+        {
+          "name": "Siri",
+          "relationship": "owned",
+          "quote": "",
+          "articleId": "aihot:cmu05ejmj089lroryk1mwul4k",
+          "url": "https://x.com/emollick/status/2099199806543421772",
+          "title": "远程连接AI将削弱Siri价值",
+          "publishedAt": "2026-09-13T18:13:29.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "苹果",
+            "quote": "Apple Intelligence and Siri - Apple",
+            "url": "https://www.apple.com/apple-intelligence/",
+            "title": "Apple Intelligence and Siri - Apple",
+            "checkedAt": "2026-09-14"
+          }
         }
-      ]
+      ],
+      "brandProfiles": {
+        "Siri": {
+          "id": "company:81ed341348bed14c",
+          "company_name": "Siri",
+          "aliases": [],
+          "product_names": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "其他AI应用",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "Siri",
+                "articleId": "aihot:cmu05ejmj089lroryk1mwul4k",
+                "url": "https://x.com/emollick/status/2099199806543421772",
+                "title": "远程连接AI将削弱Siri价值",
+                "publishedAt": "2026-09-13T18:13:29.000Z",
+                "sourceName": "X：Ethan Mollick (@emollick)",
+                "origin": "article"
+              }
+            ],
+            "product_names": []
+          },
+          "sourceArticles": [
+            {
+              "id": "aihot:cmu05ejmj089lroryk1mwul4k",
+              "title": "远程连接AI将削弱Siri价值",
+              "url": "https://x.com/emollick/status/2099199806543421772",
+              "publishedAt": "2026-09-13T18:13:29.000Z",
+              "sourceName": "X：Ethan Mollick (@emollick)",
+              "category": "general"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T18:13:29.000Z",
+          "lastSeenAt": "2026-09-13T18:13:29.000Z",
+          "entityType": "product",
+          "updatedAt": "2026-09-13T18:13:29.000Z",
+          "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+          "latestReportAt": "2026-09-13T18:13:29.000Z",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+          "productUpdates": []
+        }
+      }
     },
     {
       "id": "company:12b0c8b376b8375e",
@@ -1984,9 +2072,7 @@
       "id": "company:07a94d554b75cbb5",
       "company_name": "法拉第未来",
       "aliases": [],
-      "product_names": [
-        "EAI 机器人"
-      ],
+      "product_names": [],
       "founded": null,
       "country": "美国",
       "team": null,
@@ -2010,17 +2096,7 @@
             "origin": "article"
           }
         ],
-        "product_names": [
-          {
-            "value": "EAI 机器人",
-            "articleId": "aihot:cmu0jgo260r4drory55yz87bf",
-            "url": "https://www.ithome.com/1/001/904.htm",
-            "title": "法拉第未来预告北京时间 9 月 20 日 EAI 机器人\"四核全智\"发布会，将推 9 款机器人本体",
-            "publishedAt": "2026-09-14T00:22:28.000Z",
-            "sourceName": "IT之家（RSS）",
-            "origin": "article"
-          }
-        ],
+        "product_names": [],
         "country": [
           {
             "value": "美国",
@@ -2059,18 +2135,8 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:22:28.000Z",
       "latestReportAt": "2026-09-14T00:22:28.000Z",
-      "profileUpdatedAt": "2026-09-14T16:43:06+08:00",
-      "productUpdates": [
-        {
-          "name": "EAI 机器人",
-          "relationship": "unknown",
-          "quote": "",
-          "articleId": "aihot:cmu0jgo260r4drory55yz87bf",
-          "url": "https://www.ithome.com/1/001/904.htm",
-          "publishedAt": "2026-09-14T00:22:28.000Z",
-          "title": "法拉第未来预告北京时间 9 月 20 日 EAI 机器人\"四核全智\"发布会，将推 9 款机器人本体"
-        }
-      ]
+      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
+      "productUpdates": []
     },
     {
       "id": "company:c70eca6b0f88f44d",
@@ -2080,7 +2146,11 @@
         "Claude Code",
         "Antspace",
         "Baku",
-        "Claude"
+        "Fable 5.1",
+        "Claude",
+        "fable",
+        "Opus 5",
+        "Opus"
       ],
       "founded": null,
       "country": "美国",
@@ -2305,6 +2375,28 @@
             "origin": "research",
             "quote": "Anthropic.ClaudeCode",
             "checkedAt": "2026-09-10"
+          },
+          {
+            "value": "Anthropic",
+            "articleId": "research:e0f1ebb59adf2f6c",
+            "url": "https://www.anthropic.com/claude/fable",
+            "title": "Claude Fable - Anthropic",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "Claude Fable \\ Anthropic",
+            "checkedAt": "2026-09-14"
+          },
+          {
+            "value": "Anthropic",
+            "articleId": "research:2f9466008c6e13a1",
+            "url": "https://www.anthropic.com/claude/opus",
+            "title": "Claude Opus - Anthropic",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "Claude Opus \\ Anthropic",
+            "checkedAt": "2026-09-14"
           }
         ],
         "product_names": [
@@ -2378,6 +2470,51 @@
             "title": "Anthropic 报告称胡塞组织用 Claude Code 开发导弹制导软件",
             "publishedAt": "2026-09-13T14:15:40.000Z",
             "sourceName": "Hacker News：AI 热帖",
+            "origin": "article"
+          },
+          {
+            "value": "Fable 5.1",
+            "articleId": "aihot:cmu0egfor0l2hroryrgx9uj4c",
+            "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
+            "title": "Fable 5.1 用 44 分钟解开 370 年历史的 Cyphral Distich 密码",
+            "publishedAt": "2026-09-13T21:06:13.000Z",
+            "sourceName": "Hacker News：AI 热帖",
+            "origin": "article"
+          },
+          {
+            "value": "Fable 5.1",
+            "articleId": "aihot:cmu0arfzo0ecarorypqqwh2d8",
+            "url": "https://x.com/emollick/status/2099235643792462040",
+            "title": "Ethan Mollick：GPT-6 Astra 与 Fable 5.1 已足以变革经济",
+            "publishedAt": "2026-09-13T20:35:54.000Z",
+            "sourceName": "X：Ethan Mollick (@emollick)",
+            "origin": "article"
+          },
+          {
+            "value": "fable",
+            "articleId": "aihot:cmu00ikwl07s2roymu6nj8zqg",
+            "url": "https://x.com/dexhorthy/status/2099169149780181036",
+            "title": "把截图拼成 contact sheet 让 Agent 省上下文的提示词技巧",
+            "publishedAt": "2026-09-13T16:11:40.000Z",
+            "sourceName": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+            "origin": "article"
+          },
+          {
+            "value": "Fable 5.1",
+            "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+            "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+            "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+            "publishedAt": "2026-09-13T15:25:02.000Z",
+            "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+            "origin": "article"
+          },
+          {
+            "value": "Opus 5",
+            "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+            "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+            "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+            "publishedAt": "2026-09-13T15:25:02.000Z",
+            "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
             "origin": "article"
           }
         ],
@@ -2473,6 +2610,22 @@
           "category": "financing"
         },
         {
+          "id": "aihot:cmu0egfor0l2hroryrgx9uj4c",
+          "title": "Fable 5.1 用 44 分钟解开 370 年历史的 Cyphral Distich 密码",
+          "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
+          "publishedAt": "2026-09-13T21:06:13.000Z",
+          "sourceName": "Hacker News：AI 热帖",
+          "category": "general"
+        },
+        {
+          "id": "aihot:cmu0arfzo0ecarorypqqwh2d8",
+          "title": "Ethan Mollick：GPT-6 Astra 与 Fable 5.1 已足以变革经济",
+          "url": "https://x.com/emollick/status/2099235643792462040",
+          "publishedAt": "2026-09-13T20:35:54.000Z",
+          "sourceName": "X：Ethan Mollick (@emollick)",
+          "category": "general"
+        },
+        {
           "id": "aihot:cmu080nja0b7croryy3aohmek",
           "title": "Dario Amodei 在 CBS 访谈中称愿在合适条件下向政府组合交出 Anthropic 技术",
           "url": "https://x.com/rohanpaul_ai/status/2099217778121355723",
@@ -2511,6 +2664,22 @@
           "publishedAt": "2026-09-13T16:18:00.000Z",
           "sourceName": "X：Kim (@kimmonismus)",
           "category": "general"
+        },
+        {
+          "id": "aihot:cmu00ikwl07s2roymu6nj8zqg",
+          "title": "把截图拼成 contact sheet 让 Agent 省上下文的提示词技巧",
+          "url": "https://x.com/dexhorthy/status/2099169149780181036",
+          "publishedAt": "2026-09-13T16:11:40.000Z",
+          "sourceName": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+          "category": "general"
+        },
+        {
+          "id": "aihot:cmtzzh2o306fbroyml5yx780m",
+          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+          "publishedAt": "2026-09-13T15:25:02.000Z",
+          "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+          "category": "bigtech"
         },
         {
           "id": "aihot:cmu01iavi08reroymepsxnar2",
@@ -2567,6 +2736,14 @@
           "publishedAt": "2026-09-13T06:21:01.000Z",
           "sourceName": "X：阿易 AI Notes (@AYi_AInotes)",
           "category": "bigtech"
+        },
+        {
+          "id": "aihot:cmtzem15203y0rowyqrifv5u3",
+          "title": "AI 越强越难展示其优劣",
+          "url": "https://x.com/emollick/status/2099011701949583614",
+          "publishedAt": "2026-09-13T05:46:02.000Z",
+          "sourceName": "X：Ethan Mollick (@emollick)",
+          "category": "general"
         },
         {
           "id": "aihot:cmtz7w3g40xlxroupfgrkeyof",
@@ -2641,10 +2818,338 @@
           "lastSeenAt": "2026-09-13T18:13:29.000Z",
           "entityType": "product",
           "updatedAt": "2026-09-13T18:13:29.000Z"
+        },
+        "Fable 5.1": {
+          "id": "company:c2707515bb30190d",
+          "company_name": "Fable 5.1",
+          "aliases": [
+            "Claude Fable 5.1"
+          ],
+          "product_names": [
+            "Fable 5.1"
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "AI模型",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "Fable 5.1",
+                "articleId": "aihot:cmu0egfor0l2hroryrgx9uj4c",
+                "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
+                "title": "Fable 5.1 用 44 分钟解开 370 年历史的 Cyphral Distich 密码",
+                "publishedAt": "2026-09-13T21:06:13.000Z",
+                "sourceName": "Hacker News：AI 热帖",
+                "origin": "article"
+              },
+              {
+                "value": "Fable 5.1",
+                "articleId": "aihot:cmu0arfzo0ecarorypqqwh2d8",
+                "url": "https://x.com/emollick/status/2099235643792462040",
+                "title": "Ethan Mollick：GPT-6 Astra 与 Fable 5.1 已足以变革经济",
+                "publishedAt": "2026-09-13T20:35:54.000Z",
+                "sourceName": "X：Ethan Mollick (@emollick)",
+                "origin": "article"
+              }
+            ],
+            "product_names": [
+              {
+                "value": "Fable 5.1",
+                "articleId": "aihot:cmu0egfor0l2hroryrgx9uj4c",
+                "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
+                "title": "Fable 5.1 用 44 分钟解开 370 年历史的 Cyphral Distich 密码",
+                "publishedAt": "2026-09-13T21:06:13.000Z",
+                "sourceName": "Hacker News：AI 热帖",
+                "origin": "article"
+              },
+              {
+                "value": "Fable 5.1",
+                "articleId": "aihot:cmu0arfzo0ecarorypqqwh2d8",
+                "url": "https://x.com/emollick/status/2099235643792462040",
+                "title": "Ethan Mollick：GPT-6 Astra 与 Fable 5.1 已足以变革经济",
+                "publishedAt": "2026-09-13T20:35:54.000Z",
+                "sourceName": "X：Ethan Mollick (@emollick)",
+                "origin": "article"
+              }
+            ]
+          },
+          "sourceArticles": [
+            {
+              "id": "aihot:cmu0egfor0l2hroryrgx9uj4c",
+              "title": "Fable 5.1 用 44 分钟解开 370 年历史的 Cyphral Distich 密码",
+              "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
+              "publishedAt": "2026-09-13T21:06:13.000Z",
+              "sourceName": "Hacker News：AI 热帖",
+              "category": "general"
+            },
+            {
+              "id": "aihot:cmu0arfzo0ecarorypqqwh2d8",
+              "title": "Ethan Mollick：GPT-6 Astra 与 Fable 5.1 已足以变革经济",
+              "url": "https://x.com/emollick/status/2099235643792462040",
+              "publishedAt": "2026-09-13T20:35:54.000Z",
+              "sourceName": "X：Ethan Mollick (@emollick)",
+              "category": "general"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T20:35:54.000Z",
+          "lastSeenAt": "2026-09-13T21:06:13.000Z",
+          "entityType": "product",
+          "updatedAt": "2026-09-13T21:06:13.000Z",
+          "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+          "latestReportAt": "2026-09-13T21:06:13.000Z",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+          "productUpdates": [
+            {
+              "name": "Fable 5.1",
+              "relationship": "owned",
+              "quote": "Claude Fable 5.1 用时 44 分钟、176k tokens 解开了 Sir Thomas Urquhart 有约 370 年未解的 Cyphral Distich 密码",
+              "articleId": "aihot:cmu0egfor0l2hroryrgx9uj4c",
+              "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
+              "title": "Fable 5.1 用 44 分钟解开 370 年历史的 Cyphral Distich 密码",
+              "publishedAt": "2026-09-13T21:06:13.000Z",
+              "ownershipEvidence": {
+                "field": "owner_company",
+                "value": "Anthropic",
+                "quote": "Claude Fable \\ Anthropic",
+                "url": "https://www.anthropic.com/claude/fable",
+                "title": "Claude Fable - Anthropic",
+                "checkedAt": "2026-09-14"
+              }
+            },
+            {
+              "name": "Fable 5.1",
+              "relationship": "owned",
+              "quote": "GPT-6 Astra 和 Fable 5.1 在适当引导下已能可靠完成数周人类工作量",
+              "articleId": "aihot:cmu0arfzo0ecarorypqqwh2d8",
+              "url": "https://x.com/emollick/status/2099235643792462040",
+              "title": "Ethan Mollick：GPT-6 Astra 与 Fable 5.1 已足以变革经济",
+              "publishedAt": "2026-09-13T20:35:54.000Z",
+              "ownershipEvidence": {
+                "field": "owner_company",
+                "value": "Anthropic",
+                "quote": "Claude Fable \\ Anthropic",
+                "url": "https://www.anthropic.com/claude/fable",
+                "title": "Claude Fable - Anthropic",
+                "checkedAt": "2026-09-14"
+              }
+            }
+          ]
+        },
+        "Fable": {
+          "id": "company:09cf980b5ff304ac",
+          "company_name": "Fable",
+          "aliases": [
+            "fable"
+          ],
+          "product_names": [
+            "fable",
+            "Fable 5.1"
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "其他AI应用",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "fable",
+                "articleId": "aihot:cmu00ikwl07s2roymu6nj8zqg",
+                "url": "https://x.com/dexhorthy/status/2099169149780181036",
+                "title": "把截图拼成 contact sheet 让 Agent 省上下文的提示词技巧",
+                "publishedAt": "2026-09-13T16:11:40.000Z",
+                "sourceName": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+                "origin": "article"
+              },
+              {
+                "value": "Fable",
+                "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+                "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+                "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+                "publishedAt": "2026-09-13T15:25:02.000Z",
+                "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+                "origin": "article"
+              },
+              {
+                "value": "Fable",
+                "articleId": "aihot:cmtzem15203y0rowyqrifv5u3",
+                "url": "https://x.com/emollick/status/2099011701949583614",
+                "title": "AI 越强越难展示其优劣",
+                "publishedAt": "2026-09-13T05:46:02.000Z",
+                "sourceName": "X：Ethan Mollick (@emollick)",
+                "origin": "article"
+              }
+            ],
+            "product_names": [
+              {
+                "value": "fable",
+                "articleId": "aihot:cmu00ikwl07s2roymu6nj8zqg",
+                "url": "https://x.com/dexhorthy/status/2099169149780181036",
+                "title": "把截图拼成 contact sheet 让 Agent 省上下文的提示词技巧",
+                "publishedAt": "2026-09-13T16:11:40.000Z",
+                "sourceName": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+                "origin": "article"
+              },
+              {
+                "value": "Fable 5.1",
+                "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+                "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+                "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+                "publishedAt": "2026-09-13T15:25:02.000Z",
+                "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+                "origin": "article"
+              }
+            ]
+          },
+          "sourceArticles": [
+            {
+              "id": "aihot:cmu00ikwl07s2roymu6nj8zqg",
+              "title": "把截图拼成 contact sheet 让 Agent 省上下文的提示词技巧",
+              "url": "https://x.com/dexhorthy/status/2099169149780181036",
+              "publishedAt": "2026-09-13T16:11:40.000Z",
+              "sourceName": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+              "category": "general"
+            },
+            {
+              "id": "aihot:cmtzzh2o306fbroyml5yx780m",
+              "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+              "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+              "publishedAt": "2026-09-13T15:25:02.000Z",
+              "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+              "category": "bigtech"
+            },
+            {
+              "id": "aihot:cmtzem15203y0rowyqrifv5u3",
+              "title": "AI 越强越难展示其优劣",
+              "url": "https://x.com/emollick/status/2099011701949583614",
+              "publishedAt": "2026-09-13T05:46:02.000Z",
+              "sourceName": "X：Ethan Mollick (@emollick)",
+              "category": "general"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T05:46:02.000Z",
+          "lastSeenAt": "2026-09-13T16:11:40.000Z",
+          "entityType": "product",
+          "updatedAt": "2026-09-13T16:11:40.000Z",
+          "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+          "latestReportAt": "2026-09-13T16:11:40.000Z",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+          "productUpdates": [
+            {
+              "name": "fable",
+              "relationship": "unknown",
+              "quote": "Dex Horthy 转发补充该技巧对 fable 同样有效，他最早见 fable 主动这样做",
+              "articleId": "aihot:cmu00ikwl07s2roymu6nj8zqg",
+              "url": "https://x.com/dexhorthy/status/2099169149780181036",
+              "title": "把截图拼成 contact sheet 让 Agent 省上下文的提示词技巧",
+              "publishedAt": "2026-09-13T16:11:40.000Z"
+            },
+            {
+              "name": "Fable 5.1",
+              "relationship": "owned",
+              "quote": "与 Fable 5.1（high）持平",
+              "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+              "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+              "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+              "publishedAt": "2026-09-13T15:25:02.000Z"
+            }
+          ]
+        },
+        "Opus": {
+          "id": "company:e12ce8285efc67c6",
+          "company_name": "Opus",
+          "aliases": [],
+          "product_names": [
+            "Opus 5"
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "AI模型",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "Opus",
+                "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+                "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+                "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+                "publishedAt": "2026-09-13T15:25:02.000Z",
+                "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+                "origin": "article"
+              }
+            ],
+            "product_names": [
+              {
+                "value": "Opus 5",
+                "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+                "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+                "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+                "publishedAt": "2026-09-13T15:25:02.000Z",
+                "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+                "origin": "article"
+              }
+            ]
+          },
+          "sourceArticles": [
+            {
+              "id": "aihot:cmtzzh2o306fbroyml5yx780m",
+              "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+              "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+              "publishedAt": "2026-09-13T15:25:02.000Z",
+              "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+              "category": "bigtech"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T15:25:02.000Z",
+          "lastSeenAt": "2026-09-13T15:25:02.000Z",
+          "entityType": "product",
+          "updatedAt": "2026-09-13T15:25:02.000Z",
+          "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+          "latestReportAt": "2026-09-13T15:25:02.000Z",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+          "productUpdates": [
+            {
+              "name": "Opus 5",
+              "relationship": "unknown",
+              "quote": "和 Opus 5（max）的 27 个",
+              "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+              "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+              "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+              "publishedAt": "2026-09-13T15:25:02.000Z"
+            }
+          ],
+          "identityReview": [
+            {
+              "name": "Opus",
+              "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+              "reason": "该报道仅比较模型，没有证明存在同名公司。"
+            }
+          ]
         }
       },
       "latestReportAt": "2026-09-14T00:20:10.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
       "productUpdates": [
         {
           "name": "Claude Code",
@@ -2692,6 +3197,40 @@
           "publishedAt": "2026-09-14T00:19:47.000Z"
         },
         {
+          "name": "Fable 5.1",
+          "relationship": "owned",
+          "quote": "Claude Fable 5.1 用时 44 分钟、176k tokens 解开了 Sir Thomas Urquhart 有约 370 年未解的 Cyphral Distich 密码",
+          "articleId": "aihot:cmu0egfor0l2hroryrgx9uj4c",
+          "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
+          "title": "Fable 5.1 用 44 分钟解开 370 年历史的 Cyphral Distich 密码",
+          "publishedAt": "2026-09-13T21:06:13.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "Anthropic",
+            "quote": "Claude Fable \\ Anthropic",
+            "url": "https://www.anthropic.com/claude/fable",
+            "title": "Claude Fable - Anthropic",
+            "checkedAt": "2026-09-14"
+          }
+        },
+        {
+          "name": "Fable 5.1",
+          "relationship": "owned",
+          "quote": "GPT-6 Astra 和 Fable 5.1 在适当引导下已能可靠完成数周人类工作量",
+          "articleId": "aihot:cmu0arfzo0ecarorypqqwh2d8",
+          "url": "https://x.com/emollick/status/2099235643792462040",
+          "title": "Ethan Mollick：GPT-6 Astra 与 Fable 5.1 已足以变革经济",
+          "publishedAt": "2026-09-13T20:35:54.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "Anthropic",
+            "quote": "Claude Fable \\ Anthropic",
+            "url": "https://www.anthropic.com/claude/fable",
+            "title": "Claude Fable - Anthropic",
+            "checkedAt": "2026-09-14"
+          }
+        },
+        {
           "name": "Claude",
           "relationship": "owned",
           "quote": "回应因 Claude 生物安全防护过强而被嘲讽",
@@ -2710,6 +3249,84 @@
           "publishedAt": "2026-09-13T18:40:22.000Z"
         },
         {
+          "name": "fable",
+          "relationship": "unknown",
+          "quote": "Dex Horthy 转发补充该技巧对 fable 同样有效，他最早见 fable 主动这样做",
+          "articleId": "aihot:cmu00ikwl07s2roymu6nj8zqg",
+          "url": "https://x.com/dexhorthy/status/2099169149780181036",
+          "title": "把截图拼成 contact sheet 让 Agent 省上下文的提示词技巧",
+          "publishedAt": "2026-09-13T16:11:40.000Z"
+        },
+        {
+          "name": "Fable",
+          "relationship": "owned",
+          "quote": "",
+          "articleId": "aihot:cmu00ikwl07s2roymu6nj8zqg",
+          "url": "https://x.com/dexhorthy/status/2099169149780181036",
+          "title": "把截图拼成 contact sheet 让 Agent 省上下文的提示词技巧",
+          "publishedAt": "2026-09-13T16:11:40.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "Anthropic",
+            "quote": "Claude Fable \\ Anthropic",
+            "url": "https://www.anthropic.com/claude/fable",
+            "title": "Claude Fable - Anthropic",
+            "checkedAt": "2026-09-14"
+          }
+        },
+        {
+          "name": "Fable 5.1",
+          "relationship": "owned",
+          "quote": "与 Fable 5.1（high）持平",
+          "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+          "publishedAt": "2026-09-13T15:25:02.000Z"
+        },
+        {
+          "name": "Fable",
+          "relationship": "owned",
+          "quote": "",
+          "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+          "publishedAt": "2026-09-13T15:25:02.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "Anthropic",
+            "quote": "Claude Fable \\ Anthropic",
+            "url": "https://www.anthropic.com/claude/fable",
+            "title": "Claude Fable - Anthropic",
+            "checkedAt": "2026-09-14"
+          }
+        },
+        {
+          "name": "Opus 5",
+          "relationship": "unknown",
+          "quote": "和 Opus 5（max）的 27 个",
+          "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+          "publishedAt": "2026-09-13T15:25:02.000Z"
+        },
+        {
+          "name": "Opus",
+          "relationship": "owned",
+          "quote": "",
+          "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
+          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
+          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
+          "publishedAt": "2026-09-13T15:25:02.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "Anthropic",
+            "quote": "Claude Opus \\ Anthropic",
+            "url": "https://www.anthropic.com/claude/opus",
+            "title": "Claude Opus - Anthropic",
+            "checkedAt": "2026-09-14"
+          }
+        },
+        {
           "name": "Claude Code",
           "relationship": "owned",
           "quote": "Anthropic 9 月威胁报告披露，据评估极可能关联胡塞组织的也门小组使用 Claude Code 开发制导火箭",
@@ -2717,6 +3334,23 @@
           "url": "https://clashreport.com/world/articles/houthis-used-claude-code-to-develop-missile-guidance-software-anthropic-s52mnx4pwpo",
           "title": "Anthropic 报告称胡塞组织用 Claude Code 开发导弹制导软件",
           "publishedAt": "2026-09-13T14:15:40.000Z"
+        },
+        {
+          "name": "Fable",
+          "relationship": "owned",
+          "quote": "",
+          "articleId": "aihot:cmtzem15203y0rowyqrifv5u3",
+          "url": "https://x.com/emollick/status/2099011701949583614",
+          "title": "AI 越强越难展示其优劣",
+          "publishedAt": "2026-09-13T05:46:02.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "Anthropic",
+            "quote": "Claude Fable \\ Anthropic",
+            "url": "https://www.anthropic.com/claude/fable",
+            "title": "Claude Fable - Anthropic",
+            "checkedAt": "2026-09-14"
+          }
         }
       ]
     },
@@ -3045,6 +3679,243 @@
       }
     },
     {
+      "id": "company:702c213feab1671d",
+      "company_name": "字节跳动",
+      "aliases": [],
+      "product_names": [
+        "Seedance 2.5",
+        "Seedance"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "product_names": [
+          {
+            "value": "Seedance 2.5",
+            "articleId": "aihot:cmu0hln0i0p3crory2rhuv090",
+            "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
+            "title": "AI导演DiDi_OK专访：用Seedance 2.5打造新作《糖果》，聊聊模型如何吞掉工作流",
+            "publishedAt": "2026-09-14T00:08:00.000Z",
+            "sourceName": "公众号：数字生命卡兹克",
+            "origin": "article"
+          }
+        ],
+        "company_name": [
+          {
+            "value": "字节跳动",
+            "articleId": "research:724cb3e9025c287d",
+            "url": "https://seed.bytedance.com/en/blog/seedance-2-0-official-launch",
+            "title": "Seed News - ByteDance Seed Team",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "ByteDance Seed Team",
+            "checkedAt": "2026-09-14"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu0hln0i0p3crory2rhuv090",
+          "title": "AI导演DiDi_OK专访：用Seedance 2.5打造新作《糖果》，聊聊模型如何吞掉工作流",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
+          "publishedAt": "2026-09-14T00:08:00.000Z",
+          "sourceName": "公众号：数字生命卡兹克",
+          "category": "interview"
+        },
+        {
+          "id": "aihot:cmtznczul0051ro5ehrb5sh20",
+          "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+          "publishedAt": "2026-09-13T09:08:00.000Z",
+          "sourceName": "公众号：卡尔的AI沃茨",
+          "category": "general"
+        }
+      ],
+      "firstSeenAt": "2026-09-13T09:08:00.000Z",
+      "lastSeenAt": "2026-09-14T00:08:00.000Z",
+      "entityType": "company",
+      "updatedAt": "2026-09-14T00:08:00.000Z",
+      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+      "latestReportAt": "2026-09-14T00:08:00.000Z",
+      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
+      "productUpdates": [
+        {
+          "name": "Seedance 2.5",
+          "relationship": "owned",
+          "quote": "用Seedance 2.5打造新作《糖果》",
+          "articleId": "aihot:cmu0hln0i0p3crory2rhuv090",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
+          "title": "AI导演DiDi_OK专访：用Seedance 2.5打造新作《糖果》，聊聊模型如何吞掉工作流",
+          "publishedAt": "2026-09-14T00:08:00.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "字节跳动",
+            "quote": "ByteDance Seed Team",
+            "url": "https://seed.bytedance.com/en/blog/seedance-2-0-official-launch",
+            "title": "Seed News - ByteDance Seed Team",
+            "checkedAt": "2026-09-14"
+          }
+        },
+        {
+          "name": "Seedance",
+          "relationship": "owned",
+          "quote": "",
+          "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+          "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
+          "publishedAt": "2026-09-13T09:08:00.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "字节跳动",
+            "quote": "ByteDance Seed Team",
+            "url": "https://seed.bytedance.com/en/blog/seedance-2-0-official-launch",
+            "title": "Seed News - ByteDance Seed Team",
+            "checkedAt": "2026-09-14"
+          }
+        }
+      ],
+      "brandProfiles": {
+        "Seedance": {
+          "id": "company:1472950b8ae0b5cd",
+          "company_name": "Seedance",
+          "aliases": [],
+          "product_names": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "其他AI应用",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "Seedance",
+                "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
+                "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+                "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
+                "publishedAt": "2026-09-13T09:08:00.000Z",
+                "sourceName": "公众号：卡尔的AI沃茨",
+                "origin": "article"
+              }
+            ],
+            "product_names": []
+          },
+          "sourceArticles": [
+            {
+              "id": "aihot:cmtznczul0051ro5ehrb5sh20",
+              "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
+              "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+              "publishedAt": "2026-09-13T09:08:00.000Z",
+              "sourceName": "公众号：卡尔的AI沃茨",
+              "category": "general"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T09:08:00.000Z",
+          "lastSeenAt": "2026-09-13T09:08:00.000Z",
+          "entityType": "product",
+          "updatedAt": "2026-09-13T09:08:00.000Z",
+          "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+          "latestReportAt": "2026-09-13T09:08:00.000Z",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+          "productUpdates": []
+        },
+        "Seedance 2.5": {
+          "id": "company:a566130385b742f5",
+          "company_name": "Seedance 2.5",
+          "aliases": [],
+          "product_names": [
+            "Seedance 2.5"
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "其他AI应用",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "Seedance 2.5",
+                "articleId": "aihot:cmu0hln0i0p3crory2rhuv090",
+                "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
+                "title": "AI导演DiDi_OK专访：用Seedance 2.5打造新作《糖果》，聊聊模型如何吞掉工作流",
+                "publishedAt": "2026-09-14T00:08:00.000Z",
+                "sourceName": "公众号：数字生命卡兹克",
+                "origin": "article"
+              }
+            ],
+            "product_names": [
+              {
+                "value": "Seedance 2.5",
+                "articleId": "aihot:cmu0hln0i0p3crory2rhuv090",
+                "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
+                "title": "AI导演DiDi_OK专访：用Seedance 2.5打造新作《糖果》，聊聊模型如何吞掉工作流",
+                "publishedAt": "2026-09-14T00:08:00.000Z",
+                "sourceName": "公众号：数字生命卡兹克",
+                "origin": "article"
+              }
+            ]
+          },
+          "sourceArticles": [
+            {
+              "id": "aihot:cmu0hln0i0p3crory2rhuv090",
+              "title": "AI导演DiDi_OK专访：用Seedance 2.5打造新作《糖果》，聊聊模型如何吞掉工作流",
+              "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
+              "publishedAt": "2026-09-14T00:08:00.000Z",
+              "sourceName": "公众号：数字生命卡兹克",
+              "category": "interview"
+            }
+          ],
+          "firstSeenAt": "2026-09-14T00:08:00.000Z",
+          "lastSeenAt": "2026-09-14T00:08:00.000Z",
+          "entityType": "product",
+          "updatedAt": "2026-09-14T00:08:00.000Z",
+          "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+          "latestReportAt": "2026-09-14T00:08:00.000Z",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+          "productUpdates": [
+            {
+              "name": "Seedance 2.5",
+              "relationship": "owned",
+              "quote": "用Seedance 2.5打造新作《糖果》",
+              "articleId": "aihot:cmu0hln0i0p3crory2rhuv090",
+              "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
+              "title": "AI导演DiDi_OK专访：用Seedance 2.5打造新作《糖果》，聊聊模型如何吞掉工作流",
+              "publishedAt": "2026-09-14T00:08:00.000Z",
+              "ownershipEvidence": {
+                "field": "owner_company",
+                "value": "字节跳动",
+                "quote": "ByteDance Seed Team",
+                "url": "https://seed.bytedance.com/en/blog/seedance-2-0-official-launch",
+                "title": "Seed News - ByteDance Seed Team",
+                "checkedAt": "2026-09-14"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
       "id": "company:8bcef51236d613cd",
       "company_name": "智谱",
       "aliases": [],
@@ -3090,6 +3961,17 @@
             "publishedAt": "2026-09-13T10:50:49.000Z",
             "sourceName": "IT之家（RSS）",
             "origin": "article"
+          },
+          {
+            "value": "智谱",
+            "articleId": "research:2a8e92928872cdd7",
+            "url": "https://z.ai/company",
+            "title": "Z.ai API Platform — Start building with GLM-5.3",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "ZhipuAI ChatGLM, one of China's first registered large model products, officially launched.",
+            "checkedAt": "2026-09-14"
           }
         ],
         "product_names": [
@@ -3200,6 +4082,14 @@
           "category": "financing"
         },
         {
+          "id": "manus:ca9c16453725ee8b",
+          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "publishedAt": "2026-09-13T20:16:29+08:00",
+          "sourceName": "ZFinance",
+          "category": "general"
+        },
+        {
           "id": "aihot:cmtzpegzo036croxqz63t5d0k",
           "title": "智谱宣布完成约 50 亿美元融资，用于下一代 GLM 基础模型研发",
           "url": "https://www.ithome.com/1/001/833.htm",
@@ -3213,7 +4103,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:03:00.000Z",
       "latestReportAt": "2026-09-14T00:03:00.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
       "productUpdates": [
         {
           "name": "GLM",
@@ -3236,13 +4126,99 @@
         {
           "name": "GLM",
           "relationship": "owned",
+          "quote": "",
+          "articleId": "manus:ca9c16453725ee8b",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+          "publishedAt": "2026-09-13T20:16:29+08:00",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "智谱",
+            "quote": "ZhipuAI ChatGLM, one of China's first registered large model products, officially launched.",
+            "url": "https://z.ai/company",
+            "title": "Z.ai API Platform — Start building with GLM-5.3",
+            "checkedAt": "2026-09-14"
+          }
+        },
+        {
+          "name": "GLM",
+          "relationship": "owned",
           "quote": "资金将用于下一代 GLM 基础模型及完全自训练体系研发",
           "articleId": "aihot:cmtzpegzo036croxqz63t5d0k",
           "url": "https://www.ithome.com/1/001/833.htm",
           "title": "智谱宣布完成约 50 亿美元融资，用于下一代 GLM 基础模型研发",
           "publishedAt": "2026-09-13T10:50:49.000Z"
         }
-      ]
+      ],
+      "brandProfiles": {
+        "GLM": {
+          "id": "company:2bf548d8056029c7",
+          "company_name": "GLM",
+          "aliases": [],
+          "product_names": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI模型",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "AI模型",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "GLM",
+                "articleId": "manus:ca9c16453725ee8b",
+                "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+                "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+                "publishedAt": "2026-09-13T20:16:29+08:00",
+                "sourceName": "ZFinance",
+                "origin": "article"
+              }
+            ],
+            "product_names": [],
+            "business": [
+              {
+                "value": "AI模型",
+                "articleId": "manus:ca9c16453725ee8b",
+                "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+                "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+                "publishedAt": "2026-09-13T20:16:29+08:00",
+                "sourceName": "ZFinance",
+                "origin": "article"
+              }
+            ]
+          },
+          "sourceArticles": [
+            {
+              "id": "manus:ca9c16453725ee8b",
+              "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+              "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+              "publishedAt": "2026-09-13T20:16:29+08:00",
+              "sourceName": "ZFinance",
+              "category": "general"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T20:16:29+08:00",
+          "lastSeenAt": "2026-09-13T20:16:29+08:00",
+          "entityType": "product",
+          "updatedAt": "2026-09-13T20:16:29+08:00",
+          "latestReportAt": "2026-09-13T20:16:29+08:00",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+          "productUpdates": [],
+          "identityReview": [
+            {
+              "name": "GLM",
+              "articleId": "manus:ca9c16453725ee8b",
+              "reason": "报道中的GLM为模型名称，未证明同名公司身份。"
+            }
+          ],
+          "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+        }
+      }
     },
     {
       "id": "company:72e8088a05b38ae3",
@@ -3503,7 +4479,8 @@
       "product_names": [
         "GPT-2",
         "GPT-6 Astra",
-        "GPT Images 2.5"
+        "GPT Images 2.5",
+        "GPT-5.6 Sol"
       ],
       "founded": null,
       "country": "美国",
@@ -3685,6 +4662,17 @@
             "origin": "article",
             "quote": "OpenAI 发布 ChatGPT Images 2.5，含 GPT-Image-2.5 Flare 和 GPT-Image-2.5 Sunburst 两个模型，主推更自然的光照、更可靠的参考图保留和局部编辑，Flare 延迟较 Images 2.0 降低最多 50%。",
             "checkedAt": "2026-09-10"
+          },
+          {
+            "value": "OpenAI",
+            "articleId": "research:238c8d8bf6e82e96",
+            "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+            "title": "Previewing GPT-5.6 Sol: a next-generation model | OpenAI",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "Previewing GPT-5.6 Sol: a next-generation model | OpenAI",
+            "checkedAt": "2026-09-14"
           }
         ],
         "product_names": [
@@ -3758,6 +4746,15 @@
             "title": "GPT Images 2.5 打造电影角色时尚大片",
             "publishedAt": "2026-09-13T03:34:02.000Z",
             "sourceName": "X：ZHO (@ZHO_ZHO_ZHO)",
+            "origin": "article"
+          },
+          {
+            "value": "GPT-5.6 Sol",
+            "articleId": "aihot:cmtzjd9lb02kvrol5wo7lx98g",
+            "url": "https://x.com/kimmonismus/status/2099045668241457529",
+            "title": "GPT-6 Astra 或成快速迭代绝响",
+            "publishedAt": "2026-09-13T08:01:00.000Z",
+            "sourceName": "X：Kim (@kimmonismus)",
             "origin": "article"
           }
         ],
@@ -4246,10 +5243,89 @@
             }
           ],
           "updatedAt": "2026-09-13T09:11:50.000Z"
+        },
+        "GPT-5.6 Sol": {
+          "id": "company:4cb7f4a5f9aef365",
+          "company_name": "GPT-5.6 Sol",
+          "aliases": [],
+          "product_names": [
+            "GPT-5.6 Sol"
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "AI模型",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "GPT-5.6 Sol",
+                "articleId": "aihot:cmtzjd9lb02kvrol5wo7lx98g",
+                "url": "https://x.com/kimmonismus/status/2099045668241457529",
+                "title": "GPT-6 Astra 或成快速迭代绝响",
+                "publishedAt": "2026-09-13T08:01:00.000Z",
+                "sourceName": "X：Kim (@kimmonismus)",
+                "origin": "article"
+              }
+            ],
+            "product_names": [
+              {
+                "value": "GPT-5.6 Sol",
+                "articleId": "aihot:cmtzjd9lb02kvrol5wo7lx98g",
+                "url": "https://x.com/kimmonismus/status/2099045668241457529",
+                "title": "GPT-6 Astra 或成快速迭代绝响",
+                "publishedAt": "2026-09-13T08:01:00.000Z",
+                "sourceName": "X：Kim (@kimmonismus)",
+                "origin": "article"
+              }
+            ]
+          },
+          "sourceArticles": [
+            {
+              "id": "aihot:cmtzjd9lb02kvrol5wo7lx98g",
+              "title": "GPT-6 Astra 或成快速迭代绝响",
+              "url": "https://x.com/kimmonismus/status/2099045668241457529",
+              "publishedAt": "2026-09-13T08:01:00.000Z",
+              "sourceName": "X：Kim (@kimmonismus)",
+              "category": "general"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T08:01:00.000Z",
+          "lastSeenAt": "2026-09-13T08:01:00.000Z",
+          "entityType": "product",
+          "productUpdates": [
+            {
+              "name": "GPT-5.6 Sol",
+              "relationship": "owned",
+              "quote": "GPT-5.6 Sol 于 7 月 9 日发布",
+              "articleId": "aihot:cmtzjd9lb02kvrol5wo7lx98g",
+              "url": "https://x.com/kimmonismus/status/2099045668241457529",
+              "title": "GPT-6 Astra 或成快速迭代绝响",
+              "publishedAt": "2026-09-13T08:01:00.000Z",
+              "ownershipEvidence": {
+                "field": "owner_company",
+                "value": "OpenAI",
+                "quote": "Previewing GPT-5.6 Sol: a next-generation model | OpenAI",
+                "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+                "title": "Previewing GPT-5.6 Sol: a next-generation model | OpenAI",
+                "checkedAt": "2026-09-14"
+              }
+            }
+          ],
+          "updatedAt": "2026-09-13T08:01:00.000Z",
+          "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+          "latestReportAt": "2026-09-13T08:01:00.000Z",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00"
         }
       },
       "latestReportAt": "2026-09-13T23:11:17.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
       "productUpdates": [
         {
           "name": "GPT-2",
@@ -4304,6 +5380,23 @@
           "url": "https://x.com/kimmonismus/status/2099045668241457529",
           "title": "GPT-6 Astra 或成快速迭代绝响",
           "publishedAt": "2026-09-13T08:01:00.000Z"
+        },
+        {
+          "name": "GPT-5.6 Sol",
+          "relationship": "owned",
+          "quote": "GPT-5.6 Sol 于 7 月 9 日发布",
+          "articleId": "aihot:cmtzjd9lb02kvrol5wo7lx98g",
+          "url": "https://x.com/kimmonismus/status/2099045668241457529",
+          "title": "GPT-6 Astra 或成快速迭代绝响",
+          "publishedAt": "2026-09-13T08:01:00.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "OpenAI",
+            "quote": "Previewing GPT-5.6 Sol: a next-generation model | OpenAI",
+            "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+            "title": "Previewing GPT-5.6 Sol: a next-generation model | OpenAI",
+            "checkedAt": "2026-09-14"
+          }
         },
         {
           "name": "GPT Images 2.5",
@@ -6916,6 +8009,168 @@
       ]
     },
     {
+      "id": "company:795b104abe3e4134",
+      "company_name": "Tailscale Inc.",
+      "aliases": [],
+      "product_names": [
+        "Tailscale"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "product_names": [
+          {
+            "value": "Tailscale",
+            "articleId": "aihot:cmtznk3ta02zoro5ebx6vczaa",
+            "url": "https://x.com/AYi_AInotes/status/2099076449109975471",
+            "title": "Meta 个人 AI 助手 Muse 官方接入 Tailscale，云端 AI 可进入用户家庭内网",
+            "publishedAt": "2026-09-13T10:03:19.000Z",
+            "sourceName": "X：阿易 AI Notes (@AYi_AInotes)",
+            "origin": "article"
+          }
+        ],
+        "company_name": [
+          {
+            "value": "Tailscale Inc.",
+            "articleId": "research:d7d68f8bd1239961",
+            "url": "https://tailscale.com/terms",
+            "title": "Terms of Service · Tailscale",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "Tailscale is a registered trademark of Tailscale Inc.",
+            "checkedAt": "2026-09-14"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "aihot:cmtznk3ta02zoro5ebx6vczaa",
+          "title": "Meta 个人 AI 助手 Muse 官方接入 Tailscale，云端 AI 可进入用户家庭内网",
+          "url": "https://x.com/AYi_AInotes/status/2099076449109975471",
+          "publishedAt": "2026-09-13T10:03:19.000Z",
+          "sourceName": "X：阿易 AI Notes (@AYi_AInotes)",
+          "category": "bigtech"
+        }
+      ],
+      "firstSeenAt": "2026-09-13T10:03:19.000Z",
+      "lastSeenAt": "2026-09-13T10:03:19.000Z",
+      "entityType": "company",
+      "updatedAt": "2026-09-13T10:03:19.000Z",
+      "latestReportAt": "2026-09-13T10:03:19.000Z",
+      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
+      "productUpdates": [
+        {
+          "name": "Tailscale",
+          "relationship": "owned",
+          "quote": "虚拟组网工具 Tailscale",
+          "articleId": "aihot:cmtznk3ta02zoro5ebx6vczaa",
+          "url": "https://x.com/AYi_AInotes/status/2099076449109975471",
+          "title": "Meta 个人 AI 助手 Muse 官方接入 Tailscale，云端 AI 可进入用户家庭内网",
+          "publishedAt": "2026-09-13T10:03:19.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "Tailscale Inc.",
+            "quote": "Tailscale is a registered trademark of Tailscale Inc.",
+            "url": "https://tailscale.com/terms",
+            "title": "Terms of Service · Tailscale",
+            "checkedAt": "2026-09-14"
+          }
+        }
+      ],
+      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+      "brandProfiles": {
+        "Tailscale": {
+          "id": "company:795b104abe3e4134",
+          "company_name": "Tailscale",
+          "aliases": [],
+          "product_names": [
+            "Tailscale"
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "其他AI应用",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "Tailscale",
+                "articleId": "aihot:cmtznk3ta02zoro5ebx6vczaa",
+                "url": "https://x.com/AYi_AInotes/status/2099076449109975471",
+                "title": "Meta 个人 AI 助手 Muse 官方接入 Tailscale，云端 AI 可进入用户家庭内网",
+                "publishedAt": "2026-09-13T10:03:19.000Z",
+                "sourceName": "X：阿易 AI Notes (@AYi_AInotes)",
+                "origin": "article"
+              }
+            ],
+            "product_names": [
+              {
+                "value": "Tailscale",
+                "articleId": "aihot:cmtznk3ta02zoro5ebx6vczaa",
+                "url": "https://x.com/AYi_AInotes/status/2099076449109975471",
+                "title": "Meta 个人 AI 助手 Muse 官方接入 Tailscale，云端 AI 可进入用户家庭内网",
+                "publishedAt": "2026-09-13T10:03:19.000Z",
+                "sourceName": "X：阿易 AI Notes (@AYi_AInotes)",
+                "origin": "article"
+              }
+            ]
+          },
+          "sourceArticles": [
+            {
+              "id": "aihot:cmtznk3ta02zoro5ebx6vczaa",
+              "title": "Meta 个人 AI 助手 Muse 官方接入 Tailscale，云端 AI 可进入用户家庭内网",
+              "url": "https://x.com/AYi_AInotes/status/2099076449109975471",
+              "publishedAt": "2026-09-13T10:03:19.000Z",
+              "sourceName": "X：阿易 AI Notes (@AYi_AInotes)",
+              "category": "bigtech"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T10:03:19.000Z",
+          "lastSeenAt": "2026-09-13T10:03:19.000Z",
+          "entityType": "product",
+          "updatedAt": "2026-09-13T10:03:19.000Z",
+          "latestReportAt": "2026-09-13T10:03:19.000Z",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+          "productUpdates": [
+            {
+              "name": "Tailscale",
+              "relationship": "owned",
+              "quote": "虚拟组网工具 Tailscale",
+              "articleId": "aihot:cmtznk3ta02zoro5ebx6vczaa",
+              "url": "https://x.com/AYi_AInotes/status/2099076449109975471",
+              "title": "Meta 个人 AI 助手 Muse 官方接入 Tailscale，云端 AI 可进入用户家庭内网",
+              "publishedAt": "2026-09-13T10:03:19.000Z",
+              "ownershipEvidence": {
+                "field": "owner_company",
+                "value": "Tailscale Inc.",
+                "quote": "Tailscale is a registered trademark of Tailscale Inc.",
+                "url": "https://tailscale.com/terms",
+                "title": "Terms of Service · Tailscale",
+                "checkedAt": "2026-09-14"
+              }
+            }
+          ],
+          "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+        }
+      }
+    },
+    {
       "id": "company:d5ac7e039c4dc4be",
       "company_name": "IN4 集团",
       "aliases": [],
@@ -8134,185 +9389,6 @@
       ]
     },
     {
-      "id": "company:a566130385b742f5",
-      "company_name": "Seedance 2.5",
-      "aliases": [],
-      "product_names": [
-        "Seedance 2.5"
-      ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "其他AI应用",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "Seedance 2.5",
-            "articleId": "aihot:cmu0hln0i0p3crory2rhuv090",
-            "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
-            "title": "AI导演DiDi_OK专访：用Seedance 2.5打造新作《糖果》，聊聊模型如何吞掉工作流",
-            "publishedAt": "2026-09-14T00:08:00.000Z",
-            "sourceName": "公众号：数字生命卡兹克",
-            "origin": "article"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "Seedance 2.5",
-            "articleId": "aihot:cmu0hln0i0p3crory2rhuv090",
-            "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
-            "title": "AI导演DiDi_OK专访：用Seedance 2.5打造新作《糖果》，聊聊模型如何吞掉工作流",
-            "publishedAt": "2026-09-14T00:08:00.000Z",
-            "sourceName": "公众号：数字生命卡兹克",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmu0hln0i0p3crory2rhuv090",
-          "title": "AI导演DiDi_OK专访：用Seedance 2.5打造新作《糖果》，聊聊模型如何吞掉工作流",
-          "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
-          "publishedAt": "2026-09-14T00:08:00.000Z",
-          "sourceName": "公众号：数字生命卡兹克",
-          "category": "interview"
-        }
-      ],
-      "firstSeenAt": "2026-09-14T00:08:00.000Z",
-      "lastSeenAt": "2026-09-14T00:08:00.000Z",
-      "entityType": "product",
-      "updatedAt": "2026-09-14T00:08:00.000Z",
-      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
-      "latestReportAt": "2026-09-14T00:08:00.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": [
-        {
-          "name": "Seedance 2.5",
-          "relationship": "unknown",
-          "quote": "用Seedance 2.5打造新作《糖果》",
-          "articleId": "aihot:cmu0hln0i0p3crory2rhuv090",
-          "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
-          "title": "AI导演DiDi_OK专访：用Seedance 2.5打造新作《糖果》，聊聊模型如何吞掉工作流",
-          "publishedAt": "2026-09-14T00:08:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "company:c2707515bb30190d",
-      "company_name": "Fable 5.1",
-      "aliases": [
-        "Claude Fable 5.1"
-      ],
-      "product_names": [
-        "Fable 5.1"
-      ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "AI模型",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "Fable 5.1",
-            "articleId": "aihot:cmu0egfor0l2hroryrgx9uj4c",
-            "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
-            "title": "Fable 5.1 用 44 分钟解开 370 年历史的 Cyphral Distich 密码",
-            "publishedAt": "2026-09-13T21:06:13.000Z",
-            "sourceName": "Hacker News：AI 热帖",
-            "origin": "article"
-          },
-          {
-            "value": "Fable 5.1",
-            "articleId": "aihot:cmu0arfzo0ecarorypqqwh2d8",
-            "url": "https://x.com/emollick/status/2099235643792462040",
-            "title": "Ethan Mollick：GPT-6 Astra 与 Fable 5.1 已足以变革经济",
-            "publishedAt": "2026-09-13T20:35:54.000Z",
-            "sourceName": "X：Ethan Mollick (@emollick)",
-            "origin": "article"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "Fable 5.1",
-            "articleId": "aihot:cmu0egfor0l2hroryrgx9uj4c",
-            "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
-            "title": "Fable 5.1 用 44 分钟解开 370 年历史的 Cyphral Distich 密码",
-            "publishedAt": "2026-09-13T21:06:13.000Z",
-            "sourceName": "Hacker News：AI 热帖",
-            "origin": "article"
-          },
-          {
-            "value": "Fable 5.1",
-            "articleId": "aihot:cmu0arfzo0ecarorypqqwh2d8",
-            "url": "https://x.com/emollick/status/2099235643792462040",
-            "title": "Ethan Mollick：GPT-6 Astra 与 Fable 5.1 已足以变革经济",
-            "publishedAt": "2026-09-13T20:35:54.000Z",
-            "sourceName": "X：Ethan Mollick (@emollick)",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmu0egfor0l2hroryrgx9uj4c",
-          "title": "Fable 5.1 用 44 分钟解开 370 年历史的 Cyphral Distich 密码",
-          "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
-          "publishedAt": "2026-09-13T21:06:13.000Z",
-          "sourceName": "Hacker News：AI 热帖",
-          "category": "general"
-        },
-        {
-          "id": "aihot:cmu0arfzo0ecarorypqqwh2d8",
-          "title": "Ethan Mollick：GPT-6 Astra 与 Fable 5.1 已足以变革经济",
-          "url": "https://x.com/emollick/status/2099235643792462040",
-          "publishedAt": "2026-09-13T20:35:54.000Z",
-          "sourceName": "X：Ethan Mollick (@emollick)",
-          "category": "general"
-        }
-      ],
-      "firstSeenAt": "2026-09-13T20:35:54.000Z",
-      "lastSeenAt": "2026-09-13T21:06:13.000Z",
-      "entityType": "product",
-      "updatedAt": "2026-09-13T21:06:13.000Z",
-      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
-      "latestReportAt": "2026-09-13T21:06:13.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": [
-        {
-          "name": "Fable 5.1",
-          "relationship": "unknown",
-          "quote": "Claude Fable 5.1 用时 44 分钟、176k tokens 解开了 Sir Thomas Urquhart 有约 370 年未解的 Cyphral Distich 密码",
-          "articleId": "aihot:cmu0egfor0l2hroryrgx9uj4c",
-          "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
-          "title": "Fable 5.1 用 44 分钟解开 370 年历史的 Cyphral Distich 密码",
-          "publishedAt": "2026-09-13T21:06:13.000Z"
-        },
-        {
-          "name": "Fable 5.1",
-          "relationship": "unknown",
-          "quote": "GPT-6 Astra 和 Fable 5.1 在适当引导下已能可靠完成数周人类工作量",
-          "articleId": "aihot:cmu0arfzo0ecarorypqqwh2d8",
-          "url": "https://x.com/emollick/status/2099235643792462040",
-          "title": "Ethan Mollick：GPT-6 Astra 与 Fable 5.1 已足以变革经济",
-          "publishedAt": "2026-09-13T20:35:54.000Z"
-        }
-      ]
-    },
-    {
       "id": "company:181bbb15941f21f1",
       "company_name": "CUDA-for-AMD-Windows",
       "aliases": [],
@@ -8636,55 +9712,6 @@
       "productUpdates": []
     },
     {
-      "id": "company:81ed341348bed14c",
-      "company_name": "Siri",
-      "aliases": [],
-      "product_names": [],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "其他AI应用",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "Siri",
-            "articleId": "aihot:cmu05ejmj089lroryk1mwul4k",
-            "url": "https://x.com/emollick/status/2099199806543421772",
-            "title": "远程连接AI将削弱Siri价值",
-            "publishedAt": "2026-09-13T18:13:29.000Z",
-            "sourceName": "X：Ethan Mollick (@emollick)",
-            "origin": "article"
-          }
-        ],
-        "product_names": []
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmu05ejmj089lroryk1mwul4k",
-          "title": "远程连接AI将削弱Siri价值",
-          "url": "https://x.com/emollick/status/2099199806543421772",
-          "publishedAt": "2026-09-13T18:13:29.000Z",
-          "sourceName": "X：Ethan Mollick (@emollick)",
-          "category": "general"
-        }
-      ],
-      "firstSeenAt": "2026-09-13T18:13:29.000Z",
-      "lastSeenAt": "2026-09-13T18:13:29.000Z",
-      "entityType": "product",
-      "updatedAt": "2026-09-13T18:13:29.000Z",
-      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
-      "latestReportAt": "2026-09-13T18:13:29.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": []
-    },
-    {
       "id": "company:26e59d6a3c92de80",
       "company_name": "Instinct",
       "aliases": [],
@@ -8756,277 +9783,6 @@
       ]
     },
     {
-      "id": "company:09cf980b5ff304ac",
-      "company_name": "Fable",
-      "aliases": [
-        "fable"
-      ],
-      "product_names": [
-        "fable",
-        "Fable 5.1"
-      ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "其他AI应用",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "fable",
-            "articleId": "aihot:cmu00ikwl07s2roymu6nj8zqg",
-            "url": "https://x.com/dexhorthy/status/2099169149780181036",
-            "title": "把截图拼成 contact sheet 让 Agent 省上下文的提示词技巧",
-            "publishedAt": "2026-09-13T16:11:40.000Z",
-            "sourceName": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
-            "origin": "article"
-          },
-          {
-            "value": "Fable",
-            "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
-            "url": "https://x.com/alexandr_wang/status/2099157412171374780",
-            "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
-            "publishedAt": "2026-09-13T15:25:02.000Z",
-            "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
-            "origin": "article"
-          },
-          {
-            "value": "Fable",
-            "articleId": "aihot:cmtzem15203y0rowyqrifv5u3",
-            "url": "https://x.com/emollick/status/2099011701949583614",
-            "title": "AI 越强越难展示其优劣",
-            "publishedAt": "2026-09-13T05:46:02.000Z",
-            "sourceName": "X：Ethan Mollick (@emollick)",
-            "origin": "article"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "fable",
-            "articleId": "aihot:cmu00ikwl07s2roymu6nj8zqg",
-            "url": "https://x.com/dexhorthy/status/2099169149780181036",
-            "title": "把截图拼成 contact sheet 让 Agent 省上下文的提示词技巧",
-            "publishedAt": "2026-09-13T16:11:40.000Z",
-            "sourceName": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
-            "origin": "article"
-          },
-          {
-            "value": "Fable 5.1",
-            "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
-            "url": "https://x.com/alexandr_wang/status/2099157412171374780",
-            "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
-            "publishedAt": "2026-09-13T15:25:02.000Z",
-            "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmu00ikwl07s2roymu6nj8zqg",
-          "title": "把截图拼成 contact sheet 让 Agent 省上下文的提示词技巧",
-          "url": "https://x.com/dexhorthy/status/2099169149780181036",
-          "publishedAt": "2026-09-13T16:11:40.000Z",
-          "sourceName": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
-          "category": "general"
-        },
-        {
-          "id": "aihot:cmtzzh2o306fbroyml5yx780m",
-          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
-          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
-          "publishedAt": "2026-09-13T15:25:02.000Z",
-          "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
-          "category": "bigtech"
-        },
-        {
-          "id": "aihot:cmtzem15203y0rowyqrifv5u3",
-          "title": "AI 越强越难展示其优劣",
-          "url": "https://x.com/emollick/status/2099011701949583614",
-          "publishedAt": "2026-09-13T05:46:02.000Z",
-          "sourceName": "X：Ethan Mollick (@emollick)",
-          "category": "general"
-        }
-      ],
-      "firstSeenAt": "2026-09-13T05:46:02.000Z",
-      "lastSeenAt": "2026-09-13T16:11:40.000Z",
-      "entityType": "product",
-      "updatedAt": "2026-09-13T16:11:40.000Z",
-      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
-      "latestReportAt": "2026-09-13T16:11:40.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": [
-        {
-          "name": "fable",
-          "relationship": "unknown",
-          "quote": "Dex Horthy 转发补充该技巧对 fable 同样有效，他最早见 fable 主动这样做",
-          "articleId": "aihot:cmu00ikwl07s2roymu6nj8zqg",
-          "url": "https://x.com/dexhorthy/status/2099169149780181036",
-          "title": "把截图拼成 contact sheet 让 Agent 省上下文的提示词技巧",
-          "publishedAt": "2026-09-13T16:11:40.000Z"
-        },
-        {
-          "name": "Fable 5.1",
-          "relationship": "owned",
-          "quote": "与 Fable 5.1（high）持平",
-          "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
-          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
-          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
-          "publishedAt": "2026-09-13T15:25:02.000Z"
-        }
-      ]
-    },
-    {
-      "id": "company:e12ce8285efc67c6",
-      "company_name": "Opus",
-      "aliases": [],
-      "product_names": [
-        "Opus 5"
-      ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "AI模型",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "Opus",
-            "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
-            "url": "https://x.com/alexandr_wang/status/2099157412171374780",
-            "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
-            "publishedAt": "2026-09-13T15:25:02.000Z",
-            "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
-            "origin": "article"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "Opus 5",
-            "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
-            "url": "https://x.com/alexandr_wang/status/2099157412171374780",
-            "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
-            "publishedAt": "2026-09-13T15:25:02.000Z",
-            "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmtzzh2o306fbroyml5yx780m",
-          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
-          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
-          "publishedAt": "2026-09-13T15:25:02.000Z",
-          "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
-          "category": "bigtech"
-        }
-      ],
-      "firstSeenAt": "2026-09-13T15:25:02.000Z",
-      "lastSeenAt": "2026-09-13T15:25:02.000Z",
-      "entityType": "product",
-      "updatedAt": "2026-09-13T15:25:02.000Z",
-      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
-      "latestReportAt": "2026-09-13T15:25:02.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": [
-        {
-          "name": "Opus 5",
-          "relationship": "unknown",
-          "quote": "和 Opus 5（max）的 27 个",
-          "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
-          "url": "https://x.com/alexandr_wang/status/2099157412171374780",
-          "title": "Alexandr Wang 转发 Bug Hunt Bench 实测：Muse Spark 1.3 max 修复 33/105 个植入 bug，并列前沿",
-          "publishedAt": "2026-09-13T15:25:02.000Z"
-        }
-      ],
-      "identityReview": [
-        {
-          "name": "Opus",
-          "articleId": "aihot:cmtzzh2o306fbroyml5yx780m",
-          "reason": "该报道仅比较模型，没有证明存在同名公司。"
-        }
-      ]
-    },
-    {
-      "id": "company:2bf548d8056029c7",
-      "company_name": "GLM",
-      "aliases": [],
-      "product_names": [],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": "AI模型",
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "AI模型",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "GLM",
-            "articleId": "manus:ca9c16453725ee8b",
-            "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
-            "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
-            "publishedAt": "2026-09-13T20:16:29+08:00",
-            "sourceName": "ZFinance",
-            "origin": "article"
-          }
-        ],
-        "product_names": [],
-        "business": [
-          {
-            "value": "AI模型",
-            "articleId": "manus:ca9c16453725ee8b",
-            "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
-            "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
-            "publishedAt": "2026-09-13T20:16:29+08:00",
-            "sourceName": "ZFinance",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "manus:ca9c16453725ee8b",
-          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
-          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
-          "publishedAt": "2026-09-13T20:16:29+08:00",
-          "sourceName": "ZFinance",
-          "category": "general"
-        }
-      ],
-      "firstSeenAt": "2026-09-13T20:16:29+08:00",
-      "lastSeenAt": "2026-09-13T20:16:29+08:00",
-      "entityType": "product",
-      "updatedAt": "2026-09-13T20:16:29+08:00",
-      "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": [],
-      "identityReview": [
-        {
-          "name": "GLM",
-          "articleId": "manus:ca9c16453725ee8b",
-          "reason": "报道中的GLM为模型名称，未证明同名公司身份。"
-        }
-      ],
-      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-    },
-    {
       "id": "company:e819fbec006def3e",
       "company_name": "PaperRoute",
       "aliases": [],
@@ -9096,197 +9852,6 @@
           "publishedAt": "2026-09-13T10:57:40.000Z"
         }
       ]
-    },
-    {
-      "id": "company:795b104abe3e4134",
-      "company_name": "Tailscale",
-      "aliases": [],
-      "product_names": [
-        "Tailscale"
-      ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "其他AI应用",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "Tailscale",
-            "articleId": "aihot:cmtznk3ta02zoro5ebx6vczaa",
-            "url": "https://x.com/AYi_AInotes/status/2099076449109975471",
-            "title": "Meta 个人 AI 助手 Muse 官方接入 Tailscale，云端 AI 可进入用户家庭内网",
-            "publishedAt": "2026-09-13T10:03:19.000Z",
-            "sourceName": "X：阿易 AI Notes (@AYi_AInotes)",
-            "origin": "article"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "Tailscale",
-            "articleId": "aihot:cmtznk3ta02zoro5ebx6vczaa",
-            "url": "https://x.com/AYi_AInotes/status/2099076449109975471",
-            "title": "Meta 个人 AI 助手 Muse 官方接入 Tailscale，云端 AI 可进入用户家庭内网",
-            "publishedAt": "2026-09-13T10:03:19.000Z",
-            "sourceName": "X：阿易 AI Notes (@AYi_AInotes)",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmtznk3ta02zoro5ebx6vczaa",
-          "title": "Meta 个人 AI 助手 Muse 官方接入 Tailscale，云端 AI 可进入用户家庭内网",
-          "url": "https://x.com/AYi_AInotes/status/2099076449109975471",
-          "publishedAt": "2026-09-13T10:03:19.000Z",
-          "sourceName": "X：阿易 AI Notes (@AYi_AInotes)",
-          "category": "bigtech"
-        }
-      ],
-      "firstSeenAt": "2026-09-13T10:03:19.000Z",
-      "lastSeenAt": "2026-09-13T10:03:19.000Z",
-      "entityType": "product",
-      "updatedAt": "2026-09-13T10:03:19.000Z",
-      "latestReportAt": "2026-09-13T10:03:19.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": [
-        {
-          "name": "Tailscale",
-          "relationship": "unknown",
-          "quote": "虚拟组网工具 Tailscale",
-          "articleId": "aihot:cmtznk3ta02zoro5ebx6vczaa",
-          "url": "https://x.com/AYi_AInotes/status/2099076449109975471",
-          "title": "Meta 个人 AI 助手 Muse 官方接入 Tailscale，云端 AI 可进入用户家庭内网",
-          "publishedAt": "2026-09-13T10:03:19.000Z"
-        }
-      ],
-      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-    },
-    {
-      "id": "company:1472950b8ae0b5cd",
-      "company_name": "Seedance",
-      "aliases": [],
-      "product_names": [],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "其他AI应用",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "Seedance",
-            "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
-            "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
-            "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
-            "publishedAt": "2026-09-13T09:08:00.000Z",
-            "sourceName": "公众号：卡尔的AI沃茨",
-            "origin": "article"
-          }
-        ],
-        "product_names": []
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmtznczul0051ro5ehrb5sh20",
-          "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
-          "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
-          "publishedAt": "2026-09-13T09:08:00.000Z",
-          "sourceName": "公众号：卡尔的AI沃茨",
-          "category": "general"
-        }
-      ],
-      "firstSeenAt": "2026-09-13T09:08:00.000Z",
-      "lastSeenAt": "2026-09-13T09:08:00.000Z",
-      "entityType": "product",
-      "updatedAt": "2026-09-13T09:08:00.000Z",
-      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
-      "latestReportAt": "2026-09-13T09:08:00.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": []
-    },
-    {
-      "id": "company:4cb7f4a5f9aef365",
-      "company_name": "GPT-5.6 Sol",
-      "aliases": [],
-      "product_names": [
-        "GPT-5.6 Sol"
-      ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "AI模型",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "GPT-5.6 Sol",
-            "articleId": "aihot:cmtzjd9lb02kvrol5wo7lx98g",
-            "url": "https://x.com/kimmonismus/status/2099045668241457529",
-            "title": "GPT-6 Astra 或成快速迭代绝响",
-            "publishedAt": "2026-09-13T08:01:00.000Z",
-            "sourceName": "X：Kim (@kimmonismus)",
-            "origin": "article"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "GPT-5.6 Sol",
-            "articleId": "aihot:cmtzjd9lb02kvrol5wo7lx98g",
-            "url": "https://x.com/kimmonismus/status/2099045668241457529",
-            "title": "GPT-6 Astra 或成快速迭代绝响",
-            "publishedAt": "2026-09-13T08:01:00.000Z",
-            "sourceName": "X：Kim (@kimmonismus)",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmtzjd9lb02kvrol5wo7lx98g",
-          "title": "GPT-6 Astra 或成快速迭代绝响",
-          "url": "https://x.com/kimmonismus/status/2099045668241457529",
-          "publishedAt": "2026-09-13T08:01:00.000Z",
-          "sourceName": "X：Kim (@kimmonismus)",
-          "category": "general"
-        }
-      ],
-      "firstSeenAt": "2026-09-13T08:01:00.000Z",
-      "lastSeenAt": "2026-09-13T08:01:00.000Z",
-      "entityType": "product",
-      "productUpdates": [
-        {
-          "name": "GPT-5.6 Sol",
-          "relationship": "unknown",
-          "quote": "GPT-5.6 Sol 于 7 月 9 日发布",
-          "articleId": "aihot:cmtzjd9lb02kvrol5wo7lx98g",
-          "url": "https://x.com/kimmonismus/status/2099045668241457529",
-          "title": "GPT-6 Astra 或成快速迭代绝响",
-          "publishedAt": "2026-09-13T08:01:00.000Z"
-        }
-      ],
-      "updatedAt": "2026-09-13T08:01:00.000Z",
-      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
-      "latestReportAt": "2026-09-13T08:01:00.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00"
     },
     {
       "id": "company:6cb784e0f985cba2",
@@ -9457,14 +10022,6 @@
         "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
       },
       {
-        "name": "Seedance 2.5",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Fable 5.1",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
         "name": "CUDA-for-AMD-Windows",
         "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
       },
@@ -9485,39 +10042,11 @@
         "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
       },
       {
-        "name": "Siri",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
         "name": "Instinct",
         "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
       },
       {
-        "name": "Fable",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Opus",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "GLM",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
         "name": "PaperRoute",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Tailscale",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "Seedance",
-        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
-      },
-      {
-        "name": "GPT-5.6 Sol",
         "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
       },
       {
@@ -9539,13 +10068,7 @@
       }
     ],
     "classifications": [],
-    "staleDecisions": [],
-    "pendingDecisions": [
-      {
-        "company": "法拉第未来",
-        "reason": "未具名集合描述是否作为产品仍待用户确认，本轮保留原记录。"
-      }
-    ]
+    "staleDecisions": []
   },
   "articleFailures": []
 }

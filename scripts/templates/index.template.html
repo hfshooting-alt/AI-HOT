@@ -579,7 +579,6 @@ function cardHTML(item, showFav = true) {
         <span class="tag accent">${esc(item.category)}</span>
         <span class="source">${esc(item.source)}</span>
         <span class="time">${esc(item.timeText)}</span>
-        ${item.score ? `<span class="score">AI ${item.score}</span>` : ''}
       </div>
       <h3 class="card-title"><a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a></h3>
       <p class="card-summary">${esc(item.summary)}</p>
