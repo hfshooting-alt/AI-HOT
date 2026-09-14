@@ -1,0 +1,256 @@
+{
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzwtyf403bbroymkmhniatu:cee661b9e7c0e6bb": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "智谱",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": "约50亿美元",
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ]
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0f6bsx0lw2roryi619fkcf:9e54f40c858d5e06": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Anthropic",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": "约2万亿美元",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ]
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0jgo260r4froryczn18ma5:7d42ed37a7cb89bb": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "智谱",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": "约50亿美元",
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   },
+   {
+    "company_name": "Anthropic",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": "约2万亿美元",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ]
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0goak20nogroryhop1kiso:3ce5b741183dc9cc": {
+  "status": "complete",
+  "companies": []
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzpegzo036croxqz63t5d0k:8557c26aa280099e": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "智谱",
+    "product_name": "GLM",
+    "founded": null,
+    "country": null,
+    "industry": "AI模型/基础设施",
+    "team": null,
+    "business": "研发GLM基础模型及完全自训练体系",
+    "investors": null,
+    "total_funding": "约50亿美元",
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ]
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzpegzo036eroxqlqt1cu18:846103b4f07f540e": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Flexion Robotics",
+    "product_name": null,
+    "founded": "2024年",
+    "country": "苏黎世",
+    "industry": null,
+    "team": "英伟达两名从事机器人研发多年的员工离职创办",
+    "business": null,
+    "investors": "英伟达",
+    "total_funding": "超过5700万美元",
+    "valuation": null,
+    "industry_id": "具身智能/机器人",
+    "company_type_id": "初创公司"
+   },
+   {
+    "company_name": "INT21",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": "英伟达离职员工徐冰创办",
+    "business": "利用AI优化芯片软件",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ]
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzwtyf403bbroymkmhniatu:7006907b56e08110": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "智谱",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": "约50亿美元",
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ]
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0jgo260r4froryczn18ma5:188a53ba2841598c": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "智谱",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": "约50亿美元",
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   },
+   {
+    "company_name": "Anthropic",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": "约2万亿美元",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ]
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0f6bsx0lw2roryi619fkcf:68c83ae3fa190cc3": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Anthropic",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": "约 2 万亿美元",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ]
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzpegzo036croxqz63t5d0k:7b29af2a245bb00f": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "智谱",
+    "product_name": "GLM",
+    "founded": null,
+    "country": null,
+    "industry": "AI模型/基础设施",
+    "team": null,
+    "business": "研发GLM基础模型及完全自训练体系",
+    "investors": null,
+    "total_funding": "约50亿美元",
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ]
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0goak20nogroryhop1kiso:d256551b1b437029": {
+  "status": "complete",
+  "companies": []
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzpegzo036eroxqlqt1cu18:9427d327a19e0cc9": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Flexion Robotics",
+    "product_name": null,
+    "founded": "2024年",
+    "country": "苏黎世",
+    "industry": "机器人",
+    "team": "英伟达两名从事机器人研发多年的员工离职创办",
+    "business": null,
+    "investors": "英伟达",
+    "total_funding": "超过5700万美元",
+    "valuation": null,
+    "industry_id": "具身智能/机器人",
+    "company_type_id": "初创公司"
+   },
+   {
+    "company_name": "INT21",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": "AI模型/基础设施",
+    "team": "英伟达离职员工徐冰创办",
+    "business": "用AI优化芯片软件",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ]
+ }
+}

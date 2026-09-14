@@ -1,0 +1,3950 @@
+{
+ "date": "2026-09-14",
+ "finalized": false,
+ "finalizedAt": null,
+ "items": [
+  {
+   "id": "aihot:cmu0lmcgu0tq7rorylexr05pu",
+   "title": "苹果 iOS 27 正式版前瞻：升级 Siri AI、液态玻璃优化、隔空投送提速 80%",
+   "originalTitle": "苹果 iOS 27 正式版前瞻：升级 Siri AI、优化液态玻璃设计、隔空投送提速 80%",
+   "summary": "苹果iOS 27正式版将于北京时间9月15日凌晨1点推送。该系统包含8项主要改进，其中核心升级是类似ChatGPT的Siri AI，能够调用个人信息、识别屏幕内容并在应用内执行操作。该功能仅支持iPhone 15 Pro及更新机型，初期仅提供英语且每日使用次数受限。",
+   "source": "IT之家（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0lmcgu0tq7rorylexr05pu",
+    "original": "https://www.ithome.com/1/001/921.htm"
+   },
+   "publishedAt": "2026-09-14T01:29:40.000Z",
+   "discoveredAt": "2026-09-14T02:03:12.753Z",
+   "category": "ai-products",
+   "score": 59,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0lmcgu0tq7rorylexr05pu"
+   },
+   "url": "https://www.ithome.com/1/001/921.htm",
+   "permalink": "https://aihot.news/items/cmu0lmcgu0tq7rorylexr05pu",
+   "originalUrl": "https://www.ithome.com/1/001/921.htm",
+   "aihotUrl": "https://aihot.news/items/cmu0lmcgu0tq7rorylexr05pu",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "IT之家（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "IT之家（RSS）",
+     "url": "https://www.ithome.com/1/001/921.htm",
+     "publishedAt": "2026-09-14T01:29:40.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "85d49c48b7e62b2cebc651e325bb3427763b00b13cacb50f458d46dc734c9f21"
+  },
+  {
+   "id": "aihot:cmu0km70g0sjyrory1ix2f1cz",
+   "title": "微软 Foundry 让长时运行智能体企业级落地",
+   "originalTitle": "Great example from @jeffhollan showing how Foundry makes long-running agents enterprise-ready， start…",
+   "summary": "微软 Foundry 展示了长时运行智能体在企业级场景中的能力。该演示由 Satya Nadella 转发，内容显示 Foundry 从业务成果出发，将安全、安全护栏、可审计性和 FinOps 构建进多智能体、多模型工作流。其可观测性与治理功能可回答智能体能访问什么、影响什么、数据流向何处、能否重建其行为以及能否控制与预算成本等问题。",
+   "source": "X：Satya Nadella (@satyanadella)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0km70g0sjyrory1ix2f1cz",
+    "original": "https://x.com/satyanadella/status/2099309030816813378"
+   },
+   "publishedAt": "2026-09-14T01:27:30.000Z",
+   "discoveredAt": "2026-09-14T01:35:04.547Z",
+   "category": null,
+   "score": 26,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0km70g0sjyrory1ix2f1cz"
+   },
+   "url": "https://x.com/satyanadella/status/2099309030816813378",
+   "permalink": "https://aihot.news/items/cmu0km70g0sjyrory1ix2f1cz",
+   "originalUrl": "https://x.com/satyanadella/status/2099309030816813378",
+   "aihotUrl": "https://aihot.news/items/cmu0km70g0sjyrory1ix2f1cz",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Satya Nadella (@satyanadella)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Satya Nadella (@satyanadella)",
+     "url": "https://x.com/satyanadella/status/2099309030816813378",
+     "publishedAt": "2026-09-14T01:27:30.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "a2920dffdd37733e236c778e795d3f5c7f9f33f36e0b0ff8fff26c738f064fad"
+  },
+  {
+   "id": "aihot:cmu0kc1v50sb2rorysso9avgi",
+   "title": "Trump淡化AI风险担忧，此前多位行业领袖呼吁放缓技术发展",
+   "originalTitle": "We sit tight… and assess.",
+   "summary": "据Bloomberg报道，Donald Trump在多位AI行业领袖呼吁放缓技术发展步伐后，淡化了围绕AI风险日益高涨的担忧。AI Safety Memes转发该报道并表示将坐观其变、继续评估。",
+   "source": "X：AI Safety Memes (@AISafetyMemes)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0kc1v50sb2rorysso9avgi",
+    "original": "https://x.com/AISafetyMemes/status/2099306685156511779"
+   },
+   "publishedAt": "2026-09-14T01:18:11.000Z",
+   "discoveredAt": "2026-09-14T01:27:09.853Z",
+   "category": "industry",
+   "score": 60,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0kc1v50sb2rorysso9avgi"
+   },
+   "url": "https://x.com/AISafetyMemes/status/2099306685156511779",
+   "permalink": "https://aihot.news/items/cmu0kc1v50sb2rorysso9avgi",
+   "originalUrl": "https://x.com/AISafetyMemes/status/2099306685156511779",
+   "aihotUrl": "https://aihot.news/items/cmu0kc1v50sb2rorysso9avgi",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：AI Safety Memes (@AISafetyMemes)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：AI Safety Memes (@AISafetyMemes)",
+     "url": "https://x.com/AISafetyMemes/status/2099306685156511779",
+     "publishedAt": "2026-09-14T01:18:11.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "fb25edcc624fb65b60f43f5260ec7739324d0483232c3e1dda41c4545ca6461a"
+  },
+  {
+   "id": "aihot:cmu0kvlv20stproryrruoks4n",
+   "title": "SemiAnalysis：数据中心正像乐高一样在工厂预制",
+   "originalTitle": "Datacenters are being built like Lego. The pieces come out of a factory. \"Instead of building your …",
+   "summary": "SemiAnalysis指出，数据中心建造方式正转向工厂预制，不再把设备和峰值7000名工人全部拉到德州Abilene现场，而是在工厂里把设备装进金属外壳，运到现场后像乐高一样逐块堆叠并连接。该方案号称即插即用，但推文暗示实际落地仍有疑问。",
+   "source": "X：SemiAnalysis (@SemiAnalysis_)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0kvlv20stproryrruoks4n",
+    "original": "https://x.com/SemiAnalysis_/status/2099305687478083795"
+   },
+   "publishedAt": "2026-09-14T01:14:13.000Z",
+   "discoveredAt": "2026-09-14T01:42:23.580Z",
+   "category": null,
+   "score": 41,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0kvlv20stproryrruoks4n"
+   },
+   "url": "https://x.com/SemiAnalysis_/status/2099305687478083795",
+   "permalink": "https://aihot.news/items/cmu0kvlv20stproryrruoks4n",
+   "originalUrl": "https://x.com/SemiAnalysis_/status/2099305687478083795",
+   "aihotUrl": "https://aihot.news/items/cmu0kvlv20stproryrruoks4n",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：SemiAnalysis (@SemiAnalysis_)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：SemiAnalysis (@SemiAnalysis_)",
+     "url": "https://x.com/SemiAnalysis_/status/2099305687478083795",
+     "publishedAt": "2026-09-14T01:14:13.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "fa67046d662aaad7a7c34e920caec2dbd2ca884e0c2ea59567af30c7ea79453a"
+  },
+  {
+   "id": "aihot:cmu0juoe90rv6roryu2phpb41",
+   "title": "Meta Muse 可帮你办理机票退款",
+   "originalTitle": "muse can help you get refunds on your flights！",
+   "summary": "Scale AI创始人兼Meta首席AI官Alexandr Wang在X上转发了一条关于Meta Muse的演示，称Muse可帮助用户办理机票退款。被引用的用户APRabhilash表示，他使用Meta的Muse尝试了几个日常任务，Muse完整填写了一份七步的航班取消赔偿申请，包括预订信息和说明陈述，并在银行信息等环节交由用户接手处理。",
+   "source": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0juoe90rv6roryu2phpb41",
+    "original": "https://x.com/alexandr_wang/status/2099303280308564355"
+   },
+   "publishedAt": "2026-09-14T01:04:39.000Z",
+   "discoveredAt": "2026-09-14T01:13:27.671Z",
+   "category": null,
+   "score": 39,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0juoe90rv6roryu2phpb41"
+   },
+   "url": "https://x.com/alexandr_wang/status/2099303280308564355",
+   "permalink": "https://aihot.news/items/cmu0juoe90rv6roryu2phpb41",
+   "originalUrl": "https://x.com/alexandr_wang/status/2099303280308564355",
+   "aihotUrl": "https://aihot.news/items/cmu0juoe90rv6roryu2phpb41",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+     "url": "https://x.com/alexandr_wang/status/2099303280308564355",
+     "publishedAt": "2026-09-14T01:04:39.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "225db97274375da1989cc35e8a67d39bbfce2a8a959d8db75bfa3fe03ecb70af"
+  },
+  {
+   "id": "aihot:cmu0jt0q40rt6rorybcl8u1ju",
+   "title": "前FTC主席：危险AI发布已可依现有法律追责",
+   "originalTitle": "Former FTC （US Federal Trade Commissio） chair Lina Khan： Dangerous AI releases can already trigger l…",
+   "summary": "前FTC主席Lina Khan表示，发布未经审查的AI模型或智能体可依据FTC Act被认定为不公平或欺骗性行为，部分州检察长已在探索追究AI公司及其CEO的刑事责任。她还指出，现有法律禁止不公平竞争方法，可涵盖AI公司侵占客户竞争敏感信息等情形。Khan强调无需等待AI专项立法，执法者应同步审查AI市场高度集中与交叉投资带来的风险。",
+   "source": "X：Rohan Paul (@rohanpaul_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0jt0q40rt6rorybcl8u1ju",
+    "original": "https://x.com/rohanpaul_ai/status/2099298462462513625"
+   },
+   "publishedAt": "2026-09-14T00:45:31.000Z",
+   "discoveredAt": "2026-09-14T01:12:23.632Z",
+   "category": null,
+   "score": 49,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0jt0q40rt6rorybcl8u1ju"
+   },
+   "url": "https://x.com/rohanpaul_ai/status/2099298462462513625",
+   "permalink": "https://aihot.news/items/cmu0jt0q40rt6rorybcl8u1ju",
+   "originalUrl": "https://x.com/rohanpaul_ai/status/2099298462462513625",
+   "aihotUrl": "https://aihot.news/items/cmu0jt0q40rt6rorybcl8u1ju",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Rohan Paul (@rohanpaul_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Rohan Paul (@rohanpaul_ai)",
+     "url": "https://x.com/rohanpaul_ai/status/2099298462462513625",
+     "publishedAt": "2026-09-14T00:45:31.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "49aaa244caab0f07065ddcd5929eeb86bc849e913f847e49ea7c97bd9f0b0446"
+  },
+  {
+   "id": "aihot:cmu0u7s4909vyroucvoivk21b",
+   "title": "10个问答，深入分歧之下的具身机器人|对话苏度科技、蚂蚁灵波、自变量机器人、破壳机器人创始人、首席科学家",
+   "originalTitle": null,
+   "summary": "文章以十个问答形式，对话苏度科技、蚂蚁灵波、自变量机器人、破壳机器人的创始人及首席科学家，围绕具身机器人领域存在的分歧展开讨论。",
+   "source": "elsewhere：文章（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0u7s4909vyroucvoivk21b",
+    "original": "https://elsewhere.news/zh/crossing/10-qas-inside-the-disagreements-over-embodied-robots-convers"
+   },
+   "publishedAt": "2026-09-14T00:45:00.000Z",
+   "discoveredAt": "2026-09-14T06:03:50.547Z",
+   "category": null,
+   "score": 33,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0u7s4909vyroucvoivk21b"
+   },
+   "url": "https://elsewhere.news/zh/crossing/10-qas-inside-the-disagreements-over-embodied-robots-convers",
+   "permalink": "https://aihot.news/items/cmu0u7s4909vyroucvoivk21b",
+   "originalUrl": "https://elsewhere.news/zh/crossing/10-qas-inside-the-disagreements-over-embodied-robots-convers",
+   "aihotUrl": "https://aihot.news/items/cmu0u7s4909vyroucvoivk21b",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "elsewhere：文章（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "elsewhere：文章（RSS）",
+     "url": "https://elsewhere.news/zh/crossing/10-qas-inside-the-disagreements-over-embodied-robots-convers",
+     "publishedAt": "2026-09-14T00:45:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_other",
+     "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "d26f615e308bd47e94a827163747417b2444b8969c6eb93f4c2e577b66aa9cf3"
+  },
+  {
+   "id": "aihot:cmu0iqg330q6frorysads45q4",
+   "title": "听 Sam Altman 与 Dario Amodei 演讲",
+   "originalTitle": "Just arrived in SF. Absolutely exhausted， but super excited to hear Sam Altman and Dario Amodei spea…",
+   "summary": "作者抵达旧金山，表示期待在Dreamforce现场听Sam Altman和Dario Amodei演讲，并提到这发生在“放缓”风波之后。",
+   "source": "X：Kim (@kimmonismus)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0iqg330q6frorysads45q4",
+    "original": "https://x.com/kimmonismus/status/2099296394758545599"
+   },
+   "publishedAt": "2026-09-14T00:37:18.000Z",
+   "discoveredAt": "2026-09-14T00:42:23.836Z",
+   "category": null,
+   "score": 22,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0iqg330q6frorysads45q4"
+   },
+   "url": "https://x.com/kimmonismus/status/2099296394758545599",
+   "permalink": "https://aihot.news/items/cmu0iqg330q6frorysads45q4",
+   "originalUrl": "https://x.com/kimmonismus/status/2099296394758545599",
+   "aihotUrl": "https://aihot.news/items/cmu0iqg330q6frorysads45q4",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Kim (@kimmonismus)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Kim (@kimmonismus)",
+     "url": "https://x.com/kimmonismus/status/2099296394758545599",
+     "publishedAt": "2026-09-14T00:37:18.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "08f2c1f9ff58059e015bd8253c66d55ad107a0e0162dfd3099e7d5f42b276eca"
+  },
+  {
+   "id": "aihot:cmu0ip3yf0q57rorywnkpw6d6",
+   "title": "Bryan Cantrill 撰文批评 Jacob Coxon 等人称AI十年内灭绝人类概率超10%的说法",
+   "originalTitle": "恐惧的蔓延",
+   "summary": "Bryan Cantrill 撰文批评前 Anthropic 员工 Jacob Coxon 与 Anthropic 对齐科学负责人 Evan Hubinger 认同的“AI 在十年内杀死全人类概率超过10%”的表态。他忏悔自己大学时期在机房谎报病毒引发恐慌的旧事，以此类比当前 AI 灭绝风险言论。Cantrill 指出这类主张缺乏证据、依赖模糊外推，并强调工程离不开物理世界与人类问责，专家不应滥用公众信任。",
+   "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0ip3yf0q57rorywnkpw6d6",
+    "original": "https://bcantrill.dtrace.org/2026/09/13/the-contagion-of-fear"
+   },
+   "publishedAt": "2026-09-14T00:32:40.896Z",
+   "discoveredAt": "2026-09-14T00:41:23.588Z",
+   "category": "tip",
+   "score": 51,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0ip3yf0q57rorywnkpw6d6"
+   },
+   "url": "https://bcantrill.dtrace.org/2026/09/13/the-contagion-of-fear",
+   "permalink": "https://aihot.news/items/cmu0ip3yf0q57rorywnkpw6d6",
+   "originalUrl": "https://bcantrill.dtrace.org/2026/09/13/the-contagion-of-fear",
+   "aihotUrl": "https://aihot.news/items/cmu0ip3yf0q57rorywnkpw6d6",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+     "url": "https://bcantrill.dtrace.org/2026/09/13/the-contagion-of-fear",
+     "publishedAt": "2026-09-14T00:32:40.896Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "de5ef77a85170aae59a4cf11cdc70faf546b9d3ff60a672e53c003bf5b7f3ff4"
+  },
+  {
+   "id": "aihot:cmu0jggkp0r2qrorysh4jf1f5",
+   "title": "Simon Willison 发布 commit-rewriter 0.1，用于改写 Git 提交信息",
+   "originalTitle": "commit-rewriter 0.1",
+   "summary": "Simon Willison 发布了 commit-rewriter 0.1，这是一个用于编辑 Git 仓库提交信息的 Web 应用，可通过 uvx commit-rewriter path/to/repo 运行。",
+   "source": "Simon Willison 博客",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0jggkp0r2qrorysh4jf1f5",
+    "original": "https://simonwillison.net/2026/Sep/14/commit-rewriter"
+   },
+   "publishedAt": "2026-09-14T00:28:10.000Z",
+   "discoveredAt": "2026-09-14T01:02:40.004Z",
+   "category": null,
+   "score": 46,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0jggkp0r2qrorysh4jf1f5"
+   },
+   "url": "https://simonwillison.net/2026/Sep/14/commit-rewriter",
+   "permalink": "https://aihot.news/items/cmu0jggkp0r2qrorysh4jf1f5",
+   "originalUrl": "https://simonwillison.net/2026/Sep/14/commit-rewriter",
+   "aihotUrl": "https://aihot.news/items/cmu0jggkp0r2qrorysh4jf1f5",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Simon Willison 博客",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Simon Willison 博客",
+     "url": "https://simonwillison.net/2026/Sep/14/commit-rewriter",
+     "publishedAt": "2026-09-14T00:28:10.000Z"
+    }
+   ],
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "5763097c723f436697ca2aa63bddaa220b71472d039999f6dacec13610916499"
+  },
+  {
+   "id": "aihot:cmu0rbkxp07strox2w1x62i9d",
+   "title": "开源 AI 与开放模型阅读清单：Nathan Lambert 整理近年最佳写作",
+   "originalTitle": "Open-Source AI and Open Models Reading List",
+   "summary": "Nathan Lambert 整理发布了一份开源 AI 与开放模型阅读清单，收录近几年的代表性文章，内容覆盖开放模型的基础概念、发布动机、商业策略与风险，以及中美竞争格局。清单按 Foundation 与 US-China Competition 两部分组织，最后更新于 2026 年 9 月 13 日，并邀请读者在评论区补充推荐。",
+   "source": "Hacker News：AI 热帖",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0rbkxp07strox2w1x62i9d",
+    "original": "https://www.interconnects.ai/p/open-source-ai-reading-list"
+   },
+   "publishedAt": "2026-09-14T00:22:51.000Z",
+   "discoveredAt": "2026-09-14T04:42:46.567Z",
+   "category": null,
+   "score": 50,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0rbkxp07strox2w1x62i9d"
+   },
+   "url": "https://www.interconnects.ai/p/open-source-ai-reading-list",
+   "permalink": "https://aihot.news/items/cmu0rbkxp07strox2w1x62i9d",
+   "originalUrl": "https://www.interconnects.ai/p/open-source-ai-reading-list",
+   "aihotUrl": "https://aihot.news/items/cmu0rbkxp07strox2w1x62i9d",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Hacker News：AI 热帖",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Hacker News：AI 热帖",
+     "url": "https://www.interconnects.ai/p/open-source-ai-reading-list",
+     "publishedAt": "2026-09-14T00:22:51.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "3bc8e42c0fbc3fd9cc675e5f72150834c4f74fa8b3e8c140a201891f0638a98f"
+  },
+  {
+   "id": "aihot:cmu0jgo260r4drory55yz87bf",
+   "title": "法拉第未来预告北京时间 9 月 20 日 EAI 机器人\"四核全智\"发布会，将推 9 款机器人本体",
+   "originalTitle": "法拉第未来预告北京时间 9 月 20 日举办 EAI 机器人\"四核全智\"新品发布会，将打造\"美国最全机器人矩阵\"",
+   "summary": "法拉第未来宣布将于北京时间9月20日举办EAI机器人“四核全智”新品发布会，计划推出9款机器人本体新品，发布后直接上市。同时将推出面向K12教育、科研、安防、巡检的4套行业解决方案。公司称全部新品落地后将成为美国本土机器人本体型号最全的企业。此外，9月28日还将举办招商大会下半场，对接上游供应链伙伴。",
+   "source": "IT之家（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0jgo260r4drory55yz87bf",
+    "original": "https://www.ithome.com/1/001/904.htm"
+   },
+   "publishedAt": "2026-09-14T00:22:28.000Z",
+   "discoveredAt": "2026-09-14T01:02:48.606Z",
+   "category": null,
+   "score": 21,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0jgo260r4drory55yz87bf"
+   },
+   "url": "https://www.ithome.com/1/001/904.htm",
+   "permalink": "https://aihot.news/items/cmu0jgo260r4drory55yz87bf",
+   "originalUrl": "https://www.ithome.com/1/001/904.htm",
+   "aihotUrl": "https://aihot.news/items/cmu0jgo260r4drory55yz87bf",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "IT之家（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "IT之家（RSS）",
+     "url": "https://www.ithome.com/1/001/904.htm",
+     "publishedAt": "2026-09-14T00:22:28.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "e9ec490db5858abc475647f7e55df755c63d56c968e893eb177c206c5c0d2fab"
+  },
+  {
+   "id": "aihot:cmu0imxej0q29rorys85odi22",
+   "title": "BestBlogs 早报：Claude Code 运行时逆向与 GPT-Live 1 上线",
+   "originalTitle": "BestBlogs 早报 · 09-14 # 选择效应 / 断点回归 / Bending Spoons / Evernote / Claude Code 【1】 ★ 精讲|你的 AI 采用提升是选…",
+   "summary": "作者对 Claude Code Web 会话的 PID 1 进行 strace，发现其运行环境为 Firecracker MicroVM，并挖出 Anthropic 未公开的应用托管平台 Antspace，claude.ai 的 Baku 构建器默认部署目标即为该平台。早报还提到 GPT-Live 1 上线。",
+   "source": "X：洪明 (@hongming731)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0imxej0q29rorys85odi22",
+    "original": "https://x.com/hongming731/status/2099292084335427991"
+   },
+   "publishedAt": "2026-09-14T00:20:10.000Z",
+   "discoveredAt": "2026-09-14T00:39:39.485Z",
+   "category": null,
+   "score": 36,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0imxej0q29rorys85odi22"
+   },
+   "url": "https://x.com/hongming731/status/2099292084335427991",
+   "permalink": "https://aihot.news/items/cmu0imxej0q29rorys85odi22",
+   "originalUrl": "https://x.com/hongming731/status/2099292084335427991",
+   "aihotUrl": "https://aihot.news/items/cmu0imxej0q29rorys85odi22",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：洪明 (@hongming731)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：洪明 (@hongming731)",
+     "url": "https://x.com/hongming731/status/2099292084335427991",
+     "publishedAt": "2026-09-14T00:20:10.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "3419772f4a4fefeba305ea770fd16e874a4bd9d3e2f52e999c1993949823c2bd"
+  },
+  {
+   "id": "aihot:cmu0imxej0q2arorypg0m4ev3",
+   "title": "BestBlogs 早报：AI 采用提升是选择效应，Evernote 团队缩至 50-60 人提速三倍，Claude Code 逆向挖出 Antspace",
+   "originalTitle": "https://x.com/i/article/2099291641349828608",
+   "summary": "一篇模拟研究使用4万个账户演示AI助手留存率提升15.4个百分点，但断点回归估计真实效应约为4.9个百分点，大部分提升来自选择效应。Bending Spoons联合创始人表示，Evernote被收购后团队从约350人缩减至50到60人，迭代速度反而至少加快三倍。另有工程师通过逆向Claude Code网页版会话，发现了Anthropic未公开的托管平台Antspace。",
+   "source": "X：洪明 (@hongming731)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0imxej0q2arorypg0m4ev3",
+    "original": "https://x.com/hongming731/status/2099291986146828668"
+   },
+   "publishedAt": "2026-09-14T00:19:47.000Z",
+   "discoveredAt": "2026-09-14T00:39:39.485Z",
+   "category": null,
+   "score": 50,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0imxej0q2arorypg0m4ev3"
+   },
+   "url": "https://x.com/hongming731/status/2099291986146828668",
+   "permalink": "https://aihot.news/items/cmu0imxej0q2arorypg0m4ev3",
+   "originalUrl": "https://x.com/hongming731/status/2099291986146828668",
+   "aihotUrl": "https://aihot.news/items/cmu0imxej0q2arorypg0m4ev3",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：洪明 (@hongming731)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：洪明 (@hongming731)",
+     "url": "https://x.com/hongming731/status/2099291986146828668",
+     "publishedAt": "2026-09-14T00:19:47.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "c7c4fb093fcaef87b9efd9705f02c045dc6d9b9243dec2c80bc997a93ab2b355"
+  },
+  {
+   "id": "aihot:cmu0iqg3l0q6grory98s4nqef",
+   "title": "黄仁勋谈未来二十年科技与产业",
+   "originalTitle": "\"This is the one decade I will not miss. We are going to do more for the advancement of science， i…",
+   "summary": "\"这是我不会错过的一个十年。 未来20年，我们在科学、产业和国家进步方面所做的，可能比过去所有加起来还要多。是的，所以我不想错过。\" --- 来自'Center for Strategic & International Studies' YouTube频道（链接见评论）",
+   "source": "X：Rohan Paul (@rohanpaul_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0iqg3l0q6grory98s4nqef",
+    "original": "https://x.com/rohanpaul_ai/status/2099291673398546640"
+   },
+   "publishedAt": "2026-09-14T00:18:32.000Z",
+   "discoveredAt": "2026-09-14T00:42:23.836Z",
+   "category": null,
+   "score": 22,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0iqg3l0q6grory98s4nqef"
+   },
+   "url": "https://x.com/rohanpaul_ai/status/2099291673398546640",
+   "permalink": "https://aihot.news/items/cmu0iqg3l0q6grory98s4nqef",
+   "originalUrl": "https://x.com/rohanpaul_ai/status/2099291673398546640",
+   "aihotUrl": "https://aihot.news/items/cmu0iqg3l0q6grory98s4nqef",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Rohan Paul (@rohanpaul_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Rohan Paul (@rohanpaul_ai)",
+     "url": "https://x.com/rohanpaul_ai/status/2099291673398546640",
+     "publishedAt": "2026-09-14T00:18:32.000Z"
+    }
+   ],
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_other",
+     "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "5f36ce22d9c6c234b4a7341a4313faf965590f13cd7f52857e80f6244e93cd89"
+  },
+  {
+   "id": "aihot:cmu0iripj0q8hrory237w8gih",
+   "title": "Meta muse 现身美网公开赛",
+   "originalTitle": "that's what we call PRODUCT MARKET FIT baby",
+   "summary": "Meta首席AI官Alexandr Wang在X上转发了一条关于美网公开赛现场有人使用Meta旗下产品muse的消息，并评论称这就是产品市场契合度。",
+   "source": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0iripj0q8hrory237w8gih",
+    "original": "https://x.com/alexandr_wang/status/2099290523895021773"
+   },
+   "publishedAt": "2026-09-14T00:13:58.000Z",
+   "discoveredAt": "2026-09-14T00:43:13.949Z",
+   "category": null,
+   "score": 19,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0iripj0q8hrory237w8gih"
+   },
+   "url": "https://x.com/alexandr_wang/status/2099290523895021773",
+   "permalink": "https://aihot.news/items/cmu0iripj0q8hrory237w8gih",
+   "originalUrl": "https://x.com/alexandr_wang/status/2099290523895021773",
+   "aihotUrl": "https://aihot.news/items/cmu0iripj0q8hrory237w8gih",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+     "url": "https://x.com/alexandr_wang/status/2099290523895021773",
+     "publishedAt": "2026-09-14T00:13:58.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "meta"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "a054709193235c05251911ef8e582b0c4117728dad1c307fd57d0c04de64fb17"
+  },
+  {
+   "id": "aihot:cmu0iripj0q8irorynv5aq55s",
+   "title": "Muse 助力美国医疗系统导航",
+   "originalTitle": "muse can help you navigate the american healthcare system！",
+   "summary": "Alexandr Wang在X上转发并评论了关于Muse的推文，称Muse可以帮忙搞定美国医疗系统。被引用的推文表示，Muse已经解决了HSA报销和医疗账单追踪的问题。",
+   "source": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0iripj0q8irorynv5aq55s",
+    "original": "https://x.com/alexandr_wang/status/2099290395763204201"
+   },
+   "publishedAt": "2026-09-14T00:13:27.000Z",
+   "discoveredAt": "2026-09-14T00:43:13.949Z",
+   "category": null,
+   "score": 24,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0iripj0q8irorynv5aq55s"
+   },
+   "url": "https://x.com/alexandr_wang/status/2099290395763204201",
+   "permalink": "https://aihot.news/items/cmu0iripj0q8irorynv5aq55s",
+   "originalUrl": "https://x.com/alexandr_wang/status/2099290395763204201",
+   "aihotUrl": "https://aihot.news/items/cmu0iripj0q8irorynv5aq55s",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+     "url": "https://x.com/alexandr_wang/status/2099290395763204201",
+     "publishedAt": "2026-09-14T00:13:27.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "ea68697cae5c6ae32fa16bdddb0d1ddef3ea6b46a5a7bd76314051eb5a8dd385"
+  },
+  {
+   "id": "aihot:cmu0iow520q50rorykrqq21uu",
+   "title": "马斯克推荐 Grok Build 图像视频编辑工具",
+   "originalTitle": "Try Grok Build https://x.ai/build",
+   "summary": "马斯克在X平台发推推荐Grok Build工具，并引用用户XFreeze的使用体验，称该工具能实际编辑图像和视频，而非仅生成内容。该用户表示，Grok Build可以查找素材、剪辑片段、完成重复性编辑工作，还能将偏好的设计和工作流保存为技能，从而大幅节省时间。",
+   "source": "X：Elon Musk (@elonmusk, xAI)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0iow520q50rorykrqq21uu",
+    "original": "https://x.com/elonmusk/status/2099290373046599959"
+   },
+   "publishedAt": "2026-09-14T00:13:22.000Z",
+   "discoveredAt": "2026-09-14T00:41:11.328Z",
+   "category": null,
+   "score": 48,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0iow520q50rorykrqq21uu"
+   },
+   "url": "https://x.com/elonmusk/status/2099290373046599959",
+   "permalink": "https://aihot.news/items/cmu0iow520q50rorykrqq21uu",
+   "originalUrl": "https://x.com/elonmusk/status/2099290373046599959",
+   "aihotUrl": "https://aihot.news/items/cmu0iow520q50rorykrqq21uu",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Elon Musk (@elonmusk, xAI)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Elon Musk (@elonmusk, xAI)",
+     "url": "https://x.com/elonmusk/status/2099290373046599959",
+     "publishedAt": "2026-09-14T00:13:22.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "cdf2943d9b52272de0707e78e32a2fed46639539ce77a66c08259bf54786009b"
+  },
+  {
+   "id": "aihot:cmu0hln0i0p3crory2rhuv090",
+   "title": "AI导演DiDi_OK专访：用Seedance 2.5打造新作《糖果》，聊聊模型如何吞掉工作流",
+   "originalTitle": "那个拍出神作《牌子》的AI导演，带着他的巅峰之作回来了。",
+   "summary": "自媒体作者专访AI影像创作者DiDi_OK，围绕其使用Seedance 2.5制作的新片《糖果》以及此前在B站播放量达2000万的《牌子》展开。DiDi_OK表示，Seedance 2.5在运动规律和高度定制化方面实现跨时代升级，使他能够制作出几乎百分百由AI完成的片子，并节省约60%的叙事成本。他还提到，参考图的重要性下降，提示词的作用上升。",
+   "source": "公众号：数字生命卡兹克",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0hln0i0p3crory2rhuv090",
+    "original": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab"
+   },
+   "publishedAt": "2026-09-14T00:08:00.000Z",
+   "discoveredAt": "2026-09-14T00:10:41.029Z",
+   "category": "tip",
+   "score": 58,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0hln0i0p3crory2rhuv090"
+   },
+   "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
+   "permalink": "https://aihot.news/items/cmu0hln0i0p3crory2rhuv090",
+   "originalUrl": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
+   "aihotUrl": "https://aihot.news/items/cmu0hln0i0p3crory2rhuv090",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "公众号：数字生命卡兹克",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "公众号：数字生命卡兹克",
+     "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686222&idx=1&sn=2b570842f213cc90ddaa3603ab7746ab",
+     "publishedAt": "2026-09-14T00:08:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_other",
+     "interviewee": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "c6fe6fd972144324b71737284acd760e4ff4a738f93e7a59768db03872b72c8d"
+  },
+  {
+   "id": "aihot:cmu0jgo260r4froryczn18ma5",
+   "title": "IT早报 0914：马斯克、奥尔特曼响应 Anthropic 呼吁放缓前沿 AI 开发；智谱官宣 50 亿美元融资",
+   "originalTitle": "IT早报 0914：马斯克、奥尔特曼响应 Anthropic 呼吁放缓前沿 AI 开发；华为麒麟 9050 Pro 能效实测出炉；智谱官宣 50 亿美元融资；小米 SU7L 谍照再曝…",
+   "summary": "Anthropic CEO阿莫迪呼吁放缓前沿AI模型开发，并倡议独立监控与全球监管。马斯克转发其观点称“达里奥是对的”，奥尔特曼也表示赞同。智谱于9月13日宣布完成约50亿美元融资，其中包括约20亿美元股份配售和约30亿美元可转债发行，资金将用于下一代GLM基础模型研发。另有报道称Anthropic已选定纳斯达克作为IPO地点，目标估值约2万亿美元。",
+   "source": "IT之家（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0jgo260r4froryczn18ma5",
+    "original": "https://www.ithome.com/1/001/899.htm"
+   },
+   "publishedAt": "2026-09-14T00:03:00.000Z",
+   "discoveredAt": "2026-09-14T01:02:48.606Z",
+   "category": null,
+   "score": 36,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0jgo260r4froryczn18ma5"
+   },
+   "url": "https://www.ithome.com/1/001/899.htm",
+   "permalink": "https://aihot.news/items/cmu0jgo260r4froryczn18ma5",
+   "originalUrl": "https://www.ithome.com/1/001/899.htm",
+   "aihotUrl": "https://aihot.news/items/cmu0jgo260r4froryczn18ma5",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "IT之家（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "IT之家（RSS）",
+     "url": "https://www.ithome.com/1/001/899.htm",
+     "publishedAt": "2026-09-14T00:03:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "financing",
+    "tags": {
+     "industry": "ai_model",
+     "region": "cn"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "a27c91ee53dd03ea06a394abee73292f775269ee3a336cf0ae9441d51bc29961"
+  },
+  {
+   "id": "aihot:cmu0hbhew0ofwroryxfpuwaao",
+   "title": "消息称 Anthropic 预计连续第二个季度实现盈利",
+   "originalTitle": "消息称 Anthropic 预计自身有望连续第二个季度实现盈利",
+   "summary": "据《金融时报》报道，Anthropic 已向部分股东告知，有望在 2026 年第三季度继续录得正的经调整营业利润，连续第二个季度实现盈利。其今年二季度首次盈利，营收达 115 亿美元，较 2025 年同期增长 14 倍；到 2026 年 7 月底年化营收运行率已达 650 亿美元。知情人士称，若不计分销伙伴收入分成和模型训练成本，其毛利率已超过 80%。",
+   "source": "IT之家（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0hbhew0ofwroryxfpuwaao",
+    "original": "https://www.ithome.com/1/001/894.htm"
+   },
+   "publishedAt": "2026-09-13T23:52:33.000Z",
+   "discoveredAt": "2026-09-14T00:02:47.902Z",
+   "category": "industry",
+   "score": 70,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0hbhew0ofwroryxfpuwaao"
+   },
+   "url": "https://www.ithome.com/1/001/894.htm",
+   "permalink": "https://aihot.news/items/cmu0hbhew0ofwroryxfpuwaao",
+   "originalUrl": "https://www.ithome.com/1/001/894.htm",
+   "aihotUrl": "https://aihot.news/items/cmu0hbhew0ofwroryxfpuwaao",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "IT之家（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "IT之家（RSS）",
+     "url": "https://www.ithome.com/1/001/894.htm",
+     "publishedAt": "2026-09-13T23:52:33.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "anthropic"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "fe0adb6225752e90a9090bd3fcbe5ddeaf8ea5e15725da8ba10efd1c76473a2a"
+  },
+  {
+   "id": "aihot:cmu0h62a40o7srory8j9n8t8h",
+   "title": "Cohere CEO 谈 AI 规则制定权",
+   "originalTitle": "Who Gets to Define the Rules for AI？ Artificial intelligence needs evidenced standards， not a carte…",
+   "summary": "Cohere联合创始人兼CEO Aidan Gomez就AI规则制定权发表观点，认为人工智能需要的是有据可依的标准，而不是卡特尔。该观点发布在Cohere官方博客上。",
+   "source": "X：Cohere（@cohere）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0h62a40o7srory8j9n8t8h",
+    "original": "https://x.com/cohere/status/2099284354731999680"
+   },
+   "publishedAt": "2026-09-13T23:49:27.000Z",
+   "discoveredAt": "2026-09-13T23:58:31.878Z",
+   "category": null,
+   "score": 37,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0h62a40o7srory8j9n8t8h"
+   },
+   "url": "https://x.com/cohere/status/2099284354731999680",
+   "permalink": "https://aihot.news/items/cmu0h62a40o7srory8j9n8t8h",
+   "originalUrl": "https://x.com/cohere/status/2099284354731999680",
+   "aihotUrl": "https://aihot.news/items/cmu0h62a40o7srory8j9n8t8h",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Cohere（@cohere）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Cohere（@cohere）",
+     "url": "https://x.com/cohere/status/2099284354731999680",
+     "publishedAt": "2026-09-13T23:49:27.000Z"
+    }
+   ],
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_model",
+     "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "28dabbd7d22788db1b1fb4139c9e676ec439a9217cc69d0376a23e8ef903176f"
+  },
+  {
+   "id": "aihot:cmu0goak20nogroryhop1kiso",
+   "title": "FT 报道 Anthropic 预计 IPO 前连续第二个季度调整后运营盈利",
+   "originalTitle": "FT just reported Anthropic expects a second straight quarter of adjusted operating profit before its…",
+   "summary": "英国《金融时报》报道，Anthropic 预计在计划首次公开募股前实现连续第二个季度调整后运营盈利。其第二季度收入超过115亿美元，是去年同季的14倍；截至2026年7月底的年度经常性收入达到650亿美元。毛利率超过80%，但该数字不包含模型训练成本以及与亚马逊等分销商的分成。",
+   "source": "X：Rohan Paul (@rohanpaul_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0goak20nogroryhop1kiso",
+    "original": "https://x.com/rohanpaul_ai/status/2099277248830525831"
+   },
+   "publishedAt": "2026-09-13T23:21:13.000Z",
+   "discoveredAt": "2026-09-13T23:44:31.149Z",
+   "category": "tip",
+   "score": 70,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0goak20nogroryhop1kiso"
+   },
+   "url": "https://x.com/rohanpaul_ai/status/2099277248830525831",
+   "permalink": "https://aihot.news/items/cmu0goak20nogroryhop1kiso",
+   "originalUrl": "https://x.com/rohanpaul_ai/status/2099277248830525831",
+   "aihotUrl": "https://aihot.news/items/cmu0goak20nogroryhop1kiso",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Rohan Paul (@rohanpaul_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Rohan Paul (@rohanpaul_ai)",
+     "url": "https://x.com/rohanpaul_ai/status/2099277248830525831",
+     "publishedAt": "2026-09-13T23:21:13.000Z"
+    }
+   ],
+   "classification": {
+    "category": "financing",
+    "tags": {
+     "industry": "ai_model",
+     "region": "us"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "697ae1a9210d9d0ab899310f6f12b5acf74917510579e70c83f4a64e0689b22b"
+  },
+  {
+   "id": "aihot:cmu0ftyht0mujrory0h5aomll",
+   "title": "Artificial Analysis 成为韩国主权 AI 模型官方评估伙伴",
+   "originalTitle": "Artificial Analysis is proud to support the Korean Government as an official evaluation partner for …",
+   "summary": "Artificial Analysis 与韩国政府签署谅解备忘录，成为主权 AI 模型基础项目的官方独立评估方。在韩国信息通信产业振兴院主办的最新一轮韩国主权 AI 竞赛中，参赛实验室模型使用 Artificial Analysis Intelligence Index 进行评测，该指数占整体评审标准的 25%。",
+   "source": "X：Artificial Analysis (@ArtificialAnlys)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0ftyht0mujrory0h5aomll",
+    "original": "https://x.com/ArtificialAnlys/status/2099275327012999193"
+   },
+   "publishedAt": "2026-09-13T23:13:35.000Z",
+   "discoveredAt": "2026-09-13T23:21:07.299Z",
+   "category": null,
+   "score": 46,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0ftyht0mujrory0h5aomll"
+   },
+   "url": "https://x.com/ArtificialAnlys/status/2099275327012999193",
+   "permalink": "https://aihot.news/items/cmu0ftyht0mujrory0h5aomll",
+   "originalUrl": "https://x.com/ArtificialAnlys/status/2099275327012999193",
+   "aihotUrl": "https://aihot.news/items/cmu0ftyht0mujrory0h5aomll",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Artificial Analysis (@ArtificialAnlys)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Artificial Analysis (@ArtificialAnlys)",
+     "url": "https://x.com/ArtificialAnlys/status/2099275327012999193",
+     "publishedAt": "2026-09-13T23:13:35.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "c2dc297c467e49a0d400d95ba667623474482add4a328916835ffc980a2519a1"
+  },
+  {
+   "id": "aihot:cmu0ira720q70rory9qd68dg9",
+   "title": "OpenAI 因担忧恶意应用未发布 GPT-2 完整模型",
+   "originalTitle": "Due to concerns about malicious applications， GPT2 will not be released （2019）",
+   "summary": "OpenAI训练出15亿参数的GPT-2模型，在多项语言建模基准上达到SOTA，并能零样本完成阅读理解、机器翻译、问答和摘要。出于对恶意应用的担忧，OpenAI未发布完整训练模型，仅以负责任披露实验的形式放出一个小得多的模型供研究者使用，同时发布技术论文。GPT-2基于Transformer，用40GB互联网文本、800万网页训练，参数和数据量均为GPT的10倍以上。",
+   "source": "Hacker News：AI 热帖",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0ira720q70rory9qd68dg9",
+    "original": "https://openai.com/index/better-language-models"
+   },
+   "publishedAt": "2026-09-13T23:11:17.000Z",
+   "discoveredAt": "2026-09-14T00:42:44.421Z",
+   "category": null,
+   "score": 38,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0ira720q70rory9qd68dg9"
+   },
+   "url": "https://openai.com/index/better-language-models",
+   "permalink": "https://aihot.news/items/cmu0ira720q70rory9qd68dg9",
+   "originalUrl": "https://openai.com/index/better-language-models",
+   "aihotUrl": "https://aihot.news/items/cmu0ira720q70rory9qd68dg9",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Hacker News：AI 热帖",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Hacker News：AI 热帖",
+     "url": "https://openai.com/index/better-language-models",
+     "publishedAt": "2026-09-13T23:11:17.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "6e29afb8f8f525b1e736d733178f39b73ddb9ee41df880fe1acc7974711d81d1"
+  },
+  {
+   "id": "aihot:cmu0g1xxl0n1proryfcdzkdoc",
+   "title": "Microsoft CEO Nadella 表态支持审慎推进超级智能，并将公开 MAI 模型行为准则",
+   "originalTitle": "Microsoft CEO joins the call for a slowdown！ So that's OpenAI， Anthropic， Google， xAI， and now Micr…",
+   "summary": "微软CEO萨提亚·纳德拉发文表示，追求超级智能必须以AI有助于人类并受人类控制为前提，欢迎为做好对齐所需的研究、专注和审慎节奏。他主张对齐机制不能由少数实体掌控，需要生态、各国和学界广泛参与，并称将公开MAI模型行为准则。",
+   "source": "X：AI Safety Memes (@AISafetyMemes)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0g1xxl0n1proryfcdzkdoc",
+    "original": "https://x.com/AISafetyMemes/status/2099274308204060739"
+   },
+   "publishedAt": "2026-09-13T23:09:32.000Z",
+   "discoveredAt": "2026-09-13T23:27:16.265Z",
+   "category": "tip",
+   "score": 66,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0g1xxl0n1proryfcdzkdoc"
+   },
+   "url": "https://x.com/AISafetyMemes/status/2099274308204060739",
+   "permalink": "https://aihot.news/items/cmu0g1xxl0n1proryfcdzkdoc",
+   "originalUrl": "https://x.com/AISafetyMemes/status/2099274308204060739",
+   "aihotUrl": "https://aihot.news/items/cmu0g1xxl0n1proryfcdzkdoc",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：AI Safety Memes (@AISafetyMemes)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：AI Safety Memes (@AISafetyMemes)",
+     "url": "https://x.com/AISafetyMemes/status/2099274308204060739",
+     "publishedAt": "2026-09-13T23:09:32.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "d39de00947d9a13592450a6373ab00c4db2786796ede438fe016b1ca0366662f"
+  },
+  {
+   "id": "aihot:cmu0f6bsx0lvyroryli19klv3",
+   "title": "微软 CEO 纳德拉：支持 AI 审慎发展与独立审计，AI 行为准则明日公布",
+   "originalTitle": null,
+   "summary": "微软CEO纳德拉在X平台发文表示，对超级智能的探索必须在核心原则约束下运行，AI若无法帮助或受控于人类就不值得发展。他称微软欢迎真正的AI对齐研究与独立审计理念，并让企业在AI技术栈各层拥有选择、掌控自身学习闭环和模型。支撑微软自研MAI模型的行为准则将于明日公布并面向公众征求意见。",
+   "source": "IT之家（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0f6bsx0lvyroryli19klv3",
+    "original": "https://www.ithome.com/1/001/876.htm"
+   },
+   "publishedAt": "2026-09-13T23:00:21.000Z",
+   "discoveredAt": "2026-09-13T23:02:47.563Z",
+   "category": null,
+   "score": 45,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0f6bsx0lvyroryli19klv3"
+   },
+   "url": "https://www.ithome.com/1/001/876.htm",
+   "permalink": "https://aihot.news/items/cmu0f6bsx0lvyroryli19klv3",
+   "originalUrl": "https://www.ithome.com/1/001/876.htm",
+   "aihotUrl": "https://aihot.news/items/cmu0f6bsx0lvyroryli19klv3",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "IT之家（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "IT之家（RSS）",
+     "url": "https://www.ithome.com/1/001/876.htm",
+     "publishedAt": "2026-09-13T23:00:21.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": [
+     "company"
+    ]
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "dcd38c020e7eb2b0408dc8a43e08d37cb7509ed7019054a2035a6787bcf24478"
+  },
+  {
+   "id": "aihot:cmu0f4s9l0lsnrorykom4bfva",
+   "title": "AI 行业末日论新热潮",
+   "originalTitle": "the recent AI doom hype from the AI industry my theory is that the latest pre-training run at every…",
+   "summary": "一位用户在社交媒体上表示，最近AI行业掀起AI末日论热潮，并提出了一个理论，称每家前沿公司或实验室最新的预训练运行都产出了同一样东西，无论输入什么提示词，唯一输出都是“your bunker cannot protect you”。",
+   "source": "X：Haider (@haider1)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0f4s9l0lsnrorykom4bfva",
+    "original": "https://x.com/haider1/status/2099271917450440835"
+   },
+   "publishedAt": "2026-09-13T23:00:02.000Z",
+   "discoveredAt": "2026-09-13T23:01:31.328Z",
+   "category": null,
+   "score": 15,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0f4s9l0lsnrorykom4bfva"
+   },
+   "url": "https://x.com/haider1/status/2099271917450440835",
+   "permalink": "https://aihot.news/items/cmu0f4s9l0lsnrorykom4bfva",
+   "originalUrl": "https://x.com/haider1/status/2099271917450440835",
+   "aihotUrl": "https://aihot.news/items/cmu0f4s9l0lsnrorykom4bfva",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Haider (@haider1)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Haider (@haider1)",
+     "url": "https://x.com/haider1/status/2099271917450440835",
+     "publishedAt": "2026-09-13T23:00:02.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "74609148dbf59c6cb64e3b2d98731d171c388b040d1962060e7cec28b8957398"
+  },
+  {
+   "id": "aihot:cmu0f6bsx0lvzrorykvvl8lvi",
+   "title": "微软将 xAI Grok 模型整合进 Word、Excel 和 PowerPoint 的 Copilot",
+   "originalTitle": "微软宣布将 xAI 旗下 Grok 模型整合进 Office 三件套，为用户提供 OpenAI 以外模型选择",
+   "summary": "微软将 xAI 的 Grok 模型整合进 Microsoft 365 Copilot，Grok 已陆续登陆 Word、Excel 和 PowerPoint，并通过 Microsoft Frontier 计划处于有限预览阶段。",
+   "source": "IT之家（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0f6bsx0lvzrorykvvl8lvi",
+    "original": "https://www.ithome.com/1/001/875.htm"
+   },
+   "publishedAt": "2026-09-13T22:59:20.000Z",
+   "discoveredAt": "2026-09-13T23:02:47.563Z",
+   "category": "ai-products",
+   "score": 50,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0f6bsx0lvzrorykvvl8lvi"
+   },
+   "url": "https://www.ithome.com/1/001/875.htm",
+   "permalink": "https://aihot.news/items/cmu0f6bsx0lvzrorykvvl8lvi",
+   "originalUrl": "https://www.ithome.com/1/001/875.htm",
+   "aihotUrl": "https://aihot.news/items/cmu0f6bsx0lvzrorykvvl8lvi",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "IT之家（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "IT之家（RSS）",
+     "url": "https://www.ithome.com/1/001/875.htm",
+     "publishedAt": "2026-09-13T22:59:20.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "0ce1b0bfd4eb4266185c1f40be36dc0ffd288cd90e4cd6be0902f076f66cea4a"
+  },
+  {
+   "id": "aihot:cmu0f6bsx0lw0rory3rsvhd4n",
+   "title": "苏黎世机场联合文远知行部署两辆 L4 级全自动驾驶电动摆渡车",
+   "originalTitle": "苏黎世机场联合文远知行部署两辆 L4 级全自动驾驶无人电动摆渡车，初期用于接送机场员工",
+   "summary": "苏黎世机场与文远知行合作部署两辆L4级全自动驾驶电动摆渡车，初期用于接送机场员工。项目自2025年3月启动并分阶段测试，车辆运行无需人工安全员但接受远程监控，预计经过约4周测试后机场员工即可使用。路线固定且不穿越滑行道和跑道，Swissport和Krummen Kerzers分别安排远程运营监控人员参与。",
+   "source": "IT之家（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0f6bsx0lw0rory3rsvhd4n",
+    "original": "https://www.ithome.com/1/001/874.htm"
+   },
+   "publishedAt": "2026-09-13T22:54:33.000Z",
+   "discoveredAt": "2026-09-13T23:02:47.563Z",
+   "category": "industry",
+   "score": 53,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0f6bsx0lw0rory3rsvhd4n"
+   },
+   "url": "https://www.ithome.com/1/001/874.htm",
+   "permalink": "https://aihot.news/items/cmu0f6bsx0lw0rory3rsvhd4n",
+   "originalUrl": "https://www.ithome.com/1/001/874.htm",
+   "aihotUrl": "https://aihot.news/items/cmu0f6bsx0lw0rory3rsvhd4n",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "IT之家（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "IT之家（RSS）",
+     "url": "https://www.ithome.com/1/001/874.htm",
+     "publishedAt": "2026-09-13T22:54:33.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "756324e966cbefbc22e6d6716b2fab53ebd9ade2340804b8a5998c1977f93bd7"
+  },
+  {
+   "id": "aihot:cmu0f9ajq0m1wrorybmtc0gb0",
+   "title": "Quincy， Washington 展示了当你与社区共同建设数据中心，并随着时间一起成长时，一切皆有可能",
+   "originalTitle": "Quincy， Washington shows what's possible when you build datacenters with communities， and grow toget…",
+   "summary": "微软首席执行官萨提亚·纳德拉在社交媒体上表示，华盛顿州昆西市展示了与社区共同建设数据中心并随着时间一起成长时，一切皆有可能。",
+   "source": "X：Satya Nadella (@satyanadella)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0f9ajq0m1wrorybmtc0gb0",
+    "original": "https://x.com/satyanadella/status/2099270157105537374"
+   },
+   "publishedAt": "2026-09-13T22:53:02.000Z",
+   "discoveredAt": "2026-09-13T23:05:04.869Z",
+   "category": null,
+   "score": 19,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0f9ajq0m1wrorybmtc0gb0"
+   },
+   "url": "https://x.com/satyanadella/status/2099270157105537374",
+   "permalink": "https://aihot.news/items/cmu0f9ajq0m1wrorybmtc0gb0",
+   "originalUrl": "https://x.com/satyanadella/status/2099270157105537374",
+   "aihotUrl": "https://aihot.news/items/cmu0f9ajq0m1wrorybmtc0gb0",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Satya Nadella (@satyanadella)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Satya Nadella (@satyanadella)",
+     "url": "https://x.com/satyanadella/status/2099270157105537374",
+     "publishedAt": "2026-09-13T22:53:02.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "9a9eecfe6fedeba855eeb5d944dceffb656f8b4ab77a4299c7fd5dc1b18fc610"
+  },
+  {
+   "id": "aihot:cmu0fj3yf0mj0rory6p6xleu5",
+   "title": "前Anthropic+OpenAI研究员警告AI灭绝风险",
+   "originalTitle": "Okay， now Jacob Coxon on NBC News （the ex-Anthropic+OpenAI researcher who resigned）. NBC News： \"Wha…",
+   "summary": "前Anthropic和OpenAI研究员Jacob Coxon在NBC News采访中表示，构建AI如同邀请一个外星心智来到地球，人类在不理解其意图和思维方式的情况下造出人类级或超人类级心智，未来AI可能控制自主无人机和正在快速建造的机器人。他此前在BBC采访中称，若不放缓当前进展速度，人类在近期内全部死亡的可能性很大，并称许多深入参与编码的从业者认为人类灭绝概率超过10%。",
+   "source": "X：Rohan Paul (@rohanpaul_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0fj3yf0mj0rory6p6xleu5",
+    "original": "https://x.com/rohanpaul_ai/status/2099269732134510831"
+   },
+   "publishedAt": "2026-09-13T22:51:21.000Z",
+   "discoveredAt": "2026-09-13T23:12:30.835Z",
+   "category": null,
+   "score": 46,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0fj3yf0mj0rory6p6xleu5"
+   },
+   "url": "https://x.com/rohanpaul_ai/status/2099269732134510831",
+   "permalink": "https://aihot.news/items/cmu0fj3yf0mj0rory6p6xleu5",
+   "originalUrl": "https://x.com/rohanpaul_ai/status/2099269732134510831",
+   "aihotUrl": "https://aihot.news/items/cmu0fj3yf0mj0rory6p6xleu5",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Rohan Paul (@rohanpaul_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Rohan Paul (@rohanpaul_ai)",
+     "url": "https://x.com/rohanpaul_ai/status/2099269732134510831",
+     "publishedAt": "2026-09-13T22:51:21.000Z"
+    }
+   ],
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_model",
+     "interviewee": "tech"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "d10333dcc066e77937636889c4b45f962dfa1a5410150487939c58e82c1ca10f"
+  },
+  {
+   "id": "aihot:cmu0ez2zs0lmuroryu3u1hk0u",
+   "title": "Google CEO 加入呼吁放缓 AI 发展行列",
+   "originalTitle": "Google CEO joins the call for a slowdown！",
+   "summary": "Google CEO 加入呼吁放缓 AI 发展的行列。被引用的 Satya Nadella 主张，追求超级智能必须以“AI 造福人类且受人类控制”为核心原则，同时加速并广泛扩散 AI 收益，需要闭源与开源模型共同繁荣的前沿生态。他还强调企业应掌控自身独特知识、不依赖单一模型供应商，并预告将发布其第一方 MAI 模型的行为准则公开征求意见。",
+   "source": "X：AI Safety Memes (@AISafetyMemes)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0ez2zs0lmuroryu3u1hk0u",
+    "original": "https://x.com/AISafetyMemes/status/2099268161363378551"
+   },
+   "publishedAt": "2026-09-13T22:45:06.000Z",
+   "discoveredAt": "2026-09-13T22:57:09.029Z",
+   "category": null,
+   "score": 50,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0ez2zs0lmuroryu3u1hk0u"
+   },
+   "url": "https://x.com/AISafetyMemes/status/2099268161363378551",
+   "permalink": "https://aihot.news/items/cmu0ez2zs0lmuroryu3u1hk0u",
+   "originalUrl": "https://x.com/AISafetyMemes/status/2099268161363378551",
+   "aihotUrl": "https://aihot.news/items/cmu0ez2zs0lmuroryu3u1hk0u",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：AI Safety Memes (@AISafetyMemes)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：AI Safety Memes (@AISafetyMemes)",
+     "url": "https://x.com/AISafetyMemes/status/2099268161363378551",
+     "publishedAt": "2026-09-13T22:45:06.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "google"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "4f7c2df1130abc72405d2c6217e853733be7ac15efd60114ad354d922a4485c7"
+  },
+  {
+   "id": "aihot:cmu0f6bsx0lw2roryi619fkcf",
+   "title": "曝 Anthropic 选定纳斯达克上市，目标估值约 2 万亿美元",
+   "originalTitle": "冲击全球最大 IPO：曝 Anthropic 选定纳斯达克上市，目标估值约 2 万亿美元",
+   "summary": "据 Business Insider 援引知情人士报道，Anthropic 已选定纳斯达克作为 IPO 地点，计划 2026 年 10 月中旬启动路演，目标估值约 2 万亿美元。若达成，该估值将超越 SpaceX 1.77 万亿美元的纪录，成为史上最大 IPO。",
+   "source": "IT之家（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0f6bsx0lw2roryi619fkcf",
+    "original": "https://www.ithome.com/1/001/871.htm"
+   },
+   "publishedAt": "2026-09-13T22:41:40.000Z",
+   "discoveredAt": "2026-09-13T23:02:47.563Z",
+   "category": "industry",
+   "score": 75,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0f6bsx0lw2roryi619fkcf"
+   },
+   "url": "https://www.ithome.com/1/001/871.htm",
+   "permalink": "https://aihot.news/items/cmu0f6bsx0lw2roryi619fkcf",
+   "originalUrl": "https://www.ithome.com/1/001/871.htm",
+   "aihotUrl": "https://aihot.news/items/cmu0f6bsx0lw2roryi619fkcf",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "IT之家（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "IT之家（RSS）",
+     "url": "https://www.ithome.com/1/001/871.htm",
+     "publishedAt": "2026-09-13T22:41:40.000Z"
+    }
+   ],
+   "classification": {
+    "category": "financing",
+    "tags": {
+     "industry": "ai_model",
+     "region": "us"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "25f5c7639e54e482fbc4887a3152d06cd4c045c120ccff6b7d55a300b8aed614"
+  },
+  {
+   "id": "aihot:cmu0fhlfa0mhiroryc8jyu2lf",
+   "title": "OpenAI CEO Altman 表示 2026 年上市并不明智",
+   "originalTitle": "OpenAI的萨姆·阿尔特曼表示，2026年上市将是不明智之举",
+   "summary": "OpenAI CEO Sam Altman 表示，考虑到安全局势，2026 年上市并不明智，公司不急于 IPO，将等到业务和社会时机都合适时再上市。OpenAI 已秘密提交 IPO 申请，此前纽约时报报道其曾计划 2026 年第三或第四季度上市，但因科技股波动和财务挑战倾向于 2027 年。",
+   "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0fhlfa0mhiroryc8jyu2lf",
+    "original": "https://techcrunch.com/2026/09/12/openais-sam-altman-says-it-would-be-ill-advised-to-go-public-in-2026"
+   },
+   "publishedAt": "2026-09-13T22:41:27.293Z",
+   "discoveredAt": "2026-09-13T23:11:22.471Z",
+   "category": "industry",
+   "score": 56,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0fhlfa0mhiroryc8jyu2lf"
+   },
+   "url": "https://techcrunch.com/2026/09/12/openais-sam-altman-says-it-would-be-ill-advised-to-go-public-in-2026",
+   "permalink": "https://aihot.news/items/cmu0fhlfa0mhiroryc8jyu2lf",
+   "originalUrl": "https://techcrunch.com/2026/09/12/openais-sam-altman-says-it-would-be-ill-advised-to-go-public-in-2026",
+   "aihotUrl": "https://aihot.news/items/cmu0fhlfa0mhiroryc8jyu2lf",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+     "url": "https://techcrunch.com/2026/09/12/openais-sam-altman-says-it-would-be-ill-advised-to-go-public-in-2026",
+     "publishedAt": "2026-09-13T22:41:27.293Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "openai"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "9572ae26a1f6e1077a6a478e2dcd33cdd783f19829d9803c3f7be53a7320d8a5"
+  },
+  {
+   "id": "aihot:cmu0ddjdu0k2orory4q5ewwxj",
+   "title": "特朗普拒绝科技巨头提出的放缓 AI 发展与收紧监管的呼吁",
+   "originalTitle": "Holy， what a turnaround of events： \"Donald Trump has rejected calls for an AI slowdown after tech b…",
+   "summary": "据英国《金融时报》报道，美国总统特朗普拒绝了科技巨头和民主党人提出的放缓人工智能发展、收紧监管的呼吁。这些呼吁基于对人工智能构成生存性威胁的担忧。特朗普明确表示人工智能不会减速，并谴责了相关监管要求。",
+   "source": "X：Kim (@kimmonismus)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0ddjdu0k2orory4q5ewwxj",
+    "original": "https://x.com/kimmonismus/status/2099259267312205882"
+   },
+   "publishedAt": "2026-09-13T22:09:46.000Z",
+   "discoveredAt": "2026-09-13T22:12:23.814Z",
+   "category": "industry",
+   "score": 62,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0ddjdu0k2orory4q5ewwxj"
+   },
+   "url": "https://x.com/kimmonismus/status/2099259267312205882",
+   "permalink": "https://aihot.news/items/cmu0ddjdu0k2orory4q5ewwxj",
+   "originalUrl": "https://x.com/kimmonismus/status/2099259267312205882",
+   "aihotUrl": "https://aihot.news/items/cmu0ddjdu0k2orory4q5ewwxj",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Kim (@kimmonismus)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Kim (@kimmonismus)",
+     "url": "https://x.com/kimmonismus/status/2099259267312205882",
+     "publishedAt": "2026-09-13T22:09:46.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "2cda217050409799106404336630b0164b439ab8d4be30bfe7f6012764b3abe1"
+  },
+  {
+   "id": "aihot:cmu0dbz8h0k1groryya6jx61n",
+   "title": "xAI 将直播用 Grok Bot 从零搭建公司",
+   "originalTitle": "Watch a company being built live with @Grok @Bot！",
+   "summary": "xAI宣布将于9月15日起进行为期三天的直播，展示Grok Bot的实际能力。直播中三人将从零开始，仅凭一个想法使用Grok Bot搭建完整产品或公司。直播内容包括现场演示、实操构建环节，以及Grok Bot团队分享最佳实践。",
+   "source": "X：Elon Musk (@elonmusk, xAI)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0dbz8h0k1groryya6jx61n",
+    "original": "https://x.com/elonmusk/status/2099256569737207873"
+   },
+   "publishedAt": "2026-09-13T21:59:03.000Z",
+   "discoveredAt": "2026-09-13T22:11:11.687Z",
+   "category": null,
+   "score": 28,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0dbz8h0k1groryya6jx61n"
+   },
+   "url": "https://x.com/elonmusk/status/2099256569737207873",
+   "permalink": "https://aihot.news/items/cmu0dbz8h0k1groryya6jx61n",
+   "originalUrl": "https://x.com/elonmusk/status/2099256569737207873",
+   "aihotUrl": "https://aihot.news/items/cmu0dbz8h0k1groryya6jx61n",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Elon Musk (@elonmusk, xAI)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Elon Musk (@elonmusk, xAI)",
+     "url": "https://x.com/elonmusk/status/2099256569737207873",
+     "publishedAt": "2026-09-13T21:59:03.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "6e0958cd3524a80cd70e9d1e749b68d4be66c6d33c1534e64c3658302e40bd39"
+  },
+  {
+   "id": "aihot:cmu0ddjep0k2proryqj6kh9g4",
+   "title": "Terence Tao：当下大语言模型的数学原理简单，难在预测能力表现",
+   "originalTitle": "Terence Tao： The math behind today's LLMs is actually simple. Training and running them mostly uses…",
+   "summary": "Terence Tao表示，当前大语言模型的训练与运行主要依赖线性代数、矩阵乘法和少量微积分，本科生即可掌握，构建与运行方法清楚。他认为真正的谜团在于模型为何在部分任务上表现良好、在另一些任务上失败且无法提前预测。他提出原因之一是自然文本介于纯噪声与完全结构化数据之间，对应数学理论薄弱，类似物理学在中观尺度上的困境。该内容来自Brian Keating的YouTube频道视频。",
+   "source": "X：Rohan Paul (@rohanpaul_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0ddjep0k2proryqj6kh9g4",
+    "original": "https://x.com/rohanpaul_ai/status/2099252419318481177"
+   },
+   "publishedAt": "2026-09-13T21:42:33.000Z",
+   "discoveredAt": "2026-09-13T22:12:23.814Z",
+   "category": "tip",
+   "score": 50,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0ddjep0k2proryqj6kh9g4"
+   },
+   "url": "https://x.com/rohanpaul_ai/status/2099252419318481177",
+   "permalink": "https://aihot.news/items/cmu0ddjep0k2proryqj6kh9g4",
+   "originalUrl": "https://x.com/rohanpaul_ai/status/2099252419318481177",
+   "aihotUrl": "https://aihot.news/items/cmu0ddjep0k2proryqj6kh9g4",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Rohan Paul (@rohanpaul_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Rohan Paul (@rohanpaul_ai)",
+     "url": "https://x.com/rohanpaul_ai/status/2099252419318481177",
+     "publishedAt": "2026-09-13T21:42:33.000Z"
+    }
+   ],
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_model",
+     "interviewee": "tech"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "476a60f89c8c62e38bbe98f20a4d1169c1040778158d9145bd8b33f381c18484"
+  },
+  {
+   "id": "aihot:cmu0c7sdw0g2jroryre162rsk",
+   "title": "Emad Mostaque 纠结每日博客篇幅与技术深度",
+   "originalTitle": "Day 3 dilemma Another 3-5，000 word blog on something interesting or should I strip it back to 800-1…",
+   "summary": "Emad Mostaque 就其每日博客 Day 3 的写法发起投票，询问读者是希望写 3000 至 5000 字的深入文章，还是压缩到 800 至 1000 字以覆盖更广读者；是讨论 AI 方程偏技术，还是保持高层视角、把方程留给论文。其 Day 2 博客曾深入分析 Dario Amodei 的提案并质疑其逻辑，还提到 OpenAI 在 2023 年已有 embedded eval。",
+   "source": "X：Emad Mostaque (@EMostaque)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0c7sdw0g2jroryre162rsk",
+    "original": "https://x.com/EMostaque/status/2099251607573614777"
+   },
+   "publishedAt": "2026-09-13T21:39:20.000Z",
+   "discoveredAt": "2026-09-13T21:39:40.332Z",
+   "category": null,
+   "score": 13,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0c7sdw0g2jroryre162rsk"
+   },
+   "url": "https://x.com/EMostaque/status/2099251607573614777",
+   "permalink": "https://aihot.news/items/cmu0c7sdw0g2jroryre162rsk",
+   "originalUrl": "https://x.com/EMostaque/status/2099251607573614777",
+   "aihotUrl": "https://aihot.news/items/cmu0c7sdw0g2jroryre162rsk",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Emad Mostaque (@EMostaque)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Emad Mostaque (@EMostaque)",
+     "url": "https://x.com/EMostaque/status/2099251607573614777",
+     "publishedAt": "2026-09-13T21:39:20.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "35ee1d4048e1a40ac0b48230f2e732f27358b5562e53b8a820bc6d773ac5145d"
+  },
+  {
+   "id": "aihot:cmu0cb00k0g60roryhymk3ezb",
+   "title": "递归自我改进路线图论文：完整 RSI 尚未到来",
+   "originalTitle": "Beautiful roadmap paper on Recursive self-improvement. Concludes， we are already seeing pieces of R…",
+   "summary": "一篇递归自我改进路线图论文指出，目前只出现了RSI的零散雏形，完整的递归自我改进尚未实现，多数被称为自我改进的AI仅自动化了改进流程的部分环节。论文将进展划分为五个层级，从执行人类设计的改进，到改变改进器、评估器或研究策略。低层级已有广泛证据，而端到端第五层级的证据仍局限于有界原型。",
+   "source": "X：Rohan Paul (@rohanpaul_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0cb00k0g60roryhymk3ezb",
+    "original": "https://x.com/rohanpaul_ai/status/2099246355785056273"
+   },
+   "publishedAt": "2026-09-13T21:18:27.000Z",
+   "discoveredAt": "2026-09-13T21:42:23.526Z",
+   "category": null,
+   "score": 39,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0cb00k0g60roryhymk3ezb"
+   },
+   "url": "https://x.com/rohanpaul_ai/status/2099246355785056273",
+   "permalink": "https://aihot.news/items/cmu0cb00k0g60roryhymk3ezb",
+   "originalUrl": "https://x.com/rohanpaul_ai/status/2099246355785056273",
+   "aihotUrl": "https://aihot.news/items/cmu0cb00k0g60roryhymk3ezb",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Rohan Paul (@rohanpaul_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Rohan Paul (@rohanpaul_ai)",
+     "url": "https://x.com/rohanpaul_ai/status/2099246355785056273",
+     "publishedAt": "2026-09-13T21:18:27.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "83ade63ebb9087982fcd09fedf965c1b4ffa6cfddae2bf0d318a874404ac9741"
+  },
+  {
+   "id": "aihot:cmu0egfor0l2hroryrgx9uj4c",
+   "title": "Fable 5.1 用 44 分钟解开 370 年历史的 Cyphral Distich 密码",
+   "originalTitle": "Fable 5.1 Solves the Cyphral Distich， a 370-year-old cipher",
+   "summary": "作者称 Claude Fable 5.1 用时 44 分钟、消耗 176k tokens，解开了 Sir Thomas Urquhart 留下约 370 年未解的 Cyphral Distich 密码。",
+   "source": "Hacker News：AI 热帖",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0egfor0l2hroryrgx9uj4c",
+    "original": "https://www.vals.ai/blogs/fable-solves-cyphral-distich"
+   },
+   "publishedAt": "2026-09-13T21:06:13.000Z",
+   "discoveredAt": "2026-09-13T22:42:40.145Z",
+   "category": "tip",
+   "score": 59,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0egfor0l2hroryrgx9uj4c"
+   },
+   "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
+   "permalink": "https://aihot.news/items/cmu0egfor0l2hroryrgx9uj4c",
+   "originalUrl": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
+   "aihotUrl": "https://aihot.news/items/cmu0egfor0l2hroryrgx9uj4c",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Hacker News：AI 热帖",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Hacker News：AI 热帖",
+     "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
+     "publishedAt": "2026-09-13T21:06:13.000Z"
+    },
+    {
+     "collector": "aihot",
+     "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+     "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
+     "publishedAt": "2026-09-13T22:25:23.276Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "5bb02c3ee5ab378e37c2e0fe5135e7f26817a277bccdc028262beb04cb7e22c5"
+  },
+  {
+   "id": "aihot:cmu0bc5030fabrory7gfbe520",
+   "title": "Muse 为 Wang 定制全球好茶并生成动漫图",
+   "originalTitle": "i love teas， and @Muse got me a set of the best teas in the world， and made me a cute anime photo of…",
+   "summary": "Alexandr Wang在X上表示，Muse为他购买了一套全球好茶，并生成了一张动漫风格照片，照片内容为Muse为他购买的所有物品。",
+   "source": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0bc5030fabrory7gfbe520",
+    "original": "https://x.com/alexandr_wang/status/2099238078154170794"
+   },
+   "publishedAt": "2026-09-13T20:45:34.000Z",
+   "discoveredAt": "2026-09-13T21:15:19.120Z",
+   "category": null,
+   "score": 15,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0bc5030fabrory7gfbe520"
+   },
+   "url": "https://x.com/alexandr_wang/status/2099238078154170794",
+   "permalink": "https://aihot.news/items/cmu0bc5030fabrory7gfbe520",
+   "originalUrl": "https://x.com/alexandr_wang/status/2099238078154170794",
+   "aihotUrl": "https://aihot.news/items/cmu0bc5030fabrory7gfbe520",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+     "url": "https://x.com/alexandr_wang/status/2099238078154170794",
+     "publishedAt": "2026-09-13T20:45:34.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "ca7c086ea4d2a829eef9d789e0bf6e9c918f6ed90a7aa6155e510770d5781c47"
+  },
+  {
+   "id": "aihot:cmu0arfzo0ecarorypqqwh2d8",
+   "title": "Ethan Mollick：GPT-6 Astra 与 Fable 5.1 已足以变革经济",
+   "originalTitle": "I cannot emphasize enough how much GPT-6 Astra and Fable 5.1 are already enough for transformative i…",
+   "summary": "Ethan Mollick 表示，GPT-6 Astra 与 Fable 5.1 在适当引导下已能可靠完成数周人类工作量，足以在大部分经济领域产生变革性影响。他认为这种影响不会一次性发生且分布不均，但变化不可避免，无论前沿进展如何被调控。他还强调需要开发并分享增强而非仅替代人类劳动的 AI-人类协作模式，实验室、企业和政策制定者都应参与。",
+   "source": "X：Ethan Mollick (@emollick)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0arfzo0ecarorypqqwh2d8",
+    "original": "https://x.com/emollick/status/2099235643792462040"
+   },
+   "publishedAt": "2026-09-13T20:35:54.000Z",
+   "discoveredAt": "2026-09-13T20:59:13.457Z",
+   "category": null,
+   "score": 30,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0arfzo0ecarorypqqwh2d8"
+   },
+   "url": "https://x.com/emollick/status/2099235643792462040",
+   "permalink": "https://aihot.news/items/cmu0arfzo0ecarorypqqwh2d8",
+   "originalUrl": "https://x.com/emollick/status/2099235643792462040",
+   "aihotUrl": "https://aihot.news/items/cmu0arfzo0ecarorypqqwh2d8",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Ethan Mollick (@emollick)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Ethan Mollick (@emollick)",
+     "url": "https://x.com/emollick/status/2099235643792462040",
+     "publishedAt": "2026-09-13T20:35:54.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "e292b623a6c897fc3e3d94c0a5e5068790c2d0a9c36b0b9a6c8da70eae28740b"
+  },
+  {
+   "id": "aihot:cmu0a5sfc0dpmrory17pwt4jb",
+   "title": "开源模型冲击AI巨头利润率",
+   "originalTitle": "interesting translation indeed for the \"AI slowdown\" story",
+   "summary": "有观点认为，开源模型正在冲击AI巨头的利润率，使其毛利率趋近于零，同时资本支出过高。该观点提出，相关企业可能通过监管手段禁止开源模型、放缓资本支出军备竞赛，并以道德表演作为包装来维持利润率。",
+   "source": "X：Rohan Paul (@rohanpaul_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0a5sfc0dpmrory17pwt4jb",
+    "original": "https://x.com/rohanpaul_ai/status/2099235529254654050"
+   },
+   "publishedAt": "2026-09-13T20:35:26.000Z",
+   "discoveredAt": "2026-09-13T20:42:23.099Z",
+   "category": null,
+   "score": 33,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0a5sfc0dpmrory17pwt4jb"
+   },
+   "url": "https://x.com/rohanpaul_ai/status/2099235529254654050",
+   "permalink": "https://aihot.news/items/cmu0a5sfc0dpmrory17pwt4jb",
+   "originalUrl": "https://x.com/rohanpaul_ai/status/2099235529254654050",
+   "aihotUrl": "https://aihot.news/items/cmu0a5sfc0dpmrory17pwt4jb",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Rohan Paul (@rohanpaul_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Rohan Paul (@rohanpaul_ai)",
+     "url": "https://x.com/rohanpaul_ai/status/2099235529254654050",
+     "publishedAt": "2026-09-13T20:35:26.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "7252649118763cc9aa3424ba7f7eb726d0438acf59ddbd69fd9c7fb1aa0dcbba"
+  },
+  {
+   "id": "aihot:cmu09vy0r0dd1roryyjxigzn3",
+   "title": "前沿AI的极端权力集中风险",
+   "originalTitle": "One of the most worrying risks linked to frontier AI is extreme power concentration. The only way t…",
+   "summary": "Francois Chollet在X上表示，前沿AI最令人担忧的风险之一是极端的权力集中，并认为避免这种集中的唯一方法是确保存在多个独立的前沿AI模型提供方，包括开源选项。",
+   "source": "X：Francois Chollet (@fchollet)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu09vy0r0dd1roryyjxigzn3",
+    "original": "https://x.com/fchollet/status/2099230720753598471"
+   },
+   "publishedAt": "2026-09-13T20:16:20.000Z",
+   "discoveredAt": "2026-09-13T20:34:44.016Z",
+   "category": null,
+   "score": 29,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu09vy0r0dd1roryyjxigzn3"
+   },
+   "url": "https://x.com/fchollet/status/2099230720753598471",
+   "permalink": "https://aihot.news/items/cmu09vy0r0dd1roryyjxigzn3",
+   "originalUrl": "https://x.com/fchollet/status/2099230720753598471",
+   "aihotUrl": "https://aihot.news/items/cmu09vy0r0dd1roryyjxigzn3",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Francois Chollet (@fchollet)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Francois Chollet (@fchollet)",
+     "url": "https://x.com/fchollet/status/2099230720753598471",
+     "publishedAt": "2026-09-13T20:16:20.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "e3429699bde805705e33ddc8e8d8a6723684e2359cf52e50fb1242ced1c05d21"
+  },
+  {
+   "id": "aihot:cmu09ovja0d7hroryma8dzprx",
+   "title": "纳德拉：前沿AI发展需有意识放慢节奏",
+   "originalTitle": "Microsoft 🔥： Satya Nadella agrees with pacing frontier AI development. > \"Superintelligence that …",
+   "summary": "微软CEO萨提亚·纳德拉表示支持有意识地放慢前沿AI发展节奏，认为不受人类控制、不造福人类的超级智能不值得追求，并称需要以对齐为设计目标。他还强调企业应保留对自身独有知识数据的控制权，能够构建自己的持续学习闭环，而不依赖单一模型供应商。纳德拉提到微软将发布其第一方MAI模型所依据的行为准则，以公开征求意见。",
+   "source": "X：Testing Catalog (@testingcatalog)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu09ovja0d7hroryma8dzprx",
+    "original": "https://x.com/testingcatalog/status/2099228834260242606"
+   },
+   "publishedAt": "2026-09-13T20:08:50.000Z",
+   "discoveredAt": "2026-09-13T20:29:13.943Z",
+   "category": null,
+   "score": 49,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu09ovja0d7hroryma8dzprx"
+   },
+   "url": "https://x.com/testingcatalog/status/2099228834260242606",
+   "permalink": "https://aihot.news/items/cmu09ovja0d7hroryma8dzprx",
+   "originalUrl": "https://x.com/testingcatalog/status/2099228834260242606",
+   "aihotUrl": "https://aihot.news/items/cmu09ovja0d7hroryma8dzprx",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Testing Catalog (@testingcatalog)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Testing Catalog (@testingcatalog)",
+     "url": "https://x.com/testingcatalog/status/2099228834260242606",
+     "publishedAt": "2026-09-13T20:08:50.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": [
+     "company"
+    ]
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "4e33d47f3e00e2908c0ec2be7f5e1ffbd05eb43ae6412ff350a323f14e504e2d"
+  },
+  {
+   "id": "aihot:cmu0937420cn3rorywoc7s47t",
+   "title": "Dario Amodei 谈 AI 安全多层防御",
+   "originalTitle": "Dario Amodei says AI safety should work like layers of Swiss cheese. point is that there will proba…",
+   "summary": "Dario Amodei 表示，AI 安全应像瑞士奶酪的层层结构一样运作，可能永远不会存在一个完美的 AI 安全机制，目标应是叠加许多不完美的防御措施，使其中一层失效时不会演变成灾难。该观点来自 CBS Sunday Morning 的 YouTube 频道内容。",
+   "source": "X：Rohan Paul (@rohanpaul_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0937420cn3rorywoc7s47t",
+    "original": "https://x.com/rohanpaul_ai/status/2099228676558917728"
+   },
+   "publishedAt": "2026-09-13T20:08:12.000Z",
+   "discoveredAt": "2026-09-13T20:12:23.068Z",
+   "category": null,
+   "score": 27,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0937420cn3rorywoc7s47t"
+   },
+   "url": "https://x.com/rohanpaul_ai/status/2099228676558917728",
+   "permalink": "https://aihot.news/items/cmu0937420cn3rorywoc7s47t",
+   "originalUrl": "https://x.com/rohanpaul_ai/status/2099228676558917728",
+   "aihotUrl": "https://aihot.news/items/cmu0937420cn3rorywoc7s47t",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Rohan Paul (@rohanpaul_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Rohan Paul (@rohanpaul_ai)",
+     "url": "https://x.com/rohanpaul_ai/status/2099228676558917728",
+     "publishedAt": "2026-09-13T20:08:12.000Z"
+    }
+   ],
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_model",
+     "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "8e4b86c870e06ad86fca6fb13a0e02718b0761d170e42da20d144cb7ffd3581f"
+  },
+  {
+   "id": "aihot:cmu091rl20cm0roryofzhghpg",
+   "title": "CUDA for AMD on Windows：基于 ZLUDA + HIP/ROCm 在 Windows 上运行 CUDA 应用的开源方案",
+   "originalTitle": "Windows 系统上 AMD 版 CUDA",
+   "summary": "GitHub 项目 CUDA-for-AMD-Windows 发布了一套可复现的技术栈，结合 ZLUDA v6-preview.69 与 AMD HIP SDK 6.4，使面向 CUDA 的 Windows 应用能够在 AMD GPU 上运行。",
+   "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu091rl20cm0roryofzhghpg",
+    "original": "https://github.com/Speedstu/CUDA-for-AMD-Windows"
+   },
+   "publishedAt": "2026-09-13T20:03:57.746Z",
+   "discoveredAt": "2026-09-13T20:11:17.440Z",
+   "category": "tip",
+   "score": 56,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu091rl20cm0roryofzhghpg"
+   },
+   "url": "https://github.com/Speedstu/CUDA-for-AMD-Windows",
+   "permalink": "https://aihot.news/items/cmu091rl20cm0roryofzhghpg",
+   "originalUrl": "https://github.com/Speedstu/CUDA-for-AMD-Windows",
+   "aihotUrl": "https://aihot.news/items/cmu091rl20cm0roryofzhghpg",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+     "url": "https://github.com/Speedstu/CUDA-for-AMD-Windows",
+     "publishedAt": "2026-09-13T20:03:57.746Z"
+    }
+   ],
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "60a97b135c501a28525f1ae8479247a516474352f68143cafcceae65e45704ed"
+  },
+  {
+   "id": "aihot:cmu08phnz0bzaroryak3g3mzq",
+   "title": "Haider 担忧 OpenAI 或将面临放慢节奏的压力",
+   "originalTitle": "what worries me is that openai will face pressure to slow down anytime soon after the Navier-Stokes…",
+   "summary": "25位菲尔兹奖得主（包括陶哲轩）联署公开信，对AI在数学中的应用表达担忧。Haider认为在Navier-Stokes证明之后局势几乎一夜之间发生变化，并猜测可能正在酝酿更大的事，担心OpenAI随时会面临放慢发展的压力。",
+   "source": "X：Haider (@haider1)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu08phnz0bzaroryak3g3mzq",
+    "original": "https://x.com/haider1/status/2099226613892415916"
+   },
+   "publishedAt": "2026-09-13T20:00:01.000Z",
+   "discoveredAt": "2026-09-13T20:01:31.757Z",
+   "category": "tip",
+   "score": 66,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu08phnz0bzaroryak3g3mzq"
+   },
+   "url": "https://x.com/haider1/status/2099226613892415916",
+   "permalink": "https://aihot.news/items/cmu08phnz0bzaroryak3g3mzq",
+   "originalUrl": "https://x.com/haider1/status/2099226613892415916",
+   "aihotUrl": "https://aihot.news/items/cmu08phnz0bzaroryak3g3mzq",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Haider (@haider1)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Haider (@haider1)",
+     "url": "https://x.com/haider1/status/2099226613892415916",
+     "publishedAt": "2026-09-13T20:00:01.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "3cc19ab9a01c1196bdd8f3b922a00b3b4b01c31197d2e21acb189edc49576754"
+  },
+  {
+   "id": "aihot:cmu094cjy0cp8rory22zejojn",
+   "title": "微软AI CEO呼应纳德拉：AI须服务人类",
+   "originalTitle": "This is such a straightforward and commonsense view： the purpose of technology is to serve humanity …",
+   "summary": "微软AI CEO Mustafa Suleyman呼应Satya Nadella的观点，称技术目的是服务人类、加速人类繁荣，任何做不到这一点的技术都是失败、应被拒绝。Nadella强调超级智能必须帮助人类并处于人类控制之下，需让闭源与开源模型共同繁荣，企业应掌控自身知识并嵌入自己控制的模型与权重。Suleyman表示微软将发布其第一方MAI模型的行为准则公开征求意见。",
+   "source": "X：Mustafa Suleyman（Microsoft AI CEO） (@mustafasuleyman)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu094cjy0cp8rory22zejojn",
+    "original": "https://x.com/mustafasuleyman/status/2099223582434083103"
+   },
+   "publishedAt": "2026-09-13T19:47:58.000Z",
+   "discoveredAt": "2026-09-13T20:13:13.227Z",
+   "category": null,
+   "score": 44,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu094cjy0cp8rory22zejojn"
+   },
+   "url": "https://x.com/mustafasuleyman/status/2099223582434083103",
+   "permalink": "https://aihot.news/items/cmu094cjy0cp8rory22zejojn",
+   "originalUrl": "https://x.com/mustafasuleyman/status/2099223582434083103",
+   "aihotUrl": "https://aihot.news/items/cmu094cjy0cp8rory22zejojn",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Mustafa Suleyman（Microsoft AI CEO） (@mustafasuleyman)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Mustafa Suleyman（Microsoft AI CEO） (@mustafasuleyman)",
+     "url": "https://x.com/mustafasuleyman/status/2099223582434083103",
+     "publishedAt": "2026-09-13T19:47:58.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "235fe1e4381b68ed18a426e5f0274364c81798bdd5a48086cbf05c3585572222"
+  },
+  {
+   "id": "aihot:cmu094cts0cpdroryiqz79eyl",
+   "title": "基于 JAX3D 构建分层 NeRF 教程：体渲染、新视角合成与 3D 重建",
+   "originalTitle": "Hierarchical NeRF with JAX3D for Volumetric Rendering， Novel-View Synthesis， and 3D Reconstruction",
+   "summary": "该教程使用 JAX、Flax、Optax 和 jax3d 的体渲染原语构建端到端分层 NeRF，包含位置编码、粗细双网络与 sample_piecewise_constant_pdf 重要性采样，并用 Adam、指数学习率衰减和梯度裁剪进行训练。评估涵盖 held-out PSNR、深度与透明度可视化、360 度渲染 GIF 以及 marching cubes 提取密度场等值面。",
+   "source": "MarkTechPost（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu094cts0cpdroryiqz79eyl",
+    "original": "https://www.marktechpost.com/2026/09/13/hierarchical-nerf-with-jax3d-for-volumetric-rendering-novel-view-synthesis-and-3d-reconstruction"
+   },
+   "publishedAt": "2026-09-13T19:46:38.000Z",
+   "discoveredAt": "2026-09-13T20:13:18.354Z",
+   "category": "tip",
+   "score": 51,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu094cts0cpdroryiqz79eyl"
+   },
+   "url": "https://www.marktechpost.com/2026/09/13/hierarchical-nerf-with-jax3d-for-volumetric-rendering-novel-view-synthesis-and-3d-reconstruction",
+   "permalink": "https://aihot.news/items/cmu094cts0cpdroryiqz79eyl",
+   "originalUrl": "https://www.marktechpost.com/2026/09/13/hierarchical-nerf-with-jax3d-for-volumetric-rendering-novel-view-synthesis-and-3d-reconstruction",
+   "aihotUrl": "https://aihot.news/items/cmu094cts0cpdroryiqz79eyl",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "MarkTechPost（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "MarkTechPost（RSS）",
+     "url": "https://www.marktechpost.com/2026/09/13/hierarchical-nerf-with-jax3d-for-volumetric-rendering-novel-view-synthesis-and-3d-reconstruction",
+     "publishedAt": "2026-09-13T19:46:38.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "656f6e9e8d39e35325b0f3f1a31355c53789664de9ae1ea7ce5d7e2494ecbe45"
+  },
+  {
+   "id": "aihot:cmu0937420cn4rory1zyvcm4l",
+   "title": "纳德拉称追求超级智能需要刻意放慢节奏以做对对齐",
+   "originalTitle": "So now Microsoft also saying the race to superintelligence needs brakes. \"deliberate pacing needed …",
+   "summary": "微软CEO萨提亚·纳德拉发文表示，追求超级智能必须以造福人类和受人类控制为前提，并欢迎刻意放慢节奏，把对齐作为设计目标。他主张建立开放与开源模型并存的生态，让企业掌控自身知识并嵌入自有权重的学习循环，而不依赖单一模型供应商，同时对齐机制不能由少数实体控制。微软还将发布其自研MAI模型背后的行为准则，供公开咨询。",
+   "source": "X：Rohan Paul (@rohanpaul_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0937420cn4rory1zyvcm4l",
+    "original": "https://x.com/rohanpaul_ai/status/2099222293633524064"
+   },
+   "publishedAt": "2026-09-13T19:42:51.000Z",
+   "discoveredAt": "2026-09-13T20:12:23.068Z",
+   "category": "tip",
+   "score": 51,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0937420cn4rory1zyvcm4l"
+   },
+   "url": "https://x.com/rohanpaul_ai/status/2099222293633524064",
+   "permalink": "https://aihot.news/items/cmu0937420cn4rory1zyvcm4l",
+   "originalUrl": "https://x.com/rohanpaul_ai/status/2099222293633524064",
+   "aihotUrl": "https://aihot.news/items/cmu0937420cn4rory1zyvcm4l",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Rohan Paul (@rohanpaul_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Rohan Paul (@rohanpaul_ai)",
+     "url": "https://x.com/rohanpaul_ai/status/2099222293633524064",
+     "publishedAt": "2026-09-13T19:42:51.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": [
+     "company"
+    ]
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "c490b9b15cce1b1373533377dff219c17bf872353b1ceef44750e767069016a2"
+  },
+  {
+   "id": "aihot:cmu09803z0csmroryv65k1n6q",
+   "title": "Trump 与 Mike Johnson 认为 AI 行业对放缓呼吁反应过度",
+   "originalTitle": "Trump and Mike Johnson think the AI industry is overreacting",
+   "summary": "特朗普与众议院议长迈克·约翰逊认为，AI行业高管对放缓AI发展的呼吁反应过度，并担心暂停发展会让中国在AI竞赛中反超。此前，Dario Amodei发表公开信呼吁放缓前沿AI发展，Sam Altman、Elon Musk和Demis Hassabis表示支持。据《金融时报》报道，特朗普称美国正领先中国，并表示谁赢得AI就赢得一切。",
+   "source": "The Verge：AI（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu09803z0csmroryv65k1n6q",
+    "original": "https://www.theverge.com/ai-artificial-intelligence/994441/trump-mike-johnson-ai-industry-overreacting"
+   },
+   "publishedAt": "2026-09-13T19:41:48.000Z",
+   "discoveredAt": "2026-09-13T20:16:09.271Z",
+   "category": "tip",
+   "score": 65,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu09803z0csmroryv65k1n6q"
+   },
+   "url": "https://www.theverge.com/ai-artificial-intelligence/994441/trump-mike-johnson-ai-industry-overreacting",
+   "permalink": "https://aihot.news/items/cmu09803z0csmroryv65k1n6q",
+   "originalUrl": "https://www.theverge.com/ai-artificial-intelligence/994441/trump-mike-johnson-ai-industry-overreacting",
+   "aihotUrl": "https://aihot.news/items/cmu09803z0csmroryv65k1n6q",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "The Verge：AI（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "The Verge：AI（RSS）",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/994441/trump-mike-johnson-ai-industry-overreacting",
+     "publishedAt": "2026-09-13T19:41:48.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "363bfd242a06a595ea34c46c62452c11a8bf57d6f2af8abd9443a0f2771612fb"
+  },
+  {
+   "id": "aihot:cmu0gm1dg0nkeroryyuy55ctw",
+   "title": "Jaron Lanier：没有 AI，只有人",
+   "originalTitle": "There Is No AI （It's Just People） with Jaron Lanier",
+   "summary": "计算机科学家、虚拟现实之父Jaron Lanier在StarTalk特别节目中提出，AI应被视为人类的协作产物，而非独立存在的生物。他现任微软首席技术官办公室Prime Unifying Scientist，并获准公开批评微软本身。对话还涉及互联网演变、社交媒体成瘾、数据尊严与替代性科技商业模式。",
+   "source": "Hacker News：AI 热帖",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0gm1dg0nkeroryyuy55ctw",
+    "original": "https://singjupost.com/startalk-there-is-no-ai-really-its-just-people-w-jaron-lanier-transcript"
+   },
+   "publishedAt": "2026-09-13T19:41:06.000Z",
+   "discoveredAt": "2026-09-13T23:42:42.878Z",
+   "category": null,
+   "score": 45,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0gm1dg0nkeroryyuy55ctw"
+   },
+   "url": "https://singjupost.com/startalk-there-is-no-ai-really-its-just-people-w-jaron-lanier-transcript",
+   "permalink": "https://aihot.news/items/cmu0gm1dg0nkeroryyuy55ctw",
+   "originalUrl": "https://singjupost.com/startalk-there-is-no-ai-really-its-just-people-w-jaron-lanier-transcript",
+   "aihotUrl": "https://aihot.news/items/cmu0gm1dg0nkeroryyuy55ctw",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Hacker News：AI 热帖",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Hacker News：AI 热帖",
+     "url": "https://singjupost.com/startalk-there-is-no-ai-really-its-just-people-w-jaron-lanier-transcript",
+     "publishedAt": "2026-09-13T19:41:06.000Z"
+    }
+   ],
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_other",
+     "interviewee": "tech"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "d686c6c1bd1d44c63df845e58786d75522ce1122461cbf02e7d737eb2df6d93e"
+  },
+  {
+   "id": "aihot:cmu085ewb0bd1rory1d1rl82j",
+   "title": "TechCrunch Equity 播客探讨 AI 行业末日警告背后的动机",
+   "originalTitle": "What's behind the AI industry's latest warnings of doom？",
+   "summary": "TechCrunch Equity 播客讨论了AI行业关于生存威胁的最新争论。研究员Jacob Coxon因担忧头部AI公司在拿人类生命冒险而辞去Anthropic职务。Anthropic对齐负责人随后发帖称，其真诚认为AI可能杀死全人类，并给出未来十年内概率大于10%的个人判断。",
+   "source": "TechCrunch：AI（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu085ewb0bd1rory1d1rl82j",
+    "original": "https://techcrunch.com/2026/09/13/whats-behind-the-ai-industrys-latest-warnings-of-doom"
+   },
+   "publishedAt": "2026-09-13T19:40:15.000Z",
+   "discoveredAt": "2026-09-13T19:46:08.296Z",
+   "category": "tip",
+   "score": 52,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu085ewb0bd1rory1d1rl82j"
+   },
+   "url": "https://techcrunch.com/2026/09/13/whats-behind-the-ai-industrys-latest-warnings-of-doom",
+   "permalink": "https://aihot.news/items/cmu085ewb0bd1rory1d1rl82j",
+   "originalUrl": "https://techcrunch.com/2026/09/13/whats-behind-the-ai-industrys-latest-warnings-of-doom",
+   "aihotUrl": "https://aihot.news/items/cmu085ewb0bd1rory1d1rl82j",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "TechCrunch：AI（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "TechCrunch：AI（RSS）",
+     "url": "https://techcrunch.com/2026/09/13/whats-behind-the-ai-industrys-latest-warnings-of-doom",
+     "publishedAt": "2026-09-13T19:40:15.000Z"
+    }
+   ],
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_model",
+     "interviewee": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "8f4866f1c19d278095284e4433c59ada58fdbc545a8b7c7f9d1be49eec7ec78a"
+  },
+  {
+   "id": "aihot:cmu08tudr0c6prorynki5xbe5",
+   "title": "纳德拉谈超级智能与MAI模型行为准则",
+   "originalTitle": "Any pursuit of superintelligence has to be grounded in the core principle that if the AI we build is…",
+   "summary": "Satya Nadella表示，追求超级智能应以造福人类并处于人类控制之下为前提，同时需加速AI红利在各国、社区和企业间广泛扩散，这需要闭源与开源模型共同繁荣的前沿生态。他强调企业应保留对自身隐性知识的完全控制，能够构建自己的持续学习闭环而不依赖单一模型供应商。他还称其第一方MAI模型的行为准则将于明天公开发布以征询公众意见。",
+   "source": "X：Satya Nadella (@satyanadella)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu08tudr0c6prorynki5xbe5",
+    "original": "https://x.com/satyanadella/status/2099220712024408084"
+   },
+   "publishedAt": "2026-09-13T19:36:34.000Z",
+   "discoveredAt": "2026-09-13T20:05:04.865Z",
+   "category": null,
+   "score": 39,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu08tudr0c6prorynki5xbe5"
+   },
+   "url": "https://x.com/satyanadella/status/2099220712024408084",
+   "permalink": "https://aihot.news/items/cmu08tudr0c6prorynki5xbe5",
+   "originalUrl": "https://x.com/satyanadella/status/2099220712024408084",
+   "aihotUrl": "https://aihot.news/items/cmu08tudr0c6prorynki5xbe5",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Satya Nadella (@satyanadella)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Satya Nadella (@satyanadella)",
+     "url": "https://x.com/satyanadella/status/2099220712024408084",
+     "publishedAt": "2026-09-13T19:36:34.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "90d7a30aca15a0a8699cde8d5a37964f2082851a102d55b27b99828ba19ba8dd"
+  },
+  {
+   "id": "aihot:cmu080nja0b7croryy3aohmek",
+   "title": "Dario Amodei 在 CBS 访谈中称愿在合适条件下向政府组合交出 Anthropic 技术",
+   "originalTitle": "In a remarkable moment， Dario Amodei just said he would be willing to hand Anthropic's technology ov…",
+   "summary": "Dario Amodei 在 CBS Sunday Morning 访谈中表示，愿意在合适条件下将 Anthropic 的技术交给合适的政府组合。他提到父亲死于丙肝以及自己患早期癌症的经历，称因此感受到推动这项技术收益的分量。他还提到威胁报告中有利用其模型制造生物武器的尝试，并回应因 Claude 生物安全防护过强而被嘲讽一事，表示宁可被嘲笑也不愿模型被用来害人。",
+   "source": "X：Rohan Paul (@rohanpaul_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu080nja0b7croryy3aohmek",
+    "original": "https://x.com/rohanpaul_ai/status/2099217778121355723"
+   },
+   "publishedAt": "2026-09-13T19:24:54.000Z",
+   "discoveredAt": "2026-09-13T19:42:23.745Z",
+   "category": "tip",
+   "score": 57,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu080nja0b7croryy3aohmek"
+   },
+   "url": "https://x.com/rohanpaul_ai/status/2099217778121355723",
+   "permalink": "https://aihot.news/items/cmu080nja0b7croryy3aohmek",
+   "originalUrl": "https://x.com/rohanpaul_ai/status/2099217778121355723",
+   "aihotUrl": "https://aihot.news/items/cmu080nja0b7croryy3aohmek",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Rohan Paul (@rohanpaul_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Rohan Paul (@rohanpaul_ai)",
+     "url": "https://x.com/rohanpaul_ai/status/2099217778121355723",
+     "publishedAt": "2026-09-13T19:24:54.000Z"
+    }
+   ],
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_model",
+     "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "4667f2d083071b325453fe69797c17e4974aea72d8f14daa7da21b040e16abca"
+  },
+  {
+   "id": "aihot:cmu06y8i70a5troryw4y8i115",
+   "title": "David Sacks 回应前沿模型减速呼吁：可以放慢，但别拿监管框架当条件",
+   "originalTitle": "🎯💯",
+   "summary": "David Sacks 公开回应了 Dario 与 Sam 提出的“pace the frontier”减速主张，表示支持他们自行放慢前沿模型发展，但要求停止以反垄断豁免、监管审批流程或 METR 评估等条件作为前提。",
+   "source": "X：Rohan Paul (@rohanpaul_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu06y8i70a5troryw4y8i115",
+    "original": "https://x.com/rohanpaul_ai/status/2099213660287914324"
+   },
+   "publishedAt": "2026-09-13T19:08:32.000Z",
+   "discoveredAt": "2026-09-13T19:12:29.473Z",
+   "category": "tip",
+   "score": 69,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu06y8i70a5troryw4y8i115"
+   },
+   "url": "https://x.com/rohanpaul_ai/status/2099213660287914324",
+   "permalink": "https://aihot.news/items/cmu06y8i70a5troryw4y8i115",
+   "originalUrl": "https://x.com/rohanpaul_ai/status/2099213660287914324",
+   "aihotUrl": "https://aihot.news/items/cmu06y8i70a5troryw4y8i115",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Rohan Paul (@rohanpaul_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Rohan Paul (@rohanpaul_ai)",
+     "url": "https://x.com/rohanpaul_ai/status/2099213660287914324",
+     "publishedAt": "2026-09-13T19:08:32.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "1dcbf65273019a7f363a91e424bb5f0ec11bc8139a2b4c658712c2fe3eadef14"
+  },
+  {
+   "id": "aihot:cmu06wnce0a3sroryppdwq0gt",
+   "title": "为什么谷歌还在投放可疑广告？Gemini 秒判违规，人工审核却两次放行",
+   "originalTitle": "为什么谷歌还在投放可疑广告？",
+   "summary": "一名博主发现 YouTube 上有一则模仿 iOS 系统弹窗的存储空间告急广告，两次向谷歌举报后均被判定不违反政策。谷歌自家的 Gemini 在数秒内将该广告判为 DISAPPROVED，指出其冒充系统警告、使用虚假交互按钮并制造恐慌。作者质疑谷歌为何不把自家 AI 用于广告审核。",
+   "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu06wnce0a3sroryppdwq0gt",
+    "original": "https://www.atomic14.com/2026/09/13/why-is-google-still-serving-dodgy-ads"
+   },
+   "publishedAt": "2026-09-13T19:01:14.712Z",
+   "discoveredAt": "2026-09-13T19:11:14.854Z",
+   "category": null,
+   "score": 46,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu06wnce0a3sroryppdwq0gt"
+   },
+   "url": "https://www.atomic14.com/2026/09/13/why-is-google-still-serving-dodgy-ads",
+   "permalink": "https://aihot.news/items/cmu06wnce0a3sroryppdwq0gt",
+   "originalUrl": "https://www.atomic14.com/2026/09/13/why-is-google-still-serving-dodgy-ads",
+   "aihotUrl": "https://aihot.news/items/cmu06wnce0a3sroryppdwq0gt",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+     "url": "https://www.atomic14.com/2026/09/13/why-is-google-still-serving-dodgy-ads",
+     "publishedAt": "2026-09-13T19:01:14.712Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "google"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "518c032b72ed3945110308919cf0974d1f161d2c788ec22a9d2a6d5ba592a5a4"
+  },
+  {
+   "id": "aihot:cmu0gm1dh0nkfroryklrzuv4x",
+   "title": "普林斯顿团队研究显示AI智能体尚难独立完成开放式AI研究",
+   "originalTitle": "AI recursive self-improvement might not come so quickly after all",
+   "summary": "普林斯顿大学Peter Kirgis和Sayash Kapoor牵头的多机构团队提出shadow evaluation方法，让运行在OpenClaw上的Claude Opus 4.8用六天、3000美元API额度和GPU预算复现两篇未发表的NeurIPS 2026论文研究。",
+   "source": "Hacker News：AI 热帖",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0gm1dh0nkfroryklrzuv4x",
+    "original": "https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement"
+   },
+   "publishedAt": "2026-09-13T18:49:44.000Z",
+   "discoveredAt": "2026-09-13T23:42:42.878Z",
+   "category": "paper",
+   "score": 64,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0gm1dh0nkfroryklrzuv4x"
+   },
+   "url": "https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement",
+   "permalink": "https://aihot.news/items/cmu0gm1dh0nkfroryklrzuv4x",
+   "originalUrl": "https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement",
+   "aihotUrl": "https://aihot.news/items/cmu0gm1dh0nkfroryklrzuv4x",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Hacker News：AI 热帖",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Hacker News：AI 热帖",
+     "url": "https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement",
+     "publishedAt": "2026-09-13T18:49:44.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "ea6eb3e117c9c9816ee2bfd13590a98c47b899f7c4f3a11b9ca4a062df8d98ed"
+  },
+  {
+   "id": "aihot:cmu06y8hp0a5srorytbsoofs7",
+   "title": "AI 工程师该自建 agent harness 吗？DAIR.AI 的 Elvis Saravia 建议要",
+   "originalTitle": "Should you build an agent harness？ I see lots of opinions about it. My thoughts： As an AI enginee…",
+   "summary": "DAIR.AI的Elvis Saravia建议AI工程师学习自建agent harness，将其作为智能栈的核心部分而非wrapper。他指出通用前沿模型在数学、代码等可验证任务上越来越强，但在生物、医疗、法律、金融等动态领域仍难以解决可靠性问题，且依赖模型厂商会带来vendor lock-in。",
+   "source": "X：Elvis Saravia (@omarsar0, DAIR.AI)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu06y8hp0a5srorytbsoofs7",
+    "original": "https://x.com/omarsar0/status/2099208894866178204"
+   },
+   "publishedAt": "2026-09-13T18:49:36.000Z",
+   "discoveredAt": "2026-09-13T19:12:29.473Z",
+   "category": null,
+   "score": 48,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu06y8hp0a5srorytbsoofs7"
+   },
+   "url": "https://x.com/omarsar0/status/2099208894866178204",
+   "permalink": "https://aihot.news/items/cmu06y8hp0a5srorytbsoofs7",
+   "originalUrl": "https://x.com/omarsar0/status/2099208894866178204",
+   "aihotUrl": "https://aihot.news/items/cmu06y8hp0a5srorytbsoofs7",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Elvis Saravia (@omarsar0, DAIR.AI)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Elvis Saravia (@omarsar0, DAIR.AI)",
+     "url": "https://x.com/omarsar0/status/2099208894866178204",
+     "publishedAt": "2026-09-13T18:49:36.000Z"
+    }
+   ],
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_other",
+     "interviewee": "tech"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "9711fc426a7bd33487900aabb2bb71f6dff2008fe89d4d3cd5d51efd1478a9a1"
+  },
+  {
+   "id": "aihot:cmu06y8gq0a5rroryy02ss682",
+   "title": "Dex Horthy 质疑\"领域专用 harness\"是否只是 AI 智能体的换名",
+   "originalTitle": "not that I disagree， but is \"domain specific harness\" just a rebrand of \"ai agent\"？ What's different…",
+   "summary": "HumanLayer的Dex Horthy质疑“领域专用harness”是否只是“AI智能体”的换名，举例称“保险AI智能体”可能被改称为“保险领域专用harness”，并追问两者区别。他认为“Agent”一词语义过于分散，每个人理解不同，改用更明确的说法或许是好事。他还提出harness可能意味着面向终端用户更标准化的定制界面，例如skills或mcp。",
+   "source": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu06y8gq0a5rroryy02ss682",
+    "original": "https://x.com/dexhorthy/status/2099208596622062031"
+   },
+   "publishedAt": "2026-09-13T18:48:25.000Z",
+   "discoveredAt": "2026-09-13T19:12:29.473Z",
+   "category": null,
+   "score": 33,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu06y8gq0a5rroryy02ss682"
+   },
+   "url": "https://x.com/dexhorthy/status/2099208596622062031",
+   "permalink": "https://aihot.news/items/cmu06y8gq0a5rroryy02ss682",
+   "originalUrl": "https://x.com/dexhorthy/status/2099208596622062031",
+   "aihotUrl": "https://aihot.news/items/cmu06y8gq0a5rroryy02ss682",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+     "url": "https://x.com/dexhorthy/status/2099208596622062031",
+     "publishedAt": "2026-09-13T18:48:25.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "b84488adfe350403122527b33c9e8724ad7bacf0ca14837b39d8e243cda2f6d1"
+  },
+  {
+   "id": "aihot:cmu06wnce0a3vroryeus3ytzt",
+   "title": "David Sacks 回应 Dario 与 Sam：OpenAI 和 Anthropic 可自行放缓前沿模型，无需监管许可",
+   "originalTitle": "大卫·萨克斯：OpenAI和Anthropic无需监管来控制前沿模型的发展步伐",
+   "summary": "David Sacks 回应了 Dario 与 Sam 关于放缓前沿模型的主张，表示支持 OpenAI 和 Anthropic 自行减速，理由是这两家公司已构成前沿智能双寡头。他反对以反垄断豁免或监管审批流程作为条件，并称 METR 与 Anthropic 的投资人和员工关系密切，不具备独立性。Sacks 还认为市场本身已经惩罚不可预测的模型行为，放缓的真实动机包含规避网络攻击产品责任风险，而非纯粹利他。",
+   "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu06wnce0a3vroryeus3ytzt",
+    "original": "https://twitter.com/DavidSacks/status/2098973625252708460"
+   },
+   "publishedAt": "2026-09-13T18:45:18.039Z",
+   "discoveredAt": "2026-09-13T19:11:14.854Z",
+   "category": "tip",
+   "score": 64,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu06wnce0a3vroryeus3ytzt"
+   },
+   "url": "https://twitter.com/DavidSacks/status/2098973625252708460",
+   "permalink": "https://aihot.news/items/cmu06wnce0a3vroryeus3ytzt",
+   "originalUrl": "https://twitter.com/DavidSacks/status/2098973625252708460",
+   "aihotUrl": "https://aihot.news/items/cmu06wnce0a3vroryeus3ytzt",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+     "url": "https://twitter.com/DavidSacks/status/2098973625252708460",
+     "publishedAt": "2026-09-13T18:45:18.039Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "649aa9e282f554a8ca83c23e0d70d8194a7dcd05b442dda2d9c0cfaf8b95040d"
+  },
+  {
+   "id": "aihot:cmu05vgtn08rmrorym4u3h9ih",
+   "title": "Dario Amodei 谈 AI 风险与安全防护争议",
+   "originalTitle": "Dario Amodei got personal on CBS about AI's risks， benefits， and the ridicule he faces on social med…",
+   "summary": "Anthropic CEO Dario Amodei 在 CBS 采访中表示，AI 既带来巨大收益也伴随巨大风险。他因 Claude 的生物安全防护过强而几乎每天在社交媒体上被嘲笑，但宁愿被嘲笑也不愿有人用 Claude 造成大规模伤亡。他提到父亲死于丙型肝炎、自己曾患早期癌症，因此深感推动技术获益的责任。他每天阅读威胁报告，例如有人试图用其模型制造生物武器。",
+   "source": "X：Rohan Paul (@rohanpaul_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu05vgtn08rmrorym4u3h9ih",
+    "original": "https://x.com/rohanpaul_ai/status/2099206571880579463"
+   },
+   "publishedAt": "2026-09-13T18:40:22.000Z",
+   "discoveredAt": "2026-09-13T18:42:23.214Z",
+   "category": null,
+   "score": 48,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu05vgtn08rmrorym4u3h9ih"
+   },
+   "url": "https://x.com/rohanpaul_ai/status/2099206571880579463",
+   "permalink": "https://aihot.news/items/cmu05vgtn08rmrorym4u3h9ih",
+   "originalUrl": "https://x.com/rohanpaul_ai/status/2099206571880579463",
+   "aihotUrl": "https://aihot.news/items/cmu05vgtn08rmrorym4u3h9ih",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Rohan Paul (@rohanpaul_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Rohan Paul (@rohanpaul_ai)",
+     "url": "https://x.com/rohanpaul_ai/status/2099206571880579463",
+     "publishedAt": "2026-09-13T18:40:22.000Z"
+    }
+   ],
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_model",
+     "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "d045ba9ea97928b1be81c82a678a46948d815a5e371148f0c98d77d6c9b6e413"
+  },
+  {
+   "id": "aihot:cmu06l0dg09hiroryn5e19xp1",
+   "title": "Gary Marcus 评 Dario Amodei 的放慢 AI 发展提议：三份赞誉加两分怀疑",
+   "originalTitle": "Two cheers （out of three） for Dario Amodei",
+   "summary": "Gary Marcus 对 Dario Amodei 倡导放慢 AI 发展并支持透明度的文章发表评论，指出 Sam Altman 与 Elon Musk 迅速表示认同。Marcus 肯定其透明度承诺，同时列举多方质疑，包括 METR 与 AI 公司关系过近、Anthropic 借对华威胁维持加速，以及该提议可能意在抢先于真正的监管。",
+   "source": "Gary Marcus：The Road to AI We Can Trust（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu06l0dg09hiroryn5e19xp1",
+    "original": "https://garymarcus.substack.com/p/two-cheers-out-of-three-for-dario"
+   },
+   "publishedAt": "2026-09-13T18:34:31.000Z",
+   "discoveredAt": "2026-09-13T19:02:16.596Z",
+   "category": "tip",
+   "score": 62,
+   "selected": true,
+   "reason": "作者肯定 Dario 提议中放慢节奏与透明度的部分，同时汇总多方对监管俘获、评估方独立性和对华姿态的质疑，并补充追责与召回两条政策思路。",
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu06l0dg09hiroryn5e19xp1"
+   },
+   "url": "https://garymarcus.substack.com/p/two-cheers-out-of-three-for-dario",
+   "permalink": "https://aihot.news/items/cmu06l0dg09hiroryn5e19xp1",
+   "originalUrl": "https://garymarcus.substack.com/p/two-cheers-out-of-three-for-dario",
+   "aihotUrl": "https://aihot.news/items/cmu06l0dg09hiroryn5e19xp1",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Gary Marcus：The Road to AI We Can Trust（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Gary Marcus：The Road to AI We Can Trust（RSS）",
+     "url": "https://garymarcus.substack.com/p/two-cheers-out-of-three-for-dario",
+     "publishedAt": "2026-09-13T18:34:31.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "5a17afa50a3f4a934716c8f60d63180d27613ad73b89506017ab84c1a0cc022e"
+  },
+  {
+   "id": "aihot:cmu05vgty08rnroryfcdq3b7m",
+   "title": "SemiAnalysis：4-hi HBM 为何胜出",
+   "originalTitle": "Long Live the Short King： Why 4-hi HBM Wins Same Bandwidth， Fewer Dies： How 4-hi HBM Cuts Inference…",
+   "summary": "SemiAnalysis发布文章，讨论4-hi HBM在相同带宽下以更少裸片胜出的原因，并分析其如何降低推理成本、让稀缺的DRAM发挥更大价值。",
+   "source": "X：SemiAnalysis (@SemiAnalysis_)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu05vgty08rnroryfcdq3b7m",
+    "original": "https://x.com/SemiAnalysis_/status/2099203133079429136"
+   },
+   "publishedAt": "2026-09-13T18:26:42.000Z",
+   "discoveredAt": "2026-09-13T18:42:23.214Z",
+   "category": null,
+   "score": 36,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu05vgty08rnroryfcdq3b7m"
+   },
+   "url": "https://x.com/SemiAnalysis_/status/2099203133079429136",
+   "permalink": "https://aihot.news/items/cmu05vgty08rnroryfcdq3b7m",
+   "originalUrl": "https://x.com/SemiAnalysis_/status/2099203133079429136",
+   "aihotUrl": "https://aihot.news/items/cmu05vgty08rnroryfcdq3b7m",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：SemiAnalysis (@SemiAnalysis_)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：SemiAnalysis (@SemiAnalysis_)",
+     "url": "https://x.com/SemiAnalysis_/status/2099203133079429136",
+     "publishedAt": "2026-09-13T18:26:42.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "223ae221c59ef58e3de46a563149b923babb34782bf0bd8609f2852fe9a3a9c4"
+  },
+  {
+   "id": "aihot:cmu05skl508mfrory74k1u5hg",
+   "title": "SemiAnalysis 长文解析：为什么 4-hi HBM 将成为推理最优配置",
+   "originalTitle": "Long Live the Short King： Why 4-hi HBM Wins",
+   "summary": "SemiAnalysis 发布长文，论证 HBM 堆叠层数持续走高的趋势正在逆转，并指出下一代 Rubin Ultra 每颗 GPU 的 HBM 容量将从 288GB 降至 192GB，即采用 8-hi 配置。文章认为 4-hi HBM 将成为推理场景下的最优配置。",
+   "source": "SemiAnalysis 长文 RSS（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu05skl508mfrory74k1u5hg",
+    "original": "https://newsletter.semianalysis.com/p/long-live-the-short-king-why-4-hi"
+   },
+   "publishedAt": "2026-09-13T18:19:39.000Z",
+   "discoveredAt": "2026-09-13T18:40:09.099Z",
+   "category": "tip",
+   "score": 60,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu05skl508mfrory74k1u5hg"
+   },
+   "url": "https://newsletter.semianalysis.com/p/long-live-the-short-king-why-4-hi",
+   "permalink": "https://aihot.news/items/cmu05skl508mfrory74k1u5hg",
+   "originalUrl": "https://newsletter.semianalysis.com/p/long-live-the-short-king-why-4-hi",
+   "aihotUrl": "https://aihot.news/items/cmu05skl508mfrory74k1u5hg",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "SemiAnalysis 长文 RSS（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "SemiAnalysis 长文 RSS（RSS）",
+     "url": "https://newsletter.semianalysis.com/p/long-live-the-short-king-why-4-hi",
+     "publishedAt": "2026-09-13T18:19:39.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "9f4b24113f302c2cd89ffd62949aa432055f6cc05be9dccd3959d0b2d05b70ab"
+  },
+  {
+   "id": "aihot:cmu05vgt708rlrorybwmyjnqw",
+   "title": "AI That Works 分享用 post-mortem 复盘改进智能体技能与提示词的方法",
+   "originalTitle": "on this week's 🦄 AI That Works， @tbrownio shares their \"compounding\" process to generate post-morte…",
+   "summary": "Dex Horthy 在 AI That Works 节目中介绍，嘉宾 tbrownio 分享了一种名为 compounding 的复盘流程。该流程在智能体提交的 pull request 需要人工引导时生成 post-mortem，并在每周末回顾这些复盘记录，逐步改进智能体的技能、任务提示词和记忆文件，以避免同类问题再次出现。",
+   "source": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu05vgt708rlrorybwmyjnqw",
+    "original": "https://x.com/dexhorthy/status/2099200185956172103"
+   },
+   "publishedAt": "2026-09-13T18:15:00.000Z",
+   "discoveredAt": "2026-09-13T18:42:23.214Z",
+   "category": "tip",
+   "score": 60,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu05vgt708rlrorybwmyjnqw"
+   },
+   "url": "https://x.com/dexhorthy/status/2099200185956172103",
+   "permalink": "https://aihot.news/items/cmu05vgt708rlrorybwmyjnqw",
+   "originalUrl": "https://x.com/dexhorthy/status/2099200185956172103",
+   "aihotUrl": "https://aihot.news/items/cmu05vgt708rlrorybwmyjnqw",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+     "url": "https://x.com/dexhorthy/status/2099200185956172103",
+     "publishedAt": "2026-09-13T18:15:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "7832c34044f14f3d158f2e639a776583016bd5b9e5c232e15ac05a7deed56722"
+  },
+  {
+   "id": "aihot:cmu05ejmj089lroryk1mwul4k",
+   "title": "远程连接AI将削弱Siri价值",
+   "originalTitle": "I think once remote connections to \"your\" Claude or Astra or Claw or whatever become easier and more…",
+   "summary": "Ethan Mollick在X上表示，一旦远程连接到Claude、Astra或Claw等AI服务变得更简单、更普遍，像Siri这样的手机助手就会失去很多价值。他认为用户想要的是一个能管理一切、能洞察众多系统和偏好的聪明AI，而不是一个能力有限的助手。",
+   "source": "X：Ethan Mollick (@emollick)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu05ejmj089lroryk1mwul4k",
+    "original": "https://x.com/emollick/status/2099199806543421772"
+   },
+   "publishedAt": "2026-09-13T18:13:29.000Z",
+   "discoveredAt": "2026-09-13T18:29:13.438Z",
+   "category": null,
+   "score": 27,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu05ejmj089lroryk1mwul4k"
+   },
+   "url": "https://x.com/emollick/status/2099199806543421772",
+   "permalink": "https://aihot.news/items/cmu05ejmj089lroryk1mwul4k",
+   "originalUrl": "https://x.com/emollick/status/2099199806543421772",
+   "aihotUrl": "https://aihot.news/items/cmu05ejmj089lroryk1mwul4k",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Ethan Mollick (@emollick)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Ethan Mollick (@emollick)",
+     "url": "https://x.com/emollick/status/2099199806543421772",
+     "publishedAt": "2026-09-13T18:13:29.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "c8f63abdd3a08c468e3284c8f3fb5750c2ab7851fee27e2cadd0940e7f897d61"
+  },
+  {
+   "id": "aihot:cmu04u3qh07sjroryscms8r6u",
+   "title": "Muse 被赞体验优于 Instinct",
+   "originalTitle": "Muse absolutely crushes Insect",
+   "summary": "Scale AI创始人兼Meta首席AI官Alexandr Wang在X上转发并赞同了用户turbahn对Muse与Instinct两款产品的比较。turbahn表示两个产品都喜欢，但开始认为Muse实质上比Instinct更好，举例称Muse在遇到做不了的事情时会弹出迷你浏览器，把控制权交还给用户而不是卡住，并评价这是深思熟虑、以人为本的AI设计。",
+   "source": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu04u3qh07sjroryscms8r6u",
+    "original": "https://x.com/alexandr_wang/status/2099197278926098490"
+   },
+   "publishedAt": "2026-09-13T18:03:27.000Z",
+   "discoveredAt": "2026-09-13T18:13:20.092Z",
+   "category": null,
+   "score": 28,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu04u3qh07sjroryscms8r6u"
+   },
+   "url": "https://x.com/alexandr_wang/status/2099197278926098490",
+   "permalink": "https://aihot.news/items/cmu04u3qh07sjroryscms8r6u",
+   "originalUrl": "https://x.com/alexandr_wang/status/2099197278926098490",
+   "aihotUrl": "https://aihot.news/items/cmu04u3qh07sjroryscms8r6u",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+     "url": "https://x.com/alexandr_wang/status/2099197278926098490",
+     "publishedAt": "2026-09-13T18:03:27.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "023923297eaed363a12cb1ca8b0a707439448a9bad509192ec6e11f532e9a684"
+  },
+  {
+   "id": "aihot:cmu04u3qh07skroryyvon7ofd",
+   "title": "Muse 被评为最佳个人智能体",
+   "originalTitle": "if @Muse were quote the great Bruce Springsteen： \"Honey， I'm tougher than the rest\"",
+   "summary": "Scale AI创始人兼Meta首席AI官Alexandr Wang在X平台转发消息称，Muse被评为最佳个人智能体。用户pejmanjohn表示，他使用过OC、Hermes、GrokBot、Instinct等个人智能体，认为Muse更快、更便宜且免费、更易用，似乎也最安全。该用户称，对于某些用例他仍会在自己的硬件上运行个人智能体，也会为独特连接器分别使用不同产品，但Muse目前将成为他的主力智能体。",
+   "source": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu04u3qh07skroryyvon7ofd",
+    "original": "https://x.com/alexandr_wang/status/2099196587184640198"
+   },
+   "publishedAt": "2026-09-13T18:00:42.000Z",
+   "discoveredAt": "2026-09-13T18:13:20.092Z",
+   "category": null,
+   "score": 22,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu04u3qh07skroryyvon7ofd"
+   },
+   "url": "https://x.com/alexandr_wang/status/2099196587184640198",
+   "permalink": "https://aihot.news/items/cmu04u3qh07skroryyvon7ofd",
+   "originalUrl": "https://x.com/alexandr_wang/status/2099196587184640198",
+   "aihotUrl": "https://aihot.news/items/cmu04u3qh07skroryyvon7ofd",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+     "url": "https://x.com/alexandr_wang/status/2099196587184640198",
+     "publishedAt": "2026-09-13T18:00:42.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "143e4c17180cd3cb06ac4e4f7eb411bc6da635c2493a7e31a91f08ca9e2a66a5"
+  },
+  {
+   "id": "aihot:cmu05ejmj089mroryedfwpe9t",
+   "title": "Ethan Mollick 谈 AI 恐慌蔓延",
+   "originalTitle": "I don't know what else happens as a result of the past few days， but I can definitely say that a lot…",
+   "summary": "我不知道过去几天还会带来什么其他后果，但我可以肯定地说，很多原本不太关注 AI 的人，现在都在为 AI 杀死所有人而惊恐不已。",
+   "source": "X：Ethan Mollick (@emollick)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu05ejmj089mroryedfwpe9t",
+    "original": "https://x.com/emollick/status/2099196495069167738"
+   },
+   "publishedAt": "2026-09-13T18:00:20.000Z",
+   "discoveredAt": "2026-09-13T18:29:13.438Z",
+   "category": null,
+   "score": 19,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu05ejmj089mroryedfwpe9t"
+   },
+   "url": "https://x.com/emollick/status/2099196495069167738",
+   "permalink": "https://aihot.news/items/cmu05ejmj089mroryedfwpe9t",
+   "originalUrl": "https://x.com/emollick/status/2099196495069167738",
+   "aihotUrl": "https://aihot.news/items/cmu05ejmj089mroryedfwpe9t",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Ethan Mollick (@emollick)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Ethan Mollick (@emollick)",
+     "url": "https://x.com/emollick/status/2099196495069167738",
+     "publishedAt": "2026-09-13T18:00:20.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "c8e107dce5791e99fe0bf78169d907ed7e1ff4237b5ac0339d2acb01fdca01c1"
+  },
+  {
+   "id": "aihot:cmu04r5xs07o5roryeysd50cc",
+   "title": "Y Combinator CEO Garry Tan 主张美国开放权重实验室也应蒸馏前沿模型",
+   "originalTitle": "加里·谭希望美国的开放式AI实验室也能\"提炼\"前沿模型",
+   "summary": "Y Combinator CEO Garry Tan 就模型蒸馏问题发表主张，认为监管者不应干预中国实验室蒸馏美国前沿模型，并提出美国可建立自己的蒸馏体系。他希望美国小型开放权重实验室能够合法蒸馏本土前沿模型，并指出闭源实验室未经许可抓取训练数据、却通过服务条款限制客户行为并不合理。他还表示，真正的 AI 末日场景是前沿能力集中于一家公司。",
+   "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu04r5xs07o5roryeysd50cc",
+    "original": "https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too"
+   },
+   "publishedAt": "2026-09-13T17:42:38.853Z",
+   "discoveredAt": "2026-09-13T18:11:04.497Z",
+   "category": "tip",
+   "score": 55,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu04r5xs07o5roryeysd50cc"
+   },
+   "url": "https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too",
+   "permalink": "https://aihot.news/items/cmu04r5xs07o5roryeysd50cc",
+   "originalUrl": "https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too",
+   "aihotUrl": "https://aihot.news/items/cmu04r5xs07o5roryeysd50cc",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+     "url": "https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too",
+     "publishedAt": "2026-09-13T17:42:38.853Z"
+    },
+    {
+     "collector": "aihot",
+     "source": "Hacker News：AI 热帖",
+     "url": "https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too",
+     "publishedAt": "2026-09-13T15:44:38.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "0828b9dc7511a529c1f75d07ac8f69ffa57c1913c6098fcda571adf9701d7faf"
+  },
+  {
+   "id": "aihot:cmu03ci1n039wrory4dd56nss",
+   "title": "Haider 谈 AGI 距离已不再遥远",
+   "originalTitle": "6 months ago， i thought AGI was still many versions away models like opus 4.6 and 5.6 sol were good…",
+   "summary": "Haider表示，六个月前他认为AGI还差很多个版本，当时opus 4.6和5.6 sol等模型已经不错但不够好。现在有了astra、mythos以及OpenAI内部解决navier-stokes问题的模型，他认为AGI已经不那么遥远。他还认为即使scaling今天停止，通过更好的微调和harness也能让下一个模型达到80%到90%的程度。",
+   "source": "X：Haider (@haider1)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu03ci1n039wrory4dd56nss",
+    "original": "https://x.com/haider1/status/2099186634256535627"
+   },
+   "publishedAt": "2026-09-13T17:21:09.000Z",
+   "discoveredAt": "2026-09-13T17:31:31.970Z",
+   "category": null,
+   "score": 28,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu03ci1n039wrory4dd56nss"
+   },
+   "url": "https://x.com/haider1/status/2099186634256535627",
+   "permalink": "https://aihot.news/items/cmu03ci1n039wrory4dd56nss",
+   "originalUrl": "https://x.com/haider1/status/2099186634256535627",
+   "aihotUrl": "https://aihot.news/items/cmu03ci1n039wrory4dd56nss",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Haider (@haider1)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Haider (@haider1)",
+     "url": "https://x.com/haider1/status/2099186634256535627",
+     "publishedAt": "2026-09-13T17:21:09.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "448911cadabdf84910552af6a1214aad063bc0e07b80035dc75156475429dc68"
+  },
+  {
+   "id": "aihot:cmu02nq8s02oyrory1c4kgmc2",
+   "title": "RLT：跨 token 循环的 Transformer 架构设计提案",
+   "originalTitle": "Looped transformers are a popular architecture topic right now. This new technical report extends t…",
+   "summary": "一份新技术报告提出名为 Recurrent Looped Transformer（RLT）的架构设计，让解码器对每个 token（包括 prompt 与回复）循环复用，并由因果编码器构建全局 KV 记忆。在 48 层解码器下，t 个 token 的计算路径经过 48t 个解码块，深度随序列增长而单 token 成本不变。该报告仅为设计提案，作者表示推理增益、硬件加速与强化学习扩展尚未实测。",
+   "source": "X：Elvis Saravia (@omarsar0, DAIR.AI)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu02nq8s02oyrory1c4kgmc2",
+    "original": "https://x.com/omarsar0/status/2099184337195565335"
+   },
+   "publishedAt": "2026-09-13T17:12:01.000Z",
+   "discoveredAt": "2026-09-13T17:12:23.703Z",
+   "category": null,
+   "score": 33,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu02nq8s02oyrory1c4kgmc2"
+   },
+   "url": "https://x.com/omarsar0/status/2099184337195565335",
+   "permalink": "https://aihot.news/items/cmu02nq8s02oyrory1c4kgmc2",
+   "originalUrl": "https://x.com/omarsar0/status/2099184337195565335",
+   "aihotUrl": "https://aihot.news/items/cmu02nq8s02oyrory1c4kgmc2",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Elvis Saravia (@omarsar0, DAIR.AI)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Elvis Saravia (@omarsar0, DAIR.AI)",
+     "url": "https://x.com/omarsar0/status/2099184337195565335",
+     "publishedAt": "2026-09-13T17:12:01.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "d7fac9718b17b4b6e852a692489d6b17299ba18ff30840a1902695f9946e468c"
+  },
+  {
+   "id": "aihot:cmu03gmel03ekrorydgwbeq8g",
+   "title": "四大AI实验室同意\"放缓前沿\"引热议",
+   "originalTitle": "My friend sent me this after seeing the 4 big AI labs agree to \"pace the frontier\"： \"Remember the t…",
+   "summary": "一位用户在社交媒体上表示，其朋友在看到四家大型AI实验室同意“放缓前沿”的消息后，发来一段话，将此事类比为学校尖子生声称放学后从不学习却总能考进前三，并反问是否相信这种说法。",
+   "source": "X：Yuchen Jin (@Yuchenj_UW)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu03gmel03ekrorydgwbeq8g",
+    "original": "https://x.com/Yuchenj_UW/status/2099182829099995387"
+   },
+   "publishedAt": "2026-09-13T17:06:02.000Z",
+   "discoveredAt": "2026-09-13T17:34:46.736Z",
+   "category": null,
+   "score": 37,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu03gmel03ekrorydgwbeq8g"
+   },
+   "url": "https://x.com/Yuchenj_UW/status/2099182829099995387",
+   "permalink": "https://aihot.news/items/cmu03gmel03ekrorydgwbeq8g",
+   "originalUrl": "https://x.com/Yuchenj_UW/status/2099182829099995387",
+   "aihotUrl": "https://aihot.news/items/cmu03gmel03ekrorydgwbeq8g",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Yuchen Jin (@Yuchenj_UW)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Yuchen Jin (@Yuchenj_UW)",
+     "url": "https://x.com/Yuchenj_UW/status/2099182829099995387",
+     "publishedAt": "2026-09-13T17:06:02.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "72d3aa1e9dd0d53c33d526eab155f479ac15f42fdb10ed5c06c5c9b4bd1dd3a6"
+  },
+  {
+   "id": "aihot:cmu02oggx02phroryt2e5j6nj",
+   "title": "普林斯顿研究者提出 Recurrent Looped Transformer（RLT）：跨 token 传递解码器状态，每 token 执行 96 个块",
+   "originalTitle": "A Princeton Researcher Proposes Recurrent Looped Transformer （RLT） that Carries Decoder State across Every Token， Fixing 96 Blocks per Token with Unbounded Temporal Depth",
+   "summary": "普林斯顿研究者 Yifan Zhang 发布技术报告，提出 Recurrent Looped Transformer（RLT）。该方法将解码器最终隐状态与逐层 SWA 缓存跨 prompt 和回复的每个 token 传递，不在边界重置，每 token 执行 96 个块。",
+   "source": "MarkTechPost（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu02oggx02phroryt2e5j6nj",
+    "original": "https://www.marktechpost.com/2026/09/13/a-princeton-researcher-proposes-recurrent-looped-transformer-rlt"
+   },
+   "publishedAt": "2026-09-13T17:02:26.000Z",
+   "discoveredAt": "2026-09-13T17:12:58.567Z",
+   "category": null,
+   "score": 33,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu02oggx02phroryt2e5j6nj"
+   },
+   "url": "https://www.marktechpost.com/2026/09/13/a-princeton-researcher-proposes-recurrent-looped-transformer-rlt",
+   "permalink": "https://aihot.news/items/cmu02oggx02phroryt2e5j6nj",
+   "originalUrl": "https://www.marktechpost.com/2026/09/13/a-princeton-researcher-proposes-recurrent-looped-transformer-rlt",
+   "aihotUrl": "https://aihot.news/items/cmu02oggx02phroryt2e5j6nj",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "MarkTechPost（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "MarkTechPost（RSS）",
+     "url": "https://www.marktechpost.com/2026/09/13/a-princeton-researcher-proposes-recurrent-looped-transformer-rlt",
+     "publishedAt": "2026-09-13T17:02:26.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "0c64185a41b294697956856a1b253fee70c4b00412302104fe1ccb7279da54a9"
+  },
+  {
+   "id": "aihot:cmu01llpy08wzroymujr1gl8d",
+   "title": "前 Anthropic 和 OpenAI 研究员 Jacob Coxon 接受 BBC 采访，Dario Amodei 回应其离职言论",
+   "originalTitle": "Jacob Coxon's next interview on BBC （the ex-Anthropic+OpenAI researcher who resigned）. \"If we don't…",
+   "summary": "前Anthropic和OpenAI研究员Jacob Coxon接受BBC采访，称若不按当前进度减速，人类近期内存在较大死亡风险，并称许多一线开发者认为人类死亡概率超过10%。Anthropic首席执行官Dario Amodei此前在CNN回应Coxon浏览量超过1.66亿的推文，表示同意多于不同意，并称Coxon指向的是整个行业推进过快的动态，而非Anthropic本身。",
+   "source": "X：Rohan Paul (@rohanpaul_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu01llpy08wzroymujr1gl8d",
+    "original": "https://x.com/rohanpaul_ai/status/2099176357028827565"
+   },
+   "publishedAt": "2026-09-13T16:40:18.000Z",
+   "discoveredAt": "2026-09-13T16:42:26.577Z",
+   "category": "tip",
+   "score": 58,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu01llpy08wzroymujr1gl8d"
+   },
+   "url": "https://x.com/rohanpaul_ai/status/2099176357028827565",
+   "permalink": "https://aihot.news/items/cmu01llpy08wzroymujr1gl8d",
+   "originalUrl": "https://x.com/rohanpaul_ai/status/2099176357028827565",
+   "aihotUrl": "https://aihot.news/items/cmu01llpy08wzroymujr1gl8d",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Rohan Paul (@rohanpaul_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Rohan Paul (@rohanpaul_ai)",
+     "url": "https://x.com/rohanpaul_ai/status/2099176357028827565",
+     "publishedAt": "2026-09-13T16:40:18.000Z"
+    }
+   ],
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_model",
+     "interviewee": "tech"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "94c5bdc47faffa146f3387012ec173087244f0d0ac745cc803542b41a0294d27"
+  },
+  {
+   "id": "aihot:cmu03v2jz03uxrory1qb4erkk",
+   "title": "奥巴马呼吁民主党制定AI安全防护的\"明确计划\"",
+   "originalTitle": "Obama urges Democrats to have a 'clear plan' for AI safeguards",
+   "summary": "美国前总统奥巴马在民主党筹款活动上表示，民主党需将AI列为核心议程，并在重夺众议院多数后拿出一个框架推动公开对话，以应对AI的经济影响与安全担忧。他称AI在私人手中发展极快，若不加管控可能危险，管控得当则可加速药物研发等。众议院少数党领袖Jeffries回应称，AI领域必须采取果断行动。",
+   "source": "TechCrunch：AI（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu03v2jz03uxrory1qb4erkk",
+    "original": "https://techcrunch.com/2026/09/13/obama-urges-democrats-to-have-a-clear-plan-for-ai-safeguards"
+   },
+   "publishedAt": "2026-09-13T16:30:00.000Z",
+   "discoveredAt": "2026-09-13T17:46:07.140Z",
+   "category": null,
+   "score": 50,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu03v2jz03uxrory1qb4erkk"
+   },
+   "url": "https://techcrunch.com/2026/09/13/obama-urges-democrats-to-have-a-clear-plan-for-ai-safeguards",
+   "permalink": "https://aihot.news/items/cmu03v2jz03uxrory1qb4erkk",
+   "originalUrl": "https://techcrunch.com/2026/09/13/obama-urges-democrats-to-have-a-clear-plan-for-ai-safeguards",
+   "aihotUrl": "https://aihot.news/items/cmu03v2jz03uxrory1qb4erkk",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "TechCrunch：AI（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "TechCrunch：AI（RSS）",
+     "url": "https://techcrunch.com/2026/09/13/obama-urges-democrats-to-have-a-clear-plan-for-ai-safeguards",
+     "publishedAt": "2026-09-13T16:30:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "3374bbb636ebd606c7784f6971a21d0e71796be0edea7daa2de6f32ddedf6759"
+  },
+  {
+   "id": "aihot:cmu01jcyz08u2roymoujuvyo4",
+   "title": "Astra 和 Fable 仍在研究 2025 年对齐评估方法的简单变体",
+   "originalTitle": "Astra 和 Fable 仍在研究 2025 年提出的对齐评估方法的简单变体",
+   "summary": "Astra 和 Fable 仍在研究 2025 年提出的对齐评估方法的简单变体，相关内容发布在 LessWrong 上，并在 Hacker News 获得 106 点热度。",
+   "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu01jcyz08u2roymoujuvyo4",
+    "original": "https://www.lesswrong.com/posts/munJKF7iWMsWJLAH2/astra-and-fable-still-hack-on-simple-variants-of-alignment"
+   },
+   "publishedAt": "2026-09-13T16:25:20.439Z",
+   "discoveredAt": "2026-09-13T16:41:01.671Z",
+   "category": null,
+   "score": 22,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu01jcyz08u2roymoujuvyo4"
+   },
+   "url": "https://www.lesswrong.com/posts/munJKF7iWMsWJLAH2/astra-and-fable-still-hack-on-simple-variants-of-alignment",
+   "permalink": "https://aihot.news/items/cmu01jcyz08u2roymoujuvyo4",
+   "originalUrl": "https://www.lesswrong.com/posts/munJKF7iWMsWJLAH2/astra-and-fable-still-hack-on-simple-variants-of-alignment",
+   "aihotUrl": "https://aihot.news/items/cmu01jcyz08u2roymoujuvyo4",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Hacker News 热门（buzzing.cc 中文翻译）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Hacker News 热门（buzzing.cc 中文翻译）",
+     "url": "https://www.lesswrong.com/posts/munJKF7iWMsWJLAH2/astra-and-fable-still-hack-on-simple-variants-of-alignment",
+     "publishedAt": "2026-09-13T16:25:20.439Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "787801db6863357dec08905caa3e537b79fb907239a869eb811f638a63cfe480"
+  },
+  {
+   "id": "aihot:cmu01bbqi08h8roymjs3dbqzj",
+   "title": "Peter Steinberger 谈用智能体玩转 Linux",
+   "originalTitle": "If you haven't given Linux a go lately， try with agents. You can fix anything with a prompt now. Go…",
+   "summary": "Peter Steinberger 表示，如果最近还没试过 Linux，可以配合智能体使用，现在什么问题都能用一个提示词搞定。他买了一台 Dell XPS，摄像头不工作，告诉 codex 后，codex 重启了一下，摄像头现在能用了。",
+   "source": "X：Peter Steinberger (@steipete)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu01bbqi08h8roymjs3dbqzj",
+    "original": "https://x.com/steipete/status/2099172248213225791"
+   },
+   "publishedAt": "2026-09-13T16:23:59.000Z",
+   "discoveredAt": "2026-09-13T16:34:44.886Z",
+   "category": null,
+   "score": 31,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu01bbqi08h8roymjs3dbqzj"
+   },
+   "url": "https://x.com/steipete/status/2099172248213225791",
+   "permalink": "https://aihot.news/items/cmu01bbqi08h8roymjs3dbqzj",
+   "originalUrl": "https://x.com/steipete/status/2099172248213225791",
+   "aihotUrl": "https://aihot.news/items/cmu01bbqi08h8roymjs3dbqzj",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Peter Steinberger (@steipete)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Peter Steinberger (@steipete)",
+     "url": "https://x.com/steipete/status/2099172248213225791",
+     "publishedAt": "2026-09-13T16:23:59.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "bf2191f353b5157936d363a7486bb65086b0795f3c68fb859c017e67abff0550"
+  },
+  {
+   "id": "aihot:cmu01llpa08wyroymj3vomonl",
+   "title": "Anthropic 内部究竟看到了什么",
+   "originalTitle": "seriously， what the heck did they see internally at anthropic？",
+   "summary": "一位自称Anthropic内部人士在社交媒体上表示，如果能将人类活着走出当前局面的概率提高百分之一，他愿意烧掉自己持有的全部股权，并称业内很多同行也会这么做。他同时强调这种表态并非营销，而是出于真实的恐惧。",
+   "source": "X：Kim (@kimmonismus)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu01llpa08wyroymj3vomonl",
+    "original": "https://x.com/kimmonismus/status/2099170742382321811"
+   },
+   "publishedAt": "2026-09-13T16:18:00.000Z",
+   "discoveredAt": "2026-09-13T16:42:26.577Z",
+   "category": null,
+   "score": 26,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu01llpa08wyroymj3vomonl"
+   },
+   "url": "https://x.com/kimmonismus/status/2099170742382321811",
+   "permalink": "https://aihot.news/items/cmu01llpa08wyroymj3vomonl",
+   "originalUrl": "https://x.com/kimmonismus/status/2099170742382321811",
+   "aihotUrl": "https://aihot.news/items/cmu01llpa08wyroymj3vomonl",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Kim (@kimmonismus)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Kim (@kimmonismus)",
+     "url": "https://x.com/kimmonismus/status/2099170742382321811",
+     "publishedAt": "2026-09-13T16:18:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "333b62cbdd4665fd3e09ac746dbb78596a02686bf0547fa06c7783dccff497a1"
+  },
+  {
+   "id": "aihot:cmu00ikwl07s2roymu6nj8zqg",
+   "title": "把截图拼成 contact sheet 让 Agent 省上下文的提示词技巧",
+   "originalTitle": "The first time I saw fable do this unprompted I was super impressed and started asking for it. It's …",
+   "summary": "用户 pvncher 分享了一个提示词技巧，让 Astra 把应用截图拼成 contact sheet，以减少图像读取调用次数并节省上下文用量。Dex Horthy 转发补充，该技巧对 fable 同样有效，他最早见到 fable 主动这样做，并指出拼图也适用于从视频中提取时间线。",
+   "source": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu00ikwl07s2roymu6nj8zqg",
+    "original": "https://x.com/dexhorthy/status/2099169149780181036"
+   },
+   "publishedAt": "2026-09-13T16:11:40.000Z",
+   "discoveredAt": "2026-09-13T16:12:23.312Z",
+   "category": "tip",
+   "score": 53,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu00ikwl07s2roymu6nj8zqg"
+   },
+   "url": "https://x.com/dexhorthy/status/2099169149780181036",
+   "permalink": "https://aihot.news/items/cmu00ikwl07s2roymu6nj8zqg",
+   "originalUrl": "https://x.com/dexhorthy/status/2099169149780181036",
+   "aihotUrl": "https://aihot.news/items/cmu00ikwl07s2roymu6nj8zqg",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
+     "url": "https://x.com/dexhorthy/status/2099169149780181036",
+     "publishedAt": "2026-09-13T16:11:40.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "792edd8fc4d4d3528801cbc1dee24edb9e7417bb51a34d0b08aa9a21507876ca"
+  },
+  {
+   "id": "aihot:cmu0147kg08bdroymg8dtk2w6",
+   "title": "DAIR.AI 本周 AI 论文盘点",
+   "originalTitle": "The Top AI Papers of the Week （September 7 - 13）： - STAIR - PARSER - FrogNano - Codebook Agent - Pr…",
+   "summary": "DAIR.AI在9月7日至13日期间盘点了本周顶级AI论文，列出的论文包括STAIR、PARSER、FrogNano、Codebook Agent、Procedural Graphs、AI-Native Design Docs和Proactive Thought Partners。",
+   "source": "X：DAIR.AI (@dair_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0147kg08bdroymg8dtk2w6",
+    "original": "https://x.com/dair_ai/status/2099168415487287613"
+   },
+   "publishedAt": "2026-09-13T16:08:45.000Z",
+   "discoveredAt": "2026-09-13T16:29:13.152Z",
+   "category": null,
+   "score": 19,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0147kg08bdroymg8dtk2w6"
+   },
+   "url": "https://x.com/dair_ai/status/2099168415487287613",
+   "permalink": "https://aihot.news/items/cmu0147kg08bdroymg8dtk2w6",
+   "originalUrl": "https://x.com/dair_ai/status/2099168415487287613",
+   "aihotUrl": "https://aihot.news/items/cmu0147kg08bdroymg8dtk2w6",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：DAIR.AI (@dair_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：DAIR.AI (@dair_ai)",
+     "url": "https://x.com/dair_ai/status/2099168415487287613",
+     "publishedAt": "2026-09-13T16:08:45.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "6578846f1b9e46dd6b83e7e8ea25f503d75b882673d166ee528571cf2d86067a"
+  },
+  {
+   "id": "aihot:cmu0147kg08beroymmgzdgutw",
+   "title": "DAIR.AI 本周 Top AI 论文精选",
+   "originalTitle": "https://x.com/i/article/2099167331314204676",
+   "summary": "DAIR.AI发布9月7日至13日Top AI论文榜，其中Google提出Procedural Graph，通过过程-关系-过程三元组使长任务智能体能够显式查询下一步动作。",
+   "source": "X：DAIR.AI (@dair_ai)",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu0147kg08beroymmgzdgutw",
+    "original": "https://x.com/dair_ai/status/2099168306863190147"
+   },
+   "publishedAt": "2026-09-13T16:08:19.000Z",
+   "discoveredAt": "2026-09-13T16:29:13.152Z",
+   "category": null,
+   "score": 35,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu0147kg08beroymmgzdgutw"
+   },
+   "url": "https://x.com/dair_ai/status/2099168306863190147",
+   "permalink": "https://aihot.news/items/cmu0147kg08beroymmgzdgutw",
+   "originalUrl": "https://x.com/dair_ai/status/2099168306863190147",
+   "aihotUrl": "https://aihot.news/items/cmu0147kg08beroymmgzdgutw",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "X：DAIR.AI (@dair_ai)",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "X：DAIR.AI (@dair_ai)",
+     "url": "https://x.com/dair_ai/status/2099168306863190147",
+     "publishedAt": "2026-09-13T16:08:19.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "bf8fdfdab5633041c328ddc8a867c4d5db24fc41f2d96928cf7307811a05bc66"
+  }
+ ],
+ "updatedAt": "2026-09-14T16:21:49.647047+08:00"
+}

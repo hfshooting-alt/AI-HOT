@@ -1,350 +1,350 @@
 {
- "1:2:deepseek-v4-flash:en:4505675876d7b759:c496b656242bc677": {
-  "summary": "《牛来》是一部院线电影，因建模粗糙、情节抽象而走红，票房从最初的数千元逆势突破1800万元，预测票房上亿，引发网络热议。文章以此为引，探讨游戏行业是否会出现类似“烂作爆火”的案例，并列举《羊了个羊》《魔戒：咕噜》及一款定价200美元的粗糙RPG Maker游戏等例子，最终认为游戏行业烂作数量过多，普通烂作难以吸引关注，因此很难出现类似的“牛来时刻”。",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:4505675876d7b759:c496b656242bc677": {
+    "summary": "《牛来》是一部院线电影，因建模粗糙、情节抽象而走红，票房从最初的数千元逆势突破1800万元，预测票房上亿，引发网络热议。文章以此为引，探讨游戏行业是否会出现类似“烂作爆火”的案例，并列举《羊了个羊》《魔戒：咕噜》及一款定价200美元的粗糙RPG Maker游戏等例子，最终认为游戏行业烂作数量过多，普通烂作难以吸引关注，因此很难出现类似的“牛来时刻”。",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:3e47b457dc23267a:dfc2a2609a26b84e": {
-  "summary": "敦鸿资产合伙人俞文超接受专访，回顾了2021年底投资宇树科技时估值约10亿元、年收入数千万元的情况。当时市场普遍质疑机器狗的应用场景，宇树因春晚表演被关注。俞文超称，创始人王兴兴起初明确表示不做人形机器人，两年后因真实客户订单出现而改变判断。俞文超有深天马产品经理背景，投资宇树后沿机器人产业链布局，投资了地瓜机器人、智平方、Rokid等公司。文章还提及宇树科技上市首日开盘价1100元，较发行价上涨629%，市值一度达4449亿元。",
-  "classification": {
-   "category": "interview",
-   "tags": {
-    "industry": "ai_other",
-    "interviewee": "investor"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:3e47b457dc23267a:dfc2a2609a26b84e": {
+    "summary": "敦鸿资产合伙人俞文超接受专访，回顾了2021年底投资宇树科技时估值约10亿元、年收入数千万元的情况。当时市场普遍质疑机器狗的应用场景，宇树因春晚表演被关注。俞文超称，创始人王兴兴起初明确表示不做人形机器人，两年后因真实客户订单出现而改变判断。俞文超有深天马产品经理背景，投资宇树后沿机器人产业链布局，投资了地瓜机器人、智平方、Rokid等公司。文章还提及宇树科技上市首日开盘价1100元，较发行价上涨629%，市值一度达4449亿元。",
+    "classification": {
+      "category": "interview",
+      "tags": {
+        "industry": "ai_other",
+        "interviewee": "investor"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:c7c8d39718616498:d79f578dd8301ed5": {
-  "summary": "文章盘点2026年上半年国内游戏投资回暖趋势：H1发生约50起投融资事件；演语科技完成近3亿美元B+轮、估值20亿美元，阿里将灵犀出售给信宸资本约15亿美元。讨论传统VC只投顶级制作人、行业大佬成立新基金、产业资本与UA Funding等新模式，以及收编孵化等趋势。",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:c7c8d39718616498:d79f578dd8301ed5": {
+    "summary": "文章盘点2026年上半年国内游戏投资回暖趋势：H1发生约50起投融资事件；演语科技完成近3亿美元B+轮、估值20亿美元，阿里将灵犀出售给信宸资本约15亿美元。讨论传统VC只投顶级制作人、行业大佬成立新基金、产业资本与UA Funding等新模式，以及收编孵化等趋势。",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:8e1b0f8084b1718a:ab8bd933ed0af62d": {
-  "summary": "鸿元智通是深圳一家专注垂直行业鸿蒙AI的企业，自主研发了ZhihongmetaOS鸿蒙发行版和ZhihongmetaAI端侧智能体，两者融合组成鸿蒙AIOS。公司已与公安部、中国移动、青岛港等合作共建行业标准，自研或联合推出警鸿智能网关、中移智鸿灵犀屏等终端并批量商用。其智能体资产可向政企办公、行业硬件等场景复用。创始团队核心成员均来自华为，创始人董建涛在华为工作十余年。开源鸿蒙生态设备总量已突破12亿台。",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:8e1b0f8084b1718a:ab8bd933ed0af62d": {
+    "summary": "鸿元智通是深圳一家专注垂直行业鸿蒙AI的企业，自主研发了ZhihongmetaOS鸿蒙发行版和ZhihongmetaAI端侧智能体，两者融合组成鸿蒙AIOS。公司已与公安部、中国移动、青岛港等合作共建行业标准，自研或联合推出警鸿智能网关、中移智鸿灵犀屏等终端并批量商用。其智能体资产可向政企办公、行业硬件等场景复用。创始团队核心成员均来自华为，创始人董建涛在华为工作十余年。开源鸿蒙生态设备总量已突破12亿台。",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:6fce4442b2a5237a:b5fe50606fdc2842": {
-  "summary": "自变量机器人在世界机器人大会上展示了通用具身智能技术，同一套大模型驱动家庭服务和物流分拣。家庭场景中机器人能完成插花、叠衣服、铲猫砂等数十种任务；物流场景中分拣效率达每小时1816件，高于Figure AI的1248件，部署成本约为后者的30%。公司发布的WALL-B模型基于“世界统一模型”架构。据公开信息，自变量已获得小米、美团、阿里等30余家机构投资，估值突破200亿人民币。",
-  "classification": {
-   "category": "financing",
-   "tags": {
-    "industry": "ai_other",
-    "region": "cn"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:6fce4442b2a5237a:b5fe50606fdc2842": {
+    "summary": "自变量机器人在世界机器人大会上展示了通用具身智能技术，同一套大模型驱动家庭服务和物流分拣。家庭场景中机器人能完成插花、叠衣服、铲猫砂等数十种任务；物流场景中分拣效率达每小时1816件，高于Figure AI的1248件，部署成本约为后者的30%。公司发布的WALL-B模型基于“世界统一模型”架构。据公开信息，自变量已获得小米、美团、阿里等30余家机构投资，估值突破200亿人民币。",
+    "classification": {
+      "category": "financing",
+      "tags": {
+        "industry": "ai_other",
+        "region": "cn"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:a6b2e9b7ee591002:cad65f82239b10de": {
-  "summary": "openJiuwen将旗下蜂群智能体升级为WorkSwarm蜂群办公智能体，并推出JiuwenBox安全沙箱。JiuwenBox提供Linux任务级沙箱、Windows沙箱和开发中的微虚机沙箱三种隔离等级，支持跨平台，通过统一API管理。它可与WorkSwarm集成，用户可通过/sandbox命令或config.yaml配置，也可用CLI独立使用。沙箱采用进程隔离、文件权限控制、网络限制、资源配额等机制，并支持策略自定义和全程审计。",
-  "classification": {
-   "category": "release",
-   "tags": {
-    "industry": "ai_other",
-    "issuer": "bigcorp"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:a6b2e9b7ee591002:cad65f82239b10de": {
+    "summary": "openJiuwen将旗下蜂群智能体升级为WorkSwarm蜂群办公智能体，并推出JiuwenBox安全沙箱。JiuwenBox提供Linux任务级沙箱、Windows沙箱和开发中的微虚机沙箱三种隔离等级，支持跨平台，通过统一API管理。它可与WorkSwarm集成，用户可通过/sandbox命令或config.yaml配置，也可用CLI独立使用。沙箱采用进程隔离、文件权限控制、网络限制、资源配额等机制，并支持策略自定义和全程审计。",
+    "classification": {
+      "category": "release",
+      "tags": {
+        "industry": "ai_other",
+        "issuer": "bigcorp"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:9ee142435d4105f0:f5ed8ba3397f88ca": {
-  "summary": "游戏科学今日放出《黑神话：钟馗》首个关卡流程实机演示，时长15分钟，展示主角战斗、元素附魔、召唤妖怪等玩法，并呈现更精细的画面与动作细节。游戏科学创始人冯骥同日发布微博，总结团队十大工作原则，称将以行业标杆为起点，做难而可贵的事，保持知难而进的态度。",
-  "classification": {
-   "category": "release",
-   "tags": {
-    "industry": "ai_other",
-    "issuer": "startup"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:9ee142435d4105f0:f5ed8ba3397f88ca": {
+    "summary": "游戏科学今日放出《黑神话：钟馗》首个关卡流程实机演示，时长15分钟，展示主角战斗、元素附魔、召唤妖怪等玩法，并呈现更精细的画面与动作细节。游戏科学创始人冯骥同日发布微博，总结团队十大工作原则，称将以行业标杆为起点，做难而可贵的事，保持知难而进的态度。",
+    "classification": {
+      "category": "release",
+      "tags": {
+        "industry": "ai_other",
+        "issuer": "startup"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:db71e47b5e001aab:c653bb2035227134": {
-  "summary": "8月19日，WRC 2026期间，跨维智能主办的物理AI引领者论坛在北京举行，贾奎、梅涛、王晓刚、苏航等人出席。贾奎发表《Physical Token经济学》演讲，提出以获取新能力的边际成本衡量可靠物理智能的生产成本，并介绍跨维在数据、仿真、后训练和部署反馈方面的路径。跨维还在现场展示了手机装机质检、商超自主扫码、冰淇淋与爆米花连续操作等Demo。6月底，跨维智能宣布完成10亿元B轮融资，投后估值超过百亿元。",
-  "classification": {
-   "category": "financing",
-   "tags": {
-    "industry": "ai_other",
-    "region": "cn"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:db71e47b5e001aab:c653bb2035227134": {
+    "summary": "8月19日，WRC 2026期间，跨维智能主办的物理AI引领者论坛在北京举行，贾奎、梅涛、王晓刚、苏航等人出席。贾奎发表《Physical Token经济学》演讲，提出以获取新能力的边际成本衡量可靠物理智能的生产成本，并介绍跨维在数据、仿真、后训练和部署反馈方面的路径。跨维还在现场展示了手机装机质检、商超自主扫码、冰淇淋与爆米花连续操作等Demo。6月底，跨维智能宣布完成10亿元B轮融资，投后估值超过百亿元。",
+    "classification": {
+      "category": "financing",
+      "tags": {
+        "industry": "ai_other",
+        "region": "cn"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:33ba23fcd320e3a6:2b493e6caa3560b1": {
-  "summary": "DeepSeek Harness 迎来一波大更新，RC.8 版本已经放出。",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": true,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:33ba23fcd320e3a6:2b493e6caa3560b1": {
+    "summary": "DeepSeek Harness 迎来一波大更新，RC.8 版本已经放出。",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": true,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "fallback"
   },
-  "enrichmentStatus": "fallback"
- },
- "1:2:deepseek-v4-flash:en:24bcc7f0018eab3c:14db3ae84041528e": {
-  "summary": "当自动驾驶赛车以近 300 km/h 的时速在 F1 赛道上与周车进攻防守、交互博弈，它面对的问题早已不只是提升圈速。",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": true,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:24bcc7f0018eab3c:14db3ae84041528e": {
+    "summary": "当自动驾驶赛车以近 300 km/h 的时速在 F1 赛道上与周车进攻防守、交互博弈，它面对的问题早已不只是提升圈速。",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": true,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "fallback"
   },
-  "enrichmentStatus": "fallback"
- },
- "1:2:deepseek-v4-flash:en:826a728ce8e0a68f:85c1a274196c381d": {
-  "summary": "在2025年世界机器人大会上，银河通用发布首款双足人形机器人Galbot ET1，其基于自研具身大模型AstraBrain，支持实时学习人类动作并完成舞蹈等高难度运动。银河通用同时展示了G1、S1等机器人在家庭、零售、工业场景的应用，其中S1已在宁德时代产线实现7×24小时常态化运行。论坛期间，公司还发布了《全球具身智能大模型研究报告》，提出具身大模型评价体系框架。",
-  "classification": {
-   "category": "release",
-   "tags": {
-    "industry": "ai_other",
-    "issuer": "startup"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:826a728ce8e0a68f:85c1a274196c381d": {
+    "summary": "在2025年世界机器人大会上，银河通用发布首款双足人形机器人Galbot ET1，其基于自研具身大模型AstraBrain，支持实时学习人类动作并完成舞蹈等高难度运动。银河通用同时展示了G1、S1等机器人在家庭、零售、工业场景的应用，其中S1已在宁德时代产线实现7×24小时常态化运行。论坛期间，公司还发布了《全球具身智能大模型研究报告》，提出具身大模型评价体系框架。",
+    "classification": {
+      "category": "release",
+      "tags": {
+        "industry": "ai_other",
+        "issuer": "startup"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:c6e0ed8cc7ad93f8:6e034ff68309c418": {
-  "summary": "一台复合机器人与一个 SPS 智能分拣工作站，已经在某主机厂产线上连续跑了很长时间。能够识别上百种不同规格的汽车零部件，10 秒完成一次分拣，抓取成功率超过 99%。",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": true,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:c6e0ed8cc7ad93f8:6e034ff68309c418": {
+    "summary": "一台复合机器人与一个 SPS 智能分拣工作站，已经在某主机厂产线上连续跑了很长时间。能够识别上百种不同规格的汽车零部件，10 秒完成一次分拣，抓取成功率超过 99%。",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": true,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "fallback"
   },
-  "enrichmentStatus": "fallback"
- },
- "1:2:deepseek-v4-flash:en:9d8aef26e673e934:67ee005e40c167aa": {
-  "summary": "在 action chunking 已成为 VLA 标配的今天，「一次执行多少步」几乎被所有工作当作一个固定的超参数。北京大学与微软亚洲研究院的一项新工作指出：这个默认设定本身就是一个重要的失败原因 —— 它让重规划变成了与任务进度无关的周期性调度，当没有任何一次重规划恰好落在关键操作阶段之前时，机器人只能带着一个已经过时的 chunk 进入关键操作环节。",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": true,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:9d8aef26e673e934:67ee005e40c167aa": {
+    "summary": "在 action chunking 已成为 VLA 标配的今天，「一次执行多少步」几乎被所有工作当作一个固定的超参数。北京大学与微软亚洲研究院的一项新工作指出：这个默认设定本身就是一个重要的失败原因 —— 它让重规划变成了与任务进度无关的周期性调度，当没有任何一次重规划恰好落在关键操作阶段之前时，机器人只能带着一个已经过时的 chunk 进入关键操作环节。",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": true,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "fallback"
   },
-  "enrichmentStatus": "fallback"
- },
- "1:2:deepseek-v4-flash:en:d9a85fd331bef514:4cfba42af393953c": {
-  "summary": "作者｜李苏",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": true,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:d9a85fd331bef514:4cfba42af393953c": {
+    "summary": "作者｜李苏",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": true,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "fallback"
   },
-  "enrichmentStatus": "fallback"
- },
- "1:2:deepseek-v4-flash:en:a85894a11a446c87:952fe92ed87e4fb4": {
-  "summary": "印度公司DUSQ开发的睡眠神经刺激贴片在Kickstarter众筹30天，获4326人支持，筹款123万美元，刷新印度健康科技公司纪录。该设备重12克，贴于耳后，通过监测神经信号并施加微弱电流刺激迷走神经和前庭神经，以维持深度睡眠。产品预计10月发货。公司CEO Siddhant Bhargava为医生，曾两度战胜重病。",
-  "classification": {
-   "category": "financing",
-   "tags": {
-    "industry": "ai_other",
-    "region": "other"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:a85894a11a446c87:952fe92ed87e4fb4": {
+    "summary": "印度公司DUSQ开发的睡眠神经刺激贴片在Kickstarter众筹30天，获4326人支持，筹款123万美元，刷新印度健康科技公司纪录。该设备重12克，贴于耳后，通过监测神经信号并施加微弱电流刺激迷走神经和前庭神经，以维持深度睡眠。产品预计10月发货。公司CEO Siddhant Bhargava为医生，曾两度战胜重病。",
+    "classification": {
+      "category": "financing",
+      "tags": {
+        "industry": "ai_other",
+        "region": "other"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:4f0d2e08032c4fb7:47480fc0825fd4e9": {
-  "summary": "过去一年，凡是试图用 AI 视频跑通商业交付的团队，都经历过从惊艳切片跌落进实操失控的幻灭。",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": true,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:4f0d2e08032c4fb7:47480fc0825fd4e9": {
+    "summary": "过去一年，凡是试图用 AI 视频跑通商业交付的团队，都经历过从惊艳切片跌落进实操失控的幻灭。",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": true,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "fallback"
   },
-  "enrichmentStatus": "fallback"
- },
- "1:2:deepseek-v4-flash:en:565f3b6813ce0bf1:84b08ee83775a7bf": {
-  "summary": "8月19日，朱雀三号遥二运载火箭成功发射，实现我国首次火箭陆地回收；宇树科技在科创板上市，首日股价一度涨超600%，市值超4400亿元；OpenAI首席财务官表示公司或于2027年上市；Anthropic年化营收达650亿美元；Moderna与默沙东合作的黑色素瘤疫苗试验成功；OpenAI推出ChatGPT青少年模式；智谱上线GLM-5.3模型；问界儿童车开启预订，售价15800元；松延动力展出仿生机器人，基础款9.9万元。",
-  "classification": {
-   "category": "financing",
-   "tags": {
-    "industry": "ai_other",
-    "region": "cn"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:565f3b6813ce0bf1:84b08ee83775a7bf": {
+    "summary": "8月19日，朱雀三号遥二运载火箭成功发射，实现我国首次火箭陆地回收；宇树科技在科创板上市，首日股价一度涨超600%，市值超4400亿元；OpenAI首席财务官表示公司或于2027年上市；Anthropic年化营收达650亿美元；Moderna与默沙东合作的黑色素瘤疫苗试验成功；OpenAI推出ChatGPT青少年模式；智谱上线GLM-5.3模型；问界儿童车开启预订，售价15800元；松延动力展出仿生机器人，基础款9.9万元。",
+    "classification": {
+      "category": "financing",
+      "tags": {
+        "industry": "ai_other",
+        "region": "cn"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:5e92366b8cf70868:ed287ac06c686b06": {
-  "summary": "米哈游旗下海外发行主体Cognosphere在多个国家注册新商标，包括MIYOMI、HoYo-PUNI等，其中PUNI商标涵盖AI机器人、玩具机器人等类别。此外，米哈游曾于2025年5月招聘AI电子宠物产品设计专家，6月招聘高级硬件结构工程师，岗位职责涉及小型智能硬件和机器人。目前相关招聘信息已从官网下架，但仍有第三方结构工程师岗位在招。米哈游尚未正式公布相关计划，外界猜测其可能涉足AI玩具或陪伴型机器人领域。",
-  "classification": {
-   "category": "bigtech",
-   "tags": {
-    "change_type": "business_line",
-    "company": "other"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:5e92366b8cf70868:ed287ac06c686b06": {
+    "summary": "米哈游旗下海外发行主体Cognosphere在多个国家注册新商标，包括MIYOMI、HoYo-PUNI等，其中PUNI商标涵盖AI机器人、玩具机器人等类别。此外，米哈游曾于2025年5月招聘AI电子宠物产品设计专家，6月招聘高级硬件结构工程师，岗位职责涉及小型智能硬件和机器人。目前相关招聘信息已从官网下架，但仍有第三方结构工程师岗位在招。米哈游尚未正式公布相关计划，外界猜测其可能涉足AI玩具或陪伴型机器人领域。",
+    "classification": {
+      "category": "bigtech",
+      "tags": {
+        "change_type": "business_line",
+        "company": "other"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:40529fdba77946e8:28f22bfe6e9d00ba": {
-  "summary": "三七互娱发布2026年半年度报告，实现营业收入72.75亿元，扣非归母净利润10.16亿元，归母净利润17.66亿元，同比增长26.14%。公司拟上半年分红6.82亿元。海外收入30.21亿元，同比增长10.90%。AI技术在美术、投放、翻译等环节应用比例较高。",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:40529fdba77946e8:28f22bfe6e9d00ba": {
+    "summary": "三七互娱发布2026年半年度报告，实现营业收入72.75亿元，扣非归母净利润10.16亿元，归母净利润17.66亿元，同比增长26.14%。公司拟上半年分红6.82亿元。海外收入30.21亿元，同比增长10.90%。AI技术在美术、投放、翻译等环节应用比例较高。",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:f8de6232218967e6:3b78e1c75b310e10": {
-  "summary": "爱诗科技获得由阿里巴巴领投的29.8亿元C轮融资，并推出世界模型PixVerse R2。R2支持文字、语音、方向控制等多模态输入，可实时生成交互式视频，实现类似游戏的体验。文章介绍了R2的技术改进，包括新的管线、记忆系统和成本优化，并探讨了其对游戏行业可能产生的影响。",
-  "classification": {
-   "category": "financing",
-   "tags": {
-    "industry": "ai_model",
-    "region": "cn"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:f8de6232218967e6:3b78e1c75b310e10": {
+    "summary": "爱诗科技获得由阿里巴巴领投的29.8亿元C轮融资，并推出世界模型PixVerse R2。R2支持文字、语音、方向控制等多模态输入，可实时生成交互式视频，实现类似游戏的体验。文章介绍了R2的技术改进，包括新的管线、记忆系统和成本优化，并探讨了其对游戏行业可能产生的影响。",
+    "classification": {
+      "category": "financing",
+      "tags": {
+        "industry": "ai_model",
+        "region": "cn"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:ecbff5ca1e3e3de2:d8c275c5b0053b43": {
-  "summary": "豆包正式推出“豆包工作”，该产品通过独立应用、PC端整合及嵌入飞书，支持输出文档、表格、PPT和视频，并具备跨系统长任务执行与汇报能力。其与飞书实现底层账号打通，可在对话中@同事和飞书云文档，交付物直接落入飞书。文章提及Anthropic的Claude Tag已在Slack中融入团队，内部约65%产品代码由其生成。文章展示了两个实测案例，并引用数据称全球60%办公人群日常使用AI，76%用户认为现有工具无法触达内部数据。",
-  "classification": {
-   "category": "release",
-   "tags": {
-    "industry": "ai_other",
-    "issuer": "bigcorp"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:ecbff5ca1e3e3de2:d8c275c5b0053b43": {
+    "summary": "豆包正式推出“豆包工作”，该产品通过独立应用、PC端整合及嵌入飞书，支持输出文档、表格、PPT和视频，并具备跨系统长任务执行与汇报能力。其与飞书实现底层账号打通，可在对话中@同事和飞书云文档，交付物直接落入飞书。文章提及Anthropic的Claude Tag已在Slack中融入团队，内部约65%产品代码由其生成。文章展示了两个实测案例，并引用数据称全球60%办公人群日常使用AI，76%用户认为现有工具无法触达内部数据。",
+    "classification": {
+      "category": "release",
+      "tags": {
+        "industry": "ai_other",
+        "issuer": "bigcorp"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:7c339b8d387fef6c:c7435518bd03aaf6": {
-  "summary": "香港大学NLP实验室联合华为诺亚方舟实验室推出Dream系列扩散语言模型，使其在通用与推理能力上逼近同量级自回归模型。2026年，龚珊三与博士生导师孔令鹏等人共同创立DiffuSpace，致力于将Diffusion LLM研究工程化落地。龚珊三认为，扩散语言模型是自回归模型的更一般形式，支持并行生成和全局修改，在速度和成本上具有优势，未来一到两年内可能替代自回归模型。公司计划半年内发布新模型，一年内进行更大规模扩展。",
-  "classification": {
-   "category": "interview",
-   "tags": {
-    "industry": "ai_model",
-    "interviewee": "founder_ceo"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:7c339b8d387fef6c:c7435518bd03aaf6": {
+    "summary": "香港大学NLP实验室联合华为诺亚方舟实验室推出Dream系列扩散语言模型，使其在通用与推理能力上逼近同量级自回归模型。2026年，龚珊三与博士生导师孔令鹏等人共同创立DiffuSpace，致力于将Diffusion LLM研究工程化落地。龚珊三认为，扩散语言模型是自回归模型的更一般形式，支持并行生成和全局修改，在速度和成本上具有优势，未来一到两年内可能替代自回归模型。公司计划半年内发布新模型，一年内进行更大规模扩展。",
+    "classification": {
+      "category": "interview",
+      "tags": {
+        "industry": "ai_model",
+        "interviewee": "founder_ceo"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:a1c4328f40a77384:2659a700721641d1": {
-  "summary": "该文章为公众号游戏葡萄发布的日常模板，标题为“日常模板（不带推荐阅读）”。正文包含“请输入导读”的占位提示，以及“这是第一段小标题，较长的话可以断开”的文字，并标注该小标题使用字体加粗、颜色为#3da742的样式。全文未涉及具体新闻事件或实质内容。",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:a1c4328f40a77384:2659a700721641d1": {
+    "summary": "该文章为公众号游戏葡萄发布的日常模板，标题为“日常模板（不带推荐阅读）”。正文包含“请输入导读”的占位提示，以及“这是第一段小标题，较长的话可以断开”的文字，并标注该小标题使用字体加粗、颜色为#3da742的样式。全文未涉及具体新闻事件或实质内容。",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:afd7c9c073974390:6784efc1824f6a16": {
-  "summary": "网易《无限大》在科隆之夜官宣将于2027年1月15日全球同步上线，登陆PC、PlayStation 5及移动端，并发布了融合上海与杭州地标（如东方明珠、西湖、雷峰塔）的第二张都市地图“重霄”。据接近网易的人士透露，该游戏发行逻辑可能接近单机产品，或不做多轮公开测试直接上线。",
-  "classification": {
-   "category": "release",
-   "tags": {
-    "industry": "ai_other",
-    "issuer": "bigcorp"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:afd7c9c073974390:6784efc1824f6a16": {
+    "summary": "网易《无限大》在科隆之夜官宣将于2027年1月15日全球同步上线，登陆PC、PlayStation 5及移动端，并发布了融合上海与杭州地标（如东方明珠、西湖、雷峰塔）的第二张都市地图“重霄”。据接近网易的人士透露，该游戏发行逻辑可能接近单机产品，或不做多轮公开测试直接上线。",
+    "classification": {
+      "category": "release",
+      "tags": {
+        "industry": "ai_other",
+        "issuer": "bigcorp"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:ddcb2519ac3265a0:9a25e5e7e4c942c2": {
-  "summary": "娱乐资本论发布一周AI爆款观察，本期榜单中AI短视频《反正也没时间活》以超千万点赞居首，内容聚焦打工人时间困境；《非妖哉》以中式志怪风格获230.8万点赞，位列第二。榜单显示，职场焦虑与中式志怪两类内容合计贡献超六成点赞。创作者不吃榨菜表示，《非妖哉》单集成本超万元，延续老聊斋借妖写人的叙事思路，目前暂无商业化计划。文章指出，AI降低了制作门槛，但情绪与人文思考仍是内容创作的核心壁垒。",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:ddcb2519ac3265a0:9a25e5e7e4c942c2": {
+    "summary": "娱乐资本论发布一周AI爆款观察，本期榜单中AI短视频《反正也没时间活》以超千万点赞居首，内容聚焦打工人时间困境；《非妖哉》以中式志怪风格获230.8万点赞，位列第二。榜单显示，职场焦虑与中式志怪两类内容合计贡献超六成点赞。创作者不吃榨菜表示，《非妖哉》单集成本超万元，延续老聊斋借妖写人的叙事思路，目前暂无商业化计划。文章指出，AI降低了制作门槛，但情绪与人文思考仍是内容创作的核心壁垒。",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:bd9c2d1d46912e1a:cf600aaaff28a23e": {
-  "summary": "文章报道优酷动漫在暑期档后的内容战略。据云合数据，上半年国漫有效播放110亿，同比下降9%。优酷动漫强调题材、故事、美术三维度创新，如《光阴之外》将修仙置于末世，《沧元图》采用水墨风格，《一斩苍穹》以喜剧和梗破局。优酷动漫还利用AI降低粘土风动画成本，并培养新人导演和编剧，以应对市场对垂类内容的需求。其作品《云深不知梦》已站稳女性向头部位置。",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:bd9c2d1d46912e1a:cf600aaaff28a23e": {
+    "summary": "文章报道优酷动漫在暑期档后的内容战略。据云合数据，上半年国漫有效播放110亿，同比下降9%。优酷动漫强调题材、故事、美术三维度创新，如《光阴之外》将修仙置于末世，《沧元图》采用水墨风格，《一斩苍穹》以喜剧和梗破局。优酷动漫还利用AI降低粘土风动画成本，并培养新人导演和编剧，以应对市场对垂类内容的需求。其作品《云深不知梦》已站稳女性向头部位置。",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:91a99f63f81b3aef:406539aefeae7409": {
-  "summary": "8月23日，上纬新材旗下启元机器人正式开启Q1和T1两款个人机器人预订，用户可通过官方小程序及天猫、抖音、B站等平台支付订金，9月支付尾款，首批产品预计同期发货。Q1高88厘米可折叠，T1支持轮足和四足形态切换。母公司上半年研发投入1.8亿元，其中具身智能业务1.6亿元，研发团队227人，累计申请专利273项。目前预收货款达2.1亿元，已在全国7座城市铺设线下体验门店，并与蓝思科技等合作启动万台级产线。",
-  "classification": {
-   "category": "release",
-   "tags": {
-    "industry": "ai_other",
-    "issuer": "startup"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:91a99f63f81b3aef:406539aefeae7409": {
+    "summary": "8月23日，上纬新材旗下启元机器人正式开启Q1和T1两款个人机器人预订，用户可通过官方小程序及天猫、抖音、B站等平台支付订金，9月支付尾款，首批产品预计同期发货。Q1高88厘米可折叠，T1支持轮足和四足形态切换。母公司上半年研发投入1.8亿元，其中具身智能业务1.6亿元，研发团队227人，累计申请专利273项。目前预收货款达2.1亿元，已在全国7座城市铺设线下体验门店，并与蓝思科技等合作启动万台级产线。",
+    "classification": {
+      "category": "release",
+      "tags": {
+        "industry": "ai_other",
+        "issuer": "startup"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:29e7cce470842891:b1456715d4dea25a": {
-  "summary": "8月26日，即梦AI宣布推出精品内容厂牌“即梦片场”，面向电影、剧集项目开放征集，入选项目将获得算力、工具、技术、资金、行业资源等支持。首批合作伙伴包括艺画开天、欢娱影视等。此前，由资深动画人赵彬主导、艺画开天与即梦AI支持的24分钟AI动画短片《赛博英雄传》引发热议，即梦片场将推动该短片长篇化。即梦AI还计划于9月升级网页版，强化专业影视创作能力。",
-  "classification": {
-   "category": "release",
-   "tags": {
-    "industry": "ai_other",
-    "issuer": "bigcorp"
-   },
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:29e7cce470842891:b1456715d4dea25a": {
+    "summary": "8月26日，即梦AI宣布推出精品内容厂牌“即梦片场”，面向电影、剧集项目开放征集，入选项目将获得算力、工具、技术、资金、行业资源等支持。首批合作伙伴包括艺画开天、欢娱影视等。此前，由资深动画人赵彬主导、艺画开天与即梦AI支持的24分钟AI动画短片《赛博英雄传》引发热议，即梦片场将推动该短片长篇化。即梦AI还计划于9月升级网页版，强化专业影视创作能力。",
+    "classification": {
+      "category": "release",
+      "tags": {
+        "industry": "ai_other",
+        "issuer": "bigcorp"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:fd806c31fd8e07ab:55627389caddfb6b": {
-  "summary": "电视剧《重器》于2026年暑期档开播，成为现象级作品。该剧由最高人民检察院影视中心、最高人民法院影视中心首次联合出品，国家广电总局重点扶持。剧集以1979年至1997年中国法治建设为背景，通过五位初代政法青年的命运展现法治进程。编剧赵冬苓、导演沈严与李江明，剧集注重历史细节还原，案件多有原型，如乔至良案源自1984年台安“三律师包庇案”。在央视八套播出后口碑与热度双收，被视为国剧新标杆。",
-  "classification": {
-   "category": "general",
-   "tags": {},
-   "autoFallback": false,
-   "autoFilled": []
+  "1:2:deepseek-v4-flash:en:fd806c31fd8e07ab:55627389caddfb6b": {
+    "summary": "电视剧《重器》于2026年暑期档开播，成为现象级作品。该剧由最高人民检察院影视中心、最高人民法院影视中心首次联合出品，国家广电总局重点扶持。剧集以1979年至1997年中国法治建设为背景，通过五位初代政法青年的命运展现法治进程。编剧赵冬苓、导演沈严与李江明，剧集注重历史细节还原，案件多有原型，如乔至良案源自1984年台安“三律师包庇案”。在央视八套播出后口碑与热度双收，被视为国剧新标杆。",
+    "classification": {
+      "category": "general",
+      "tags": {},
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
   },
-  "enrichmentStatus": "complete"
- },
- "1:2:deepseek-v4-flash:en:02fa1443169530ae:b86e1ee31b0c7fef": {
-  "summary": "Z Finance对OJO创始人KiKi的深度访谈。KiKi在字节跳动工作九年，曾负责轻颜相机、剪映等产品，2026年初离开并创办设计领域AI产品OJO。她认为“All-in-One”是伪命题，创业不应在旧逻辑上套AI新瓶。OJO以可自由组合的Agent团队和Skills满足长尾设计需求。出海方面，团队靠1名市场和3名实习生人工触达海外用户，上线24小时约50万曝光，两天Waitlist超1万，并获得北美、欧洲、日本付费订单。",
-  "classification": {
-   "category": "interview",
-   "tags": {
-    "industry": "ai_other",
-    "interviewee": "founder_ceo"
-   },
-   "autoFallback": false,
-   "autoFilled": []
-  },
-  "enrichmentStatus": "complete"
- }
+  "1:2:deepseek-v4-flash:en:02fa1443169530ae:b86e1ee31b0c7fef": {
+    "summary": "Z Finance对OJO创始人KiKi的深度访谈。KiKi在字节跳动工作九年，曾负责轻颜相机、剪映等产品，2026年初离开并创办设计领域AI产品OJO。她认为“All-in-One”是伪命题，创业不应在旧逻辑上套AI新瓶。OJO以可自由组合的Agent团队和Skills满足长尾设计需求。出海方面，团队靠1名市场和3名实习生人工触达海外用户，上线24小时约50万曝光，两天Waitlist超1万，并获得北美、欧洲、日本付费订单。",
+    "classification": {
+      "category": "interview",
+      "tags": {
+        "industry": "ai_other",
+        "interviewee": "founder_ceo"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete"
+  }
 }

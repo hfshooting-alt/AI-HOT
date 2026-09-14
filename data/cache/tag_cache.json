@@ -1,1310 +1,1310 @@
 {
- "1:2:deepseek-v4-flash:id:cmsiry2eo1r4tronkt9qv2twu": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsj1zu9421ynronknsiz6vgw": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:f8413ac64986d776": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsiys4dz1yqironkuitnfi7t": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsixbbry1x0qronkhbbjukhr": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmskgc07i06srrobyr1cvm25v": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsk9yb97046zrow93i345be7": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmskiinqk06xiro5ejsx0giz8": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "other",
-   "company": "openai"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsiujxlq1u0zronkvvklblwk": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsjdsk6p076rroo561c8askl": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmso6wigb0d1rrofw4l6ifmm7": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsjaksyd04hlroo5hdy2qd4i": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsofh7p60plirofwefa5l92s": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "other"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsjk6eiz0byoroo5cc4bcwg6": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "business_line",
-   "company": "openai"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmslxhx3t05n3ro0w2lcmvjol": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsj81yyp02cwroo5rcq20vke": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsjbn0kl058nroo5kq0m0jws": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsjbn0pq058vroo55qpgw1si": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmslwy8bl04pdro0w7f4ogv7t": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsoscbbq054drohdw5zxvr2c": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmslmv6kx03muroqyxyo4fbtl": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmslhy76p03hdroo0l8dsaskb": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsnbc14r0aezron58wsytu43": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsnj5lkg08hprohfi5aoql6k": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsn2u3mt067ero8opidmwvz7": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsklqt1907v8royz2pbppkk1": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsnbzkyr01qjrohfmjqlmjk5": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmskzmhrs03rwrowg146pdv9j": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsn3w3ln012wror1xk5nrmcw": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:4738a26eaad33652": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsk5m3kq0ahqro4bn4nh1r6r": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "business_line",
-   "company": "alibaba"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsn68brx03q2ron5vwp3pwta": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsnkpjin0c2nrohfczauf2t2": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsmpwjyh0b0drohfw1hpbbzh": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsn32xab06ehro8ou4tskajr": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "business_line",
-   "company": "meta"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsmizpgb02yerohf3bh8jesi": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsmhbu4w0338ronxh92vej2u": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmso6wigb0d1profw2f6djg98": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsmf2q0t030sroadf0o5jwoa": {
-  "category": "financing",
-  "tags": {
-   "industry": "ai_other",
-   "region": "cn"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsnejv4i042qrohff64pz0jh": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsmlho8005dmrohfoz27j6em": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsmjglqx034prohfslczvkpb": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "other"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsostkpq05iurohd30b8ubmy": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsodc28j0n07rofw30v8pe9v": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsnfpcwf05ecrohfuzbjwyar": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsopyoum028vrohd4dgeksz9": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsnix1by08d3rohfftiex1xp": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsm5mk1109hdroy9apis4bb7": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "other",
-   "company": "anthropic"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:12a0f5543f9c76da": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "business_line",
-   "company": "other"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsogatbh0qdgrofwzm7gdk0a": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsokd2b00viorofwaq9wrsv1": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsoolxde07isrop2eb5rrtvq": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:d905c741b8734802": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsopyoum028urohdhqzve6ba": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "other"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmspk9ofu02cbrojej28w43eh": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmso8nqa70eq4rofw24w1wlwt": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmso7i0al0dlsrofwivmpsjh1": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmso95agg0ig3rofwaqvy9crw": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:e3c46f9056010dee": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "business_line",
-   "company": "other"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmso58oqr0b7trofwl3dcmz7y": {
-  "category": "financing",
-  "tags": {
-   "industry": "ai_model",
-   "region": "us"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:189fc545c2329bac": {
-  "category": "interview",
-  "tags": {
-   "industry": "ai_model",
-   "interviewee": "founder_ceo"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsoylk4i02drro3yt4l3vhyn": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsnx040k01glrofwfqxdc8h5": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_social",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsnrwnsb0i1erohfuhfjc4q6": {
-  "category": "financing",
-  "tags": {
-   "industry": "ai_other",
-   "region": "us"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsq5saxh051mro2e90h10exo": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsq1hwsb02norobuzbw8cdcc": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmspo193n05q2rojeue8j2k5a": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmspc30un0e4xrorts1kax9zg": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsnxf57501y5rofw32tota54": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:7238a2983fb6085c": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmspr6h6s01hero4hjcdf95mw": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:303df14f01fec480": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:0c4d2c09069d404f": {
-  "category": "interview",
-  "tags": {
-   "industry": "ai_other",
-   "interviewee": "founder_ceo"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsqabu0f001krouc6sfhic2d": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsp0g9v20242rort4zh7mzx0": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsp3o23e04vnrortt7twvx4v": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsp1lufu03a9rortoc0ci36q": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsq9h6gs01x5ronde8fdla7e": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsoydypn029yro3yvsi036au": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:1102c3ef07761cfd": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsoxh6oa0a3drohdskp7cb9u": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "business_line",
-   "company": "google"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsox86zv09u6rohdqr80wg0x": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsowxh6d09rrrohdkhpckhpi": {
-  "category": "interview",
-  "tags": {
-   "industry": "ai_model",
-   "interviewee": "tech"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsoxbh180a00rohdooafsmzp": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsqe6mat01bsroli3hw71nz7": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsrlvwfp05gdro46mbfqtsgm": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsp2lgxo03xjrortthctedzu": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "business_line",
-   "company": "other"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsqj4ly004izroxvzl349s3r": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsruetoy027hrozeecu4ixrc": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsrfaw5c0xo2roz2s8b4p2sv": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsow47ob08oarohd6vhpqrwt": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsruj6ik02dfrozeclkuve05": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:eb4b65e42326f620": {
-  "category": "financing",
-  "tags": {
-   "industry": "ai_other",
-   "region": "cn"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:459db55df8091871": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsqf39o0015groxvnc7oiwop": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsrcljcc0uanroz24r5ebcz9": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsp0j1ph027prortm21absbh": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:ea12af82af2988e5": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsqu0nr604oeroz2rh6b6mqt": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsr160kg0dk0roz2mb20yxwk": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsqgeo2e02cvroxvpnycl2zi": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsrjqqfg02z0ro469zple5jl": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsqbnb8j01nrroosmwa5r6mj": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsqq3bc001snro7vo8picfbp": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsrramim02jero0nte55cfgi": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:77527eb26002c78d": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmssf79uf05rwrod09r9ocb2w": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmssi38vn03o9rofffr0z8lyb": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmssir12d047oroffnpn5pcx1": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmss6lsb701tsroib0kxz9q8q": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsrscwfn03f7ro0n7qijclds": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:a3ec99718d63f85e": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmss20h5g02uxroh6q6r1nqu9": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmst3j53e03ncro068tgsr4xn": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:wx:834f2896a5b4a528": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "other"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsrtfqyv04btro0nle3m5b20": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmst4z2qp05boro06ce7kxtgd": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsuaf2hr05zgroe0y1e7275v": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmstc3u8j02xhro0xf5o1ouas": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "business_line",
-   "company": "anthropic"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmst9yj3c05utrodz443l0odv": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmssv94cg0h4mroffsb9e7a88": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmswesk6a0r2hrovml2edcl2c": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsx8zij405t2rommm4gwgzjh": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsvptx2m061frovmjoavsi0l": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsx9jy2a05yerommy1e0jc6t": {
-  "category": "financing",
-  "tags": {
-   "industry": "ai_other",
-   "region": "cn"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmst2gs6d02lmro06sb7as7av": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "business_line",
-   "company": "openai"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsuto7hk0912rouhodiiywlk": {
-  "category": "financing",
-  "tags": {
-   "industry": "ai_other",
-   "region": "us"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsx9696t05u7rommdoa60l4p": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "business_line",
-   "company": "openai"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsxwd7a40coxroz06g25sfaf": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmst3joqo03pwro0658o4g1m3": {
-  "category": "financing",
-  "tags": {
-   "industry": "ai_other",
-   "region": "us"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsy8afig0mvmroz0gb3hz0iq": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsx7ffrz049uromm6en3if02": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsxkakju0300roz0zx6cvdeu": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsxld6es03o8roz0jblf3ii9": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "business_line",
-   "company": "other"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsxsvb5s0a4troz0z2q2nu3h": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsxv0p3v0bntroz0227a6b3j": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmszieman0euzrodptihyllom": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsz8gh3n06e4rodpl8l2syek": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsykcnkt0yh1roz0a9h404r5": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsyqip4o14umroz0ch5iv0iv": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "other"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsycmgww0rkrroz0nfma0z05": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt05zhyg139trodp6bxsy9e2": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsz1zjiy013pro3f1e0aafra": {
-  "category": "general",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsz0hbsg05l0ro204080cotv": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "other",
-   "company": "openai"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt0d2tsl1961rodpnvzxo4cc": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "business_line",
-   "company": "other"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsz49ptt022qrodp5mc1nt1x": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmszeb2mx0b3srodpef1ub0j0": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt1xbu7q0b7troovffggr2jh": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsz1974l06hbro20gosn5d78": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsz79zol04j8rodpvun6zobl": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt2qvfnj03zxro6tehwcikx4": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt1di48c04vuro1q95i06dby": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt0s2ems0dkxro2oylebzxob": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "other",
-   "company": "openai"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt0kxcuu07f2ro2owuqpbjc8": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt0e7sxo01eiro2o4l4y9jmh": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt2ry1sl04ywro6t5znttdrs": {
-  "category": "paper",
-  "tags": {},
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt1rv5n8066iroovaxgoej1b": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt1z1q5n0c93roovlvh40tew": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_model",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt1tonwa07i9roovrze0ll65": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt1pkwbj04bxroovzkfca5c7": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "startup"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt1r7jjh05lgroovc4zwypj6": {
-  "category": "release",
-  "tags": {
-   "industry": "ai_other",
-   "issuer": "bigcorp"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmt1k19bn06qgrokx1p75h1gv": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "other",
-   "company": "anthropic"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- },
- "1:2:deepseek-v4-flash:id:cmsx9jvre05y6romms3bo1umb": {
-  "category": "bigtech",
-  "tags": {
-   "change_type": "business_line",
-   "company": "other"
-  },
-  "autoFallback": false,
-  "autoFilled": []
- }
+  "1:2:deepseek-v4-flash:id:cmsiry2eo1r4tronkt9qv2twu": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsj1zu9421ynronknsiz6vgw": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:f8413ac64986d776": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsiys4dz1yqironkuitnfi7t": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsixbbry1x0qronkhbbjukhr": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmskgc07i06srrobyr1cvm25v": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsk9yb97046zrow93i345be7": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmskiinqk06xiro5ejsx0giz8": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "other",
+      "company": "openai"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsiujxlq1u0zronkvvklblwk": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsjdsk6p076rroo561c8askl": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmso6wigb0d1rrofw4l6ifmm7": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsjaksyd04hlroo5hdy2qd4i": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsofh7p60plirofwefa5l92s": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsjk6eiz0byoroo5cc4bcwg6": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "business_line",
+      "company": "openai"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmslxhx3t05n3ro0w2lcmvjol": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsj81yyp02cwroo5rcq20vke": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsjbn0kl058nroo5kq0m0jws": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsjbn0pq058vroo55qpgw1si": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmslwy8bl04pdro0w7f4ogv7t": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsoscbbq054drohdw5zxvr2c": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmslmv6kx03muroqyxyo4fbtl": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmslhy76p03hdroo0l8dsaskb": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsnbc14r0aezron58wsytu43": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsnj5lkg08hprohfi5aoql6k": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsn2u3mt067ero8opidmwvz7": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsklqt1907v8royz2pbppkk1": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsnbzkyr01qjrohfmjqlmjk5": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmskzmhrs03rwrowg146pdv9j": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsn3w3ln012wror1xk5nrmcw": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:4738a26eaad33652": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsk5m3kq0ahqro4bn4nh1r6r": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "business_line",
+      "company": "alibaba"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsn68brx03q2ron5vwp3pwta": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsnkpjin0c2nrohfczauf2t2": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsmpwjyh0b0drohfw1hpbbzh": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsn32xab06ehro8ou4tskajr": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "business_line",
+      "company": "meta"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsmizpgb02yerohf3bh8jesi": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsmhbu4w0338ronxh92vej2u": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmso6wigb0d1profw2f6djg98": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsmf2q0t030sroadf0o5jwoa": {
+    "category": "financing",
+    "tags": {
+      "industry": "ai_other",
+      "region": "cn"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsnejv4i042qrohff64pz0jh": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsmlho8005dmrohfoz27j6em": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsmjglqx034prohfslczvkpb": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsostkpq05iurohd30b8ubmy": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsodc28j0n07rofw30v8pe9v": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsnfpcwf05ecrohfuzbjwyar": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsopyoum028vrohd4dgeksz9": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsnix1by08d3rohfftiex1xp": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsm5mk1109hdroy9apis4bb7": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "other",
+      "company": "anthropic"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:12a0f5543f9c76da": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "business_line",
+      "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsogatbh0qdgrofwzm7gdk0a": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsokd2b00viorofwaq9wrsv1": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsoolxde07isrop2eb5rrtvq": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:d905c741b8734802": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsopyoum028urohdhqzve6ba": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmspk9ofu02cbrojej28w43eh": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmso8nqa70eq4rofw24w1wlwt": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmso7i0al0dlsrofwivmpsjh1": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmso95agg0ig3rofwaqvy9crw": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:e3c46f9056010dee": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "business_line",
+      "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmso58oqr0b7trofwl3dcmz7y": {
+    "category": "financing",
+    "tags": {
+      "industry": "ai_model",
+      "region": "us"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:189fc545c2329bac": {
+    "category": "interview",
+    "tags": {
+      "industry": "ai_model",
+      "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsoylk4i02drro3yt4l3vhyn": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsnx040k01glrofwfqxdc8h5": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_social",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsnrwnsb0i1erohfuhfjc4q6": {
+    "category": "financing",
+    "tags": {
+      "industry": "ai_other",
+      "region": "us"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsq5saxh051mro2e90h10exo": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsq1hwsb02norobuzbw8cdcc": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmspo193n05q2rojeue8j2k5a": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmspc30un0e4xrorts1kax9zg": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsnxf57501y5rofw32tota54": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:7238a2983fb6085c": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmspr6h6s01hero4hjcdf95mw": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:303df14f01fec480": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:0c4d2c09069d404f": {
+    "category": "interview",
+    "tags": {
+      "industry": "ai_other",
+      "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsqabu0f001krouc6sfhic2d": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsp0g9v20242rort4zh7mzx0": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsp3o23e04vnrortt7twvx4v": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsp1lufu03a9rortoc0ci36q": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsq9h6gs01x5ronde8fdla7e": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsoydypn029yro3yvsi036au": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:1102c3ef07761cfd": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsoxh6oa0a3drohdskp7cb9u": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "business_line",
+      "company": "google"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsox86zv09u6rohdqr80wg0x": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsowxh6d09rrrohdkhpckhpi": {
+    "category": "interview",
+    "tags": {
+      "industry": "ai_model",
+      "interviewee": "tech"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsoxbh180a00rohdooafsmzp": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsqe6mat01bsroli3hw71nz7": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsrlvwfp05gdro46mbfqtsgm": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsp2lgxo03xjrortthctedzu": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "business_line",
+      "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsqj4ly004izroxvzl349s3r": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsruetoy027hrozeecu4ixrc": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsrfaw5c0xo2roz2s8b4p2sv": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsow47ob08oarohd6vhpqrwt": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsruj6ik02dfrozeclkuve05": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:eb4b65e42326f620": {
+    "category": "financing",
+    "tags": {
+      "industry": "ai_other",
+      "region": "cn"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:459db55df8091871": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsqf39o0015groxvnc7oiwop": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsrcljcc0uanroz24r5ebcz9": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsp0j1ph027prortm21absbh": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:ea12af82af2988e5": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsqu0nr604oeroz2rh6b6mqt": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsr160kg0dk0roz2mb20yxwk": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsqgeo2e02cvroxvpnycl2zi": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsrjqqfg02z0ro469zple5jl": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsqbnb8j01nrroosmwa5r6mj": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsqq3bc001snro7vo8picfbp": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsrramim02jero0nte55cfgi": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:77527eb26002c78d": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmssf79uf05rwrod09r9ocb2w": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmssi38vn03o9rofffr0z8lyb": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmssir12d047oroffnpn5pcx1": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmss6lsb701tsroib0kxz9q8q": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsrscwfn03f7ro0n7qijclds": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:a3ec99718d63f85e": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmss20h5g02uxroh6q6r1nqu9": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmst3j53e03ncro068tgsr4xn": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:wx:834f2896a5b4a528": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsrtfqyv04btro0nle3m5b20": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmst4z2qp05boro06ce7kxtgd": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsuaf2hr05zgroe0y1e7275v": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmstc3u8j02xhro0xf5o1ouas": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "business_line",
+      "company": "anthropic"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmst9yj3c05utrodz443l0odv": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmssv94cg0h4mroffsb9e7a88": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmswesk6a0r2hrovml2edcl2c": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsx8zij405t2rommm4gwgzjh": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsvptx2m061frovmjoavsi0l": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsx9jy2a05yerommy1e0jc6t": {
+    "category": "financing",
+    "tags": {
+      "industry": "ai_other",
+      "region": "cn"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmst2gs6d02lmro06sb7as7av": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "business_line",
+      "company": "openai"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsuto7hk0912rouhodiiywlk": {
+    "category": "financing",
+    "tags": {
+      "industry": "ai_other",
+      "region": "us"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsx9696t05u7rommdoa60l4p": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "business_line",
+      "company": "openai"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsxwd7a40coxroz06g25sfaf": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmst3joqo03pwro0658o4g1m3": {
+    "category": "financing",
+    "tags": {
+      "industry": "ai_other",
+      "region": "us"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsy8afig0mvmroz0gb3hz0iq": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsx7ffrz049uromm6en3if02": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsxkakju0300roz0zx6cvdeu": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsxld6es03o8roz0jblf3ii9": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "business_line",
+      "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsxsvb5s0a4troz0z2q2nu3h": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsxv0p3v0bntroz0227a6b3j": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmszieman0euzrodptihyllom": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsz8gh3n06e4rodpl8l2syek": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsykcnkt0yh1roz0a9h404r5": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsyqip4o14umroz0ch5iv0iv": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsycmgww0rkrroz0nfma0z05": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt05zhyg139trodp6bxsy9e2": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsz1zjiy013pro3f1e0aafra": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsz0hbsg05l0ro204080cotv": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "other",
+      "company": "openai"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt0d2tsl1961rodpnvzxo4cc": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "business_line",
+      "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsz49ptt022qrodp5mc1nt1x": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmszeb2mx0b3srodpef1ub0j0": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt1xbu7q0b7troovffggr2jh": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsz1974l06hbro20gosn5d78": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsz79zol04j8rodpvun6zobl": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt2qvfnj03zxro6tehwcikx4": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt1di48c04vuro1q95i06dby": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt0s2ems0dkxro2oylebzxob": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "other",
+      "company": "openai"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt0kxcuu07f2ro2owuqpbjc8": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt0e7sxo01eiro2o4l4y9jmh": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt2ry1sl04ywro6t5znttdrs": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt1rv5n8066iroovaxgoej1b": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt1z1q5n0c93roovlvh40tew": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_model",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt1tonwa07i9roovrze0ll65": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt1pkwbj04bxroovzkfca5c7": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt1r7jjh05lgroovc4zwypj6": {
+    "category": "release",
+    "tags": {
+      "industry": "ai_other",
+      "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmt1k19bn06qgrokx1p75h1gv": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "other",
+      "company": "anthropic"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  },
+  "1:2:deepseek-v4-flash:id:cmsx9jvre05y6romms3bo1umb": {
+    "category": "bigtech",
+    "tags": {
+      "change_type": "business_line",
+      "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+  }
 }
