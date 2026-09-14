@@ -1,5 +1,7 @@
 # 当前状态（2026-09-14）
 
+最新搜索决策：用户允许提高预算、优先高级模型并停止失败路线。本轮上限8次，实际只做1次Baichuan-M3，输出4096上限，7594 tokens/search_count=1；结果4条均为第三方来源，归属质量不通过，立即停止。GLM-4V及Baichuan-M3暂不接生产，不继续重复失败查询。助手独立查到OpenClaw基金会官网，但不冒充API自动搜索成功。详见[扩大额度验收](../history/2026-09-14/SEARCH_UPGRADE_REVIEW.md)。
+
 联网资料补全：新增独立 `research_company_sources.py` 小样本入口，GLM-4V仅返回待审核搜索线索，尚未纳入每日自动任务。补回count:1后的3次对照：Tailscale返回32个来源，OpenClaw与Grok Bot仍无来源；不能把漏参当根因。2次DeepSeek后Tailscale逐字核验通过，但官网区分两个签约主体，建议未晋升。共3931 tokens、无Manus。333项Python和35项Node通过。正式64家公司中9家记录research字段来源，不能声称全库联网核实。操作及待办见[联网核验](../operations/COMPANY_WEB_RESEARCH.md)。
 
 最新：简化首页、融资表迁入公司全景、移除所有评分显示。9项待归属名称经官网检索、DeepSeek及人工证据复核归入公司，未具名集合从产品列表移除；已通过候选发布入口晋升64家公司、82项关联产品、9项待核验，新闻199条不变。抽取提示词v12，未重跑全量模型；本轮7次资料核验请求。详见[本轮修改](../history/2026-09-14/UI_AND_OWNERSHIP_REVIEW.md)。
