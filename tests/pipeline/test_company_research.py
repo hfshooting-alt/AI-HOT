@@ -66,6 +66,12 @@ class ResearchTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             with self.assertRaisesRegex(ValueError,'逐字来源'):
                 propose(tx,packet,folder,allow_paid=True,llm_fn=model)
+            evidence = list(Path(folder).glob('*.response.json'))
+            self.assertEqual(len(evidence), 1)
+            self.assertEqual(json.loads(evidence[0].read_text(encoding='utf-8'))['response'], model.return_value)
+            with self.assertRaisesRegex(ValueError, '不自动重试'):
+                propose(tx,packet,folder,allow_paid=True,llm_fn=model)
+            self.assertEqual(model.call_count, 1)
 
     def test_brand_merge_keeps_brand_date_out_of_parent_and_is_idempotent(self):
         base = dict(aliases=[],product_names=[],fieldSources={'company_name':[]},sourceArticles=[],firstSeenAt='2020',lastSeenAt='2026',dims={})

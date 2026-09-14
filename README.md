@@ -106,3 +106,6 @@ AI-HOT/
 本轮后续修正见 docs/history/2026-09-14/QUALITY_CORRECTIONS_20260914.md：新闻分类与产品归属独立，个人产品保留pendingEntities并展示；已核实旧闻逐条隔离，未泛化为全网原文时间已验证。
 
 已有候选可通过`run_pipeline.py review-candidate`校验，再通过`publish-candidate`发布；不重新调用接口。详细步骤见[运行手册](docs/operations/AUTOMATED_PIPELINE.md)。当前交接与历史验证记录已分别归档。
+## 公司资料联网核验
+
+已有新闻关联实体的 GLM-4V 搜索试验入口、DeepSeek 证据核验及发布边界见[操作说明](docs/operations/COMPANY_WEB_RESEARCH.md)。当前处于独立业务样本验证阶段。
