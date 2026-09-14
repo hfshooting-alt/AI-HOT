@@ -26,7 +26,8 @@ def valid_date(value):
 
 def _main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("doctor", "run"))
+    parser.add_argument("command", choices=("doctor", "run", "review-candidate", "publish-candidate"))
+    parser.add_argument('--candidate', type=Path, help='review时传候选workspace；publish时传审核目录')
     parser.add_argument("--date", type=valid_date,
                         help="固定24小时模式为窗口结束日；旧自然日模式为采集日")
     parser.add_argument("--window-mode", choices=("ten-am", "calendar-day"), default="ten-am")
@@ -41,6 +42,23 @@ def _main(argv=None):
     parser.add_argument("--manus-credit-limit", type=int, default=20,
                         help="full 模式每个 Manus 来源的观察止损线，范围 10-60（默认 20）")
     args = parser.parse_args(argv)
+    if args.command in ('review-candidate', 'publish-candidate'):
+        if not args.candidate or args.dry_run or args.resume:
+            parser.error('候选命令要求--candidate，且不接受--dry-run或--resume')
+        from automation.candidate import prepare, promote
+        from manus_source.window import cutoff_time
+        os.environ['AIHOT_CUTOFF_TIME'] = args.cutoff_time
+        try:
+            cutoff_time()
+            if args.command == 'review-candidate':
+                directory, summary = prepare(ROOT, args.candidate)
+                print(json.dumps({'reviewDirectory': str(directory), **summary}, ensure_ascii=False))
+            else:
+                print(json.dumps(promote(ROOT, args.candidate), ensure_ascii=False))
+            return 0
+        except (OSError, ValueError, KeyError) as exc:
+            print(f'候选检查未通过：{exc}', file=sys.stderr)
+            return 1
     from manus_source.window import cutoff_time
     os.environ['AIHOT_CUTOFF_TIME'] = args.cutoff_time
     try:

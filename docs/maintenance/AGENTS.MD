@@ -145,3 +145,5 @@ node scripts/settings-server.mjs
 - `docs/maintenance/AGENTS.MD`（本文件）：开发守则。
 - `docs/maintenance/CONTEXT.MD`：项目当前状态、实现进度、待办门禁，接手后第二份必读。
 - `docs/maintenance/MEMORY.MD`：长期记忆与经验教训精编（按类别），供无记忆系统的 agent 使用。
+
+候选审核入口为run_pipeline.py review-candidate / publish-candidate，操作见运行手册；必须保留审核来源和校验值，禁止修改旧state伪造重跑成功。沿用已确认业务规则，新增业务范围、信源、预算或发布行为须先具体说明并确认。

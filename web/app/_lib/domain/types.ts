@@ -99,7 +99,7 @@ export interface Snapshot {
   collectionStatus?: {
     collectionWindow: { start: string; end: string; timezone: string };
     degraded: boolean;
-    sources: { name: string; collector: string; status: "complete" | "partial" | "failed" | "not_requested"; discoveredArticles: number; usableArticles: number }[];
+    sources: { name: string; collector: string; reasonCode?: string; status: "complete" | "partial" | "failed" | "not_requested"; discoveredArticles: number; usableArticles: number }[];
     candidateArticles: number;
     publishedArticles: number;
     excludedArticles: number;

@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { FundingTable, NewsItem, Snapshot } from "../../_lib/domain/types";
 import { loadAll, loadFundingTable, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/data/api";
 import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/display/format";
+import { collectionLabel } from "../../_lib/display/collection";
 import { categoryDisplay, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
 import { FUNDING_DIMENSIONS, FUNDING_DIM_IDS } from "../../_lib/domain/fundingTaxonomy";
 import { matchItem, sourceKindOf } from "../../_lib/display/source";
@@ -195,7 +196,7 @@ export function AllAIView() {
           <p className="font-bold text-ink">{collection.degraded ? "部分信源未完成，已发布成功来源的资讯" : "本批次已完成所选信源处理"}</p>
           <p>采集窗口：{new Date(collection.collectionWindow.start).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", hour12: false })} 至 {new Date(collection.collectionWindow.end).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", hour12: false })}（北京时间）</p>
           {collection.sources.some((s) => s.status === "failed" || s.status === "partial") && (
-            <p>未完成：{collection.sources.filter((s) => s.status === "failed" || s.status === "partial").map((s) => `${s.name}${s.status === "partial" ? "（正文不完整）" : "（采集失败）"}`).join("、")}</p>
+            <p>未完成：{collection.sources.filter((s) => s.status === "failed" || s.status === "partial").map((s) => `${s.name}（${collectionLabel(s)}）`).join("、")}</p>
           )}
           {collection.sources.some((s) => s.status === "not_requested") && <p>本批次未启用 Manus 信源。</p>}
           <p>合并候选 {collection.candidateArticles} 篇 · 相关性排除 {collection.excludedArticles} 篇 · 发布 {collection.publishedArticles} 篇。未完成来源不计为“今日无更新”。</p>

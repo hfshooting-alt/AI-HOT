@@ -12,6 +12,7 @@ import build_manus_feed as manus
 import enrich_news
 import screen_news
 import tag_news
+from source_status import reason_code
 from manus_source import contracts
 from manus_source.config import load_sources
 from manus_source.window import ten_am_window, matching_item
@@ -58,6 +59,7 @@ def load_manus(date, work_dir, groups, enabled=True):
         for a in data['source_audits']:
             audits.append({'name': a['account_name'], 'collector': 'manus',
                            'status': a['source_status'] if enabled else 'not_requested',
+                           'reasonCode': reason_code(a['source_status'] if enabled else 'not_requested', a.get('note')),
                            'discoveredArticles': a['article_count'], 'usableArticles': 0})
         metadata.update({a['article_url']: a for a in data['articles']
                          if a['extraction_status'] == 'complete'})
@@ -76,6 +78,7 @@ def load_manus(date, work_dir, groups, enabled=True):
         audit['usableArticles'] = sum(a['account_name'] == audit['name'] for a in articles.values())
         if audit['status'] == 'complete' and audit['usableArticles'] < audit['discoveredArticles']:
             audit['status'] = 'partial'
+            audit['reasonCode'] = 'content_incomplete'
     return discoveries, audits, list(articles.values())
 
 

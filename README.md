@@ -103,4 +103,6 @@ AI-HOT/
 
 “N小时前/分钟前”保存原始文字，publishedPrecision=relative；published_at仅用于排序和窗口估算。以接收时间换算，并保守要求估算时刻前后各一个单位均在固定窗口内，边界不确定则隔离。网页明确显示估算。绝对日期但无时刻、无“昨天”证据的记录仍不作为窗口内文章。Manus原始输出用published_time_text，本地生成timeEvidence与精度字段；快照/feed保留这些字段。
 
-本轮后续修正见 docs/operations/QUALITY_CORRECTIONS_20260914.md：新闻分类与产品归属独立，个人产品保留pendingEntities并展示；已核实旧闻逐条隔离，未泛化为全网原文时间已验证。
+本轮后续修正见 docs/history/2026-09-14/QUALITY_CORRECTIONS_20260914.md：新闻分类与产品归属独立，个人产品保留pendingEntities并展示；已核实旧闻逐条隔离，未泛化为全网原文时间已验证。
+
+已有候选可通过`run_pipeline.py review-candidate`校验，再通过`publish-candidate`发布；不重新调用接口。详细步骤见[运行手册](docs/operations/AUTOMATED_PIPELINE.md)。当前交接与历史验证记录已分别归档。

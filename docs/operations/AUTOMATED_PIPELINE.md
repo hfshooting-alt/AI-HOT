@@ -6,7 +6,7 @@ Manus只依据文章原始发布／发送时间收录，新增点赞、评论、
 
 当前完整链路与失败规则见[统一新闻链路](../architecture/UNIFIED_NEWS_PIPELINE.md)：AIHOT 与 Manus 独立并行采集，合并去重后统一模型加工；允许来源部分失败和单条隔离；完成合格新闻、公司更新及产物一致性校验后发布。
 
-同一来源的已核实文章现在也可部分保留，逐篇checkpoint和止损回收规则见[9月14日验证记录](MANUS_PARTIAL_REVIEW_20260914.md)。partial不代表完整24小时覆盖，时间窗口保持09:30。
+同一来源的已核实文章现在也可部分保留，逐篇checkpoint和止损回收规则见[9月14日验证记录](../history/2026-09-14/MANUS_PARTIAL_REVIEW_20260914.md)。partial不代表完整24小时覆盖，时间窗口保持09:30。
 
 ## 1. 先检查，再运行
 
@@ -131,4 +131,18 @@ python scripts/run_pipeline.py run --date 2026-09-07 --resume
 
 完整 full 模式同时要求 `--require-tags`，当轮归档池的未分类或fallback条目必须完成模型分类；失败缓存可重新处理，已成功缓存继续复用。异常时只保留候选目录，不提交网站数据。所有成功表示程序与结构化覆盖检查通过，不等同于所有信源无漏采或模型事实绝对正确。
 
-本轮后续修正见 docs/operations/QUALITY_CORRECTIONS_20260914.md：新闻分类与产品归属独立，个人产品保留pendingEntities并展示；已核实旧闻逐条隔离，未泛化为全网原文时间已验证。
+本轮后续修正见 docs/history/2026-09-14/QUALITY_CORRECTIONS_20260914.md：新闻分类与产品归属独立，个人产品保留pendingEntities并展示；已核实旧闻逐条隔离，未泛化为全网原文时间已验证。
+
+## 审核并发布已有候选（不调用采集或模型）
+
+```powershell
+python scripts/run_pipeline.py review-candidate --candidate work/quality-corrected-20260914/workspace
+python scripts/run_pipeline.py publish-candidate --candidate work/reviewed-candidates/<审核返回的目录ID>
+```
+
+第一步校验窗口、新闻集合与内容、收录去向计数、公司处理范围和跨文件一致性，复制成独立审核包。review.json记录真实来源workspace、代码校验值、候选文件校验值和正式数据基线，类型为reviewed_import；不改写原采集运行状态。
+第二步重新校验并持有pipeline.lock，候选或代码发生变化需要重新审核；正式数据变化需要重建候选。较旧窗口不能覆盖较新正式窗口。写入采用既有备份与回滚机制，重复发布已完成记录不会再次覆盖。中断记录保留供排错，不能伪造成功状态。
+
+发布只更新本地整套正式产物；之后提交data和web/public到main，Pages工作流构建部署。私有inputs、review.json、正文及日志仍在work，不提交。
+
+信源status保持complete/partial/failed/not_requested契约；公开reasonCode区分not_started_budget（熔断后未创建）、budget_stopped（已启动后止损）、boundary_unverified（未扫完窗口）、content_incomplete（部分正文缺失）等。只输出白名单原因码，不把原始错误或密钥带入网页。缺少证据时显示原因待核实。
