@@ -472,6 +472,26 @@
           "sourceName": "IT之家（RSS）"
         }
       ]
+    },
+{
+  "record_name": "Muse",
+  "owner_company": "Meta",
+  "entity_type": "brand",
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "owner_company",
+      "value": "Meta",
+      "url": "https://x.com/AYi_AInotes/status/2099076449109975471",
+      "title": "Meta 个人 AI 助手 Muse 官方接入 Tailscale，云端 AI 可进入用户家庭内网",
+      "quote": "Meta 刚发布的个人 AI 助手 Muse",
+      "origin": "article",
+      "articleId": "aihot:cmtznk3ta02zoro5ebx6vczaa",
+      "publishedAt": "2026-09-13T18:03:19+08:00",
+      "sourceName": "AIHOT收录的原始标题与摘要",
+      "checkedAt": "2026-09-14"
     }
   ]
+}
+]
 }

@@ -35,9 +35,20 @@ ENRICH_DEFAULTS = {
     "max_new_items_per_run": 20,
     "max_attempts": 1,
 }
-ENRICH_PROMPT_VERSION = 2
+ENRICH_PROMPT_VERSION = 3
 # 摘要中不允许出现的模型自述/Markdown 痕迹
 SELF_REF_MARKERS = ("作为AI", "作为 AI", "作为语言模型", "我无法", "我不能")
+
+
+def is_preview(title):
+    return bool(re.search(r'预告|前瞻(?!性)|预热', title) and not re.search(r'已正式发布|现已上线', title))
+
+
+def enforce_event_boundary(raw, title):
+    """An explicit preview is not an actual release under the approved taxonomy."""
+    if raw.get('category') == 'release' and is_preview(title):
+        return {**raw, 'category': 'general', 'tags': {}, 'release_evidence': None}
+    return raw
 
 
 def enrich_cfg(tx: dict) -> dict:
@@ -81,12 +92,16 @@ def build_enrich_prompt(tx: dict, title: str, mp_name: str, content: str) -> tup
     lines += [
         "",
         "## 约束",
+        "- 先识别文章主事件，再套类别优先级。发布图片/视频/创意作品、活动/挑战赛、产品使用体验、推荐、预告不等于发布AI产品。",
+        "- GPT Images创意作品、Tripo建模演示→general；Meta发起muse money challenge→bigtech；OpenAI使用模型修复漏洞→bigtech；论文/数学成果→paper；正式开源新AI模型或上线新AI应用→release。",
+        "- release必须输出release_evidence：从输入逐字摘取明确的新应用/新模型/重大版本已经推出的证据，不能引用作品发布、已有工具的使用或未来预告。其他类别该字段为null。证据不足不得归release。",
+        "- 短文只保留已有事实，可写短摘要，严禁为了字数补充输入没有的技术细节、讨论议题或背景。讽刺、玩笑、转述和作者判断须保持其语气与归属，不写成已证实事实。",
         "- category 与 tags 的取值只能来自上述枚举 id，禁止生成清单外内容",
         "- 没有适用取值时也必须从该维度枚举中选一个最接近的",
         "",
         "## 输出格式",
         '只输出一个 JSON 对象，无任何其他文字：'
-        '{"summary": "<中文事实摘要>", "category": "<类别id>", "tags": {"<维度id>": "<取值id>"}}',
+        '{"summary": "<中文事实摘要>", "category": "<类别id>", "tags": {"<维度id>": "<取值id>"}, "release_evidence": null}',
     ]
     system = "\n".join(lines)
     user = f"标题：{title}\n媒体：{mp_name}\n\n正文：\n{content[:cfg['content_input_chars']]}"
@@ -188,6 +203,11 @@ def enrich_one(tx: dict, item: dict) -> dict:
             # taxonomy 结构、但摘要长度不合格时，保留模型分类，只用原文段落生成
             # 确定性摘要。这样不会为格式问题再付一次调用费用，也不会丢掉模型标签。
             if isinstance(raw, dict):
+                raw = enforce_event_boundary(raw, title)
+                if raw.get('category') == 'release' and (not isinstance(raw.get('release_evidence'), str)
+                        or len(raw['release_evidence'].strip()) < 4
+                        or raw['release_evidence'].strip() not in content):
+                    continue
                 raw["summary"] = fit_model_summary(tx, raw.get("summary"))
                 valid_categories = {c["id"] for c in tx["categories"]}
                 classification_structured = (
@@ -242,7 +262,10 @@ def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict
     for it in items:
         k = enrich_cache_key(tx, it)
         if isinstance(cache.get(k), dict) and cache[k].get("enrichmentStatus") == "complete":
-            results[enrich_item_key(it)] = cache[k]
+            cached = cache[k]
+            if (cached.get('classification') or {}).get('category') == 'release' and is_preview(it.get('title', '')):
+                cached = {**cached, 'classification': tag_news.validate(tx, {'category': 'general', 'tags': {}})}
+            results[enrich_item_key(it)] = cached
         else:
             todo.append(it)
     if todo:

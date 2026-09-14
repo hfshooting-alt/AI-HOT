@@ -128,3 +128,5 @@ python scripts/run_pipeline.py run --date 2026-09-07 --resume
 完整管线的公司库阶段强制 `--require-complete`，复用成功抽取缓存，处理全部未缓存输入文章（包括 all 池）；单条失败或延后写入隔离清单，合格结果继续；全失败才保留旧网页。公司资料按新文章增量更新，最新提及置顶；没有证据的字段保持空白。审阅过的归属和分类自动应用，产品归属未明时保留 pendingEntities。AIHOT-only 只关闭Manus，仍运行共享模型与公司更新。每日快照写入 publicationMode=pipeline，首页仅展示该完成批次。
 
 完整 full 模式同时要求 `--require-tags`，当轮归档池的未分类或fallback条目必须完成模型分类；失败缓存可重新处理，已成功缓存继续复用。异常时只保留候选目录，不提交网站数据。所有成功表示程序与结构化覆盖检查通过，不等同于所有信源无漏采或模型事实绝对正确。
+
+本轮后续修正见 docs/operations/QUALITY_CORRECTIONS_20260914.md：新闻分类与产品归属独立，个人产品保留pendingEntities并展示；已核实旧闻逐条隔离，未泛化为全网原文时间已验证。

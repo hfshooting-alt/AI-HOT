@@ -13,7 +13,8 @@
     "中国气象局": {"reason":"国务院直属事业单位，不是公司。","url":"https://www.gov.cn/fuwu/2014-02/22/content_2618847.htm"},
     "美国教师联合会": {"reason":"AFT 工会，不是公司。","url":"https://www.aft.org/about"},
     "UFT": {"reason":"United Federation of Teachers 工会，不是公司；与 AFT 分别保留。","url":"https://www.uft.org/your-union/about-uft"},
-    "Emad Mostaque": {"reason":"个人，不将个人观点自动归为任职公司动态。","url":"https://ii.inc/blog/post/master-plan"}
+    "Emad Mostaque": {"reason":"个人，不将个人观点自动归为任职公司动态。","url":"https://ii.inc/blog/post/master-plan"},
+    "Simon Willison": {"reason": "个人开发者，不作为公司主体；其产品保留为归属待核实。", "url": "https://simonwillison.net/about/"}
   },
   "classifications": {
     "aihot:cmtul95tj1hctrofp9oe0r50g": {

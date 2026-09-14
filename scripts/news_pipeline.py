@@ -145,6 +145,9 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
                (a['status'] == 'partial' and a['usableArticles'] > 0) for a in audits):
         raise ValueError('All sources unavailable; keep previous publication')
     pool = candidates([i for i in aihot['items'] if matching_item(window, i)], articles)
+    from publication_review import review as review_publication
+    original_pool_count = len(pool)
+    pool, time_quarantine = review_publication(pool, window)
     tx = copy.deepcopy(tag_news.load_taxonomy(str(ROOT / 'config/taxonomy.json')))
     for key in ('relevance', 'enrich'):
         tx.setdefault(key, {}).update(max_new_items_per_run=len(pool), budget_seconds=7200)
@@ -178,9 +181,10 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
         processed.append(clean)
     if quarantined and not processed:
         raise ValueError('No approved news after summary/classification; keep previous publication')
+    quarantined.extend(time_quarantine)
     collection = {'collectionWindow': window,
                   'degraded': any(a['status'] in ('failed', 'partial') for a in audits),
-                  'sources': audits, 'candidateArticles': len(pool), 'publishedArticles': len(processed),
+                  'sources': audits, 'candidateArticles': original_pool_count, 'publishedArticles': len(processed),
                   'excludedArticles': stats['irrelevant'], 'quarantinedArticles': len(quarantined),
                   'quarantined': quarantined}
     # Fresh, explicitly degraded empty Manus data prevents stale-feed re-injection.

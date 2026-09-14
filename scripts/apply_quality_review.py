@@ -57,7 +57,9 @@ def apply(overview, snapshot, rules, tx):
             rows.remove(row)
             audit['excluded'].append({'name': row['company_name'], **disposition})
             continue
-        reason = rules['pending'].get(row['company_name'])
+        reason = rules['pending'].get(row['company_name']) or (
+            '产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。'
+            if row.get('entityType') == 'product' else None)
         if reason:
             pending.append(dict(row, reviewReason=reason))
             rows.remove(row)

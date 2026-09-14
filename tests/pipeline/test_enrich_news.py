@@ -64,7 +64,7 @@ class TestEnrichOne(unittest.TestCase):
         return result, mock
 
     def test_legal_output_complete(self):
-        payload = json.dumps({"summary": GOOD_SUMMARY, "category": "release",
+        payload = json.dumps({"summary": GOOD_SUMMARY, "category": "release", "release_evidence": CONTENT[:20],
                               "tags": {"industry": "ai_model", "issuer": "startup"}},
                              ensure_ascii=False)
         r, mock = self.run_with([payload])
@@ -97,7 +97,7 @@ class TestEnrichOne(unittest.TestCase):
         self.assertEqual(r["summary"], GOOD_SUMMARY)  # 摘要仍保留
 
     def test_out_of_range_tag_injected_with_trace(self):
-        payload = json.dumps({"summary": GOOD_SUMMARY, "category": "release",
+        payload = json.dumps({"summary": GOOD_SUMMARY, "category": "release", "release_evidence": CONTENT[:20],
                               "tags": {"industry": "越界取值", "issuer": "startup"}},
                              ensure_ascii=False)
         r, _ = self.run_with([payload])
@@ -105,7 +105,7 @@ class TestEnrichOne(unittest.TestCase):
         self.assertEqual(r["classification"]["autoFilled"], ["industry"])
 
     def test_empty_summary_keeps_structured_model_classification(self):
-        payload = json.dumps({"summary": "", "category": "release",
+        payload = json.dumps({"summary": "", "category": "release", "release_evidence": CONTENT[:20],
                               "tags": {"industry": "ai_model", "issuer": "startup"}},
                              ensure_ascii=False)
         r, mock = self.run_with([payload])

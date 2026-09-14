@@ -30,6 +30,7 @@ def apply_reviewed_research(companies, rules=None):
                 target.update(id=entity_id(normalize_company_key(owner)), company_name=owner, aliases=[],
                               **{f: None for f in SCALAR_FIELDS}, fieldSources={}, product_names=[])
                 rows.append(target)
+            target['entityType'] = 'company'
             # 品牌资料单独保留，不把产品成立年份/负责人当成母公司字段。
             target.setdefault('brandProfiles', {})[source['company_name']] = source
             target['product_names'] = list(dict.fromkeys([*target['product_names'], source['company_name'], *source['product_names']]))
@@ -60,7 +61,7 @@ def apply_reviewed_research(companies, rules=None):
                 target['product_names'].append(value)
             evidence = dict(value=value, articleId='research:' + hashlib.sha256(fact['url'].encode()).hexdigest()[:16],
                             url=fact['url'], title=fact['title'], publishedAt='', sourceName='官网资料核验',
-                            origin='research', quote=fact['quote'], checkedAt=rules['checkedAt'])
+                            origin='research', quote=fact['quote'], checkedAt=fact.get('checkedAt') or rules['checkedAt'])
             if fact.get('origin') == 'article':
                 if not fact.get('articleId'):
                     raise ValueError('报道归属修正缺少文章标识')

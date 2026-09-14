@@ -18,9 +18,11 @@ def build_prompt(tx: dict, article: dict) -> tuple[str, str]:
 
 覆盖有实质业务、产品或投资信息的公司，包括事件主体、合作方、投资方、供应商；不能只抽标题主角。投资方或供应商有新投资、合作、订单、产品等具体事实时也收录。仅名字被列举、泛泛对比、没有实质信息时不新增。逐段识别，多事件早报逐条覆盖。页脚、广告导航、转载署名中的媒体不收录。大学、政府、交易所不作为公司收录。资料不足的字段留空，不靠模型记忆填满。
 产品明确归属于某公司时归入该公司，不能将产品另造为公司；归属不明确则保留产品主体名称待核实，禁止凭常识猜母公司。
+自然人、个人开发者、作者、博主均不能作为公司。独立开发者的产品没有明确公司时仍返回一条记录：company_name填产品名、entity_type填product，进入归属待核实；不要返回空数组丢失产品。例如Simon Willison发布commit-rewriter，保留commit-rewriter产品主体，不创建Simon Willison公司。Meta Muse/Meta的Muse明确归Meta，不另建Muse公司；只写Muse无归属时标product，不猜母公司。这里的归属状态不改变新闻发布类别。
 
 每家公司一条记录：
 - company_name：文章采用的公司名称，必填
+- entity_type：company（明确公司）或product（公司归属待核实的产品）
 - aliases：文章明确给出的别名、英文名或简称，字符串数组
 - product_names：该公司在文章中明确关联的产品名称，字符串数组；无法确认归属时不要猜测
 {fields}
@@ -28,7 +30,7 @@ def build_prompt(tx: dict, article: dict) -> tuple[str, str]:
 
 只使用文章明确表达的事实。缺失字段为 null，数组缺失为 []。不得根据常识补全，不得把媒体来源本身当作被报道公司。
 country 必须是公司所属国家而不是市场覆盖范围。total_funding 是累计融资，不能把单轮融资填为累计融资；valuation 保留币种与估值时点，不能使用市值代替。不要以模型记忆补全团队和成立时间。
-只输出 JSON：{{"companies":[{{"company_name":"...","aliases":[],"product_names":[],"founded":null,"country":null,"team":null,"business":null,"investors":null,"total_funding":null,"valuation":null,"industry_id":"ai_other"}}]}}"""
+只输出 JSON：{{"companies":[{{"company_name":"...","entity_type":"company","aliases":[],"product_names":[],"founded":null,"country":null,"team":null,"business":null,"investors":null,"total_funding":null,"valuation":null,"industry_id":"ai_other"}}]}}"""
     cfg = overview_cfg(tx)
     user = (f"标题：{article['title']}\n来源：{article['sourceName']}\n"
             f"发布时间：{article.get('publishedAt') or '未知'}（今年/去年以此时间为基准；未知时保留相对时间）\n"
@@ -43,7 +45,9 @@ def normalize_company(raw: dict, tx: dict) -> dict | None:
     name = raw["company_name"].strip()
     if not name:
         return None
-    out = {"company_name": name}
+    if raw.get('entity_type') == 'person':
+        return None
+    out = {"company_name": name, 'entity_type': 'company' if raw.get('entity_type') == 'company' else 'product'}
     for field in ("aliases", "product_names"):
         values = raw.get(field)
         out[field] = list(dict.fromkeys(v.strip() for v in values

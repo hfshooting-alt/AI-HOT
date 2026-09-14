@@ -38,3 +38,16 @@ test('country filter uses the displayed country and table precedes linked cards'
   assert.match(html, /aria-controls="company-card-company:sample"/);
   assert.ok(html.indexOf('</table>') < html.indexOf('id="company-card-company:sample"'));
 });
+
+test('unowned products remain visible even without any confirmed companies', () => {
+  const html = renderToStaticMarkup(React.createElement(CompanyOverviewTable, {
+    overview: { generatedAt: '2026-09-14', companies: [], pendingEntities: [{ ...record,
+      company_name: '独立AI产品', sourceArticles: [{id:'news:1',title:'新产品正式发布',url:'https://example.com/product'}] }],
+      stats: { companiesTotal: 0, articlesComplete: 1 } },
+    dimSel: {}, q: '', onDimChange() {},
+  }));
+  assert.match(html, /独立AI产品/);
+  assert.match(html, /归属待核实/);
+  assert.match(html, /https:\/\/example.com\/product/);
+  assert.match(html, /不改变新闻分类/);
+});

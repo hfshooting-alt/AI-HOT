@@ -235,11 +235,18 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
   const changePage = (nextPage: number) => setPagination({ key: paginationKey, page: nextPage });
   const generatedDate = new Date(overview.generatedAt);
   const generatedAt = overview.generatedAt && !Number.isNaN(generatedDate.getTime())
-    ? new Intl.DateTimeFormat("zh-CN", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }).format(generatedDate)
+    ? new Intl.DateTimeFormat("zh-CN", { timeZone: "Asia/Shanghai", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }).format(generatedDate)
     : "—";
 
   return (
     <section id="company-table" aria-label="公司与产品全景">
+      {!!overview.pendingEntities?.length && <details className="ah-card mb-5 p-4">
+        <summary className="font-bold text-ink">产品归属待核实 · {overview.pendingEntities.length} 项</summary>
+        <p className="my-2 text-[12px] text-mut">已保留产品及对应新闻；所属公司尚未确认，不计入公司数量，也不改变新闻分类。</p>
+        <table className="w-full text-left text-[13px]"><thead><tr><th>产品</th><th>归属状态</th><th>相关报道</th></tr></thead>
+          <tbody>{overview.pendingEntities.map((product) => <tr key={product.id}><td className="py-2">{product.company_name}</td><td>归属待核实</td><td>{product.sourceArticles.map((source) => <a key={source.id} className="block text-brand underline" href={source.url} target="_blank" rel="noreferrer">{source.title}</a>)}</td></tr>)}</tbody>
+        </table>
+      </details>}
       <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-[11px] font-bold tracking-[0.14em] text-brand">COMPANY OVERVIEW</p>

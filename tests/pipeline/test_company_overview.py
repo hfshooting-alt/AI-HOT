@@ -26,7 +26,14 @@ class MockLLM:
 
     def __call__(self, tx, system, user, **kwargs):
         self.calls.append((system, user, kwargs))
-        return next(self.replies)
+        result = next(self.replies)
+        try:
+            parsed = json.loads(result)
+            for company in parsed.get('companies', []):
+                company.setdefault('entity_type', 'company')
+            return json.dumps(parsed, ensure_ascii=False)
+        except (ValueError, AttributeError):
+            return result
 
 
 def item(article_id, title, url, category, summary, dims=None):

@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "url": "https://openai.com/index/better-language-models/",
+      "title": "OpenAI 因担忧恶意应用未发布 GPT-2 完整模型",
+      "originalPublishedDate": "2019-02-14",
+      "checkedAt": "2026-09-14",
+      "evidence": "February 14, 2019",
+      "reason": "原始发布页明确日期为2019年；聚合池本次收录时间不能作为原文发布时间。",
+      "sourceHash": "6e29afb8f8f525b1e736d733178f39b73ddb9ee41df880fe1acc7974711d81d1"
+    }
+  ]
+}

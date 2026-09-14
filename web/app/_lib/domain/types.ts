@@ -274,6 +274,7 @@ export interface CompanyProfile {
 }
 
 export interface CompanyOverview {
+  pendingEntities?: CompanyProfile[];
   articleFailures?: { id: string; title: string; url: string; reason: string }[];
   schemaVersion: number;
   generatedAt: string;

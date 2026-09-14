@@ -53,3 +53,5 @@ flowchart TD
 - 单独 `--stage snapshot` 等旧命令仅供定点调试，不等同于上述完整链路。旧 `aihot-only --stage snapshot` 仍是无模型快照调试，不应用于每日生产更新。
 
 2026-09-14 后续验收按[投资人验收口径](../operations/INVESTOR_ACCEPTANCE.md)执行。公司抽取独立读取私有 company-evidence.json；最新报道日期与资料更新日期分开保存，默认仅按报道时间排序。真实运行结果与发布结论另行记录，不以离线测试代替内容质量验收。
+
+本轮后续修正见 docs/operations/QUALITY_CORRECTIONS_20260914.md：新闻分类与产品归属独立，个人产品保留pendingEntities并展示；已核实旧闻逐条隔离，未泛化为全网原文时间已验证。
