@@ -20,8 +20,18 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
-          llm_fn=call_llm, generated_at=None, require_complete=False):
+          llm_fn=call_llm, generated_at=None, require_complete=False, evidence_path=None):
     articles = load_articles(snapshot_path, feed_path, work_dir, tx)
+    if evidence_path:
+        evidence = json.loads(Path(evidence_path).read_text(encoding='utf-8'))
+        originals = {r['id']: r for r in evidence}
+        if set(originals) != {a['id'] for a in articles}:
+            raise ValueError('公司抽取输入与已审核原始证据不一致')
+        for article in articles:
+            original = originals[article['id']]
+            if original['url'] != article['url'] or not original.get('content_text'):
+                raise ValueError('公司抽取原始证据缺失或链接不匹配')
+            article['content_text'] = original['content_text']
     if require_complete:
         tx = copy.deepcopy(tx)
         tx.setdefault('companyOverview', {}).update(max_new_articles_per_run=len(articles), budget_seconds=7200)
@@ -45,6 +55,19 @@ def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
     rules = json.loads((ROOT / 'config/quality_review.json').read_text(encoding='utf-8'))
     data, _, audit = apply(data, {}, rules, tx)
     data['qualityReview'] = audit
+    # Report time controls ranking; material profile changes control update time.
+    # Legacy updatedAt was a report timestamp, so never migrate it as a verified
+    # profile update date. Compare after all identity/review rules have run.
+    old_records = {r['id']: r for r in previous.get('companies', [])}
+    for bucket in ('companies', 'pendingEntities', 'excludedEntities'):
+        for rec in data.get(bucket, []):
+            old = old_records.get(rec['id'])
+            def material(row):
+                return {k: v for k, v in row.items() if k not in (
+                    'updatedAt', 'profileUpdatedAt', 'latestReportAt')}
+            rec['latestReportAt'] = rec.get('lastSeenAt') or ''
+            rec['profileUpdatedAt'] = (old.get('profileUpdatedAt', '')
+                if old and material(old) == material(rec) else data['generatedAt'])
     validate(data, tx)
     return data
 
@@ -62,12 +85,14 @@ def main(argv=None):
     parser.add_argument("--no-promote", action="store_true")
     parser.add_argument("--generated-at", default=None)
     parser.add_argument('--require-complete', action='store_true', help='覆盖全部输入文章；任何失败/待处理均阻止晋升')
+    parser.add_argument('--evidence-json', help='本批次审核通过的原始证据，仅保存在隔离工作目录')
     args = parser.parse_args(argv)
     tx = tag_news.load_taxonomy(str(ROOT / args.taxonomy))
     try:
         data = build(ROOT / args.snapshot, ROOT / args.feed, ROOT / args.work_dir,
                      ROOT / args.previous, ROOT / args.cache_dir, tx,
-                     generated_at=args.generated_at, require_complete=args.require_complete)
+                     generated_at=args.generated_at, require_complete=args.require_complete,
+                     evidence_path=args.evidence_json)
     except ValueError as exc:
         print(f"公司与产品库构建失败，保留上一次产物：{exc}", file=sys.stderr)
         return 1

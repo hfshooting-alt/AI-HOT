@@ -265,6 +265,8 @@ export interface CompanyProfile {
   firstSeenAt: string;
   lastSeenAt: string;
   updatedAt?: string;
+  latestReportAt?: string;
+  profileUpdatedAt?: string;
 }
 
 export interface CompanyOverview {

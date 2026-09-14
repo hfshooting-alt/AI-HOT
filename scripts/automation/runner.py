@@ -148,6 +148,7 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
             if '--work-dir' in commands[stage]:
                 commands[stage][commands[stage].index('--work-dir') + 1] = str(manus_work)
         commands['snapshot'].extend(('--input-json', str(workspace / 'inputs/processed.json'), '--no-tags'))
+        commands['overview'].extend(('--evidence-json', str(workspace / 'inputs/company-evidence.json')))
     return commands
 
 

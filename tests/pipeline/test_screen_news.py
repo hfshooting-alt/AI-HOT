@@ -36,6 +36,17 @@ class RelevanceScreenTest(unittest.TestCase):
         self.assertEqual(screen_news.source_evidence("AI智能体产品", "发布 AI 智能体产品。"),
                          "AI 智能体产品")
 
+    def test_long_quote_is_verified_before_display_truncation(self):
+        item = self.item()
+        text = item['content_text'][:120]
+        def response(quote):
+            return lambda *a, **k: json.dumps({'relevant': True, 'reason': '具体AI产品事件', 'evidence': quote})
+        good = screen_news.screen_one(TX, item, response(text))
+        self.assertEqual(good['status'], 'complete')
+        self.assertEqual(good['evidence'], text[:80])
+        bad = screen_news.screen_one(TX, item, response(text + '原文没有的关键结论'))
+        self.assertEqual(bad['status'], 'failed')
+
     def test_irrelevant_result_is_cached_and_limit_defers_rest(self):
         items = [self.item("普通游戏发布", "游戏公司发布新地图和角色，没有披露智能功能。"),
                  self.item("第二条", "电商平台公布普通促销活动和折扣信息。")]

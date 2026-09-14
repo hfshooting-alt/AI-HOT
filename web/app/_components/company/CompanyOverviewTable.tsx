@@ -13,7 +13,8 @@ type CompanyColumnKey = keyof CompanyProfile | "industry";
 
 const COLUMNS: { key: CompanyColumnKey; label: string; cellClass: string }[] = [
   { key: "company_name", label: "公司", cellClass: "sticky-col w-[190px]" },
-  { key: "updatedAt", label: "更新日期", cellClass: "w-[140px]" },
+  { key: "latestReportAt", label: "最新报道日期", cellClass: "w-[140px]" },
+  { key: "profileUpdatedAt", label: "资料更新日期", cellClass: "w-[140px]" },
   { key: "product_names", label: "代表产品", cellClass: "w-[170px]" },
   { key: "founded", label: "成立时间", cellClass: "w-[100px]" },
   { key: "industry", label: "行业", cellClass: "w-[140px]" },
@@ -118,7 +119,7 @@ function CompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () => void 
             <p className="mt-1 line-clamp-2 text-[13px] leading-relaxed text-mut">
               {rec.product_names.length ? rec.product_names.join(" · ") : "产品信息暂未披露"}
             </p>
-            <p className="mt-2 text-[11px] text-mut" title="最新关联报道的发布时间">更新日期：{fmtCnDate(rec.updatedAt || rec.lastSeenAt) || "未披露"}</p>
+            <p className="mt-2 text-[11px] text-mut">最新报道：{fmtCnDate(rec.latestReportAt || rec.lastSeenAt) || "未披露"} · 资料更新：{fmtCnDate(rec.profileUpdatedAt || "") || "未记录"}</p>
           </div>
           <span className="shrink-0 rounded-full border border-brand/15 bg-brand-soft px-2.5 py-1 text-[10px] font-bold text-brand">
             {rec.sourceArticles.length} 篇来源
@@ -223,7 +224,7 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
     if (sortKey === "name") sorted.sort((a, b) => a.company_name.localeCompare(b.company_name, "zh-CN"));
     else if (sortKey === "sources") sorted.sort((a, b) => b.sourceArticles.length - a.sourceArticles.length || b.lastSeenAt.localeCompare(a.lastSeenAt));
     else if (sortKey === "products") sorted.sort((a, b) => b.product_names.length - a.product_names.length || b.lastSeenAt.localeCompare(a.lastSeenAt));
-    else sorted.sort((a, b) => (Date.parse(b.updatedAt || b.lastSeenAt) || 0) - (Date.parse(a.updatedAt || a.lastSeenAt) || 0));
+    else sorted.sort((a, b) => (Date.parse(b.latestReportAt || b.lastSeenAt) || 0) - (Date.parse(a.latestReportAt || a.lastSeenAt) || 0));
     return sorted;
   }, [filteredRows, sortKey]);
   const paginationKey = `${q}\u0000${JSON.stringify(dimSel)}\u0000${sortKey}`;
@@ -292,8 +293,9 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
               <tr key={rec.id} className="group border-b border-line-2/70 align-top last:border-b-0 hover:bg-[#f5faf9]">
                 {COLUMNS.map((col) => {
                   const key = String(col.key);
-                  if (col.key === "updatedAt") {
-                    return <td key={key} className="px-4 py-3 text-[12px] text-mut" title="最近一次关联报道的发布时间（北京时间）">{fmtCnDate(rec.updatedAt || rec.lastSeenAt) || "未披露"}</td>;
+                  if (col.key === "latestReportAt" || col.key === "profileUpdatedAt") {
+                    const date = col.key === "latestReportAt" ? rec.latestReportAt || rec.lastSeenAt : rec.profileUpdatedAt;
+                    return <td key={key} className="px-4 py-3 text-[12px] text-mut" title={col.key === "latestReportAt" ? "最近关联报道的发布时间；用于默认排序" : "资料或关联证据实质变化的时间；重复处理不刷新"}>{fmtCnDate(date || "") || "未记录"}</td>;
                   }
                   if (col.key === "sourceArticles") {
                     return <td key={key} className={`px-4 py-3.5 leading-relaxed ${col.cellClass}`}><SourceLinks rec={rec} /></td>;

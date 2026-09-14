@@ -125,7 +125,8 @@ class CompanyOverviewTest(unittest.TestCase):
             "publishedAt": "2026-09-10T10:00:00+08:00",
             "content_text": "甲公司聘请乙证券，丙公司是其投资方。",
         })
-        self.assertIn("全部相关公司", system)
+        self.assertIn("有实质信息", system)
+        self.assertIn("没有实质信息时不新增", system)
         self.assertIn("投资方", system)
         self.assertIn("公司自身业务", system)
         self.assertIn("2026-09-10", user)
@@ -173,6 +174,55 @@ class CompanyOverviewTest(unittest.TestCase):
         self.assertTrue(current.is_file())
         self.assertTrue(web.is_file())
         self.assertTrue((self.root / "data/archive/2026-09-09.json").is_file())
+
+    def test_profile_date_does_not_advance_on_cached_replay(self):
+        initial, _ = self.build([
+            json.dumps({'companies': [{'company_name': '星河科技', 'industry_id': 'ai_social'}]}),
+            json.dumps({'companies': []}),
+        ])
+        self.previous.write_text(json.dumps(initial), encoding='utf-8')
+        repeated = overview.build(self.snapshot, self.feed, self.root / 'work', self.previous,
+            self.cache, TX, llm_fn=MockLLM([]), generated_at='2026-09-14T12:00:00+08:00')
+        old, new = initial['companies'][0], repeated['companies'][0]
+        self.assertEqual(new['latestReportAt'], '2026-09-08T12:00:00+08:00')
+        self.assertEqual(new['profileUpdatedAt'], old['profileUpdatedAt'])
+
+    def test_company_extraction_uses_collected_evidence(self):
+        evidence_path = self.root / 'evidence.json'
+        evidence_path.write_text(json.dumps([
+            {'id': 'release-1', 'url': 'https://example.com/release', 'content_text': '采集原始证据，不是本站生成摘要。' * 8},
+            {'id': 'interview-1', 'url': 'https://example.com/interview', 'content_text': '采集原始访谈证据。' * 8},
+        ]), encoding='utf-8')
+        mock = MockLLM([json.dumps({'companies': []})] * 2)
+        overview.build(self.snapshot, self.feed, self.root / 'work', self.previous,
+            self.cache, TX, llm_fn=mock, evidence_path=evidence_path)
+        self.assertTrue(any('采集原始证据' in user for _, user, _ in mock.calls))
+        self.assertFalse(any('面向海外用户提供实时对话服务' in user for _, user, _ in mock.calls))
+
+    def test_mismatched_evidence_blocks_before_model_call(self):
+        path = self.root / 'bad-evidence.json'
+        path.write_text('[]', encoding='utf-8')
+        mock = MockLLM([])
+        with self.assertRaisesRegex(ValueError, '证据不一致'):
+            overview.build(self.snapshot, self.feed, self.root / 'work', self.previous,
+                self.cache, TX, llm_fn=mock, evidence_path=path)
+        self.assertEqual(mock.calls, [])
+
+    def test_profile_change_has_separate_update_time(self):
+        initial, _ = self.build([
+            json.dumps({'companies': [{'company_name': '星河科技', 'industry_id': 'ai_social'}]}),
+            json.dumps({'companies': []}),
+        ])
+        self.previous.write_text(json.dumps(initial), encoding='utf-8')
+        self.cache.joinpath('extraction_cache.json').unlink()
+        updated = overview.build(self.snapshot, self.feed, self.root / 'work', self.previous,
+            self.cache, TX, llm_fn=MockLLM([
+                json.dumps({'companies': [{'company_name': '星河科技', 'country': '中国', 'industry_id': 'ai_social'}]}),
+                json.dumps({'companies': []}),
+            ]), generated_at='2026-09-14T12:00:00+08:00')
+        row = updated['companies'][0]
+        self.assertEqual(row['latestReportAt'], '2026-09-08T12:00:00+08:00')
+        self.assertEqual(row['profileUpdatedAt'], '2026-09-14T12:00:00+08:00')
 
 
 class CostLimitTest(unittest.TestCase):

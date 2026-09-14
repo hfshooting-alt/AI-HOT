@@ -18,7 +18,7 @@ DEFAULTS = {
     "max_new_items_per_run": 40,
     "max_output_tokens": 180,
 }
-PROMPT_VERSION = 1
+PROMPT_VERSION = 2
 
 
 def cfg(tx: dict) -> dict:
@@ -45,8 +45,10 @@ def cache_key(tx: dict, item: dict) -> str:
 def build_prompt(tx: dict, item: dict) -> tuple[str, str]:
     system = """你是 Garena 投资部 AI 新闻相关性筛选器。
 判断文章的核心事件是否与人工智能有实质关系。以下情况为 relevant=true：AI 模型、AI 产品、AI 公司、AI 融资、AI 研究、AI 算力、AI 智能体、机器人或 AI 对游戏/社交/内容行业产生直接影响的事件。
+重点关注应用、游戏与互动娱乐、模型平台、融资并购及重要行业变化；其他 AI 赛道的实质新闻同样保留，不因不在重点赛道而排除。营销软文、只有宣传口号或缺乏具体事件事实的内容为 relevant=false；产品发布即使来自官方宣传，只要有具体新功能等事实，仍可保留。
 仅在标题或正文顺带出现 AI、公司背景中提到 AI、普通游戏/电商/广告/影视/金融新闻没有具体 AI 事件时，必须为 relevant=false。
 不要依据常识补充信息。evidence 必须逐字复制标题或正文中的一段连续原文，最多 80 字；无法给出证据时视为输出失败。
+可以直接复制完整标题作为证据。不得拼接不同句子，不得翻译英文、改写词语、删除引号或修正标点；复制的文字必须在输入中连续出现。
 只输出 JSON：{"relevant":true,"reason":"一句简短理由","evidence":"原文证据"}"""
     c = cfg(tx)
     user = (f"标题：{item.get('title') or ''}\n来源：{item.get('mpName') or item.get('source') or ''}\n\n"
@@ -70,8 +72,7 @@ def source_evidence(evidence: str, *texts: str) -> str | None:
         start = "".join(compact).find(needle)
         if start >= 0 and needle:
             actual = text[positions[start]:positions[start + len(needle) - 1] + 1]
-            if len(actual) <= 80:
-                return actual
+            return actual
     return None
 
 
@@ -89,11 +90,12 @@ def screen_one(tx: dict, item: dict, llm_fn=call_llm) -> dict:
             raise ValueError("模型输出缺少 relevant 布尔值")
         evidence = raw.get("evidence")
         reason = raw.get("reason")
-        if not isinstance(evidence, str) or not evidence.strip() or len(evidence.strip()) > 80:
-            raise ValueError("evidence 缺失或过长")
+        if not isinstance(evidence, str) or not evidence.strip():
+            raise ValueError("evidence 缺失")
         evidence = source_evidence(evidence.strip(), title, content)
         if evidence is None:
             raise ValueError("evidence 不是标题或正文中的连续原文")
+        evidence = evidence[:80]
         if not isinstance(reason, str) or not reason.strip():
             raise ValueError("reason 缺失")
         return {"status": "complete", "relevant": raw["relevant"],

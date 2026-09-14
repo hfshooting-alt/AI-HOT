@@ -151,6 +151,9 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
     screen_fn = screen_fn or screen_news.screen_items
     enrich_fn = enrich_fn or enrich_news.enrich_items
     results, stats = screen_fn(pool, tx, str(cache_dir / 'news_relevance.json'), max_new_items=len(pool))
+    manus.atomic_write_json(workspace / 'inputs/relevance-review.json', [
+        {'id': i['id'], 'title': i['title'], 'url': i['url'],
+         'result': results.get(screen_news.item_key(i), {})} for i in pool])
     if any(results.get(screen_news.item_key(i), {}).get('status') != 'complete' for i in pool):
         raise ValueError('Shared relevance processing incomplete; keep previous publication')
     selected = [i for i in pool if results[screen_news.item_key(i)]['relevant'] is True]
@@ -177,6 +180,9 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
     contracts.validate_feed(feed, str(ROOT / 'config/taxonomy.json'))
     manus.atomic_write_json(workspace / 'data/manus/current.json', feed)
     manus.atomic_write_json(workspace / 'data/manus/archive' / f'{date}.json', feed)
+    # Keep extraction grounded in the collected evidence, not our generated summary.
+    manus.atomic_write_json(workspace / 'inputs/company-evidence.json', [
+        {'id': i['id'], 'url': i['url'], 'content_text': i['content_text']} for i in selected])
     payload = {'collectionWindow': window, 'items': processed, 'collectionStatus': collection,
                'dailyReport': aihot.get('dailyReport'), 'hot': aihot.get('hot') or {}}
     manus.atomic_write_json(workspace / 'inputs/processed.json', payload)

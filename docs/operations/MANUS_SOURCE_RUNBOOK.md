@@ -6,7 +6,7 @@
 ## 1. 日常运行（全自动）
 
 - 定时：每天北京时间 09:30（UTC 01:30）开始；固定窗口为前一日09:30至该日09:30，含起点不含终点。`date` 是窗口结束日，实际启动可能因 GitHub 排队延迟。
-- `fetch-manus.yml` 依次执行 discovery、content、feed、snapshot（含历史/周报）、funding，全部成功后更新正式产物并提交。
+- `fetch-manus.yml` 并行执行 AIHOT/discovery，再运行 content、news、snapshot、overview、funding；部分来源失败允许降级，后续加工与产物校验完成后提交。验收遵循 [投资人验收口径](INVESTOR_ACCEPTANCE.md)。
 - 失败查看 Actions 日志和 `pipeline-status` Artifact；不自动发 Issue 或评论。
 
 ## 2. 手动运行与调试
