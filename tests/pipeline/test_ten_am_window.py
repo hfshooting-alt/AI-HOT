@@ -151,6 +151,16 @@ class TestTenAm(unittest.TestCase):
         with self.assertRaises(contracts.ContractError):
             contracts.validate_feed(bad, str(TAXONOMY))
 
+    def test_yesterday_feed_keeps_date_precision_and_requires_observation(self):
+        feed = self.make_feed()
+        item = feed['items'][0]
+        item.update(publishedAt='2026-09-08', publishedPrecision='date',
+                    timeEvidence={'originalText': '昨天', 'observedAt': '2026-09-09T10:10:00+08:00'})
+        contracts.validate_feed(feed, str(TAXONOMY))
+        del item['timeEvidence']
+        with self.assertRaises(contracts.ContractError):
+            contracts.validate_feed(feed, str(TAXONOMY))
+
     def test_snapshot_daily_and_new_archive_use_same_window(self):
         feed = self.make_feed()
         feed_path = self.root / "feed.json"

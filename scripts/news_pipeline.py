@@ -88,7 +88,8 @@ def candidates(aihot, manus_articles):
                      'title': a['title'], 'url': a['article_url'], 'source': label,
                      'mpName': a['account_name'], 'sourceType': source_type, 'sourceChannel': channel,
                      'sourcePlatform': a.get('source_platform'), 'collector': 'manus',
-                     'publishedAt': a['published_at'], 'publishedPrecision': 'datetime',
+                     'publishedAt': a['published_at'], 'publishedPrecision': a.get('publishedPrecision', 'datetime'),
+                     'timeEvidence': a.get('timeEvidence'),
                      'content_text': a['content_text'], 'evidenceKind': 'article_body'})
     for raw in aihot:
         item = dict(raw)
@@ -155,24 +156,33 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
     manus.atomic_write_json(workspace / 'inputs/relevance-review.json', [
         {'id': i['id'], 'title': i['title'], 'url': i['url'],
          'result': results.get(screen_news.item_key(i), {})} for i in pool])
-    if any(results.get(screen_news.item_key(i), {}).get('status') != 'complete' for i in pool):
-        raise ValueError('Shared relevance processing incomplete; keep previous publication')
-    selected = [i for i in pool if results[screen_news.item_key(i)]['relevant'] is True]
+    quarantined = [{'id': i['id'], 'title': i['title'], 'url': i['url'], 'stage': 'relevance',
+                    'reason': '内容或原文证据不足，相关性未核实'} for i in pool
+                   if results.get(screen_news.item_key(i), {}).get('status') != 'complete']
+    selected = [i for i in pool if results.get(screen_news.item_key(i), {}).get('status') == 'complete'
+                and results[screen_news.item_key(i)].get('relevant') is True]
+    if pool and len(quarantined) == len(pool):
+        raise ValueError('Shared relevance processing unavailable; keep previous publication')
     enriched = enrich_fn(selected, tx, str(cache_dir / 'news_enrichment.json'))
     processed = []
     for item in selected:
         result = enriched.get(enrich_news.enrich_item_key(item), {})
         if (result.get('enrichmentStatus') != 'complete' or not result.get('summary')
                 or result.get('classification', {}).get('autoFallback', True)):
-            raise ValueError('Shared summary/classification incomplete; keep previous publication')
+            quarantined.append({'id': item['id'], 'title': item['title'], 'url': item['url'],
+                                'stage': 'enrichment', 'reason': '摘要或分类未通过校验'})
+            continue
         clean = {k: v for k, v in item.items() if k != 'content_text'}
         clean.update(summary=result['summary'], classification=result['classification'],
                      enrichmentStatus='complete', contentSha256=contracts.content_sha256(item['content_text']))
         processed.append(clean)
+    if quarantined and not processed:
+        raise ValueError('No approved news after summary/classification; keep previous publication')
     collection = {'collectionWindow': window,
                   'degraded': any(a['status'] in ('failed', 'partial') for a in audits),
                   'sources': audits, 'candidateArticles': len(pool), 'publishedArticles': len(processed),
-                  'excludedArticles': stats['irrelevant']}
+                  'excludedArticles': stats['irrelevant'], 'quarantinedArticles': len(quarantined),
+                  'quarantined': quarantined}
     # Fresh, explicitly degraded empty Manus data prevents stale-feed re-injection.
     feed = manus.assemble_feed(date, discoveries,
                               [i for i in processed if i['collector'] == 'manus'], 0, manus.now_bj_iso())
@@ -183,7 +193,8 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
     manus.atomic_write_json(workspace / 'data/manus/archive' / f'{date}.json', feed)
     # Keep extraction grounded in the collected evidence, not our generated summary.
     manus.atomic_write_json(workspace / 'inputs/company-evidence.json', [
-        {'id': i['id'], 'url': i['url'], 'content_text': i['content_text']} for i in selected])
+        {'id': i['id'], 'url': i['url'], 'content_text': i['content_text']} for i in selected
+        if i['id'] in {p['id'] for p in processed}])
     payload = {'collectionWindow': window, 'items': processed, 'collectionStatus': collection,
                'dailyReport': aihot.get('dailyReport'), 'hot': aihot.get('hot') or {}}
     manus.atomic_write_json(workspace / 'inputs/processed.json', payload)

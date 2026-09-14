@@ -134,6 +134,8 @@ export function fmtRelative(iso?: string): string {
 
 /** 条目展示时间：快照带 timeText 时优先，否则按北京时间格式 "8/18 08:01" */
 export function fmtItemTime(item: NewsItem): string {
+  if (item.publishedPrecision === "date") return `${item.publishedAt || ""} · ${item.timeEvidence?.originalText === "昨天" ? "原文标注昨天，" : ""}具体时刻未披露`;
+  if (item.publishedPrecision === "relative" && item.timeEvidence) return `${item.publishedAt?.slice(0, 10) || ""} · 采集时标注${item.timeEvidence.originalText}（估算）`;
   const d = bjDate(item.publishedAt);
   if (!d) return item.timeText || "";
   const now = new Date(Date.now() + 8 * 3600 * 1000);

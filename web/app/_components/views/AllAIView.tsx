@@ -199,6 +199,8 @@ export function AllAIView() {
           )}
           {collection.sources.some((s) => s.status === "not_requested") && <p>本批次未启用 Manus 信源。</p>}
           <p>合并候选 {collection.candidateArticles} 篇 · 相关性排除 {collection.excludedArticles} 篇 · 发布 {collection.publishedArticles} 篇。未完成来源不计为“今日无更新”。</p>
+          <p>原文标注“昨天”的文章按采集时的北京时间归入前一自然日，全天纳入；具体时刻未知时明确标注。</p>
+          {!!collection.quarantinedArticles && <details className="mt-2"><summary>另有 {collection.quarantinedArticles} 篇隔离待核查，未进入新闻和公司更新</summary><ul>{collection.quarantined?.map((item) => <li key={item.id}><a href={item.url} target="_blank" rel="noreferrer" className="text-brand underline">{item.title}</a>：{item.reason}</li>)}</ul></details>}
         </aside>
       )}
 

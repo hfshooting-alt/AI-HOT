@@ -1,6 +1,6 @@
 // 新闻条目卡片：时间·来源·标签 → 标题 → 摘要 → 评分。
 import type { NewsItem } from "../../_lib/domain/types";
-import { fmtClock, itemUrl } from "../../_lib/display/format";
+import { fmtClock, fmtItemTime, itemUrl } from "../../_lib/display/format";
 import { categoryOf, TAXONOMY_CATEGORY_COLORS, TAXONOMY_LABELS } from "../../_lib/domain/taxonomy";
 import { ScoreBadge, SectionTag } from "./ScoreBadge";
 import { BookmarkIcon } from "../shared/icons";
@@ -15,7 +15,8 @@ export function ArticleCard({ item, showSection = true }: { item: NewsItem; show
       <div className="mb-2.5 flex flex-wrap items-center gap-x-3 gap-y-1.5">
         <span className="inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-ink-2">
           <span className="size-1.5 rounded-full bg-ink-2" aria-hidden />
-          {fmtClock(item.publishedAt) || item.timeText}
+          {item.publishedPrecision === "date" || item.publishedPrecision === "relative"
+            ? fmtItemTime(item) : fmtClock(item.publishedAt) || item.timeText}
           {item.timeBasis === "discovered" && <span className="font-normal text-mut-2">AIHOT 收录</span>}
         </span>
         <span

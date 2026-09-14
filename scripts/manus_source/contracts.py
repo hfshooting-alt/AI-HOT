@@ -114,9 +114,13 @@ def validate_discovery(payload: dict, expected_group: str, target_date: str,
                 raise ContractError(f"账号 {account} 的 complete 文章缺少 title")
             if window:
                 try:
-                    if not contains(window, art.get("published_at")):
+                    from .window import matching_item
+                    if not matching_item(window, {'publishedAt': art.get('published_at'),
+                        'publishedPrecision': art.get('publishedPrecision'), 'timeEvidence': art.get('timeEvidence')}):
                         raise ValueError("不在窗口内")
-                    if timestamp(art["published_at"]).date().isoformat() != art.get("published_date"):
+                    day = (art['published_at'] if art.get('publishedPrecision') == 'date'
+                           else timestamp(art['published_at']).date().isoformat())
+                    if day != art.get("published_date"):
                         raise ValueError("日期与时间不一致")
                 except (ValueError, TypeError) as exc:
                     raise ContractError(f"账号 {account} 发布时间不合法或不在十点窗口内") from exc
@@ -306,7 +310,7 @@ def validate_feed(feed: dict, taxonomy_path: str) -> None:
             raise ContractError(f"{ctx} sourceChannel 非法：{it.get('sourceChannel')!r}")
         if it["collector"] != "manus":
             raise ContractError(f"{ctx} collector 应为 manus，实际 {it['collector']!r}")
-        if it["publishedPrecision"] not in ("date", "datetime"):
+        if it["publishedPrecision"] not in ("date", "datetime", "relative"):
             raise ContractError(f"{ctx} publishedPrecision 非法")
         try:
             datetime.fromisoformat(it["publishedAt"])
@@ -351,7 +355,8 @@ def validate_feed(feed: dict, taxonomy_path: str) -> None:
             raise ContractError("feed 时间窗口与目标日期不一致")
         for it in items:
             try:
-                if it["publishedPrecision"] != "datetime" or not contains(window, it["publishedAt"]):
+                from .window import matching_item
+                if not matching_item(window, it):
                     raise ValueError("窗口外或时间未知")
             except (ValueError, TypeError) as exc:
                 raise ContractError("feed 包含无法确认在十点窗口内的文章") from exc

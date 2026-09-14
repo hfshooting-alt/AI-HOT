@@ -626,6 +626,8 @@ def to_bj(iso: str) -> datetime:
     """ISO8601 -> 北京时间 datetime（无法解析时返回遥远的过去）。"""
     try:
         dt = datetime.fromisoformat(iso.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=BJ)
         return dt.astimezone(BJ)
     except (ValueError, AttributeError):
         return datetime(2000, 1, 1, tzinfo=BJ)
@@ -669,6 +671,8 @@ def build_item(raw: dict, num: int, today: datetime) -> dict:
         "category": category,
         "categoryUnclassified": not bool(raw.get("category") or raw.get('classification')),
         "publishedAt": raw.get("publishedAt") or "",
+        "publishedPrecision": raw.get('publishedPrecision', 'datetime'),
+        "timeEvidence": raw.get('timeEvidence'),
         "discoveredAt": raw.get("discoveredAt") or "",
         "timeBasis": raw.get("timeBasis") or ("published" if raw.get("publishedAt") else "discovered"),
         "score": raw.get("score") if isinstance(raw.get("score"), (int, float)) else None,
@@ -683,7 +687,11 @@ def build_item(raw: dict, num: int, today: datetime) -> dict:
         "classification": (tag_news.to_display(TAG_TAXONOMY, raw["classification"])
                            if TAG_TAXONOMY and raw.get("classification") else None),
         "num": num,
-        "timeText": fmt_time_text(published, today),
+        "timeText": (f"{published.month}/{published.day} · " + ('原文标注昨天，' if (raw.get('timeEvidence') or {}).get('originalText') == '昨天' else '') + '具体时刻未披露'
+                     if raw.get('publishedPrecision') == 'date' else
+                     f"{published.month}/{published.day} · 采集时标注{raw['timeEvidence']['originalText']}（估算）"
+                     if raw.get('publishedPrecision') == 'relative' and raw.get('timeEvidence') else
+                     fmt_time_text(published, today)),
     }
 
 

@@ -115,3 +115,12 @@ python scripts/manus_source/runner.py --date 2026-09-10 --ten-am --account "机�
   可用设置页 `scripts/settings-server.mjs` 写入，页面响应不回显明文）。
 - 正文全文只存在于运行时 `work/`（已 gitignore）；当前 Artifact 只上传统一编排的 `state.json`，不上传原始结果或正文。
 - 分发打包（见外层 `DISTRIBUTE.md`）不得携带 key、正文与本地 `.env`。
+
+
+## 2026-09-14：单条隔离与“昨天”收录口径
+
+用户确认单条失败不得阻断整批。相关新闻缺证据、摘要分类未通过时，写入collectionStatus.quarantined及计数，不进入新闻或公司证据输入；公司抽取失败写入articleFailures，已有资料保留。来源、模型阶段整体不可用和跨产物校验失败仍保护旧网页。前端显示隔离数量、原因与原文链接。
+
+绝对时间维持北京时间前一日09:30至当天09:30的固定窗口。原文或对应卡片标注“昨天”时，按采集记录接收时间（北京时间）的前一自然日全天纳入，这是用户授权的日期精度例外，不宣称严格24小时覆盖。published_at为YYYY-MM-DD，publishedPrecision=date；timeEvidence包含originalText和本地observedAt，不生成虚构钟点。历史补跑不能把今天读到的“昨天”解释为历史目标日。
+
+“N小时前/分钟前”保存原始文字，publishedPrecision=relative；published_at仅用于排序和窗口估算。以接收时间换算，并保守要求估算时刻前后各一个单位均在固定窗口内，边界不确定则隔离。网页明确显示估算。绝对日期但无时刻、无“昨天”证据的记录仍不作为窗口内文章。Manus原始输出用published_time_text，本地生成timeEvidence与精度字段；快照/feed保留这些字段。

@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
-          llm_fn=call_llm, generated_at=None, require_complete=False, evidence_path=None):
+          llm_fn=call_llm, generated_at=None, require_complete=False, evidence_path=None, allow_partial=False):
     articles = load_articles(snapshot_path, feed_path, work_dir, tx)
     if evidence_path:
         evidence = json.loads(Path(evidence_path).read_text(encoding='utf-8'))
@@ -49,7 +49,11 @@ def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
              "companiesTotal": len(companies),
              "productsTotal": sum(len(c["product_names"]) for c in companies)}
     data = assemble(companies, stats, generated_at or now_bj_iso())
-    if require_complete and (complete != len(articles) or failed or cost['articlesDeferred']):
+    if allow_partial:
+        data['articleFailures'] = [{'id': a['id'], 'title': a['title'], 'url': a['url'],
+            'reason': '公司资料提取未完成，保留已有公司资料'} for a in articles
+            if extracts.get(a['id'], {}).get('status') != 'complete']
+    if require_complete and not allow_partial and (complete != len(articles) or failed or cost['articlesDeferred']):
         raise ValueError(f'公司抽取未完整完成：成功{complete}/{len(articles)}，失败{failed}，待处理{cost["articlesDeferred"]}')
     from apply_quality_review import apply
     rules = json.loads((ROOT / 'config/quality_review.json').read_text(encoding='utf-8'))
@@ -86,13 +90,14 @@ def main(argv=None):
     parser.add_argument("--generated-at", default=None)
     parser.add_argument('--require-complete', action='store_true', help='覆盖全部输入文章；任何失败/待处理均阻止晋升')
     parser.add_argument('--evidence-json', help='本批次审核通过的原始证据，仅保存在隔离工作目录')
+    parser.add_argument('--allow-partial', action='store_true', help='隔离单篇公司抽取失败，保留成功更新及旧资料')
     args = parser.parse_args(argv)
     tx = tag_news.load_taxonomy(str(ROOT / args.taxonomy))
     try:
         data = build(ROOT / args.snapshot, ROOT / args.feed, ROOT / args.work_dir,
                      ROOT / args.previous, ROOT / args.cache_dir, tx,
                      generated_at=args.generated_at, require_complete=args.require_complete,
-                     evidence_path=args.evidence_json)
+                     evidence_path=args.evidence_json, allow_partial=args.allow_partial)
     except ValueError as exc:
         print(f"公司与产品库构建失败，保留上一次产物：{exc}", file=sys.stderr)
         return 1

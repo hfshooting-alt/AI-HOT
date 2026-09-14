@@ -85,6 +85,7 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
     if window:
         article_schema = schema["properties"]["articles"]["items"]
         article_schema["properties"]["published_at"] = {"type": ["string", "null"]}
+        article_schema['properties']['published_time_text'] = {'type': ['string', 'null']}
         article_schema["required"].append("published_at")
     task = client.create_crawl_task(
         prompt_text=prompt_text,
@@ -92,14 +93,18 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
         target_date=target_date,
         title=f"AI 新闻采集 {target_date} · {group}",
         task_brief=(f"只采集 {window['start']}（含）至 {window['end']}（不含）的文章；"
-                    "published_at 必须来自详情页明确时间。" if window else DISCOVERY_BRIEF),
+                    "另纳入采集时标注昨天的文章；相对时间保留published_time_text，不编造精确时间。" if window else DISCOVERY_BRIEF),
         output_schema=schema,
     )
     print(f"[{group}] Manus task created: {task.task_url}", flush=True)
     from manus_source.checkpoints import accept_article, partial_payload, normalize_article_time
     verified = {}
     def checkpoint(article):
-        article = normalize_article_time(article)
+        previous = verified.get(article.get('article_url'))
+        if previous and previous.get('published_time_text') == article.get('published_time_text'):
+            article = {**article, **{k: previous[k] for k in ('published_at', 'published_date', 'publishedPrecision', 'timeEvidence') if k in previous}}
+        else:
+            article = normalize_article_time(article)
         if accept_article(article, group, target_date, expected_accounts, window, source_specs):
             verified[article['article_url']] = article
             if checkpoint_path:
@@ -141,7 +146,19 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
     if window:
         payload["schema_version"] = contracts.WINDOW_DISCOVERY_SCHEMA_VERSION
         payload["collectionWindow"] = window
-        payload['articles'] = [normalize_article_time(a) for a in payload['articles']]
+        rejected = {}
+        for article in payload['articles']:
+            checkpoint(article)
+            if article.get('extraction_status') == 'complete' and article.get('article_url') not in verified:
+                name = article.get('account_name')
+                rejected[name] = rejected.get(name, 0) + 1
+        payload['articles'] = list(verified.values())
+        for audit in payload['source_audits']:
+            name = audit['account_name']
+            audit['article_count'] = sum(a['account_name'] == name for a in payload['articles'])
+            if rejected.get(name):
+                audit['source_status'] = 'partial' if audit['article_count'] else 'failed'
+                audit['note'] = f"article_quarantined: {rejected[name]} articles failed identity/time validation; " + (audit.get('note') or '')
     try:
         if source_specs is not None and any(a.get('extraction_status') == 'complete'
                 and not accept_article(a, group, target_date, expected_accounts, window, source_specs)

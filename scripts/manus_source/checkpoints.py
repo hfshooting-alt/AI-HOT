@@ -1,14 +1,29 @@
 """Recover explicit article checkpoints; prose and incomplete claims are never articles."""
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
+import re
 from urllib.parse import urlparse
 from . import contracts
 from .window import BJ
 
 
-def normalize_article_time(article):
+def normalize_article_time(article, observed_at=None):
     """Chinese media wall-clock timestamps are Beijing time; explicit offsets convert."""
     result = dict(article)
+    label = result.get('published_time_text') or ''
+    if label == '昨天' or re.fullmatch(r'\d+\s*(小时|分钟)前', label):
+        observed = observed_at or datetime.now(BJ)
+        result['timeEvidence'] = {'originalText': label, 'observedAt': observed.isoformat()}
+        if label == '昨天':
+            result['published_at'] = (observed - timedelta(days=1)).date().isoformat()
+            result['publishedPrecision'] = 'date'
+        else:
+            match = re.fullmatch(r'(\d+)\s*(小时|分钟)前', label)
+            unit = timedelta(hours=1) if match[2] == '小时' else timedelta(minutes=1)
+            result['published_at'] = (observed - int(match[1]) * unit).isoformat()
+            result['publishedPrecision'] = 'relative'
+        result['published_date'] = result['published_at'][:10]
+        return result
     value = result.get('published_at')
     if not isinstance(value, str) or not any(c in value for c in ('T', ' ')):
         return result

@@ -91,8 +91,13 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
         if overview != web_overview:
             raise ValueError("候选公司与产品产物不一致")
         stats = overview.get('stats', {})
-        if stats.get('articlesFailed', 0) or stats.get('articlesDeferred', 0):
-            raise ValueError('公司抽取仍有失败或待处理文章，禁止发布部分更新')
+        if (stats.get('articlesFailed', 0) + stats.get('articlesDeferred', 0)
+                != len(overview.get('articleFailures', []))):
+            raise ValueError('公司隔离清单与失败/待处理计数不一致，禁止发布')
+        failures = overview.get('articleFailures', [])
+        if len({a.get('id') for a in failures}) != len(failures) or any(
+                not a.get('id') or not a.get('url') or not a.get('reason') for a in failures):
+            raise ValueError('公司隔离清单缺少追溯信息或重复')
 
 
 def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False, *, ten_am=False,
@@ -149,6 +154,7 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
                 commands[stage][commands[stage].index('--work-dir') + 1] = str(manus_work)
         commands['snapshot'].extend(('--input-json', str(workspace / 'inputs/processed.json'), '--no-tags'))
         commands['overview'].extend(('--evidence-json', str(workspace / 'inputs/company-evidence.json')))
+        commands['overview'].append('--allow-partial')
     return commands
 
 

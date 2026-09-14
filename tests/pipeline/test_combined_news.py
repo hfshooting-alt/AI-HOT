@@ -123,6 +123,23 @@ class CombinedNews(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'relevance'):
             news.process(DATE, self.workspace, self.raw, screen_fn=failed, enrich_fn=enrich)
 
+    def test_failed_item_is_isolated_at_each_model_stage(self):
+        second = {**self.item, 'id': 'second', 'title': '另一篇报道', 'url': 'https://example.com/second'}
+        publish.save(self.workspace / 'inputs/aihot.json', {'collectionWindow': ten_am_window(DATE), 'items': [self.item, second]})
+        def partly_screen(items, *args, **kwargs):
+            result, stats = screen(items, *args, **kwargs)
+            result.pop(screen_news.item_key(items[1]))
+            return result, stats
+        def partly_enrich(items, *args):
+            return enrich(items[:1])
+        for screening, enriching, stage in [(partly_screen, enrich, 'relevance'), (screen, partly_enrich, 'enrichment')]:
+            result = news.process(DATE, self.workspace, self.raw, screen_fn=screening, enrich_fn=enriching)
+            self.assertEqual(len(result['items']), 1)
+            self.assertEqual(result['collectionStatus']['quarantinedArticles'], 1)
+            self.assertEqual(result['collectionStatus']['quarantined'][0]['stage'], stage)
+            evidence = news.read(self.workspace / 'inputs/company-evidence.json')
+            self.assertEqual([i['id'] for i in evidence], [i['id'] for i in result['items']])
+
     def test_wrong_window_cannot_enter_current_batch(self):
         publish.save(self.workspace / 'inputs/aihot.json', {'collectionWindow': {}, 'items': [self.item]})
         with self.assertRaisesRegex(ValueError, 'window'):

@@ -2,6 +2,7 @@
 from datetime import date, datetime, time, timedelta
 from zoneinfo import ZoneInfo
 import os
+import re
 
 BJ = ZoneInfo("Asia/Shanghai")
 
@@ -41,6 +42,26 @@ def contains(window: dict, value: str) -> bool:
 
 
 def matching_item(window: dict, item: dict) -> bool:
+    evidence = item.get('timeEvidence') or {}
+    if evidence:
+        try:
+            observed = timestamp(evidence['observedAt'])
+            label = evidence['originalText'].strip()
+            if label == '昨天':
+                day = (observed - timedelta(days=1)).date().isoformat()
+                return (day == timestamp(window['start']).date().isoformat()
+                        and item.get('publishedAt') == day and item.get('publishedPrecision') == 'date')
+            match = re.fullmatch(r'(\d+)\s*(小时|分钟)前', label)
+            if match:
+                unit = timedelta(hours=1) if match[2] == '小时' else timedelta(minutes=1)
+                n = int(match[1])
+                estimate = observed - n * unit
+                return (timestamp(item['publishedAt']) == estimate
+                        and timestamp(window['start']) <= estimate - unit
+                        and estimate + unit < timestamp(window['end']))
+        except (ValueError, TypeError, KeyError):
+            return False
+        return False
     if item.get("publishedPrecision") == "date":
         return False
     try:

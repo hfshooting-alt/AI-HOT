@@ -77,6 +77,14 @@ class CompanyOverviewTest(unittest.TestCase):
                            self.cache, TX, llm_fn=model, require_complete=True)
         self.assertFalse(self.previous.exists())
 
+    def test_partial_mode_retains_success_and_exposes_article_failure(self):
+        model = MockLLM(['{"companies":[]}', 'invalid'])
+        result = overview.build(self.snapshot, self.feed, self.root/'work', self.previous,
+                                self.cache, TX, llm_fn=model, require_complete=True, allow_partial=True)
+        self.assertEqual(result['stats']['articlesComplete'], 1)
+        self.assertEqual(len(result['articleFailures']), 1)
+        self.assertTrue(result['articleFailures'][0]['url'].startswith('https://'))
+
     def test_all_categories_merge_company_products_and_field_sources(self):
         release = json.dumps({"companies": [{"company_name": "星河科技", "aliases": [],
             "product_names": ["小星"], "country": "中国", "business": "AI陪伴产品",

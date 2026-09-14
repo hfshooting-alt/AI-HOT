@@ -258,6 +258,7 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
             <span>更新于 {generatedAt}</span>
             <span>{overview.stats.articlesComplete} 篇已处理</span>
             {overview.stats.articlesDeferred > 0 && <span>{overview.stats.articlesDeferred} 篇待后续批次</span>}
+            {overview.stats.articlesFailed > 0 && <span>{overview.stats.articlesFailed} 篇公司识别失败，已有档案保留</span>}
           </div>
           <label className="flex items-center gap-2 text-[11px] text-mut">
             排序

@@ -24,6 +24,8 @@ export interface NewsItem {
   /** 上游没有返回分类时为 true；展示层会暂时归入泛行业新闻并明确提示。 */
   categoryUnclassified?: boolean;
   publishedAt?: string;
+  publishedPrecision?: "datetime" | "date" | "relative";
+  timeEvidence?: { originalText: string; observedAt: string } | null;
   discoveredAt?: string;
   score?: number | null;
   selected?: boolean;
@@ -101,6 +103,8 @@ export interface Snapshot {
     candidateArticles: number;
     publishedArticles: number;
     excludedArticles: number;
+    quarantinedArticles?: number;
+    quarantined?: { id: string; title: string; url: string; stage: string; reason: string }[];
   };
   publicationMode?: "pipeline";
   daily: DigestView;
@@ -270,6 +274,7 @@ export interface CompanyProfile {
 }
 
 export interface CompanyOverview {
+  articleFailures?: { id: string; title: string; url: string; reason: string }[];
   schemaVersion: number;
   generatedAt: string;
   coverageNote: string;
