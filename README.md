@@ -108,4 +108,6 @@ AI-HOT/
 已有候选可通过`run_pipeline.py review-candidate`校验，再通过`publish-candidate`发布；不重新调用接口。详细步骤见[运行手册](docs/operations/AUTOMATED_PIPELINE.md)。当前交接与历史验证记录已分别归档。
 ## 公司资料联网核验
 
+主体支持商业公司、基金会与开源组织，非商业主体保留类型和官网依据，赞助商不作为产品归属。[官网资料补全记录](docs/history/2026-09-14/OFFICIAL_COMPANY_RESEARCH.md)。
+
 已有新闻关联实体的 GLM-4V 搜索试验入口、DeepSeek 证据核验及发布边界见[操作说明](docs/operations/COMPANY_WEB_RESEARCH.md)。当前处于独立业务样本验证阶段。

@@ -1,4 +1,5 @@
 "use client";
+import { EntityTypeBadge } from "./EntityTypeBadge";
 import { productText, ProductUpdates } from "./ProductUpdates";
 
 import { useEffect } from "react";
@@ -42,7 +43,7 @@ export function CompanyDetailDrawer({ company, onClose }: {
           <div className="flex items-start justify-between gap-4">
             <div className="min-w-0">
               <p className="text-[10px] font-bold tracking-[0.16em] text-brand">COMPANY PROFILE</p>
-              <h2 id="company-detail-title" className="mt-1 text-[24px] font-extrabold tracking-tight text-ink">{company.company_name}</h2>
+              <h2 id="company-detail-title" className="mt-1 text-[24px] font-extrabold tracking-tight text-ink">{company.company_name}<EntityTypeBadge company={company} /></h2>
               {company.aliases.length > 0 && <p className="mt-1 text-[12px] text-mut">别名：{company.aliases.join("、")}</p>}
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {Object.values(company.dims || {}).filter(Boolean).map((value) => (

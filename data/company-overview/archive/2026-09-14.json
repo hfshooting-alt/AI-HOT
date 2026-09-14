@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-14T17:30:25+08:00",
+  "generatedAt": "2026-09-14T18:17:40+08:00",
   "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
   "stats": {
     "articlesProcessed": 199,
@@ -9,9 +9,9 @@
     "articlesDeferred": 0,
     "modelCalls": 199,
     "cacheHits": 0,
-    "companiesTotal": 64,
-    "productsTotal": 82,
-    "pendingEntities": 9,
+    "companiesTotal": 65,
+    "productsTotal": 83,
+    "pendingEntities": 8,
     "excludedEntities": 2
   },
   "companies": [
@@ -3362,7 +3362,7 @@
         "Evernote"
       ],
       "founded": null,
-      "country": null,
+      "country": "意大利",
       "team": "50-60 人",
       "business": null,
       "investors": null,
@@ -3370,7 +3370,7 @@
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "欧洲"
       },
       "fieldSources": {
         "company_name": [
@@ -3405,6 +3405,19 @@
             "sourceName": "X：洪明 (@hongming731)",
             "origin": "article"
           }
+        ],
+        "country": [
+          {
+            "value": "意大利",
+            "articleId": "research:bb80fe76e8f76989",
+            "url": "https://bendingspoons.com/documents/Information%20for%20Law%20Enforcement%20Authorities.pdf",
+            "title": "Bending Spoons - Information for Law Enforcement Authorities, page 1",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "incorporated under the laws of Italy",
+            "checkedAt": "2026-09-14"
+          }
         ]
       },
       "sourceArticles": [
@@ -3422,7 +3435,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:19:47.000Z",
       "latestReportAt": "2026-09-14T00:19:47.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-14T18:17:40+08:00",
       "productUpdates": [
         {
           "name": "Evernote",
@@ -4226,7 +4239,7 @@
       "aliases": [],
       "product_names": [],
       "founded": null,
-      "country": null,
+      "country": "加拿大",
       "team": "Aidan Gomez",
       "business": null,
       "investors": null,
@@ -4268,6 +4281,19 @@
             "sourceName": "X：Cohere（@cohere）",
             "origin": "article"
           }
+        ],
+        "country": [
+          {
+            "value": "加拿大",
+            "articleId": "research:d5e4bc54be2c4d71",
+            "url": "https://cohere.com/applicant-privacy",
+            "title": "Cohere applicant privacy",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "Cohere is headquartered in Canada.",
+            "checkedAt": "2026-09-14"
+          }
         ]
       },
       "sourceArticles": [
@@ -4293,7 +4319,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T23:49:27.000Z",
       "latestReportAt": "2026-09-13T23:49:27.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-14T18:17:40+08:00",
       "productUpdates": []
     },
     {
@@ -5901,6 +5927,145 @@
       ]
     },
     {
+      "id": "company:7cd0576a396e77fb",
+      "company_name": "OpenClaw Foundation",
+      "aliases": [],
+      "product_names": [
+        "OpenClaw"
+      ],
+      "founded": null,
+      "country": "美国",
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "美国"
+      },
+      "fieldSources": {
+        "product_names": [],
+        "company_name": [
+          {
+            "value": "OpenClaw Foundation",
+            "articleId": "research:a80910fb45445bc7",
+            "url": "https://openclaw.ai/",
+            "title": "OpenClaw official project",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "OpenClaw is stewarded by the OpenClaw Foundation",
+            "checkedAt": "2026-09-14"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:a80910fb45445bc7",
+            "url": "https://openclaw.ai/",
+            "title": "OpenClaw official project",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "an independent US 501(c)(3) non-profit",
+            "checkedAt": "2026-09-14"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu0gm1dh0nkfroryklrzuv4x",
+          "title": "普林斯顿团队研究显示AI智能体尚难独立完成开放式AI研究",
+          "url": "https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement",
+          "publishedAt": "2026-09-13T18:49:44.000Z",
+          "sourceName": "Hacker News：AI 热帖",
+          "category": "paper"
+        }
+      ],
+      "firstSeenAt": "2026-09-13T18:49:44.000Z",
+      "lastSeenAt": "2026-09-13T18:49:44.000Z",
+      "entityType": "foundation",
+      "updatedAt": "2026-09-13T18:49:44.000Z",
+      "latestReportAt": "2026-09-13T18:49:44.000Z",
+      "profileUpdatedAt": "2026-09-14T18:17:40+08:00",
+      "productUpdates": [
+        {
+          "name": "OpenClaw",
+          "relationship": "owned",
+          "quote": "",
+          "articleId": "aihot:cmu0gm1dh0nkfroryklrzuv4x",
+          "url": "https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement",
+          "title": "普林斯顿团队研究显示AI智能体尚难独立完成开放式AI研究",
+          "publishedAt": "2026-09-13T18:49:44.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "OpenClaw Foundation",
+            "quote": "OpenClaw is stewarded by the OpenClaw Foundation",
+            "url": "https://openclaw.ai/",
+            "title": "OpenClaw official project",
+            "checkedAt": "2026-09-14"
+          }
+        }
+      ],
+      "brandProfiles": {
+        "OpenClaw": {
+          "id": "company:96a4bc2602655473",
+          "company_name": "OpenClaw",
+          "aliases": [],
+          "product_names": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "其他AI应用",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "OpenClaw",
+                "articleId": "aihot:cmu0gm1dh0nkfroryklrzuv4x",
+                "url": "https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement",
+                "title": "普林斯顿团队研究显示AI智能体尚难独立完成开放式AI研究",
+                "publishedAt": "2026-09-13T18:49:44.000Z",
+                "sourceName": "Hacker News：AI 热帖",
+                "origin": "article"
+              }
+            ],
+            "product_names": []
+          },
+          "sourceArticles": [
+            {
+              "id": "aihot:cmu0gm1dh0nkfroryklrzuv4x",
+              "title": "普林斯顿团队研究显示AI智能体尚难独立完成开放式AI研究",
+              "url": "https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement",
+              "publishedAt": "2026-09-13T18:49:44.000Z",
+              "sourceName": "Hacker News：AI 热帖",
+              "category": "paper"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T18:49:44.000Z",
+          "lastSeenAt": "2026-09-13T18:49:44.000Z",
+          "entityType": "product",
+          "updatedAt": "2026-09-13T18:49:44.000Z",
+          "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+          "latestReportAt": "2026-09-13T18:49:44.000Z",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+          "productUpdates": []
+        }
+      },
+      "entityTypeEvidence": {
+        "url": "https://openclaw.ai/",
+        "quote": "an independent US 501(c)(3) non-profit",
+        "checkedAt": "2026-09-14"
+      }
+    },
+    {
       "id": "company:2bca0ae7f983a8da",
       "company_name": "DAIR.AI",
       "aliases": [],
@@ -6277,8 +6442,8 @@
       "company_name": "英伟达",
       "aliases": [],
       "product_names": [],
-      "founded": null,
-      "country": null,
+      "founded": "1993年4月",
+      "country": "美国",
       "team": null,
       "business": null,
       "investors": null,
@@ -6286,7 +6451,7 @@
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -6300,7 +6465,33 @@
             "origin": "article"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "founded": [
+          {
+            "value": "1993年4月",
+            "articleId": "research:68594ce0d888a604",
+            "url": "https://investor.nvidia.com/investor-resources/faqs/",
+            "title": "NVIDIA Investor FAQs",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "incorporated in California in April 1993",
+            "checkedAt": "2026-09-14"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:68594ce0d888a604",
+            "url": "https://investor.nvidia.com/investor-resources/faqs/",
+            "title": "NVIDIA Investor FAQs",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "incorporated in California",
+            "checkedAt": "2026-09-14"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -6317,7 +6508,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T13:48:46.987Z",
       "latestReportAt": "2026-09-13T13:48:46.987Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-14T18:17:40+08:00",
       "productUpdates": []
     },
     {
@@ -6692,8 +6883,8 @@
         "cuML",
         "RAPIDS"
       ],
-      "founded": null,
-      "country": null,
+      "founded": "1993年4月",
+      "country": "美国",
       "team": null,
       "business": "GPU/算力硬件",
       "investors": null,
@@ -6701,7 +6892,7 @@
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -6763,6 +6954,32 @@
             "sourceName": "ZFinance",
             "origin": "article"
           }
+        ],
+        "founded": [
+          {
+            "value": "1993年4月",
+            "articleId": "research:68594ce0d888a604",
+            "url": "https://investor.nvidia.com/investor-resources/faqs/",
+            "title": "NVIDIA Investor FAQs",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "incorporated in California in April 1993",
+            "checkedAt": "2026-09-14"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:68594ce0d888a604",
+            "url": "https://investor.nvidia.com/investor-resources/faqs/",
+            "title": "NVIDIA Investor FAQs",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "incorporated in California",
+            "checkedAt": "2026-09-14"
+          }
         ]
       },
       "sourceArticles": [
@@ -6796,7 +7013,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-14T18:17:40+08:00",
       "productUpdates": [
         {
           "name": "cuML",
@@ -8382,8 +8599,8 @@
       "company_name": "IBM",
       "aliases": [],
       "product_names": [],
-      "founded": null,
-      "country": null,
+      "founded": "1911年6月16日",
+      "country": "美国",
       "team": null,
       "business": null,
       "investors": null,
@@ -8391,7 +8608,7 @@
       "valuation": null,
       "dims": {
         "行业": "AI模型",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -8405,7 +8622,33 @@
             "origin": "article"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "founded": [
+          {
+            "value": "1911年6月16日",
+            "articleId": "research:298993cc2f5fb749",
+            "url": "https://www.ibm.com/investor/help/general-faqs",
+            "title": "IBM Investor FAQs",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "IBM was incorporated in the State of New York on June 16, 1911",
+            "checkedAt": "2026-09-14"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:298993cc2f5fb749",
+            "url": "https://www.ibm.com/investor/help/general-faqs",
+            "title": "IBM Investor FAQs",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "incorporated in the State of New York",
+            "checkedAt": "2026-09-14"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -8422,7 +8665,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T07:35:37.000Z",
       "latestReportAt": "2026-09-13T07:35:37.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-14T18:17:40+08:00",
       "productUpdates": []
     },
     {
@@ -9505,55 +9748,6 @@
       "updatedAt": "2026-09-13T19:46:38.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T19:46:38.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": []
-    },
-    {
-      "id": "company:96a4bc2602655473",
-      "company_name": "OpenClaw",
-      "aliases": [],
-      "product_names": [],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "其他AI应用",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "OpenClaw",
-            "articleId": "aihot:cmu0gm1dh0nkfroryklrzuv4x",
-            "url": "https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement",
-            "title": "普林斯顿团队研究显示AI智能体尚难独立完成开放式AI研究",
-            "publishedAt": "2026-09-13T18:49:44.000Z",
-            "sourceName": "Hacker News：AI 热帖",
-            "origin": "article"
-          }
-        ],
-        "product_names": []
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmu0gm1dh0nkfroryklrzuv4x",
-          "title": "普林斯顿团队研究显示AI智能体尚难独立完成开放式AI研究",
-          "url": "https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement",
-          "publishedAt": "2026-09-13T18:49:44.000Z",
-          "sourceName": "Hacker News：AI 热帖",
-          "category": "paper"
-        }
-      ],
-      "firstSeenAt": "2026-09-13T18:49:44.000Z",
-      "lastSeenAt": "2026-09-13T18:49:44.000Z",
-      "entityType": "product",
-      "updatedAt": "2026-09-13T18:49:44.000Z",
-      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
-      "latestReportAt": "2026-09-13T18:49:44.000Z",
       "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
       "productUpdates": []
     },

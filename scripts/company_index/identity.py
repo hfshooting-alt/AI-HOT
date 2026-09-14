@@ -7,7 +7,7 @@ from pathlib import Path
 from .config import SCALAR_FIELDS
 from .entities import timestamp
 from .entities import entity_id
-from funding.companies import normalize_company_key
+from funding.companies import normalize_company_key, _country_to_region_label
 
 RULES_PATH = Path(__file__).resolve().parents[2] / 'config' / 'company_research.json'
 
@@ -50,6 +50,16 @@ def apply_reviewed_research(companies, rules=None):
             target['lastSeenAt'] = max((target['lastSeenAt'], source['lastSeenAt']), key=timestamp)
             target['firstSeenAt'] = min((target['firstSeenAt'], source['firstSeenAt']), key=timestamp)
             rows.remove(source)
+        if target is not None and rule.get('owner_entity_type'):
+            kind = rule['owner_entity_type']
+            evidence = rule.get('entity_type_evidence') or {}
+            if (kind not in ('foundation', 'open_source_organization')
+                    or not evidence.get('quote') or not evidence.get('url', '').startswith('https://')
+                    or not evidence.get('checkedAt')):
+                raise ValueError('非商业主体类型缺少已核实证据')
+            target['entityType'] = kind
+            target['entityTypeEvidence'] = copy.deepcopy(evidence)
+            target.pop('reviewReason', None)
         for fact in rule.get('facts', []):
             field, value = fact['field'], fact['value']
             if field == 'owner_company':
@@ -64,6 +74,8 @@ def apply_reviewed_research(companies, rules=None):
                     continue
                 if not target.get(field):
                     target[field] = value
+                if field == 'country':
+                    target.setdefault('dims', {})['国家/地区'] = _country_to_region_label(value)
             elif field == 'product_names' and value not in target['product_names']:
                 target['product_names'].append(value)
             evidence = dict(value=value, articleId='research:' + hashlib.sha256(fact['url'].encode()).hexdigest()[:16],

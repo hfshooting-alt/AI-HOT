@@ -12,6 +12,24 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class ResearchTest(unittest.TestCase):
+    def test_foundation_identity_survives_replay_without_product_reassignment(self):
+        rules = {'checkedAt': '2026-09-14', 'records': [{
+            'record_name': 'Tool', 'owner_company': 'Tool Foundation', 'reviewed': True,
+            'owner_entity_type': 'foundation',
+            'entity_type_evidence': {'url': 'https://example.com', 'quote': 'independent foundation', 'checkedAt': '2026-09-14'},
+            'facts': [{'field': 'owner_company', 'value': 'Tool Foundation', 'url': 'https://example.com', 'title': 'Official', 'quote': 'Tool by Tool Foundation'}]}]}
+        row = {'id': 'company:tool', 'company_name': 'Tool', 'aliases': [], 'product_names': [],
+               'sourceArticles': [{'id': 'a'}], 'fieldSources': {}, 'firstSeenAt': '2026-09-13', 'lastSeenAt': '2026-09-13'}
+        result = apply_reviewed_research([row], rules)
+        self.assertEqual(result[0]['entityType'], 'foundation')
+        self.assertEqual(result[0]['company_name'], 'Tool Foundation')
+        self.assertEqual(result[0]['lastSeenAt'], row['lastSeenAt'])
+        # A future extraction may classify it generically; reviewed type wins again.
+        result[0]['entityType'] = 'company'
+        replay = apply_reviewed_research(result, rules)
+        self.assertEqual(replay[0]['entityType'], 'foundation')
+        self.assertEqual(apply_reviewed_research(replay, rules), replay)
+
     def test_unnamed_collections_do_not_survive_cached_product_refresh(self):
         from company_index.products import normalize, refresh
         row = {'product_names': ['9款机器人本体', '4套行业解决方案', 'FF 91'],

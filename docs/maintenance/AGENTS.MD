@@ -8,6 +8,8 @@ Manus只依据文章原始发布／发送时间收录，新增点赞、评论、
 
 > 本文件面向所有参与本项目的 coding agent，交接必读。最近同步：2026-09-14。
 
+用户已确认公司产品库允许基金会／开源组织主体，保留foundation/open_source_organization类型及官网证据；不归给赞助商。非商业主体产品关系在前端显示“维护”。reviewed research通过owner_entity_type与entity_type_evidence恢复审核类型，不能让后续模型抽取将其永久改为公司。
+
 ## 1. 目录地图（先看这里，避免迷路）
 
 | 路径 | 说明 |

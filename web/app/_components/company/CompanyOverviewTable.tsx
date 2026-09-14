@@ -1,5 +1,6 @@
 "use client";
 import { productText } from "./ProductUpdates";
+import { EntityTypeBadge } from "./EntityTypeBadge";
 
 import { useMemo, useState } from "react";
 import type { CompanyFieldEvidence, CompanyOverview, CompanyProfile } from "../../_lib/domain/types";
@@ -13,7 +14,7 @@ type SortKey = "recent" | "name" | "sources" | "products";
 type CompanyColumnKey = keyof CompanyProfile | "industry";
 
 const COLUMNS: { key: CompanyColumnKey; label: string; cellClass: string }[] = [
-  { key: "company_name", label: "公司", cellClass: "sticky-col w-[190px]" },
+  { key: "company_name", label: "公司 / 组织", cellClass: "sticky-col w-[190px]" },
   { key: "latestReportAt", label: "最新报道日期", cellClass: "w-[140px]" },
   { key: "profileUpdatedAt", label: "资料更新日期", cellClass: "w-[140px]" },
   { key: "product_names", label: "产品动态", cellClass: "w-[170px]" },
@@ -116,6 +117,7 @@ function CompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () => void 
           <div className="min-w-0">
             <h3 className="text-[17px] font-extrabold tracking-tight text-ink">
               <EvidenceValue value={rec.company_name} evidence={evidenceFor(rec, "company_name")} />
+              <EntityTypeBadge company={rec} />
             </h3>
             <p className="mt-1 line-clamp-2 text-[13px] leading-relaxed text-mut">
               {rec.product_names.length ? productText(rec) : "产品信息暂未披露"}
@@ -253,7 +255,7 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
           <p className="text-[11px] font-bold tracking-[0.14em] text-brand">COMPANY OVERVIEW</p>
           <h2 className="mt-1 text-[20px] font-extrabold tracking-tight text-ink">公司与产品情报库</h2>
           <p className="mt-1 text-[12px] leading-relaxed text-mut">
-            当前显示 {rows.length} / {overview.stats.companiesTotal} 家公司；带来源标记的字段可直接核对原文
+            当前显示 {rows.length} / {overview.stats.companiesTotal} 个公司或组织；带来源标记的字段可直接核对原文
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-2">
             <span className="text-[11px] font-bold tracking-[0.12em] text-mut-2">筛选字段</span>
@@ -317,7 +319,7 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
                           const card = document.getElementById(`company-card-${rec.id}`);
                           card?.focus({ preventScroll: true });
                           card?.scrollIntoView({ behavior: "smooth", block: "start" });
-                        }}>{rec.company_name}</a>
+                        }}>{rec.company_name}</a><EntityTypeBadge company={rec} />
                         {rec.aliases.length > 0 && <p className="mt-1 line-clamp-2 text-[11px] leading-relaxed text-mut-2">别名：{rec.aliases.join("、")}</p>}
                         <button type="button" onClick={() => setSelectedCompany(rec)} className="mt-2 text-[10px] font-bold text-brand hover:underline">查看完整档案</button>
                       </td>

@@ -30,6 +30,10 @@ def validate(data: dict, tx: dict) -> None:
         if not isinstance(rid, str) or not rid.startswith("company:") or rid in ids:
             raise ValueError("公司 id 缺失或重复")
         ids.add(rid)
+        if rec.get('entityType') in ('foundation', 'open_source_organization'):
+            evidence = rec.get('entityTypeEvidence') or {}
+            if not evidence.get('quote') or not evidence.get('url', '').startswith('https://') or not evidence.get('checkedAt'):
+                raise ValueError(f'{rid} 非商业主体类型缺少官网证据')
         if not isinstance(rec.get("company_name"), str) or not rec["company_name"].strip():
             raise ValueError(f"{rid} 公司名称缺失")
         if not isinstance(rec.get("product_names"), list) or not isinstance(rec.get("aliases"), list):

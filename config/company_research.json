@@ -682,6 +682,138 @@
       "checkedAt": "2026-09-14"
     }
   ]
+},
+{
+  "record_name": "Cohere",
+  "entity_type": "company",
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "country",
+      "value": "加拿大",
+      "quote": "Cohere is headquartered in Canada.",
+      "url": "https://cohere.com/applicant-privacy",
+      "title": "Cohere applicant privacy",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "NVIDIA",
+  "entity_type": "company",
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "founded",
+      "value": "1993年4月",
+      "quote": "incorporated in California in April 1993",
+      "url": "https://investor.nvidia.com/investor-resources/faqs/",
+      "title": "NVIDIA Investor FAQs",
+      "checkedAt": "2026-09-14"
+    },
+    {
+      "field": "country",
+      "value": "美国",
+      "quote": "incorporated in California",
+      "url": "https://investor.nvidia.com/investor-resources/faqs/",
+      "title": "NVIDIA Investor FAQs",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "英伟达",
+  "entity_type": "company",
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "founded",
+      "value": "1993年4月",
+      "quote": "incorporated in California in April 1993",
+      "url": "https://investor.nvidia.com/investor-resources/faqs/",
+      "title": "NVIDIA Investor FAQs",
+      "checkedAt": "2026-09-14"
+    },
+    {
+      "field": "country",
+      "value": "美国",
+      "quote": "incorporated in California",
+      "url": "https://investor.nvidia.com/investor-resources/faqs/",
+      "title": "NVIDIA Investor FAQs",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "IBM",
+  "entity_type": "company",
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "founded",
+      "value": "1911年6月16日",
+      "quote": "IBM was incorporated in the State of New York on June 16, 1911",
+      "url": "https://www.ibm.com/investor/help/general-faqs",
+      "title": "IBM Investor FAQs",
+      "checkedAt": "2026-09-14"
+    },
+    {
+      "field": "country",
+      "value": "美国",
+      "quote": "incorporated in the State of New York",
+      "url": "https://www.ibm.com/investor/help/general-faqs",
+      "title": "IBM Investor FAQs",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "Bending Spoons",
+  "entity_type": "company",
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "country",
+      "value": "意大利",
+      "quote": "incorporated under the laws of Italy",
+      "url": "https://bendingspoons.com/documents/Information%20for%20Law%20Enforcement%20Authorities.pdf",
+      "title": "Bending Spoons - Information for Law Enforcement Authorities, page 1",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "OpenClaw",
+  "owner_company": "OpenClaw Foundation",
+  "entity_type": "brand",
+  "owner_entity_type": "foundation",
+  "entity_type_evidence": {
+    "url": "https://openclaw.ai/",
+    "quote": "an independent US 501(c)(3) non-profit",
+    "checkedAt": "2026-09-14"
+  },
+  "owned_products": [
+    "OpenClaw"
+  ],
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "owner_company",
+      "value": "OpenClaw Foundation",
+      "quote": "OpenClaw is stewarded by the OpenClaw Foundation",
+      "url": "https://openclaw.ai/",
+      "title": "OpenClaw official project",
+      "checkedAt": "2026-09-14"
+    },
+    {
+      "field": "country",
+      "value": "美国",
+      "quote": "an independent US 501(c)(3) non-profit",
+      "url": "https://openclaw.ai/",
+      "title": "OpenClaw official project",
+      "checkedAt": "2026-09-14"
+    }
+  ]
 }
 ]
 }

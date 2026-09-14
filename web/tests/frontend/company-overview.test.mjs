@@ -6,7 +6,7 @@ const require = createRequire(import.meta.url);
 const ts = require('typescript');
 for (const extension of ['.tsx', '.ts']) {
   require.extensions[extension] = (module, filename) => module._compile(ts.transpileModule(
-    readFileSync(filename, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true } },
+    readFileSync(filename, 'utf8'), { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true } },
   ).outputText, filename);
 }
 const React = require('react');
@@ -16,6 +16,18 @@ const record = { id: 'company:sample', company_name: 'Example', aliases: [], pro
   founded: null, country: '印度', business: null, team: null, investors: null, total_funding: null, valuation: null,
   dims: { '行业': 'AI模型', '国家/地区': '其他' }, fieldSources: {},
   sourceArticles: [], firstSeenAt: '2026-09-10', lastSeenAt: '2026-09-10' };
+
+test('foundation type is visible and products use stewardship wording', () => {
+  const foundation = { ...record, company_name: 'Tool Foundation', entityType: 'foundation',
+    productUpdates: [{ name: 'Product', relationship: 'owned', articleId: 'a' }] };
+  const html = renderToStaticMarkup(React.createElement(CompanyOverviewTable, {
+    overview: { generatedAt: '2026-09-14', companies: [foundation], stats: { companiesTotal: 1, articlesComplete: 1 } },
+    dimSel: {}, q: '', onDimChange() {},
+  }));
+  assert.match(html, /基金会/);
+  assert.match(html, /维护/);
+  assert.doesNotMatch(html, /自有/);
+});
 function render(dimSel) {
   return renderToStaticMarkup(React.createElement(CompanyOverviewTable, {
     overview: { generatedAt: '2026-09-10', companies: [record], stats: { companiesTotal: 1, articlesComplete: 1 } },
