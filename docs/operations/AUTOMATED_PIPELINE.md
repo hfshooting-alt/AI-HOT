@@ -2,6 +2,8 @@
 
 统一入口为 `scripts/run_pipeline.py`，命令从仓库根目录执行。原有分阶段 CLI 继续可用。日常操作优先使用统一入口，获取运行前检查、候选产物隔离、阶段记录与发布恢复。
 
+当前完整链路与失败规则见[统一新闻链路](../architecture/UNIFIED_NEWS_PIPELINE.md)：AIHOT 与 Manus 独立并行采集，合并去重后统一模型加工；允许来源部分失败，模型及公司更新必须完成后发布。
+
 ## 1. 先检查，再运行
 
 公司库构建在实体合并后应用 `config/company_research.json` 的已审阅归属规则与缺失字段补全。只允许带核验时间、官网URL和引用的 reviewed 记录；品牌的团队、时间等保留在 brandProfiles，不能搬到母公司字段。外部字段来源 origin=research，与新闻原文 origin=article 区分。
@@ -16,18 +18,18 @@ python scripts/run_pipeline.py doctor
 python scripts/run_pipeline.py run --dry-run --date 2026-09-07
 ```
 
-`doctor` 检查配置、依赖、模板、必要密钥是否存在和输出目录是否可写；只创建随后关闭删除的临时探针，不调用外部接口，不输出密钥。它不能验证余额、密钥有效性和网络可用性。缺项返回非零退出码。
+`doctor` 检查配置、依赖、模板、必要密钥是否存在和输出目录是否可写；只创建随后关闭删除的临时探针，不调用外部接口，不输出密钥。它不能验证余额、密钥有效性和网络可用性。共享模型或公共配置缺项返回非零退出码；完整流程的 Manus 分支缺项仅令该分支不可用，其他来源仍可继续。
 
 `--dry-run` 仅打印阶段及命令，不写数据、不调用接口，也不要求配置密钥。
 
-没有 Manus 或模型密钥时，可以先验证 AIHOT、归档和前端快照链路：
+有模型密钥但暂不使用 Manus 时，可以运行 AIHOT 及完整后续加工：
 
 ```sh
 python scripts/run_pipeline.py doctor --source-mode aihot-only
 python scripts/run_pipeline.py run --source-mode aihot-only --no-promote
 ```
 
-`aihot-only` 自动收敛为 `snapshot` 阶段，并传入 `--no-tags --exclude-wechat`，不会调用 Manus、模型或 Tavily。它保留 AIHOT 及其 RSS、官网、社区等非公众号信源，排除 AIHOT 返回的公众号条目、热点中的公众号主条目/来源名以及仓库已有 Manus feed；候选仍写入 `work/runs/`，方便先 review。省略 `--no-promote` 会更新仓库正式快照。当前项目按公司内部 AI 情报用途使用 AIHOT；若未来改为收费、客户交付、代理接口、公开副本或对外批量再分发，再重新核对授权范围。
+`aihot-only` 的默认 all 流程依次运行 aihot、news、snapshot、overview、funding，只关闭 Manus。它保留 AIHOT 返回的各类文章，统一使用本站模型筛选和打标，再更新公司库与融资表；因此需要模型密钥，可能产生模型和可选 Tavily 费用（`--skip-search` 可关闭后者）。候选仍写入 `work/runs/`，方便先 review。旧单独 `--stage snapshot` 仍是无模型且排除公众号的调试入口，不代表每日完整流程。省略 `--no-promote` 会更新仓库正式快照。当前项目按公司内部 AI 情报用途使用 AIHOT；若未来改为收费、客户交付、代理接口、公开副本或对外批量再分发，再重新核对授权范围。
 
 按 `config/env.example` 在根目录 `.env` 配置 Manus 与模型密钥。Tavily 搜索为可选。完成配置后：
 
@@ -46,26 +48,28 @@ python scripts/run_pipeline.py run
 
 统一 full 入口现在逐来源创建发现任务，最多 3 个并发；默认每来源观察止损线 20 credits，可用 --manus-credit-limit 10..60 调整。20 个来源默认保留线合计 400 credits，实际消费可能因上报与停止延迟超出。创建不重试，费用报告保存在 work/manus[/ten-am]/<date>/cost-report.json，旧报告归入 cost-history。同窗口成功和失败结果默认都复用，显式 --retry-failed-sources 仅重试失败来源。已付费完成的模型结果会保存缓存；同窗口新候选继承缓存，不继承未审核新闻。
 
-兼容旧数据时用 `--window-mode calendar-day --date YYYY-MM-DD`，含义仍为该自然日。原有 discovery/content/feed CLI 默认保留自然日模式，加 `--ten-am` 启用新窗口。旧三组文件与十点文件分开存储，不能混用。
+兼容旧数据的单阶段调试可用 `--window-mode calendar-day --date YYYY-MM-DD --stage snapshot`，含义仍为该自然日。原有 discovery/content/feed CLI 默认保留自然日模式，加 `--ten-am` 启用新窗口。旧三组文件与十点文件分开存储，不能混用。
 
-十点模式要求发现结果带详情页明确的 `published_at`，缺少具体时间的边界日来源会被标记失败，不能把中午 12 点等虚构时间当作采集证据。快照的上游新闻也按同一窗口过滤新增入库；“AI 日报”独立同步 AIHOT 当日上午八点发布的成品日报，本站不再用十点新闻窗口冒充日报。周报、历史页、公司与产品库及融资表继续保留各自历史范围，热点榜仍是抓取时的榜单。归档保留与过期规则按实际运行时间执行，历史补跑不回拨网站时钟，也不重写已定稿历史。
+十点模式要求发现结果带详情页明确的 `published_at`，缺少具体时间的边界日来源会被标记失败，不能把中午 12 点等虚构时间当作采集证据。快照的上游新闻也按同一窗口过滤新增入库；“AI 日报”独立同步 AIHOT 当日上午八点发布的成品日报，本站不再用十点新闻窗口冒充日报。周报、历史页、公司与产品库及融资表继续保留各自历史范围，热点榜仍是抓取时的榜单。归档保留与过期规则按实际运行时间执行，历史补跑不回拨网站时钟，窗口外已定稿历史保持不变；当前复核窗口按本次审核结果替换，避免被排除的新闻再次出现。
 
 ## 2. 阶段与输入
 
 | 阶段 | 输出/前置要求 |
 | --- | --- |
+| `aihot` | 与 discovery 并行抓取 AIHOT，写入候选 inputs/aihot.json |
 | `discovery` | Manus 发现三组账号的窗口文章，原始结果在 `work/manus/ten-am/<date>/raw/` |
 | `content` | 读取同日三组发现结果，默认脚本提取正文；成功正文可复用 |
-| `feed` | 读取发现和正文结果，先做带原文证据的 AI 相关性筛选，再对保留文章做摘要与分类，生成候选 Manus feed |
-| `snapshot` | 合并 AIHOT 与候选/既有 Manus feed，生成快照、归档、历史页及周报 |
+| `news` | 汇总成功来源，统一去重、模型筛选和摘要分类，生成 processed.json 与新 Manus feed |
+| `feed` | 旧独立调试阶段：仅加工 Manus，使用原有严格发布门禁；不在新 all 流程中 |
+| `snapshot` | all 流程只读取 processed.json 生成快照、归档、历史页及周报；旧单阶段命令仍自行采集合并 |
 | `overview` | 扫描全部新闻类别，更新独立公司/产品库及逐字段来源记录 |
 | `funding` | 从候选/既有快照和 feed 抽取融资表，可选搜索补全 |
 
-默认 `--stage all` 按上述顺序运行。`--stage <阶段>` 只运行指定阶段，不自动补齐其前置阶段。单独运行 content/feed 时需要同日期完整三组发现文件；overview/funding 至少需要一份有效快照或 feed。
+默认 `--stage all` 并行执行 aihot/discovery，然后执行 content → news → snapshot → overview → funding。采集失败仍进入 news 校验和利用成功来源。`--stage <阶段>` 只运行旧独立阶段，不自动补齐前置阶段；aihot/news 由 all 编排。单独运行 content/feed 时需要同日期完整三组发现文件；overview/funding 至少需要一份有效快照或 feed。
 
-Overview 成功抽取缓存永久复用，默认每轮最多对 20 篇新文章调用模型，每篇最多输入 8,000 字符，并发 2，总预算 300 秒；超额文章标记为待处理并进入下一轮。限制位于 `config/taxonomy.json → companyOverview`。每个公司字段在 `fieldSources` 保存值、原文 URL、文章 ID、来源和发布时间；同一公司按规范名与文章明确给出的别名合并。没有可靠依据的字段保留为空。
+Overview 按内容与版本复用成功抽取缓存。当前生产使用 `--require-complete`，本批次文章未完整处理时禁止发布。输入长度、并发及预算配置位于 `config/taxonomy.json → companyOverview`。每个公司字段在 `fieldSources` 保存值、原文 URL、文章 ID、来源和发布时间；同一公司按规范名与文章明确给出的别名合并。没有可靠依据的字段保留为空。
 
-AIHOT 条目打标每轮最多新增 25 篇，并按发布时间优先处理最新内容。线程池只提交本轮额度内的条目，因此时间预算到达后不会有数百个已提交请求继续计费；未处理条目保留在归档中，后续轮次继续补标。
+统一 news 阶段对本批次去重文章全部进行相关性处理，并对保留文章全部摘要分类，分别使用最多7200秒预算；未完成时禁止发布，重试可复用缓存。旧单独 snapshot 的增量打标额度不再限制 all 流程。
 
 Overview 只收录新闻核心事件的直接当事公司及其产品；投资方、财务顾问、交易所、供应商、媒体来源和同业对比不会仅因被顺带提及而单独成行。行业按公司自身业务抽取，国家/地区优先使用公司字段，缺失时才沿用文章地区作为候选标签。
 
@@ -80,9 +84,9 @@ Overview 只收录新闻核心事件的直接当事公司及其产品；投资�
 - overview：`data/company-overview/`、`web/public/`。
 - funding：`data/funding/`、`web/public/`。
 
-阶段失败时停止后续步骤，正式产物保持原样，候选数据和缓存保留。`--no-promote` 运行各阶段自身校验并保留候选；最终跨产物一致性检查在发布时执行。
+采集阶段失败允许继续利用成功来源；news 及其后续阶段失败时停止发布，正式产物保持原样，候选数据和缓存保留。`--no-promote` 运行各阶段自身校验并保留候选；最终跨产物一致性检查在发布时执行。
 
-Overview 输入存在但一篇都未成功抽取时拒绝覆盖旧公司库；历史公司继续保留，新报道补充字段、产品与来源。融资输入存在且全部抽取失败（含未完成任务）时拒绝覆盖旧表。发现过文章或账号失败、最终却没有可发布文章时，拒绝覆盖旧 feed。来源均成功且确实无新闻，或者抽取成功且没有公司，允许生成空结果。部分失败仍沿用现有统计语义。
+Overview 存在失败或待处理文章时拒绝发布；历史公司继续保留，新报道补充字段、产品与来源。融资输入存在且全部抽取失败（含未完成任务）时拒绝覆盖旧表。旧独立 feed 的空结果门禁继续保留；新 all 流程允许显式缺失的 Manus feed，前提是至少一条来源完成或部分完成且共享加工全部完成。已核实零篇是合法结果，不等于失败。
 
 ```sh
 python scripts/run_pipeline.py run --date 2026-09-07 --resume
@@ -106,7 +110,7 @@ python scripts/run_pipeline.py run --date 2026-09-07 --resume
 
 `.github/workflows/fetch-manus.yml` 每天北京时间 09:30（UTC 01:30）开始全流程，测试通过后调用统一入口，成功后将整套正式数据提交到仓库；并非09:30整完成更新。GitHub schedule 可能延迟，不能保证准点。手动输入为 `date`（窗口结束日）、`stage`、`promote`、`dry_run`、`skip_search`；可选阶段为 all/snapshot/overview/funding。独立 content/feed 所需原始正文未存入 Git，所以这两个阶段仅在保留原始文件的本地运行。
 
-默认 `full` 模式需要 GitHub Secrets `MANUS_API_KEY`、`DEEPSEEK_API_KEY`；可选 `TAVILY_API_KEY`，模型接口和模型名可用 Variables `LLM_API_BASE`、`LLM_MODEL`。手动任务可选 `source_mode=aihot-only`，只生成 AIHOT 快照且不读取这些付费密钥。定时任务仍默认执行 `full`。如果修改 taxonomy 中 `api_key_env`，同步工作流的密钥注入。
+默认 `full` 模式需要 GitHub Secrets `MANUS_API_KEY`、`DEEPSEEK_API_KEY`；可选 `TAVILY_API_KEY`，模型接口和模型名可用 Variables `LLM_API_BASE`、`LLM_MODEL`。手动任务可选 `source_mode=aihot-only`，仅关闭 Manus，仍读取模型及可选搜索密钥，运行完整下游。定时任务仍默认执行 `full`。如果修改 taxonomy 中 `api_key_env`，同步工作流的密钥注入。
 
 工作流只上传 `state.json`，保留 7 天。原始结果、正文、候选产物和密钥不上传。CI 作业之间暂不支持断点续跑；本地保留 work 目录时可以恢复。失败查看 Actions 日志与状态 Artifact。
 

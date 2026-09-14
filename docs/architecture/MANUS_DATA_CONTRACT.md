@@ -3,11 +3,15 @@
 > 版本：2026-08-17 初版。契约变更必须先改本文件与 `tests/pipeline/test_manus_contract.py`，再改生产代码。
 > 校验实现：`scripts/manus_source/contracts.py`（离线单测：`python -m unittest tests.pipeline.test_manus_contract -v`）
 
-## 2026-09-09 十点窗口契约
+## 2026-09-14 统一发布契约
+
+完整入口采用[统一新闻链路](UNIFIED_NEWS_PIPELINE.md)。默认窗口现为09:30至09:30，`ten-am` 名称保留兼容。逐来源发现和正文仍必须通过时间、身份及结构校验。统一 news 阶段允许部分来源失败或合法零篇，并生成新 Manus feed 与共享快照；不套用旧独立 feed 的全来源发布门禁。所有来源不可用或共享模型加工未完成则禁止发布。快照与 feed 的 `collectionStatus` 记录逐来源状态、文章数量和窗口，网页列出缺失来源；禁止从旧正式 feed 补入当前新闻。
+
+## 2026-09-09 十点窗口契约（历史背景）
 
 - 2026-09-10：逐来源本地缓存可附加 `sourceIdentity: {account_name, platform, home_url}`，由 runner 写入，不要求 Manus 生成，不进入合并 feed。缓存入口改变或旧零条结果无法核实入口时，返回失败审计 `source_config_unverified` 并保留费用锁，不能冒充当前配置通过。
 
-- 默认统一入口使用北京时间前一日 10:00（含）至 date 当日 10:00（不含）的固定窗口。
+- 该版统一入口使用北京时间前一日 10:00（含）至 date 当日 10:00（不含）的固定窗口。
 - 窗口发现结果为 `schema_version=3`，本地附加 `collectionWindow: {start, end, timezone}`，每篇 complete 文章新增 `published_at`（含时区 ISO8601）。`published_date` 必须等于该时间在北京时间的日期，允许跨两个自然日；时间必须处于窗口内。未知时间不能用日期推算。
 - 旧自然日发现结果 v2 继续可用。v2 保留“文章日期等于 target_date”的规则；不与 v3 三组混用。十点原始文件在 `work/manus/ten-am/<date>/raw/`。
 - 正文批次的 target_date 代表运行批次；窗口模式逐 URL 与发现结果的实际 published_date 校验，因此前一天与当日的正文均可通过，不能替换为批次日期。

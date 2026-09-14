@@ -228,9 +228,9 @@ class WorkspaceTest(unittest.TestCase):
                 self.assertEqual(run_pipeline.main(["run", "--dry-run", "--date", "2026-09-07"]), 0)
         run_mock.assert_not_called()
         self.assertFalse((self.root / "work").exists())
-        self.assertEqual([s["stage"] for s in json.loads(out.getvalue())["stages"]], list(runner.STAGES))
+        self.assertEqual([s["stage"] for s in json.loads(out.getvalue())["stages"]], list(runner.COMBINED_STAGES))
 
-    def test_aihot_only_dry_run_contains_only_snapshot(self):
+    def test_aihot_only_dry_run_retains_model_and_company_stages(self):
         with patch.object(run_pipeline, "ROOT", self.root), patch.object(run_pipeline, "run") as run_mock:
             with contextlib.redirect_stdout(io.StringIO()) as out:
                 self.assertEqual(run_pipeline.main(["run", "--dry-run", "--date", "2026-09-09",
@@ -238,9 +238,10 @@ class WorkspaceTest(unittest.TestCase):
         run_mock.assert_not_called()
         payload = json.loads(out.getvalue())
         self.assertEqual(payload["sourceMode"], "aihot-only")
-        self.assertEqual([s["stage"] for s in payload["stages"]], ["snapshot"])
-        self.assertIn("--no-tags", payload["stages"][0]["command"])
-        self.assertIn("--exclude-wechat", payload["stages"][0]["command"])
+        self.assertEqual([s["stage"] for s in payload["stages"]], ["aihot", "news", "snapshot", "overview", "funding"])
+        self.assertEqual(payload['parallelCollectors'], ['aihot'])
+        self.assertIn('--without-manus', payload['stages'][1]['command'])
+        self.assertNotIn('--exclude-wechat', payload['stages'][2]['command'])
 
     def test_invalid_candidate_is_not_published(self):
         with self.assertRaises((FileNotFoundError, ValueError)):

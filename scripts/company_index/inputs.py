@@ -71,7 +71,10 @@ def load_articles(snapshot_path: Path | str, feed_path: Path | str,
     snapshot = _read(Path(snapshot_path))
     for item in (snapshot.get('all') or {}).get('items') or []:
         add(item)
-    for view in (snapshot.get("daily") or {}, snapshot.get("weekly") or {}):
+    # Unified batches already carry the complete approved current pool. Historical
+    # weekly stories must not reintroduce newly excluded articles into extraction.
+    views = () if snapshot.get('collectionStatus') else (snapshot.get("daily") or {}, snapshot.get("weekly") or {})
+    for view in views:
         for section in view.get("sections") or []:
             for item in section.get("items") or []:
                 add(item)

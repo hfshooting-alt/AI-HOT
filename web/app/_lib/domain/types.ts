@@ -94,6 +94,14 @@ export interface WeeklyNavEntry {
 
 /** build_snapshot.py 输出的 snapshot.json 根结构 */
 export interface Snapshot {
+  collectionStatus?: {
+    collectionWindow: { start: string; end: string; timezone: string };
+    degraded: boolean;
+    sources: { name: string; collector: string; status: "complete" | "partial" | "failed" | "not_requested"; discoveredArticles: number; usableArticles: number }[];
+    candidateArticles: number;
+    publishedArticles: number;
+    excludedArticles: number;
+  };
   publicationMode?: "pipeline";
   daily: DigestView;
   weekly: DigestView;

@@ -1,6 +1,6 @@
 # docs/maintenance/AGENTS.MD — AI HOT 项目 Agent 开发守则
 
-> 本文件面向所有参与本项目的 coding agent，交接必读。最近同步：2026-09-08。
+> 本文件面向所有参与本项目的 coding agent，交接必读。最近同步：2026-09-14。
 
 ## 1. 目录地图（先看这里，避免迷路）
 
@@ -23,8 +23,8 @@
 
 AI 情报日报/周报看板：
 
-- **数据链路**：Manus 扫描配置媒体入口（官网资讯页、腾讯新闻作者页、网易号或已核实公众号，共 20 个来源）→ 两阶段 discovery + content → 带原文证据的 AI 相关性门禁 → LLM 摘要/分类/打标签 → 原子晋升 `data/manus/current.json` → `build_snapshot.py` 合并 aihot API 数据 → 归档层与前端快照。feed v2 按真实承载页写入来源类型；媒体名称相同不得视为公众号身份相同。
-- **融资数据链路**：Manus feed → `scripts/funding_table.py` 抽取融资字段，可选 Tavily 补全 → `data/funding/current.json` / `web/public/funding-table.json` → 前端融资动态表格。
+- **数据链路**：AIHOT 与 Manus discovery 独立并行采集（Manus 为配置的20个媒体入口，继而获取正文）→ `news_pipeline.py` 汇总校验、合并去重 → 统一模型相关性门禁及摘要分类 → 候选快照/归档、公司产品与融资更新 → 统一校验和发布。允许来源部分失败并公开缺失状态；模型或公司加工不完整则保留旧网页。`aihot-only` 只关闭 Manus，仍运行模型和公司更新。详见 `docs/architecture/UNIFIED_NEWS_PIPELINE.md`。feed v2 按真实承载页写入来源类型；媒体名称相同不得视为公众号身份相同。
+- **融资数据链路**：已处理快照与 Manus feed → `scripts/funding_table.py` 抽取融资字段，可选 Tavily 补全 → `data/funding/current.json` / `web/public/funding-table.json` → 前端融资动态表格。
 - **前端双形态**：
   - 静态历史产物位于 `web/public/history/`、`web/public/weekly/`；根静态页工作流已停用，`update-snapshot.yml` 已删除；
   - Next.js 16 + React 19 + Tailwind 4 组件化前端（`web/app/` 目录）为当前主形态，`web/app/page.tsx` 直渲染 `AppShell`，侧栏底部含「设置」API Key 配置入口。

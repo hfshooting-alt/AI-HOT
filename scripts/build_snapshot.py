@@ -530,12 +530,18 @@ def fetch_items(api_base: str, since_bj: datetime, window: str = "7d") -> list[d
         })
         with urllib.request.urlopen(request, timeout=30) as resp:
             data = json.loads(resp.read().decode("utf-8"))
-        batch = data.get("items") or []
+        if not isinstance(data, dict) or not isinstance(data.get('items'), list):
+            raise ValueError('AIHOT items schema invalid')
+        batch = data['items']
         items.extend(normalize_v1_item(item) for item in batch)
         page = data.get("page") or {}
-        if not page.get("hasMore") or not page.get("nextCursor"):
+        if not page.get("hasMore"):
             break
+        if not page.get('nextCursor') or page['nextCursor'] == cursor:
+            raise ValueError('AIHOT pagination incomplete')
         cursor = page["nextCursor"]
+    else:
+        raise ValueError('AIHOT page limit reached; coverage incomplete')
     return items
 
 
@@ -652,7 +658,7 @@ def build_item(raw: dict, num: int, today: datetime) -> dict:
     source_type = raw.get("sourceType") or ("wechat" if str(source).startswith("公众号：") else "aihot")
     # 稳定 id 直通：旧 wechat:*（早期采集）与新 manus:*（Manus 信源）都不加 aihot: 前缀
     raw_id = str(raw.get("id") or "")
-    item_id = raw.get("id") if raw_id.startswith(("wechat:", "manus:")) else f"aihot:{raw.get('id')}"
+    item_id = raw.get("id") if raw_id.startswith(("aihot:", "wechat:", "manus:")) else f"aihot:{raw.get('id')}"
     return {
         "id": item_id,
         "title": raw.get("title") or "",
@@ -661,7 +667,7 @@ def build_item(raw: dict, num: int, today: datetime) -> dict:
         "source": source,
         "sourceType": source_type,
         "category": category,
-        "categoryUnclassified": not bool(raw.get("category")),
+        "categoryUnclassified": not bool(raw.get("category") or raw.get('classification')),
         "publishedAt": raw.get("publishedAt") or "",
         "discoveredAt": raw.get("discoveredAt") or "",
         "timeBasis": raw.get("timeBasis") or ("published" if raw.get("publishedAt") else "discovered"),
@@ -671,6 +677,8 @@ def build_item(raw: dict, num: int, today: datetime) -> dict:
         "originalUrl": raw.get("originalUrl") or raw.get("url") or "",
         "reason": raw.get("reason") if isinstance(raw.get("reason"), str) else None,
         "mpName": raw.get("mpName") if "mpName" in raw else None,
+        "sourceRefs": raw.get('sourceRefs') or [],
+        "evidenceKind": raw.get('evidenceKind'),
         # AI 两级分类结果（id → label 展示结构）；未打标条目为 None，前端自然隐藏徽章
         "classification": (tag_news.to_display(TAG_TAXONOMY, raw["classification"])
                            if TAG_TAXONOMY and raw.get("classification") else None),
@@ -839,18 +847,27 @@ def main() -> int:
     parser.add_argument("--exclude-wechat", action="store_true",
                         help="排除 AIHOT 与本地归档中的公众号内容，并跳过 Manus feed")
     parser.add_argument("--window-date", help="只采集此前一日十点至此日十点的新增新闻；AIHOT 成品日报独立同步")
+    parser.add_argument('--input-json', help='已统一筛选/分类的候选池；不再联网采集或读取旧Manus feed')
     args = parser.parse_args()
 
     now_bj = datetime.now(BJ)
     window = ten_am_window(args.window_date) if args.window_date else None
     window_start = timestamp(window["start"]) if window else None
     window_end = timestamp(window["end"]) if window else None
+    prepared = None
     try:
-        items = fetch_items(args.api_base, window_start or now_bj - timedelta(days=args.days + 2), args.api_window)
+        if args.input_json:
+            with open(args.input_json, encoding='utf-8') as f:
+                prepared = json.load(f)
+            if prepared.get('collectionWindow') != window:
+                raise ValueError('输入窗口不一致')
+            items = prepared['items']
+        else:
+            items = fetch_items(args.api_base, window_start or now_bj - timedelta(days=args.days + 2), args.api_window)
     except Exception as exc:  # noqa: BLE001 - 抓取失败给出可读错误
         print(f"抓取失败: {exc}", file=sys.stderr)
         return 1
-    if not items:
+    if not items and prepared is None:
         print("抓取结果为空，放弃生成", file=sys.stderr)
         return 1
     if args.exclude_wechat:
@@ -875,7 +892,13 @@ def main() -> int:
 
     # 合并 Manus 公众号 feed：只读最近一次成功文件，不调用不等待 Manus；
     # 保留标题与 URL 去重，feed 自带 summary/classification，本脚本不覆盖
-    if args.exclude_wechat:
+    if prepared is not None:
+        wechat_items = []
+        status = prepared['collectionStatus']
+        mp_status = {'connected': any(s['collector'] == 'manus' and s['status'] in ('complete', 'partial')
+                                      for s in status['sources']),
+                     'degraded': status['degraded'], 'note': '按当前批次来源状态展示'}
+    elif args.exclude_wechat:
         wechat_items = []
         mp_status = {"connected": False, "collector": "excluded", "degraded": False,
                      "note": "本次仅使用 AIHOT 非公众号信源；公众号来源已按配置排除"}
@@ -907,6 +930,20 @@ def main() -> int:
         # 分页响应可能越过边界；只入库明确处于固定窗口内的新文章。
         items = [i for i in items if matching_item(window, i)]
 
+    # A validated reprocessed batch supersedes earlier candidates in its exact
+    # window, including newly excluded stories. Other history remains intact.
+    if prepared is not None and window:
+        os.makedirs(args.archive_dir, exist_ok=True)
+        current_date = window_start.date()
+        while current_date <= window_end.date():
+            key = current_date.isoformat()
+            path = _day_file_path(args.archive_dir, key)
+            day = _load_day_file(path) or {'date': key, 'finalized': False, 'finalizedAt': None, 'items': []}
+            day['items'] = [i for i in day['items'] if not matching_item(window, i)]
+            day['items'].extend(i for i in prepared['items'] if to_bj(i['publishedAt']).date() == current_date)
+            day['updatedAt'] = now_bj.isoformat()
+            _save_day_file(path, day)
+            current_date += timedelta(days=1)
     # ---- 历史归档：增量并集 upsert → 定稿冻结 → 滚动硬删 ----
     upsert_archive(args.archive_dir, items, now_bj)
     finalized_n = finalize_archive(args.archive_dir, now_bj)
@@ -922,7 +959,7 @@ def main() -> int:
 
     # 归档为唯一数据源：主页与历史页从同一池推导，天然一致
     items = load_archive_pool(all_days)
-    if not items:
+    if not items and prepared is None:
         print("归档数据池为空，放弃生成", file=sys.stderr)
         return 1
 
@@ -953,7 +990,8 @@ def main() -> int:
         except Exception as exc:  # noqa: BLE001 - 打标签失败静默降级
             print(f"AI 打标签失败（不阻断发布）: {exc}", file=sys.stderr)
 
-    if args.require_tags and any(not i.get('classification') or i['classification'].get('autoFallback') for i in items):
+    if args.require_tags and any(not i.get('classification') or i['classification'].get('autoFallback')
+                                for i in (prepared['items'] if prepared is not None else items)):
         print('新闻分类尚有失败或待处理条目，禁止发布部分更新', file=sys.stderr)
         return 1
     generated_at = datetime.now(timezone.utc)
@@ -982,7 +1020,7 @@ def main() -> int:
     if window:
         daily_view = build_view("daily", [i for i in items if matching_item(window, i)],
                                 window_start, 1, generated_at, mp_status, time_ref=now_bj, end=window_end)
-        label = f"{fmt_cn_date(window_start.date())} 十点 至 {fmt_cn_date(window_end.date())} 十点"
+        label = f"{fmt_cn_date(window_start.date())} {window_start:%H:%M} 至 {fmt_cn_date(window_end.date())} {window_end:%H:%M}"
         daily_view["range"].update(start=window_start.date().isoformat(), end=window_end.date().isoformat(),
                                     label=label, cnLabel=label, startAt=window["start"], endAt=window["end"])
         daily_view["vol"] = f"VOL.{window_end.year}-{window_end.month:02d}-{window_end.day:02d}"
@@ -999,16 +1037,17 @@ def main() -> int:
 
     # AIHOT 每日约 08:00 产出成品日报；十点流水线只同步，不再把本站新闻窗口冒充日报。
     daily_reports = load_daily_reports(args.snapshot_json)
-    latest_daily = fetch_latest_daily(args.api_base)
+    latest_daily = prepared.get('dailyReport') if prepared is not None else fetch_latest_daily(args.api_base)
     if latest_daily:
         daily_reports[latest_daily["date"]] = latest_daily
     daily_reports = dict(sorted(daily_reports.items(), reverse=True)[:31])
     daily_history = [daily_report_entry(report) for report in daily_reports.values()]
-    hot_topics = fetch_hot_topics(args.api_base)
+    hot_topics = (prepared.get('hot') or {}) if prepared is not None else fetch_hot_topics(args.api_base)
     if args.exclude_wechat:
         hot_topics = without_wechat_topics(hot_topics)
 
     data = {
+        **({'collectionStatus': prepared['collectionStatus']} if prepared is not None else {}),
         **({'publicationMode': 'pipeline'} if window else {}),
         **({"collectionWindow": window} if window else {}),
         # 兼容旧模板的数据视图；新版“AI 日报”页面使用 dailyReports/dailyHistory。

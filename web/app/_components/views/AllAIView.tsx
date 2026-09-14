@@ -3,7 +3,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { FundingTable, NewsItem } from "../../_lib/domain/types";
+import type { FundingTable, NewsItem, Snapshot } from "../../_lib/domain/types";
 import { loadAll, loadFundingTable, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/data/api";
 import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/display/format";
 import { categoryDisplay, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
@@ -33,6 +33,7 @@ export function AllAIView() {
   const [loading, setLoading] = useState(true);
   const [live, setLive] = useState(true);
   const [publishedBatch, setPublishedBatch] = useState(false);
+  const [collection, setCollection] = useState<Snapshot["collectionStatus"]>();
   /** 融资表格（构建产物）：null 且 ready 时回退卡片流 */
   const [fundingTable, setFundingTable] = useState<FundingTable | null>(null);
   const [fundingReady, setFundingReady] = useState(false);
@@ -48,6 +49,7 @@ export function AllAIView() {
       const all = batch ? null : await loadAll();
       if (cancelled) return;
       setPublishedBatch(batch);
+      setCollection(snap?.collectionStatus);
       let merged: NewsItem[] = base;
       if (all && all.items.length) {
         merged = base.length ? mergePools(base, all.items) : all.items;
@@ -185,8 +187,20 @@ export function AllAIView() {
       <p className="mb-5 text-[12px] text-mut-2">
         Garena投资部专用{hasManus ? " · 已接入 Manus 核验信源" : ""} · 时间为北京时间 · 摘要由 AI 生成，点击标题核对原文。
         {unclassifiedCount > 0 && ` 其中 ${unclassifiedCount} 条未获 AIHOT 分类，暂列泛行业新闻。`}
-        {publishedBatch ? " 当前展示最近一次完整更新的数据。" : !live && " 实时接口暂不可用，当前仅展示快照数据。"}
+        {publishedBatch ? " 当前展示最近一次已发布批次的数据。" : !live && " 实时接口暂不可用，当前仅展示快照数据。"}
       </p>
+
+      {collection && (
+        <aside className="ah-card mb-5 px-4 py-3 text-[12px] leading-relaxed text-mut" aria-label="本批次信源状态">
+          <p className="font-bold text-ink">{collection.degraded ? "部分信源未完成，已发布成功来源的资讯" : "本批次已完成所选信源处理"}</p>
+          <p>采集窗口：{new Date(collection.collectionWindow.start).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", hour12: false })} 至 {new Date(collection.collectionWindow.end).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", hour12: false })}（北京时间）</p>
+          {collection.sources.some((s) => s.status === "failed" || s.status === "partial") && (
+            <p>未完成：{collection.sources.filter((s) => s.status === "failed" || s.status === "partial").map((s) => `${s.name}${s.status === "partial" ? "（正文不完整）" : "（采集失败）"}`).join("、")}</p>
+          )}
+          {collection.sources.some((s) => s.status === "not_requested") && <p>本批次未启用 Manus 信源。</p>}
+          <p>合并候选 {collection.candidateArticles} 篇 · 相关性排除 {collection.excludedArticles} 篇 · 发布 {collection.publishedArticles} 篇。未完成来源不计为“今日无更新”。</p>
+        </aside>
+      )}
 
       {wantTable && fundingStale && (
         <p className="ah-card mb-5 border-l-4 border-l-brand px-4 py-3 text-[12px] leading-relaxed text-mut">

@@ -28,7 +28,7 @@ npm --prefix web run dev
 
 ## 常用命令
 
-自动更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。没有付费密钥时可用 `--source-mode aihot-only --no-promote` 生成免费 AIHOT 候选快照；该模式使用 AIHOT 及其现有 RSS 等非公众号信源，并排除 AIHOT 公众号条目与 Manus feed。配置密钥后用默认 `full` 模式执行采集、公司与产品库及融资表的整套更新。统一入口支持 `--resume`、`--stage` 和 `--no-promote`，详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)。
+自动更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。默认 `full` 模式并行采集 AIHOT 与 Manus，合并去重后统一进行模型筛选、摘要分类、公司库和融资更新。`--source-mode aihot-only` 只关闭 Manus，仍需模型密钥并执行后续加工；它保留 AIHOT 提供的各类来源。部分采集失败允许发布成功来源，页面明确列出缺失来源；模型加工失败则保留上一版。统一入口支持 `--resume`、`--stage` 和 `--no-promote`，详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)和[统一新闻链路](docs/architecture/UNIFIED_NEWS_PIPELINE.md)。
 
 每日任务按北京时间 **09:30 开始**，固定采集前一天 09:30（含）至当天 09:30（不含）的新闻；全部加工成功后更新仓库中的网页产物，并触发 GitHub Pages 重新部署。GitHub 定时调度可能延迟。`--date` 在默认固定窗口模式下表示窗口结束日，旧自然日流程使用 `--window-mode calendar-day`。
 
@@ -44,7 +44,7 @@ npm --prefix web run dev
 | `python scripts/test_pipeline.py` | Python 离线回归，禁止真实网络/子进程 |
 | `python scripts/test_pipeline.py manus-auth` | 只读检查 Manus 认证与余额，结果有缓存 |
 | `python scripts/test_pipeline.py llm-smoke --allow-paid` | 单次最多 16 token 的模型 JSON 能力检查，每日最多一次 |
-| `python scripts/run_pipeline.py run --source-mode aihot-only --no-promote` | 不调用 Manus/模型，生成 AIHOT 候选快照 |
+| `python scripts/run_pipeline.py run --source-mode aihot-only --no-promote` | 不调用 Manus，使用模型生成新闻与公司库候选产物 |
 | `python scripts/audit_manus_sources.py [--check-links]` | 离线审计公众号配置；可选每个主页一次无重试可达性检查 |
 | `python scripts/manus_source/runner.py --date YYYY-MM-DD --ten-am --account "账号名" --allow-paid` | 单账号 Lite 来源校准，结果与生产隔离 |
 | `npm --prefix web run typecheck` / `npm --prefix web run lint` | 静态检查；已有问题见维护导航 |

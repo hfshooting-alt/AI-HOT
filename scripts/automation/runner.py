@@ -7,14 +7,17 @@ import subprocess
 import sys
 import time
 import uuid
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from .publish import ALLOWED, publish, recover, save
 from manus_source.window import ten_am_window
 
 STAGES = ("discovery", "content", "feed", "snapshot", "overview", "funding")
+COMBINED_STAGES = ("aihot", "discovery", "content", "news", "snapshot", "overview", "funding")
 
 CACHE_FILES = ("data/cache/tag_cache.json", "data/manus/enrichment_cache.json",
+               "data/cache/news_relevance.json", "data/cache/news_enrichment.json",
                "data/manus/relevance_cache.json",
                "data/company-overview/extraction_cache.json", "data/funding/extraction_cache.json")
 
@@ -58,10 +61,11 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
     from funding.output import validate_table
     from company_index.output import validate as validate_overview
     tx_path = root / "config/taxonomy.json"
-    if "feed" in stages:
+    if "feed" in stages or "news" in stages:
         feed = json.loads((workspace / "data/manus/current.json").read_text(encoding="utf-8"))
         validate_feed(feed, str(tx_path))
-        validate_publishable(feed)
+        if "feed" in stages:
+            validate_publishable(feed)
     if "snapshot" in stages:
         snapshot = json.loads((workspace / "web/public/snapshot.json").read_text(encoding="utf-8"))
         for key in ("daily", "weekly"):
@@ -70,6 +74,10 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
         for key in ("history", "weeklyNav"):
             if not isinstance(snapshot[key], list):
                 raise ValueError("候选快照导航不合法")
+        if 'news' in stages:
+            status = snapshot.get('collectionStatus') or {}
+            if not any(s.get('status') in ('complete', 'partial') for s in status.get('sources', [])):
+                raise ValueError('没有成功来源，禁止发布')
     if "funding" in stages:
         table = json.loads((workspace / "data/funding/current.json").read_text(encoding="utf-8"))
         validate_table(table, tag_news.load_taxonomy(str(tx_path)))
@@ -88,7 +96,7 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
 
 
 def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False, *, ten_am=False,
-         source_mode="full", manus_credit_limit=20):
+         source_mode="full", manus_credit_limit=20, combined=False):
     def script(name, *args):
         return [sys.executable, str(root / "scripts" / name), *map(str, args)]
     def out(rel):
@@ -123,10 +131,23 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
         commands["funding"].extend(("--work-dir", str(root / "work/manus/ten-am")))
     if source_mode == "full" and manus_credit_limit:
         commands["discovery"].extend(("--credit-limit-per-source", str(manus_credit_limit)))
-    if source_mode == "aihot-only":
+    if source_mode == "aihot-only" and not combined:
         commands["snapshot"].extend(("--no-tags", "--exclude-wechat"))
     else:
         commands['snapshot'].append('--require-tags')
+    if combined:
+        manus_work = Path(os.getenv('MANUS_WORK_DIR', str(root / 'work/manus')))
+        if not manus_work.is_absolute():
+            manus_work = root / manus_work
+        manus_work = manus_work / 'ten-am'
+        commands['aihot'] = script('news_pipeline.py', 'collect', '--date', date, '--workspace', workspace)
+        commands['news'] = script('news_pipeline.py', 'process', '--date', date, '--workspace', workspace,
+                                  '--manus-work-dir', manus_work,
+                                  *(['--without-manus'] if source_mode == 'aihot-only' else []))
+        for stage in ('overview', 'funding'):
+            if '--work-dir' in commands[stage]:
+                commands[stage][commands[stage].index('--work-dir') + 1] = str(manus_work)
+        commands['snapshot'].extend(('--input-json', str(workspace / 'inputs/processed.json'), '--no-tags'))
     return commands
 
 
@@ -148,7 +169,7 @@ def fingerprint(root: Path, stages, skip_search, ten_am=False, source_mode="full
 
 def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=False,
         skip_search=False, execute=None, ten_am=False, source_mode="full",
-        manus_credit_limit=20):
+        manus_credit_limit=20, combined=False):
     execute = execute or (lambda cmd: subprocess.run(cmd, cwd=root).returncode)
     runs = root / "work" / "runs" / date
     if ten_am:
@@ -191,8 +212,50 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
             save(run_dir / "state.json", state)
             save(latest, {"runId": run_id})
         commands = plan(root, run_dir / "workspace", date, resume, skip_search, ten_am=ten_am,
-                        source_mode=source_mode, manus_credit_limit=manus_credit_limit)
+                        source_mode=source_mode, manus_credit_limit=manus_credit_limit, combined=combined)
+        def execute_timed(stage):
+            started = time.monotonic()
+            try:
+                code = execute(commands[stage])
+            except Exception:
+                code = 1
+            return {'status': 'success' if code == 0 else 'failed', 'exitCode': code,
+                    'seconds': round(time.monotonic() - started, 2)}
+
+        if combined:
+            collectors = ['aihot'] + (['discovery'] if source_mode == 'full' else [])
+            pending = [s for s in collectors if state['stages'].get(s, {}).get('status') != 'success']
+            retry_content = source_mode == 'full' and state['stages'].get('content', {}).get('status') != 'success'
+            if pending or retry_content:
+                # Collector retries can change the input pool; downstream successes
+                # from an earlier attempt must not hide those new articles.
+                for s in ('news', 'snapshot', 'overview', 'funding'):
+                    state['stages'].pop(s, None)
+                if 'discovery' in pending:
+                    state['stages'].pop('content', None)
+            for s in pending:
+                state['stages'][s] = {'status': 'running'}
+            save(run_dir / 'state.json', state)
+            with ThreadPoolExecutor(max_workers=2) as pool:
+                futures = {s: pool.submit(execute_timed, s) for s in pending}
+                for s, future in futures.items():
+                    state['stages'][s] = future.result()
+                    save(run_dir / 'state.json', state)
+            # A failed collector can still have validated results for other sources.
+            # content/news validate these files; failure never reads the old feed.
+            if source_mode == 'aihot-only':
+                state['stages']['discovery'] = {'status': 'skipped', 'reason': 'not_requested'}
+                state['stages']['content'] = {'status': 'skipped', 'reason': 'not_requested'}
+            elif state['stages'].get('content', {}).get('status') != 'success':
+                if (state['stages']['discovery']['status'] != 'success'
+                        and os.getenv('MANUS_CONTENT_MODE', 'script') != 'script'):
+                    state['stages']['content'] = {'status': 'skipped', 'reason': 'failed_discovery_no_new_paid_tasks'}
+                else:
+                    state['stages']['content'] = execute_timed('content')
+            save(run_dir / 'state.json', state)
         for stage in stages:
+            if combined and stage in ('aihot', 'discovery', 'content'):
+                continue
             if state["stages"].get(stage, {}).get("status") == "success":
                 print(f"[{stage}] 复用已成功阶段", flush=True)
                 continue
@@ -210,6 +273,8 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
         outputs = set()
         if "feed" in stages:
             outputs.add("data/manus")
+        if 'news' in stages:
+            outputs.add('data/manus')
         if "snapshot" in stages:
             outputs.update(("data/archive", "data/cache", "web/public"))
         if "funding" in stages:

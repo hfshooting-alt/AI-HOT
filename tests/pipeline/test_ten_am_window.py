@@ -191,11 +191,11 @@ class TestTenAm(unittest.TestCase):
             self.assertEqual(run_pipeline.main(["run", "--dry-run", "--date", END_DATE, '--cutoff-time', '10:00']), 0)
         plan = json.loads(output.getvalue())
         self.assertEqual(plan["collectionWindow"], WINDOW)
-        self.assertIn("--ten-am", plan["stages"][0]["command"])
-        self.assertIn("--window-date", plan["stages"][3]["command"])
-        self.assertIn("--api-window", plan["stages"][3]["command"])
-        api_window = plan["stages"][3]["command"].index("--api-window")
-        self.assertEqual(plan["stages"][3]["command"][api_window + 1], "24h")
+        stages = {s['stage']: s['command'] for s in plan['stages']}
+        self.assertIn("--ten-am", stages['discovery'])
+        self.assertIn("--window-date", stages['snapshot'])
+        self.assertIn("--input-json", stages['snapshot'])
+        self.assertEqual(plan['parallelCollectors'], ['aihot', 'discovery'])
         orchestration.run(self.root, END_DATE, ["discovery"], ten_am=True, execute=lambda _: 1)
         latest = self.root / "work/runs" / END_DATE / "ten-am/latest.json"
         self.assertTrue(latest.exists())
