@@ -1,5 +1,7 @@
 # 当前状态（2026-09-14）
 
+官网补全第二批：3次DeepSeek-V4-Pro，1523 tokens，补Replit/特斯拉/Swissport国家和Replit成立年份2016。仍65主体、83关联产品、8待核实；缺国家降至34。新闻199条、原报道日期、产品关系与链接逐项保持。审核包395b884cfaf941699be217e4e897a2b8通过并本地晋升；仅资料补全，不代表每日自动联网搜索已接通。
+
 官网资料新批次：5次DeepSeek、3013 tokens；补Cohere/Bending Spoons/NVIDIA/英伟达/IBM的国家及其中3条成立时间。用户确认基金会类型，OpenClaw移至OpenClaw Foundation并标基金会与“维护”。65主体、8待核实，缺国家37；199新闻不变。334Python、36Node、类型检查及静态构建通过，已通过99e9aed44a1f42b2ae005dffb674686c审核包本地晋升。详见[官网补全](../history/2026-09-14/OFFICIAL_COMPANY_RESEARCH.md)，Pages上线以部署验证为准。
 
 最新搜索决策：用户允许提高预算、优先高级模型并停止失败路线。本轮上限8次，实际只做1次Baichuan-M3，输出4096上限，7594 tokens/search_count=1；结果4条均为第三方来源，归属质量不通过，立即停止。GLM-4V及Baichuan-M3暂不接生产，不继续重复失败查询。助手独立查到OpenClaw基金会官网，但不冒充API自动搜索成功。详见[扩大额度验收](../history/2026-09-14/SEARCH_UPGRADE_REVIEW.md)。
