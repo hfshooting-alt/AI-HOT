@@ -126,14 +126,15 @@ class TestCreateTask(unittest.TestCase):
 
 
 class TestWaitForResult(unittest.TestCase):
-    def test_observed_credit_limit_aborts_before_message_poll(self):
+    def test_observed_credit_limit_reads_messages_before_stop(self):
         client, transport = make_client([
             {"ok": True, "task": {"status": "running", "credit_usage": 20}},
         ])
         with self.assertRaisesRegex(ManusAPIError, "Observed credit threshold"):
             client.wait_for_structured_result("t-1", observed_credit_limit=20)
-        self.assertEqual(len(transport.calls), 1)
-        self.assertTrue(transport.calls[0][1].startswith("task.detail?"))
+        self.assertEqual(len(transport.calls), 2)
+        self.assertTrue(transport.calls[0][1].startswith("task.listMessages?"))
+        self.assertTrue(transport.calls[1][1].startswith("task.detail?"))
 
     def test_immediate_structured_result(self):
         client, _ = make_client([page([structured_ok(RESULT_VALUE)])])

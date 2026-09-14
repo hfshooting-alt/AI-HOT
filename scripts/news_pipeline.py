@@ -140,7 +140,8 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
     audits.insert(0, {'name': 'AIHOT', 'collector': 'aihot',
                      'status': 'complete' if aihot_status == 'success' else 'failed',
                      'discoveredArticles': len(aihot['items']), 'usableArticles': len(aihot['items'])})
-    if not any(a['status'] in ('complete', 'partial') for a in audits):
+    if not any(a['status'] == 'complete' or
+               (a['status'] == 'partial' and a['usableArticles'] > 0) for a in audits):
         raise ValueError('All sources unavailable; keep previous publication')
     pool = candidates([i for i in aihot['items'] if matching_item(window, i)], articles)
     tx = copy.deepcopy(tag_news.load_taxonomy(str(ROOT / 'config/taxonomy.json')))

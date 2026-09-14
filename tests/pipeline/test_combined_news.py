@@ -141,6 +141,19 @@ class CombinedNews(unittest.TestCase):
         audit = next(a for a in result['collectionStatus']['sources'] if a['name'] == '游戏葡萄')
         self.assertEqual(audit['status'], 'partial')
 
+    def test_partial_source_articles_reach_shared_news_pool(self):
+        self.manus_sample()
+        path = self.raw / DATE / 'raw/discovery-group_a.json'
+        data = news.read(path)
+        audit = next(a for a in data['source_audits'] if a['account_name'] == '游戏葡萄')
+        audit.update(source_status='partial', note='boundary_unverified')
+        publish.save(path, data)
+        publish.save(self.workspace.parent / 'state.json', {'stages': {'aihot': {'status': 'failed'}}})
+        result = self.process()
+        self.assertEqual(len(result['items']), 1)
+        self.assertEqual(result['items'][0]['collector'], 'manus')
+        self.assertTrue(result['collectionStatus']['degraded'])
+
     def test_daily_company_inputs_do_not_reintroduce_weekly_exclusions(self):
         from company_index.inputs import load_articles
         current = {'id': 'aihot:new', 'title': '已筛选文章', 'url': 'https://example.com/new'}

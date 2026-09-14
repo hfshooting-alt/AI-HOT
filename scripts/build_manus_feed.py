@@ -147,7 +147,8 @@ def assemble_feed(target_date: str, discoveries: dict[str, dict], items: list[di
     audits = [a for g in GROUPS for a in discoveries[g]["source_audits"]]
     discovered = sum(1 for g in GROUPS
                      for a in discoveries[g]["articles"] if a["extraction_status"] == "complete")
-    failed_accounts = sum(1 for a in audits if a["source_status"] == "failed")
+    # Existing counters count incomplete coverage, including partial sources.
+    failed_accounts = sum(1 for a in audits if a["source_status"] != "complete")
     return {
         "schemaVersion": contracts.FEED_SCHEMA_VERSION,
         **({"collectionWindow": discoveries[GROUPS[0]]["collectionWindow"]}

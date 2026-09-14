@@ -39,7 +39,7 @@ DISCOVERY_OUTPUT_SCHEMA = {
                 "type": "object",
                 "properties": {
                     "account_name": {"type": "string"},
-                    "source_status": {"type": "string", "enum": ["complete", "failed"]},
+                    "source_status": {"type": "string", "enum": ["complete", "partial", "failed"]},
                     "article_count": {"type": "integer"},
                     "note": {"type": ["string", "null"]},
                 },
@@ -252,7 +252,7 @@ class ManusClient:
         return None, last_status, last_error
 
     def wait_for_structured_result(self, task_id: str,
-                                   observed_credit_limit: int | None = None) -> dict[str, Any]:
+                                   observed_credit_limit: int | None = None, on_checkpoint=None) -> dict[str, Any]:
         """轮询直到拿到 structured output；注册延迟/瞬时错误继续轮询，终态与超时抛异常。"""
         deadline = time.monotonic() + self.timeout_seconds
         availability_deadline = time.monotonic() + self.register_grace_seconds
@@ -260,24 +260,32 @@ class ManusClient:
         last_status: str | None = None
         while time.monotonic() < deadline:
             try:
-                if observed_credit_limit is not None:
-                    detail = self._request("GET", "task.detail?" + urlencode({"task_id": task_id}))
-                    credits = (detail.get("task") or {}).get("credit_usage")
-                    if type(credits) in (int, float) and credits >= observed_credit_limit:
-                        raise ManusAPIError(
-                            f"Observed credit threshold reached: {credits} >= {observed_credit_limit}")
                 cursor: str | None = None
-                while True:
+                seen_cursors = set()
+                for _ in range(10):
                     query = {"task_id": task_id, "order": "asc", "limit": str(self.page_limit)}
                     if cursor:
                         query["cursor"] = cursor
                     response = self._request("GET", f"task.listMessages?{urlencode(query)}")
+                    if on_checkpoint:
+                        from .checkpoints import checkpoint_articles
+                        for article in checkpoint_articles(response):
+                            on_checkpoint(article)
                     value, last_status, last_error = self._process_page(response, last_status, last_error)
                     if value is not None:
                         return value
                     cursor = response.get("next_cursor")
                     if not cursor:
                         break
+                    if cursor in seen_cursors:
+                        raise ManusAPIError('Repeated Manus message cursor')
+                    seen_cursors.add(cursor)
+                if observed_credit_limit is not None:
+                    detail = self._request("GET", "task.detail?" + urlencode({"task_id": task_id}))
+                    credits = (detail.get("task") or {}).get("credit_usage")
+                    if type(credits) in (int, float) and credits >= observed_credit_limit:
+                        raise ManusAPIError(
+                            f"Observed credit threshold reached: {credits} >= {observed_credit_limit}")
                 if last_status:
                     print(f"[{task_id}] Manus status: {last_status}", flush=True)
             except ManusAPIError as error:
@@ -296,3 +304,26 @@ class ManusClient:
                 raise
             time.sleep(self.poll_seconds)
         raise TimeoutError(last_error or f"Timed out waiting for Manus task {task_id}")
+
+    def read_stopped_results(self, task_id, on_checkpoint):
+        """One bounded, read-only sweep after stop; no task creation or continuation."""
+        from .checkpoints import checkpoint_articles
+        cursor = None
+        result = None
+        for _ in range(10):
+            query = {'task_id': task_id, 'order': 'asc', 'limit': str(self.page_limit)}
+            if cursor:
+                query['cursor'] = cursor
+            response = self._request('GET', 'task.listMessages?' + urlencode(query))
+            for article in checkpoint_articles(response):
+                on_checkpoint(article)
+            for event in response.get('messages', []):
+                structured = event.get('structured_output_result', {})
+                if event.get('type') == 'structured_output_result' and structured.get('success'):
+                    value = structured.get('value')
+                    if isinstance(value, dict):
+                        result = value
+            cursor = response.get('next_cursor')
+            if not cursor:
+                break
+        return result

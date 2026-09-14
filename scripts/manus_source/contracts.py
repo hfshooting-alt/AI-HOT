@@ -90,9 +90,9 @@ def validate_discovery(payload: dict, expected_group: str, target_date: str,
         if name not in expected_accounts:
             raise ContractError(f"source_audits 出现未配置账号：{name}")
         status = audit.get("source_status")
-        if status not in ("complete", "failed"):
+        if status not in ("complete", "partial", "failed"):
             raise ContractError(f"账号 {name} 的 source_status 非法：{status!r}")
-        if status == "failed" and not audit.get("note"):
+        if status in ("partial", "failed") and not audit.get("note"):
             raise ContractError(f"账号 {name} 来源失败但缺少失败原因 note")
     missing = set(expected_accounts) - seen
     if missing:
@@ -136,6 +136,8 @@ def validate_discovery(payload: dict, expected_group: str, target_date: str,
         name = audit["account_name"]
         want = audit.get("article_count")
         got = per_account_complete.get(name, 0)
+        if audit.get('source_status') == 'partial' and got == 0:
+            raise ContractError('partial 来源必须保留至少一篇已核实文章')
         if audit.get("source_status") == "failed":
             if want != 0 or got != 0:
                 raise ContractError(f"失败账号 {name} 不应有 complete 文章或 article_count")

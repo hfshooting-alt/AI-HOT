@@ -4,6 +4,8 @@
 
 当前完整链路与失败规则见[统一新闻链路](../architecture/UNIFIED_NEWS_PIPELINE.md)：AIHOT 与 Manus 独立并行采集，合并去重后统一模型加工；允许来源部分失败，模型及公司更新必须完成后发布。
 
+同一来源的已核实文章现在也可部分保留，逐篇checkpoint和止损回收规则见[9月14日验证记录](MANUS_PARTIAL_REVIEW_20260914.md)。partial不代表完整24小时覆盖，时间窗口保持09:30。
+
 ## 1. 先检查，再运行
 
 公司库构建在实体合并后应用 `config/company_research.json` 的已审阅归属规则与缺失字段补全。只允许带核验时间、官网URL和引用的 reviewed 记录；品牌的团队、时间等保留在 brandProfiles，不能搬到母公司字段。外部字段来源 origin=research，与新闻原文 origin=article 区分。

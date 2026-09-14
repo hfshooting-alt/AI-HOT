@@ -61,6 +61,7 @@ class DiscoveryRunError(RuntimeError):
         self.task_id = task_id
         self.stop_succeeded = stop_succeeded
         self.stop_error = stop_error
+        self.partial_payload = None
         super().__init__(str(cause))
 
 
@@ -77,7 +78,8 @@ def render_discovery_prompt(template_path: Path, sources: list[dict]) -> str:
 
 def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text: str,
                   expected_accounts: list[str], window: dict | None = None,
-                  observed_credit_limit: int | None = None) -> dict:
+                  observed_credit_limit: int | None = None, source_specs=None,
+                  checkpoint_path=None) -> dict:
     """提交单组发现任务并等待结果；契约校验通过后返回原始 payload，失败抛异常。"""
     schema = deepcopy(DISCOVERY_OUTPUT_SCHEMA)
     if window:
@@ -94,9 +96,22 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
         output_schema=schema,
     )
     print(f"[{group}] Manus task created: {task.task_url}", flush=True)
+    from manus_source.checkpoints import accept_article, partial_payload
+    verified = {}
+    def checkpoint(article):
+        if accept_article(article, group, target_date, expected_accounts, window, source_specs):
+            verified[article['article_url']] = article
+            if checkpoint_path:
+                path = Path(checkpoint_path)
+                path.parent.mkdir(parents=True, exist_ok=True)
+                temp = path.with_suffix('.tmp')
+                temp.write_text(json.dumps({'taskId': task.task_id, 'articles': list(verified.values())},
+                                          ensure_ascii=False, indent=2), encoding='utf-8')
+                temp.replace(path)
     try:
         payload = client.wait_for_structured_result(
-            task.task_id, observed_credit_limit=observed_credit_limit)
+            task.task_id, observed_credit_limit=observed_credit_limit,
+            **({'on_checkpoint': checkpoint} if isinstance(client, ManusClient) else {}))
     except Exception as error:
         stop_succeeded = False
         stop_error = None
@@ -105,8 +120,19 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
             stop_succeeded = True
         except Exception as exc:  # noqa: BLE001 - 保留原始异常并显式记录停止失败
             stop_error = str(exc)[:160]
-        raise DiscoveryRunError(task.task_id, error, stop_succeeded=stop_succeeded,
-                                stop_error=stop_error) from error
+        if stop_succeeded and isinstance(client, ManusClient):
+            try:
+                stopped = client.read_stopped_results(task.task_id, checkpoint)
+                for article in (stopped or {}).get('articles', []):
+                    checkpoint(article)
+            except (OSError, ValueError, RuntimeError):
+                pass  # Previously persisted checkpoints remain usable.
+        failure = DiscoveryRunError(task.task_id, error, stop_succeeded=stop_succeeded,
+                                    stop_error=stop_error)
+        if verified:
+            failure.partial_payload = partial_payload(group, target_date, expected_accounts,
+                window, list(verified.values()), 'coverage_unverified: ' + str(error)[:300])
+        raise failure from error
     # schema_version 是本地契约版本号，Manus 平台只是通用执行器、不理解其语义
     # （见 docs/2026-08-20-manus-pipeline-smoke-issues.md 问题 1）：不依赖 Manus
     # 回显，落盘校验前本地权威补充；校验端保持强制不变。
@@ -114,7 +140,27 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
     if window:
         payload["schema_version"] = contracts.WINDOW_DISCOVERY_SCHEMA_VERSION
         payload["collectionWindow"] = window
-    contracts.validate_discovery(payload, group, target_date, expected_accounts)
+    try:
+        if source_specs is not None and any(a.get('extraction_status') == 'complete'
+                and not accept_article(a, group, target_date, expected_accounts, window, source_specs)
+                for a in payload['articles']):
+            raise contracts.ContractError('Returned article source identity or timestamp is invalid')
+        contracts.validate_discovery(payload, group, target_date, expected_accounts)
+    except contracts.ContractError:
+        if verified:
+            return partial_payload(group, target_date, expected_accounts, window,
+                                   list(verified.values()), 'final_result_invalid: coverage unverified')
+        raise
+    for article in payload['articles']:
+        checkpoint(article)
+    if verified:
+        payload['articles'] = list(verified.values())
+        for audit in payload['source_audits']:
+            count = sum(a['account_name'] == audit['account_name'] for a in verified.values())
+            audit['article_count'] = count
+            if count and audit['source_status'] == 'failed':
+                audit['source_status'] = 'partial'
+        contracts.validate_discovery(payload, group, target_date, expected_accounts)
     return payload
 
 
@@ -362,7 +408,8 @@ def main(argv: list[str] | None = None) -> int:
                             "{{WINDOW_END}}", window["end"])
                     fut = ex.submit(
                         cost_circuit.call, run_discovery, client, group, args.date, prompt_text,
-                        [source["account_name"]], window, args.credit_limit_per_source)
+                        [source["account_name"]], window, args.credit_limit_per_source,
+                        [source], account_dir / f"{canary_slug(source['account_name'])}.checkpoints.json")
                     futs[fut] = (group, source)
             for fut in as_completed(futs):
                 group, source = futs[fut]
@@ -394,7 +441,9 @@ def main(argv: list[str] | None = None) -> int:
                         for pending in futs:
                             pending.cancel()
                     reason = str(error)
-                    payload = failed_source_payload(group, args.date, source, window, reason)
+                    payload = (error.partial_payload if isinstance(error, DiscoveryRunError)
+                               and error.partial_payload else
+                               failed_source_payload(group, args.date, source, window, reason))
                     payload['sourceIdentity'] = source_identity(source)
                     source_payloads[group][name] = payload
                     (account_dir / f"{canary_slug(name)}.json").write_text(
@@ -411,7 +460,7 @@ def main(argv: list[str] | None = None) -> int:
                 complete = sum(1 for article in payload["articles"]
                                if article["extraction_status"] == "complete")
                 failed_count = sum(1 for audit in payload["source_audits"]
-                                   if audit["source_status"] == "failed")
+                                   if audit["source_status"] != "complete")
                 print(f"[{group}] 合并完成：{complete} 篇，{failed_count} 个来源失败", flush=True)
             except Exception as error:  # noqa: BLE001 - 组级契约失败必须阻断
                 failures.append(f"{group}: {error}")
@@ -439,7 +488,8 @@ def main(argv: list[str] | None = None) -> int:
                     canary["createAttempts"] = 1
                     canary_path.write_text(json.dumps(canary, ensure_ascii=False, indent=2), encoding="utf-8")
                 futs[ex.submit(run_discovery, client, group, args.date, prompt_text,
-                               accounts, window, limit)] = group
+                               accounts, window, limit, sources,
+                               raw_dir / f"checkpoints-{group}.json")] = group
             for fut in as_completed(futs):
                 group = futs[fut]
                 try:
@@ -450,11 +500,15 @@ def main(argv: list[str] | None = None) -> int:
                     out = raw_dir / f"discovery-{group}.json"
                     out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
                     complete = sum(1 for a in payload["articles"] if a["extraction_status"] == "complete")
-                    failed_sources = sum(1 for a in payload["source_audits"] if a["source_status"] == "failed")
+                    failed_sources = sum(1 for a in payload["source_audits"] if a["source_status"] != "complete")
                     print(f"[{group}] 发现完成：{complete} 篇文章，{failed_sources} 个来源失败，已保存 {out}",
                           flush=True)
                 except Exception as error:  # noqa: BLE001 - 组级失败隔离，不拖垮其他组
                     failures.append(f"{group}: {error}")
+                    if isinstance(error, DiscoveryRunError) and error.partial_payload:
+                        results[group] = error.partial_payload
+                        (raw_dir / f"discovery-{group}.json").write_text(
+                            json.dumps(error.partial_payload, ensure_ascii=False, indent=2), encoding='utf-8')
                     if canary and isinstance(error, DiscoveryRunError):
                         canary.update(taskId=error.task_id, stopRequested=True,
                                       resolved=error.stop_succeeded)
@@ -483,7 +537,7 @@ def main(argv: list[str] | None = None) -> int:
             f"{audit['account_name']}: {audit.get('note') or '来源审计失败'}"
             for payload in results.values()
             for audit in payload.get("source_audits", [])
-            if audit.get("source_status") == "failed"
+            if audit.get("source_status") != "complete"
         ]
         if cost_circuit.failures >= cost_circuit.limit:
             failures.append('cost_circuit_open: repeated credit stops; downstream publication blocked')
@@ -506,8 +560,8 @@ def main(argv: list[str] | None = None) -> int:
         return 1
     audited_failure_count = sum(
         1 for payload in results.values() for audit in payload.get("source_audits", [])
-        if audit.get("source_status") == "failed")
-    suffix = f"；{audited_failure_count} 个来源已隔离失败" if audited_failure_count else ""
+        if audit.get("source_status") != "complete")
+    suffix = f"；{audited_failure_count} 个来源未完整覆盖（含失败及部分结果）" if audited_failure_count else ""
     print(f"全部 {len(results)} 组发现完成并通过契约校验（{args.date}）{suffix}")
     return 0
 

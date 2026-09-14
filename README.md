@@ -34,6 +34,8 @@ npm --prefix web run dev
 
 公司收录、新闻筛选、资料证据及双日期定义以[投资人验收口径](docs/operations/INVESTOR_ACCEPTANCE.md)为准。新业务口径先在隔离候选批次中验收，再发布。
 
+Manus 支持保留同一来源已核实的部分文章；未扫完整个窗口时标明“部分覆盖”，继续执行时间、正文及模型审核，不因止损删除已验证成果。该机制不保证每次任务都能在预算内取得文章。
+
 当前公开站点使用无后端静态模式，地址为 [https://hfshooting-alt.github.io/AI-HOT/](https://hfshooting-alt.github.io/AI-HOT/)。它读取仓库已有快照，不需要 Manus 或模型 API；在新的采集数据尚未生成时会继续展示现有快照。Manus 条目先经过 AI 相关性门禁，再进行摘要、标签和公司抽取；实际承载页会标记为官网资讯、腾讯新闻转载、网易号转载或已核实公众号。仓库 Pages Source 已设为 **GitHub Actions**。
 
 | 命令 | 用途 |
