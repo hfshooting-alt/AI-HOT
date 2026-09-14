@@ -1,5 +1,7 @@
 # 当前状态（2026-09-14）
 
+第三批核验5家、5次DeepSeek-V4-Pro、4413 tokens。新增Cohere/ElevenLabs主营业务、ElevenLabs/字节跳动创始团队；已有业务值保留，剔除模型将Hinton推荐语当Cohere团队的建议，不导入官网额外产品。国家缺失仍34。用户确认成立以法人注册日期为主，创立年份不直接晋升；公司日期阿拉伯数字显示，历史创立口径标注注册待核实，空值显示待补充。抽取提示词v13、独立research缓存v2；未重跑全量付费模型。详情见[第三批](../history/2026-09-14/OFFICIAL_COMPANY_RESEARCH_B3.md)。
+
 官网补全第二批：3次DeepSeek-V4-Pro，1523 tokens，补Replit/特斯拉/Swissport国家和Replit成立年份2016。仍65主体、83关联产品、8待核实；缺国家降至34。新闻199条、原报道日期、产品关系与链接逐项保持。审核包395b884cfaf941699be217e4e897a2b8通过并本地晋升；仅资料补全，不代表每日自动联网搜索已接通。
 
 官网资料新批次：5次DeepSeek、3013 tokens；补Cohere/Bending Spoons/NVIDIA/英伟达/IBM的国家及其中3条成立时间。用户确认基金会类型，OpenClaw移至OpenClaw Foundation并标基金会与“维护”。65主体、8待核实，缺国家37；199新闻不变。334Python、36Node、类型检查及静态构建通过，已通过99e9aed44a1f42b2ae005dffb674686c审核包本地晋升。详见[官网补全](../history/2026-09-14/OFFICIAL_COMPANY_RESEARCH.md)，Pages上线以部署验证为准。

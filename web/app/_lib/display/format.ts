@@ -44,6 +44,29 @@ const WEEKDAYS = ["星期日", "星期一", "星期二", "星期三", "星期四
 
 const CN_DIGITS = "〇一二三四五六七八九";
 
+/** Company dates retain source precision; never invent a month/day. */
+export function fmtCompanyDate(value?: string | null): string {
+  if (!value) return "";
+  const digits = "零一二三四五六七八九";
+  const numeric = value.replace(/[〇零一二三四五六七八九十]+/g, (part) => {
+    if (!part.includes("十")) return [...part].map(c => c === "〇" ? "0" : String(digits.indexOf(c))).join("");
+    const [a, b] = part.split("十");
+    return String((a ? digits.indexOf(a) : 1) * 10 + (b ? digits.indexOf(b) : 0));
+  });
+  const full = numeric.match(/^(\d{4})年(\d{1,2})月(\d{1,2})日$/);
+  if (full) return `${full[1]}-${full[2].padStart(2, "0")}-${full[3].padStart(2, "0")}`;
+  const month = numeric.match(/^(\d{4})年(\d{1,2})月$/);
+  if (month) return `${month[1]}-${month[2].padStart(2, "0")}`;
+  return /^\d{4}$/.test(numeric) ? `${numeric}年` : numeric;
+}
+
+export function fmtCompanyFounded(value?: string | null, evidence: { quote?: string }[] = []): string {
+  const date = fmtCompanyDate(value);
+  if (!date) return "";
+  const registered = evidence.some(e => /incorporated|注册成立|注册日期|登记成立|成立登记/i.test(e.quote || ""));
+  return registered ? date : `${date}（创立口径，注册日期待核实）`;
+}
+
 /** 1-99 -> 中文数字（日报期刊头用，与后端 cn_num 同口径） */
 export function cnNum(n: number): string {
   if (n < 10) return CN_DIGITS[n];

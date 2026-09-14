@@ -39,6 +39,7 @@ def build_prompt(tx: dict, article: dict) -> tuple[str, str]:
 
 只使用文章明确表达的事实。缺失字段为 null，数组缺失为 []。不得根据常识补全，不得把媒体来源本身当作被报道公司。
 country 必须是公司所属国家而不是市场覆盖范围。total_funding 是累计融资，不能把单轮融资填为累计融资；valuation 保留币种与估值时点，不能使用市值代替。不要以模型记忆补全团队和成立时间。
+founded优先当前法人注册/登记成立日期；仅有品牌创立、产品发布或不明确的成立年份时留null，不能冒充注册日期。日期用阿拉伯数字，保留原始精度，不补造月日。
 只输出 JSON：{{"companies":[{{"company_name":"...","entity_type":"company","aliases":[],"product_names":[],"products":[{{"name":"产品名","relationship":"unknown","quote":"原文逐字引文","kind":"product"}}],"founded":null,"country":null,"team":null,"business":null,"investors":null,"total_funding":null,"valuation":null,"industry_id":"ai_other"}}]}}"""
     cfg = overview_cfg(tx)
     user = (f"标题：{article['title']}\n来源：{article['sourceName']}\n"

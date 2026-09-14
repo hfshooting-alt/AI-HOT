@@ -63,3 +63,15 @@ test('unowned products remain visible even without any confirmed companies', () 
   assert.match(html, /https:\/\/example.com\/product/);
   assert.match(html, /不改变新闻分类/);
 });
+
+ test("company dates preserve precision and use Arabic numerals", () => {
+ const { fmtCompanyDate } = require("../../app/_lib/display/format.ts");
+ assert.equal(fmtCompanyDate("一九九三年四月"), "1993-04");
+ assert.equal(fmtCompanyDate("1911年6月16日"), "1911-06-16");
+ assert.equal(fmtCompanyDate("2022年初"), "2022年初");
+ assert.equal(fmtCompanyDate("2016"), "2016年");
+ assert.equal(fmtCompanyDate(null), "");
+ const { fmtCompanyFounded } = require("../../app/_lib/display/format.ts");
+ assert.match(fmtCompanyFounded("2016"), /注册日期待核实/);
+ assert.equal(fmtCompanyFounded("1911年6月16日", [{quote: "incorporated on June 16, 1911"}]), "1911-06-16");
+});

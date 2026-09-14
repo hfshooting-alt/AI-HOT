@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 import type { CompanyFieldEvidence, CompanyOverview, CompanyProfile } from "../../_lib/domain/types";
 import { TagFilterBar, type DimSelection } from "../news/TagFilterBar";
 import { CompanyDetailDrawer } from "./CompanyDetailDrawer";
-import { fmtCnDate } from "../../_lib/display/format";
+import { bjDayKey, fmtCompanyDate, fmtCompanyFounded } from "../../_lib/display/format";
 
 const PAGE_SIZE = 24;
 type SortKey = "recent" | "name" | "sources" | "products";
@@ -31,7 +31,7 @@ const COLUMNS: { key: CompanyColumnKey; label: string; cellClass: string }[] = [
 
 function matches(rec: CompanyProfile, selection: DimSelection, query: string): boolean {
   for (const [label, values] of Object.entries(selection)) {
-    const value = label === "国家/地区" ? rec.country || "未披露" : rec.dims?.[label];
+    const value = label === "国家/地区" ? rec.country || "待补充" : rec.dims?.[label];
     if (values.length && !values.includes(value)) return false;
   }
   const q = query.trim().toLowerCase();
@@ -98,7 +98,7 @@ function SourceLinks({ rec, compact = false }: { rec: CompanyProfile; compact?: 
 }
 
 function MissingValue() {
-  return <span className="text-mut-2">未披露</span>;
+  return <span className="text-mut-2">待补充</span>;
 }
 
 function CompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () => void }) {
@@ -120,9 +120,9 @@ function CompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () => void 
               <EntityTypeBadge company={rec} />
             </h3>
             <p className="mt-1 line-clamp-2 text-[13px] leading-relaxed text-mut">
-              {rec.product_names.length ? productText(rec) : "产品信息暂未披露"}
+              {rec.product_names.length ? productText(rec) : "产品信息暂待补充"}
             </p>
-            <p className="mt-2 text-[11px] text-mut">最新报道：{fmtCnDate(rec.latestReportAt || rec.lastSeenAt) || "未披露"} · 资料更新：{fmtCnDate(rec.profileUpdatedAt || "") || "未记录"}</p>
+            <p className="mt-2 text-[11px] text-mut">最新报道：{bjDayKey(rec.latestReportAt || rec.lastSeenAt) || "待补充"} · 资料更新：{bjDayKey(rec.profileUpdatedAt || "") || "未记录"}</p>
           </div>
           <span className="shrink-0 rounded-full border border-brand/15 bg-brand-soft px-2.5 py-1 text-[10px] font-bold text-brand">
             {rec.sourceArticles.length} 篇来源
@@ -139,13 +139,13 @@ function CompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () => void 
 
       <dl className="grid grid-cols-3 divide-x divide-line border-b border-line">
         {[
-          ["成立", rec.founded],
+          ["成立", fmtCompanyFounded(rec.founded, evidenceFor(rec, "founded"))],
           ["累计融资", rec.total_funding],
           ["最新估值", rec.valuation],
         ].map(([label, value]) => (
           <div key={label} className="min-w-0 px-3 py-3">
             <dt className="text-[10px] font-bold tracking-wide text-mut-2">{label}</dt>
-            <dd className="mt-1 truncate text-[12px] font-semibold text-ink-2">{value || "未披露"}</dd>
+            <dd className="mt-1 truncate text-[12px] font-semibold text-ink-2">{value || "待补充"}</dd>
           </div>
         ))}
       </dl>
@@ -180,7 +180,7 @@ function CompanyCard({ rec, onOpen }: { rec: CompanyProfile; onOpen: () => void 
         <div className="space-y-4 px-4 pb-4 text-[12px] leading-relaxed">
           {Object.values(rec.brandProfiles).map((brand) => <div key={brand.id}>
             <h4 className="font-bold text-ink">{brand.company_name}</h4>
-            {brand.founded && <p className="text-mut">品牌 / 产品时间：<EvidenceValue value={brand.founded} evidence={evidenceFor(brand, "founded")} /></p>}
+            {brand.founded && <p className="text-mut">品牌 / 产品时间：<EvidenceValue value={fmtCompanyDate(brand.founded)} evidence={evidenceFor(brand, "founded")} /></p>}
             {brand.business && <p><EvidenceValue value={brand.business} evidence={evidenceFor(brand, "business")} /></p>}
             <SourceLinks rec={brand} compact />
           </div>)}
@@ -215,8 +215,8 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
   const [pagination, setPagination] = useState({ key: "", page: 1 });
   const [selectedCompany, setSelectedCompany] = useState<CompanyProfile | null>(null);
   const filterDimensions = useMemo(() => ({
-    industry: { label: "行业", values: [...new Set(overview.companies.map((rec) => rec.dims?.["行业"] || "未披露"))].sort() },
-    region: { label: "国家/地区", values: [...new Set(overview.companies.map((rec) => rec.country || "未披露"))].sort() },
+    industry: { label: "行业", values: [...new Set(overview.companies.map((rec) => rec.dims?.["行业"] || "待补充"))].sort() },
+    region: { label: "国家/地区", values: [...new Set(overview.companies.map((rec) => rec.country || "待补充"))].sort() },
   }), [overview]);
   const filteredRows = useMemo(
     () => overview.companies.filter((record) => matches(record, dimSel, q)),
@@ -306,7 +306,7 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
                   const key = String(col.key);
                   if (col.key === "latestReportAt" || col.key === "profileUpdatedAt") {
                     const date = col.key === "latestReportAt" ? rec.latestReportAt || rec.lastSeenAt : rec.profileUpdatedAt;
-                    return <td key={key} className="px-4 py-3 text-[12px] text-mut" title={col.key === "latestReportAt" ? "最近关联报道的发布时间；用于默认排序" : "资料或关联证据实质变化的时间；重复处理不刷新"}>{fmtCnDate(date || "") || "未记录"}</td>;
+                    return <td key={key} className="px-4 py-3 text-[12px] text-mut" title={col.key === "latestReportAt" ? "最近关联报道的发布时间；用于默认排序" : "资料或关联证据实质变化的时间；重复处理不刷新"}>{bjDayKey(date || "") || "未记录"}</td>;
                   }
                   if (col.key === "sourceArticles") {
                     return <td key={key} className={`px-4 py-3.5 leading-relaxed ${col.cellClass}`}><SourceLinks rec={rec} /></td>;
@@ -334,7 +334,7 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
                     );
                   }
                   const raw = col.key === "product_names" ? productText(rec) : rec[col.key];
-                  const value = typeof raw === "string" ? raw : "";
+                  const value = typeof raw === "string" ? (key === "founded" ? fmtCompanyFounded(raw, evidenceFor(rec, "founded")) : raw) : "";
                   return (
                     <td key={key} className={`px-4 py-3.5 leading-relaxed text-ink-2 ${col.cellClass}`}>
                       {value ? <EvidenceValue value={value} evidence={evidenceFor(rec, key)} /> : <MissingValue />}
@@ -360,7 +360,7 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
       </section>}
 
       <footer className="mt-7 border-t border-line pt-4 text-center text-[11px] leading-relaxed text-mut-2">
-        缺失信息保留为“未披露” · 同名与别名按确定性规则合并 · {overview.coverageNote}
+        缺失信息保留为“待补充” · 同名与别名按确定性规则合并 · {overview.coverageNote}
       </footer>
       {selectedCompany && <CompanyDetailDrawer company={selectedCompany} onClose={() => setSelectedCompany(null)} />}
     </section>

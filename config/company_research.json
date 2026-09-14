@@ -867,6 +867,85 @@
       "checkedAt": "2026-09-14"
     }
   ]
+},
+{
+  "record_name": "ElevenLabs",
+  "entity_type": "company",
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "team",
+      "value": "Piotr Dąbkowski, Mateusz Staniszewski",
+      "quote": "co-founded by Piotr Dąbkowski, a former Google machine learning engineer, and Mateusz Staniszewski, an ex-Palantir strategist",
+      "url": "https://elevenlabs.io/docs/help-center/other/what-is-eleven-labs",
+      "title": "ElevenLabs official company information",
+      "checkedAt": "2026-09-14"
+    },
+    {
+      "field": "business",
+      "value": "生成式音频AI",
+      "quote": "focuses primarily on advanced generative AI for audio",
+      "url": "https://elevenlabs.io/docs/help-center/other/what-is-eleven-labs",
+      "title": "ElevenLabs official company information",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "Cohere",
+  "entity_type": "company",
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "business",
+      "value": "面向企业研发基础模型及AI解决方案",
+      "quote": "Cohere builds foundational models and AI solutions",
+      "url": "https://cohere.com/about",
+      "title": "Cohere official company information",
+      "reviewMethod": "human reviewed official text",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "字节跳动",
+  "entity_type": "company",
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "team",
+      "value": "张一鸣、梁汝波",
+      "quote": "founded in 2012 by a team led by Yiming Zhang and Rubo Liang",
+      "url": "https://www.bytedance.com/en/",
+      "title": "字节跳动 official company information",
+      "checkedAt": "2026-09-14"
+    },
+    {
+      "field": "business",
+      "value": "内容创作与分发、短视频及配套互联网产品服务",
+      "quote": "ByteDance has made it easy and fun for people to connect with, create and consume content.",
+      "url": "https://www.bytedance.com/en/",
+      "title": "字节跳动 official company information",
+      "reviewMethod": "human reviewed official text",
+      "checkedAt": "2026-09-14"
+    }
+  ]
+},
+{
+  "record_name": "Glean",
+  "entity_type": "company",
+  "reviewed": true,
+  "facts": [
+    {
+      "field": "business",
+      "value": "企业搜索与企业AI平台，为知识检索、工作流和智能体提供企业上下文",
+      "quote": "That foundation now powers Glean’s enterprise AI platform, bringing enterprise context to every answer, workflow, and action.",
+      "url": "https://www.glean.com/about/glean-story",
+      "title": "Glean official company information",
+      "reviewMethod": "human reviewed official text",
+      "checkedAt": "2026-09-14"
+    }
+  ]
 }
 ]
 }

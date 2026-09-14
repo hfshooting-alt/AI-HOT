@@ -2,6 +2,7 @@
 // 纯受控组件：表格数据与筛选状态由父视图传入（数据不可用时父视图回退卡片流）
 // 行筛选复用 TagFilterBar 语义：维度内 OR、维度间 AND；搜索词匹配公司/产品/行业/投资人
 "use client";
+import { fmtCompanyDate } from "../../_lib/display/format";
 
 import { useMemo } from "react";
 import type { FundingCompany, FundingTable } from "../../_lib/domain/types";
@@ -123,7 +124,7 @@ export function FundingTableView({ table, dimSel, q }: FundingTableViewProps) {
                     const isSource = col.key === "sourceArticles";
                     const value = isSource
                       ? undefined
-                      : (rec[col.key] as string | null | undefined);
+                      : col.key === "founded" ? fmtCompanyDate(rec.founded) : (rec[col.key] as string | null | undefined);
                     const filled = (rec.filledBySearch || []).includes(col.key as string);
                     return (
                       <td key={col.key} className={`px-3 py-2.5 text-ink-2 ${col.cellClass}`}>

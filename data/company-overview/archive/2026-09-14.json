@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-14T18:33:16+08:00",
+  "generatedAt": "2026-09-14T18:42:43+08:00",
   "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
   "stats": {
     "articlesProcessed": 199,
@@ -3701,8 +3701,8 @@
       ],
       "founded": null,
       "country": null,
-      "team": null,
-      "business": null,
+      "team": "张一鸣、梁汝波",
+      "business": "内容创作与分发、短视频及配套互联网产品服务",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -3734,6 +3734,32 @@
             "quote": "ByteDance Seed Team",
             "checkedAt": "2026-09-14"
           }
+        ],
+        "team": [
+          {
+            "value": "张一鸣、梁汝波",
+            "articleId": "research:7bf3f52f06725ef9",
+            "url": "https://www.bytedance.com/en/",
+            "title": "字节跳动 official company information",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "founded in 2012 by a team led by Yiming Zhang and Rubo Liang",
+            "checkedAt": "2026-09-14"
+          }
+        ],
+        "business": [
+          {
+            "value": "内容创作与分发、短视频及配套互联网产品服务",
+            "articleId": "research:7bf3f52f06725ef9",
+            "url": "https://www.bytedance.com/en/",
+            "title": "字节跳动 official company information",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "ByteDance has made it easy and fun for people to connect with, create and consume content.",
+            "checkedAt": "2026-09-14"
+          }
         ]
       },
       "sourceArticles": [
@@ -3760,7 +3786,7 @@
       "updatedAt": "2026-09-14T00:08:00.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-14T00:08:00.000Z",
-      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
+      "profileUpdatedAt": "2026-09-14T18:42:43+08:00",
       "productUpdates": [
         {
           "name": "Seedance 2.5",
@@ -4241,7 +4267,7 @@
       "founded": null,
       "country": "加拿大",
       "team": "Aidan Gomez",
-      "business": null,
+      "business": "面向企业研发基础模型及AI解决方案",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -4294,6 +4320,19 @@
             "quote": "Cohere is headquartered in Canada.",
             "checkedAt": "2026-09-14"
           }
+        ],
+        "business": [
+          {
+            "value": "面向企业研发基础模型及AI解决方案",
+            "articleId": "research:2fc89788d887d330",
+            "url": "https://cohere.com/about",
+            "title": "Cohere official company information",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "Cohere builds foundational models and AI solutions",
+            "checkedAt": "2026-09-14"
+          }
         ]
       },
       "sourceArticles": [
@@ -4319,7 +4358,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T23:49:27.000Z",
       "latestReportAt": "2026-09-13T23:49:27.000Z",
-      "profileUpdatedAt": "2026-09-14T18:17:40+08:00",
+      "profileUpdatedAt": "2026-09-14T18:42:43+08:00",
       "productUpdates": []
     },
     {
@@ -6641,8 +6680,8 @@
       ],
       "founded": null,
       "country": null,
-      "team": null,
-      "business": null,
+      "team": "Piotr Dąbkowski, Mateusz Staniszewski",
+      "business": "生成式音频AI",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -6681,6 +6720,32 @@
             "sourceName": "The Decoder：AI News（RSS）",
             "origin": "article"
           }
+        ],
+        "team": [
+          {
+            "value": "Piotr Dąbkowski, Mateusz Staniszewski",
+            "articleId": "research:0f60196936e74503",
+            "url": "https://elevenlabs.io/docs/help-center/other/what-is-eleven-labs",
+            "title": "ElevenLabs official company information",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "co-founded by Piotr Dąbkowski, a former Google machine learning engineer, and Mateusz Staniszewski, an ex-Palantir strategist",
+            "checkedAt": "2026-09-14"
+          }
+        ],
+        "business": [
+          {
+            "value": "生成式音频AI",
+            "articleId": "research:0f60196936e74503",
+            "url": "https://elevenlabs.io/docs/help-center/other/what-is-eleven-labs",
+            "title": "ElevenLabs official company information",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "focuses primarily on advanced generative AI for audio",
+            "checkedAt": "2026-09-14"
+          }
         ]
       },
       "sourceArticles": [
@@ -6698,7 +6763,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T13:40:36.000Z",
       "latestReportAt": "2026-09-13T13:40:36.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-14T18:42:43+08:00",
       "productUpdates": [
         {
           "name": "Music v2.5",
