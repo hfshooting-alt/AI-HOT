@@ -23,19 +23,26 @@ class QualityBoundaries(unittest.TestCase):
             result=enrich_one(TX,{'title':'新品','content_text':'实际只是分享已有模型的使用心得。'*20})
         self.assertNotEqual(result['enrichmentStatus'],'complete')
 
-    def test_original_old_publication_isolated_not_new_discussion(self):
-        rules={'records':[{'url':'https://example.com/a','title':'旧文章','originalPublishedDate':'2019-02-14','checkedAt':'2026-09-14','evidence':'2019','reason':'旧闻'}]}
-        items=[{'id':'old','title':'旧文章','url':'https://example.com/a'}, {'id':'new','title':'今天的新解读','url':'https://example.com/new'}]
-        accepted, isolated=review(items,{'start':'2026-09-13T09:30:00+08:00'},rules)
-        self.assertEqual([i['id'] for i in accepted],['new'])
-        self.assertEqual(isolated[0]['originalPublishedDate'],'2019-02-14')
+    def test_source_specific_publication_policy(self):
+        window={'start':'2026-09-13T09:30:00+08:00','end':'2026-09-14T09:30:00+08:00'}
+        old={'title':'旧文章','url':'https://example.com/2019/02/14/a',
+             'publishedAt':'2019-02-14T10:00:00+08:00',
+             'updatedAt':'2026-09-14T08:00:00+08:00',
+             'lastCommentAt':'2026-09-14T08:00:00+08:00','likes':100}
+        items=[dict(old,id='aihot',collector='aihot'),dict(old,id='manus',collector='manus'),
+               dict(old,id='shared',collector='manus',sourceRefs=[{'collector':'aihot'}]),
+               dict(old,id='new',collector='manus',publishedAt='2026-09-14T08:00:00+08:00'),
+               dict(old,id='unknown',collector='manus',publishedAt=None)]
+        accepted, isolated=review(items,window)
+        self.assertEqual([i['id'] for i in accepted],['aihot','shared','new'])
+        self.assertEqual([i['id'] for i in isolated],['manus','unknown'])
 
-    def test_old_url_date_is_only_a_quarantine_hint_not_verified_publication(self):
-        items=[{'id':'a','title':'时间未知','url':'https://example.com/2026/08/18/story'}]
-        accepted, isolated=review(items,{'start':'2026-09-13T09:30:00+08:00'},{'records':[]})
-        self.assertFalse(accepted)
-        self.assertEqual(isolated[0]['verificationStatus'],'unverified')
-        self.assertNotIn('originalPublishedDate',isolated[0])
+    def test_yesterday_publication_exception_remains(self):
+        window={'start':'2026-09-13T09:30:00+08:00','end':'2026-09-14T09:30:00+08:00'}
+        item={'id':'a','title':'昨天发布','url':'https://example.com/a','collector':'manus',
+              'publishedAt':'2026-09-13','publishedPrecision':'date',
+              'timeEvidence':{'originalText':'昨天','observedAt':'2026-09-14T11:00:00+08:00'}}
+        self.assertEqual(review([item],window),([item],[]))
 
     def test_unowned_product_stays_pending_without_changing_news(self):
         article={'id':'a','title':'新AI工具发布','publishedAt':'2026-09-14T08:00:00+08:00','url':'https://example.com/tool','category':'release','dims':{}}

@@ -1,5 +1,7 @@
 # Manus 信源数据契约（MANUS_DATA_CONTRACT）
 
+Manus只依据文章原始发布／发送时间收录，新增点赞、评论、互动、编辑或转载页面的刷新时间均不能使旧文章重新符合窗口。“昨天”等相对文字必须指文章发布，不得引用评论或互动时间。AIHOT批次不做这层原文时间拦截，先接收再进入相关性、摘要打标与公司更新流程；URL路径日期不作为发布时间判定。已确认的北京时间09:30窗口及“昨天”发布的自然日例外保持。
+
 > 版本：2026-08-17 初版。契约变更必须先改本文件与 `tests/pipeline/test_manus_contract.py`，再改生产代码。
 > 校验实现：`scripts/manus_source/contracts.py`（离线单测：`python -m unittest tests.pipeline.test_manus_contract -v`）
 

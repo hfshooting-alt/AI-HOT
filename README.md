@@ -1,5 +1,7 @@
 # AI HOT
 
+Manus只依据文章原始发布／发送时间收录，新增点赞、评论、互动、编辑或转载页面的刷新时间均不能使旧文章重新符合窗口。“昨天”等相对文字必须指文章发布，不得引用评论或互动时间。AIHOT批次不做这层原文时间拦截，先接收再进入相关性、摘要打标与公司更新流程；URL路径日期不作为发布时间判定。已确认的北京时间09:30窗口及“昨天”发布的自然日例外保持。
+
 全量测试既有扫描内容：`python scripts/review_all_scanned.py --snapshot <快照> --feed <feed> --previous <已有公司库> --output work/<候选目录> --allow-paid`。逐篇 DeepSeek 重打标并抽取被提及公司，成功结果缓存；公司更新日期表示最新报道时间，旧资料回填不覆盖较新字段。不会触发 Manus 或发布正式数据。
 
 最近进展：[公司国家补全与 Manus 来源排障](docs/history/2026-09-10/COUNTRY_AND_MANUS_REVIEW.md)。
