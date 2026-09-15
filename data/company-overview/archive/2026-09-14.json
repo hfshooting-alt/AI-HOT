@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-14T18:42:43+08:00",
+  "generatedAt": "2026-09-15T10:20:19+08:00",
   "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
   "stats": {
     "articlesProcessed": 199,
@@ -9,8 +9,8 @@
     "articlesDeferred": 0,
     "modelCalls": 199,
     "cacheHits": 0,
-    "companiesTotal": 65,
-    "productsTotal": 83,
+    "companiesTotal": 64,
+    "productsTotal": 86,
     "pendingEntities": 8,
     "excludedEntities": 2
   },
@@ -26,10 +26,10 @@
         "Siri AI",
         "Siri"
       ],
-      "founded": null,
+      "founded": "1977-01-03",
       "country": "美国",
       "team": null,
-      "business": null,
+      "business": "设计、制造并销售智能手机、个人电脑、平板及可穿戴设备，并提供相关服务。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -100,6 +100,45 @@
             "publishedAt": "2026-09-14T01:29:40.000Z",
             "sourceName": "IT之家（RSS）",
             "origin": "article"
+          },
+          {
+            "value": "美国",
+            "articleId": "research:c382eb6e771fadbb",
+            "url": "https://investor.apple.com/faq./default.aspx",
+            "title": "苹果 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Apple was incorporated in the state of California on January 3, 1977.",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "法人登记地"
+          }
+        ],
+        "founded": [
+          {
+            "value": "1977-01-03",
+            "articleId": "research:c382eb6e771fadbb",
+            "url": "https://investor.apple.com/faq./default.aspx",
+            "title": "苹果 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Apple was incorporated in the state of California on January 3, 1977.",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration"
+          }
+        ],
+        "business": [
+          {
+            "value": "设计、制造并销售智能手机、个人电脑、平板及可穿戴设备，并提供相关服务。",
+            "articleId": "research:9a1590d0917107a7",
+            "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+            "title": "苹果 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "designs, manufactures and markets smartphones, personal computers, tablets, wearables and accessories, and sells a variety of related services.",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -126,7 +165,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T01:29:40.000Z",
       "latestReportAt": "2026-09-14T01:29:40.000Z",
-      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "iOS 27",
@@ -229,10 +268,10 @@
         "Grok",
         "Microsoft 365 Copilot"
       ],
-      "founded": null,
+      "founded": "1981-06-25",
       "country": "美国",
       "team": null,
-      "business": null,
+      "business": "提供云解决方案、软件授权与支持，以及内容和其他服务。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -434,6 +473,45 @@
             "publishedAt": "2026-09-13T19:42:51.000Z",
             "sourceName": "X：Rohan Paul (@rohanpaul_ai)",
             "origin": "article"
+          },
+          {
+            "value": "美国",
+            "articleId": "research:c067bf66c662c817",
+            "url": "https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1981",
+            "title": "微软 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Microsoft becomes Microsoft, Inc., an incorporated business in the state of Washington.",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "法人登记地"
+          }
+        ],
+        "founded": [
+          {
+            "value": "1981-06-25",
+            "articleId": "research:c067bf66c662c817",
+            "url": "https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1981",
+            "title": "微软 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "June 25, 1981",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration"
+          }
+        ],
+        "business": [
+          {
+            "value": "提供云解决方案、软件授权与支持，以及内容和其他服务。",
+            "articleId": "research:7453c61ae3195f38",
+            "url": "https://www.microsoft.com/investor/reports/ar25/",
+            "title": "微软 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "cloud-based solutions, content, and other services",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -508,7 +586,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T01:27:30.000Z",
       "latestReportAt": "2026-09-14T01:27:30.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Foundry",
@@ -598,7 +676,8 @@
       "company_name": "Meta",
       "aliases": [
         "$META",
-        "Meta MSL"
+        "Meta MSL",
+        "MSL"
       ],
       "product_names": [
         "Muse",
@@ -608,10 +687,10 @@
         "Muse Feed",
         "Tailscale"
       ],
-      "founded": null,
+      "founded": "2004-07",
       "country": "美国",
       "team": null,
-      "business": null,
+      "business": "运营社交应用平台，并开展Reality Labs相关业务。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -710,6 +789,17 @@
             "publishedAt": "2026-09-13T02:01:52.000Z",
             "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
             "origin": "article"
+          },
+          {
+            "value": "Meta",
+            "articleId": "research:9e6a565bd113db21",
+            "url": "https://about.fb.com/ko/news/2026/04/introducing-muse-spark-msls-first-model-purpose-built-to-prioritize-people/",
+            "title": "MSL · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Meta Superintelligence Labs가 Meta의 제품 및 서비스에 특화해 개발한",
+            "checkedAt": "2026-09-15"
           }
         ],
         "product_names": [
@@ -933,6 +1023,33 @@
             "quote": "We were incorporated in Delaware in July 2004.",
             "checkedAt": "2026-09-10"
           }
+        ],
+        "founded": [
+          {
+            "value": "2004-07",
+            "articleId": "research:97c9cd237dafa784",
+            "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
+            "title": "Meta · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "We were incorporated in Delaware in July 2004.",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration"
+          }
+        ],
+        "business": [
+          {
+            "value": "运营社交应用平台，并开展Reality Labs相关业务。",
+            "articleId": "research:97c9cd237dafa784",
+            "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
+            "title": "Meta · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "two reportable segments: Family of Apps (FoA) and Reality Labs (RL)",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -1071,6 +1188,14 @@
           "publishedAt": "2026-09-13T06:58:00.000Z",
           "sourceName": "X：Kim (@kimmonismus)",
           "category": "bigtech"
+        },
+        {
+          "id": "aihot:cmtzf40us07btrowy383mtlny",
+          "title": "MSL 加大对齐投入以推进个人超级智能",
+          "url": "https://x.com/alexandr_wang/status/2099015997525291211",
+          "publishedAt": "2026-09-13T06:03:06.000Z",
+          "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+          "category": "general"
         },
         {
           "id": "aihot:cmtzatq2e04m5ro2ogvetcbu8",
@@ -1528,10 +1653,58 @@
             }
           ],
           "updatedAt": "2026-09-14T00:13:27.000Z"
+        },
+        "MSL": {
+          "id": "company:e7722ccdbf4d9c02",
+          "company_name": "MSL",
+          "aliases": [],
+          "product_names": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "AI模型",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "MSL",
+                "articleId": "aihot:cmtzf40us07btrowy383mtlny",
+                "url": "https://x.com/alexandr_wang/status/2099015997525291211",
+                "title": "MSL 加大对齐投入以推进个人超级智能",
+                "publishedAt": "2026-09-13T06:03:06.000Z",
+                "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+                "origin": "article"
+              }
+            ],
+            "product_names": []
+          },
+          "sourceArticles": [
+            {
+              "id": "aihot:cmtzf40us07btrowy383mtlny",
+              "title": "MSL 加大对齐投入以推进个人超级智能",
+              "url": "https://x.com/alexandr_wang/status/2099015997525291211",
+              "publishedAt": "2026-09-13T06:03:06.000Z",
+              "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
+              "category": "general"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T06:03:06.000Z",
+          "lastSeenAt": "2026-09-13T06:03:06.000Z",
+          "entityType": "company",
+          "updatedAt": "2026-09-13T06:03:06.000Z",
+          "latestReportAt": "2026-09-13T06:03:06.000Z",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+          "productUpdates": []
         }
       },
       "latestReportAt": "2026-09-14T01:04:39.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Muse",
@@ -1755,16 +1928,16 @@
         "LingBot-VLA",
         "Robbyant R2"
       ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
+      "founded": "2024-12",
+      "country": "中国",
+      "team": "朱兴（法定代表人）",
+      "business": "研发具身智能底层技术及场景应用。",
+      "investors": "蚂蚁智能（杭州）科技有限公司（全资股东）",
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "中国"
       },
       "fieldSources": {
         "company_name": [
@@ -1842,6 +2015,73 @@
             "sourceName": "Robbyant 蚂蚁灵波（官方 X）",
             "origin": "article"
           }
+        ],
+        "founded": [
+          {
+            "value": "2024-12",
+            "articleId": "research:3e941e5a9613d9a7",
+            "url": "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html",
+            "title": "蚂蚁灵波 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "上海蚂蚁灵波科技有限公司于2024年12月完成工商注册",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration"
+          }
+        ],
+        "business": [
+          {
+            "value": "研发具身智能底层技术及场景应用。",
+            "articleId": "research:3e941e5a9613d9a7",
+            "url": "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html",
+            "title": "蚂蚁灵波 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "专攻具身智能底层技术与场景落地",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "team": [
+          {
+            "value": "朱兴（法定代表人）",
+            "articleId": "research:3e941e5a9613d9a7",
+            "url": "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html",
+            "title": "蚂蚁灵波 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "法定代表人为朱兴",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "investors": [
+          {
+            "value": "蚂蚁智能（杭州）科技有限公司（全资股东）",
+            "articleId": "research:3e941e5a9613d9a7",
+            "url": "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html",
+            "title": "蚂蚁灵波 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "由蚂蚁智能（杭州）科技有限公司全资持股",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "中国",
+            "articleId": "research:3e941e5a9613d9a7",
+            "url": "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html",
+            "title": "蚂蚁灵波 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "上海蚂蚁灵波科技有限公司于2024年12月完成工商注册",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "法人登记地"
+          }
         ]
       },
       "sourceArticles": [
@@ -1875,7 +2115,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:45:00.000Z",
       "latestReportAt": "2026-09-14T00:45:00.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "LingBot-World 2.0 Small",
@@ -1932,10 +2172,10 @@
       "founded": null,
       "country": null,
       "team": null,
-      "business": null,
-      "investors": null,
+      "business": "研发具身通用模型，结合世界模型与强化学习。",
+      "investors": "宁德时代、阿里、腾讯、高瓴、IDG",
       "total_funding": null,
-      "valuation": null,
+      "valuation": "超过20亿美元（本次所查融资公告口径）",
       "dims": {
         "行业": "其他AI应用",
         "国家/地区": "其他"
@@ -1952,7 +2192,46 @@
             "origin": "article"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "business": [
+          {
+            "value": "研发具身通用模型，结合世界模型与强化学习。",
+            "articleId": "research:44d693c94b5535b0",
+            "url": "https://www.hengdian.com/zh-cn/news/detail-11195",
+            "title": "苏度科技 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "发布了#Sudo R1——全球首个应用世界模型与强化学习一体化设计的具身通用模型",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "valuation": [
+          {
+            "value": "超过20亿美元（本次所查融资公告口径）",
+            "articleId": "research:44d693c94b5535b0",
+            "url": "https://www.hengdian.com/zh-cn/news/detail-11195",
+            "title": "苏度科技 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "完成新一轮融资，估值突破20亿美元",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "investors": [
+          {
+            "value": "宁德时代、阿里、腾讯、高瓴、IDG",
+            "articleId": "research:44d693c94b5535b0",
+            "url": "https://www.hengdian.com/zh-cn/news/detail-11195",
+            "title": "苏度科技 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "本轮投资方包括宁德时代、阿里、腾讯、高瓴、IDG等一线产业资本及财务投资机构",
+            "checkedAt": "2026-09-15"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -1969,7 +2248,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:45:00.000Z",
       "latestReportAt": "2026-09-14T00:45:00.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -1978,15 +2257,15 @@
       "aliases": [],
       "product_names": [],
       "founded": null,
-      "country": null,
+      "country": "中国",
       "team": null,
-      "business": null,
-      "investors": null,
+      "business": "聚焦自研通用具身智能大模型，构建具备精细操作能力的通用机器人",
+      "investors": "字节跳动、阿里云、美团、中国移动、小米等（部分核实）",
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "中国"
       },
       "fieldSources": {
         "company_name": [
@@ -2000,7 +2279,47 @@
             "origin": "article"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "business": [
+          {
+            "value": "聚焦自研通用具身智能大模型，构建具备精细操作能力的通用机器人",
+            "articleId": "research:0e729d133c4453fd",
+            "url": "https://x2robot.com/about",
+            "title": "自变量机器人 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "聚焦自研“通用具身智能大模型”，以真实世界数据为主要数据来源，构建具备精细操作能力的通用机器人",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "中国",
+            "articleId": "research:29ce7b63eb1a28ef",
+            "url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/gqdt/content/post_12775048.html",
+            "title": "自变量机器人 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "正式落户深圳宝安雪花科创大厦",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "总部所在地"
+          }
+        ],
+        "investors": [
+          {
+            "value": "字节跳动、阿里云、美团、中国移动、小米等（部分核实）",
+            "articleId": "research:0e729d133c4453fd",
+            "url": "https://x2robot.com/about",
+            "title": "自变量机器人 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "字节跳动、阿里云、美团、中国移动、小米",
+            "checkedAt": "2026-09-15"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -2017,7 +2336,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:45:00.000Z",
       "latestReportAt": "2026-09-14T00:45:00.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -2025,16 +2344,16 @@
       "company_name": "破壳机器人",
       "aliases": [],
       "product_names": [],
-      "founded": null,
-      "country": null,
+      "founded": "2026-03-03",
+      "country": "中国",
       "team": null,
-      "business": null,
+      "business": "研发生产家庭机器人，采用轮式底盘+双臂形态，自研本体+垂直整合，在线强化学习方案",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "中国"
       },
       "fieldSources": {
         "company_name": [
@@ -2048,7 +2367,48 @@
             "origin": "article"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "founded": [
+          {
+            "value": "2026-03-03",
+            "articleId": "research:c7eecae3eb76d1cd",
+            "url": "https://m.pedaily.cn/vc/company/892574.html",
+            "title": "破壳机器人 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "成立时间2026年3月3日",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration"
+          }
+        ],
+        "business": [
+          {
+            "value": "研发生产家庭机器人，采用轮式底盘+双臂形态，自研本体+垂直整合，在线强化学习方案",
+            "articleId": "research:c7eecae3eb76d1cd",
+            "url": "https://m.pedaily.cn/vc/company/892574.html",
+            "title": "破壳机器人 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "核心业务研发生产家庭机器人，采用轮式底盘+双臂形态，自研本体+垂直整合，在线强化学习方案",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "中国",
+            "articleId": "research:c7eecae3eb76d1cd",
+            "url": "https://m.pedaily.cn/vc/company/892574.html",
+            "title": "破壳机器人 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "所在地北京市海淀区",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "工商资料所在地"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -2065,7 +2425,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:45:00.000Z",
       "latestReportAt": "2026-09-14T00:45:00.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -2076,7 +2436,7 @@
       "founded": null,
       "country": "美国",
       "team": null,
-      "business": "机器人本体及行业解决方案",
+      "business": "智能电动汽车与具身AI机器人",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -2106,6 +2466,18 @@
             "publishedAt": "2026-09-14T00:22:28.000Z",
             "sourceName": "IT之家（RSS）",
             "origin": "article"
+          },
+          {
+            "value": "美国",
+            "articleId": "research:75af5337e409b625",
+            "url": "https://www.sec.gov/Archives/edgar/data/1805521/000121390026077219/ea0296858-s3_faraday.htm",
+            "title": "法拉第未来 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "a holding company incorporated in the State of Delaware",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "法人登记地"
           }
         ],
         "business": [
@@ -2117,6 +2489,17 @@
             "publishedAt": "2026-09-14T00:22:28.000Z",
             "sourceName": "IT之家（RSS）",
             "origin": "article"
+          },
+          {
+            "value": "智能电动汽车与具身AI机器人",
+            "articleId": "research:75af5337e409b625",
+            "url": "https://www.sec.gov/Archives/edgar/data/1805521/000121390026077219/ea0296858-s3_faraday.htm",
+            "title": "法拉第未来 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "connecting intelligent vehicles, robotics devices, an EAI brain",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -2135,7 +2518,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:22:28.000Z",
       "latestReportAt": "2026-09-14T00:22:28.000Z",
-      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -2154,11 +2537,11 @@
       ],
       "founded": null,
       "country": "美国",
-      "team": null,
-      "business": null,
-      "investors": null,
+      "team": "Dario Amodei（联合创始人兼CEO）",
+      "business": "提供Claude人工智能模型，用于企业运营及个人工作。",
+      "investors": "Capital Group、Coatue、D1 Capital Partners等（部分核实）",
       "total_funding": null,
-      "valuation": "约2万亿美元（IPO目标估值）",
+      "valuation": "9650亿美元（2026-05-28，Series H投后）",
       "dims": {
         "行业": "AI模型",
         "国家/地区": "其他"
@@ -2536,6 +2919,17 @@
             "publishedAt": "2026-09-13T22:41:40.000Z",
             "sourceName": "IT之家（RSS）",
             "origin": "article"
+          },
+          {
+            "value": "9650亿美元（2026-05-28，Series H投后）",
+            "articleId": "research:b5e22ae086a6b353",
+            "url": "https://www.anthropic.com/news/series-h",
+            "title": "Anthropic · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "at $965B post-money valuation",
+            "checkedAt": "2026-09-15"
           }
         ],
         "country": [
@@ -2549,6 +2943,45 @@
             "origin": "research",
             "quote": "Anthropic is incorporated in Delaware",
             "checkedAt": "2026-09-10"
+          }
+        ],
+        "business": [
+          {
+            "value": "提供Claude人工智能模型，用于企业运营及个人工作。",
+            "articleId": "research:b5e22ae086a6b353",
+            "url": "https://www.anthropic.com/news/series-h",
+            "title": "Anthropic · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "enterprises across industries are deploying Claude",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "team": [
+          {
+            "value": "Dario Amodei（联合创始人兼CEO）",
+            "articleId": "research:c0f94a4efaca7a84",
+            "url": "https://www.anthropic.com/company/leadership",
+            "title": "Anthropic · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Co-Founder and Chief Executive Officer Dario Amodei",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "investors": [
+          {
+            "value": "Capital Group、Coatue、D1 Capital Partners等（部分核实）",
+            "articleId": "research:b5e22ae086a6b353",
+            "url": "https://www.anthropic.com/news/series-h",
+            "title": "Anthropic · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "co-led by Capital Group, Coatue, D1 Capital Partners",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -3149,7 +3582,7 @@
         }
       },
       "latestReportAt": "2026-09-14T00:20:10.000Z",
-      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Claude Code",
@@ -3364,7 +3797,7 @@
       "founded": null,
       "country": "意大利",
       "team": "50-60 人",
-      "business": null,
+      "business": "收购并长期运营数字产品。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -3418,6 +3851,19 @@
             "quote": "incorporated under the laws of Italy",
             "checkedAt": "2026-09-14"
           }
+        ],
+        "business": [
+          {
+            "value": "收购并长期运营数字产品。",
+            "articleId": "research:edd227d37448221d",
+            "url": "https://www.bendingspoons.com/",
+            "title": "Bending Spoons · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Since 2014, we’ve been acquiring digital products. Not to sell on, but to own and operate for the long term.",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -3435,7 +3881,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:19:47.000Z",
       "latestReportAt": "2026-09-14T00:19:47.000Z",
-      "profileUpdatedAt": "2026-09-14T18:17:40+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Evernote",
@@ -3461,7 +3907,7 @@
       "founded": null,
       "country": null,
       "team": null,
-      "business": null,
+      "business": "研发先进人工智能。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -3536,6 +3982,19 @@
             "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "研发先进人工智能。",
+            "articleId": "research:42d7d419776526a2",
+            "url": "https://x.ai/news/series-e",
+            "title": "xAI · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "xAI is rapidly accelerating its progress in building advanced AI.",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -3577,7 +4036,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:13:22.000Z",
       "latestReportAt": "2026-09-14T00:13:22.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Grok Build",
@@ -3961,7 +4420,7 @@
       "product_names": [
         "GLM"
       ],
-      "founded": null,
+      "founded": "2019-06-11",
       "country": "中国",
       "team": null,
       "business": "大模型研发",
@@ -4100,6 +4559,31 @@
             "publishedAt": "2026-09-13T14:23:48.000Z",
             "sourceName": "X：小北 (@frxiaobei)",
             "origin": "article"
+          },
+          {
+            "value": "大模型研发",
+            "articleId": "research:38b339bb61def14c",
+            "url": "https://www.zhipuai.cn/zh/about",
+            "title": "智谱 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "智谱发布新一代旗舰模型 GLM-4.7",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "founded": [
+          {
+            "value": "2019-06-11",
+            "articleId": "research:dc96654810717d2c",
+            "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2025/1230/2025123000017.pdf",
+            "title": "智谱 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "a limited liability company established under the laws of the PRC on June 11, 2019",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration"
           }
         ]
       },
@@ -4142,7 +4626,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:03:00.000Z",
       "latestReportAt": "2026-09-14T00:03:00.000Z",
-      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "GLM",
@@ -4373,7 +4857,7 @@
       "founded": null,
       "country": null,
       "team": null,
-      "business": null,
+      "business": "提供云和AI能力",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -4412,6 +4896,19 @@
             "sourceName": "MarkTechPost（RSS）",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "提供云和AI能力",
+            "articleId": "research:8ad7df96f0a576b3",
+            "url": "https://aws.amazon.com/about-aws/",
+            "title": "AWS · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "provide them with the broadest and deepest set of cloud and AI capabilities",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -4437,7 +4934,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T23:21:13.000Z",
       "latestReportAt": "2026-09-13T23:21:13.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Pizza Bot",
@@ -4458,15 +4955,15 @@
         "Artificial Analysis Intelligence Index"
       ],
       "founded": null,
-      "country": null,
+      "country": "美国",
       "team": null,
-      "business": null,
+      "business": "独立 AI 基准测试公司，衡量智能体、模型、云服务和芯片，帮助开发者和公司优化整个 AI 技术栈。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -4499,6 +4996,33 @@
             "sourceName": "X：Artificial Analysis (@ArtificialAnlys)",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "独立 AI 基准测试公司，衡量智能体、模型、云服务和芯片，帮助开发者和公司优化整个 AI 技术栈。",
+            "articleId": "research:dfb7d422e88437e7",
+            "url": "https://artificialanalysis.ai/about",
+            "title": "Artificial Analysis · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "independent benchmarking company for AI",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:3ec9d7b5c40abe99",
+            "url": "https://artificialanalysis.ai/image-lab-privacy",
+            "title": "Artificial Analysis · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Artificial Analysis, Inc. is based in the United States",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "总部所在地"
+          }
         ]
       },
       "sourceArticles": [
@@ -4524,7 +5048,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T23:13:35.000Z",
       "latestReportAt": "2026-09-13T23:13:35.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Artificial Analysis Intelligence Index",
@@ -4550,10 +5074,10 @@
       "founded": null,
       "country": "美国",
       "team": "Sam Altman",
-      "business": null,
-      "investors": null,
+      "business": "为个人与企业提供人工智能基础设施和产品。",
+      "investors": "Amazon、NVIDIA、SoftBank等（部分核实）",
       "total_funding": null,
-      "valuation": null,
+      "valuation": "8520亿美元（2026-03-31，承诺资本融资投后）",
       "dims": {
         "行业": "AI模型",
         "国家/地区": "其他"
@@ -4845,6 +5369,45 @@
             "publishedAt": "2026-09-13T22:41:27.293Z",
             "sourceName": "Hacker News 热门（buzzing.cc 中文翻译）",
             "origin": "article"
+          }
+        ],
+        "business": [
+          {
+            "value": "为个人与企业提供人工智能基础设施和产品。",
+            "articleId": "research:baca61f09ad04247",
+            "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+            "title": "OpenAI · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "core infrastructure for AI",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "valuation": [
+          {
+            "value": "8520亿美元（2026-03-31，承诺资本融资投后）",
+            "articleId": "research:baca61f09ad04247",
+            "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+            "title": "OpenAI · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "at a post money valuation of $852 billion",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "investors": [
+          {
+            "value": "Amazon、NVIDIA、SoftBank等（部分核实）",
+            "articleId": "research:baca61f09ad04247",
+            "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+            "title": "OpenAI · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Amazon, NVIDIA, and SoftBank",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -5390,7 +5953,7 @@
         }
       },
       "latestReportAt": "2026-09-13T23:11:17.000Z",
-      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "GPT-2",
@@ -5501,16 +6064,16 @@
       "product_names": [
         "L4 级全自动驾驶电动摆渡车"
       ],
-      "founded": null,
-      "country": null,
+      "founded": "2017-03-13",
+      "country": "中国",
       "team": null,
-      "business": null,
+      "business": "自动驾驶车辆销售、运营与技术支持，以及ADAS研发和智能数据服务。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "中国"
       },
       "fieldSources": {
         "company_name": [
@@ -5534,6 +6097,48 @@
             "sourceName": "IT之家（RSS）",
             "origin": "article"
           }
+        ],
+        "founded": [
+          {
+            "value": "2017-03-13",
+            "articleId": "research:5e51b808bb70e061",
+            "url": "https://www.sec.gov/Archives/edgar/data/1867729/000110465926047692/tm2612365d1_ex99-1.htm",
+            "title": "文远知行 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "on March 13, 2017",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration",
+            "legalEntity": "WeRide Inc.，上市控股主体"
+          }
+        ],
+        "business": [
+          {
+            "value": "自动驾驶车辆销售、运营与技术支持，以及ADAS研发和智能数据服务。",
+            "articleId": "research:5e51b808bb70e061",
+            "url": "https://www.sec.gov/Archives/edgar/data/1867729/000110465926047692/tm2612365d1_ex99-1.htm",
+            "title": "文远知行 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "sales of autonomous driving vehicles",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "中国",
+            "articleId": "research:2ae0698044a7d4f6",
+            "url": "https://ir.weride.ai/ir-resources/investor-faqs",
+            "title": "文远知行 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "The company is headquartered in Guangzhou, China",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "总部所在地"
+          }
         ]
       },
       "sourceArticles": [
@@ -5551,7 +6156,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T22:54:33.000Z",
       "latestReportAt": "2026-09-13T22:54:33.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "L4 级全自动驾驶电动摆渡车",
@@ -5574,7 +6179,7 @@
       "founded": null,
       "country": "瑞士",
       "team": null,
-      "business": null,
+      "business": "拥有并运营瑞士苏黎世机场。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -5615,6 +6220,19 @@
             "sourceName": "IT之家（RSS）",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "拥有并运营瑞士苏黎世机场。",
+            "articleId": "research:5ba6ec9452a1e6c2",
+            "url": "https://www.flughafen-zuerich.ch/en/company/responsibility/sustainability/governance",
+            "title": "苏黎世机场 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "owns and operates Zurich Airport in Switzerland.",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -5632,7 +6250,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T22:54:33.000Z",
       "latestReportAt": "2026-09-13T22:54:33.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "L4 级全自动驾驶电动摆渡车",
@@ -5650,10 +6268,10 @@
       "company_name": "Swissport",
       "aliases": [],
       "product_names": [],
-      "founded": null,
+      "founded": "1996",
       "country": "瑞士",
       "team": null,
-      "business": null,
+      "business": "提供机场地面服务与航空货物处理服务。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -5686,6 +6304,33 @@
             "quote": "headquartered in Opfikon, Canton of Zurich, Switzerland",
             "checkedAt": "2026-09-14"
           }
+        ],
+        "founded": [
+          {
+            "value": "1996",
+            "articleId": "research:1168afe1c529bcb4",
+            "url": "https://www.swissport.com/about",
+            "title": "Swissport · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Swissport was incorporated in 1996.",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration"
+          }
+        ],
+        "business": [
+          {
+            "value": "提供机场地面服务与航空货物处理服务。",
+            "articleId": "research:1168afe1c529bcb4",
+            "url": "https://www.swissport.com/about",
+            "title": "Swissport · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "airport ground services and air cargo handling",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -5703,7 +6348,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T22:54:33.000Z",
       "latestReportAt": "2026-09-13T22:54:33.000Z",
-      "profileUpdatedAt": "2026-09-14T18:33:16+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -5712,15 +6357,15 @@
       "aliases": [],
       "product_names": [],
       "founded": null,
-      "country": null,
+      "country": "瑞士",
       "team": null,
-      "business": null,
+      "business": "提供国内外集装箱运输服务",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "欧洲"
       },
       "fieldSources": {
         "company_name": [
@@ -5734,7 +6379,34 @@
             "origin": "article"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "business": [
+          {
+            "value": "提供国内外集装箱运输服务",
+            "articleId": "research:91323e86a6a23601",
+            "url": "https://krummen.com/container-transporte/",
+            "title": "Krummen Kerzers · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Unsere Spezialisten der Abteilung Container Trucking sind für Ihre Transporte im In- und im Ausland bereit.",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "瑞士",
+            "articleId": "research:220ca943ee03a3c3",
+            "url": "https://www.uid.admin.ch/Detail.aspx?uid_id=CHE107917101",
+            "title": "Krummen Kerzers · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Country Switzerland",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "瑞士UID登记地"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -5751,7 +6423,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T22:54:33.000Z",
       "latestReportAt": "2026-09-13T22:54:33.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -5766,10 +6438,10 @@
         "Google AI Pro",
         "YouTube Premium Lite"
       ],
-      "founded": null,
+      "founded": "1998-09",
       "country": "美国",
       "team": null,
-      "business": null,
+      "business": "提供搜索、广告、Android及其他互联网软件与平台。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -5897,6 +6569,33 @@
             "quote": "organized under the laws of the State of Delaware, USA",
             "checkedAt": "2026-09-10"
           }
+        ],
+        "founded": [
+          {
+            "value": "1998-09",
+            "articleId": "research:1a6417888348e802",
+            "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526336798/d32286d424b5.htm",
+            "title": "Google · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Google was incorporated in California in September 1998",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration"
+          }
+        ],
+        "business": [
+          {
+            "value": "提供搜索、广告、Android及其他互联网软件与平台。",
+            "articleId": "research:1a6417888348e802",
+            "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526336798/d32286d424b5.htm",
+            "title": "Google · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "core products and platforms include ads, Android, Chrome",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -5938,7 +6637,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T22:45:06.000Z",
       "latestReportAt": "2026-09-13T22:45:06.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Gemini",
@@ -5988,7 +6687,7 @@
       "founded": null,
       "country": "美国",
       "team": null,
-      "business": null,
+      "business": "维护开源AI项目，推动个人化人工智能的应用。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -6023,6 +6722,19 @@
             "quote": "an independent US 501(c)(3) non-profit",
             "checkedAt": "2026-09-14"
           }
+        ],
+        "business": [
+          {
+            "value": "维护开源AI项目，推动个人化人工智能的应用。",
+            "articleId": "research:eccfa9f3aecf3033",
+            "url": "https://docs.openclaw.ai/start/why-openclaw",
+            "title": "OpenClaw Foundation · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "an independent 501(c)(3) whose mission is to make AI personal, fun, and empowering for everyone: your agent, your machine, your rules.",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -6040,7 +6752,7 @@
       "entityType": "foundation",
       "updatedAt": "2026-09-13T18:49:44.000Z",
       "latestReportAt": "2026-09-13T18:49:44.000Z",
-      "profileUpdatedAt": "2026-09-14T18:17:40+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "OpenClaw",
@@ -6125,7 +6837,7 @@
       "founded": null,
       "country": null,
       "team": null,
-      "business": null,
+      "business": "提供人工智能学习与开发资源。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -6154,7 +6866,20 @@
             "origin": "article"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "business": [
+          {
+            "value": "提供人工智能学习与开发资源。",
+            "articleId": "research:fc30991738252036",
+            "url": "https://www.dair.ai/",
+            "title": "DAIR.AI · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "DAIR.AI provides the resources you need to learn, innovate, and build the future with artificial intelligence.",
+            "checkedAt": "2026-09-15"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -6179,7 +6904,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T18:49:36.000Z",
       "latestReportAt": "2026-09-13T18:49:36.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -6188,15 +6913,15 @@
       "aliases": [],
       "product_names": [],
       "founded": null,
-      "country": null,
+      "country": "美国",
       "team": null,
-      "business": null,
+      "business": "评估前沿AI模型的能力及风险。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -6219,7 +6944,34 @@
             "origin": "article"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "business": [
+          {
+            "value": "评估前沿AI模型的能力及风险。",
+            "articleId": "research:9ece1a3a9a30d8c1",
+            "url": "https://metr.org/about",
+            "title": "METR · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "METR (pronounced 'meter') evaluates frontier AI models to help companies and wider society understand AI capabilities and what risks they pose.",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:350bca9d33b26adb",
+            "url": "https://www.linkedin.com/company/metr-evals",
+            "title": "METR · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Headquarters Berkeley, CA",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "总部所在地（机构公开档案）"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -6244,7 +6996,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T18:45:18.039Z",
       "latestReportAt": "2026-09-13T18:45:18.039Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -6255,7 +7007,7 @@
       "founded": null,
       "country": "美国",
       "team": "Garry Tan",
-      "business": null,
+      "business": "运营为期3个月的创业加速项目。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -6297,7 +7049,20 @@
             "origin": "article"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "business": [
+          {
+            "value": "运营为期3个月的创业加速项目。",
+            "articleId": "research:4922e28e27668dbc",
+            "url": "https://www.ycombinator.com/about",
+            "title": "Y Combinator · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "YC is a three month program. We now run YC four times a year, in the winter, spring, summer, and fall.",
+            "checkedAt": "2026-09-15"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -6314,7 +7079,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T17:42:38.853Z",
       "latestReportAt": "2026-09-13T17:42:38.853Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -6327,15 +7092,15 @@
         "skills"
       ],
       "founded": null,
-      "country": null,
+      "country": "美国",
       "team": null,
-      "business": null,
+      "business": "提供多人协作的编程智能体IDE与云端运行平台。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -6359,6 +7124,33 @@
             "sourceName": "X：Dex Horthy（HumanLayer）(@dexhorthy)",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "提供多人协作的编程智能体IDE与云端运行平台。",
+            "articleId": "research:cb6bdd693228ef38",
+            "url": "https://www.ycombinator.com/companies/humanlayer",
+            "title": "HumanLayer · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "HumanLayer is a multiplayer coding agent IDE+cloud",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:cb6bdd693228ef38",
+            "url": "https://www.ycombinator.com/companies/humanlayer",
+            "title": "HumanLayer · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Location:San Francisco",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "公司公开所在地"
+          }
         ]
       },
       "sourceArticles": [
@@ -6376,7 +7168,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T15:37:53.000Z",
       "latestReportAt": "2026-09-13T15:37:53.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "skills",
@@ -6400,7 +7192,7 @@
       "founded": null,
       "country": "中国",
       "team": null,
-      "business": null,
+      "business": "智能设备与智能服务",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -6449,6 +7241,31 @@
             "publishedAt": "2026-09-13T14:03:53.000Z",
             "sourceName": "IT之家（RSS）",
             "origin": "article"
+          },
+          {
+            "value": "中国",
+            "articleId": "research:10a38da52f38432a",
+            "url": "https://www.vivo.com/uk/about-vivo/news/about-vivo",
+            "title": "vivo · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "With headquarters in China",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "总部所在地"
+          }
+        ],
+        "business": [
+          {
+            "value": "智能设备与智能服务",
+            "articleId": "research:10a38da52f38432a",
+            "url": "https://www.vivo.com/uk/about-vivo/news/about-vivo",
+            "title": "vivo · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "core business focusing on smart devices and intelligent services",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -6467,7 +7284,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T14:03:53.000Z",
       "latestReportAt": "2026-09-13T14:03:53.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "OriginOS 7",
@@ -6496,8 +7313,8 @@
       "product_names": [],
       "founded": "1993年4月",
       "country": "美国",
-      "team": null,
-      "business": null,
+      "team": "Jensen Huang（创始人兼CEO）",
+      "business": "GPU、加速计算、AI芯片、系统与软件",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -6543,6 +7360,32 @@
             "quote": "incorporated in California",
             "checkedAt": "2026-09-14"
           }
+        ],
+        "business": [
+          {
+            "value": "GPU、加速计算、AI芯片、系统与软件",
+            "articleId": "research:c15694cb47ee4fd9",
+            "url": "https://www.nvidia.com/en-us/about-nvidia/",
+            "title": "NVIDIA · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "NVIDIA engineers the most advanced chips, systems, and software for the AI factories of the future.",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "team": [
+          {
+            "value": "Jensen Huang（创始人兼CEO）",
+            "articleId": "research:a3d620de072ca09c",
+            "url": "https://nvidianews.nvidia.com/bios",
+            "title": "NVIDIA · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Jensen Huang Founder & CEO",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -6560,21 +7403,24 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T13:48:46.987Z",
       "latestReportAt": "2026-09-13T13:48:46.987Z",
-      "profileUpdatedAt": "2026-09-14T18:17:40+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
-      "id": "company:ec9d55cbf3097cf8",
-      "company_name": "Tripo",
-      "aliases": [],
+      "id": "company:375eca5944bc3c25",
+      "company_name": "VAST",
+      "aliases": [
+        "Tripo"
+      ],
       "product_names": [
+        "Tripo",
         "Tripo Codex 插件",
         "Tripo API"
       ],
       "founded": null,
       "country": null,
       "team": null,
-      "business": null,
+      "business": "研发3D基础模型，提供3D内容生成服务。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -6583,26 +7429,6 @@
         "国家/地区": "其他"
       },
       "fieldSources": {
-        "company_name": [
-          {
-            "value": "Tripo",
-            "articleId": "aihot:cmtzvgwb402usrogj1m2u17ao",
-            "url": "https://x.com/tripoai/status/2099132834464358690",
-            "title": "Tripo 启动 Tripothon S1 线上活动",
-            "publishedAt": "2026-09-13T13:47:22.000Z",
-            "sourceName": "Tripo（官方 X）",
-            "origin": "article"
-          },
-          {
-            "value": "Tripo",
-            "articleId": "aihot:cmtz6tjeq0wgkroup6tqxaq1g",
-            "url": "https://x.com/tripoai/status/2098954222947729590",
-            "title": "Tripo Codex 插件实现全自动 3D 建模流程",
-            "publishedAt": "2026-09-13T01:57:38.000Z",
-            "sourceName": "Tripo（官方 X）",
-            "origin": "article"
-          }
-        ],
         "product_names": [
           {
             "value": "Tripo Codex 插件",
@@ -6621,6 +7447,32 @@
             "publishedAt": "2026-09-13T01:57:38.000Z",
             "sourceName": "Tripo（官方 X）",
             "origin": "article"
+          }
+        ],
+        "company_name": [
+          {
+            "value": "VAST",
+            "articleId": "research:550a67957960bddf",
+            "url": "https://www.tripo3d.ai/blog/styly-with-tripo",
+            "title": "Tripo · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "is a multi-billion parameter 3D foundation model launched by the AI startup VAST in 2024",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "business": [
+          {
+            "value": "研发3D基础模型，提供3D内容生成服务。",
+            "articleId": "research:550a67957960bddf",
+            "url": "https://www.tripo3d.ai/blog/styly-with-tripo",
+            "title": "Tripo · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "is a multi-billion parameter 3D foundation model launched by the AI startup VAST in 2024",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -6647,7 +7499,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T13:47:22.000Z",
       "latestReportAt": "2026-09-13T13:47:22.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Tripo Codex 插件",
@@ -6667,8 +7519,151 @@
           "url": "https://x.com/tripoai/status/2098954222947729590",
           "title": "Tripo Codex 插件实现全自动 3D 建模流程",
           "publishedAt": "2026-09-13T01:57:38.000Z"
+        },
+        {
+          "name": "Tripo",
+          "relationship": "owned",
+          "quote": "",
+          "articleId": "aihot:cmtzvgwb402usrogj1m2u17ao",
+          "url": "https://x.com/tripoai/status/2099132834464358690",
+          "title": "Tripo 启动 Tripothon S1 线上活动",
+          "publishedAt": "2026-09-13T13:47:22.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "VAST",
+            "quote": "is a multi-billion parameter 3D foundation model launched by the AI startup VAST in 2024",
+            "url": "https://www.tripo3d.ai/blog/styly-with-tripo",
+            "title": "Tripo · 公开资料核验",
+            "checkedAt": "2026-09-15"
+          }
+        },
+        {
+          "name": "Tripo",
+          "relationship": "owned",
+          "quote": "",
+          "articleId": "aihot:cmtz6tjeq0wgkroup6tqxaq1g",
+          "url": "https://x.com/tripoai/status/2098954222947729590",
+          "title": "Tripo Codex 插件实现全自动 3D 建模流程",
+          "publishedAt": "2026-09-13T01:57:38.000Z",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "VAST",
+            "quote": "is a multi-billion parameter 3D foundation model launched by the AI startup VAST in 2024",
+            "url": "https://www.tripo3d.ai/blog/styly-with-tripo",
+            "title": "Tripo · 公开资料核验",
+            "checkedAt": "2026-09-15"
+          }
         }
-      ]
+      ],
+      "brandProfiles": {
+        "Tripo": {
+          "id": "company:ec9d55cbf3097cf8",
+          "company_name": "Tripo",
+          "aliases": [],
+          "product_names": [
+            "Tripo Codex 插件",
+            "Tripo API"
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "其他AI应用",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "Tripo",
+                "articleId": "aihot:cmtzvgwb402usrogj1m2u17ao",
+                "url": "https://x.com/tripoai/status/2099132834464358690",
+                "title": "Tripo 启动 Tripothon S1 线上活动",
+                "publishedAt": "2026-09-13T13:47:22.000Z",
+                "sourceName": "Tripo（官方 X）",
+                "origin": "article"
+              },
+              {
+                "value": "Tripo",
+                "articleId": "aihot:cmtz6tjeq0wgkroup6tqxaq1g",
+                "url": "https://x.com/tripoai/status/2098954222947729590",
+                "title": "Tripo Codex 插件实现全自动 3D 建模流程",
+                "publishedAt": "2026-09-13T01:57:38.000Z",
+                "sourceName": "Tripo（官方 X）",
+                "origin": "article"
+              }
+            ],
+            "product_names": [
+              {
+                "value": "Tripo Codex 插件",
+                "articleId": "aihot:cmtz6tjeq0wgkroup6tqxaq1g",
+                "url": "https://x.com/tripoai/status/2098954222947729590",
+                "title": "Tripo Codex 插件实现全自动 3D 建模流程",
+                "publishedAt": "2026-09-13T01:57:38.000Z",
+                "sourceName": "Tripo（官方 X）",
+                "origin": "article"
+              },
+              {
+                "value": "Tripo API",
+                "articleId": "aihot:cmtz6tjeq0wgkroup6tqxaq1g",
+                "url": "https://x.com/tripoai/status/2098954222947729590",
+                "title": "Tripo Codex 插件实现全自动 3D 建模流程",
+                "publishedAt": "2026-09-13T01:57:38.000Z",
+                "sourceName": "Tripo（官方 X）",
+                "origin": "article"
+              }
+            ]
+          },
+          "sourceArticles": [
+            {
+              "id": "aihot:cmtzvgwb402usrogj1m2u17ao",
+              "title": "Tripo 启动 Tripothon S1 线上活动",
+              "url": "https://x.com/tripoai/status/2099132834464358690",
+              "publishedAt": "2026-09-13T13:47:22.000Z",
+              "sourceName": "Tripo（官方 X）",
+              "category": "general"
+            },
+            {
+              "id": "aihot:cmtz6tjeq0wgkroup6tqxaq1g",
+              "title": "Tripo Codex 插件实现全自动 3D 建模流程",
+              "url": "https://x.com/tripoai/status/2098954222947729590",
+              "publishedAt": "2026-09-13T01:57:38.000Z",
+              "sourceName": "Tripo（官方 X）",
+              "category": "general"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T01:57:38.000Z",
+          "lastSeenAt": "2026-09-13T13:47:22.000Z",
+          "entityType": "company",
+          "updatedAt": "2026-09-13T13:47:22.000Z",
+          "latestReportAt": "2026-09-13T13:47:22.000Z",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+          "productUpdates": [
+            {
+              "name": "Tripo Codex 插件",
+              "relationship": "owned",
+              "quote": "Tripo 展示其 Codex 插件",
+              "articleId": "aihot:cmtz6tjeq0wgkroup6tqxaq1g",
+              "url": "https://x.com/tripoai/status/2098954222947729590",
+              "title": "Tripo Codex 插件实现全自动 3D 建模流程",
+              "publishedAt": "2026-09-13T01:57:38.000Z",
+              "originalName": "Codex"
+            },
+            {
+              "name": "Tripo API",
+              "relationship": "owned",
+              "quote": "配合 Tripo API 与 Astra 工作流",
+              "articleId": "aihot:cmtz6tjeq0wgkroup6tqxaq1g",
+              "url": "https://x.com/tripoai/status/2098954222947729590",
+              "title": "Tripo Codex 插件实现全自动 3D 建模流程",
+              "publishedAt": "2026-09-13T01:57:38.000Z"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "company:e853b4e183ed0870",
@@ -6679,15 +7674,15 @@
         "ElevenMusic"
       ],
       "founded": null,
-      "country": null,
+      "country": "美国",
       "team": "Piotr Dąbkowski, Mateusz Staniszewski",
-      "business": "生成式音频AI",
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
+      "business": "生成式音频AI平台，提供语音合成、语音转文字、配音、音乐及对话式AI产品",
+      "investors": "Sequoia Capital（领投）",
+      "total_funding": "7.81亿美元（截至2026-02-04）",
+      "valuation": "110亿美元（2026-02-04融资估值）",
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -6745,6 +7740,70 @@
             "origin": "research",
             "quote": "focuses primarily on advanced generative AI for audio",
             "checkedAt": "2026-09-14"
+          },
+          {
+            "value": "生成式音频AI平台，提供语音合成、语音转文字、配音、音乐及对话式AI产品",
+            "articleId": "research:7bbfa0b0946953ff",
+            "url": "https://elevenlabs.io/blog/series-d",
+            "title": "ElevenLabs · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "expanded beyond voice",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "total_funding": [
+          {
+            "value": "7.81亿美元（截至2026-02-04）",
+            "articleId": "research:7bbfa0b0946953ff",
+            "url": "https://elevenlabs.io/blog/series-d",
+            "title": "ElevenLabs · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "total funding to $781 million",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "valuation": [
+          {
+            "value": "110亿美元（2026-02-04融资估值）",
+            "articleId": "research:7bbfa0b0946953ff",
+            "url": "https://elevenlabs.io/blog/series-d",
+            "title": "ElevenLabs · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "values ElevenLabs at $11 billion",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:b05e5270bb1dbb44",
+            "url": "https://elevenlabs.io/blog/elevenlabs-launches-new-generative-voice-ai-products-and-announces-19m-series-a-round-led-by-nat-friedman-daniel-gross-and-andreessen-horowitz",
+            "title": "ElevenLabs · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "ElevenLabs is incorporated in the United States",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "法人登记地"
+          }
+        ],
+        "investors": [
+          {
+            "value": "Sequoia Capital（领投）",
+            "articleId": "research:7bbfa0b0946953ff",
+            "url": "https://elevenlabs.io/blog/series-d",
+            "title": "ElevenLabs · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "led by Sequoia Capital",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -6763,7 +7822,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T13:40:36.000Z",
       "latestReportAt": "2026-09-13T13:40:36.000Z",
-      "profileUpdatedAt": "2026-09-14T18:42:43+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Music v2.5",
@@ -6796,7 +7855,7 @@
       "founded": null,
       "country": null,
       "team": null,
-      "business": null,
+      "business": "开源搜索智能体",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -6835,6 +7894,19 @@
             "sourceName": "The Decoder：AI News（RSS）",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "开源搜索智能体",
+            "articleId": "research:ae692a1e3123ba7a",
+            "url": "https://huggingface.co/AllSpark-Research/Iris-pro",
+            "title": "AllSpark · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Iris-pro is an open-weight search agent post-trained from Qwen3.5-397B-A17B.",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -6852,7 +7924,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T12:58:18.000Z",
       "latestReportAt": "2026-09-13T12:58:18.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Iris-mini",
@@ -6885,7 +7957,7 @@
       "founded": null,
       "country": null,
       "team": "Jasjeet Sekhon",
-      "business": null,
+      "business": "AI 研究与技术开发",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -6925,7 +7997,20 @@
             "origin": "article"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "business": [
+          {
+            "value": "AI 研究与技术开发",
+            "articleId": "research:0aa0a6bca395d36d",
+            "url": "https://deepmind.google/about/",
+            "title": "Google DeepMind · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "We’re a team of scientists, engineers, ethicists and more, working to build the next generation of AI systems safely and responsibly.",
+            "checkedAt": "2026-09-15"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -6950,7 +8035,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T12:21:32.000Z",
       "latestReportAt": "2026-09-13T12:21:32.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -6963,8 +8048,8 @@
       ],
       "founded": "1993年4月",
       "country": "美国",
-      "team": null,
-      "business": "GPU/算力硬件",
+      "team": "Jensen Huang（创始人兼CEO）",
+      "business": "GPU、加速计算、AI芯片、系统与软件",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -7031,6 +8116,17 @@
             "publishedAt": "2026-09-13T20:16:29+08:00",
             "sourceName": "ZFinance",
             "origin": "article"
+          },
+          {
+            "value": "GPU、加速计算、AI芯片、系统与软件",
+            "articleId": "research:c15694cb47ee4fd9",
+            "url": "https://www.nvidia.com/en-us/about-nvidia/",
+            "title": "NVIDIA · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "NVIDIA engineers the most advanced chips, systems, and software for the AI factories of the future.",
+            "checkedAt": "2026-09-15"
           }
         ],
         "founded": [
@@ -7057,6 +8153,19 @@
             "origin": "research",
             "quote": "incorporated in California",
             "checkedAt": "2026-09-14"
+          }
+        ],
+        "team": [
+          {
+            "value": "Jensen Huang（创始人兼CEO）",
+            "articleId": "research:a3d620de072ca09c",
+            "url": "https://nvidianews.nvidia.com/bios",
+            "title": "NVIDIA · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Jensen Huang Founder & CEO",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -7091,7 +8200,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T18:17:40+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "cuML",
@@ -7122,15 +8231,15 @@
         "MiniMax M3"
       ],
       "founded": null,
-      "country": null,
+      "country": "美国",
       "team": null,
-      "business": "AI应用，提供PPT生成等服务",
-      "investors": null,
+      "business": "提供Genspark AI Workspace一体化AI工作空间，自动完成信息收集、处理与输出，包括AI幻灯片、AI表格、AI文档等",
+      "investors": "Emergence Capital（部分核实）",
       "total_funding": null,
-      "valuation": null,
+      "valuation": "12.5亿美元（Series B公告口径）",
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -7173,6 +8282,57 @@
             "publishedAt": "2026-09-13T20:16:29+08:00",
             "sourceName": "ZFinance",
             "origin": "article"
+          },
+          {
+            "value": "提供Genspark AI Workspace一体化AI工作空间，自动完成信息收集、处理与输出，包括AI幻灯片、AI表格、AI文档等",
+            "articleId": "research:7a8db2cac6318098",
+            "url": "https://www.genspark.ai/blog/genspark-ai-workspace-and-series-b-funding",
+            "title": "Genspark · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "a platform that puts work on autopilot",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "valuation": [
+          {
+            "value": "12.5亿美元（Series B公告口径）",
+            "articleId": "research:7a8db2cac6318098",
+            "url": "https://www.genspark.ai/blog/genspark-ai-workspace-and-series-b-funding",
+            "title": "Genspark · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "at a $1.25B post-money valuation",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:b124e19fd3695a3e",
+            "url": "https://mainfunc.ai/",
+            "title": "Genspark · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "MainFunc is based in Palo Alto, United States",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "运营主体MainFunc所在地"
+          }
+        ],
+        "investors": [
+          {
+            "value": "Emergence Capital（部分核实）",
+            "articleId": "research:7a8db2cac6318098",
+            "url": "https://www.genspark.ai/blog/genspark-ai-workspace-and-series-b-funding",
+            "title": "Genspark · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "This round was backed by Emergence Capital",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -7191,7 +8351,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Gen-1 Slides",
@@ -7218,16 +8378,16 @@
       "company_name": "MiniMax",
       "aliases": [],
       "product_names": [],
-      "founded": null,
-      "country": null,
+      "founded": "2021-06-30",
+      "country": "中国",
       "team": null,
-      "business": "AI模型",
+      "business": "研发人工智能基础模型。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "AI模型",
-        "国家/地区": "其他"
+        "国家/地区": "中国"
       },
       "fieldSources": {
         "company_name": [
@@ -7251,6 +8411,46 @@
             "publishedAt": "2026-09-13T20:16:29+08:00",
             "sourceName": "ZFinance",
             "origin": "article"
+          },
+          {
+            "value": "研发人工智能基础模型。",
+            "articleId": "research:3d9482c11cf663a6",
+            "url": "https://www.minimax.io/about",
+            "title": "MiniMax · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "MiniMax is a global AI foundation model company.",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "founded": [
+          {
+            "value": "2021-06-30",
+            "articleId": "research:86d18c51e9c1fec0",
+            "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0422/2026042202118.pdf",
+            "title": "MiniMax · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "incorporated under the laws of the Cayman Islands on June 30, 2021",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration",
+            "legalEntity": "MiniMax Group Inc.，上市控股主体"
+          }
+        ],
+        "country": [
+          {
+            "value": "中国",
+            "articleId": "research:86d18c51e9c1fec0",
+            "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0422/2026042202118.pdf",
+            "title": "MiniMax · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "HEADQUARTER AND PRINCIPAL PLACE OF BUSINESS IN THE PRC",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "总部所在地；上市控股主体登记在开曼"
           }
         ]
       },
@@ -7269,7 +8469,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -7280,10 +8480,10 @@
       "founded": null,
       "country": null,
       "team": null,
-      "business": "AI模型后训练/推理服务",
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
+      "business": "面向企业开发团队提供AI云平台。",
+      "investors": "Lightspeed Venture Partners、Index Ventures、Evantic等（部分核实）",
+      "total_funding": "超过3.27亿美元（2025年Series C，含一级及二级交易）",
+      "valuation": "40亿美元（2025年Series C）",
       "dims": {
         "行业": "其他AI应用",
         "国家/地区": "其他"
@@ -7309,9 +8509,59 @@
             "publishedAt": "2026-09-13T20:16:29+08:00",
             "sourceName": "ZFinance",
             "origin": "article"
+          },
+          {
+            "value": "面向企业开发团队提供AI云平台。",
+            "articleId": "research:d6d4c51c65f1bd5f",
+            "url": "https://fireworks.ai/blog/series-c",
+            "title": "Fireworks · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "AI Cloud for enterprise developer teams",
+            "checkedAt": "2026-09-15"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "valuation": [
+          {
+            "value": "40亿美元（2025年Series C）",
+            "articleId": "research:d6d4c51c65f1bd5f",
+            "url": "https://fireworks.ai/blog/series-c",
+            "title": "Fireworks · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "$4 billion valuation",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "total_funding": [
+          {
+            "value": "超过3.27亿美元（2025年Series C，含一级及二级交易）",
+            "articleId": "research:d6d4c51c65f1bd5f",
+            "url": "https://fireworks.ai/blog/series-c",
+            "title": "Fireworks · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "total funding to over $327 million",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "investors": [
+          {
+            "value": "Lightspeed Venture Partners、Index Ventures、Evantic等（部分核实）",
+            "articleId": "research:d6d4c51c65f1bd5f",
+            "url": "https://fireworks.ai/blog/series-c",
+            "title": "Fireworks · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Lightspeed Venture Partners, Index Ventures, and Evantic",
+            "checkedAt": "2026-09-15"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -7328,7 +8578,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -7341,11 +8591,11 @@
       ],
       "founded": null,
       "country": "美国",
-      "team": null,
-      "business": "法律AI",
+      "team": "Winston Weinberg、Gabe Pereyra",
+      "business": "法律AI，帮助律所、企业法务团队和专业服务机构构建和拥有智能",
       "investors": null,
       "total_funding": null,
-      "valuation": null,
+      "valuation": "155亿美元（2026-09-09融资估值）",
       "dims": {
         "行业": "其他AI应用",
         "国家/地区": "美国"
@@ -7402,6 +8652,43 @@
             "publishedAt": "2026-09-13T20:16:29+08:00",
             "sourceName": "ZFinance",
             "origin": "article"
+          },
+          {
+            "value": "法律AI，帮助律所、企业法务团队和专业服务机构构建和拥有智能",
+            "articleId": "research:8ead6d64df6a71a6",
+            "url": "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence",
+            "title": "Harvey · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "help law firms, in-house legal teams",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "team": [
+          {
+            "value": "Winston Weinberg、Gabe Pereyra",
+            "articleId": "research:8ead6d64df6a71a6",
+            "url": "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence",
+            "title": "Harvey · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Harvey co-founders Winston Weinberg and Gabe Pereyra",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "valuation": [
+          {
+            "value": "155亿美元（2026-09-09融资估值）",
+            "articleId": "research:8ead6d64df6a71a6",
+            "url": "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence",
+            "title": "Harvey · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "at a $15.5B valuation",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -7420,7 +8707,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Tenet",
@@ -7443,120 +8730,20 @@
       ]
     },
     {
-      "id": "company:46a4eebd20d881ec",
-      "company_name": "Cursor",
-      "aliases": [],
-      "product_names": [
-        "Composer 2",
-        "Kimi K2.5"
-      ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": "AI编程工具",
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "其他AI应用",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "Cursor",
-            "articleId": "manus:ca9c16453725ee8b",
-            "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
-            "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
-            "publishedAt": "2026-09-13T20:16:29+08:00",
-            "sourceName": "ZFinance",
-            "origin": "article"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "Composer 2",
-            "articleId": "manus:ca9c16453725ee8b",
-            "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
-            "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
-            "publishedAt": "2026-09-13T20:16:29+08:00",
-            "sourceName": "ZFinance",
-            "origin": "article"
-          },
-          {
-            "value": "Kimi K2.5",
-            "articleId": "manus:ca9c16453725ee8b",
-            "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
-            "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
-            "publishedAt": "2026-09-13T20:16:29+08:00",
-            "sourceName": "ZFinance",
-            "origin": "article"
-          }
-        ],
-        "business": [
-          {
-            "value": "AI编程工具",
-            "articleId": "manus:ca9c16453725ee8b",
-            "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
-            "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
-            "publishedAt": "2026-09-13T20:16:29+08:00",
-            "sourceName": "ZFinance",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "manus:ca9c16453725ee8b",
-          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
-          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
-          "publishedAt": "2026-09-13T20:16:29+08:00",
-          "sourceName": "ZFinance",
-          "category": "general"
-        }
-      ],
-      "firstSeenAt": "2026-09-13T20:16:29+08:00",
-      "lastSeenAt": "2026-09-13T20:16:29+08:00",
-      "entityType": "company",
-      "updatedAt": "2026-09-13T20:16:29+08:00",
-      "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": [
-        {
-          "name": "Composer 2",
-          "relationship": "owned",
-          "quote": "Cursor 干脆自己下场，专有引擎 Composer 2 先在 Kimi K2.5 的开放底座上吃透工程代码",
-          "articleId": "manus:ca9c16453725ee8b",
-          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
-          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
-          "publishedAt": "2026-09-13T20:16:29+08:00"
-        },
-        {
-          "name": "Kimi K2.5",
-          "relationship": "used",
-          "quote": "专有引擎 Composer 2 先在 Kimi K2.5 的开放底座上吃透工程代码",
-          "articleId": "manus:ca9c16453725ee8b",
-          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
-          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
-          "publishedAt": "2026-09-13T20:16:29+08:00"
-        }
-      ]
-    },
-    {
       "id": "company:9ba8bec5d58fb025",
       "company_name": "Glean",
       "aliases": [],
       "product_names": [],
       "founded": null,
-      "country": null,
-      "team": null,
-      "business": "AI应用",
-      "investors": null,
+      "country": "美国",
+      "team": "Arvind Jain（创始人兼CEO）",
+      "business": "企业AI平台",
+      "investors": "Wellington Management、Khosla Ventures等（部分核实）",
       "total_funding": null,
-      "valuation": null,
+      "valuation": "72亿美元（2025-06-10，Series F）",
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -7579,9 +8766,73 @@
             "publishedAt": "2026-09-13T20:16:29+08:00",
             "sourceName": "ZFinance",
             "origin": "article"
+          },
+          {
+            "value": "企业AI平台",
+            "articleId": "research:f66570295a50417a",
+            "url": "https://www.glean.com/about",
+            "title": "Glean · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "grew into an enterprise AI platform built on company context",
+            "checkedAt": "2026-09-15"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "team": [
+          {
+            "value": "Arvind Jain（创始人兼CEO）",
+            "articleId": "research:f66570295a50417a",
+            "url": "https://www.glean.com/about",
+            "title": "Glean · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Arvind Jain is the Founder and CEO of Glean",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "valuation": [
+          {
+            "value": "72亿美元（2025-06-10，Series F）",
+            "articleId": "research:67d0c25bb1af5112",
+            "url": "https://www.glean.com/blog/glean-series-f-announcement",
+            "title": "Glean · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "at a $7.2B valuation",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:6fc11e5b84d75b7f",
+            "url": "https://www.weforum.org/organizations/glean/",
+            "title": "Glean · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Headquarters USA",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "总部所在地"
+          }
+        ],
+        "investors": [
+          {
+            "value": "Wellington Management、Khosla Ventures等（部分核实）",
+            "articleId": "research:67d0c25bb1af5112",
+            "url": "https://www.glean.com/blog/glean-series-f-announcement",
+            "title": "Glean · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "The round was led by Wellington Management, with participation from new investors including Khosla Ventures",
+            "checkedAt": "2026-09-15"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -7598,7 +8849,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -7611,7 +8862,7 @@
       "founded": "2023年春",
       "country": "中国",
       "team": null,
-      "business": null,
+      "business": "开发Kimi人工智能助手，支持联网搜索、多模态推理及长上下文对话。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -7670,6 +8921,19 @@
             "origin": "research",
             "quote": "北京月之暗面科技股份有限公司",
             "checkedAt": "2026-09-10"
+          }
+        ],
+        "business": [
+          {
+            "value": "开发Kimi人工智能助手，支持联网搜索、多模态推理及长上下文对话。",
+            "articleId": "research:45e07361313f1377",
+            "url": "https://www.kimi.ai/help/getting-started/overview",
+            "title": "月之暗面（Moonshot AI） · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Kimi is an AI assistant developed by Moonshot AI, with built-in web search, deep thinking, multimodal reasoning, and ultra-long context conversations.",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -7758,7 +9022,7 @@
         }
       },
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Kimi",
@@ -7772,6 +9036,246 @@
       ]
     },
     {
+      "id": "company:f9417102043b313c",
+      "company_name": "Anysphere, Inc.",
+      "aliases": [
+        "Cursor"
+      ],
+      "product_names": [
+        "Cursor",
+        "Composer 2",
+        "Kimi K2.5"
+      ],
+      "founded": null,
+      "country": "美国",
+      "team": null,
+      "business": "AI编程工具",
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "美国"
+      },
+      "fieldSources": {
+        "product_names": [
+          {
+            "value": "Composer 2",
+            "articleId": "manus:ca9c16453725ee8b",
+            "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+            "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+            "publishedAt": "2026-09-13T20:16:29+08:00",
+            "sourceName": "ZFinance",
+            "origin": "article"
+          },
+          {
+            "value": "Kimi K2.5",
+            "articleId": "manus:ca9c16453725ee8b",
+            "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+            "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+            "publishedAt": "2026-09-13T20:16:29+08:00",
+            "sourceName": "ZFinance",
+            "origin": "article"
+          }
+        ],
+        "business": [
+          {
+            "value": "AI编程工具",
+            "articleId": "research:28385b3bdb6b4832",
+            "url": "https://cursor.com/terms-of-service",
+            "title": "Cursor · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "coding tools driven by machine learning",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:3073ec71761f7a57",
+            "url": "https://cursor.com/terms/inbound-msa",
+            "title": "Cursor · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Anysphere, Inc., a Delaware corporation",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "法人登记地"
+          }
+        ],
+        "company_name": [
+          {
+            "value": "Anysphere, Inc.",
+            "articleId": "research:28385b3bdb6b4832",
+            "url": "https://cursor.com/terms-of-service",
+            "title": "Cursor · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Anysphere, Inc. (“Anysphere,” “we,” or “us”), makers of the Cursor software platform",
+            "checkedAt": "2026-09-15"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:ca9c16453725ee8b",
+          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "publishedAt": "2026-09-13T20:16:29+08:00",
+          "sourceName": "ZFinance",
+          "category": "general"
+        }
+      ],
+      "firstSeenAt": "2026-09-13T20:16:29+08:00",
+      "lastSeenAt": "2026-09-13T20:16:29+08:00",
+      "entityType": "company",
+      "updatedAt": "2026-09-13T20:16:29+08:00",
+      "latestReportAt": "2026-09-13T20:16:29+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
+      "productUpdates": [
+        {
+          "name": "Composer 2",
+          "relationship": "owned",
+          "quote": "Cursor 干脆自己下场，专有引擎 Composer 2 先在 Kimi K2.5 的开放底座上吃透工程代码",
+          "articleId": "manus:ca9c16453725ee8b",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+          "publishedAt": "2026-09-13T20:16:29+08:00"
+        },
+        {
+          "name": "Kimi K2.5",
+          "relationship": "used",
+          "quote": "专有引擎 Composer 2 先在 Kimi K2.5 的开放底座上吃透工程代码",
+          "articleId": "manus:ca9c16453725ee8b",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+          "publishedAt": "2026-09-13T20:16:29+08:00"
+        },
+        {
+          "name": "Cursor",
+          "relationship": "owned",
+          "quote": "",
+          "articleId": "manus:ca9c16453725ee8b",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+          "publishedAt": "2026-09-13T20:16:29+08:00",
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "Anysphere, Inc.",
+            "quote": "Anysphere, Inc. (“Anysphere,” “we,” or “us”), makers of the Cursor software platform",
+            "url": "https://cursor.com/terms-of-service",
+            "title": "Cursor · 公开资料核验",
+            "checkedAt": "2026-09-15"
+          }
+        }
+      ],
+      "brandProfiles": {
+        "Cursor": {
+          "id": "company:46a4eebd20d881ec",
+          "company_name": "Cursor",
+          "aliases": [],
+          "product_names": [
+            "Composer 2",
+            "Kimi K2.5"
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI编程工具",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "其他AI应用",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "Cursor",
+                "articleId": "manus:ca9c16453725ee8b",
+                "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+                "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+                "publishedAt": "2026-09-13T20:16:29+08:00",
+                "sourceName": "ZFinance",
+                "origin": "article"
+              }
+            ],
+            "product_names": [
+              {
+                "value": "Composer 2",
+                "articleId": "manus:ca9c16453725ee8b",
+                "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+                "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+                "publishedAt": "2026-09-13T20:16:29+08:00",
+                "sourceName": "ZFinance",
+                "origin": "article"
+              },
+              {
+                "value": "Kimi K2.5",
+                "articleId": "manus:ca9c16453725ee8b",
+                "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+                "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+                "publishedAt": "2026-09-13T20:16:29+08:00",
+                "sourceName": "ZFinance",
+                "origin": "article"
+              }
+            ],
+            "business": [
+              {
+                "value": "AI编程工具",
+                "articleId": "manus:ca9c16453725ee8b",
+                "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+                "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+                "publishedAt": "2026-09-13T20:16:29+08:00",
+                "sourceName": "ZFinance",
+                "origin": "article"
+              }
+            ]
+          },
+          "sourceArticles": [
+            {
+              "id": "manus:ca9c16453725ee8b",
+              "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+              "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+              "publishedAt": "2026-09-13T20:16:29+08:00",
+              "sourceName": "ZFinance",
+              "category": "general"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T20:16:29+08:00",
+          "lastSeenAt": "2026-09-13T20:16:29+08:00",
+          "entityType": "company",
+          "updatedAt": "2026-09-13T20:16:29+08:00",
+          "latestReportAt": "2026-09-13T20:16:29+08:00",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+          "productUpdates": [
+            {
+              "name": "Composer 2",
+              "relationship": "owned",
+              "quote": "Cursor 干脆自己下场，专有引擎 Composer 2 先在 Kimi K2.5 的开放底座上吃透工程代码",
+              "articleId": "manus:ca9c16453725ee8b",
+              "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+              "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+              "publishedAt": "2026-09-13T20:16:29+08:00"
+            },
+            {
+              "name": "Kimi K2.5",
+              "relationship": "used",
+              "quote": "专有引擎 Composer 2 先在 Kimi K2.5 的开放底座上吃透工程代码",
+              "articleId": "manus:ca9c16453725ee8b",
+              "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+              "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+              "publishedAt": "2026-09-13T20:16:29+08:00"
+            }
+          ]
+        }
+      }
+    },
+    {
       "id": "company:7931b6d10b3c8a5f",
       "company_name": "Waymo",
       "aliases": [],
@@ -7781,10 +9285,10 @@
       "founded": null,
       "country": "美国",
       "team": null,
-      "business": "自动驾驶出租车",
-      "investors": null,
+      "business": "自动驾驶技术及自动驾驶出租车服务",
+      "investors": "Alphabet、Dragoneer、DST Global、Sequoia Capital等（部分核实）",
       "total_funding": null,
-      "valuation": null,
+      "valuation": "1260亿美元（2026-02，投后）",
       "dims": {
         "行业": "其他AI应用",
         "国家/地区": "美国"
@@ -7821,6 +9325,17 @@
             "publishedAt": "2026-09-13T11:32:25.000Z",
             "sourceName": "IT之家（RSS）",
             "origin": "article"
+          },
+          {
+            "value": "自动驾驶技术及自动驾驶出租车服务",
+            "articleId": "research:6b1129486b41fc2b",
+            "url": "https://waymo.com/about/",
+            "title": "Waymo · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Waymo was established under Alphabet as a self-driving technology company with a mission to make it safe and easy for people and things to move around.",
+            "checkedAt": "2026-09-15"
           }
         ],
         "product_names": [
@@ -7832,6 +9347,32 @@
             "publishedAt": "2026-09-13T11:32:25.000Z",
             "sourceName": "IT之家（RSS）",
             "origin": "article"
+          }
+        ],
+        "valuation": [
+          {
+            "value": "1260亿美元（2026-02，投后）",
+            "articleId": "research:e46077c30bbe15b1",
+            "url": "https://waymo.com/blog/2026/02/waymo-raises-usd16-billion-investment-round/",
+            "title": "Waymo · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "valuing the company at $126 billion post-money",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "investors": [
+          {
+            "value": "Alphabet、Dragoneer、DST Global、Sequoia Capital等（部分核实）",
+            "articleId": "research:e46077c30bbe15b1",
+            "url": "https://waymo.com/blog/2026/02/waymo-raises-usd16-billion-investment-round/",
+            "title": "Waymo · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Dragoneer Investment Group, DST Global, and Sequoia Capital",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -7850,7 +9391,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T11:32:25.000Z",
       "latestReportAt": "2026-09-13T11:32:25.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Waymo 自动驾驶出租车",
@@ -7869,15 +9410,15 @@
       "aliases": [],
       "product_names": [],
       "founded": null,
-      "country": null,
+      "country": "美国",
       "team": null,
-      "business": null,
+      "business": "构建安全自主组织，通过基准测试和部署前沿AI，为AI自主运营组织做准备",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -7891,7 +9432,34 @@
             "origin": "article"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "business": [
+          {
+            "value": "构建安全自主组织，通过基准测试和部署前沿AI，为AI自主运营组织做准备",
+            "articleId": "research:82ec9eac7a48d7e3",
+            "url": "https://andonlabs.com/",
+            "title": "Andon Labs · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "We are building the Safe Autonomous Organization. We iteratively launch and scale autonomous organizations, bridging AI control research with real-world testing.",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:f6e0a1975cf02502",
+            "url": "https://andonlabs.com/join",
+            "title": "Andon Labs · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "We're based in San Francisco (in-person only).",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "总部所在地"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -7908,7 +9476,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:52:16.000Z",
       "latestReportAt": "2026-09-13T10:52:16.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -7921,7 +9489,7 @@
       "founded": "2024",
       "country": "瑞士",
       "team": null,
-      "business": "机器人",
+      "business": "开发人形机器人自主堆栈",
       "investors": "英伟达",
       "total_funding": "超过5,700万美元",
       "valuation": null,
@@ -7981,6 +9549,17 @@
             "publishedAt": "2026-09-13T10:29:21.000Z",
             "sourceName": "IT之家（RSS）",
             "origin": "article"
+          },
+          {
+            "value": "开发人形机器人自主堆栈",
+            "articleId": "research:4ce76208789f37ed",
+            "url": "https://flexion.ai/about",
+            "title": "Flexion Robotics · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "developing the autonomy stack to make humanoid robots adaptive, intelligent systems",
+            "checkedAt": "2026-09-15"
           }
         ],
         "investors": [
@@ -8031,7 +9610,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:29:21.000Z",
       "latestReportAt": "2026-09-13T10:29:21.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -8042,7 +9621,7 @@
       "founded": null,
       "country": null,
       "team": null,
-      "business": "用AI优化芯片软件",
+      "business": "研发面向AI底层软件的自改进人工智能系统。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -8071,6 +9650,17 @@
             "publishedAt": "2026-09-13T10:29:21.000Z",
             "sourceName": "IT之家（RSS）",
             "origin": "article"
+          },
+          {
+            "value": "研发面向AI底层软件的自改进人工智能系统。",
+            "articleId": "research:3458d44ff5650332",
+            "url": "https://int21.ai/",
+            "title": "INT21 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "INT21 builds self-improving AI systems for the software beneath modern AI.",
+            "checkedAt": "2026-09-15"
           }
         ],
         "product_names": []
@@ -8090,7 +9680,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:29:21.000Z",
       "latestReportAt": "2026-09-13T10:29:21.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -8101,15 +9691,15 @@
         "Leju 机器人"
       ],
       "founded": null,
-      "country": null,
+      "country": "中国",
       "team": null,
-      "business": null,
+      "business": "研发人形及轮臂机器人，推进产业化应用。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "中国"
       },
       "fieldSources": {
         "company_name": [
@@ -8133,6 +9723,33 @@
             "sourceName": "Robbyant 蚂蚁灵波（官方 X）",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "研发人形及轮臂机器人，推进产业化应用。",
+            "articleId": "research:36a3244a191baf8b",
+            "url": "https://www.lejurobot.cn/zh",
+            "title": "Leju · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "KUAVO 5 / 5-W 人形轮臂双形态全新升级",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "中国",
+            "articleId": "research:df2be6e2d4284025",
+            "url": "https://www.lejurobot.com/zh/news/latest-news",
+            "title": "Leju · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "乐聚智能（深圳）股份有限公司",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "公司公开所在地"
+          }
         ]
       },
       "sourceArticles": [
@@ -8150,7 +9767,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:05:01.000Z",
       "latestReportAt": "2026-09-13T10:05:01.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Leju 机器人",
@@ -8171,15 +9788,15 @@
         "Astribot 机器人"
       ],
       "founded": null,
-      "country": null,
+      "country": "中国",
       "team": null,
-      "business": null,
+      "business": "具身智能机器人研发，推动人机共存、共创、共赢",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "中国"
       },
       "fieldSources": {
         "company_name": [
@@ -8203,6 +9820,33 @@
             "sourceName": "Robbyant 蚂蚁灵波（官方 X）",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "具身智能机器人研发，推动人机共存、共创、共赢",
+            "articleId": "research:6af348eb1cf2f369",
+            "url": "https://www.astribot.com/about/",
+            "title": "Astribot · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "公司首创面向AI（Design for AI，DFAI）的软硬件一体化系统架构，将“AI智能”与“最强操作”深度耦合，在具身智能数据获取上取得关键突破",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "中国",
+            "articleId": "research:04c4e389ccbf4279",
+            "url": "https://www.astribot.com/en/contact/",
+            "title": "Astribot · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Company Address @ 68F, Block A, Building 2, Shenzhen Bay Innovation and Technology Center",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "公司联系地址"
+          }
         ]
       },
       "sourceArticles": [
@@ -8220,7 +9864,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:05:01.000Z",
       "latestReportAt": "2026-09-13T10:05:01.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Astribot 机器人",
@@ -8241,15 +9885,15 @@
         "Ti5 机器人"
       ],
       "founded": null,
-      "country": null,
+      "country": "中国",
       "team": null,
-      "business": null,
+      "business": "提供机器人高端硬件与机器人整体解决方案。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "中国"
       },
       "fieldSources": {
         "company_name": [
@@ -8273,6 +9917,33 @@
             "sourceName": "Robbyant 蚂蚁灵波（官方 X）",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "提供机器人高端硬件与机器人整体解决方案。",
+            "articleId": "research:5948055fc5ccbc18",
+            "url": "https://www.ti5robot.com/h-col-107.html",
+            "title": "Ti5 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "是一家提供机器人高端硬件与机器人整体解决方案的高科技公司。",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "中国",
+            "articleId": "research:5948055fc5ccbc18",
+            "url": "https://www.ti5robot.com/h-col-107.html",
+            "title": "Ti5 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "公司地址：上海市闵行区马桥镇紫东路55号",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "公司联系地址"
+          }
         ]
       },
       "sourceArticles": [
@@ -8290,7 +9961,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:05:01.000Z",
       "latestReportAt": "2026-09-13T10:05:01.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Ti5 机器人",
@@ -8311,9 +9982,9 @@
         "Tailscale"
       ],
       "founded": null,
-      "country": null,
+      "country": "加拿大",
       "team": null,
-      "business": null,
+      "business": "提供安全、私密的网络连接服务，使设备、应用和AI工作负载无需传统VPN即可互联。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -8345,6 +10016,33 @@
             "quote": "Tailscale is a registered trademark of Tailscale Inc.",
             "checkedAt": "2026-09-14"
           }
+        ],
+        "business": [
+          {
+            "value": "提供安全、私密的网络连接服务，使设备、应用和AI工作负载无需传统VPN即可互联。",
+            "articleId": "research:00c399a89d29b43b",
+            "url": "https://tailscale.com/blog/series-c",
+            "title": "Tailscale Inc. · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "things connect, securely and privately, without the traditional headaches",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "加拿大",
+            "articleId": "research:d7d68f8bd1239961",
+            "url": "https://tailscale.com/terms",
+            "title": "Tailscale Inc. · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Tailscale Inc., a Canadian business corporation",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "Tailscale Inc.登记地；不代表另一个签约主体Tailscale US Inc."
+          }
         ]
       },
       "sourceArticles": [
@@ -8362,7 +10060,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:03:19.000Z",
       "latestReportAt": "2026-09-13T10:03:19.000Z",
-      "profileUpdatedAt": "2026-09-14T17:30:25+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Tailscale",
@@ -8473,7 +10171,7 @@
       "founded": null,
       "country": "英国",
       "team": null,
-      "business": "负责运营英国普雷斯顿面向尼特族青年的AI速成训练营",
+      "business": "专业科技培训与技能提供商，业务覆盖英国和中东",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -8513,6 +10211,17 @@
             "publishedAt": "2026-09-13T09:45:43.000Z",
             "sourceName": "IT之家（RSS）",
             "origin": "article"
+          },
+          {
+            "value": "专业科技培训与技能提供商，业务覆盖英国和中东",
+            "articleId": "research:fe34d782611b2fe8",
+            "url": "https://in4group.co.uk/about/",
+            "title": "IN4 集团 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "IN4 Group is a leading international professional technology training and skills provider, with operations across the United Kingdom and the Middle East.",
+            "checkedAt": "2026-09-15"
           }
         ],
         "product_names": []
@@ -8532,32 +10241,29 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T09:45:43.000Z",
       "latestReportAt": "2026-09-13T09:45:43.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
-      "id": "company:1bc7326d38e0e31b",
-      "company_name": "RunningHub",
+      "id": "company:ae679821f0649c15",
+      "company_name": "Runway",
       "aliases": [],
-      "product_names": [
-        "RHTV",
-        "RHSTORY"
-      ],
-      "founded": null,
-      "country": null,
+      "product_names": [],
+      "founded": "2018",
+      "country": "美国",
       "team": null,
-      "business": null,
+      "business": "构建真实世界智能，提供基于该智能的创意、开发者和机器人平台",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
           {
-            "value": "RunningHub",
+            "value": "Runway",
             "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
             "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
             "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
@@ -8566,6 +10272,91 @@
             "origin": "article"
           }
         ],
+        "product_names": [],
+        "business": [
+          {
+            "value": "构建真实世界智能，提供基于该智能的创意、开发者和机器人平台",
+            "articleId": "research:831c0443aa5bad46",
+            "url": "https://runwayml.com/",
+            "title": "Runway · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Runway is building foundational Real-World Intelligence that can understand, simulate and act in the world. We offer products and services built on-top of this intelligence",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:4c3892f16b419930",
+            "url": "https://www.sec.gov/Archives/edgar/data/1957455/000123191922000071/xslFormDX01/primary_doc.xml",
+            "title": "Runway · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Jurisdiction of Incorporation/Organization --- DELAWARE",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "法人登记地"
+          }
+        ],
+        "founded": [
+          {
+            "value": "2018",
+            "articleId": "research:4c3892f16b419930",
+            "url": "https://www.sec.gov/Archives/edgar/data/1957455/000123191922000071/xslFormDX01/primary_doc.xml",
+            "title": "Runway · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Within Last Five Years (Specify Year) 2018",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration",
+            "legalEntity": "Runway AI Inc."
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "aihot:cmtznczul0051ro5ehrb5sh20",
+          "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+          "publishedAt": "2026-09-13T09:08:00.000Z",
+          "sourceName": "公众号：卡尔的AI沃茨",
+          "category": "general"
+        }
+      ],
+      "firstSeenAt": "2026-09-13T09:08:00.000Z",
+      "lastSeenAt": "2026-09-13T09:08:00.000Z",
+      "entityType": "company",
+      "updatedAt": "2026-09-13T09:08:00.000Z",
+      "latestReportAt": "2026-09-13T09:08:00.000Z",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
+      "productUpdates": []
+    },
+    {
+      "id": "company:9adf85364b09b3ee",
+      "company_name": "安徽海马云智能科技发展有限公司",
+      "aliases": [
+        "RunningHub"
+      ],
+      "product_names": [
+        "RunningHub",
+        "RHTV",
+        "RHSTORY"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": "专注于开发先进AIGC创作平台，提供在线ComfyUI创作环境和工作流资源",
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
         "product_names": [
           {
             "value": "RHTV",
@@ -8585,6 +10376,32 @@
             "sourceName": "公众号：卡尔的AI沃茨",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "专注于开发先进AIGC创作平台，提供在线ComfyUI创作环境和工作流资源",
+            "articleId": "research:7f77123bae8d2c1c",
+            "url": "https://www.runninghub.ai/about",
+            "title": "RunningHub · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "是一个专注于开发先进 AIGC 创作平台的科技研发团队。我们深耕于在线ComfyUl为核心的AI创作领域，致力于为广大创作者打造功能强大、便捷易用的在线ComfyUl创作环境，提供丰富多样、高质量的工作流资源",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "company_name": [
+          {
+            "value": "安徽海马云智能科技发展有限公司",
+            "articleId": "research:7f77123bae8d2c1c",
+            "url": "https://www.runninghub.ai/about",
+            "title": "RunningHub · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "RunningHub产品归属于安徽海马云智能科技发展有限公司",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -8602,7 +10419,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T09:08:00.000Z",
       "latestReportAt": "2026-09-13T09:08:00.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "RHTV",
@@ -8621,56 +10438,116 @@
           "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
           "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
           "publishedAt": "2026-09-13T09:08:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "company:ae679821f0649c15",
-      "company_name": "Runway",
-      "aliases": [],
-      "product_names": [],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "其他AI应用",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "Runway",
-            "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
-            "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
-            "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
-            "publishedAt": "2026-09-13T09:08:00.000Z",
-            "sourceName": "公众号：卡尔的AI沃茨",
-            "origin": "article"
-          }
-        ],
-        "product_names": []
-      },
-      "sourceArticles": [
+        },
         {
-          "id": "aihot:cmtznczul0051ro5ehrb5sh20",
-          "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
+          "name": "RunningHub",
+          "relationship": "owned",
+          "quote": "",
+          "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
           "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+          "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
           "publishedAt": "2026-09-13T09:08:00.000Z",
-          "sourceName": "公众号：卡尔的AI沃茨",
-          "category": "general"
+          "ownershipEvidence": {
+            "field": "owner_company",
+            "value": "安徽海马云智能科技发展有限公司",
+            "quote": "RunningHub产品归属于安徽海马云智能科技发展有限公司",
+            "url": "https://www.runninghub.ai/about",
+            "title": "RunningHub · 公开资料核验",
+            "checkedAt": "2026-09-15"
+          }
         }
       ],
-      "firstSeenAt": "2026-09-13T09:08:00.000Z",
-      "lastSeenAt": "2026-09-13T09:08:00.000Z",
-      "entityType": "company",
-      "updatedAt": "2026-09-13T09:08:00.000Z",
-      "latestReportAt": "2026-09-13T09:08:00.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": []
+      "brandProfiles": {
+        "RunningHub": {
+          "id": "company:1bc7326d38e0e31b",
+          "company_name": "RunningHub",
+          "aliases": [],
+          "product_names": [
+            "RHTV",
+            "RHSTORY"
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "其他AI应用",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "RunningHub",
+                "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
+                "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+                "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
+                "publishedAt": "2026-09-13T09:08:00.000Z",
+                "sourceName": "公众号：卡尔的AI沃茨",
+                "origin": "article"
+              }
+            ],
+            "product_names": [
+              {
+                "value": "RHTV",
+                "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
+                "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+                "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
+                "publishedAt": "2026-09-13T09:08:00.000Z",
+                "sourceName": "公众号：卡尔的AI沃茨",
+                "origin": "article"
+              },
+              {
+                "value": "RHSTORY",
+                "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
+                "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+                "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
+                "publishedAt": "2026-09-13T09:08:00.000Z",
+                "sourceName": "公众号：卡尔的AI沃茨",
+                "origin": "article"
+              }
+            ]
+          },
+          "sourceArticles": [
+            {
+              "id": "aihot:cmtznczul0051ro5ehrb5sh20",
+              "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
+              "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+              "publishedAt": "2026-09-13T09:08:00.000Z",
+              "sourceName": "公众号：卡尔的AI沃茨",
+              "category": "general"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T09:08:00.000Z",
+          "lastSeenAt": "2026-09-13T09:08:00.000Z",
+          "entityType": "company",
+          "updatedAt": "2026-09-13T09:08:00.000Z",
+          "latestReportAt": "2026-09-13T09:08:00.000Z",
+          "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+          "productUpdates": [
+            {
+              "name": "RHTV",
+              "relationship": "owned",
+              "quote": "提供RHTV无限画布和RHSTORY剧本拆解等创作工具",
+              "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
+              "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+              "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
+              "publishedAt": "2026-09-13T09:08:00.000Z"
+            },
+            {
+              "name": "RHSTORY",
+              "relationship": "owned",
+              "quote": "提供RHTV无限画布和RHSTORY剧本拆解等创作工具",
+              "articleId": "aihot:cmtznczul0051ro5ehrb5sh20",
+              "url": "https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511178&idx=1&sn=dbe6cac1ba3e97a828838ff1bcf6791a",
+              "title": "从4秒到两小时，AI视频长叙事正在走向完整故事",
+              "publishedAt": "2026-09-13T09:08:00.000Z"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "company:916a98f0fa2a39af",
@@ -8679,8 +10556,8 @@
       "product_names": [],
       "founded": "1911年6月16日",
       "country": "美国",
-      "team": null,
-      "business": null,
+      "team": "Arvind Krishna 任董事长兼首席执行官",
+      "business": "提供企业软件、咨询及基础设施服务。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -8726,6 +10603,32 @@
             "quote": "incorporated in the State of New York",
             "checkedAt": "2026-09-14"
           }
+        ],
+        "team": [
+          {
+            "value": "Arvind Krishna 任董事长兼首席执行官",
+            "articleId": "research:f3473030d057a0bf",
+            "url": "https://www.ibm.com/annualreport/",
+            "title": "IBM · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "A letter from Arvind Krishna, Chairman and Chief Executive Officer",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "business": [
+          {
+            "value": "提供企业软件、咨询及基础设施服务。",
+            "articleId": "research:061e234be84a2228",
+            "url": "https://www.ibm.com/about",
+            "title": "IBM · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "IBM brings together software, consulting and infrastructure",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -8743,7 +10646,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T07:35:37.000Z",
       "latestReportAt": "2026-09-13T07:35:37.000Z",
-      "profileUpdatedAt": "2026-09-14T18:17:40+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -8756,7 +10659,7 @@
       "founded": null,
       "country": "中国",
       "team": null,
-      "business": null,
+      "business": "负责中国移动旗下云计算业务——移动云的建设、研发与运营",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -8797,6 +10700,19 @@
             "sourceName": "IT之家（RSS）",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "负责中国移动旗下云计算业务——移动云的建设、研发与运营",
+            "articleId": "research:a30ef032af5780dd",
+            "url": "https://career.hebut.edu.cn/home/correcruit/content/id/80451.html",
+            "title": "移动云 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "负责中国移动旗下云计算业务——移动云的建设、研发与运营",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -8814,7 +10730,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T07:32:12.000Z",
       "latestReportAt": "2026-09-13T07:32:12.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "国产 GPU + 类脑芯片大模型异构混合推理系统",
@@ -8837,7 +10753,7 @@
       "founded": null,
       "country": "中国",
       "team": null,
-      "business": null,
+      "business": "开展新一代人工智能、未来连接、先进能源、化合物半导体、数字经济等五大领域的前沿科技创新",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -8878,6 +10794,19 @@
             "sourceName": "IT之家（RSS）",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "开展新一代人工智能、未来连接、先进能源、化合物半导体、数字经济等五大领域的前沿科技创新",
+            "articleId": "research:c41743ca425d57e1",
+            "url": "https://iat.ustc.edu.cn/iat/x170/20200407/149.html",
+            "title": "中国电子科技南湖研究院 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "开展新一代人工智能，未来连接，先进能源，化合物半导体，数字经济等五大领域的前沿科技创新",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -8895,7 +10824,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T07:32:12.000Z",
       "latestReportAt": "2026-09-13T07:32:12.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "国产 GPU + 类脑芯片大模型异构混合推理系统",
@@ -8918,7 +10847,7 @@
       "founded": null,
       "country": "中国",
       "team": null,
-      "business": null,
+      "business": "类脑计算与人工智能芯片及系统研发",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -8958,6 +10887,31 @@
             "publishedAt": "2026-09-13T07:32:12.000Z",
             "sourceName": "IT之家（RSS）",
             "origin": "article"
+          },
+          {
+            "value": "中国",
+            "articleId": "research:8569455a39189ce7",
+            "url": "https://www.lynxi.com/",
+            "title": "灵汐科技 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "北京总部：北京市海淀区北四环西路67号8层801",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "总部所在地"
+          }
+        ],
+        "business": [
+          {
+            "value": "类脑计算与人工智能芯片及系统研发",
+            "articleId": "research:8569455a39189ce7",
+            "url": "https://www.lynxi.com/",
+            "title": "灵汐科技 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "类脑服务器融合计算机科学的高精度和类脑计算的高能效优点， 可用于脑科学研究和下一代人工智能算法的开发",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -8976,7 +10930,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T07:32:12.000Z",
       "latestReportAt": "2026-09-13T07:32:12.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "国产 GPU + 类脑芯片大模型异构混合推理系统",
@@ -8996,10 +10950,10 @@
       "product_names": [
         "国产 GPU + 类脑芯片大模型异构混合推理系统"
       ],
-      "founded": null,
+      "founded": "2015-12-29",
       "country": "中国",
       "team": null,
-      "business": null,
+      "business": "提供通用GPU芯片及AI算力解决方案。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -9040,6 +10994,33 @@
             "sourceName": "IT之家（RSS）",
             "origin": "article"
           }
+        ],
+        "founded": [
+          {
+            "value": "2015-12-29",
+            "articleId": "research:6d7a89926f92999b",
+            "url": "https://www.hkexnews.hk/listedco/listconews/sehk/2026/0330/2026033001818.pdf",
+            "title": "天数智芯 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "established in China on December 29, 2015",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration"
+          }
+        ],
+        "business": [
+          {
+            "value": "提供通用GPU芯片及AI算力解决方案。",
+            "articleId": "research:3aa47af561a925e1",
+            "url": "https://www.iluvatar.com/about",
+            "title": "天数智芯 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "通用GPU芯片及AI算力解决方案提供商",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -9057,7 +11038,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T07:32:12.000Z",
       "latestReportAt": "2026-09-13T07:32:12.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "国产 GPU + 类脑芯片大模型异构混合推理系统",
@@ -9077,10 +11058,10 @@
       "product_names": [
         "Grok"
       ],
-      "founded": null,
+      "founded": "2003-07-01",
       "country": "美国",
       "team": null,
-      "business": null,
+      "business": "研发电动汽车、能源发电及储能产品。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -9122,6 +11103,45 @@
             "origin": "research",
             "quote": "incorporated in Texas",
             "checkedAt": "2026-09-14"
+          },
+          {
+            "value": "美国",
+            "articleId": "research:b1e7ee64ddedf9ca",
+            "url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024032662/tsla-20240630-gen.pdf",
+            "title": "特斯拉 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "a Texas corporation",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "法人登记地"
+          }
+        ],
+        "founded": [
+          {
+            "value": "2003-07-01",
+            "articleId": "research:b1e7ee64ddedf9ca",
+            "url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024032662/tsla-20240630-gen.pdf",
+            "title": "特斯拉 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "was originally incorporated on July 1, 2003",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration"
+          }
+        ],
+        "business": [
+          {
+            "value": "研发电动汽车、能源发电及储能产品。",
+            "articleId": "research:48d880d7a812c9b9",
+            "url": "https://www.tesla.com/about",
+            "title": "特斯拉 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Our energy generation and storage products work together with our electric vehicles",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -9140,7 +11160,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T06:43:03.000Z",
       "latestReportAt": "2026-09-13T06:43:03.000Z",
-      "profileUpdatedAt": "2026-09-14T18:33:16+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Grok",
@@ -9163,15 +11183,15 @@
         "XLink"
       ],
       "founded": null,
-      "country": null,
+      "country": "中国",
       "team": null,
-      "business": null,
+      "business": "光子芯片与光量子计算软硬件研发及产业化",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "中国"
       },
       "fieldSources": {
         "company_name": [
@@ -9204,6 +11224,33 @@
             "sourceName": "IT之家（RSS）",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "光子芯片与光量子计算软硬件研发及产业化",
+            "articleId": "research:d9b08d680f7672af",
+            "url": "https://www.turingq.com/",
+            "title": "图灵量子 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "用光子芯片和量子计算驱动算力变革",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "中国",
+            "articleId": "research:c3fc172079736403",
+            "url": "https://www.turingq.com/dtArticle12-en.html",
+            "title": "图灵量子 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "图灵总部 上海市闵行区剑川路888号2号楼",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "总部所在地"
+          }
         ]
       },
       "sourceArticles": [
@@ -9221,7 +11268,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T06:25:24.000Z",
       "latestReportAt": "2026-09-13T06:25:24.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "TuringQ Gen3",
@@ -9251,10 +11298,10 @@
       "founded": "2016",
       "country": "美国",
       "team": null,
-      "business": null,
-      "investors": null,
+      "business": "提供在线编程与AI应用构建平台，让用户无需学习编程即可创建应用",
+      "investors": "Georgian、G Squared、Prysm Capital等（部分核实）",
       "total_funding": null,
-      "valuation": null,
+      "valuation": "90亿美元（2026-03融资估值）",
       "dims": {
         "行业": "其他AI应用",
         "国家/地区": "美国"
@@ -9297,6 +11344,45 @@
             "quote": "headquartered in San Francisco, CA, USA",
             "checkedAt": "2026-09-14"
           }
+        ],
+        "business": [
+          {
+            "value": "提供在线编程与AI应用构建平台，让用户无需学习编程即可创建应用",
+            "articleId": "research:7aebf8b123b2aa1b",
+            "url": "https://replit.com/blog/replit-raises-400-million-dollars",
+            "title": "Replit · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "anyone should be able to build an app without ever learning to code",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "valuation": [
+          {
+            "value": "90亿美元（2026-03融资估值）",
+            "articleId": "research:7aebf8b123b2aa1b",
+            "url": "https://replit.com/blog/replit-raises-400-million-dollars",
+            "title": "Replit · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "valuing the company at $9 billion",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "investors": [
+          {
+            "value": "Georgian、G Squared、Prysm Capital等（部分核实）",
+            "articleId": "research:7aebf8b123b2aa1b",
+            "url": "https://replit.com/blog/replit-raises-400-million-dollars",
+            "title": "Replit · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Investors include Georgian, G Squared, Prysm Capital",
+            "checkedAt": "2026-09-15"
+          }
         ]
       },
       "sourceArticles": [
@@ -9314,7 +11400,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T06:19:32.000Z",
       "latestReportAt": "2026-09-13T06:19:32.000Z",
-      "profileUpdatedAt": "2026-09-14T18:33:16+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -9325,7 +11411,7 @@
       "founded": null,
       "country": "冰岛",
       "team": "Viktor Thulin, Gunnar Kolbeins",
-      "business": "SaaS",
+      "business": "数字产品工作室，为初创公司和成熟品牌快速构建和发布定制软件",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -9376,6 +11462,17 @@
             "publishedAt": "2026-09-13T06:19:32.000Z",
             "sourceName": "X：小北 (@frxiaobei)",
             "origin": "article"
+          },
+          {
+            "value": "数字产品工作室，为初创公司和成熟品牌快速构建和发布定制软件",
+            "articleId": "research:02f753c441cf7bf3",
+            "url": "https://test13.co/",
+            "title": "Test 13 · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "We're a digital product studio building and launching custom software at super speed for ambitious startups and established brands.",
+            "checkedAt": "2026-09-15"
           }
         ],
         "product_names": []
@@ -9395,55 +11492,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T06:19:32.000Z",
       "latestReportAt": "2026-09-13T06:19:32.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": []
-    },
-    {
-      "id": "company:e7722ccdbf4d9c02",
-      "company_name": "MSL",
-      "aliases": [],
-      "product_names": [],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "AI模型",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "MSL",
-            "articleId": "aihot:cmtzf40us07btrowy383mtlny",
-            "url": "https://x.com/alexandr_wang/status/2099015997525291211",
-            "title": "MSL 加大对齐投入以推进个人超级智能",
-            "publishedAt": "2026-09-13T06:03:06.000Z",
-            "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
-            "origin": "article"
-          }
-        ],
-        "product_names": []
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmtzf40us07btrowy383mtlny",
-          "title": "MSL 加大对齐投入以推进个人超级智能",
-          "url": "https://x.com/alexandr_wang/status/2099015997525291211",
-          "publishedAt": "2026-09-13T06:03:06.000Z",
-          "sourceName": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)",
-          "category": "general"
-        }
-      ],
-      "firstSeenAt": "2026-09-13T06:03:06.000Z",
-      "lastSeenAt": "2026-09-13T06:03:06.000Z",
-      "entityType": "company",
-      "updatedAt": "2026-09-13T06:03:06.000Z",
-      "latestReportAt": "2026-09-13T06:03:06.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -9457,7 +11506,7 @@
       "founded": null,
       "country": "日本",
       "team": null,
-      "business": null,
+      "business": "开发面向护理设施的人形机器人自主系统。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -9506,6 +11555,31 @@
             "publishedAt": "2026-09-13T03:11:15.000Z",
             "sourceName": "X：阿易 AI Notes (@AYi_AInotes)",
             "origin": "article"
+          },
+          {
+            "value": "日本",
+            "articleId": "research:f95ad4c082614aac",
+            "url": "https://enactic.ai/",
+            "title": "enactic_ai · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "HQ: 1-22-5 Yotsuya, Shinjuku-ku, Tokyo",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "总部所在地"
+          }
+        ],
+        "business": [
+          {
+            "value": "开发面向护理设施的人形机器人自主系统。",
+            "articleId": "research:f95ad4c082614aac",
+            "url": "https://enactic.ai/",
+            "title": "enactic_ai · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "We build humanoids that care. Built on our open-source research, we are focused on creating autonomous solutions starting with care facilities.",
+            "checkedAt": "2026-09-15"
           }
         ]
       },
@@ -9524,7 +11598,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T03:11:15.000Z",
       "latestReportAt": "2026-09-13T03:11:15.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "OpenArm",
@@ -9552,15 +11626,15 @@
       "aliases": [],
       "product_names": [],
       "founded": null,
-      "country": null,
+      "country": "美国",
       "team": "Gavin Baker",
-      "business": null,
+      "business": "投资管理",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -9583,9 +11657,47 @@
             "publishedAt": "2026-09-13T02:21:05.000Z",
             "sourceName": "X：Rohan Paul (@rohanpaul_ai)",
             "origin": "article"
+          },
+          {
+            "value": "Gavin Baker",
+            "articleId": "research:6a4ddf68d32a4499",
+            "url": "https://atreidesmgmt.com/team/gavin-baker/",
+            "title": "Atreides · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Gavin Baker is the Managing Partner and Chief Investment Officer of Atreides Management, LP.",
+            "checkedAt": "2026-09-15"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "business": [
+          {
+            "value": "投资管理",
+            "articleId": "research:6a4ddf68d32a4499",
+            "url": "https://atreidesmgmt.com/team/gavin-baker/",
+            "title": "Atreides · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "he is responsible for the firm’s day-to-day portfolio management",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:029221f56535bf6b",
+            "url": "https://atreidesmgmt.com/",
+            "title": "Atreides · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "One International Place, Suite 4410, Boston, MA 02110",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "公司联系地址"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -9602,7 +11714,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T02:21:05.000Z",
       "latestReportAt": "2026-09-13T02:21:05.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": []
     },
     {
@@ -9613,9 +11725,9 @@
         "Intelliga"
       ],
       "founded": null,
-      "country": null,
+      "country": "加拿大",
       "team": null,
-      "business": null,
+      "business": "开源机器人防护、AI咨询和定制软件服务",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -9645,6 +11757,33 @@
             "sourceName": "Hacker News 热门（buzzing.cc 中文翻译）",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "开源机器人防护、AI咨询和定制软件服务",
+            "articleId": "research:628a6ae9216992a3",
+            "url": "https://techaro.lol/",
+            "title": "Techaro · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Open-source bot protection, AI consultancy, and custom software services.",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "加拿大",
+            "articleId": "research:90b9e9c23f17d8cb",
+            "url": "https://ca.linkedin.com/company/techaro",
+            "title": "Techaro · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Headquarters Ottawa, Ontario",
+            "checkedAt": "2026-09-15",
+            "countryBasis": "总部所在地（公司公开档案）"
+          }
         ]
       },
       "sourceArticles": [
@@ -9662,7 +11801,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T02:05:04.827Z",
       "latestReportAt": "2026-09-13T02:05:04.827Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
       "productUpdates": [
         {
           "name": "Intelliga",

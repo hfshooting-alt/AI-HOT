@@ -946,6 +946,1729 @@
       "checkedAt": "2026-09-14"
     }
   ]
-}
-]
+},
+    {
+      "record_name": "苹果",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "Apple was incorporated in the state of California on January 3, 1977.",
+          "url": "https://investor.apple.com/faq./default.aspx",
+          "title": "苹果 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "法人登记地"
+        },
+        {
+          "field": "founded",
+          "value": "1977-01-03",
+          "quote": "Apple was incorporated in the state of California on January 3, 1977.",
+          "url": "https://investor.apple.com/faq./default.aspx",
+          "title": "苹果 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "dateBasis": "registration"
+        },
+        {
+          "field": "business",
+          "value": "设计、制造并销售智能手机、个人电脑、平板及可穿戴设备，并提供相关服务。",
+          "quote": "designs, manufactures and markets smartphones, personal computers, tablets, wearables and accessories, and sells a variety of related services.",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "title": "苹果 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "微软",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "Microsoft becomes Microsoft, Inc., an incorporated business in the state of Washington.",
+          "url": "https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1981",
+          "title": "微软 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "法人登记地"
+        },
+        {
+          "field": "founded",
+          "value": "1981-06-25",
+          "quote": "June 25, 1981",
+          "url": "https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1981",
+          "title": "微软 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "dateBasis": "registration"
+        },
+        {
+          "field": "business",
+          "value": "提供云解决方案、软件授权与支持，以及内容和其他服务。",
+          "quote": "cloud-based solutions, content, and other services",
+          "url": "https://www.microsoft.com/investor/reports/ar25/",
+          "title": "微软 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "蚂蚁灵波",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "founded",
+          "value": "2024-12",
+          "quote": "上海蚂蚁灵波科技有限公司于2024年12月完成工商注册",
+          "url": "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html",
+          "title": "蚂蚁灵波 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "dateBasis": "registration"
+        },
+        {
+          "field": "business",
+          "value": "研发具身智能底层技术及场景应用。",
+          "quote": "专攻具身智能底层技术与场景落地",
+          "url": "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html",
+          "title": "蚂蚁灵波 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "team",
+          "value": "朱兴（法定代表人）",
+          "quote": "法定代表人为朱兴",
+          "url": "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html",
+          "title": "蚂蚁灵波 · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        },
+        {
+          "field": "investors",
+          "value": "蚂蚁智能（杭州）科技有限公司（全资股东）",
+          "quote": "由蚂蚁智能（杭州）科技有限公司全资持股",
+          "url": "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html",
+          "title": "蚂蚁灵波 · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        },
+        {
+          "field": "country",
+          "value": "中国",
+          "quote": "上海蚂蚁灵波科技有限公司于2024年12月完成工商注册",
+          "url": "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html",
+          "title": "蚂蚁灵波 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "法人登记地"
+        }
+      ]
+    },
+    {
+      "record_name": "苏度科技",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "研发具身通用模型，结合世界模型与强化学习。",
+          "quote": "发布了#Sudo R1——全球首个应用世界模型与强化学习一体化设计的具身通用模型",
+          "url": "https://www.hengdian.com/zh-cn/news/detail-11195",
+          "title": "苏度科技 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "valuation",
+          "value": "超过20亿美元（本次所查融资公告口径）",
+          "quote": "完成新一轮融资，估值突破20亿美元",
+          "url": "https://www.hengdian.com/zh-cn/news/detail-11195",
+          "title": "苏度科技 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "investors",
+          "value": "宁德时代、阿里、腾讯、高瓴、IDG",
+          "quote": "本轮投资方包括宁德时代、阿里、腾讯、高瓴、IDG等一线产业资本及财务投资机构",
+          "url": "https://www.hengdian.com/zh-cn/news/detail-11195",
+          "title": "苏度科技 · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "record_name": "自变量机器人",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "聚焦自研通用具身智能大模型，构建具备精细操作能力的通用机器人",
+          "quote": "聚焦自研“通用具身智能大模型”，以真实世界数据为主要数据来源，构建具备精细操作能力的通用机器人",
+          "url": "https://x2robot.com/about",
+          "title": "自变量机器人 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "中国",
+          "quote": "正式落户深圳宝安雪花科创大厦",
+          "url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/gqdt/content/post_12775048.html",
+          "title": "自变量机器人 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "总部所在地"
+        },
+        {
+          "field": "investors",
+          "value": "字节跳动、阿里云、美团、中国移动、小米等（部分核实）",
+          "quote": "字节跳动、阿里云、美团、中国移动、小米",
+          "url": "https://x2robot.com/about",
+          "title": "自变量机器人 · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "record_name": "破壳机器人",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "founded",
+          "value": "2026-03-03",
+          "quote": "成立时间2026年3月3日",
+          "url": "https://m.pedaily.cn/vc/company/892574.html",
+          "title": "破壳机器人 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "dateBasis": "registration"
+        },
+        {
+          "field": "business",
+          "value": "研发生产家庭机器人，采用轮式底盘+双臂形态，自研本体+垂直整合，在线强化学习方案",
+          "quote": "核心业务研发生产家庭机器人，采用轮式底盘+双臂形态，自研本体+垂直整合，在线强化学习方案",
+          "url": "https://m.pedaily.cn/vc/company/892574.html",
+          "title": "破壳机器人 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "中国",
+          "quote": "所在地北京市海淀区",
+          "url": "https://m.pedaily.cn/vc/company/892574.html",
+          "title": "破壳机器人 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "工商资料所在地"
+        }
+      ]
+    },
+    {
+      "record_name": "Anthropic",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "提供Claude人工智能模型，用于企业运营及个人工作。",
+          "quote": "enterprises across industries are deploying Claude",
+          "url": "https://www.anthropic.com/news/series-h",
+          "title": "Anthropic · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "team",
+          "value": "Dario Amodei（联合创始人兼CEO）",
+          "quote": "Co-Founder and Chief Executive Officer Dario Amodei",
+          "url": "https://www.anthropic.com/company/leadership",
+          "title": "Anthropic · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        },
+        {
+          "field": "valuation",
+          "value": "9650亿美元（2026-05-28，Series H投后）",
+          "quote": "at $965B post-money valuation",
+          "url": "https://www.anthropic.com/news/series-h",
+          "title": "Anthropic · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "investors",
+          "value": "Capital Group、Coatue、D1 Capital Partners等（部分核实）",
+          "quote": "co-led by Capital Group, Coatue, D1 Capital Partners",
+          "url": "https://www.anthropic.com/news/series-h",
+          "title": "Anthropic · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "record_name": "Bending Spoons",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "收购并长期运营数字产品。",
+          "quote": "Since 2014, we’ve been acquiring digital products. Not to sell on, but to own and operate for the long term.",
+          "url": "https://www.bendingspoons.com/",
+          "title": "Bending Spoons · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "字节跳动",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "team",
+          "value": "张一鸣、梁汝波",
+          "quote": "founded in 2012 by a team led by Yiming Zhang and Rubo Liang",
+          "url": "https://www.bytedance.com/en/",
+          "title": "字节跳动 · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "record_name": "智谱",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "大模型研发",
+          "quote": "智谱发布新一代旗舰模型 GLM-4.7",
+          "url": "https://www.zhipuai.cn/zh/about",
+          "title": "智谱 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "founded",
+          "value": "2019-06-11",
+          "quote": "a limited liability company established under the laws of the PRC on June 11, 2019",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2025/1230/2025123000017.pdf",
+          "title": "智谱 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "dateBasis": "registration"
+        }
+      ]
+    },
+    {
+      "record_name": "Cohere",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "面向企业研发基础模型及AI解决方案",
+          "quote": "Cohere builds foundational models and AI solutions that help teams turn everyday effort into extraordinary impact.",
+          "url": "https://cohere.com/about",
+          "title": "Cohere · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "AWS",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "提供云和AI能力",
+          "quote": "provide them with the broadest and deepest set of cloud and AI capabilities",
+          "url": "https://aws.amazon.com/about-aws/",
+          "title": "AWS · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "Artificial Analysis",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "独立 AI 基准测试公司，衡量智能体、模型、云服务和芯片，帮助开发者和公司优化整个 AI 技术栈。",
+          "quote": "independent benchmarking company for AI",
+          "url": "https://artificialanalysis.ai/about",
+          "title": "Artificial Analysis · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "Artificial Analysis, Inc. is based in the United States",
+          "url": "https://artificialanalysis.ai/image-lab-privacy",
+          "title": "Artificial Analysis · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "总部所在地"
+        }
+      ]
+    },
+    {
+      "record_name": "Krummen Kerzers",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "提供国内外集装箱运输服务",
+          "quote": "Unsere Spezialisten der Abteilung Container Trucking sind für Ihre Transporte im In- und im Ausland bereit.",
+          "url": "https://krummen.com/container-transporte/",
+          "title": "Krummen Kerzers · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "瑞士",
+          "quote": "Country Switzerland",
+          "url": "https://www.uid.admin.ch/Detail.aspx?uid_id=CHE107917101",
+          "title": "Krummen Kerzers · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "瑞士UID登记地"
+        }
+      ]
+    },
+    {
+      "record_name": "OpenClaw Foundation",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "维护开源AI项目，推动个人化人工智能的应用。",
+          "quote": "an independent 501(c)(3) whose mission is to make AI personal, fun, and empowering for everyone: your agent, your machine, your rules.",
+          "url": "https://docs.openclaw.ai/start/why-openclaw",
+          "title": "OpenClaw Foundation · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "DAIR.AI",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "提供人工智能学习与开发资源。",
+          "quote": "DAIR.AI provides the resources you need to learn, innovate, and build the future with artificial intelligence.",
+          "url": "https://www.dair.ai/",
+          "title": "DAIR.AI · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "METR",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "评估前沿AI模型的能力及风险。",
+          "quote": "METR (pronounced 'meter') evaluates frontier AI models to help companies and wider society understand AI capabilities and what risks they pose.",
+          "url": "https://metr.org/about",
+          "title": "METR · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "Headquarters Berkeley, CA",
+          "url": "https://www.linkedin.com/company/metr-evals",
+          "title": "METR · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "总部所在地（机构公开档案）"
+        }
+      ]
+    },
+    {
+      "record_name": "Y Combinator",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "运营为期3个月的创业加速项目。",
+          "quote": "YC is a three month program. We now run YC four times a year, in the winter, spring, summer, and fall.",
+          "url": "https://www.ycombinator.com/about",
+          "title": "Y Combinator · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "HumanLayer",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "提供多人协作的编程智能体IDE与云端运行平台。",
+          "quote": "HumanLayer is a multiplayer coding agent IDE+cloud",
+          "url": "https://www.ycombinator.com/companies/humanlayer",
+          "title": "HumanLayer · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "Location:San Francisco",
+          "url": "https://www.ycombinator.com/companies/humanlayer",
+          "title": "HumanLayer · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "公司公开所在地"
+        }
+      ]
+    },
+    {
+      "record_name": "vivo",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "中国",
+          "quote": "With headquarters in China",
+          "url": "https://www.vivo.com/uk/about-vivo/news/about-vivo",
+          "title": "vivo · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "总部所在地"
+        },
+        {
+          "field": "business",
+          "value": "智能设备与智能服务",
+          "quote": "core business focusing on smart devices and intelligent services",
+          "url": "https://www.vivo.com/uk/about-vivo/news/about-vivo",
+          "title": "vivo · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "ElevenLabs",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "生成式音频AI平台，提供语音合成、语音转文字、配音、音乐及对话式AI产品",
+          "quote": "expanded beyond voice",
+          "url": "https://elevenlabs.io/blog/series-d",
+          "title": "ElevenLabs · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "total_funding",
+          "value": "7.81亿美元（截至2026-02-04）",
+          "quote": "total funding to $781 million",
+          "url": "https://elevenlabs.io/blog/series-d",
+          "title": "ElevenLabs · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        },
+        {
+          "field": "valuation",
+          "value": "110亿美元（2026-02-04融资估值）",
+          "quote": "values ElevenLabs at $11 billion",
+          "url": "https://elevenlabs.io/blog/series-d",
+          "title": "ElevenLabs · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "ElevenLabs is incorporated in the United States",
+          "url": "https://elevenlabs.io/blog/elevenlabs-launches-new-generative-voice-ai-products-and-announces-19m-series-a-round-led-by-nat-friedman-daniel-gross-and-andreessen-horowitz",
+          "title": "ElevenLabs · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "法人登记地"
+        },
+        {
+          "field": "investors",
+          "value": "Sequoia Capital（领投）",
+          "quote": "led by Sequoia Capital",
+          "url": "https://elevenlabs.io/blog/series-d",
+          "title": "ElevenLabs · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "record_name": "AllSpark",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "开源搜索智能体",
+          "quote": "Iris-pro is an open-weight search agent post-trained from Qwen3.5-397B-A17B.",
+          "url": "https://huggingface.co/AllSpark-Research/Iris-pro",
+          "title": "AllSpark · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "Google DeepMind",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "team",
+          "value": "Demis Hassabis",
+          "quote": "led by our CEO Demis Hassabis",
+          "url": "https://deepmind.google/about/",
+          "title": "Google DeepMind · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        },
+        {
+          "field": "business",
+          "value": "AI 研究与技术开发",
+          "quote": "We’re a team of scientists, engineers, ethicists and more, working to build the next generation of AI systems safely and responsibly.",
+          "url": "https://deepmind.google/about/",
+          "title": "Google DeepMind · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "NVIDIA",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "GPU、加速计算、AI芯片、系统与软件",
+          "quote": "NVIDIA engineers the most advanced chips, systems, and software for the AI factories of the future.",
+          "url": "https://www.nvidia.com/en-us/about-nvidia/",
+          "title": "NVIDIA · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "team",
+          "value": "Jensen Huang（创始人兼CEO）",
+          "quote": "Jensen Huang Founder & CEO",
+          "url": "https://nvidianews.nvidia.com/bios",
+          "title": "NVIDIA · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "record_name": "MiniMax",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "研发人工智能基础模型。",
+          "quote": "MiniMax is a global AI foundation model company.",
+          "url": "https://www.minimax.io/about",
+          "title": "MiniMax · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "founded",
+          "value": "2021-06-30",
+          "quote": "incorporated under the laws of the Cayman Islands on June 30, 2021",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0422/2026042202118.pdf",
+          "title": "MiniMax · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "dateBasis": "registration",
+          "legalEntity": "MiniMax Group Inc.，上市控股主体"
+        },
+        {
+          "field": "country",
+          "value": "中国",
+          "quote": "HEADQUARTER AND PRINCIPAL PLACE OF BUSINESS IN THE PRC",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0422/2026042202118.pdf",
+          "title": "MiniMax · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "总部所在地；上市控股主体登记在开曼"
+        }
+      ]
+    },
+    {
+      "record_name": "Fireworks",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "面向企业开发团队提供AI云平台。",
+          "quote": "AI Cloud for enterprise developer teams",
+          "url": "https://fireworks.ai/blog/series-c",
+          "title": "Fireworks · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "valuation",
+          "value": "40亿美元（2025年Series C）",
+          "quote": "$4 billion valuation",
+          "url": "https://fireworks.ai/blog/series-c",
+          "title": "Fireworks · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "total_funding",
+          "value": "超过3.27亿美元（2025年Series C，含一级及二级交易）",
+          "quote": "total funding to over $327 million",
+          "url": "https://fireworks.ai/blog/series-c",
+          "title": "Fireworks · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        },
+        {
+          "field": "investors",
+          "value": "Lightspeed Venture Partners、Index Ventures、Evantic等（部分核实）",
+          "quote": "Lightspeed Venture Partners, Index Ventures, and Evantic",
+          "url": "https://fireworks.ai/blog/series-c",
+          "title": "Fireworks · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "record_name": "Harvey",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "法律AI，帮助律所、企业法务团队和专业服务机构构建和拥有智能",
+          "quote": "help law firms, in-house legal teams",
+          "url": "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence",
+          "title": "Harvey · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "team",
+          "value": "Winston Weinberg、Gabe Pereyra",
+          "quote": "Harvey co-founders Winston Weinberg and Gabe Pereyra",
+          "url": "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence",
+          "title": "Harvey · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        },
+        {
+          "field": "valuation",
+          "value": "155亿美元（2026-09-09融资估值）",
+          "quote": "at a $15.5B valuation",
+          "url": "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence",
+          "title": "Harvey · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "Cursor",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "AI编程工具",
+          "quote": "coding tools driven by machine learning",
+          "url": "https://cursor.com/terms-of-service",
+          "title": "Cursor · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "Anysphere, Inc., a Delaware corporation",
+          "url": "https://cursor.com/terms/inbound-msa",
+          "title": "Cursor · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "法人登记地"
+        },
+        {
+          "field": "owner_company",
+          "value": "Anysphere, Inc.",
+          "quote": "Anysphere, Inc. (“Anysphere,” “we,” or “us”), makers of the Cursor software platform",
+          "url": "https://cursor.com/terms-of-service",
+          "title": "Cursor · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ],
+      "owner_company": "Anysphere, Inc.",
+      "owned_products": [
+        "Cursor"
+      ]
+    },
+    {
+      "record_name": "Glean",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "企业AI平台",
+          "quote": "grew into an enterprise AI platform built on company context",
+          "url": "https://www.glean.com/about",
+          "title": "Glean · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "team",
+          "value": "Arvind Jain（创始人兼CEO）",
+          "quote": "Arvind Jain is the Founder and CEO of Glean",
+          "url": "https://www.glean.com/about",
+          "title": "Glean · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        },
+        {
+          "field": "valuation",
+          "value": "72亿美元（2025-06-10，Series F）",
+          "quote": "at a $7.2B valuation",
+          "url": "https://www.glean.com/blog/glean-series-f-announcement",
+          "title": "Glean · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "Headquarters USA",
+          "url": "https://www.weforum.org/organizations/glean/",
+          "title": "Glean · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "总部所在地"
+        },
+        {
+          "field": "investors",
+          "value": "Wellington Management、Khosla Ventures等（部分核实）",
+          "quote": "The round was led by Wellington Management, with participation from new investors including Khosla Ventures",
+          "url": "https://www.glean.com/blog/glean-series-f-announcement",
+          "title": "Glean · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "record_name": "Waymo",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "自动驾驶技术及自动驾驶出租车服务",
+          "quote": "Waymo was established under Alphabet as a self-driving technology company with a mission to make it safe and easy for people and things to move around.",
+          "url": "https://waymo.com/about/",
+          "title": "Waymo · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "valuation",
+          "value": "1260亿美元（2026-02，投后）",
+          "quote": "valuing the company at $126 billion post-money",
+          "url": "https://waymo.com/blog/2026/02/waymo-raises-usd16-billion-investment-round/",
+          "title": "Waymo · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "investors",
+          "value": "Alphabet、Dragoneer、DST Global、Sequoia Capital等（部分核实）",
+          "quote": "Dragoneer Investment Group, DST Global, and Sequoia Capital",
+          "url": "https://waymo.com/blog/2026/02/waymo-raises-usd16-billion-investment-round/",
+          "title": "Waymo · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "record_name": "Andon Labs",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "构建安全自主组织，通过基准测试和部署前沿AI，为AI自主运营组织做准备",
+          "quote": "We are building the Safe Autonomous Organization. We iteratively launch and scale autonomous organizations, bridging AI control research with real-world testing.",
+          "url": "https://andonlabs.com/",
+          "title": "Andon Labs · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "We're based in San Francisco (in-person only).",
+          "url": "https://andonlabs.com/join",
+          "title": "Andon Labs · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "总部所在地"
+        }
+      ]
+    },
+    {
+      "record_name": "Flexion Robotics",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "开发人形机器人自主堆栈",
+          "quote": "developing the autonomy stack to make humanoid robots adaptive, intelligent systems",
+          "url": "https://flexion.ai/about",
+          "title": "Flexion Robotics · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "INT21",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "研发面向AI底层软件的自改进人工智能系统。",
+          "quote": "INT21 builds self-improving AI systems for the software beneath modern AI.",
+          "url": "https://int21.ai/",
+          "title": "INT21 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "Astribot",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "具身智能机器人研发，推动人机共存、共创、共赢",
+          "quote": "公司首创面向AI（Design for AI，DFAI）的软硬件一体化系统架构，将“AI智能”与“最强操作”深度耦合，在具身智能数据获取上取得关键突破",
+          "url": "https://www.astribot.com/about/",
+          "title": "Astribot · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "中国",
+          "quote": "Company Address @ 68F, Block A, Building 2, Shenzhen Bay Innovation and Technology Center",
+          "url": "https://www.astribot.com/en/contact/",
+          "title": "Astribot · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "公司联系地址"
+        }
+      ]
+    },
+    {
+      "record_name": "Tailscale Inc.",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "提供安全、私密的网络连接服务，使设备、应用和AI工作负载无需传统VPN即可互联。",
+          "quote": "things connect, securely and privately, without the traditional headaches",
+          "url": "https://tailscale.com/blog/series-c",
+          "title": "Tailscale Inc. · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "加拿大",
+          "quote": "Tailscale Inc., a Canadian business corporation",
+          "url": "https://tailscale.com/terms",
+          "title": "Tailscale Inc. · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "Tailscale Inc.登记地；不代表另一个签约主体Tailscale US Inc."
+        }
+      ]
+    },
+    {
+      "record_name": "RunningHub",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "专注于开发先进AIGC创作平台，提供在线ComfyUI创作环境和工作流资源",
+          "quote": "是一个专注于开发先进 AIGC 创作平台的科技研发团队。我们深耕于在线ComfyUl为核心的AI创作领域，致力于为广大创作者打造功能强大、便捷易用的在线ComfyUl创作环境，提供丰富多样、高质量的工作流资源",
+          "url": "https://www.runninghub.ai/about",
+          "title": "RunningHub · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "owner_company",
+          "value": "安徽海马云智能科技发展有限公司",
+          "quote": "RunningHub产品归属于安徽海马云智能科技发展有限公司",
+          "url": "https://www.runninghub.ai/about",
+          "title": "RunningHub · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ],
+      "owner_company": "安徽海马云智能科技发展有限公司",
+      "owned_products": [
+        "RunningHub"
+      ]
+    },
+    {
+      "record_name": "Runway",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "构建真实世界智能，提供基于该智能的创意、开发者和机器人平台",
+          "quote": "Runway is building foundational Real-World Intelligence that can understand, simulate and act in the world. We offer products and services built on-top of this intelligence",
+          "url": "https://runwayml.com/",
+          "title": "Runway · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "Jurisdiction of Incorporation/Organization --- DELAWARE",
+          "url": "https://www.sec.gov/Archives/edgar/data/1957455/000123191922000071/xslFormDX01/primary_doc.xml",
+          "title": "Runway · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "法人登记地"
+        },
+        {
+          "field": "founded",
+          "value": "2018",
+          "quote": "Within Last Five Years (Specify Year) 2018",
+          "url": "https://www.sec.gov/Archives/edgar/data/1957455/000123191922000071/xslFormDX01/primary_doc.xml",
+          "title": "Runway · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "dateBasis": "registration",
+          "legalEntity": "Runway AI Inc."
+        }
+      ]
+    },
+    {
+      "record_name": "IBM",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "team",
+          "value": "Arvind Krishna 任董事长兼首席执行官",
+          "quote": "A letter from Arvind Krishna, Chairman and Chief Executive Officer",
+          "url": "https://www.ibm.com/annualreport/",
+          "title": "IBM · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        },
+        {
+          "field": "business",
+          "value": "提供企业软件、咨询及基础设施服务。",
+          "quote": "IBM brings together software, consulting and infrastructure",
+          "url": "https://www.ibm.com/about",
+          "title": "IBM · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "移动云",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "负责中国移动旗下云计算业务——移动云的建设、研发与运营",
+          "quote": "负责中国移动旗下云计算业务——移动云的建设、研发与运营",
+          "url": "https://career.hebut.edu.cn/home/correcruit/content/id/80451.html",
+          "title": "移动云 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "中国电子科技南湖研究院",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "开展新一代人工智能、未来连接、先进能源、化合物半导体、数字经济等五大领域的前沿科技创新",
+          "quote": "开展新一代人工智能，未来连接，先进能源，化合物半导体，数字经济等五大领域的前沿科技创新",
+          "url": "https://iat.ustc.edu.cn/iat/x170/20200407/149.html",
+          "title": "中国电子科技南湖研究院 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "灵汐科技",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "中国",
+          "quote": "北京总部：北京市海淀区北四环西路67号8层801",
+          "url": "https://www.lynxi.com/",
+          "title": "灵汐科技 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "总部所在地"
+        },
+        {
+          "field": "business",
+          "value": "类脑计算与人工智能芯片及系统研发",
+          "quote": "类脑服务器融合计算机科学的高精度和类脑计算的高能效优点， 可用于脑科学研究和下一代人工智能算法的开发",
+          "url": "https://www.lynxi.com/",
+          "title": "灵汐科技 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "Replit",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "提供在线编程与AI应用构建平台，让用户无需学习编程即可创建应用",
+          "quote": "anyone should be able to build an app without ever learning to code",
+          "url": "https://replit.com/blog/replit-raises-400-million-dollars",
+          "title": "Replit · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "valuation",
+          "value": "90亿美元（2026-03融资估值）",
+          "quote": "valuing the company at $9 billion",
+          "url": "https://replit.com/blog/replit-raises-400-million-dollars",
+          "title": "Replit · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "investors",
+          "value": "Georgian、G Squared、Prysm Capital等（部分核实）",
+          "quote": "Investors include Georgian, G Squared, Prysm Capital",
+          "url": "https://replit.com/blog/replit-raises-400-million-dollars",
+          "title": "Replit · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "record_name": "Test 13",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "数字产品工作室，为初创公司和成熟品牌快速构建和发布定制软件",
+          "quote": "We're a digital product studio building and launching custom software at super speed for ambitious startups and established brands.",
+          "url": "https://test13.co/",
+          "title": "Test 13 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "enactic_ai",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "日本",
+          "quote": "HQ: 1-22-5 Yotsuya, Shinjuku-ku, Tokyo",
+          "url": "https://enactic.ai/",
+          "title": "enactic_ai · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "总部所在地"
+        },
+        {
+          "field": "business",
+          "value": "开发面向护理设施的人形机器人自主系统。",
+          "quote": "We build humanoids that care. Built on our open-source research, we are focused on creating autonomous solutions starting with care facilities.",
+          "url": "https://enactic.ai/",
+          "title": "enactic_ai · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "Atreides",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "team",
+          "value": "Gavin Baker",
+          "quote": "Gavin Baker is the Managing Partner and Chief Investment Officer of Atreides Management, LP.",
+          "url": "https://atreidesmgmt.com/team/gavin-baker/",
+          "title": "Atreides · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        },
+        {
+          "field": "business",
+          "value": "投资管理",
+          "quote": "he is responsible for the firm’s day-to-day portfolio management",
+          "url": "https://atreidesmgmt.com/team/gavin-baker/",
+          "title": "Atreides · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "One International Place, Suite 4410, Boston, MA 02110",
+          "url": "https://atreidesmgmt.com/",
+          "title": "Atreides · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "公司联系地址"
+        }
+      ]
+    },
+    {
+      "record_name": "Techaro",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "开源机器人防护、AI咨询和定制软件服务",
+          "quote": "Open-source bot protection, AI consultancy, and custom software services.",
+          "url": "https://techaro.lol/",
+          "title": "Techaro · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "加拿大",
+          "quote": "Headquarters Ottawa, Ontario",
+          "url": "https://ca.linkedin.com/company/techaro",
+          "title": "Techaro · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "总部所在地（公司公开档案）"
+        }
+      ]
+    },
+    {
+      "record_name": "xAI",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "研发先进人工智能。",
+          "quote": "xAI is rapidly accelerating its progress in building advanced AI.",
+          "url": "https://x.ai/news/series-e",
+          "title": "xAI · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "OpenAI",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "为个人与企业提供人工智能基础设施和产品。",
+          "quote": "core infrastructure for AI",
+          "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+          "title": "OpenAI · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "valuation",
+          "value": "8520亿美元（2026-03-31，承诺资本融资投后）",
+          "quote": "at a post money valuation of $852 billion",
+          "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+          "title": "OpenAI · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "investors",
+          "value": "Amazon、NVIDIA、SoftBank等（部分核实）",
+          "quote": "Amazon, NVIDIA, and SoftBank",
+          "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+          "title": "OpenAI · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "record_name": "法拉第未来",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "a holding company incorporated in the State of Delaware",
+          "url": "https://www.sec.gov/Archives/edgar/data/1805521/000121390026077219/ea0296858-s3_faraday.htm",
+          "title": "法拉第未来 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "法人登记地"
+        },
+        {
+          "field": "business",
+          "value": "智能电动汽车与具身AI机器人",
+          "quote": "connecting intelligent vehicles, robotics devices, an EAI brain",
+          "url": "https://www.sec.gov/Archives/edgar/data/1805521/000121390026077219/ea0296858-s3_faraday.htm",
+          "title": "法拉第未来 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "Genspark",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "提供Genspark AI Workspace一体化AI工作空间，自动完成信息收集、处理与输出，包括AI幻灯片、AI表格、AI文档等",
+          "quote": "a platform that puts work on autopilot",
+          "url": "https://www.genspark.ai/blog/genspark-ai-workspace-and-series-b-funding",
+          "title": "Genspark · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "valuation",
+          "value": "12.5亿美元（Series B公告口径）",
+          "quote": "at a $1.25B post-money valuation",
+          "url": "https://www.genspark.ai/blog/genspark-ai-workspace-and-series-b-funding",
+          "title": "Genspark · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "MainFunc is based in Palo Alto, United States",
+          "url": "https://mainfunc.ai/",
+          "title": "Genspark · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "运营主体MainFunc所在地"
+        },
+        {
+          "field": "investors",
+          "value": "Emergence Capital（部分核实）",
+          "quote": "This round was backed by Emergence Capital",
+          "url": "https://www.genspark.ai/blog/genspark-ai-workspace-and-series-b-funding",
+          "title": "Genspark · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "record_name": "Ti5",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "提供机器人高端硬件与机器人整体解决方案。",
+          "quote": "是一家提供机器人高端硬件与机器人整体解决方案的高科技公司。",
+          "url": "https://www.ti5robot.com/h-col-107.html",
+          "title": "Ti5 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "中国",
+          "quote": "公司地址：上海市闵行区马桥镇紫东路55号",
+          "url": "https://www.ti5robot.com/h-col-107.html",
+          "title": "Ti5 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "公司联系地址"
+        }
+      ]
+    },
+    {
+      "record_name": "IN4 集团",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "专业科技培训与技能提供商，业务覆盖英国和中东",
+          "quote": "IN4 Group is a leading international professional technology training and skills provider, with operations across the United Kingdom and the Middle East.",
+          "url": "https://in4group.co.uk/about/",
+          "title": "IN4 集团 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "图灵量子",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "光子芯片与光量子计算软硬件研发及产业化",
+          "quote": "用光子芯片和量子计算驱动算力变革",
+          "url": "https://www.turingq.com/",
+          "title": "图灵量子 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "中国",
+          "quote": "图灵总部 上海市闵行区剑川路888号2号楼",
+          "url": "https://www.turingq.com/dtArticle12-en.html",
+          "title": "图灵量子 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "总部所在地"
+        }
+      ]
+    },
+    {
+      "record_name": "文远知行",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "founded",
+          "value": "2017-03-13",
+          "quote": "on March 13, 2017",
+          "url": "https://www.sec.gov/Archives/edgar/data/1867729/000110465926047692/tm2612365d1_ex99-1.htm",
+          "title": "文远知行 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "dateBasis": "registration",
+          "legalEntity": "WeRide Inc.，上市控股主体"
+        },
+        {
+          "field": "business",
+          "value": "自动驾驶车辆销售、运营与技术支持，以及ADAS研发和智能数据服务。",
+          "quote": "sales of autonomous driving vehicles",
+          "url": "https://www.sec.gov/Archives/edgar/data/1867729/000110465926047692/tm2612365d1_ex99-1.htm",
+          "title": "文远知行 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "中国",
+          "quote": "The company is headquartered in Guangzhou, China",
+          "url": "https://ir.weride.ai/ir-resources/investor-faqs",
+          "title": "文远知行 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "总部所在地"
+        }
+      ]
+    },
+    {
+      "record_name": "Google",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "founded",
+          "value": "1998-09",
+          "quote": "Google was incorporated in California in September 1998",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526336798/d32286d424b5.htm",
+          "title": "Google · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "dateBasis": "registration"
+        },
+        {
+          "field": "business",
+          "value": "提供搜索、广告、Android及其他互联网软件与平台。",
+          "quote": "core products and platforms include ads, Android, Chrome",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526336798/d32286d424b5.htm",
+          "title": "Google · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "特斯拉",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "founded",
+          "value": "2003-07-01",
+          "quote": "was originally incorporated on July 1, 2003",
+          "url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024032662/tsla-20240630-gen.pdf",
+          "title": "特斯拉 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "dateBasis": "registration"
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "quote": "a Texas corporation",
+          "url": "https://ir.tesla.com/_flysystem/s3/sec/000162828024032662/tsla-20240630-gen.pdf",
+          "title": "特斯拉 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "法人登记地"
+        },
+        {
+          "field": "business",
+          "value": "研发电动汽车、能源发电及储能产品。",
+          "quote": "Our energy generation and storage products work together with our electric vehicles",
+          "url": "https://www.tesla.com/about",
+          "title": "特斯拉 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "天数智芯",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "founded",
+          "value": "2015-12-29",
+          "quote": "established in China on December 29, 2015",
+          "url": "https://www.hkexnews.hk/listedco/listconews/sehk/2026/0330/2026033001818.pdf",
+          "title": "天数智芯 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "dateBasis": "registration"
+        },
+        {
+          "field": "business",
+          "value": "提供通用GPU芯片及AI算力解决方案。",
+          "quote": "通用GPU芯片及AI算力解决方案提供商",
+          "url": "https://www.iluvatar.com/about",
+          "title": "天数智芯 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "Tripo",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "owner_company",
+          "value": "VAST",
+          "quote": "is a multi-billion parameter 3D foundation model launched by the AI startup VAST in 2024",
+          "url": "https://www.tripo3d.ai/blog/styly-with-tripo",
+          "title": "Tripo · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        },
+        {
+          "field": "business",
+          "value": "研发3D基础模型，提供3D内容生成服务。",
+          "quote": "is a multi-billion parameter 3D foundation model launched by the AI startup VAST in 2024",
+          "url": "https://www.tripo3d.ai/blog/styly-with-tripo",
+          "title": "Tripo · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ],
+      "owner_company": "VAST",
+      "owned_products": [
+        "Tripo"
+      ]
+    },
+    {
+      "record_name": "MSL",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "owner_company",
+          "value": "Meta",
+          "quote": "Meta Superintelligence Labs가 Meta의 제품 및 서비스에 특화해 개발한",
+          "url": "https://about.fb.com/ko/news/2026/04/introducing-muse-spark-msls-first-model-purpose-built-to-prioritize-people/",
+          "title": "MSL · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ],
+      "owner_company": "Meta",
+      "source_kind": "division"
+    },
+    {
+      "record_name": "Meta",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "founded",
+          "value": "2004-07",
+          "quote": "We were incorporated in Delaware in July 2004.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
+          "title": "Meta · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "dateBasis": "registration"
+        },
+        {
+          "field": "business",
+          "value": "运营社交应用平台，并开展Reality Labs相关业务。",
+          "quote": "two reportable segments: Family of Apps (FoA) and Reality Labs (RL)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
+          "title": "Meta · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "Swissport",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "founded",
+          "value": "1996",
+          "quote": "Swissport was incorporated in 1996.",
+          "url": "https://www.swissport.com/about",
+          "title": "Swissport · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "dateBasis": "registration"
+        },
+        {
+          "field": "business",
+          "value": "提供机场地面服务与航空货物处理服务。",
+          "quote": "airport ground services and air cargo handling",
+          "url": "https://www.swissport.com/about",
+          "title": "Swissport · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "苏黎世机场",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "拥有并运营瑞士苏黎世机场。",
+          "quote": "owns and operates Zurich Airport in Switzerland.",
+          "url": "https://www.flughafen-zuerich.ch/en/company/responsibility/sustainability/governance",
+          "title": "苏黎世机场 · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "月之暗面（Moonshot AI）",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "开发Kimi人工智能助手，支持联网搜索、多模态推理及长上下文对话。",
+          "quote": "Kimi is an AI assistant developed by Moonshot AI, with built-in web search, deep thinking, multimodal reasoning, and ultra-long context conversations.",
+          "url": "https://www.kimi.ai/help/getting-started/overview",
+          "title": "月之暗面（Moonshot AI） · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        }
+      ]
+    },
+    {
+      "record_name": "Leju",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "研发人形及轮臂机器人，推进产业化应用。",
+          "quote": "KUAVO 5 / 5-W 人形轮臂双形态全新升级",
+          "url": "https://www.lejurobot.cn/zh",
+          "title": "Leju · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "country",
+          "value": "中国",
+          "quote": "乐聚智能（深圳）股份有限公司",
+          "url": "https://www.lejurobot.com/zh/news/latest-news",
+          "title": "Leju · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "countryBasis": "公司公开所在地"
+        }
+      ]
+    },
+    {
+      "record_name": "英伟达",
+      "entity_type": "company",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "GPU、加速计算、AI芯片、系统与软件",
+          "quote": "NVIDIA engineers the most advanced chips, systems, and software for the AI factories of the future.",
+          "url": "https://www.nvidia.com/en-us/about-nvidia/",
+          "title": "NVIDIA · 公开资料核验",
+          "checkedAt": "2026-09-15",
+          "replace": true
+        },
+        {
+          "field": "team",
+          "value": "Jensen Huang（创始人兼CEO）",
+          "quote": "Jensen Huang Founder & CEO",
+          "url": "https://nvidianews.nvidia.com/bios",
+          "title": "NVIDIA · 公开资料核验",
+          "checkedAt": "2026-09-15"
+        }
+      ]
+    }
+  ]
 }

@@ -39,7 +39,9 @@ def apply_reviewed_research(companies, rules=None):
             target['entityType'] = 'company'
             # 品牌资料单独保留，不把产品成立年份/负责人当成母公司字段。
             target.setdefault('brandProfiles', {})[source['company_name']] = source
-            target['product_names'] = list(dict.fromkeys([*target['product_names'], source['company_name'], *source['product_names']]))
+            source_products = [] if rule.get('source_kind') == 'division' else [source['company_name']]
+            target['aliases'] = list(dict.fromkeys([*target.get('aliases', []), source['company_name'], *source.get('aliases', [])]))
+            target['product_names'] = list(dict.fromkeys([*target['product_names'], *source_products, *source['product_names']]))
             target.setdefault('productUpdates', []).extend(u for u in source.get('productUpdates', []) if u not in target.get('productUpdates', []))
             product_evidence = target['fieldSources'].setdefault('product_names', [])
             for evidence in source.get('fieldSources', {}).get('product_names', []):
@@ -69,18 +71,21 @@ def apply_reviewed_research(companies, rules=None):
             if not fact.get('quote') or not fact.get('url', '').startswith('https://'):
                 raise ValueError('已审阅补全缺少来源')
             if field in SCALAR_FIELDS:
-                if target.get(field) and target[field] != value:
+                if target.get(field) and target[field] != value and fact.get('replace') is not True:
                     # 保留原值时，不把相矛盾的官网事实挂成该值的证据。
                     continue
-                if not target.get(field):
+                if not target.get(field) or fact.get('replace') is True:
                     target[field] = value
                 if field == 'country':
                     target.setdefault('dims', {})['国家/地区'] = _country_to_region_label(value)
             elif field == 'product_names' and value not in target['product_names']:
                 target['product_names'].append(value)
             evidence = dict(value=value, articleId='research:' + hashlib.sha256(fact['url'].encode()).hexdigest()[:16],
-                            url=fact['url'], title=fact['title'], publishedAt='', sourceName='官网资料核验',
+                            url=fact['url'], title=fact['title'], publishedAt='', sourceName='公开资料核验',
                             origin='research', quote=fact['quote'], checkedAt=fact.get('checkedAt') or rules['checkedAt'])
+            for key in ('dateBasis', 'legalEntity', 'asOf', 'countryBasis'):
+                if fact.get(key):
+                    evidence[key] = fact[key]
             if fact.get('origin') == 'article':
                 if not fact.get('articleId'):
                     raise ValueError('报道归属修正缺少文章标识')

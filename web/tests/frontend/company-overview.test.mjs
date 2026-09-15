@@ -74,4 +74,6 @@ test('unowned products remain visible even without any confirmed companies', () 
  const { fmtCompanyFounded } = require("../../app/_lib/display/format.ts");
  assert.match(fmtCompanyFounded("2016"), /注册日期待核实/);
  assert.equal(fmtCompanyFounded("1911年6月16日", [{quote: "incorporated on June 16, 1911"}]), "1911-06-16");
+ assert.equal(fmtCompanyFounded("2021-06-30", [{value:"2021-06-30",dateBasis:"registration",legalEntity:"X Group Inc."}]), "2021-06-30（X Group Inc.）");
+ assert.match(fmtCompanyFounded("2022", [{value:"2021-06-30",dateBasis:"registration"}]), /注册日期待核实/);
 });

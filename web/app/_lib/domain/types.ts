@@ -240,6 +240,10 @@ export interface CompanyFieldEvidence {
   origin: "article" | "research";
   quote?: string;
   checkedAt?: string;
+  dateBasis?: string;
+  legalEntity?: string;
+  asOf?: string;
+  countryBasis?: string;
 }
 
 /** 全类别新闻共同沉淀的公司/产品档案。 */

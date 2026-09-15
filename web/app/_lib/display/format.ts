@@ -60,11 +60,11 @@ export function fmtCompanyDate(value?: string | null): string {
   return /^\d{4}$/.test(numeric) ? `${numeric}年` : numeric;
 }
 
-export function fmtCompanyFounded(value?: string | null, evidence: { quote?: string }[] = []): string {
+export function fmtCompanyFounded(value?: string | null, evidence: { value?: string; quote?: string; dateBasis?: string; legalEntity?: string }[] = []): string {
   const date = fmtCompanyDate(value);
   if (!date) return "";
-  const registered = evidence.some(e => /incorporated|注册成立|注册日期|登记成立|成立登记/i.test(e.quote || ""));
-  return registered ? date : `${date}（创立口径，注册日期待核实）`;
+  const registered = evidence.find(e => (!e.value || fmtCompanyDate(e.value) === date) && (e.dateBasis === "registration" || /incorporated|注册成立|注册日期|登记成立|成立登记/i.test(e.quote || "")));
+  return registered ? `${date}${registered.legalEntity ? `（${registered.legalEntity}）` : ""}` : `${date}（创立口径，注册日期待核实）`;
 }
 
 /** 1-99 -> 中文数字（日报期刊头用，与后端 cn_num 同口径） */

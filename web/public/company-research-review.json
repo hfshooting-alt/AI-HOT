@@ -1,0 +1,5248 @@
+{
+  "checkedAt": "2026-09-15T10:20:19+08:00",
+  "reviewedRecords": 73,
+  "modelRequests": 73,
+  "reportedTokens": 139835,
+  "manusRequests": 0,
+  "companies": 64,
+  "pending": 8,
+  "newsUnchanged": 199,
+  "missingCountryBefore": 34,
+  "missingCountryAfter": 11,
+  "acceptedFacts": 142,
+  "reviewedRules": 65,
+  "records": [
+    {
+      "name": "苹果",
+      "currentName": "苹果",
+      "id": "company:50537dab76505dfc",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://investor.apple.com/faq./default.aspx",
+        "https://www.apple.com/leadership/",
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://investor.apple.com/faq./default.aspx"
+          ],
+          "basis": [
+            "法人登记地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "1977-01-03",
+          "status": "已核验",
+          "sources": [
+            "https://investor.apple.com/faq./default.aspx"
+          ],
+          "basis": []
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "设计、制造并销售智能手机、个人电脑、平板及可穿戴设备，并提供相关服务。",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "微软",
+      "currentName": "微软",
+      "id": "company:12b0c8b376b8375e",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.microsoft.com/investor/reports/ar25/",
+        "https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1981"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1981"
+          ],
+          "basis": [
+            "法人登记地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "1981-06-25",
+          "status": "已核验",
+          "sources": [
+            "https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1981"
+          ],
+          "basis": []
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供云解决方案、软件授权与支持，以及内容和其他服务。",
+          "status": "已核验",
+          "sources": [
+            "https://www.microsoft.com/investor/reports/ar25/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Meta",
+      "currentName": "Meta",
+      "id": "company:ea3bd73e2b506e00",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
+        "https://www.meta.com/about/company-info/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "2004-07",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm"
+          ],
+          "basis": []
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "运营社交应用平台，并开展Reality Labs相关业务。",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "蚂蚁灵波",
+      "currentName": "蚂蚁灵波",
+      "id": "company:754c490bd199c21a",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.robbyant.com/",
+        "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "已核验",
+          "sources": [
+            "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html"
+          ],
+          "basis": [
+            "法人登记地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "2024-12",
+          "status": "已核验",
+          "sources": [
+            "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html"
+          ],
+          "basis": []
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "研发具身智能底层技术及场景应用。",
+          "status": "已核验",
+          "sources": [
+            "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "朱兴（法定代表人）",
+          "status": "已核验",
+          "sources": [
+            "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html"
+          ],
+          "basis": []
+        },
+        "investors": {
+          "label": "投资方",
+          "value": "蚂蚁智能（杭州）科技有限公司（全资股东）",
+          "status": "已核验",
+          "sources": [
+            "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html"
+          ],
+          "basis": []
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "苏度科技",
+      "currentName": "苏度科技",
+      "id": "company:70c6f617fc8e39aa",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.hengdian.com/zh-cn/news/detail-11195"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "研发具身通用模型，结合世界模型与强化学习。",
+          "status": "已核验",
+          "sources": [
+            "https://www.hengdian.com/zh-cn/news/detail-11195"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": "宁德时代、阿里、腾讯、高瓴、IDG",
+          "status": "已核验",
+          "sources": [
+            "https://www.hengdian.com/zh-cn/news/detail-11195"
+          ],
+          "basis": []
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": "超过20亿美元（本次所查融资公告口径）",
+          "status": "已核验",
+          "sources": [
+            "https://www.hengdian.com/zh-cn/news/detail-11195"
+          ],
+          "basis": []
+        }
+      }
+    },
+    {
+      "name": "自变量机器人",
+      "currentName": "自变量机器人",
+      "id": "company:8dc72a4672894e0f",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://x2robot.com/about",
+        "https://www.sz.gov.cn/cn/xxgk/zfxxgj/gqdt/content/post_12775048.html"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "已核验",
+          "sources": [
+            "https://www.sz.gov.cn/cn/xxgk/zfxxgj/gqdt/content/post_12775048.html"
+          ],
+          "basis": [
+            "总部所在地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "聚焦自研通用具身智能大模型，构建具备精细操作能力的通用机器人",
+          "status": "已核验",
+          "sources": [
+            "https://x2robot.com/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": "字节跳动、阿里云、美团、中国移动、小米等（部分核实）",
+          "status": "已核验",
+          "sources": [
+            "https://x2robot.com/about"
+          ],
+          "basis": []
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "破壳机器人",
+      "currentName": "破壳机器人",
+      "id": "company:5a77fbb292a78277",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://m.pedaily.cn/vc/company/892574.html"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "已核验",
+          "sources": [
+            "https://m.pedaily.cn/vc/company/892574.html"
+          ],
+          "basis": [
+            "工商资料所在地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "2026-03-03",
+          "status": "已核验",
+          "sources": [
+            "https://m.pedaily.cn/vc/company/892574.html"
+          ],
+          "basis": []
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "研发生产家庭机器人，采用轮式底盘+双臂形态，自研本体+垂直整合，在线强化学习方案",
+          "status": "已核验",
+          "sources": [
+            "https://m.pedaily.cn/vc/company/892574.html"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "法拉第未来",
+      "currentName": "法拉第未来",
+      "id": "company:07a94d554b75cbb5",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1805521/000121390026077219/ea0296858-s3_faraday.htm"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1805521/000121390026077219/ea0296858-s3_faraday.htm"
+          ],
+          "basis": [
+            "法人登记地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "智能电动汽车与具身AI机器人",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1805521/000121390026077219/ea0296858-s3_faraday.htm"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Anthropic",
+      "currentName": "Anthropic",
+      "id": "company:c70eca6b0f88f44d",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.anthropic.com/news/series-h",
+        "https://www.anthropic.com/company/leadership"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://www.anthropic.com/news/the-long-term-benefit-trust?subjects=alignment"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供Claude人工智能模型，用于企业运营及个人工作。",
+          "status": "已核验",
+          "sources": [
+            "https://www.anthropic.com/news/series-h"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "Dario Amodei（联合创始人兼CEO）",
+          "status": "已核验",
+          "sources": [
+            "https://www.anthropic.com/company/leadership"
+          ],
+          "basis": []
+        },
+        "investors": {
+          "label": "投资方",
+          "value": "Capital Group、Coatue、D1 Capital Partners等（部分核实）",
+          "status": "已核验",
+          "sources": [
+            "https://www.anthropic.com/news/series-h"
+          ],
+          "basis": []
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": "9650亿美元（2026-05-28，Series H投后）",
+          "status": "已核验",
+          "sources": [
+            "https://www.anthropic.com/news/series-h"
+          ],
+          "basis": []
+        }
+      }
+    },
+    {
+      "name": "Bending Spoons",
+      "currentName": "Bending Spoons",
+      "id": "company:367c1475e4bbbdf7",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.bendingspoons.com/",
+        "https://www.sec.gov/Archives/edgar/data/2004711/000110465926076487/tm2613674-10_f1.htm"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "意大利",
+          "status": "已核验",
+          "sources": [
+            "https://bendingspoons.com/documents/Information%20for%20Law%20Enforcement%20Authorities.pdf"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "收购并长期运营数字产品。",
+          "status": "已核验",
+          "sources": [
+            "https://www.bendingspoons.com/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "50-60 人",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "xAI",
+      "currentName": "xAI",
+      "id": "company:6fcba5d96a4fadfd",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://x.ai/news/series-e",
+        "https://x.ai/news/introducing-grok-bot"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "研发先进人工智能。",
+          "status": "已核验",
+          "sources": [
+            "https://x.ai/news/series-e"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "字节跳动",
+      "currentName": "字节跳动",
+      "id": "company:702c213feab1671d",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.bytedance.com/en/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "内容创作与分发、短视频及配套互联网产品服务",
+          "status": "已核验",
+          "sources": [
+            "https://www.bytedance.com/en/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "张一鸣、梁汝波",
+          "status": "已核验",
+          "sources": [
+            "https://www.bytedance.com/en/"
+          ],
+          "basis": []
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "智谱",
+      "currentName": "智谱",
+      "id": "company:8bcef51236d613cd",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.zhipuai.cn/zh/about",
+        "https://www1.hkexnews.hk/listedco/listconews/sehk/2025/1230/2025123000017.pdf"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "2019-06-11",
+          "status": "已核验",
+          "sources": [
+            "https://www1.hkexnews.hk/listedco/listconews/sehk/2025/1230/2025123000017.pdf"
+          ],
+          "basis": []
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "大模型研发",
+          "status": "已核验",
+          "sources": [
+            "https://www.zhipuai.cn/zh/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": "约 50 亿美元",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Cohere",
+      "currentName": "Cohere",
+      "id": "company:72e8088a05b38ae3",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://cohere.com/about",
+        "https://cohere.com/blog/september-2025-funding-round"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "加拿大",
+          "status": "已核验",
+          "sources": [
+            "https://cohere.com/applicant-privacy"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "面向企业研发基础模型及AI解决方案",
+          "status": "已核验",
+          "sources": [
+            "https://cohere.com/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "Aidan Gomez",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "AWS",
+      "currentName": "AWS",
+      "id": "company:7d1507284a5757ca",
+      "pending": false,
+      "note": "保留业务部门记录，不把Amazon成立日期当AWS法人注册日期。",
+      "checkedUrls": [
+        "https://aws.amazon.com/about-aws/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供云和AI能力",
+          "status": "已核验",
+          "sources": [
+            "https://aws.amazon.com/about-aws/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Artificial Analysis",
+      "currentName": "Artificial Analysis",
+      "id": "company:373b3921ce6ac401",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://artificialanalysis.ai/about",
+        "https://artificialanalysis.ai/image-lab-privacy"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://artificialanalysis.ai/image-lab-privacy"
+          ],
+          "basis": [
+            "总部所在地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "独立 AI 基准测试公司，衡量智能体、模型、云服务和芯片，帮助开发者和公司优化整个 AI 技术栈。",
+          "status": "已核验",
+          "sources": [
+            "https://artificialanalysis.ai/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "OpenAI",
+      "currentName": "OpenAI",
+      "id": "company:7d3194f79e645c42",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://openai.com/our-structure/",
+        "https://openai.com/index/accelerating-the-next-phase-ai/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://openai.com/policies/eu-terms-of-use/"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "为个人与企业提供人工智能基础设施和产品。",
+          "status": "已核验",
+          "sources": [
+            "https://openai.com/index/accelerating-the-next-phase-ai/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "Sam Altman",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": "Amazon、NVIDIA、SoftBank等（部分核实）",
+          "status": "已核验",
+          "sources": [
+            "https://openai.com/index/accelerating-the-next-phase-ai/"
+          ],
+          "basis": []
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": "8520亿美元（2026-03-31，承诺资本融资投后）",
+          "status": "已核验",
+          "sources": [
+            "https://openai.com/index/accelerating-the-next-phase-ai/"
+          ],
+          "basis": []
+        }
+      }
+    },
+    {
+      "name": "文远知行",
+      "currentName": "文远知行",
+      "id": "company:3c6d89173e6636d7",
+      "pending": false,
+      "note": "国家按广州总部；登记日采用WeRide Inc.上市控股主体，两种口径分列。",
+      "checkedUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1867729/000110465926047692/tm2612365d1_ex99-1.htm",
+        "https://ir.weride.ai/ir-resources/investor-faqs"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "已核验",
+          "sources": [
+            "https://ir.weride.ai/ir-resources/investor-faqs"
+          ],
+          "basis": [
+            "总部所在地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "2017-03-13",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1867729/000110465926047692/tm2612365d1_ex99-1.htm"
+          ],
+          "basis": [
+            "WeRide Inc.，上市控股主体"
+          ]
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "自动驾驶车辆销售、运营与技术支持，以及ADAS研发和智能数据服务。",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1867729/000110465926047692/tm2612365d1_ex99-1.htm"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "苏黎世机场",
+      "currentName": "苏黎世机场",
+      "id": "company:a9f54b85ea8f98e3",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.flughafen-zuerich.ch/en/company",
+        "https://www.flughafen-zuerich.ch/en/company/responsibility/sustainability/governance"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "瑞士",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "拥有并运营瑞士苏黎世机场。",
+          "status": "已核验",
+          "sources": [
+            "https://www.flughafen-zuerich.ch/en/company/responsibility/sustainability/governance"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Swissport",
+      "currentName": "Swissport",
+      "id": "company:06dfd59757fc3780",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.swissport.com/en/about-us/corporate-governance/executive-team",
+        "https://www.swissport.com/about"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "瑞士",
+          "status": "已核验",
+          "sources": [
+            "https://www.swissport.com/en/news/current-news/2023/finacity-facilitates-a-75-million-receivables-securitization-program-for-swissport-international"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "1996",
+          "status": "已核验",
+          "sources": [
+            "https://www.swissport.com/about"
+          ],
+          "basis": []
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供机场地面服务与航空货物处理服务。",
+          "status": "已核验",
+          "sources": [
+            "https://www.swissport.com/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Krummen Kerzers",
+      "currentName": "Krummen Kerzers",
+      "id": "company:d73182bcaf0a46d7",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://krummen.com/container-transporte/",
+        "https://www.uid.admin.ch/Detail.aspx?uid_id=CHE107917101"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "瑞士",
+          "status": "已核验",
+          "sources": [
+            "https://www.uid.admin.ch/Detail.aspx?uid_id=CHE107917101"
+          ],
+          "basis": [
+            "瑞士UID登记地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供国内外集装箱运输服务",
+          "status": "已核验",
+          "sources": [
+            "https://krummen.com/container-transporte/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Google",
+      "currentName": "Google",
+      "id": "company:bbdefa2950f49882",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1652044/000119312526336798/d32286d424b5.htm"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://policies.google.com/terms/embedded?hl=en-US"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "1998-09",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1652044/000119312526336798/d32286d424b5.htm"
+          ],
+          "basis": []
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供搜索、广告、Android及其他互联网软件与平台。",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1652044/000119312526336798/d32286d424b5.htm"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "OpenClaw Foundation",
+      "currentName": "OpenClaw Foundation",
+      "id": "company:7cd0576a396e77fb",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://docs.openclaw.ai/start/why-openclaw"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://openclaw.ai/"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "维护开源AI项目，推动个人化人工智能的应用。",
+          "status": "已核验",
+          "sources": [
+            "https://docs.openclaw.ai/start/why-openclaw"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "DAIR.AI",
+      "currentName": "DAIR.AI",
+      "id": "company:2bca0ae7f983a8da",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.dair.ai/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供人工智能学习与开发资源。",
+          "status": "已核验",
+          "sources": [
+            "https://www.dair.ai/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "METR",
+      "currentName": "METR",
+      "id": "company:ec99ce30dc2316d9",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://metr.org/about",
+        "https://metr.org/blog/2026-08-14-funding-update/",
+        "https://www.linkedin.com/company/metr-evals"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://www.linkedin.com/company/metr-evals"
+          ],
+          "basis": [
+            "总部所在地（机构公开档案）"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "评估前沿AI模型的能力及风险。",
+          "status": "已核验",
+          "sources": [
+            "https://metr.org/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Y Combinator",
+      "currentName": "Y Combinator",
+      "id": "company:a231b41219c8921a",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.ycombinator.com/about"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "运营为期3个月的创业加速项目。",
+          "status": "已核验",
+          "sources": [
+            "https://www.ycombinator.com/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "Garry Tan",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "HumanLayer",
+      "currentName": "HumanLayer",
+      "id": "company:da58e43b1b1c833f",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.ycombinator.com/companies/humanlayer"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://www.ycombinator.com/companies/humanlayer"
+          ],
+          "basis": [
+            "公司公开所在地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供多人协作的编程智能体IDE与云端运行平台。",
+          "status": "已核验",
+          "sources": [
+            "https://www.ycombinator.com/companies/humanlayer"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "vivo",
+      "currentName": "vivo",
+      "id": "company:69337578b2468a88",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.vivo.com/uk/about-vivo/news/about-vivo"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "已核验",
+          "sources": [
+            "https://www.vivo.com/uk/about-vivo/news/about-vivo"
+          ],
+          "basis": [
+            "总部所在地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "智能设备与智能服务",
+          "status": "已核验",
+          "sources": [
+            "https://www.vivo.com/uk/about-vivo/news/about-vivo"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "英伟达",
+      "currentName": "英伟达",
+      "id": "company:60094bcf5292c490",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://nvidianews.nvidia.com/bios"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://investor.nvidia.com/investor-resources/faqs/"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "1993年4月",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "GPU、加速计算、AI芯片、系统与软件",
+          "status": "已核验",
+          "sources": [
+            "https://www.nvidia.com/en-us/about-nvidia/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "Jensen Huang（创始人兼CEO）",
+          "status": "已核验",
+          "sources": [
+            "https://nvidianews.nvidia.com/bios"
+          ],
+          "basis": []
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Tripo",
+      "currentName": "VAST",
+      "id": "company:375eca5944bc3c25",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.tripo3d.ai/blog/styly-with-tripo",
+        "https://developers.tripo3d.ai/en/blog/vast-china-ai-unicorn"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "研发3D基础模型，提供3D内容生成服务。",
+          "status": "已核验",
+          "sources": [
+            "https://www.tripo3d.ai/blog/styly-with-tripo"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "ElevenLabs",
+      "currentName": "ElevenLabs",
+      "id": "company:e853b4e183ed0870",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://elevenlabs.io/blog/series-d",
+        "https://elevenlabs.io/blog/500m-arr-and-new-investors",
+        "https://elevenlabs.io/blog/elevenlabs-launches-new-generative-voice-ai-products-and-announces-19m-series-a-round-led-by-nat-friedman-daniel-gross-and-andreessen-horowitz"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://elevenlabs.io/blog/elevenlabs-launches-new-generative-voice-ai-products-and-announces-19m-series-a-round-led-by-nat-friedman-daniel-gross-and-andreessen-horowitz"
+          ],
+          "basis": [
+            "法人登记地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "生成式音频AI平台，提供语音合成、语音转文字、配音、音乐及对话式AI产品",
+          "status": "已核验",
+          "sources": [
+            "https://elevenlabs.io/blog/series-d"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "Piotr Dąbkowski, Mateusz Staniszewski",
+          "status": "已核验",
+          "sources": [
+            "https://elevenlabs.io/docs/help-center/other/what-is-eleven-labs"
+          ],
+          "basis": []
+        },
+        "investors": {
+          "label": "投资方",
+          "value": "Sequoia Capital（领投）",
+          "status": "已核验",
+          "sources": [
+            "https://elevenlabs.io/blog/series-d"
+          ],
+          "basis": []
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": "7.81亿美元（截至2026-02-04）",
+          "status": "已核验",
+          "sources": [
+            "https://elevenlabs.io/blog/series-d"
+          ],
+          "basis": []
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": "110亿美元（2026-02-04融资估值）",
+          "status": "已核验",
+          "sources": [
+            "https://elevenlabs.io/blog/series-d"
+          ],
+          "basis": []
+        }
+      }
+    },
+    {
+      "name": "AllSpark",
+      "currentName": "AllSpark",
+      "id": "company:a998d43ae529559d",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://huggingface.co/AllSpark-Research/Iris-pro"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "开源搜索智能体",
+          "status": "已核验",
+          "sources": [
+            "https://huggingface.co/AllSpark-Research/Iris-pro"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Google DeepMind",
+      "currentName": "Google DeepMind",
+      "id": "company:5926e79c686d177c",
+      "pending": false,
+      "note": "全球研究团队与英国法人不是同一口径，未直接按英国子公司登记替换整个团队。",
+      "checkedUrls": [
+        "https://deepmind.google/about/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "AI 研究与技术开发",
+          "status": "已核验",
+          "sources": [
+            "https://deepmind.google/about/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "Jasjeet Sekhon",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "NVIDIA",
+      "currentName": "NVIDIA",
+      "id": "company:8d4321d936320802",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.nvidia.com/en-us/about-nvidia/",
+        "https://nvidianews.nvidia.com/bios"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://investor.nvidia.com/investor-resources/faqs/"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "1993年4月",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "GPU、加速计算、AI芯片、系统与软件",
+          "status": "已核验",
+          "sources": [
+            "https://www.nvidia.com/en-us/about-nvidia/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "Jensen Huang（创始人兼CEO）",
+          "status": "已核验",
+          "sources": [
+            "https://nvidianews.nvidia.com/bios"
+          ],
+          "basis": []
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Genspark",
+      "currentName": "Genspark",
+      "id": "company:862b6627b54a53bf",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.genspark.ai/blog/genspark-ai-workspace-and-series-b-funding",
+        "https://mainfunc.ai/",
+        "https://blog.genspark.ai/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://mainfunc.ai/"
+          ],
+          "basis": [
+            "运营主体MainFunc所在地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供Genspark AI Workspace一体化AI工作空间，自动完成信息收集、处理与输出，包括AI幻灯片、AI表格、AI文档等",
+          "status": "已核验",
+          "sources": [
+            "https://www.genspark.ai/blog/genspark-ai-workspace-and-series-b-funding"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": "Emergence Capital（部分核实）",
+          "status": "已核验",
+          "sources": [
+            "https://www.genspark.ai/blog/genspark-ai-workspace-and-series-b-funding"
+          ],
+          "basis": []
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": "12.5亿美元（Series B公告口径）",
+          "status": "已核验",
+          "sources": [
+            "https://www.genspark.ai/blog/genspark-ai-workspace-and-series-b-funding"
+          ],
+          "basis": []
+        }
+      }
+    },
+    {
+      "name": "MiniMax",
+      "currentName": "MiniMax",
+      "id": "company:e1517be14d06cdb7",
+      "pending": false,
+      "note": "登记日采用MiniMax Group Inc.上市控股主体；境内子公司日期不同，已在日期旁标明法人。",
+      "checkedUrls": [
+        "https://www.minimax.io/about",
+        "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0422/2026042202118.pdf"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "已核验",
+          "sources": [
+            "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0422/2026042202118.pdf"
+          ],
+          "basis": [
+            "总部所在地；上市控股主体登记在开曼"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "2021-06-30",
+          "status": "已核验",
+          "sources": [
+            "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0422/2026042202118.pdf"
+          ],
+          "basis": [
+            "MiniMax Group Inc.，上市控股主体"
+          ]
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "研发人工智能基础模型。",
+          "status": "已核验",
+          "sources": [
+            "https://www.minimax.io/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Fireworks",
+      "currentName": "Fireworks",
+      "id": "company:0caee180da9d0f3f",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://fireworks.ai/team",
+        "https://fireworks.ai/blog/series-c"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "面向企业开发团队提供AI云平台。",
+          "status": "已核验",
+          "sources": [
+            "https://fireworks.ai/blog/series-c"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": "Lightspeed Venture Partners、Index Ventures、Evantic等（部分核实）",
+          "status": "已核验",
+          "sources": [
+            "https://fireworks.ai/blog/series-c"
+          ],
+          "basis": []
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": "超过3.27亿美元（2025年Series C，含一级及二级交易）",
+          "status": "已核验",
+          "sources": [
+            "https://fireworks.ai/blog/series-c"
+          ],
+          "basis": []
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": "40亿美元（2025年Series C）",
+          "status": "已核验",
+          "sources": [
+            "https://fireworks.ai/blog/series-c"
+          ],
+          "basis": []
+        }
+      }
+    },
+    {
+      "name": "Harvey",
+      "currentName": "Harvey",
+      "id": "company:c9fd53f3265ef997",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "法律AI，帮助律所、企业法务团队和专业服务机构构建和拥有智能",
+          "status": "已核验",
+          "sources": [
+            "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "Winston Weinberg、Gabe Pereyra",
+          "status": "已核验",
+          "sources": [
+            "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence"
+          ],
+          "basis": []
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": "155亿美元（2026-09-09融资估值）",
+          "status": "已核验",
+          "sources": [
+            "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence"
+          ],
+          "basis": []
+        }
+      }
+    },
+    {
+      "name": "Cursor",
+      "currentName": "Anysphere, Inc.",
+      "id": "company:f9417102043b313c",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://cursor.com/terms-of-service",
+        "https://cursor.com/terms/inbound-msa"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://cursor.com/terms/inbound-msa"
+          ],
+          "basis": [
+            "法人登记地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "AI编程工具",
+          "status": "已核验",
+          "sources": [
+            "https://cursor.com/terms-of-service"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Glean",
+      "currentName": "Glean",
+      "id": "company:9ba8bec5d58fb025",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.glean.com/about",
+        "https://www.glean.com/blog/glean-series-f-announcement",
+        "https://www.weforum.org/organizations/glean/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://www.weforum.org/organizations/glean/"
+          ],
+          "basis": [
+            "总部所在地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "企业AI平台",
+          "status": "已核验",
+          "sources": [
+            "https://www.glean.com/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "Arvind Jain（创始人兼CEO）",
+          "status": "已核验",
+          "sources": [
+            "https://www.glean.com/about"
+          ],
+          "basis": []
+        },
+        "investors": {
+          "label": "投资方",
+          "value": "Wellington Management、Khosla Ventures等（部分核实）",
+          "status": "已核验",
+          "sources": [
+            "https://www.glean.com/blog/glean-series-f-announcement"
+          ],
+          "basis": []
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": "72亿美元（2025-06-10，Series F）",
+          "status": "已核验",
+          "sources": [
+            "https://www.glean.com/blog/glean-series-f-announcement"
+          ],
+          "basis": []
+        }
+      }
+    },
+    {
+      "name": "月之暗面（Moonshot AI）",
+      "currentName": "月之暗面（Moonshot AI）",
+      "id": "company:481243d2f2a235c1",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.moonshot.ai/",
+        "https://www.kimi.ai/help/getting-started/overview"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "已核验",
+          "sources": [
+            "https://www.kimi.com/user/agreement/modelUse?version=v2"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "2023年春",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "开发Kimi人工智能助手，支持联网搜索、多模态推理及长上下文对话。",
+          "status": "已核验",
+          "sources": [
+            "https://www.kimi.ai/help/getting-started/overview"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Waymo",
+      "currentName": "Waymo",
+      "id": "company:7931b6d10b3c8a5f",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://waymo.com/blog/2026/02/waymo-raises-usd16-billion-investment-round/",
+        "https://waymo.com/about/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "自动驾驶技术及自动驾驶出租车服务",
+          "status": "已核验",
+          "sources": [
+            "https://waymo.com/about/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": "Alphabet、Dragoneer、DST Global、Sequoia Capital等（部分核实）",
+          "status": "已核验",
+          "sources": [
+            "https://waymo.com/blog/2026/02/waymo-raises-usd16-billion-investment-round/"
+          ],
+          "basis": []
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": "1260亿美元（2026-02，投后）",
+          "status": "已核验",
+          "sources": [
+            "https://waymo.com/blog/2026/02/waymo-raises-usd16-billion-investment-round/"
+          ],
+          "basis": []
+        }
+      }
+    },
+    {
+      "name": "Andon Labs",
+      "currentName": "Andon Labs",
+      "id": "company:5d37b83b91686c44",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://andonlabs.com/",
+        "https://andonlabs.com/join"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://andonlabs.com/join"
+          ],
+          "basis": [
+            "总部所在地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "构建安全自主组织，通过基准测试和部署前沿AI，为AI自主运营组织做准备",
+          "status": "已核验",
+          "sources": [
+            "https://andonlabs.com/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Flexion Robotics",
+      "currentName": "Flexion Robotics",
+      "id": "company:c478ca9e4f4ab8fd",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://flexion.ai/about"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "瑞士",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "2024",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "开发人形机器人自主堆栈",
+          "status": "已核验",
+          "sources": [
+            "https://flexion.ai/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": "英伟达",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": "超过5,700万美元",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "INT21",
+      "currentName": "INT21",
+      "id": "company:24c3be896337e2d5",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://int21.ai/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "研发面向AI底层软件的自改进人工智能系统。",
+          "status": "已核验",
+          "sources": [
+            "https://int21.ai/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Leju",
+      "currentName": "Leju",
+      "id": "company:636ee30352b814ee",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.lejurobot.cn/zh",
+        "https://www.lejurobot.com/en/about-us/company-introduction",
+        "https://www.lejurobot.com/zh/news/latest-news"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "已核验",
+          "sources": [
+            "https://www.lejurobot.com/zh/news/latest-news"
+          ],
+          "basis": [
+            "公司公开所在地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "研发人形及轮臂机器人，推进产业化应用。",
+          "status": "已核验",
+          "sources": [
+            "https://www.lejurobot.cn/zh"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Astribot",
+      "currentName": "Astribot",
+      "id": "company:9e4d6b563efd88a8",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.astribot.com/about/",
+        "https://www.astribot.com/en/contact/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "已核验",
+          "sources": [
+            "https://www.astribot.com/en/contact/"
+          ],
+          "basis": [
+            "公司联系地址"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "具身智能机器人研发，推动人机共存、共创、共赢",
+          "status": "已核验",
+          "sources": [
+            "https://www.astribot.com/about/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Ti5",
+      "currentName": "Ti5",
+      "id": "company:4f6af63c040d3b79",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.ti5robot.com/h-col-107.html",
+        "https://www.ti5robot.com/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "已核验",
+          "sources": [
+            "https://www.ti5robot.com/h-col-107.html"
+          ],
+          "basis": [
+            "公司联系地址"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供机器人高端硬件与机器人整体解决方案。",
+          "status": "已核验",
+          "sources": [
+            "https://www.ti5robot.com/h-col-107.html"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Tailscale Inc.",
+      "currentName": "Tailscale Inc.",
+      "id": "company:795b104abe3e4134",
+      "pending": false,
+      "note": "仅Tailscale Inc.登记地为加拿大；另有Tailscale US Inc.，不将两者混用。",
+      "checkedUrls": [
+        "https://tailscale.com/terms",
+        "https://tailscale.com/blog/series-c"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "加拿大",
+          "status": "已核验",
+          "sources": [
+            "https://tailscale.com/terms"
+          ],
+          "basis": [
+            "Tailscale Inc.登记地；不代表另一个签约主体Tailscale US Inc."
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供安全、私密的网络连接服务，使设备、应用和AI工作负载无需传统VPN即可互联。",
+          "status": "已核验",
+          "sources": [
+            "https://tailscale.com/blog/series-c"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "IN4 集团",
+      "currentName": "IN4 集团",
+      "id": "company:d5ac7e039c4dc4be",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://in4group.co.uk/about/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "英国",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "专业科技培训与技能提供商，业务覆盖英国和中东",
+          "status": "已核验",
+          "sources": [
+            "https://in4group.co.uk/about/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "RunningHub",
+      "currentName": "安徽海马云智能科技发展有限公司",
+      "id": "company:9adf85364b09b3ee",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.runninghub.ai/about"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "专注于开发先进AIGC创作平台，提供在线ComfyUI创作环境和工作流资源",
+          "status": "已核验",
+          "sources": [
+            "https://www.runninghub.ai/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Runway",
+      "currentName": "Runway",
+      "id": "company:ae679821f0649c15",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://runwayml.com/",
+        "https://www.sec.gov/Archives/edgar/data/1957455/000123191922000071/xslFormDX01/primary_doc.xml"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1957455/000123191922000071/xslFormDX01/primary_doc.xml"
+          ],
+          "basis": [
+            "法人登记地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "2018",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1957455/000123191922000071/xslFormDX01/primary_doc.xml"
+          ],
+          "basis": [
+            "Runway AI Inc."
+          ]
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "构建真实世界智能，提供基于该智能的创意、开发者和机器人平台",
+          "status": "已核验",
+          "sources": [
+            "https://runwayml.com/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "IBM",
+      "currentName": "IBM",
+      "id": "company:916a98f0fa2a39af",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.ibm.com/annualreport/",
+        "https://www.sec.gov/Archives/edgar/data/51143/000005114326000010/ibm-20251231_d2.htm",
+        "https://www.ibm.com/about"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://www.ibm.com/investor/help/general-faqs"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "1911年6月16日",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供企业软件、咨询及基础设施服务。",
+          "status": "已核验",
+          "sources": [
+            "https://www.ibm.com/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "Arvind Krishna 任董事长兼首席执行官",
+          "status": "已核验",
+          "sources": [
+            "https://www.ibm.com/annualreport/"
+          ],
+          "basis": []
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "移动云",
+      "currentName": "移动云",
+      "id": "company:22047743d7f6b4ea",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://career.hebut.edu.cn/home/correcruit/content/id/80451.html"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "负责中国移动旗下云计算业务——移动云的建设、研发与运营",
+          "status": "已核验",
+          "sources": [
+            "https://career.hebut.edu.cn/home/correcruit/content/id/80451.html"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "中国电子科技南湖研究院",
+      "currentName": "中国电子科技南湖研究院",
+      "id": "company:5d23d6aef5cdb928",
+      "pending": false,
+      "note": "研究机构保留现有新闻关联，未把举办方当产品开发公司。",
+      "checkedUrls": [
+        "https://iat.ustc.edu.cn/iat/x170/20200407/149.html"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "开展新一代人工智能、未来连接、先进能源、化合物半导体、数字经济等五大领域的前沿科技创新",
+          "status": "已核验",
+          "sources": [
+            "https://iat.ustc.edu.cn/iat/x170/20200407/149.html"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "灵汐科技",
+      "currentName": "灵汐科技",
+      "id": "company:d04a90247c162cf0",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.lynxi.com/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "已核验",
+          "sources": [
+            "https://www.lynxi.com/"
+          ],
+          "basis": [
+            "总部所在地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "类脑计算与人工智能芯片及系统研发",
+          "status": "已核验",
+          "sources": [
+            "https://www.lynxi.com/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "天数智芯",
+      "currentName": "天数智芯",
+      "id": "company:509f226edbb9f410",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.iluvatar.com/",
+        "https://www.hkexnews.hk/listedco/listconews/sehk/2026/0330/2026033001818.pdf",
+        "https://www.iluvatar.com/about"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "2015-12-29",
+          "status": "已核验",
+          "sources": [
+            "https://www.hkexnews.hk/listedco/listconews/sehk/2026/0330/2026033001818.pdf"
+          ],
+          "basis": []
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供通用GPU芯片及AI算力解决方案。",
+          "status": "已核验",
+          "sources": [
+            "https://www.iluvatar.com/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "特斯拉",
+      "currentName": "特斯拉",
+      "id": "company:ddadc7e89f7cd629",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://ir.tesla.com/press-release/tesla-releases-results-2024-annual-meeting-stockholders",
+        "https://www.tesla.com/about"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://ir.tesla.com/press-release/tesla-releases-results-2024-annual-meeting-stockholders",
+            "https://ir.tesla.com/_flysystem/s3/sec/000162828024032662/tsla-20240630-gen.pdf"
+          ],
+          "basis": [
+            "法人登记地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "2003-07-01",
+          "status": "已核验",
+          "sources": [
+            "https://ir.tesla.com/_flysystem/s3/sec/000162828024032662/tsla-20240630-gen.pdf"
+          ],
+          "basis": []
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "研发电动汽车、能源发电及储能产品。",
+          "status": "已核验",
+          "sources": [
+            "https://www.tesla.com/about"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "图灵量子",
+      "currentName": "图灵量子",
+      "id": "company:e7330f82f0657d55",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://www.turingq.com/",
+        "https://www.turingq.com/dtArticle12-en.html"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "中国",
+          "status": "已核验",
+          "sources": [
+            "https://www.turingq.com/dtArticle12-en.html"
+          ],
+          "basis": [
+            "总部所在地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "光子芯片与光量子计算软硬件研发及产业化",
+          "status": "已核验",
+          "sources": [
+            "https://www.turingq.com/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Replit",
+      "currentName": "Replit",
+      "id": "company:53b69ef92c836777",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://replit.com/blog/replit-raises-400-million-dollars"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://replit.com/news/replit-opens-london-office"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "2016",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "提供在线编程与AI应用构建平台，让用户无需学习编程即可创建应用",
+          "status": "已核验",
+          "sources": [
+            "https://replit.com/blog/replit-raises-400-million-dollars"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": "Georgian、G Squared、Prysm Capital等（部分核实）",
+          "status": "已核验",
+          "sources": [
+            "https://replit.com/blog/replit-raises-400-million-dollars"
+          ],
+          "basis": []
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": "90亿美元（2026-03融资估值）",
+          "status": "已核验",
+          "sources": [
+            "https://replit.com/blog/replit-raises-400-million-dollars"
+          ],
+          "basis": []
+        }
+      }
+    },
+    {
+      "name": "Test 13",
+      "currentName": "Test 13",
+      "id": "company:166fb78f0f44d271",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://test13.co/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "冰岛",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "数字产品工作室，为初创公司和成熟品牌快速构建和发布定制软件",
+          "status": "已核验",
+          "sources": [
+            "https://test13.co/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "Viktor Thulin, Gunnar Kolbeins",
+          "status": "保留历史值（未补证）",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "MSL",
+      "currentName": "Meta",
+      "id": "company:ea3bd73e2b506e00",
+      "pending": false,
+      "note": "Meta内部部门，已合并新闻关联，部门名称未加入产品列表。",
+      "checkedUrls": [
+        "https://about.fb.com/ko/news/2026/04/introducing-muse-spark-msls-first-model-purpose-built-to-prioritize-people/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm"
+          ],
+          "basis": []
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": "2004-07",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm"
+          ],
+          "basis": []
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "运营社交应用平台，并开展Reality Labs相关业务。",
+          "status": "已核验",
+          "sources": [
+            "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "enactic_ai",
+      "currentName": "enactic_ai",
+      "id": "company:90d08a2d45d94e95",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://github.com/enactic",
+        "https://enactic.ai/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "日本",
+          "status": "已核验",
+          "sources": [
+            "https://enactic.ai/"
+          ],
+          "basis": [
+            "总部所在地"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "开发面向护理设施的人形机器人自主系统。",
+          "status": "已核验",
+          "sources": [
+            "https://enactic.ai/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Atreides",
+      "currentName": "Atreides",
+      "id": "company:105260ea5c192101",
+      "pending": false,
+      "note": "按原新闻Gavin Baker定位Atreides Management，已排除同名情报软件公司。",
+      "checkedUrls": [
+        "https://atreidesmgmt.com/team/gavin-baker/",
+        "https://atreidesmgmt.com/"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "美国",
+          "status": "已核验",
+          "sources": [
+            "https://atreidesmgmt.com/"
+          ],
+          "basis": [
+            "公司联系地址"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "投资管理",
+          "status": "已核验",
+          "sources": [
+            "https://atreidesmgmt.com/team/gavin-baker/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": "Gavin Baker",
+          "status": "已核验",
+          "sources": [
+            "https://atreidesmgmt.com/team/gavin-baker/"
+          ],
+          "basis": []
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "Techaro",
+      "currentName": "Techaro",
+      "id": "company:ca4b1c09fa5f134d",
+      "pending": false,
+      "note": "已检查来源及字段建议；仅有直接证据的字段写入。",
+      "checkedUrls": [
+        "https://techaro.lol/",
+        "https://ca.linkedin.com/company/techaro"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": "加拿大",
+          "status": "已核验",
+          "sources": [
+            "https://ca.linkedin.com/company/techaro"
+          ],
+          "basis": [
+            "总部所在地（公司公开档案）"
+          ]
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "检索资料未明确登记日期；不以创立或产品上线年份代替"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": "开源机器人防护、AI咨询和定制软件服务",
+          "status": "已核验",
+          "sources": [
+            "https://techaro.lol/"
+          ],
+          "basis": []
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "未找到同口径、可核对的累计金额/估值/投资信息"
+        }
+      }
+    },
+    {
+      "name": "commit-rewriter",
+      "currentName": "commit-rewriter",
+      "id": "company:44f06c1e018b2fcc",
+      "pending": true,
+      "note": "独立开发者项目可识别，未核实所属法人。",
+      "checkedUrls": [
+        "https://simonwillison.net/2026/Sep/14/commit-rewriter"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        }
+      }
+    },
+    {
+      "name": "CUDA-for-AMD-Windows",
+      "currentName": "CUDA-for-AMD-Windows",
+      "id": "company:181bbb15941f21f1",
+      "pending": true,
+      "note": "开源仓库可识别，未确认所属法人；不归给依赖库或硬件厂商。",
+      "checkedUrls": [
+        "https://github.com/Speedstu/CUDA-for-AMD-Windows"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        }
+      }
+    },
+    {
+      "name": "JAX3D",
+      "currentName": "JAX3D",
+      "id": "company:d469cefe02317c80",
+      "pending": true,
+      "note": "Google Research仓库可读，但注明非官方支持产品；维护仓库不足以证明产品法人归属。",
+      "checkedUrls": [
+        "https://github.com/google-research/jax3d"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        }
+      }
+    },
+    {
+      "name": "Astra",
+      "currentName": "Astra",
+      "id": "company:693b286515bd1dd0",
+      "pending": true,
+      "note": "名称同名歧义，原新闻不足以唯一定位开发主体；未归给搜索中其他Astra产品。",
+      "checkedUrls": [
+        "https://x.com/emollick/status/2099199806543421772"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        }
+      }
+    },
+    {
+      "name": "Claw",
+      "currentName": "Claw",
+      "id": "company:06deac5b8d4a128e",
+      "pending": true,
+      "note": "名称泛化且有多个同名项目；未自动归给OpenClaw。",
+      "checkedUrls": [
+        "https://x.com/emollick/status/2099199806543421772"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        }
+      }
+    },
+    {
+      "name": "Instinct",
+      "currentName": "Instinct",
+      "id": "company:26e59d6a3c92de80",
+      "pending": true,
+      "note": "可找到创作者资料，但未确认法人主体；未把个人名当公司。",
+      "checkedUrls": [
+        "https://www.delphi.ai/noah-shinn"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        }
+      }
+    },
+    {
+      "name": "PaperRoute",
+      "currentName": "PaperRoute",
+      "id": "company:e819fbec006def3e",
+      "pending": true,
+      "note": "可找到游戏作者页，未找到可验证的开发公司。",
+      "checkedUrls": [
+        "https://x.com/AYi_AInotes/status/2099090127452524615"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        }
+      }
+    },
+    {
+      "name": "Grok Bot",
+      "currentName": "Grok Bot",
+      "id": "company:6cb784e0f985cba2",
+      "pending": true,
+      "note": "官网已找到；页脚为SpaceXAI LLC，尚无充分证据确认与当前xAI记录的法律主体关系，未按版权页脚自动归属。",
+      "checkedUrls": [
+        "https://x.ai/news/introducing-grok-bot"
+      ],
+      "fields": {
+        "country": {
+          "label": "国家/地区",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "founded": {
+          "label": "法人注册日期",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "business": {
+          "label": "主营业务",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "team": {
+          "label": "团队",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "investors": {
+          "label": "投资方",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "total_funding": {
+          "label": "累计融资",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        },
+        "valuation": {
+          "label": "融资估值",
+          "value": null,
+          "status": "未获合格证据",
+          "sources": [],
+          "basis": [],
+          "reason": "产品法人归属未定，不能填写公司字段"
+        }
+      }
+    }
+  ]
+}

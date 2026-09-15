@@ -1,5 +1,7 @@
 # docs/maintenance/AGENTS.MD — AI HOT 项目 Agent 开发守则
 
+2026-09-15：用户授权完成当前全库联网资料复核，本轮73次DeepSeek请求共享台账，失败不自动重试、无Manus调用。该一次性授权不改变每日采集费用边界。`research.propose(full_review=True)`仅供显式全库复核，默认仍最多5次。注册日期证据用dateBasis=registration及legalEntity区分控股法人；countryBasis注明总部/登记/公司地址来源。已审阅fact.replace=true可更新旧值并保留旧证据，未经审阅不直接替换。内部部门source_kind=division合并新闻但不变成产品。
+
 公司联网补全入口及证据边界见[操作说明](../operations/COMPANY_WEB_RESEARCH.md)。GLM-4V搜索结果只是线索；不能用模型回答或未经核对的搜索摘要自动写入公司库。当前独立试验未接每日任务。
 
 2026-09-14用户更新：允许提高搜索测试预算，优先更强模型，失败路线不继续重复。最近扩大预算试验上限8次，实际1次Baichuan-M3即因来源质量停止。该授权不改变Manus限制，不意味着需要用满额度，也不意味着名称更新的模型自动具有搜索能力。现有GLM-4V和Baichuan-M3暂停生产接入；新证据/通道出现前不再重复失败测试。

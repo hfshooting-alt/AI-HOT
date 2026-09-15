@@ -12,6 +12,38 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class ResearchTest(unittest.TestCase):
+    def test_reviewed_replacement_keeps_old_evidence_and_registration_scope(self):
+        old={'value':'2022','articleId':'news','origin':'article'}
+        row={'company_name':'X','founded':'2022','fieldSources':{'founded':[old]}}
+        fact={'field':'founded','value':'2021-06-30','replace':True,'dateBasis':'registration','legalEntity':'X Group Inc.','url':'https://example.com/filing','title':'Filing','quote':'incorporated on June 30, 2021'}
+        rules={'checkedAt':'2026-09-15','records':[{'record_name':'X','reviewed':True,'facts':[fact]}]}
+        result=apply_reviewed_research([row],rules)
+        self.assertEqual(result[0]['founded'],'2021-06-30')
+        self.assertEqual(result[0]['fieldSources']['founded'][0],old)
+        self.assertEqual(result[0]['fieldSources']['founded'][1]['legalEntity'],'X Group Inc.')
+        self.assertEqual(apply_reviewed_research(result,rules),result)
+
+    def test_division_merge_preserves_news_without_inventing_product(self):
+        base=dict(aliases=[],product_names=[],fieldSources={},sourceArticles=[],firstSeenAt='2020',lastSeenAt='2026')
+        company=dict(base,id='company:parent',company_name='Parent')
+        division=dict(base,id='company:division',company_name='Division',product_names=['Model'],sourceArticles=[{'id':'a'}])
+        rules={'checkedAt':'2026-09-15','records':[{'record_name':'Division','owner_company':'Parent','source_kind':'division','reviewed':True,'facts':[{'field':'owner_company','value':'Parent','url':'https://example.com','title':'Official','quote':'Division is part of Parent'}]}]}
+        result=apply_reviewed_research([company,division],rules)
+        self.assertEqual(result[0]['product_names'],['Model'])
+        self.assertIn('Division',result[0]['aliases'])
+        self.assertEqual(result[0]['sourceArticles'],[{'id':'a'}])
+        self.assertEqual(apply_reviewed_research(result,rules),result)
+
+    def test_full_review_requires_explicit_mode_and_shared_budget(self):
+        tx=tag_news.load_taxonomy(str(ROOT/'config/taxonomy.json'))
+        packet={'record_name':'X','sources':[{'url':'https://example.com','title':'Official','text':'Company X'}]}
+        model=Mock(return_value=json.dumps({'entity_type':'company','facts':[]}))
+        with tempfile.TemporaryDirectory() as folder:
+            with self.assertRaises(ValueError):propose(tx,packet,folder,allow_paid=True,max_requests=73,llm_fn=model)
+            Path(folder,'requests.json').write_text(json.dumps({'attempts':73,'limit':73}))
+            with self.assertRaises(ValueError):propose(tx,packet,folder,allow_paid=True,max_requests=73,full_review=True,llm_fn=model)
+            model.assert_not_called()
+
     def test_foundation_identity_survives_replay_without_product_reassignment(self):
         rules = {'checkedAt': '2026-09-14', 'records': [{
             'record_name': 'Tool', 'owner_company': 'Tool Foundation', 'reviewed': True,
