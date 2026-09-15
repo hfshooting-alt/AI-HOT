@@ -1,13 +1,14 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>公司资料补全记录 · AI HOT</title>
 <style>body{background:#f7f8f5;color:#213e35;font:15px/1.7 system-ui;margin:0}main{max-width:1100px;margin:40px auto;padding:24px}a{color:#236b53}h1{font-size:28px}p{color:#65746b}.wrap{overflow:auto;border:1px solid #d6e0d8;border-radius:12px;background:white}table{border-collapse:collapse;width:100%;min-width:700px}td,th{padding:14px;text-align:left;border-bottom:1px solid #e5ebe7}th{background:#edf4ee}a{display:inline-block;margin-right:12px}</style>
-<main><a href="./#/company">← 公司与产品全景</a><h1>公司资料补全记录</h1><p>读取已知资料链接，由 DeepSeek 提出空白字段补充；自动填入值均待核实。新闻更新时间与资料检查时间分别保留。</p><p id="summary">正在读取…</p><div class="wrap"><table><thead><tr><th>主体</th><th>处理结果</th><th>补充字段</th><th>隔离建议数</th><th>已知链接</th></tr></thead><tbody id="rows"></tbody></table></div><p id="note"></p></main>
+<main><a href="./#/company">← 公司与产品全景</a><h1>公司资料补全记录</h1><p>Manus 每天最多为 1 个资料缺失主体寻找网页，20 credits 观察止损；读取原页后由 DeepSeek 补充。暂定字段及候选归属均保留来源。</p><p id="discovery"></p><p id="summary">正在读取…</p><div class="wrap"><table><thead><tr><th>主体</th><th>处理结果</th><th>补充字段</th><th>隔离建议数</th><th>资料链接</th></tr></thead><tbody id="rows"></tbody></table></div><p id="note"></p></main>
 <script>
 fetch('./company-overview.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{
+const search=d.companyDiscovery?.last;if(search)document.querySelector('#discovery').textContent=`最近公司搜索：${search.name} · ${search.status} · 已记录消耗 ${search.creditsUsed ?? '未返回'} credits · 找到 ${search.urls?.length || 0} 个资料链接。${search.validation || ''}`;
 const x=d.knownLinkResearch;if(!x){document.querySelector('#summary').textContent='尚无自动补全记录';return}
 document.querySelector('#summary').textContent=`${x.checkedAt}（北京时间） · 尝试 ${x.attempted} 个主体 · 补充 ${x.filled} 项 · 失败 ${x.failed} 项 · 未变化跳过 ${x.skippedUnchanged} 项 · 本轮暂缓 ${x.deferred} 项`;
-const labels={country:'国家/地区',founded:'成立时间',business:'主营业务',team:'团队',investors:'投资方',total_funding:'累计融资',valuation:'估值'};
+const labels={country:'国家/地区',founded:'成立时间',business:'主营业务',team:'团队',investors:'投资方',total_funding:'累计融资',valuation:'估值',candidateOwners:'候选归属'};
 const statuses={completed:'已检查',no_readable_page:'网页未能读取',model_or_evidence_failed:'模型或证据未通过'};
 for(const row of x.records){const tr=document.createElement('tr');for(const value of [row.name,statuses[row.status]||row.status,row.filledFields.map(f=>labels[f]||f).join('、')||'无新增',row.rejectedFacts||0]){const td=document.createElement('td');td.textContent=value;tr.append(td)}const td=document.createElement('td');for(const [i,url]of row.urls.entries()){if(!url.startsWith('https://'))continue;const a=document.createElement('a');a.href=url;a.textContent=`来源 ${i+1}`;a.target='_blank';a.rel='noopener noreferrer';td.append(a)}tr.append(td);document.querySelector('#rows').append(tr)}
-document.querySelector('#note').textContent=x.validation||'每轮最多5次补全请求；不增加Manus搜索任务。无新增字段不等于公司没有相关资料。';
+document.querySelector('#note').textContent=x.validation||'每轮最多5次DeepSeek补全请求；公司搜索与新闻采集分别计费。无新增字段不等于公司没有相关资料。';
 }).catch(()=>document.querySelector('#summary').textContent='记录读取失败，请刷新重试');
 </script></html>

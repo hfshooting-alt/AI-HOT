@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-15T17:18:35+08:00",
+  "generatedAt": "2026-09-15T17:35:30+08:00",
   "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
   "stats": {
     "articlesProcessed": 338,
@@ -25037,7 +25037,7 @@
       "aliases": [],
       "product_names": [],
       "founded": null,
-      "country": null,
+      "country": "美国",
       "team": null,
       "business": "研发面向AI底层软件的自改进人工智能系统。",
       "investors": null,
@@ -25045,7 +25045,7 @@
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -25081,7 +25081,24 @@
             "checkedAt": "2026-09-15"
           }
         ],
-        "product_names": []
+        "product_names": [],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:a83a67c416819f6d",
+            "url": "https://int21.ai/privacy/",
+            "title": "Privacy Policy | INT21 AI",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "“Country” refers to the United States.",
+            "checkedAt": "2026-09-15T17:35:30+08:00",
+            "legalEntity": "INT21 AI, Inc.",
+            "countryBasis": "隐私政策国家定义；总部及注册地待核实",
+            "verificationStatus": "provisional",
+            "reason": "官网隐私政策将Country定义为美国；尚不能据此确认总部或注册地。"
+          }
+        ]
       },
       "sourceArticles": [
         {
@@ -25098,7 +25115,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T10:29:21.000Z",
       "latestReportAt": "2026-09-13T10:29:21.000Z",
-      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
+      "profileUpdatedAt": "2026-09-15T17:35:30+08:00",
       "productUpdates": []
     },
     {
@@ -30260,72 +30277,28 @@
   },
   "knownLinkResearch": {
     "mode": "known_links",
-    "checkedAt": "2026-09-15T17:18:35+08:00",
-    "attempted": 5,
+    "checkedAt": "2026-09-15T17:35:30+08:00",
+    "attempted": 1,
     "filled": 1,
     "failed": 0,
     "skippedUnchanged": 0,
-    "deferred": 59,
+    "deferred": 0,
     "records": [
       {
-        "id": "company:50537dab76505dfc",
-        "name": "苹果",
+        "id": "company:24c3be896337e2d5",
+        "name": "INT21",
         "urls": [
-          "https://investor.apple.com/faq./default.aspx",
-          "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm"
-        ],
-        "filledFields": [],
-        "status": "completed",
-        "rejectedFacts": 0
-      },
-      {
-        "id": "company:12b0c8b376b8375e",
-        "name": "微软",
-        "urls": [
-          "https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1981",
-          "https://www.microsoft.com/investor/reports/ar25/"
-        ],
-        "filledFields": [],
-        "status": "completed",
-        "rejectedFacts": 1
-      },
-      {
-        "id": "company:ea3bd73e2b506e00",
-        "name": "Meta",
-        "urls": [
-          "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
-          "https://x.com/alexandr_wang/status/2099303280308564355"
-        ],
-        "filledFields": [],
-        "status": "completed",
-        "rejectedFacts": 0
-      },
-      {
-        "id": "company:754c490bd199c21a",
-        "name": "蚂蚁灵波",
-        "urls": [
-          "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html",
-          "https://elsewhere.news/zh/crossing/10-qas-inside-the-disagreements-over-embodied-robots-convers"
-        ],
-        "filledFields": [],
-        "status": "completed",
-        "rejectedFacts": 2
-      },
-      {
-        "id": "company:70c6f617fc8e39aa",
-        "name": "苏度科技",
-        "urls": [
-          "https://www.hengdian.com/zh-cn/news/detail-11195",
-          "https://elsewhere.news/zh/crossing/10-qas-inside-the-disagreements-over-embodied-robots-convers"
+          "https://int21.ai/privacy/",
+          "https://int21.ai/"
         ],
         "filledFields": [
-          "team"
+          "country"
         ],
         "status": "completed",
-        "rejectedFacts": 0
+        "rejectedFacts": 1
       }
     ],
-    "validation": "5次真实请求的已验证响应，经修复后离线复核；未新增模型调用"
+    "validation": "复用上轮INT21 Manus搜索（2credits），本轮1次DeepSeek验证；没有新建Manus任务。"
   },
   "knownLinkResearchState": {
     "e2ad24c7b63ceee287206017470601f1a010a991105aa1e73dd945f7aff0aab1": {
@@ -30347,6 +30320,40 @@
     "395fee56060b1e29ea21108a30bd7d2d1b27c04faf304694638387bad6974c39": {
       "checkedAt": "2026-09-15T17:18:35+08:00",
       "status": "completed"
+    },
+    "e74a66f69f0dd31023deaf5671905c0de54828e39d64c2e61186c00a173b4925": {
+      "checkedAt": "2026-09-15T17:35:30+08:00",
+      "status": "completed"
+    }
+  },
+  "companyDiscovery": {
+    "history": {
+      "company:24c3be896337e2d5": {
+        "name": "INT21",
+        "entityId": "company:24c3be896337e2d5",
+        "status": "completed",
+        "creditsUsed": 2,
+        "observedCreditLimit": 20,
+        "checkedAt": "2026-09-15T17:28:02+08:00",
+        "urls": [
+          "https://int21.ai/privacy/",
+          "https://int21.ai/"
+        ],
+        "validation": "复用已完成的INT21单次Manus试验；本轮没有新建Manus任务"
+      }
+    },
+    "last": {
+      "name": "INT21",
+      "entityId": "company:24c3be896337e2d5",
+      "status": "completed",
+      "creditsUsed": 2,
+      "observedCreditLimit": 20,
+      "checkedAt": "2026-09-15T17:28:02+08:00",
+      "urls": [
+        "https://int21.ai/privacy/",
+        "https://int21.ai/"
+      ],
+      "validation": "复用已完成的INT21单次Manus试验；本轮没有新建Manus任务"
     }
   }
 }

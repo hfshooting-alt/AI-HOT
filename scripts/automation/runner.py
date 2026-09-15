@@ -157,6 +157,8 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
         commands['overview'].append('--allow-partial')
         commands['overview'].extend(('--known-link-research', '--research-dir',
             str(root / 'work/company-web-research' / workspace.parent.name)))
+        if source_mode == 'full':
+            commands['overview'].append('--discover-company')
     return commands
 
 

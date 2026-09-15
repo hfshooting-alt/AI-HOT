@@ -55,8 +55,38 @@ jobs:
         run: python -m pip install -r scripts/requirements.txt
       - name: 离线契约与流水线回归
         run: python scripts/test_pipeline.py offline
+      - name: 公司搜索配额日期（北京时间）
+        id: research-day
+        run: echo "day=$(TZ=Asia/Shanghai date +%F)" >> "$GITHUB_OUTPUT"
+      - name: 读取当天公司搜索占位
+        continue-on-error: true
+        uses: actions/cache/restore@v4
+        with:
+          path: work/company-discovery/quota.json
+          key: company-discovery-day-${{ steps.research-day.outputs.day }}
+      - name: 预留每天一次的公司搜索
+        continue-on-error: true
+        if: ${{ github.event_name == 'schedule' || (!inputs.dry_run && inputs.source_mode == 'full' && (inputs.stage == 'all' || inputs.stage == 'overview')) }}
+        run: PYTHONPATH=scripts python -m company_index.discovery --reserve
+      - name: 创建任务前持久化配额占位
+        continue-on-error: true
+        if: ${{ github.event_name == 'schedule' || (!inputs.dry_run && inputs.source_mode == 'full' && (inputs.stage == 'all' || inputs.stage == 'overview')) }}
+        uses: actions/cache/save@v4
+        with:
+          path: work/company-discovery/quota.json
+          key: company-discovery-day-${{ steps.research-day.outputs.day }}
+      - name: 确认配额已持久化后才允许付费流程
+        id: company-quota-confirm
+        continue-on-error: true
+        if: ${{ github.event_name == 'schedule' || (!inputs.dry_run && inputs.source_mode == 'full' && (inputs.stage == 'all' || inputs.stage == 'overview')) }}
+        uses: actions/cache/restore@v4
+        with:
+          path: work/company-discovery/quota.json
+          key: company-discovery-day-${{ steps.research-day.outputs.day }}
+          fail-on-cache-miss: true
       - name: 并行采集 → 统一模型处理 → 快照与公司库 → 发布成功来源
         env:
+          COMPANY_DISCOVERY_QUOTA_READY: ${{ steps.company-quota-confirm.outcome == 'success' && '1' || '0' }}
           MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.PARATERA_API_KEY || secrets.DEEPSEEK_API_KEY }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}

@@ -31,6 +31,8 @@ def eligible_fact(fact, row):
     """引文校验之外的业务门禁；待核实也不能混淆融资口径。"""
     fact = copy.deepcopy(fact)
     field, quote, value = fact['field'], fact.get('quote', ''), fact.get('value', '')
+    if field == 'founded' and (not re.search(r'incorporat|注册|登记', quote, re.I) or not re.search(r'\d{4}', value)):
+        return None
     if field in ('total_funding', 'valuation'):
         if re.search(r'拟|计划|意向|尚未|寻求|target|seeking|plans? to|in talks', quote+' '+value, re.I):
             return None
@@ -48,7 +50,7 @@ def eligible_fact(fact, row):
     return fact
 
 
-def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn=propose, rules=None):
+def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn=propose, rules=None, discovery_fn=None):
     if not 1 <= max_requests <= 5:
         raise ValueError('每日已知链接补全最多5次请求')
     result = copy.deepcopy(data)
@@ -58,16 +60,42 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
     for rule in rules.get('records', []):
         if rule.get('reviewed') and not rule.get('owner_company'):
             known.setdefault(rule['record_name'], []).extend(f['url'] for f in rule.get('facts', []) if f.get('url', '').startswith('https://'))
+    discovered = result.setdefault('companyDiscovery', {'history': {}})
+    history = discovered.setdefault('history', {})
+    pending_ids = {r['id'] for r in result.get('pendingEntities', [])}
+    entities = [*result['companies'], *result.get('pendingEntities', [])]
+    for rec in entities:
+        old = history.get(rec['id'], {})
+        known[rec['company_name']] = [*old.get('urls', []), *known.get(rec['company_name'], [])]
+    selected = None
+    if discovery_fn:
+        candidates = [r for r in entities if (r['id'] in pending_ids or not r.get('country') or not r.get('founded'))
+                      and r['id'] not in history]
+        if discovered.get('last', {}).get('status') == 'stop_unconfirmed':
+            candidates = []
+        if candidates:
+            selected = sorted(candidates, key=lambda r:r.get('lastSeenAt',''), reverse=True)[0]
+            try:
+                found = discovery_fn(selected)
+            except Exception as error:
+                found = {'name':selected['company_name'], 'status':'discovery_unavailable',
+                         'urls':[], 'errorType':type(error).__name__}
+            discovered['last'] = found
+            if found['status'] not in ('quota_used','quota_unavailable','missing_key','discovery_unavailable'):
+                history[selected['id']] = found
+            known[selected['company_name']] = [*found.get('urls', []), *known.get(selected['company_name'], [])]
     state = result.setdefault('knownLinkResearchState', {})
     report = {'mode': 'known_links', 'checkedAt': now_bj_iso(), 'attempted': 0,
               'filled': 0, 'failed': 0, 'skippedUnchanged': 0, 'deferred': 0, 'records': []}
-    pool = [r for r in result['companies'] if any(not r.get(f) for f in SCALAR_FIELDS)]
+    pool = [r for r in entities if any(not r.get(f) for f in SCALAR_FIELDS)]
     # 当天有新闻的主体优先；同日保留原新闻排序。
     pool.sort(key=lambda r: r.get('lastSeenAt', ''), reverse=True)
+    if selected is not None:
+        pool.sort(key=lambda r:r['id'] != selected['id'])
     pages = {}
     fetched_entities = 0
     for row in pool:
-        missing = [f for f in SCALAR_FIELDS if not row.get(f)]
+        missing = ['owner_company'] if row['id'] in pending_ids else [f for f in SCALAR_FIELDS if not row.get(f)]
         urls = list(dict.fromkeys([*known.get(row['company_name'], []),
             *(a['url'] for a in row.get('sourceArticles', []) if a.get('url', '').startswith('https://'))]))[:2]
         key = hashlib.sha256(json.dumps([1, resolve_model(tx), row['id'], urls,
@@ -101,7 +129,16 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
                                       max_requests=max_requests, isolate_invalid=True)
                 facts = []
                 semantic_rejected = 0
+                candidates_added = 0
                 for fact in proposal['facts']:
+                    if row['id'] in pending_ids:
+                        if fact['field'] == 'owner_company' and fact['value'] != row['company_name']:
+                            candidate = {'name':fact['value'],'url':fact['url'],'quote':fact['quote'],
+                                'checkedAt':report['checkedAt'],'reason':'网页归属线索经模型提取及逐字核对，法人映射待复核；尚未并入该公司。'}
+                            owners = row.setdefault('candidateOwners', [])
+                            if not any(c['name']==candidate['name'] and c['url']==candidate['url'] for c in owners):
+                                owners.append(candidate); candidates_added += 1
+                        continue
                     if proposal.get('owner_company') and proposal['owner_company'] != row['company_name']:
                         continue  # 模型提出不同所属主体时，不能把其资料灌入当前公司。
                     if fact['field'] not in missing:
@@ -116,12 +153,12 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
                         'reason': 'DeepSeek根据已知网页提出，原文引文已校验；主体及字段口径仍待复核。'})
                 replacement = apply_reviewed_research([row], {'checkedAt': report['checkedAt'],
                     'records': [{'record_name': row['company_name'], 'reviewed': True, 'facts': facts}]})[0]
-                if facts:
+                if facts or candidates_added:
                     row.update(replacement)
                     row['profileUpdatedAt'] = report['checkedAt']
-                event.update(status='completed', filledFields=[f['field'] for f in facts],
+                event.update(status='completed', filledFields=[f['field'] for f in facts] + (['candidateOwners'] if candidates_added else []),
                              rejectedFacts=proposal.get('rejectedFacts', 0) + semantic_rejected)
-                report['filled'] += len(facts)
+                report['filled'] += len(facts) + candidates_added
             except Exception:
                 event['status'] = 'model_or_evidence_failed'
                 report['failed'] += 1

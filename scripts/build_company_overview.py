@@ -53,6 +53,7 @@ def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
              "productsTotal": sum(len(c["product_names"]) for c in companies)}
     data = assemble(companies, stats, generated_at or now_bj_iso())
     data['knownLinkResearchState'] = copy.deepcopy(previous.get('knownLinkResearchState', {}))
+    data['companyDiscovery'] = copy.deepcopy(previous.get('companyDiscovery', {'history': {}}))
     if allow_partial:
         data['articleFailures'] = [{'id': a['id'], 'title': a['title'], 'url': a['url'],
             'reason': '公司资料提取未完成，保留已有公司资料'} for a in articles
@@ -97,6 +98,7 @@ def main(argv=None):
     parser.add_argument('--evidence-json', help='本批次审核通过的原始证据，仅保存在隔离工作目录')
     parser.add_argument('--allow-partial', action='store_true', help='隔离单篇公司抽取失败，保留成功更新及旧资料')
     parser.add_argument('--known-link-research', action='store_true', help='读取已确认网页，最多5次模型补全，失败隔离')
+    parser.add_argument('--discover-company', action='store_true', help='每天最多1个主体的Manus资料搜索，观察止损20credits')
     parser.add_argument('--research-dir', type=Path, default=ROOT / 'work/company-web-research')
     args = parser.parse_args(argv)
     tx = tag_news.load_taxonomy(str(ROOT / args.taxonomy))
@@ -107,7 +109,8 @@ def main(argv=None):
                      evidence_path=args.evidence_json, allow_partial=args.allow_partial, replace_product_evidence=args.replace_product_evidence)
         if args.known_link_research:
             from company_index.daily_research import enrich
-            data = enrich(data, tx, args.research_dir)
+            from company_index.discovery import discover
+            data = enrich(data, tx, args.research_dir, discovery_fn=discover if args.discover_company else None)
             validate(data, tx)
     except ValueError as exc:
         print(f"公司与产品库构建失败，保留上一次产物：{exc}", file=sys.stderr)
