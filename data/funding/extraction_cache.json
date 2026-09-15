@@ -252,5 +252,95 @@
     "company_type_id": "初创公司"
    }
   ]
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu1ewtks04a4rocn6l6d6vry:0e2a318f43ae3130": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Temporal",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": "Lightspeed、Wellington Management、高盛、Tiger Global",
+    "total_funding": "5.5亿美元",
+    "valuation": "125.5亿美元",
+    "industry_id": "其他",
+    "company_type_id": "初创公司"
+   }
+  ]
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu1xiqfu03wvromgvtvbgjie:8e1e26f4672c82cc": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "OpenAI",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "其他",
+    "company_type_id": "大厂/已上市"
+   },
+   {
+    "company_name": "Glass Imaging",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": "超过3亿美元",
+    "industry_id": "其他",
+    "company_type_id": "初创公司"
+   }
+  ]
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu1g31xf07frrocnmjfagq29:27422d45b9d330cb": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Anthropic",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": "2 万亿美元",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ]
+ },
+ "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu10nf3b08q5ro2nw9q42mmz:6104c4e40113ff16": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "浙江威邦震电光电技术有限公司",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": "道彤投资、IDG资本、道远资本、峰瑞资本、方正合生、纳通资本、苏高新",
+    "total_funding": "近亿元",
+    "valuation": null,
+    "industry_id": "其他",
+    "company_type_id": "初创公司"
+   }
+  ]
  }
 }

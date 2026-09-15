@@ -1,7 +1,7 @@
 {
  "date": "2026-09-13",
- "finalized": false,
- "finalizedAt": null,
+ "finalized": true,
+ "finalizedAt": "2026-09-15T14:43:41.290565+08:00",
  "items": [
   {
    "id": "aihot:cmu001msd06ztroymtyius51t",

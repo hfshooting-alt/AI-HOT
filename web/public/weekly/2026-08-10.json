@@ -3,60 +3,9 @@
  "weekEnd": "2026-08-17",
  "volLabel": "八月第2周",
  "finalized": true,
- "generatedAt": "2026-09-14T08:21:49.725050+00:00",
+ "generatedAt": "2026-09-15T06:43:41.399449+00:00",
  "aiReport": null,
  "items": [
-  {
-   "id": "cmsuaf2hr05zgroe0y1e7275v",
-   "title": "AI生成书籍正淹没亚马逊，并拉低人类作者的单书收入",
-   "title_en": "AI-generated books are flooding Amazon and tanking sales for human authors",
-   "url": "https://the-decoder.com/ai-generated-books-are-flooding-amazon-and-tanking-sales-for-human-authors",
-   "permalink": "https://aihot.virxact.com/items/cmsuaf2hr05zgroe0y1e7275v",
-   "source": "The Decoder：AI News（RSS）",
-   "publishedAt": "2026-08-15T11:00:50.000Z",
-   "discoveredAt": "2026-08-15T11:23:17.740Z",
-   "summary": "一项对14，419本自出版电子书的分析显示，AI生成书籍正以数量而非质量挤占人类作者市场，即便未检测到AI文本的书籍，单书收入也在下滑。2023年Q1至2026年Q1，书目总量增长38.3倍，而季度收入仅增长8.9倍；在八个类型中，七个类型的无AI文本书籍单书收入下降。",
-   "category": "paper",
-   "score": 70,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmsuaf2hr05zgroe0y1e7275v"
-   },
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
-  {
-   "id": "cmst9yj3c05utrodz443l0odv",
-   "title": "Gemini 3.7 Flash 全面上线 Pro 与 Ultra 用户",
-   "title_en": "Gemini 3.7 Flash is now available to all Pro and Ultra users in Gemini chat. This model update deli…",
-   "url": "https://x.com/GeminiApp/status/2088326407730692538",
-   "permalink": "https://aihot.virxact.com/items/cmst9yj3c05utrodz443l0odv",
-   "source": "X：Gemini (@GeminiApp)",
-   "publishedAt": "2026-08-14T18:06:29.000Z",
-   "discoveredAt": "2026-08-14T18:22:41.004Z",
-   "summary": "Gemini 3.7 Flash 现已向 Gemini 聊天中的 Pro 和 Ultra 用户开放。该模型更新提升了多步骤任务的推理与准确性，如智能整合数十个文件和邮件为一份主文档。同时，Gemini Spark 也已运行于 3.7 Flash，通过改进对 Google Workspace 应用的工具调用，让个人 AI 智能体更精准。",
-   "category": "ai-models",
-   "score": 66,
-   "selected": true,
-   "attribution": {
-    "source": "AIHOT",
-    "canonical": "https://aihot.virxact.com/items/cmst9yj3c05utrodz443l0odv"
-   },
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_model",
-     "issuer": "bigcorp"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   }
-  },
   {
    "id": "cmsvptx2m061frovmjoavsi0l",
    "title": "新兴多智能体系统的模式与问题",
