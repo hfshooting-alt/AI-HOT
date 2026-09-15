@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-15T14:55:59+08:00",
+  "generatedAt": "2026-09-15T17:18:35+08:00",
   "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
   "stats": {
     "articlesProcessed": 338,
@@ -23126,7 +23126,7 @@
       "product_names": [],
       "founded": null,
       "country": "中国",
-      "team": null,
+      "team": "苏度科技联合创始人兼 CEO 韩铮",
       "business": "研发具身通用模型，结合世界模型与强化学习。",
       "investors": "宁德时代、阿里、腾讯、高瓴、IDG",
       "total_funding": null,
@@ -23202,6 +23202,21 @@
             "verificationStatus": "provisional",
             "reason": "按投资方披露的上海公司名称暂定中国；尚未独立核对工商登记。"
           }
+        ],
+        "team": [
+          {
+            "value": "苏度科技联合创始人兼 CEO 韩铮",
+            "articleId": "research:28580c83becf702d",
+            "url": "https://elsewhere.news/zh/crossing/10-qas-inside-the-disagreements-over-embodied-robots-convers",
+            "title": "10个问答，深入分歧之下的具身机器人｜对话苏度科技、蚂蚁灵波、自变量机器人、破壳机器人创始人、首席科学家",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "苏度科技联合创始人兼 CEO 韩铮",
+            "checkedAt": "2026-09-15T17:18:35+08:00",
+            "verificationStatus": "provisional",
+            "reason": "DeepSeek根据已知网页提出，原文引文已校验；主体及字段口径仍待复核。"
+          }
         ]
       },
       "sourceArticles": [
@@ -23219,7 +23234,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:45:00.000Z",
       "latestReportAt": "2026-09-14T00:45:00.000Z",
-      "profileUpdatedAt": "2026-09-15T10:31:49+08:00",
+      "profileUpdatedAt": "2026-09-15T17:18:35+08:00",
       "productUpdates": []
     },
     {
@@ -30242,5 +30257,96 @@
     ],
     "classifications": [],
     "staleDecisions": []
+  },
+  "knownLinkResearch": {
+    "mode": "known_links",
+    "checkedAt": "2026-09-15T17:18:35+08:00",
+    "attempted": 5,
+    "filled": 1,
+    "failed": 0,
+    "skippedUnchanged": 0,
+    "deferred": 59,
+    "records": [
+      {
+        "id": "company:50537dab76505dfc",
+        "name": "苹果",
+        "urls": [
+          "https://investor.apple.com/faq./default.aspx",
+          "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm"
+        ],
+        "filledFields": [],
+        "status": "completed",
+        "rejectedFacts": 0
+      },
+      {
+        "id": "company:12b0c8b376b8375e",
+        "name": "微软",
+        "urls": [
+          "https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1981",
+          "https://www.microsoft.com/investor/reports/ar25/"
+        ],
+        "filledFields": [],
+        "status": "completed",
+        "rejectedFacts": 1
+      },
+      {
+        "id": "company:ea3bd73e2b506e00",
+        "name": "Meta",
+        "urls": [
+          "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
+          "https://x.com/alexandr_wang/status/2099303280308564355"
+        ],
+        "filledFields": [],
+        "status": "completed",
+        "rejectedFacts": 0
+      },
+      {
+        "id": "company:754c490bd199c21a",
+        "name": "蚂蚁灵波",
+        "urls": [
+          "https://segg.sh.gov.cn/pdfpt/gzdt/20260806/de55e72aaf5d4fe9b4e4643d589382db.html",
+          "https://elsewhere.news/zh/crossing/10-qas-inside-the-disagreements-over-embodied-robots-convers"
+        ],
+        "filledFields": [],
+        "status": "completed",
+        "rejectedFacts": 2
+      },
+      {
+        "id": "company:70c6f617fc8e39aa",
+        "name": "苏度科技",
+        "urls": [
+          "https://www.hengdian.com/zh-cn/news/detail-11195",
+          "https://elsewhere.news/zh/crossing/10-qas-inside-the-disagreements-over-embodied-robots-convers"
+        ],
+        "filledFields": [
+          "team"
+        ],
+        "status": "completed",
+        "rejectedFacts": 0
+      }
+    ],
+    "validation": "5次真实请求的已验证响应，经修复后离线复核；未新增模型调用"
+  },
+  "knownLinkResearchState": {
+    "e2ad24c7b63ceee287206017470601f1a010a991105aa1e73dd945f7aff0aab1": {
+      "checkedAt": "2026-09-15T17:18:35+08:00",
+      "status": "completed"
+    },
+    "4d38559b0d9f23002c2c859fdaf452e1264481d86b53b0253b19253cbbc72a92": {
+      "checkedAt": "2026-09-15T17:18:35+08:00",
+      "status": "completed"
+    },
+    "3bc689fd47d8a23c10acc30916b370570fca911dc894de481662b3f208f81939": {
+      "checkedAt": "2026-09-15T17:18:35+08:00",
+      "status": "completed"
+    },
+    "0471f6dc5c2ff519ba2d71ddb0405febed1565d90de51968bb4fa515e1344cdf": {
+      "checkedAt": "2026-09-15T17:18:35+08:00",
+      "status": "completed"
+    },
+    "395fee56060b1e29ea21108a30bd7d2d1b27c04faf304694638387bad6974c39": {
+      "checkedAt": "2026-09-15T17:18:35+08:00",
+      "status": "completed"
+    }
   }
 }

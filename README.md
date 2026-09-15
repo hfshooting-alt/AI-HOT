@@ -111,3 +111,5 @@ AI-HOT/
 主体支持商业公司、基金会与开源组织，非商业主体保留类型和官网依据，赞助商不作为产品归属。[官网资料补全记录](docs/history/2026-09-14/OFFICIAL_COMPANY_RESEARCH.md)。
 
 已有新闻关联实体的 GLM-4V 搜索试验入口、DeepSeek 证据核验及发布边界见[操作说明](docs/operations/COMPANY_WEB_RESEARCH.md)。当前处于独立业务样本验证阶段。
+
+每日公司资料补全：已确认网页与新闻链接 → DeepSeek → 暂定字段/引文 → 统一校验发布；详情见[操作说明](docs/operations/COMPANY_WEB_RESEARCH.md)。

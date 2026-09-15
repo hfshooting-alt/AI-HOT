@@ -7,7 +7,7 @@ from llm_common import call_llm, parse_output, resolve_model
 from .output import atomic_write
 
 
-def propose(tx, packet, directory, *, allow_paid=False, max_requests=5, full_review=False, llm_fn=call_llm):
+def propose(tx, packet, directory, *, allow_paid=False, max_requests=5, full_review=False, llm_fn=call_llm, isolate_invalid=False):
     if not 1 <= max_requests <= (80 if full_review else 5):
         raise ValueError('资料补全上限：默认5次，显式全库复核80次请求')
     sources = packet.get('sources', [])
@@ -15,7 +15,7 @@ def propose(tx, packet, directory, *, allow_paid=False, max_requests=5, full_rev
         raise ValueError('补全需要可回溯的HTTPS网页摘录')
     root = Path(directory)
     root.mkdir(parents=True, exist_ok=True)
-    key = hashlib.sha256(json.dumps([3, resolve_model(tx), packet], ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+    key = hashlib.sha256(json.dumps([4 if isolate_invalid else 3, resolve_model(tx), packet], ensure_ascii=False, sort_keys=True).encode()).hexdigest()
     cache = root / f'{key}.json'
     if cache.exists():
         return json.loads(cache.read_text(encoding='utf-8'))
@@ -42,14 +42,29 @@ founded只接受当前法人注册/登记成立日期，单纯founded创立年�
     if not isinstance(raw, dict) or raw.get('entity_type') not in ('company', 'brand') or not isinstance(raw.get('facts'), list):
         raise ValueError('资料补全结构无效，停止并保留原数据')
     allowed = {'owner_company', 'company_name', 'founded', 'country', 'team', 'business', 'product_names', 'investors', 'total_funding', 'valuation'}
+    valid, rejected = [], 0
     for fact in raw['facts']:
+        if not isinstance(fact, dict):
+            if isolate_invalid:
+                rejected += 1
+                continue
+            raise ValueError('字段结构无效')
         index = fact.get('source_index')
         if (fact.get('field') not in allowed or not isinstance(fact.get('value'), str)
                 or not fact['value'].strip() or type(index) is not int or not 0 <= index < len(sources)
                 or not isinstance(fact.get('quote'), str) or not fact['quote'].strip()
                 or fact['quote'] not in sources[index]['text']):
+            if isolate_invalid:
+                rejected += 1
+                continue
             raise ValueError('字段缺少逐字来源证据，拒绝写入')
         fact.update(url=sources[index]['url'], title=sources[index]['title'])
+        valid.append(fact)
+    raw['facts'] = valid
+    if isolate_invalid:
+        raw['rejectedFacts'] = rejected
+        if raw.get('owner_company') and not any(f['field'] == 'owner_company' and f['value'] == raw['owner_company'] for f in valid):
+            raw['owner_company'] = None
     if raw.get('owner_company') and not any(f['field'] == 'owner_company' and f['value'] == raw['owner_company'] for f in raw['facts']):
         raise ValueError('归属公司缺少对应证据')
     raw['record_name'] = packet['record_name']

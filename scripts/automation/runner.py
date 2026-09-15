@@ -155,6 +155,8 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
         commands['snapshot'].extend(('--input-json', str(workspace / 'inputs/processed.json'), '--no-tags'))
         commands['overview'].extend(('--evidence-json', str(workspace / 'inputs/company-evidence.json')))
         commands['overview'].append('--allow-partial')
+        commands['overview'].extend(('--known-link-research', '--research-dir',
+            str(root / 'work/company-web-research' / workspace.parent.name)))
     return commands
 
 
