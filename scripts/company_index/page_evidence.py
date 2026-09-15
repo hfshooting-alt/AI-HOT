@@ -41,5 +41,3 @@ def eligible_fact(fact, row):
         # 人名、履历只保留引文实际支持的部分，不扩写院校和任职。
         fact['value'] = quote[:350]
     return fact
-
-
