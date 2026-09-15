@@ -45,6 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 240
     env:
+      TZ: Asia/Shanghai # cron 仍按 UTC 解释；脚本默认时间统一为北京时间
       PYTHONIOENCODING: utf-8
     steps:
       - uses: actions/checkout@v4

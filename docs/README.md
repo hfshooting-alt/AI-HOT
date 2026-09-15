@@ -22,3 +22,5 @@
 2026-09-10 的候选验收、信源诊断与清理记录集中在 [history/2026-09-10/](history/2026-09-10/)。`operations/` 保留持续使用的运行手册。
 
 2026-09-14 的一次性复核、旧状态与停用配置见 [history/2026-09-14/](history/2026-09-14/)。
+
+公司资料流程见[当前操作说明](operations/COMPANY_WEB_RESEARCH.md)和[代码导航](../scripts/company_index/README.md)。2026-09-15 整理前的交接说明保存在[历史快照](history/2026-09-15/maintenance-before-organization/)，其中旧启用状态和数据量仅供溯源。

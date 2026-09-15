@@ -1,53 +1,14 @@
-"""已知链接补全；不调用搜索服务，自动建议以暂定值入库。"""
+"""每日资料补全编排：可选链接发现、网页证据、模型建议及增量入库。"""
 import copy
 import hashlib
 import json
-import re
 from pathlib import Path
-from urllib.parse import urlsplit
 
 from llm_common import resolve_model
-from manus_source.crawler import fetch_html, extract_text, truncate_head_tail, _looks_like_risk_page
 from .config import SCALAR_FIELDS, now_bj_iso
 from .identity import apply_reviewed_research, RULES_PATH
 from .research import propose
-
-
-def read_page(url):
-    """仅读取指定公共HTTPS页面；拒绝跨域跳转和非HTML正文。"""
-    host = urlsplit(url).hostname or ''
-    if urlsplit(url).scheme != 'https' or urlsplit(url).username or not host or host == 'localhost' or re.fullmatch(r'[\d.:]+', host):
-        raise ValueError('需要公共网页域名')
-    final, html = fetch_html(url, timeout_seconds=15, retries=0)
-    if urlsplit(final).hostname != host:
-        raise ValueError('页面跨域跳转，保留待核实')
-    text, title = extract_text(html)
-    if not text or len(text) < 60 or _looks_like_risk_page(html, text):
-        raise ValueError('页面正文不足')
-    return {'url': url, 'title': title or host, 'text': truncate_head_tail(text, 14000)}
-
-
-def eligible_fact(fact, row):
-    """引文校验之外的业务门禁；待核实也不能混淆融资口径。"""
-    fact = copy.deepcopy(fact)
-    field, quote, value = fact['field'], fact.get('quote', ''), fact.get('value', '')
-    if field == 'founded' and (not re.search(r'incorporat|注册|登记', quote, re.I) or not re.search(r'\d{4}', value)):
-        return None
-    if field in ('total_funding', 'valuation'):
-        if re.search(r'拟|计划|意向|尚未|寻求|target|seeking|plans? to|in talks', quote+' '+value, re.I):
-            return None
-        if not re.search(r'\d', value) or not re.search(r'美元|人民币|欧元|英镑|港元|USD|RMB|CNY|EUR|GBP|HKD|\$', value, re.I):
-            return None
-        if field == 'total_funding' and not re.search(r'累计|融资总额|total.*rais|raised.*total', quote, re.I):
-            return None
-    if field == 'team':
-        if not any(n and n.casefold() in quote.casefold() for n in [row['company_name'], *row.get('aliases', [])]):
-            return None
-        if not re.search(r'创始|CEO|首席|团队|总裁|founder|chief|team', quote, re.I):
-            return None
-        # 人名、履历只保留引文实际支持的部分，不扩写院校和任职。
-        fact['value'] = quote[:350]
-    return fact
+from .page_evidence import read_page, eligible_fact
 
 
 def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn=propose, rules=None, discovery_fn=None):
@@ -137,7 +98,8 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
                                 'checkedAt':report['checkedAt'],'reason':'网页归属线索经模型提取及逐字核对，法人映射待复核；尚未并入该公司。'}
                             owners = row.setdefault('candidateOwners', [])
                             if not any(c['name']==candidate['name'] and c['url']==candidate['url'] for c in owners):
-                                owners.append(candidate); candidates_added += 1
+                                owners.append(candidate)
+                                candidates_added += 1
                         continue
                     if proposal.get('owner_company') and proposal['owner_company'] != row['company_name']:
                         continue  # 模型提出不同所属主体时，不能把其资料灌入当前公司。

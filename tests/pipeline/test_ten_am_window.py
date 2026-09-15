@@ -77,6 +77,11 @@ class TestTenAm(unittest.TestCase):
             self.assertFalse(contains(window, window['end']))
             for hour, minute, expected in [(9,29,'2026-09-08'), (9,30,END_DATE), (12,0,END_DATE)]:
                 self.assertEqual(latest_cutoff_date(datetime(2026,9,9,hour,minute,tzinfo=BJ)), expected)
+            # GitHub runs in UTC; 01:30 UTC must select the same Beijing batch.
+            for stamp, expected in [('2026-09-09T01:29:00+00:00', '2026-09-08'),
+                                    ('2026-09-09T01:30:00+00:00', END_DATE),
+                                    ('2026-09-09T04:00:00+00:00', END_DATE)]:
+                self.assertEqual(latest_cutoff_date(datetime.fromisoformat(stamp)), expected)
 
     def test_daily_cli_defaults_to_nine_thirty_and_complete_company_stage(self):
         output = io.StringIO()
