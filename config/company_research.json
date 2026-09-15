@@ -2669,6 +2669,116 @@
           "checkedAt": "2026-09-15"
         }
       ]
+    },
+    {
+      "record_name": "苏度科技",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "中国",
+          "url": "https://www.hengdian.com/zh-cn/news/detail-11195",
+          "quote": "上海苏度科技有限公司",
+          "title": "苏度科技 公开资料",
+          "verificationStatus": "provisional",
+          "reason": "按投资方披露的上海公司名称暂定中国；尚未独立核对工商登记。",
+          "countryBasis": "暂定运营地区；不代表注册国家",
+          "checkedAt": "2026-09-15T10:31:49+08:00"
+        }
+      ]
+    },
+    {
+      "record_name": "安徽海马云智能科技发展有限公司",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "中国",
+          "url": "https://www.runninghub.ai/about",
+          "quote": "RunningHub产品归属于安徽海马云智能科技发展有限公司",
+          "title": "安徽海马云智能科技发展有限公司 公开资料",
+          "verificationStatus": "provisional",
+          "reason": "按官网披露的安徽法人名称暂定中国；尚未独立核对工商登记。",
+          "countryBasis": "暂定运营地区；不代表注册国家",
+          "checkedAt": "2026-09-15T10:31:49+08:00"
+        }
+      ]
+    },
+    {
+      "record_name": "Google DeepMind",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "英国",
+          "url": "https://deepmind.google/blog/a-return-to-paris/",
+          "quote": "When we set up our headquarters in London in 2010",
+          "title": "Google DeepMind 公开资料",
+          "verificationStatus": "provisional",
+          "reason": "按历史DeepMind伦敦总部暂定英国；合并后团队与具体签约法人范围仍待核实。",
+          "countryBasis": "暂定运营地区；不代表注册国家",
+          "checkedAt": "2026-09-15T10:31:49+08:00"
+        }
+      ]
+    },
+    {
+      "record_name": "Fireworks",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "country",
+          "value": "美国",
+          "url": "https://fireworks.ai/privacy-policy",
+          "quote": "We also have support, engineering and other teams who may support the Service, including from the United States.",
+          "title": "Fireworks 公开资料",
+          "verificationStatus": "provisional",
+          "reason": "按官网披露的美国团队运营线索暂定；该线索不能证明总部或法人注册地。",
+          "countryBasis": "暂定运营地区；不代表注册国家",
+          "checkedAt": "2026-09-15T10:31:49+08:00"
+        }
+      ]
+    },
+    {
+      "record_name": "JAX3D",
+      "reviewed": true,
+      "facts": [],
+      "candidateOwners": [
+        {
+          "name": "Google Research（仓库维护方）",
+          "url": "https://github.com/google-research/jax3d",
+          "quote": "This is not an official Google Product.",
+          "reason": "仓库位于Google Research；明确不是官方Google产品，仅记录维护线索，法人归属待核实。",
+          "checkedAt": "2026-09-15T10:31:49+08:00"
+        }
+      ]
+    },
+    {
+      "record_name": "Instinct",
+      "reviewed": true,
+      "facts": [],
+      "candidateOwners": [
+        {
+          "name": "Noah Shinn（创始人，非公司主体）",
+          "url": "https://www.delphi.ai/noah-shinn",
+          "quote": "Founder, Instinct",
+          "reason": "个人资料提及创始人身份，尚不能据此确认所属法人。",
+          "checkedAt": "2026-09-15T10:31:49+08:00"
+        }
+      ]
+    },
+    {
+      "record_name": "Grok Bot",
+      "reviewed": true,
+      "facts": [],
+      "candidateOwners": [
+        {
+          "name": "SpaceXAI（官网品牌）",
+          "url": "https://x.ai/news/introducing-grok-bot",
+          "quote": "Introducing Grok Bot | SpaceXAI",
+          "reason": "官网品牌线索明确，与现有xAI记录的法律主体映射仍待确认。",
+          "checkedAt": "2026-09-15T10:31:49+08:00"
+        }
+      ]
     }
   ]
 }

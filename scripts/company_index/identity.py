@@ -21,9 +21,19 @@ def apply_reviewed_research(companies, rules=None):
             raise ValueError('归属修正必须先审阅并记录核验时间')
         source = next((c for c in rows if c['company_name'] == rule['record_name']), None)
         owner = rule.get('owner_company')
+        if any(f.get('verificationStatus') == 'provisional' and f.get('field') in ('owner_company', 'company_name', 'product_names') for f in rule.get('facts', [])):
+            raise ValueError('暂定资料不能合并主体或确认产品归属')
         target = next((c for c in rows if c['company_name'] == owner), None) if owner else source
         if source is None and target is None:
             continue
+        for candidate in rule.get('candidateOwners', []):
+            if (not candidate.get('name') or not candidate.get('reason') or not candidate.get('quote')
+                    or not candidate.get('url', '').startswith('https://')):
+                raise ValueError('候选归属缺少来源或未决问题')
+            if source is not None:
+                bucket = source.setdefault('candidateOwners', [])
+                if candidate not in bucket:
+                    bucket.append(copy.deepcopy(candidate))
         source_articles = copy.deepcopy(source.get('sourceArticles', [])) if source else []
         owned = rule.get('owned_products', [])
         owner_fact = next((f for f in rule.get('facts', []) if f.get('field') == 'owner_company'
@@ -71,6 +81,15 @@ def apply_reviewed_research(companies, rules=None):
             if not fact.get('quote') or not fact.get('url', '').startswith('https://'):
                 raise ValueError('已审阅补全缺少来源')
             if field in SCALAR_FIELDS:
+                if fact.get('verificationStatus') == 'provisional':
+                    if not fact.get('reason'):
+                        raise ValueError('暂定资料需要说明判断依据与未决问题')
+                    # 暂定值只补空白，不能覆盖任何既有值。
+                    if target.get(field) and target[field] != value:
+                        continue
+                    if any(e.get('value') == value and e.get('verificationStatus') != 'provisional'
+                           for e in target.get('fieldSources', {}).get(field, [])):
+                        continue
                 if target.get(field) and target[field] != value and fact.get('replace') is not True:
                     # 保留原值时，不把相矛盾的官网事实挂成该值的证据。
                     continue
@@ -83,7 +102,7 @@ def apply_reviewed_research(companies, rules=None):
             evidence = dict(value=value, articleId='research:' + hashlib.sha256(fact['url'].encode()).hexdigest()[:16],
                             url=fact['url'], title=fact['title'], publishedAt='', sourceName='公开资料核验',
                             origin='research', quote=fact['quote'], checkedAt=fact.get('checkedAt') or rules['checkedAt'])
-            for key in ('dateBasis', 'legalEntity', 'asOf', 'countryBasis'):
+            for key in ('dateBasis', 'legalEntity', 'asOf', 'countryBasis', 'verificationStatus', 'reason'):
                 if fact.get(key):
                     evidence[key] = fact[key]
             if fact.get('origin') == 'article':
@@ -92,7 +111,7 @@ def apply_reviewed_research(companies, rules=None):
                 evidence.update(origin='article', articleId=fact['articleId'],
                                 publishedAt=fact.get('publishedAt', ''), sourceName=fact.get('sourceName', '报道内容复核'))
             bucket = target['fieldSources'].setdefault(field, [])
-            if not any(e['articleId'] == evidence['articleId'] and e['value'] == value for e in bucket):
+            if not any(e['articleId'] == evidence['articleId'] and e['value'] == value and e.get('verificationStatus') == evidence.get('verificationStatus') for e in bucket):
                 bucket.append(evidence)
         # Research proves ownership; retain the original report date and link.
         # Do not change integrations belonging to other company records.

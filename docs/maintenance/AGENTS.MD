@@ -1,3 +1,5 @@
+2026-09-15暂定资料更新：用户允许有来源的暂定值。verificationStatus=provisional并附reason，仅补空白、不覆盖既有值；candidateOwners只展示候选线索，不合并公司、不升级产品所有权。新增4项暂定国家值、3项候选归属，剩余7项国家空白；199篇原新闻不变。每日自动网页补全仍未启用，待确认已知官网与新闻链接路线。
+
 # docs/maintenance/AGENTS.MD — AI HOT 项目 Agent 开发守则
 
 2026-09-15：用户授权完成当前全库联网资料复核，本轮73次DeepSeek请求共享台账，失败不自动重试、无Manus调用。该一次性授权不改变每日采集费用边界。`research.propose(full_review=True)`仅供显式全库复核，默认仍最多5次。注册日期证据用dateBasis=registration及legalEntity区分控股法人；countryBasis注明总部/登记/公司地址来源。已审阅fact.replace=true可更新旧值并保留旧证据，未经审阅不直接替换。内部部门source_kind=division合并新闻但不变成产品。

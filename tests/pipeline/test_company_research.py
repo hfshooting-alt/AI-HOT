@@ -12,6 +12,21 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class ResearchTest(unittest.TestCase):
+    def test_provisional_only_fills_blanks_and_does_not_merge_candidates(self):
+        fact={'field':'country','value':'英国','verificationStatus':'provisional','reason':'历史总部口径，现主体待核实','url':'https://example.com','title':'About','quote':'London'}
+        candidate={'name':'Parent','url':'https://example.com','quote':'Parent','reason':'维护方，法人归属未定','checkedAt':'2026-09-15'}
+        rules={'checkedAt':'2026-09-15','records':[{'record_name':'X','reviewed':True,'facts':[fact],'candidateOwners':[candidate]}]}
+        row={'company_name':'X','country':None,'fieldSources':{}}
+        result=apply_reviewed_research([row],rules)
+        self.assertEqual(result[0]['country'],'英国')
+        self.assertEqual(result[0]['company_name'],'X')
+        self.assertEqual(result[0]['candidateOwners'],[candidate])
+        self.assertEqual(apply_reviewed_research(result,rules),result)
+        row['country']='美国';fact['replace']=True
+        self.assertEqual(apply_reviewed_research([row],rules)[0]['country'],'美国')
+        fact['field']='owner_company'
+        with self.assertRaises(ValueError):apply_reviewed_research([row],rules)
+
     def test_reviewed_replacement_keeps_old_evidence_and_registration_scope(self):
         old={'value':'2022','articleId':'news','origin':'article'}
         row={'company_name':'X','founded':'2022','fieldSources':{'founded':[old]}}

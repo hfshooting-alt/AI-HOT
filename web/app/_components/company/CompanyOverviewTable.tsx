@@ -50,7 +50,7 @@ function matches(rec: CompanyProfile, selection: DimSelection, query: string): b
 }
 
 function evidenceFor(rec: CompanyProfile, key: string): CompanyFieldEvidence[] {
-  return rec.fieldSources?.[key] || [];
+  return (rec.fieldSources?.[key] || []).filter(e => e.value === rec[key as keyof CompanyProfile] || key === "product_names");
 }
 
 function EvidenceValue({ value, evidence, className = "" }: {
@@ -59,6 +59,7 @@ function EvidenceValue({ value, evidence, className = "" }: {
   className?: string;
 }) {
   const source = evidence[0];
+  const provisional = evidence.length > 0 && evidence.every(e => e.verificationStatus === "provisional");
   const title = evidence.length
     ? `来源（${evidence.length}）：${evidence.map((e) => e.title).join("；")}`
     : undefined;
@@ -70,7 +71,7 @@ function EvidenceValue({ value, evidence, className = "" }: {
       className={`decoration-brand/35 underline-offset-2 hover:text-brand hover:underline ${className}`}
       title={title}
     >
-      {value}<sup className="ml-1 text-[10px] font-bold text-brand">{evidence.length} 源</sup>
+      {value}{provisional && <span className="ml-1 text-[10px] text-amber-700">待核实</span>}<sup className="ml-1 text-[10px] font-bold text-brand">{evidence.length} 源</sup>
     </a>
   ) : <span className={className} title={title}>{value}</span>;
 }
@@ -247,7 +248,7 @@ export function CompanyOverviewTable({ overview, dimSel, onDimChange, q, onClear
         <summary className="font-bold text-ink">产品归属待核实 · {overview.pendingEntities.length} 项</summary>
         <p className="my-2 text-[12px] text-mut">已保留产品及对应新闻；所属公司尚未确认，不计入公司数量，也不改变新闻分类。</p>
         <table className="w-full text-left text-[13px]"><thead><tr><th>产品</th><th>归属状态</th><th>相关报道</th></tr></thead>
-          <tbody>{overview.pendingEntities.map((product) => <tr key={product.id}><td className="py-2">{product.company_name}</td><td>归属待核实</td><td>{product.sourceArticles.map((source) => <a key={source.id} className="block text-brand underline" href={source.url} target="_blank" rel="noreferrer">{source.title}</a>)}</td></tr>)}</tbody>
+          <tbody>{overview.pendingEntities.map((product) => <tr key={product.id}><td className="py-2">{product.company_name}</td><td>归属待核实{product.candidateOwners?.map(candidate => <div key={candidate.name} className="mt-1 text-[12px] text-amber-700"><a href={candidate.url} target="_blank" rel="noreferrer" className="underline">候选：{candidate.name}</a><p className="max-w-[320px] text-mut">{candidate.reason}</p></div>)}</td><td>{product.sourceArticles.map((source) => <a key={source.id} className="block text-brand underline" href={source.url} target="_blank" rel="noreferrer">{source.title}</a>)}</td></tr>)}</tbody>
         </table>
       </details>}
       <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-15T10:20:19+08:00",
+  "checkedAt": "2026-09-15T10:31:49+08:00",
   "reviewedRecords": 73,
   "modelRequests": 73,
   "reportedTokens": 139835,
@@ -8,7 +8,7 @@
   "pending": 8,
   "newsUnchanged": 199,
   "missingCountryBefore": 34,
-  "missingCountryAfter": 11,
+  "missingCountryAfter": 7,
   "acceptedFacts": 142,
   "reviewedRules": 65,
   "records": [
@@ -321,11 +321,13 @@
       "fields": {
         "country": {
           "label": "国家/地区",
-          "value": null,
-          "status": "未获合格证据",
-          "sources": [],
+          "value": "中国",
+          "status": "暂定 · 待核实",
+          "sources": [
+            "https://www.hengdian.com/zh-cn/news/detail-11195"
+          ],
           "basis": [],
-          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+          "reason": "按投资方披露的上海公司名称暂定中国；尚未独立核对工商登记。"
         },
         "founded": {
           "label": "法人注册日期",
@@ -2329,11 +2331,13 @@
       "fields": {
         "country": {
           "label": "国家/地区",
-          "value": null,
-          "status": "未获合格证据",
-          "sources": [],
+          "value": "英国",
+          "status": "暂定 · 待核实",
+          "sources": [
+            "https://deepmind.google/blog/a-return-to-paris/"
+          ],
           "basis": [],
-          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+          "reason": "按历史DeepMind伦敦总部暂定英国；合并后团队与具体签约法人范围仍待核实。"
         },
         "founded": {
           "label": "法人注册日期",
@@ -2623,11 +2627,13 @@
       "fields": {
         "country": {
           "label": "国家/地区",
-          "value": null,
-          "status": "未获合格证据",
-          "sources": [],
+          "value": "美国",
+          "status": "暂定 · 待核实",
+          "sources": [
+            "https://fireworks.ai/privacy-policy"
+          ],
           "basis": [],
-          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+          "reason": "按官网披露的美国团队运营线索暂定；该线索不能证明总部或法人注册地。"
         },
         "founded": {
           "label": "法人注册日期",
@@ -3632,11 +3638,13 @@
       "fields": {
         "country": {
           "label": "国家/地区",
-          "value": null,
-          "status": "未获合格证据",
-          "sources": [],
+          "value": "中国",
+          "status": "暂定 · 待核实",
+          "sources": [
+            "https://www.runninghub.ai/about"
+          ],
           "basis": [],
-          "reason": "本轮所读资料未直接支持该字段；不以客户所在地、推荐人或个人资料替代"
+          "reason": "按官网披露的安徽法人名称暂定中国；尚未独立核对工商登记。"
         },
         "founded": {
           "label": "法人注册日期",
@@ -4841,7 +4849,7 @@
       "currentName": "JAX3D",
       "id": "company:d469cefe02317c80",
       "pending": true,
-      "note": "Google Research仓库可读，但注明非官方支持产品；维护仓库不足以证明产品法人归属。",
+      "note": "候选：Google Research（仓库维护方）。仓库位于Google Research；明确不是官方Google产品，仅记录维护线索，法人归属待核实。",
       "checkedUrls": [
         "https://github.com/google-research/jax3d"
       ],
@@ -5045,7 +5053,7 @@
       "currentName": "Instinct",
       "id": "company:26e59d6a3c92de80",
       "pending": true,
-      "note": "可找到创作者资料，但未确认法人主体；未把个人名当公司。",
+      "note": "候选：Noah Shinn（创始人，非公司主体）。个人资料提及创始人身份，尚不能据此确认所属法人。",
       "checkedUrls": [
         "https://www.delphi.ai/noah-shinn"
       ],
@@ -5181,7 +5189,7 @@
       "currentName": "Grok Bot",
       "id": "company:6cb784e0f985cba2",
       "pending": true,
-      "note": "官网已找到；页脚为SpaceXAI LLC，尚无充分证据确认与当前xAI记录的法律主体关系，未按版权页脚自动归属。",
+      "note": "候选：SpaceXAI（官网品牌）。官网品牌线索明确，与现有xAI记录的法律主体映射仍待确认。",
       "checkedUrls": [
         "https://x.ai/news/introducing-grok-bot"
       ],
@@ -5244,5 +5252,7 @@
         }
       }
     }
-  ]
+  ],
+  "provisionalFields": 4,
+  "candidateRecords": 3
 }

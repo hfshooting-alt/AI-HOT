@@ -244,10 +244,13 @@ export interface CompanyFieldEvidence {
   legalEntity?: string;
   asOf?: string;
   countryBasis?: string;
+  verificationStatus?: "provisional" | "verified";
+  reason?: string;
 }
 
 /** 全类别新闻共同沉淀的公司/产品档案。 */
 export interface CompanyProfile {
+  candidateOwners?: { name: string; reason: string; quote: string; url: string; checkedAt: string }[];
   entityType?: "company" | "product" | "brand" | "foundation" | "open_source_organization";
   entityTypeEvidence?: { url: string; quote: string; checkedAt: string };
   productUpdates?: { name: string; relationship: "owned" | "integrated" | "used" | "unknown"; quote: string; articleId: string; url: string; title: string; publishedAt: string; ownershipEvidence?: { url: string; title: string; quote: string; checkedAt: string } }[];

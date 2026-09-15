@@ -62,6 +62,10 @@ def validate(data: dict, tx: dict) -> None:
             if field not in ALL_EVIDENCE_FIELDS or not isinstance(evidence, list):
                 raise ValueError(f"{rid} 字段来源结构不合法")
             for item in evidence:
+                if item.get('verificationStatus') not in (None, 'verified', 'provisional'):
+                    raise ValueError(f'{rid} 字段核实状态无效')
+                if item.get('verificationStatus') == 'provisional' and not item.get('reason'):
+                    raise ValueError(f'{rid} 暂定值缺少未决说明')
                 if not item.get("value") or not item.get("articleId") or item.get("origin") not in ("article", "research"):
                     raise ValueError(f"{rid} 字段来源内容不合法")
                 if item.get("origin") == "research" and (not item.get("quote") or not item.get("url", "").startswith("https://") or not item.get("checkedAt")):

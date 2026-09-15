@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-15T10:20:19+08:00",
+  "generatedAt": "2026-09-15T10:31:49+08:00",
   "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
   "stats": {
     "articlesProcessed": 199,
@@ -2170,7 +2170,7 @@
       "aliases": [],
       "product_names": [],
       "founded": null,
-      "country": null,
+      "country": "中国",
       "team": null,
       "business": "研发具身通用模型，结合世界模型与强化学习。",
       "investors": "宁德时代、阿里、腾讯、高瓴、IDG",
@@ -2178,7 +2178,7 @@
       "valuation": "超过20亿美元（本次所查融资公告口径）",
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "中国"
       },
       "fieldSources": {
         "company_name": [
@@ -2231,6 +2231,22 @@
             "quote": "本轮投资方包括宁德时代、阿里、腾讯、高瓴、IDG等一线产业资本及财务投资机构",
             "checkedAt": "2026-09-15"
           }
+        ],
+        "country": [
+          {
+            "value": "中国",
+            "articleId": "research:44d693c94b5535b0",
+            "url": "https://www.hengdian.com/zh-cn/news/detail-11195",
+            "title": "苏度科技 公开资料",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "上海苏度科技有限公司",
+            "checkedAt": "2026-09-15T10:31:49+08:00",
+            "countryBasis": "暂定运营地区；不代表注册国家",
+            "verificationStatus": "provisional",
+            "reason": "按投资方披露的上海公司名称暂定中国；尚未独立核对工商登记。"
+          }
         ]
       },
       "sourceArticles": [
@@ -2248,7 +2264,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-14T00:45:00.000Z",
       "latestReportAt": "2026-09-14T00:45:00.000Z",
-      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
+      "profileUpdatedAt": "2026-09-15T10:31:49+08:00",
       "productUpdates": []
     },
     {
@@ -7955,7 +7971,7 @@
       ],
       "product_names": [],
       "founded": null,
-      "country": null,
+      "country": "英国",
       "team": "Jasjeet Sekhon",
       "business": "AI 研究与技术开发",
       "investors": null,
@@ -7963,7 +7979,7 @@
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "欧洲"
       },
       "fieldSources": {
         "company_name": [
@@ -8010,6 +8026,22 @@
             "quote": "We’re a team of scientists, engineers, ethicists and more, working to build the next generation of AI systems safely and responsibly.",
             "checkedAt": "2026-09-15"
           }
+        ],
+        "country": [
+          {
+            "value": "英国",
+            "articleId": "research:2708e1d580374d09",
+            "url": "https://deepmind.google/blog/a-return-to-paris/",
+            "title": "Google DeepMind 公开资料",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "When we set up our headquarters in London in 2010",
+            "checkedAt": "2026-09-15T10:31:49+08:00",
+            "countryBasis": "暂定运营地区；不代表注册国家",
+            "verificationStatus": "provisional",
+            "reason": "按历史DeepMind伦敦总部暂定英国；合并后团队与具体签约法人范围仍待核实。"
+          }
         ]
       },
       "sourceArticles": [
@@ -8035,7 +8067,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T12:21:32.000Z",
       "latestReportAt": "2026-09-13T12:21:32.000Z",
-      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
+      "profileUpdatedAt": "2026-09-15T10:31:49+08:00",
       "productUpdates": []
     },
     {
@@ -8478,7 +8510,7 @@
       "aliases": [],
       "product_names": [],
       "founded": null,
-      "country": null,
+      "country": "美国",
       "team": null,
       "business": "面向企业开发团队提供AI云平台。",
       "investors": "Lightspeed Venture Partners、Index Ventures、Evantic等（部分核实）",
@@ -8486,7 +8518,7 @@
       "valuation": "40亿美元（2025年Series C）",
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -8561,6 +8593,22 @@
             "quote": "Lightspeed Venture Partners, Index Ventures, and Evantic",
             "checkedAt": "2026-09-15"
           }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:a14bbf1b553a3647",
+            "url": "https://fireworks.ai/privacy-policy",
+            "title": "Fireworks 公开资料",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "We also have support, engineering and other teams who may support the Service, including from the United States.",
+            "checkedAt": "2026-09-15T10:31:49+08:00",
+            "countryBasis": "暂定运营地区；不代表注册国家",
+            "verificationStatus": "provisional",
+            "reason": "按官网披露的美国团队运营线索暂定；该线索不能证明总部或法人注册地。"
+          }
         ]
       },
       "sourceArticles": [
@@ -8578,7 +8626,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T20:16:29+08:00",
       "latestReportAt": "2026-09-13T20:16:29+08:00",
-      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
+      "profileUpdatedAt": "2026-09-15T10:31:49+08:00",
       "productUpdates": []
     },
     {
@@ -10346,7 +10394,7 @@
         "RHSTORY"
       ],
       "founded": null,
-      "country": null,
+      "country": "中国",
       "team": null,
       "business": "专注于开发先进AIGC创作平台，提供在线ComfyUI创作环境和工作流资源",
       "investors": null,
@@ -10354,7 +10402,7 @@
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "中国"
       },
       "fieldSources": {
         "product_names": [
@@ -10402,6 +10450,22 @@
             "quote": "RunningHub产品归属于安徽海马云智能科技发展有限公司",
             "checkedAt": "2026-09-15"
           }
+        ],
+        "country": [
+          {
+            "value": "中国",
+            "articleId": "research:7f77123bae8d2c1c",
+            "url": "https://www.runninghub.ai/about",
+            "title": "安徽海马云智能科技发展有限公司 公开资料",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "RunningHub产品归属于安徽海马云智能科技发展有限公司",
+            "checkedAt": "2026-09-15T10:31:49+08:00",
+            "countryBasis": "暂定运营地区；不代表注册国家",
+            "verificationStatus": "provisional",
+            "reason": "按官网披露的安徽法人名称暂定中国；尚未独立核对工商登记。"
+          }
         ]
       },
       "sourceArticles": [
@@ -10419,7 +10483,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-13T09:08:00.000Z",
       "latestReportAt": "2026-09-13T09:08:00.000Z",
-      "profileUpdatedAt": "2026-09-15T10:20:19+08:00",
+      "profileUpdatedAt": "2026-09-15T10:31:49+08:00",
       "productUpdates": [
         {
           "name": "RHTV",
@@ -12004,8 +12068,17 @@
       "updatedAt": "2026-09-13T19:46:38.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T19:46:38.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": []
+      "profileUpdatedAt": "2026-09-15T10:31:49+08:00",
+      "productUpdates": [],
+      "candidateOwners": [
+        {
+          "name": "Google Research（仓库维护方）",
+          "url": "https://github.com/google-research/jax3d",
+          "quote": "This is not an official Google Product.",
+          "reason": "仓库位于Google Research；明确不是官方Google产品，仅记录维护线索，法人归属待核实。",
+          "checkedAt": "2026-09-15T10:31:49+08:00"
+        }
+      ]
     },
     {
       "id": "company:693b286515bd1dd0",
@@ -12219,7 +12292,7 @@
       "updatedAt": "2026-09-13T18:03:27.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T18:03:27.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
+      "profileUpdatedAt": "2026-09-15T10:31:49+08:00",
       "productUpdates": [
         {
           "name": "Instinct",
@@ -12229,6 +12302,15 @@
           "url": "https://x.com/alexandr_wang/status/2099197278926098490",
           "title": "Muse 被赞体验优于 Instinct",
           "publishedAt": "2026-09-13T18:03:27.000Z"
+        }
+      ],
+      "candidateOwners": [
+        {
+          "name": "Noah Shinn（创始人，非公司主体）",
+          "url": "https://www.delphi.ai/noah-shinn",
+          "quote": "Founder, Instinct",
+          "reason": "个人资料提及创始人身份，尚不能据此确认所属法人。",
+          "checkedAt": "2026-09-15T10:31:49+08:00"
         }
       ]
     },
@@ -12349,8 +12431,17 @@
       "updatedAt": "2026-09-13T06:54:23.000Z",
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-13T06:54:23.000Z",
-      "profileUpdatedAt": "2026-09-14T17:05:26+08:00",
-      "productUpdates": []
+      "profileUpdatedAt": "2026-09-15T10:31:49+08:00",
+      "productUpdates": [],
+      "candidateOwners": [
+        {
+          "name": "SpaceXAI（官网品牌）",
+          "url": "https://x.ai/news/introducing-grok-bot",
+          "quote": "Introducing Grok Bot | SpaceXAI",
+          "reason": "官网品牌线索明确，与现有xAI记录的法律主体映射仍待确认。",
+          "checkedAt": "2026-09-15T10:31:49+08:00"
+        }
+      ]
     }
   ],
   "excludedEntities": [

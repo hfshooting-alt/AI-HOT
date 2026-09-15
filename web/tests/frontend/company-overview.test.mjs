@@ -17,6 +17,18 @@ const record = { id: 'company:sample', company_name: 'Example', aliases: [], pro
   dims: { '行业': 'AI模型', '国家/地区': '其他' }, fieldSources: {},
   sourceArticles: [], firstSeenAt: '2026-09-10', lastSeenAt: '2026-09-10' };
 
+test('provisional values and candidate owners remain visibly unverified', () => {
+  const country = {...record, fieldSources: {country: [{value: '印度', url: 'https://example.com/source', verificationStatus: 'provisional'}]}};
+  const pending = {...record, company_name: 'PendingTool', candidateOwners: [{name: 'Candidate Org', reason: '法律主体未定', url: 'https://example.com/candidate'}]};
+  const html = renderToStaticMarkup(React.createElement(CompanyOverviewTable, {
+    overview: {companies: [country], pendingEntities: [pending], stats: {companiesTotal: 1}},
+    dimSel: {}, q: '', onDimChange() {},
+  }));
+  assert.match(html, /印度<span[^>]*>待核实/);
+  assert.match(html, /候选：Candidate Org/);
+  assert.match(html, /法律主体未定/);
+});
+
 test('foundation type is visible and products use stewardship wording', () => {
   const foundation = { ...record, company_name: 'Tool Foundation', entityType: 'foundation',
     productUpdates: [{ name: 'Product', relationship: 'owned', articleId: 'a' }] };
