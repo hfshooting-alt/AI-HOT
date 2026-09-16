@@ -50,12 +50,17 @@ def checkpoint_articles(response):
         for line in text.splitlines():
             if not line.startswith('AIHOT_ARTICLE '):
                 continue
-            try:
-                value = json.loads(line[len('AIHOT_ARTICLE '):])
+            # 平台可能合并相邻进度行；逐个解码完整 JSON，不把尾部说明当文章。
+            remaining = line
+            while remaining.startswith('AIHOT_ARTICLE '):
+                remaining = remaining[len('AIHOT_ARTICLE '):].lstrip()
+                try:
+                    value, end = json.JSONDecoder().raw_decode(remaining)
+                except ValueError:
+                    break
                 if isinstance(value, dict):
                     yield value
-            except ValueError:
-                continue
+                remaining = remaining[end:].lstrip()
 
 
 def partial_payload(group, date, accounts, window, articles, reason):

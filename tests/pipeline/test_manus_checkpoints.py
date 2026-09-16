@@ -20,6 +20,16 @@ ARTICLE = {'account_name': 'Test', 'source_platform': 'Website', 'source_home_ur
 
 
 class CheckpointTest(unittest.TestCase):
+    def test_joined_progress_records_with_trailing_prose_are_recovered(self):
+        second = {**ARTICLE, 'article_url': 'https://example.com/second'}
+        text = 'AIHOT_ARTICLE ' + json.dumps(ARTICLE) + 'AIHOT_ARTICLE ' + json.dumps(second) + '已核实两篇'
+        response = {'messages':[{'type':'assistant_message','assistant_message':{'content':text}}]}
+        recovered = list(checkpoint_articles(response))
+        self.assertEqual(recovered, [ARTICLE, second])
+        self.assertTrue(all(accept_article(a,'group_a','2026-09-14',['Test'],WINDOW,[SOURCE]) for a in recovered))
+        response['messages'][0]['assistant_message']['content'] = '只是说明 ' + text
+        self.assertEqual(list(checkpoint_articles(response)), [])
+
     def test_yesterday_is_date_only_and_survives_snapshot(self):
         from manus_source.window import matching_item
         from build_snapshot import build_item
