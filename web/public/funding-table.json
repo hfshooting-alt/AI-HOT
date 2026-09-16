@@ -1,16 +1,168 @@
 {
  "schemaVersion": 1,
- "generatedAt": "2026-09-15T14:56:06+08:00",
+ "generatedAt": "2026-09-16T15:16:38+08:00",
  "coverageNote": "覆盖快照日报+周报池与最新 Manus feed 中的融资类新闻（约最近一周）",
  "searchNote": "未配置 TAVILY_API_KEY，缺失字段未补全",
  "stats": {
-  "articlesProcessed": 7,
+  "articlesProcessed": 13,
   "extractionFailed": 0,
   "articlesWithoutFundingInfo": 1,
-  "companiesTotal": 6,
+  "companiesTotal": 11,
   "companiesSearched": 0
  },
  "companies": [
+  {
+   "id": "fund:f2e8790b6ac0a0ef",
+   "company_name": "TypeSafe AI",
+   "product_name": "Jev",
+   "founded": null,
+   "country": null,
+   "industry": null,
+   "team": "ChatGPT与RLHF共同发明人之一Diogo Almeida",
+   "business": "前沿基座模型",
+   "investors": null,
+   "total_funding": "4000万美元",
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "aihot:cmu3fnsdh06mhrotbth8lcuoo",
+     "title": "ChatGPT 共同发明人发布 Jev 基座模型",
+     "url": "https://x.com/AYi_AInotes/status/2100031941189783886",
+     "publishedAt": "2026-09-16T01:20:06.000Z",
+     "mpName": "X：阿易 AI Notes (@AYi_AInotes)"
+    }
+   ]
+  },
+  {
+   "id": "fund:3fac461f3cbef2e8",
+   "company_name": "Poolday",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI创作工具/生产力",
+   "team": null,
+   "business": "使用 AI 智能体自动化视频制作全流程，用户通过一次提示词即可剪辑真实素材，系统按任务自动选择生成模型，并在交付前自查成片",
+   "investors": null,
+   "total_funding": "1100 万美元",
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "初创公司",
+    "国家/地区": "其他"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "aihot:cmu2xjf3x02n3roc1yqq51scd",
+     "title": "Poolday 用 AI 智能体自动化视频制作全流程",
+     "url": "https://x.com/omarsar0/status/2099908124551585996",
+     "publishedAt": "2026-09-15T17:08:05.000Z",
+     "mpName": "X：Elvis Saravia (@omarsar0, DAIR.AI)"
+    },
+    {
+     "id": "aihot:cmu2xjf4h02n7roc1vxuxefpt",
+     "title": "Poolday 获 1100 万美元融资，AI 智能体全流程做视频",
+     "url": "https://x.com/rohanpaul_ai/status/2099902236839334166",
+     "publishedAt": "2026-09-15T16:44:42.000Z",
+     "mpName": "X：Rohan Paul (@rohanpaul_ai)"
+    }
+   ]
+  },
+  {
+   "id": "fund:6681a88e6288b92e",
+   "company_name": "Profound",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": null,
+   "team": null,
+   "business": "营销软件公司",
+   "investors": "Sequoia、Kleiner Perkins、Lightspeed Venture Partners、Khosla Ventures",
+   "total_funding": null,
+   "valuation": "18 亿美元",
+   "dims": {
+    "所属行业": "其他",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "aihot:cmu2ujdr602ifrowk1x2zd23b",
+     "title": "AEO 创业公司 Profound 融资 1.8 亿美元，估值达 18 亿美元",
+     "url": "https://techcrunch.com/2026/09/15/aeo-startup-profound-hits-unicorn-valuation-raises-180m-series-d-7-months-after-last-round",
+     "publishedAt": "2026-09-15T15:22:48.000Z",
+     "mpName": "TechCrunch：AI（RSS）"
+    }
+   ]
+  },
+  {
+   "id": "fund:2d1c78a165d1f3a5",
+   "company_name": "Flam",
+   "product_name": "Flicks",
+   "founded": null,
+   "country": null,
+   "industry": "AI互动内容/娱乐",
+   "team": null,
+   "business": "推出可交互视频格式 Flicks，能把多个变化版本打包进一个小文件，观众在播放中点击即可改变屏幕内容",
+   "investors": "QED Investors",
+   "total_funding": "4000万美元",
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI互动内容/娱乐",
+    "公司类型": "初创公司",
+    "国家/地区": "其他"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "aihot:cmu2ubpio02bdrowk226hbidp",
+     "title": "Flam 获 4000 万美元 B 轮，推可交互视频格式 Flicks",
+     "url": "https://x.com/kimmonismus/status/2099880639420092505",
+     "publishedAt": "2026-09-15T15:18:52.000Z",
+     "mpName": "X：Kim (@kimmonismus)"
+    }
+   ]
+  },
+  {
+   "id": "fund:cc307060edcc9ef4",
+   "company_name": "AIUC",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": null,
+   "team": "前Anthropic员工Rune Kvist与METR前首席运营官Rajiv Dattani共同创办",
+   "business": "为AI智能体提供第三方安全审计服务",
+   "investors": "Ribbit Capital",
+   "total_funding": "5500万美元",
+   "valuation": null,
+   "dims": {
+    "所属行业": "其他",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "aihot:cmu2p6dp00eoxrovqu47umis0",
+     "title": "前 Anthropic 员工与 METR 前 COO 创办 AIUC，为 AI 智能体做第三方安全审计，融资 4000 万美元",
+     "url": "https://techcrunch.com/2026/09/15/early-anthropic-hire-former-metr-coo-have-found-a-way-to-rein-in-rogue-ai-agents",
+     "publishedAt": "2026-09-15T13:00:00.000Z",
+     "mpName": "TechCrunch：AI（RSS）"
+    }
+   ]
+  },
   {
    "id": "fund:2c6ee24b09816a6f",
    "company_name": "OpenAI",
