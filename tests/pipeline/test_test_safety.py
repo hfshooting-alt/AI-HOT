@@ -17,6 +17,8 @@ from testing.offline import OfflineViolation, isolated
 from testing.manus_probe import ProbeError, auth, smoke, MAX_POLLS, balance
 from testing.llm_probe import LLMProbeError, smoke as llm_smoke
 from testing.llm_business_probe import smoke as llm_business_smoke
+import llm_common
+from manus_source import config as manus_config
 
 
 class TestCostSafety(unittest.TestCase):
@@ -53,6 +55,22 @@ class TestCostSafety(unittest.TestCase):
                 with self.assertRaises(OfflineViolation):
                     action()
             self.assertEqual(len(violations), 2)
+
+    def test_offline_ignores_developer_model_and_dotenv_but_allows_fixtures(self):
+        with patch.dict(os.environ, {'LLM_MODEL': 'developer-model'}):
+            with isolated():
+                # 自动加载和显式加载均不能读入仓库真实 .env。
+                for module in (llm_common, manus_config):
+                    module.load_dotenv(ROOT / '.env')
+                self.assertEqual(llm_common.resolve_model({'model': {'model': 'fixture-model'}}), 'fixture-model')
+                with self.assertRaises(KeyError):
+                    llm_common.resolve_model({})
+                fixture = self.root / '.env'
+                fixture.write_text('LLM_MODEL=fixture-override\n', encoding='utf8')
+                os.environ.pop('LLM_MODEL', None)
+                llm_common.load_dotenv(fixture)
+                self.assertEqual(llm_common.resolve_model({}), 'fixture-override')
+            self.assertEqual(os.environ['LLM_MODEL'], 'developer-model')
 
     def test_auth_is_single_read_and_cache_is_key_specific(self):
         first = auth(self.root, "fake-key", send=self.send, now=100)
