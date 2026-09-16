@@ -116,7 +116,7 @@ python scripts/run_pipeline.py run --date 2026-09-07 --resume
 
 ## 5. GitHub Actions
 
-`.github/workflows/fetch-manus.yml` 每天北京时间 09:30（UTC 01:30）开始全流程，测试通过后调用统一入口，成功后将整套正式数据提交到仓库；并非09:30整完成更新。GitHub schedule 可能延迟，不能保证准点。手动输入为 `date`（窗口结束日）、`stage`、`promote`、`dry_run`、`skip_search`；可选阶段为 all/snapshot/overview/funding。独立 content/feed 所需原始正文未存入 Git，所以这两个阶段仅在保留原始文件的本地运行。
+`.github/workflows/fetch-manus.yml` 目标每天北京时间 09:30 开始全流程（cron 30 9 * * *，timezone: Asia/Shanghai，等价于原 UTC 01:30），测试通过后调用统一入口，成功后将整套正式数据提交到仓库；并非09:30整完成更新。GitHub schedule 可能延迟，不能保证准点。手动输入为 `date`（窗口结束日）、`stage`、`promote`、`dry_run`、`skip_search`；可选阶段为 all/snapshot/overview/funding。独立 content/feed 所需原始正文未存入 Git，所以这两个阶段仅在保留原始文件的本地运行。
 
 默认 `full` 模式需要 GitHub Secrets `MANUS_API_KEY`、`DEEPSEEK_API_KEY`；可选 `TAVILY_API_KEY`，模型接口和模型名可用 Variables `LLM_API_BASE`、`LLM_MODEL`。手动任务可选 `source_mode=aihot-only`，仅关闭 Manus，仍读取模型及可选搜索密钥，运行完整下游。定时任务仍默认执行 `full`。如果修改 taxonomy 中 `api_key_env`，同步工作流的密钥注入。
 
@@ -153,3 +153,5 @@ python scripts/run_pipeline.py publish-candidate --candidate work/reviewed-candi
 
 
 用户于2026-09-14确认：最多并发3个来源，普通单来源费用止损不再取消其他排队来源，全部来源依次获得启动机会。每来源20 credits观察止损和已核实文章checkpoint／停止后只读回收保持。已实际尝试的同窗口失败结果不自动付费重试；明确标记task not created的旧熔断占位不算一次尝试，允许首次启动。余额不足、无法确认远端任务停止等系统性异常仍保留保护，不能保证异常或作业超时情况下全部完成。
+
+2026-09-16 调度核查：连续7次 schedule 在下午才创建，随后2–3秒进入Job。平台触发前延迟并非采集耗时，尚未解决准点性。现添加显式时区与只读时间诊断；超过15分钟在运行摘要警示，主流程不阻断。证据见[审计报告](../history/2026-09-16-SCHEDULE_AUDIT.md)。
