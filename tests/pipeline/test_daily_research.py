@@ -16,6 +16,29 @@ def sample(name='X'):
 class DailyResearchTest(unittest.TestCase):
     TX = {"model": {"model": "offline-research-model"}}
 
+    def test_new_source_page_is_read_before_echoed_news_links(self):
+        row = sample()
+        row['sourceArticles'] = [{'url':'https://news.example/a'}, {'url':'https://news.example/b'}]
+        discovery = Mock(return_value={'status':'completed','urls':[
+            'https://news.example/a','https://news.example/b','https://company.example/about']})
+        reader = Mock(side_effect=lambda url: {'url':url,'title':'Page','text':'Evidence'})
+        with tempfile.TemporaryDirectory() as d:
+            result = enrich({'companies':[row]},self.TX,d,rules={},read_fn=reader,
+                            propose_fn=Mock(return_value={'facts':[]}),discovery_fn=discovery)
+        self.assertEqual(reader.call_args_list[0].args[0], 'https://company.example/about')
+        self.assertEqual(reader.call_count, 2)
+        self.assertEqual(result['knownLinkResearch']['attempted'], 1)
+
+    def test_research_order_compares_instants_not_offset_text(self):
+        older,newer=sample('older'),sample('newer')
+        older['lastSeenAt']='2026-09-16T09:00:00+08:00'
+        newer['lastSeenAt']='2026-09-16T02:00:00Z'
+        with tempfile.TemporaryDirectory() as d:
+            result=enrich({'companies':[older,newer]},self.TX,d,rules={},max_requests=1,
+                read_fn=lambda u:{'url':u,'title':'Page','text':'Evidence'},
+                propose_fn=Mock(return_value={'facts':[]}))
+        self.assertEqual(result['knownLinkResearch']['records'][0]['name'],'newer')
+
     def test_financial_intentions_and_unsupported_team_details_are_rejected(self):
         self.assertIsNone(eligible_fact({'field':'total_funding','value':'拟募集15亿元人民币','quote':'首轮融资拟募集15亿元'},sample()))
         self.assertIsNone(eligible_fact({'field':'valuation','value':'独角兽','quote':'已跻身独角兽'},sample()))

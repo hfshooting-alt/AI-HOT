@@ -67,7 +67,8 @@ def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
     # Report time controls ranking; material profile changes control update time.
     # Legacy updatedAt was a report timestamp, so never migrate it as a verified
     # profile update date. Compare after all identity/review rules have run.
-    old_records = {r['id']: r for r in previous.get('companies', [])}
+    old_records = {r['id']: r for bucket in ('companies', 'pendingEntities', 'excludedEntities')
+                   for r in previous.get(bucket, [])}
     for bucket in ('companies', 'pendingEntities', 'excludedEntities'):
         for rec in data.get(bucket, []):
             old = old_records.get(rec['id'])

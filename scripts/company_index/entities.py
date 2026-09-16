@@ -2,7 +2,8 @@
 import copy
 import hashlib
 import re
-from datetime import datetime, timezone
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from funding.companies import normalize_company_key, _country_to_region_label
 from .config import ALL_EVIDENCE_FIELDS, SCALAR_FIELDS
@@ -15,7 +16,7 @@ def entity_id(key: str) -> str:
 def timestamp(value):
     try:
         dt = datetime.fromisoformat((value or '').replace('Z', '+00:00'))
-        return (dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)).timestamp()
+        return (dt if dt.tzinfo else dt.replace(tzinfo=ZoneInfo('Asia/Shanghai'))).timestamp()
     except (ValueError, TypeError):
         return float('-inf')
 

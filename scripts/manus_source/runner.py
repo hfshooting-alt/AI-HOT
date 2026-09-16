@@ -81,11 +81,16 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
     from manus_source.checkpoints import accept_article, partial_payload, normalize_article_time
     verified = {}
     def checkpoint(article):
+        if not isinstance(article, dict) or not isinstance(article.get('article_url'), str):
+            return
         previous = verified.get(article.get('article_url'))
         if previous and previous.get('published_time_text') == article.get('published_time_text'):
             article = {**article, **{k: previous[k] for k in ('published_at', 'published_date', 'publishedPrecision', 'timeEvidence') if k in previous}}
         else:
-            article = normalize_article_time(article)
+            try:
+                article = normalize_article_time(article)
+            except (ValueError, TypeError, AttributeError):
+                return  # 单条模型字段类型错误不能中断其余进度回收。
         if accept_article(article, group, target_date, expected_accounts, window, source_specs):
             verified[article['article_url']] = article
             if checkpoint_path:
@@ -123,45 +128,57 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
     # schema_version 是本地契约版本号，Manus 平台只是通用执行器、不理解其语义
     # （见 docs/2026-08-20-manus-pipeline-smoke-issues.md 问题 1）：不依赖 Manus
     # 回显，落盘校验前本地权威补充；校验端保持强制不变。
-    payload["schema_version"] = contracts.DISCOVERY_SCHEMA_VERSION
-    if window:
-        payload["schema_version"] = contracts.WINDOW_DISCOVERY_SCHEMA_VERSION
-        payload["collectionWindow"] = window
-        rejected = {}
+    try:
+        payload["schema_version"] = contracts.DISCOVERY_SCHEMA_VERSION
+        if window:
+            payload["schema_version"] = contracts.WINDOW_DISCOVERY_SCHEMA_VERSION
+            payload["collectionWindow"] = window
+            rejected = {}
+            for article in payload['articles']:
+                checkpoint(article)
+                if not isinstance(article, dict):
+                    rejected['__invalid__'] = rejected.get('__invalid__', 0) + 1
+                    continue
+                url = article.get('article_url')
+                if article.get('extraction_status') == 'complete' and (not isinstance(url, str) or url not in verified):
+                    name = article.get('account_name')
+                    name = name if isinstance(name, str) and name in expected_accounts else '__invalid__'
+                    rejected[name] = rejected.get(name, 0) + 1
+            payload['articles'] = list(verified.values())
+            for audit in payload['source_audits']:
+                name = audit['account_name']
+                audit['article_count'] = sum(a['account_name'] == name for a in payload['articles'])
+                if rejected.get(name) or rejected.get('__invalid__'):
+                    audit['source_status'] = 'partial' if audit['article_count'] else 'failed'
+                    audit['note'] = f"article_quarantined: {rejected.get(name, 0) + rejected.get('__invalid__', 0)} articles failed identity/time validation; " + (audit.get('note') or '')
+        try:
+            if source_specs is not None and any(a.get('extraction_status') == 'complete'
+                    and not accept_article(a, group, target_date, expected_accounts, window, source_specs)
+                    for a in payload['articles']):
+                raise contracts.ContractError('Returned article source identity or timestamp is invalid')
+            contracts.validate_discovery(payload, group, target_date, expected_accounts)
+        except contracts.ContractError:
+            if verified:
+                return partial_payload(group, target_date, expected_accounts, window,
+                                       list(verified.values()), 'final_result_invalid: coverage unverified')
+            raise
         for article in payload['articles']:
             checkpoint(article)
-            if article.get('extraction_status') == 'complete' and article.get('article_url') not in verified:
-                name = article.get('account_name')
-                rejected[name] = rejected.get(name, 0) + 1
-        payload['articles'] = list(verified.values())
-        for audit in payload['source_audits']:
-            name = audit['account_name']
-            audit['article_count'] = sum(a['account_name'] == name for a in payload['articles'])
-            if rejected.get(name):
-                audit['source_status'] = 'partial' if audit['article_count'] else 'failed'
-                audit['note'] = f"article_quarantined: {rejected[name]} articles failed identity/time validation; " + (audit.get('note') or '')
-    try:
-        if source_specs is not None and any(a.get('extraction_status') == 'complete'
-                and not accept_article(a, group, target_date, expected_accounts, window, source_specs)
-                for a in payload['articles']):
-            raise contracts.ContractError('Returned article source identity or timestamp is invalid')
-        contracts.validate_discovery(payload, group, target_date, expected_accounts)
-    except contracts.ContractError:
+        if verified:
+            payload['articles'] = list(verified.values())
+            for audit in payload['source_audits']:
+                count = sum(a['account_name'] == audit['account_name'] for a in verified.values())
+                audit['article_count'] = count
+                if count and audit['source_status'] == 'failed':
+                    audit['source_status'] = 'partial'
+            contracts.validate_discovery(payload, group, target_date, expected_accounts)
+        return payload
+    except (ValueError, TypeError, KeyError, AttributeError):
         if verified:
             return partial_payload(group, target_date, expected_accounts, window,
                                    list(verified.values()), 'final_result_invalid: coverage unverified')
         raise
-    for article in payload['articles']:
-        checkpoint(article)
-    if verified:
-        payload['articles'] = list(verified.values())
-        for audit in payload['source_audits']:
-            count = sum(a['account_name'] == audit['account_name'] for a in verified.values())
-            audit['article_count'] = count
-            if count and audit['source_status'] == 'failed':
-                audit['source_status'] = 'partial'
-        contracts.validate_discovery(payload, group, target_date, expected_accounts)
-    return payload
+
 
 
 def select_account(groups_cfg: dict, account_name: str) -> tuple[str, dict]:

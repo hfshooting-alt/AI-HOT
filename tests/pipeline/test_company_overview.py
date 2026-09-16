@@ -43,6 +43,10 @@ def item(article_id, title, url, category, summary, dims=None):
 
 
 class CompanyOverviewTest(unittest.TestCase):
+    def test_legacy_company_time_is_beijing_and_explicit_offset_is_preserved(self):
+        from company_index.entities import timestamp
+        self.assertEqual(timestamp('2026-09-16T09:30:00'), timestamp('2026-09-16T01:30:00Z'))
+        self.assertLess(timestamp('2026-09-16T09:00:00+08:00'), timestamp('2026-09-16T02:00:00Z'))
     def test_product_relationships_update_order_without_claiming_ownership(self):
         from company_index.products import merge_updates
         row = {"product_names": [], "fieldSources": {}}
@@ -252,6 +256,19 @@ class CompanyOverviewTest(unittest.TestCase):
         old, new = initial['companies'][0], repeated['companies'][0]
         self.assertEqual(new['latestReportAt'], '2026-09-08T12:00:00+08:00')
         self.assertEqual(new['profileUpdatedAt'], old['profileUpdatedAt'])
+
+    def test_pending_product_date_does_not_advance_on_cached_replay(self):
+        initial, _ = self.build([
+            json.dumps({'companies': [{'company_name': '独立小工具', 'entity_type': 'product',
+                                       'industry_id': 'ai_social'}]}),
+            json.dumps({'companies': []}),
+        ])
+        self.assertEqual(len(initial['pendingEntities']), 1)
+        self.previous.write_text(json.dumps(initial), encoding='utf8')
+        repeated = overview.build(self.snapshot, self.feed, self.root/'work', self.previous,
+            self.cache, TX, llm_fn=MockLLM([]), generated_at='2026-09-16T12:00:00+08:00')
+        self.assertEqual(repeated['pendingEntities'][0]['profileUpdatedAt'],
+                         initial['pendingEntities'][0]['profileUpdatedAt'])
 
     def test_company_extraction_uses_collected_evidence(self):
         evidence_path = self.root / 'evidence.json'

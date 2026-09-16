@@ -47,6 +47,17 @@ def checkpoint_articles(response):
         if event.get('type') != 'assistant_message':
             continue
         text = event.get('assistant_message', {}).get('content', '')
+        if not isinstance(text, str):
+            continue
+        if event.get('assistant_message', {}).get('delivery_kind') == 'result':
+            # 普通最终消息不冒充 structured output，仅提取待逐条校验的候选。
+            try:
+                result = json.loads(text)
+                articles = result.get('articles') if isinstance(result, dict) else None
+                if isinstance(articles, list):
+                    yield from (a for a in articles if isinstance(a, dict))
+            except ValueError:
+                pass
         for line in text.splitlines():
             if not line.startswith('AIHOT_ARTICLE '):
                 continue
@@ -80,7 +91,7 @@ def partial_payload(group, date, accounts, window, articles, reason):
 def accept_article(article, group, date, accounts, window, source_specs=None):
     required = ('account_name', 'source_platform', 'source_home_url', 'article_url',
                 'title', 'published_date', 'extraction_status')
-    if any(not article.get(k) for k in required) or article['extraction_status'] != 'complete':
+    if any(not isinstance(article.get(k), str) or not article[k] for k in required) or article['extraction_status'] != 'complete':
         return False
     if not str(article['article_url']).startswith(('https://', 'http://')):
         return False

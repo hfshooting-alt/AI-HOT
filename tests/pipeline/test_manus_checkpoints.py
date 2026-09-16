@@ -4,7 +4,7 @@ import os
 import sys
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
 from manus_source.checkpoints import accept_article, checkpoint_articles, partial_payload, normalize_article_time
@@ -20,6 +20,32 @@ ARTICLE = {'account_name': 'Test', 'source_platform': 'Website', 'source_home_ur
 
 
 class CheckpointTest(unittest.TestCase):
+    def test_malformed_final_envelope_keeps_prior_checkpoint(self):
+        client = ManusClient('test', 'manus-1.6', 0, 1)
+        def finish(task_id, **kwargs):
+            kwargs['on_checkpoint'](ARTICLE)
+            return {'articles': None}
+        with patch.object(client,'create_crawl_task',return_value=CreatedTask('t','https://example.com/t')), \
+             patch.object(client,'wait_for_structured_result',side_effect=finish):
+            result=run_discovery(client,'group_a','2026-09-14','prompt',['Test'],WINDOW,20,[SOURCE])
+        self.assertEqual(result['articles'],[ARTICLE])
+        self.assertEqual(result['source_audits'][0]['source_status'],'partial')
+
+    def test_bad_final_article_between_good_ones_does_not_drop_either(self):
+        second={**ARTICLE,'article_url':'https://example.com/second'}
+        value={'source_group':'group_a','target_date':'2026-09-14','articles':[ARTICLE,None,second],
+               'source_audits':[{'account_name':'Test','source_status':'complete','article_count':3,'note':None}]}
+        client=Mock()
+        client.create_crawl_task.return_value=CreatedTask('t','https://example.com/t')
+        client.wait_for_structured_result.return_value=value
+        result=run_discovery(client,'group_a','2026-09-14','prompt',['Test'],WINDOW,20,[SOURCE])
+        self.assertEqual(result['articles'],[ARTICLE,second])
+        self.assertEqual(result['source_audits'][0]['source_status'],'partial')
+    def test_final_text_result_can_be_recovered_as_unverified_candidates(self):
+        response={'messages':[{'type':'assistant_message','assistant_message':{
+            'delivery_kind':'result','content':json.dumps({'articles':[ARTICLE, None]})}}]}
+        self.assertEqual(list(checkpoint_articles(response)), [ARTICLE])
+        self.assertFalse(accept_article({**ARTICLE,'title':42},'group_a','2026-09-14',['Test'],WINDOW,[SOURCE]))
     def test_joined_progress_records_with_trailing_prose_are_recovered(self):
         second = {**ARTICLE, 'article_url': 'https://example.com/second'}
         text = 'AIHOT_ARTICLE ' + json.dumps(ARTICLE) + 'AIHOT_ARTICLE ' + json.dumps(second) + '已核实两篇'
@@ -100,6 +126,9 @@ class CheckpointTest(unittest.TestCase):
     def test_budget_stop_preserves_verified_articles_and_cost_failure(self):
         client = ManusClient('test', 'manus-1.6', 0, 1)
         def wait(task_id, observed_credit_limit=None, on_checkpoint=None):
+            on_checkpoint({**ARTICLE, 'article_url': []})
+            on_checkpoint({**ARTICLE, 'published_time_text': 42})
+            on_checkpoint({**ARTICLE, 'title': 42})
             on_checkpoint(ARTICLE)
             on_checkpoint(ARTICLE)  # Repeated polling must not duplicate articles.
             raise ManusAPIError('Observed credit threshold reached: 20 >= 20')

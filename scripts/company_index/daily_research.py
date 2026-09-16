@@ -9,6 +9,7 @@ from .config import SCALAR_FIELDS, now_bj_iso
 from .identity import apply_reviewed_research, RULES_PATH
 from .research import propose
 from .page_evidence import read_page, eligible_fact
+from .entities import timestamp
 
 
 def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn=propose, rules=None, discovery_fn=None):
@@ -35,7 +36,7 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
         if discovered.get('last', {}).get('status') == 'stop_unconfirmed':
             candidates = []
         if candidates:
-            selected = sorted(candidates, key=lambda r:r.get('lastSeenAt',''), reverse=True)[0]
+            selected = sorted(candidates, key=lambda r:timestamp(r.get('lastSeenAt')), reverse=True)[0]
             try:
                 found = discovery_fn(selected)
             except Exception as error:
@@ -50,15 +51,19 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
               'filled': 0, 'failed': 0, 'skippedUnchanged': 0, 'deferred': 0, 'records': []}
     pool = [r for r in entities if any(not r.get(f) for f in SCALAR_FIELDS)]
     # 当天有新闻的主体优先；同日保留原新闻排序。
-    pool.sort(key=lambda r: r.get('lastSeenAt', ''), reverse=True)
+    pool.sort(key=lambda r: timestamp(r.get('lastSeenAt')), reverse=True)
     if selected is not None:
         pool.sort(key=lambda r:r['id'] != selected['id'])
     pages = {}
     fetched_entities = 0
     for row in pool:
         missing = ['owner_company'] if row['id'] in pending_ids else [f for f in SCALAR_FIELDS if not row.get(f)]
-        urls = list(dict.fromkeys([*known.get(row['company_name'], []),
-            *(a['url'] for a in row.get('sourceArticles', []) if a.get('url', '').startswith('https://'))]))[:2]
+        news_urls = [a['url'] for a in row.get('sourceArticles', []) if a.get('url', '').startswith('https://')]
+        urls = list(dict.fromkeys([*known.get(row['company_name'], []), *news_urls]))
+        # 搜索常回显作为上下文的新闻；先读取新资料页，避免官网被两页上限挤掉。
+        news_keys = {u.rstrip('/') for u in news_urls}
+        urls.sort(key=lambda u: u.rstrip('/') in news_keys)
+        urls = urls[:2]
         key = hashlib.sha256(json.dumps([1, resolve_model(tx), row['id'], urls,
             row.get('lastSeenAt')], ensure_ascii=False).encode()).hexdigest()
         if key in state:
