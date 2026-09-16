@@ -12,6 +12,7 @@ import base64
 import json
 import random
 import time
+import threading
 from dataclasses import dataclass
 from typing import Any, Callable
 from urllib.error import HTTPError, URLError
@@ -77,6 +78,24 @@ class ManusAPIError(RuntimeError):
     pass
 
 
+def validate_output_schema(schema: dict, path: str = '$') -> None:
+    """提交前检查 Manus 的对象字段约束，避免将格式错误发到付费接口。"""
+    if not isinstance(schema, dict):
+        return
+    if 'properties' in schema:
+        if set(schema['properties']) != set(schema.get('required', [])):
+            raise ValueError(f'{path}: all output properties must be required')
+        if schema.get('additionalProperties') is not False:
+            raise ValueError(f'{path}: additionalProperties must be false')
+        for name, child in schema['properties'].items():
+            validate_output_schema(child, f'{path}.{name}')
+    if isinstance(schema.get('items'), dict):
+        validate_output_schema(schema['items'], f'{path}[]')
+    for keyword in ('anyOf', 'oneOf', 'allOf'):
+        for child in schema.get(keyword, []):
+            validate_output_schema(child, path)
+
+
 @dataclass(frozen=True)
 class CreatedTask:
     task_id: str
@@ -117,6 +136,7 @@ class ManusClient:
         retry_jitter_seconds: float = 1.0,
         min_request_interval_seconds: float = 0.0,
         page_limit: int = 200,
+        create_interval_seconds: float = 0.0,
     ) -> None:
         self.api_key = api_key
         self.agent_profile = agent_profile
@@ -130,10 +150,29 @@ class ManusClient:
         self.min_request_interval_seconds = min_request_interval_seconds
         self.page_limit = page_limit
         self._last_request_at = 0.0
+        self.create_interval_seconds = create_interval_seconds
+        self._create_lock = threading.Lock()
+        self._next_create_at = 0.0
 
     # ================= 基础请求 =================
 
     def _request(self, method: str, path: str, payload: dict[str, Any] | None = None) -> dict[str, Any]:
+        if method == 'POST' and path == 'task.create' and self.create_interval_seconds > 0:
+            # 三个采集线程共用客户端；创建节奏与任务执行并发分别控制。
+            with self._create_lock:
+                wait = self._next_create_at - time.monotonic()
+                if wait > 0:
+                    time.sleep(wait)
+                self._next_create_at = time.monotonic() + self.create_interval_seconds
+                try:
+                    return self._send_request(method, path, payload)
+                except ManusAPIError as error:
+                    if any(code in str(error) for code in ('HTTP 429', 'rate_limited', 'resource_exhausted')):
+                        self._next_create_at = max(self._next_create_at, time.monotonic() + 60)
+                    raise
+        return self._send_request(method, path, payload)
+
+    def _send_request(self, method: str, path: str, payload: dict[str, Any] | None = None) -> dict[str, Any]:
         if self.min_request_interval_seconds > 0:
             wait = self._last_request_at + self.min_request_interval_seconds - time.monotonic()
             if wait > 0:
@@ -193,6 +232,8 @@ class ManusClient:
     def create_crawl_task(self, prompt_text: str, source_group: str, target_date: str,
                           title: str, task_brief: str,
                           output_schema: dict | None = None) -> CreatedTask:
+        schema = output_schema or DISCOVERY_OUTPUT_SCHEMA
+        validate_output_schema(schema)
         payload = {
             "message": {"content": self.build_task_content(prompt_text, source_group,
                                                            target_date, task_brief)},
@@ -200,7 +241,7 @@ class ManusClient:
             "hide_in_task_list": True,
             "title": title,
             "agent_profile": self.agent_profile,
-            "structured_output_schema": output_schema or DISCOVERY_OUTPUT_SCHEMA,
+            "structured_output_schema": schema,
         }
         last_error: ManusAPIError | None = None
         for attempt in range(self.create_retries + 1):

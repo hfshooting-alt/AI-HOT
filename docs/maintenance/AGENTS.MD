@@ -14,6 +14,8 @@ Manus只依据文章原始发布／发送时间收录，新增点赞、评论、
 
 ## 当前每日资料补全边界
 
+Manus 新闻任务创建至少间隔 7 秒，共享线程锁；失败请求也占间隔，429 后后续创建冷却 60 秒。余额不代表请求频率无限制；官方 task.create 为每用户每分钟 10 次，其他进程及密钥也共享限额。所有输出对象 properties 必须全部进入 required 且 additionalProperties=false；nullable 字段也不例外。修改 schema 后运行离线契约检查，禁止以付费重试代替格式检查。
+
 离线测试必须自行提供模型配置，不能依赖开发机 LLM_MODEL 或根目录 .env。统一入口会隔离它们，临时 dotenv 文件测试仍可使用。流水线相关提交由 .github/workflows/test-pipeline.yml 执行无密钥回归；不要给离线检查注入生产 Secrets 来掩盖夹具缺项。
 
 每日 overview 已启用已知网页补全，最多 5 个主体、10 页、5 次 DeepSeek 请求。full 模式另允许每天最多 1 个公司或待归属产品进行 Manus Lite 链接发现，20 credits 观察止损、创建不重试；与新闻媒体配额分开。aihot-only 不创建 Manus 任务。自动字段仅补空白并标暂定，候选归属不合并公司。配额缓存、失败处理及证据口径见[操作说明](../operations/COMPANY_WEB_RESEARCH.md)。历史数字及旧启用状态见[整理前快照](../history/2026-09-15/maintenance-before-organization/AGENTS.MD)。

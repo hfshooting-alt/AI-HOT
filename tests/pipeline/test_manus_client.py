@@ -9,9 +9,11 @@ cursor 分页、waiting/error 终态、整体超时、结构化输出失败计�
 import os
 import sys
 import unittest
+from unittest.mock import patch, Mock
+from concurrent.futures import ThreadPoolExecutor
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "scripts"))
-from manus_source.client import ManusAPIError, ManusClient  # noqa: E402
+from manus_source.client import ManusAPIError, ManusClient, validate_output_schema  # noqa: E402
 
 
 class FakeTransport:
@@ -62,6 +64,43 @@ RESULT_VALUE = {"source_group": "group_a", "target_date": "2026-08-16",
 
 
 class TestCreateTask(unittest.TestCase):
+    def test_window_schema_passes_strict_validation_before_creation(self):
+        from manus_source.runner import run_discovery
+        from manus_source.window import ten_am_window
+        client = Mock()
+        def capture(**kwargs):
+            validate_output_schema(kwargs['output_schema'])
+            self.assertIn('published_time_text', kwargs['output_schema']['properties']['articles']['items']['required'])
+            raise RuntimeError('validated-without-creating')
+        client.create_crawl_task.side_effect = capture
+        with self.assertRaisesRegex(RuntimeError, 'validated-without-creating'):
+            run_discovery(client, 'group_a', '2026-09-16', 'test', ['Test'], ten_am_window('2026-09-16'))
+
+    def test_invalid_schema_never_reaches_transport(self):
+        client, transport = make_client([])
+        with self.assertRaisesRegex(ValueError, 'all output properties'):
+            client.create_crawl_task('p','g','d','t','b', {'type':'object', 'properties':{'time':{'type':['string','null']}}, 'required':[], 'additionalProperties':False})
+        self.assertEqual(transport.calls, [])
+
+    def test_concurrent_failed_creates_are_spaced_and_429_cools_queue(self):
+        now = [100.0]
+        stamps = []
+        def transport(method, path, payload):
+            stamps.append(now[0])
+            raise ManusAPIError('Manus HTTP 429' if len(stamps) == 2 else 'Manus HTTP 400')
+        client = ManusClient('fake', 'manus-1.6', 0, 1, transport=transport,
+                             create_retries=0, create_interval_seconds=7)
+        def attempt(_):
+            with self.assertRaises(ManusAPIError):
+                client.create_crawl_task('p','g','d','t','b')
+        with patch('manus_source.client.time.monotonic', side_effect=lambda: now[0]), \
+             patch('manus_source.client.time.sleep', side_effect=lambda seconds: now.__setitem__(0, now[0]+seconds)):
+            with ThreadPoolExecutor(max_workers=3) as pool:
+                list(pool.map(attempt, range(20)))
+        self.assertEqual(len(stamps), 20)  # 无创建重试，全部队列均获得机会。
+        self.assertEqual(stamps[:3], [100, 107, 167])
+        self.assertTrue(all(b-a >= 7 for a,b in zip(stamps,stamps[1:])))
+
     def test_balance_and_stop_helpers(self):
         client, transport = make_client([
             {"ok": True, "total_credits": 42},

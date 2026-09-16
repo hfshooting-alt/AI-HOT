@@ -67,7 +67,7 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
         article_schema = schema["properties"]["articles"]["items"]
         article_schema["properties"]["published_at"] = {"type": ["string", "null"]}
         article_schema['properties']['published_time_text'] = {'type': ['string', 'null']}
-        article_schema["required"].append("published_at")
+        article_schema["required"].extend(["published_at", "published_time_text"])
     task = client.create_crawl_task(
         prompt_text=prompt_text,
         source_group=group,
@@ -337,6 +337,7 @@ def main(argv: list[str] | None = None) -> int:
         timeout_seconds=settings.timeout_seconds,
         register_grace_seconds=settings.register_grace_seconds,
         create_retries=0 if canary or args.credit_limit_per_source else 3,
+        create_interval_seconds=7,
     )
 
     raw_dir = settings.work_dir / args.date / "raw"
