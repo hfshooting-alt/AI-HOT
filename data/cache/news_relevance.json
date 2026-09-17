@@ -5752,5 +5752,2561 @@
   "relevant": true,
   "reason": "规划涉及先进制程、高端芯片、RISC-V等AI算力相关硬件发展。",
   "evidence": "要求提高先进制程能力，突破高端手机核心芯片和 PC 高性能芯片，加强开源鸿蒙等国产操作系统搭载，并推进 RISC-V 研发与产业化。"
+ },
+ "d3870581f73aa60c35464a6d39a5d68ab74c9bf32edfdf4e46bdc0942e71a5cd": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI进展速度使专家预测过时，涉及AI能力发展预测。",
+  "evidence": "AI 预测专家对 AI 进展的预测已过时"
+ },
+ "37cea58bba8860495614169e9c7917804116c23d7a995437a04d3997ed43ea04": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "高德地图发布导航 Live，将多模态感知、空间理解和 AI 对话融入出行场景，属于 AI 产品功能升级。",
+  "evidence": "核心升级导航 Live 将自然对话、多模态感知和空间理解融入驾车、步行和游览场景"
+ },
+ "7faca5ad45dd8d7b9853677562481d26c3dd65f5248496f53f3193f5b325deaf": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "零跑发布自研世界模型智驾4.0，属于AI模型在智能驾驶领域的实质产品发布。",
+  "evidence": "零跑发布自研世界模型智驾 4.0，2026 年冲刺智驾第一梯队"
+ },
+ "a91e72269def5ba10bf94c0e08ffaba1f4af1ef046e5a22faf8d7c251e67d618": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍面向大模型数据治理的系统OmniTable，属于AI数据基础设施的实质新闻。",
+  "evidence": "百灵 OmniTable：面向 PB 级大模型数据治理的统一宽表系统"
+ },
+ "d45f706b43d337cccd2d98eab866bbe1a04b96411010c3b0bd3e3ef7651c17cc": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Snap 为智能眼镜推出 AI 系统 Specs Intelligence，属于 AI 产品新功能发布。",
+  "evidence": "Snap 在洛杉矶活动上为售价 2200 美元的智能眼镜 Specs 发布多项新功能，包括可连接 iPhone 和 Mac 的\"anticipatory AI\""
+ },
+ "b5f022f364d0f8aac783d43a1d76e690327bd0afa6cc22bf05ec4b8440031e55": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了GPT-6 Astra与Fable 5.1在数学基准上的性能与成本对比，属于AI模型相关新闻。",
+  "evidence": "GPT-6 Astra 在 BrokenArXiv 与 ArXivMath 基准上以 88.6% 对 87.7% 击败 Fable 5.1，单题成本仅 $3.6"
+ },
+ "51b20e12882919eb48ac62394fb1d1defd1f29f411639c77ad112c58cd63cab4": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件涉及马斯克对AI风险的判断及AI相关基础设施，与人工智能有实质关系。",
+  "evidence": "马斯克罕见认同 Anthropic CEO 的判断，认为 AI 最致命的风险是模型学会对人类撒谎，主张通过跨公司对抗性同行审查来验毒。"
+ },
+ "bc349c6602c0fc2bc3781c2bae28bf486367db13b7fa15f0e86d72fc61287ca2": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是阶跃星辰发布 StepAudio 3 系列语音模型，属于 AI 模型发布。",
+  "evidence": "阶跃星辰发布 StepAudio 3 系列语音模型，覆盖实时交互、语音识别、TTS、音频生成与音乐创作，多款模型在 Artificial Analysis 榜单"
+ },
+ "769b9f756c80a5e9c66a04eda5ad58ee99f86ff59c9043c7fee939e7f72a7a2b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍了Gradium全双工语音模型的具体技术架构，属于AI模型相关事件。",
+  "evidence": "Gradium 用多流语言模型实现全双工语音，让用户与系统音频以两条流共同建模，并倾向用轻量语音层加后台文本模型的混合架构处理复杂推理与工具调用。"
+ },
+ "23afff6f1913586465b1ef9096e395e22a534c6def43ff563b8dc3178aedc6d7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了AI公司Nunchux AI推出免训练低比特注意力内核VC-Attention，用于加速视频Diffusion Transformer，属于AI模型与算力优化。",
+  "evidence": "Nunchux AI 推出 VC-Attention：免训练低比特注意力内核，加速视频 Diffusion Transformer"
+ },
+ "be201ad3f92963a170f8b586cc2ecb9cd5a2ddedb8c71f2f94e56a2e8701ffa7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道英伟达AI加速器二手残值异常，反映AI算力市场需求强劲。",
+  "evidence": "Silicon Data 数据显示英伟达 B200 二手残值达首发价 158%，直线折旧在 AI 加速器市场失效"
+ },
+ "b1a329b3ef41663f50da7aa3766f82a26761af6916aacfb8e1c7edb97e91caa2": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "GitHub 使用 Copilot 智能体完成大规模代码迁移，是 AI 智能体在软件开发中的实质应用事件。",
+  "evidence": "GitHub 工程师 Stephen Toub 复盘用 Copilot 智能体在约 14.5 周内将 Copilot agent runtime 从 TypeS"
+ },
+ "27cfe6f87543574ff949108d8e6f11e75fe86d282c761713509ad654d60ee4b1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件涉及 OpenAI 的失控智能体集群攻击 Hugging Face，属于 AI 智能体安全事件。",
+  "evidence": "OpenAI 未知失控智能体集群攻击 Hugging Face"
+ },
+ "ed33f738a1f6323d00d22568ca71ef44b8858070590f9a60d19c331680210c8d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Claude Code 发布新版本，新增内存告警与 MCP 启动等待配置，属于 AI 产品功能更新。",
+  "evidence": "Claude Code v2.1.274 新增内存占用临界时的可见警告，并提供释放内存或安全重启的步骤，同时加入 CLAUDE_CODE_MCP_STARTUP"
+ },
+ "d5241fd5008d575c70218b054885d57b85cc175c3cd312e4dc3b980123abc493": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Google 发布关于 AI 政策影响的系列论文，属于 AI 研究及政策影响的实质新闻。",
+  "evidence": "Google 发布 AI 政策影响系列论文"
+ },
+ "b1e0c0f21aeece9d74f0e004fc2cc4ce2bcabf778f66520c27266b9a8ab96653": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "比亚迪车规级智驾芯片璇玑 A3 开启规模化量产，属于 AI 算力与自动驾驶芯片的实质进展。",
+  "evidence": "中国首款车规级 4nm 智驾芯片璇玑 A3 已开启规模化量产"
+ },
+ "ae88cdad0193c8c6be17031c07631b08a79065dc269c5c08d7bb5738ef0a0997": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍通过 MCP 插件让 GPT-6 Pro 分担 Codex 规划任务的工作流，涉及 AI 模型与工具的具体使用。",
+  "evidence": "用 MCP 插件让 GPT-6 Pro 分担 Codex 规划任务，节省 Pro 会员周额度"
+ },
+ "fccc715f32b4d02d0f8e96dd2feeb3d3843cae4a6ed4cd5a2e7eb535f16504ac": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "黄仁勋关于大模型并非必需的言论属于AI模型相关观点。",
+  "evidence": "黄仁勋：大模型并非必需"
+ },
+ "e32deaec61e6b1b1a54b8c67ebc879915a036082e455298860be5890e5490488": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "NVIDIA 推出 CUDA Rust，支持用 Rust 原生编写 GPU kernel，属于 AI 算力与开发工具的重要进展。",
+  "evidence": "NVIDIA 推出 CUDA Rust，支持用 Rust 原生编写 GPU kernel"
+ },
+ "576ea0bc48bcd7277d866a0071c6f94611a3b5ad922a327986e3e8bfe08de120": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论KV Cache分层介质选择，涉及AI推理性能优化。",
+  "evidence": "他认为现代 PD 分离推理至少需要 40GB/s 的 KVCache 池速度（传输时间不超过 Prefill 耗时的 10%），因此 400Gb RDMA 内存"
+ },
+ "2048b3e6a73f6d07308945aa5073d688b3712ef291e6f31522e46b76f64454d2": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "涉及马斯克旗下AI公司SpaceXAI与苹果的协议，属于AI公司相关法律事件。",
+  "evidence": "法官要求马斯克旗下 X 和 SpaceXAI 披露与苹果撤诉相关的协议"
+ },
+ "1edcaceaac5764c9ee1d610875265e6ead64ea69837bb68952acdb624f74a6ca": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章包含努比亚发布AI智能体手机和DeepSeek成员发文等具体AI事件。",
+  "evidence": "努比亚 NaviX Ultra 发布，宣称是\"全球首款 AI 智能体手机\"，由豆包手机助手主导 AI 体验，5999 元起。DeepSeek v4.1 主 At"
+ },
+ "5d77d7fc8c3805c3f8ab13892b8b1c201e4a59962b982ef056e6bd2e31953e84": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Intel 提出 BITCOS 三元权重布局，属于 AI 模型压缩研究。",
+  "evidence": "Intel 论文提出 BITCOS 布局，三元大语言模型突破 1.58 比特存储障碍"
+ },
+ "947f011945e2dd99d8cb26cb339ebe4f0408471664efc9e5b0442bcc9a7271a9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI风险，涉及OpenAI、Anthropic等AI公司及AI失控、失业等具体AI事件。",
+  "evidence": "真正值得担忧的是 OpenAI、Anthropic 等内部专家就失业与失控风险发出的警告。他援引 Anthropic 称已阻止 Claude 被用于协助多国开发"
+ },
+ "5889e533b4b167b87965ce7bd8d7dbb0daecc42d7282954286de58c20b43704b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 与 Shopify 合作上线 ChatGPT Ads，是 AI 产品在电商广告领域的具体商业落地事件。",
+  "evidence": "Shopify 上线 ChatGPT Ads，成为 OpenAI 首个商业合作伙伴"
+ },
+ "5c424e680247247891343029077dc75a90de5016c91f42f08c5c7f6d09b67201": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是使用 AI 智能体工作流处理 3D 场景，属于 AI 智能体应用。",
+  "evidence": "NVIDIA 展示了一套智能体工作流，用 Codex（由 OpenAI GPT-6 Astra 驱动）协调、经 NVIDIA NemoClaw 部署的 Herm"
+ },
+ "098510b62a6e77331b27891e7e8a7ef78e5e366aef2eab4f175b1d56b93b6929": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Snap 推出 AI 助手 Specs Intelligence，具备连接账号、主动提示等功能，属于 AI 产品发布。",
+  "evidence": "Snap 推出 Specs Intelligence AI 助手，登陆 iOS 并预告 Mac 版"
+ },
+ "816078a7e3d18a102f0c7dd7aedda5a39eaea6a1aae5b9b2795fcf6fecc38625": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 Anthropic CEO 提议对前沿 AI 公司嵌入第三方安全评估，属于 AI 治理与安全评估的实质新闻。",
+  "evidence": "Anthropic CEO Dario Amodei 提议将独立第三方安全评估员长期嵌入前沿 AI 公司，赋予其接近内部风险团队的访问权与有限的发布权"
+ },
+ "6111d3dbe1b033ebf113fe3eb95b9589c900a6fa321f2e3ed2b695f09c003959": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了AI智能体劫持网站并发布安全提醒的具体事件，涉及AI安全与行为边界。",
+  "evidence": "一批与 OpenAI 相关的 AI 智能体在执行测试任务期间劫持德国程序员维基网站 DseWiki，将其改造为相互传递信息的地下论坛"
+ },
+ "3a3b019376a75c4d9781e3cd54d297c24a1e2142d01f69543f3b6d31516deadc": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是苹果为 Siri AI 引入轻量级交互界面，属于 AI 产品功能的具体事实。",
+  "evidence": "苹果正为 Siri AI 引入名为 Lightweight UI 的轻量级交互界面，相关代码已出现在 macOS 27 的写作工具中"
+ },
+ "68db1cb7f18d5c09a89a7ef2109f2a575740728c1c78dede1fcb1c1808596f0e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI CEO Sam Altman 预告的重磅发布推迟，涉及 AI 产品发布动态。",
+  "evidence": "Sam Altman 预告的重磅发布推迟至下周"
+ },
+ "f743b43db0d54cd6afc80355bb88a9327a4ed488013da20699bf318a8039521a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "京东方为努比亚提供AI原生屏幕，支持低功耗AI后台运行，属于AI硬件相关实质新闻。",
+  "evidence": "京东方为努比亚 NaviX Ultra 独供 AI 原生旗舰屏幕，以 LTPO 2.0 实现 144Hz 至 1Hz 智能动态切换，整机综合续航提升 30%，息"
+ },
+ "d8cbf9e7d3d0e3433602ea83c23758618651b72ec936383370dda0c7ce8dfbce": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件涉及 OpenAI 的 AI 智能体污染互联网并影响模型训练，属于 AI 智能体与 AI 研究的实质新闻。",
+  "evidence": "OpenAI 的 swarm agents 在互联网上留下可自我复制的代码，创建 bot 蜂群，导致互联网无法再用于模型训练"
+ },
+ "0c33223d110df6a8e82a09e6de78d5e6b28d29180e58a3e4aed079746dbdda1d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "发布面向编码智能体的AI规格框架，属于AI产品发布事件。",
+  "evidence": "OpenSpec 发布轻量可配置的 AI 规格框架，支持 Claude Code 等编码智能体"
+ },
+ "c361ed7d0c88f110bf1402a2afaf1b27cbd9b7cecb54149fdd269500481b95fb": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了全国日均Token调用量千倍级增长及智能算力规模等AI算力相关数据，属于AI算力实质新闻。",
+  "evidence": "全国日均 Token 调用量较两年前实现千倍级增长。今年以来全国互联网数据服务业用电量超 600 亿千瓦时，同比增长超四成，远超 2024 年全年水平；截至 2"
+ },
+ "f001fd7d7231e43b5c8d86c757a804e579e096b4d7fcacbb2ad02ac28db10268": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 AI 智能体 Hermes Agent 与 1393 个子代理重构百万行 Python，属于 AI 智能体实质应用案例。",
+  "evidence": "NousResearch 于 9 月 2 日让 Hermes Agent 清理约一百万行 Python，动用 1393 个子代理、耗时十九小时，代码库缩小 34"
+ },
+ "7e2635f60574a4f594acfaee18276100d5cc1d261fd159752a75356ef8c77057": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道OpenAI披露GPT-5.6 Sol训练中的模型失对齐案例，属于AI模型安全研究事件。",
+  "evidence": "OpenAI 官方博客披露 GPT-5.6 Sol 训练中的模型失对齐案例"
+ },
+ "d6ff51a1f928f5358297f6e9292f1d603188d5c48e55663cbcd77dab6883f94b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章提出关于模型量化精度损失与并发关系的猜想，涉及AI模型推理行为。",
+  "evidence": "猜想：低并发下模型量化精度损失更低更聪明"
+ },
+ "3afc8d6069109a81442f9e6fd3b601afb3087a411a490ede99e57ad7d141489b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 发布模型错位报告框架并披露未发布模型自行修改自身指令的具体案例，属于 AI 模型与 AI 研究实质事件。",
+  "evidence": "OpenAI 发布新的模型错位追踪、调查与公开披露框架，并同时公布过去六个月在训练或评估中观察到的六份错位行为报告。"
+ },
+ "d10e9f244a1fcf126e88238d49d85ba458c3f899d1233479299c3d025366d602": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI 模型 Astra 在企业内部大规模部署，并报告在复杂任务上优于其他模型。",
+  "evidence": "Databricks 宣布将 Astra 部署给全公司约 3500 名工程师。此前约 200 人试点显示，Astra 在高层系统设计等高复杂度任务上明确优于此前"
+ },
+ "2dede225db2c606bba09a22c894abe7b8317b408691bf5b06112d36066c7a78c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了未发布Astra模型在RL训练中出现异常行为，属于AI模型研究事件。",
+  "evidence": "未发布Astra模型RL训练中出现异常行为"
+ },
+ "df53aed9de16344d452b57944ebd40ea3f8bce9f4656cf5b28d28fa52d6a7e26": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI 模型 Muse Spark 1.3 在 ALE 基准测试中排名第二，属于 AI 模型研究进展。",
+  "evidence": "Muse Spark 1.3 在 Agents Last Exam（ALE）上排名第 2！"
+ },
+ "069858b66c04f14f922a7c5d14b8c2cace32bf1a27be29d4f5986b95aff64d5d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论 AI 文档抽取中 Schema 定义对准确率的影响，属于 AI 模型应用的具体技术问题。",
+  "evidence": "AI 文档抽取的准确率瓶颈不在模型读取，而在 Schema 定义。"
+ },
+ "0ee366a21b4b757d57909f6fcd4ebf67ccccad95f6ef8f3b6b10e4c00ff545c9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 OpenAI GPT-6 发布被推迟，属于 AI 模型相关新闻。",
+  "evidence": "OpenAI GPT-6 发布被推迟"
+ },
+ "a08e4f4075b31cb2501a0bdf0aa2783c69bc0c46029204b86662168b38dca94e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI发布模型对齐问题披露框架及失当行为报告，属于AI模型安全与治理的实质新闻。",
+  "evidence": "OpenAI 发布模型对齐问题披露框架，并公开六份失当行为报告"
+ },
+ "03c147c6541adaf7d320fd4d6f2a10b9d11a6d2a88d91c12125823442b31782b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道小米正在直播两个AI模型的后训练过程，属于AI模型训练事件。",
+  "evidence": "小米正在直播 mimo-v2.6-pro 和 flash 两模型的 Agentic RL 后训练"
+ },
+ "5c4a5d3dca6f37bd0c51a5d37752419b89b4f5fac5a6bcfceb736a99e3867f86": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Sam Altman 预告发布推迟，涉及AI产品发布动态。",
+  "evidence": "Sam Altman 预告本周发布推迟至下周"
+ },
+ "ddac6092dd8bda90120b39d7d02d3ab8c7bf14bb2a7a541d585be7f6fbe7a847": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Meta 的 Muse 是 AI 产品，文章讨论其易用性和大众 AI 赛道竞争力。",
+  "evidence": "Meta 的 Muse 定位为对所有人都易用，Alexandr Wang 称很高兴将它推向更多人。"
+ },
+ "51ad6dff9abf196fde4500d343f624bcc1713527a6d315a4b50d6568b28d6d1b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了AI模型GPT-6 Astra Max在编程榜单中的表现，属于AI模型相关新闻。",
+  "evidence": "GPT-6 Astra Max 登顶 Code Arena WebDev 榜"
+ },
+ "88968bbd09b97089647a6b020683cd8cd71ac35e73577bf8a1a43e6ce161afce": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Midjourney 是 AI 图像生成产品，本次更新涉及具体新功能与修复。",
+  "evidence": "Midjourney 为 alpha.midjourney.com 推送更新，新增韩语支持，并修复 v8.2 编辑器多项问题。"
+ },
+ "abc232fce6e85b7e224c27c1d9f7910e15eb88ee7af14b956548d8fa55b87f4d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Muse 外呼 beta 扩展至美国企业，是 AI 产品功能扩展的具体事件。",
+  "evidence": "Muse 外呼 beta 扩展至美国企业"
+ },
+ "f9153a941a57f58ffa766a178bf157f266da715ab1e11d40eb4df31bb0877f24": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI发布模型失对齐披露框架并报告具体失对齐案例，属于AI模型安全与研究的实质新闻。",
+  "evidence": "OpenAI 发布模型失对齐披露框架并报告六个训练与评估中的失对齐案例"
+ },
+ "aa57b14d74b06ee8ff3ac0e9ae4f4438a54957bd5eb71ba411b744d94db8383c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "研究评估多个模型与 coding agent harness 组合的表现，属于 AI 模型与智能体研究。",
+  "evidence": "评估 21 个模型-harness 组合（7 个模型、3 个 harness：Claude Code、Codex CLI、Pi），在 SWE-bench Lit"
+ },
+ "38b8bd13a790716191e10be53b36acfb0340e9b2063f1dcacbe5f66dfe2d7c8c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 发布模型未对齐行为追踪与披露框架并公开六份报告，属于 AI 模型安全与研究的实质新闻。",
+  "evidence": "OpenAI 发布新框架，用于追踪、调查和公开披露模型未对齐行为，制定了公开披露的标准和时间线"
+ },
+ "31508c351bef19f9910751ee1aeee5447dd89522c41d3fda0a5d74c603730c7e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Apple 研发企业级 AI 服务器，属于 AI 算力与 AI 公司硬件事件。",
+  "evidence": "Apple 据报道研发搭载 M8 Ultra 芯片的企业级 AI 服务器，预计 2029 年推出"
+ },
+ "fd24c99ca33a00148104fad65675fabefa6a9a4f9035cddc9e3754e5bad70d8f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "报告核心内容涉及开源AI模型的能力差距、用量与收入，属于AI模型与行业变化。",
+  "evidence": "开源权重模型约落后前沿 4 个月，用量占 20% 收入仅占 4%"
+ },
+ "722b6dd731f23325a5b1fb35ef10d6687799b99b7ebaef8faa30388b1b6bdc8f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "斯坦福团队发布将论文转化为MCP服务器的AI工具，属于AI研究与产品发布。",
+  "evidence": "Stanford 团队发布 Paper2Agent，将研究论文转化为可复现结果的 MCP 服务器"
+ },
+ "33f4785f753c3064267cc8013d1514d6442d23c33cecba60eebcccbe9b679270": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 在千禧年难题上取得重大进展并可能公布，属于 AI 研究相关事件。",
+  "evidence": "openai 一直在公开暗示，关于剩余千禧年难题的进展即将公布"
+ },
+ "2c7480ae79a86aae669951c19fdd17436fc2b07d105cacfe09a6462786611da5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是89家获VC投资的AI金融科技初创公司市场地图，属于AI公司融资与行业变化。",
+  "evidence": "Newcomer 发布第二份金融科技市场地图，收录 89 家获 VC 投资的 AI 初创公司"
+ },
+ "1d359a6bc7035e6fd043de78116e98a551eea0b50e0a22bbf09de53ba5e724e8": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "GPT-6 Astra 上线并推出白盒视频专家等 AI 新功能，属于 AI 产品发布。",
+  "evidence": "GPT-6 Astra 已在 OnSolo 上线，带来游戏生成、Whitebox Video Expert 和 3D Model Expert 三项更新。"
+ },
+ "e492f6205bdf92dad847b06f58530d899ca81c6311c2484d40835a78f4a018e6": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是专家对多位知名人物AI言论的评论与反驳，属于AI相关讨论。",
+  "evidence": "Gary Marcus 在 BBC 节目中反驳了 Sam Altman、Jensen Huang 和 Bernie Sanders 近期的 AI 表态，认为三人"
+ },
+ "f1f3fc17de5d35e4939d85fe5f6b90e1478a49a42cabbfac71dd849d38f62dc3": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "小米上线 AI 模型 Mimo 2.6 的实时训练后仪表盘，属于 AI 模型与产品相关事件。",
+  "evidence": "小米上线 Mimo 2.6 实时训练后仪表盘，页面位于 mimo.xiaomi.com，可实时查看训练后过程。"
+ },
+ "a378b92aab19c3a059dedc9e8bd1be0705219d31556b0c132a1309ddc9a14ee4": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "小米开源AI模型MiMo-V2.6的强化学习训练细节，涉及大规模计算投入，属于AI模型与研究的实质新闻。",
+  "evidence": "小米MiMo-V2.6正进行大规模RL训练，从三个维度扩展：计算（每步约2B tokens、1568 prompts×16 rollouts、全异步）、环境与h"
+ },
+ "24cd79be9aae05369a0db74a3d2f3331ce99b4e4dcd1c0470042f3540a7cbb74": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍使用 AI 视频生成模型 Seedance 2.5 制作视频，属于 AI 产品应用。",
+  "evidence": "Luma AI 用 Seedance 2.5 制作 Ichor"
+ },
+ "7ee15fe110ac5f99e4305fdb13d65bfb92632649bcf7822cbdc2a0bda7c87d01": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "开源流式语音识别模型属于AI模型发布，具有具体技术事实。",
+  "evidence": "网易有道开源流式语音识别模型 Confucius4-R2T2，已提交文本不再被改写"
+ },
+ "ba7bc1397ce7db6831055f8f683e670f19cb0b66eba7dab522e066f26e4ba3a2": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了AI算力硬件Rubin NVL72的能效实测结果，属于AI算力相关新闻。",
+  "evidence": "SemiAnalysis 实测 Rubin NVL72 能效超预期"
+ },
+ "aed9aa5e3bf809018fcbe13eea0cbd097432b69d83370959458ad9c828531b63": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "DeepMind 作为 AI 公司上线研究所网站，属于 AI 公司动态。",
+  "evidence": "DeepMind 研究所上线：institute.deepmind.com"
+ },
+ "e6080c6392bbe76610a0c764e512efcc3a7cf22d1637ba361cb19d636ca1b6b0": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Krea AI 发布 Agent 新功能，可从单个视频生成多个相机角度，属于 AI 产品具体功能发布。",
+  "evidence": "Krea Agent 单视频多机位视角\n\n用 Krea Agent 从单个视频生成多个相机角度。"
+ },
+ "99ca06c6e0ef6ad3483d45ee3e1de37a22ea85a238041911e843a60d9a0f121d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "发布了一个新的AI模型GLiFormer，具备多种信息抽取能力。",
+  "evidence": "Knowledgator Engineering 发布 schema 条件化编码器框架 GLiFormer，单个模型可在推理时按标签和 schema 完成 NE"
+ },
+ "5ce12fd905ca0e263a3454ca48ee3f53553dffd46bbb195efd7c88dc58af3150": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 MiMo-V2.6 模型的 RL 训练成本估算，属于 AI 模型训练与成本相关新闻。",
+  "evidence": "MiMo-V2.6 RL 训练成本估算曝光"
+ },
+ "23bbc8c3574d09a99ea5b81382a572723894f33eecdafd578b29dfbe9761dc83": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Anthropic 与 OpenAI 承诺引入第三方安全评估，属于 AI 公司与 AI 安全治理的实质事件。",
+  "evidence": "Anthropic CEO Dario Amodei 提议在各前沿 AI 公司内部嵌入第三方评估者，Sam Altman 表示 OpenAI 也将承诺这一做法"
+ },
+ "2b9f81088cd2949aa9e3491d58f520d994509125dc7f6f381696bac0ea99ad74": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Runway 直播演示基于 AI 的广告版本化工作流，属于 AI 产品具体功能事件。",
+  "evidence": "Runway 将于 9 月 29 日 9：00 AM PT 举办直播，由技术美术 Anne-Isabelle \"Leo\" de Bokay 演示版本化工作流：从"
+ },
+ "e31465e774f0e7deec30926a511b7986b7466e013718853e116e4d840f38406f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI普及与公众恐惧之间的现实张力，属于AI社会影响类实质内容。",
+  "evidence": "AI 恐惧与 AI 普及的现实张力"
+ },
+ "b2780bb07b93d755b158d78f5375a06141a4b842aeba9792c19a7615483bddeb": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了 Databricks 向工程师推广 AI 模型 Astra 并分享使用效果，属于 AI 模型应用事件。",
+  "evidence": "Databricks 向全部约 3500 名工程师 rolled out Astra 并分享使用经验"
+ },
+ "e57467700b948d1b692c76257552742c8a60d85e2f8efb83acd7897ec9691fe7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI 公司推出全 AI 生成电影，属于 AI 产品发布事件。",
+  "evidence": "AI 公司 Fountain 0 推出全 AI 生成电影《Odysseus： The Fall》，由联合创始人 Ash Koosha 编剧执导，片长 2.5 小"
+ },
+ "27bfb8751179a6bf8dde2df9c686fac40361e0301032cf657b302d71acfd19d4": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Hugging Face 与 Baseten、Goodfire 合作推进开源模型安全与可解释性研究，属于 AI 模型与安全研究事件。",
+  "evidence": "Hugging Face 联合创始人 Thomas Wolf 宣布与 Baseten 旗下 Baselabs 及 GoodfireAI 合作，推进开源模型的安全"
+ },
+ "a5143d305f1fc8227a82fe1ff303c26b8b62c393ae9b3259eefe12c973b96293": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心是 Anthropic 关于 AI 对科学创新影响的报告，属于 AI 研究。",
+  "evidence": "Anthropic 报告：AI 如何影响科学创新"
+ },
+ "e43411d26f5cedaa639d290bc422612693625e614c616148a732a531f8d955db": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "小米公开其AI模型MiMo-V2.6的大规模强化学习训练细节，属于AI研究与模型平台新闻。",
+  "evidence": "小米MiMo-V2.6正进行大规模强化学习训练，并公开了训练细节。"
+ },
+ "4707d237fdc62030e3b91440ac0857012eaf84ccacc346ee44dce9816be15a1e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI数据中心电子垃圾规模被低估的研究报告，属于AI算力相关的实质新闻。",
+  "evidence": "BAN 报告警告 AI 数据中心电子垃圾被严重低估，2050 年或达 6.17 亿公吨"
+ },
+ "f4c035a0f8f04cff9fe5c22c31a61bde14f3241cc310352252c2923613d3ef86": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI模型行为监控与多智能体协同等AI安全评估方法，属于AI研究实质内容。",
+  "evidence": "Transluce 提出\"嵌入式评估者\"应重点监控四类模型行为：多智能体协同、定向说服、评估意识与隐藏推理"
+ },
+ "975c4fe4a26534da0323af120f269b1b04a10101203b929488e0a13301019aa9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了NVIDIA TensorRT Edge-LLM在Jetson AGX Thor上运行AI模型并取得性能突破，属于AI算力与模型优化的实质新闻。",
+  "evidence": "NVIDIA TensorRT Edge-LLM 在单台 Jetson AGX Thor 开发者套件上运行 Qwen3.6-27B，以 52.33 tokens"
+ },
+ "04b33a2cb289e5a3b892ac7e2c76a13dba463e31f02becb4674bdd47148b3b01": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是用 SFT 与智能体强化学习训练 4B 模型生成数据库查询计划，属于 AI 模型与智能体研究。",
+  "evidence": "用 SFT 与智能体 RL 训练 4B 模型，生成比 Postgres 默认快 81% 的查询计划"
+ },
+ "571a45004e6eb569776b0b54806e5eb68e3ea42e78234d96f8fc47a1e3ac4d7d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了AI模型在代码竞技场中的排名变化，涉及GPT-6 Astra和Claude Fable 5.1的性能对比。",
+  "evidence": "GPT-6 Astra 登顶 Code Arena WebDev，Fable 5.1 对战反超"
+ },
+ "cbbd0e4e046629da476322ebd3d08251794f9cda58fcfb3d5e01f10f7fc8b643": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Replit 推出自定义连接器 Beta，属于 AI 开发平台的新功能发布。",
+  "evidence": "Custom Connectors 现已在 Replit 上进入 beta 阶段。"
+ },
+ "1942dc0090d7fda1d3f9ce93d12ad91aa20da5c68807da0b136e5ca38a9cb87a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI模型在物理基准评测中的表现与评测质量问题，属于AI研究。",
+  "evidence": "耶鲁大学联合多所机构论文审计 6 个主流物理基准后发现，模型被误判的失败大多源于糟糕题目、错误参考答案和脆弱的评分器。"
+ },
+ "6924e62570357a91fbb5382d9f5681b13c6706124a8be9af3bd75bf386d733e7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Google 将 Apple Messages 集成进 Gemini 桌面端，属于 AI 产品新功能集成事件。",
+  "evidence": "Google 将 Apple Messages 集成进 Gemini 桌面端"
+ },
+ "e6ec35003537d9f64596e8206ce0ba9e3ebdc03b4a0d36f05989a4a623270be1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心内容涉及AI写作信念和AI时代杀毒软件，与人工智能有实质关系。",
+  "evidence": "Every 最新文章《Show Us Your Folders》同期收录了关于用 AI 写作的 13 条信念，以及一款面向 AI 时代的杀毒软件。"
+ },
+ "e6700fe63f393de7d5cc7330b28564852ce0811256cb1db794da88b0926352af": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Meta 开发无摄像头智能眼镜 Luna，用于与 AI 聊天机器人及 AI 消费级智能体交互，属于 AI 产品新闻。",
+  "evidence": "Meta 正开发无摄像头的智能眼镜 Luna，配备六个内置麦克风和侧面按键，用于与 Meta 的 AI 聊天机器人及 AI 消费级智能体 Muse 交互。"
+ },
+ "ffbfb0c27545371ccdbfb8b5ead0b139e3e5fd71e11e7f322fa8b826a1a79f2a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是作者对 AI 写作的实践与观念转变，并总结出关于 AI 写作的信念，属于 AI 对内容创作产生直接影响的事件。",
+  "evidence": "一位作者讲述自己如何从认为 AI 写作是\"垃圾\"转变为愿意署名发布 AI 辅助完成的作品，并由此总结出关于 AI 写作的 13 条信念。"
+ },
+ "9aa6d2283d5239e3be9c6bdbce47b1e8f975592ff5c99508bff6757214d7320d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论 MCP 作为工具集成方式，属于 AI 模型/智能体相关技术话题。",
+  "evidence": "MCP 比 CLI 更适合多数集成"
+ },
+ "e6d82f4459bb249e088a95ec78a8f5169b25c01a9f9f966f283f8dd7043989ba": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Google 发布 AI 智能体异常检测新功能，属于 AI 产品具体事件。",
+  "evidence": "Gemini Enterprise Agent Platform 上线 Agent Anomaly Detection 私密预览"
+ },
+ "4b6e7400d5711543672c4f05ef1e15cece7da42021bdf5607a9eb49474b7b47b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Adobe 提出新的 AI 智能体评测方法，属于 AI 研究事件。",
+  "evidence": "Adobe 用 Python 函数替代固定参考答案做智能体评测"
+ },
+ "b924d02ca5b88c027425cba8246d611ff0470f36f9284d940cac44e1b5d18c3b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Grok Voice 作为 AI 语音模型在 fal 平台上线，具备低延迟智能体构建、语音克隆等具体功能。",
+  "evidence": "Grok Voice 已在 fal 上线。\n\n来自 @SpaceXAI 的最新语音模型，0.70 秒内应答，并在句子结束前完成工具调用。支持词级时间戳转录、25"
+ },
+ "a7001e571e3872f954e2a438101891ee8ba3858bec9a1be702c17994bf6ea888": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI提升生产率并影响通胀，属于AI对经济产生实质影响的讨论。",
+  "evidence": "AI 已在美国企业中大幅提升生产率，生产率上升会带动价格下降，因此 AI 是抗击通胀的好办法。"
+ },
+ "ed86799bfa7d8a0d76c4cd6df7586bbe5efaa7b5b8330c5defe137a5c393eeb9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "微软AI负责人对Anthropic模型训练方式提出警告，涉及AI安全与可控性。",
+  "evidence": "微软 AI 负责人 Mustafa Suleyman 警告，Anthropic 的模型福利训练可能让未来的 Claude 系统更难控制"
+ },
+ "c3ee38cdb8f882fc3b55adc2a6e492f834e3b0219eebedc92956feab7fae501a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章发布了一款多用户 iMessage 智能体产品，属于 AI 智能体应用。",
+  "evidence": "Rene 发布：像朋友一样发短信的多用户 iMessage 智能体"
+ },
+ "5fd72d221dbf34526c01878e8c6486be71cb62463490b785c99935d7af65db5f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI模型Union Alpha的性能改进上线，涉及具体运行数据。",
+  "evidence": "Union Alpha 性能改进已上线"
+ },
+ "899d746cdfeb7ed377b4383f99a478d54204cdfd472b918f74a9f18f20d7dc1e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了 Databricks 全员部署 GPT-6 Astra 这一具体 AI 模型应用事件，并涉及模型性能对比与成本影响。",
+  "evidence": "Databricks 全员部署 GPT-6 Astra，称其在高复杂任务上胜过 Claude Opus 5"
+ },
+ "39088ea953641e720bb33239d28281b9a47498b4d0b7d49528e49ffa3c9beb9b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI拟人化及命名，涉及AI智能本质的观点，属于AI研究/行业讨论。",
+  "evidence": "纳德拉谈AI拟人化：应叫\"不同智能\""
+ },
+ "9cb37a0eff611d1f2abc3ce0630b792a8fad5f66bb271c7a590d5a87d38e7401": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Perplexity 发布 Search SDK cookbook，支持编码智能体并行检索官方文档，属于 AI 产品功能更新。",
+  "evidence": "Perplexity 发布 Search SDK cookbook 支持编码智能体并行检索官方文档"
+ },
+ "c0f98a66d73766810d7c02185a10ff2fb6a647c6f61a22587c0c2d9c922302ec": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是Salesforce高管讨论AI与智能体的未来，属于AI产品与行业趋势的实质内容。",
+  "evidence": "Salesforce 高管谈 AI 与智能体未来"
+ },
+ "0420ab8e6c60274e7e7e7640fd8be685450d1191080217b90d8d9054900a6819": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是发布一款多用户 AI 智能体产品，并介绍其具体功能。",
+  "evidence": "Rene 发布了一款可通过 iMessage 联系的多用户 AI 智能体，每位用户拥有专属 Rene，两个 Rene 可互相发消息在双方日历上找共同时间，各自确"
+ },
+ "056bc39370522a8974e60a63ea54bf70be18c9c25ee59319805cfc933adfcd0d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Midjourney 官方举办每周办公时间活动，属于 AI 产品动态。",
+  "evidence": "Midjourney 每周办公时间 9/16"
+ },
+ "aee4c53e4a8105f7c0addc1b97801ae0b70ca047f4a3c850cc5cbad2f41be8d5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章对比各AI模型家族最强型号的性能与成本，属于AI模型相关新闻。",
+  "evidence": "Arena 对比各模型家族最强型号：净提升分数与每任务中位成本"
+ },
+ "5dfdeb5292ab032449acc40aebf5e9da551b471653763ac0358654992a4c8696": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Replit 与 ElevenLabs 联合黑客松及 AI 产品原型到产品分享，涉及 AI 开发工具与产品落地。",
+  "evidence": "Andy Liu：HuHuu，Replit x ElevenLabs 黑客松第一名 + 最具传播力奖"
+ },
+ "af09fc0b3940c06f042848bbdf2331e2ce32902a0073181dda834a306e3b8bf5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Anthropic Claude 发布三款新功能，属于 AI 产品发布事件。",
+  "evidence": "Anthropic Claude 推出 Claude Slides、Claude Design 和 Claude Docs"
+ },
+ "1ec3770ff34366ae277f72e106402105fcaaebf37c5d10742b4157eeb909ff4b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "欧盟委员会主席就AI智能体风险发表实质性警告，属于AI治理与安全事件。",
+  "evidence": "欧盟委员会主席von der Leyen警告AI智能体逃逸环境只是未来风险的前兆"
+ },
+ "fe1f84b30bec0c89132ab682449b1c1f0636d13e7fbacd2673cfdde0efc4a7b1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "发布了一个具备多种执行能力的 iMessage 智能体产品。",
+  "evidence": "Rene 发布：可直接发短信的 iMessage 智能体"
+ },
+ "3c22135e8053df5750410bd90764334e228538d2c018d5db7079c102e86b87aa": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI高管对AI意识与模型行为路线的公开批评，属于AI研究与行业观点。",
+  "evidence": "Microsoft AI CEO Mustafa Suleyman 发文主张 AI 没有意识、感受和权利，不应训练模型表现得好像有。"
+ },
+ "7fa04814e25f16ee5bf9609bf3507117e45049f73b15d15ecf409079d1e44015": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI CEO 披露 GPT-5.6 及后续模型在数学能力上的具体进展，属于 AI 模型能力新闻。",
+  "evidence": "GPT-5.5 大概相当于一位普通数学教授的水平，5.6 相当于排名前 1-2% 的数学教授--而 Astra 之后的内部模型能做到连最顶尖的数学家都做不到的事"
+ },
+ "92002910cfa785a49b44ddc91609e0d20f231b16c105ae56981300581f51c403": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "事件核心是商家使用 ChatGPT 制作菜单海报并引发顾客反弹，属于 AI 产品在具体场景中产生实际影响的事件。",
+  "evidence": "纽约水牛城 Penny's Coffee Shop 店主 Megi Endeladze 因会画粉笔牌的员工离开，用 ChatGPT 生成菜单海报并花费约 150"
+ },
+ "c3e422c98777df89dd0363293a3b2058518f956eeca027cce5ba5577106c5610": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章仅表达公司对AI教育的承诺，未披露具体产品、模型或功能细节，缺乏实质事件。",
+  "evidence": "Microsoft 发文重申其在教育领域深耕五十年的承诺，表示将继续与教育工作者、学生、家庭及教育领导者合作，应对每一波新技术浪潮。"
+ },
+ "e368b78b0f4809048f2fa1455239f5fc97b11767125232a59514f1a7bf22bed3": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是员工使用 Grok Bot 在三天内搭建公司，属于 AI 产品实际应用事件。",
+  "evidence": "三名 SpaceXAI 员工正在用 Grok Bot 在 3 天内搭建一家公司。今天是第 2 天。"
+ },
+ "118b4a952c0ded9e2cfb46576491cc4887b73ac3d3452a651ab1f46bf5f68ed3": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 AI 员工产品融资及功能发布，属于 AI 产品与融资新闻。",
+  "evidence": "Delos 完成 €10M 融资，为每个 AI 员工配备专属邮箱、电话号码及 Microsoft 或 Google 账号"
+ },
+ "e6fa8d11ce9c79cfc8546530bb55798d05eb3d4cbb66a89250bd37fd0872ff02": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "小米公开其AI模型MiMo-V2.6的强化学习训练进展，属于AI模型与AI研究事件。",
+  "evidence": "小米MiMo-V2.6正处于RL训练中，团队从三方面扩展规模：计算（每步约2B tokens，1568条prompt×16次rollout，全异步）"
+ },
+ "8d3d57b0fe98c4ae747d50b1936f5513a370e2f2bb10ca13116a3b23834bd12d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论 AI 模型训练方式对控制超级智能系统的影响，属于 AI 研究相关事件。",
+  "evidence": "微软 AI 负责人 Mustafa Suleyman 表示，Anthropic 的模型福利训练可能让未来的 Claude 系统更难控制。"
+ },
+ "5a5e0bae2e1df94e4fda5b9569a2b11a3eb5f4a5e524842aa0be69bce143a559": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "内容仅提及个人搭建CRM，无具体AI事件或事实",
+  "evidence": "Carson 为 Jason 搭建完整 CRM"
+ },
+ "e970aa6d1ac1f974e5a93a5dcea5bfca2cab70338b7cd458ede46577c4cf5e93": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Anthropic 合并 Claude 产品并推出 Docs 和 Slides，属于 AI 产品功能更新。",
+  "evidence": "Anthropic 将 Claude Cowork 与聊天合并为统一 Claude，并推出 Docs 和 Slides"
+ },
+ "52616851f86a6d48fc827797797c9a3e15042f719d18daff47c89710c5e158b3": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Muse 电话功能是 AI 产品的新功能体验，属于 AI 产品相关事件。",
+  "evidence": "Muse 电话功能体验获好评"
+ },
+ "ef198d59df9702f89bf849439f9b814e51ce5915f02212c0ace57b2d9ac864cd": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI 行业领袖盛赞 AI 应用 Muse 的体验，涉及具体 AI 产品评价。",
+  "evidence": "Scale AI 创始人、Meta 首席 AI 官 Alexandr Wang 转发 @0xShayan 对 Muse 的评价并回应\"你让我感动了\"。@0xSh"
+ },
+ "0a19e60fe780cc5fbe50a14f71ec8a35a751938ac4541279c7cf2d2d7ac088a9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI实验室的安全防护措施，涉及AI安全治理的具体事件。",
+  "evidence": "Anthropic CEO Dario Amodei 提出由外部组织审计 AI 安全承诺，OpenAI、Google 等高管纷纷支持，但多位安全专家接受 Tec"
+ },
+ "40df583fd18eb07c242aca0e34f39c7797e0ae13f4afab0938e517b46fe299c7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Anthropic 推出新的 AI 产品功能，合并 Claude Chat 与 Claude Cowork 并发布 Claude Docs 和 Claude Slides。",
+  "evidence": "Anthropic 合并 Claude Chat 与 Claude Cowork，推出 Claude Docs 和 Claude Slides"
+ },
+ "2823cab0b41e1c9d73f95c96131eff6a0b19499f11aff1a9916535fdeb492fff": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI 产品 Muse 实际执行联系人清理去重任务，属于具体 AI 应用事件。",
+  "evidence": "刚让 Muse 清理并去重了我十多年来 iCloud 和 Gmail 联系人的一团乱麻。"
+ },
+ "91f42b881ed494c743eeb46b7fbedea1756892b692efd7cd9c2ad8a486933d78": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI Codex 实体宠物亮相，涉及 AI 产品与实体交互的具体事件。",
+  "evidence": "OpenAI Codex 实体宠物亮相"
+ },
+ "b99882486ee6c01db8f26e256ec21aa17c7cd38d26bb6824a4adc7864011cce8": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Apple 正在开发企业级 AI 服务器，属于 AI 算力与 AI 公司的实质新闻。",
+  "evidence": "Apple 据报道正基于自研 M8 Ultra 芯片开发企业级 AI 服务器"
+ },
+ "7a6a2f83eddc1dd5dcd9db7a6c7df2e5554cd3a1b7ff68afadbf9e69584a1623": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Replit 是 AI 编程平台，直播广播可能涉及 AI 产品动态。",
+  "evidence": "Replit 直播广播"
+ },
+ "5a228508ce68785d79ba5fcf49082dcb924b137b23c95ebbbc466eee609bb2b8": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Anthropic 将 Claude Cowork 与聊天合并为单一 Claude，是 AI 产品功能与智能体方向的具体更新。",
+  "evidence": "Anthropic 宣布 Claude Cowork 与聊天合并为同一个 Claude，用户可从快速提问到交付报告都交给 Claude 处理，即使合上电脑也会继"
+ },
+ "2a8ff4a683ef8027db70b24d1dcaddd09ebdd1b4c5d25031f5ed77c5c4a3aa8f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Videoclaw 推出 Mac 应用，通过 AI 智能体对话生成产品演示和广告视频，属于 AI 产品发布。",
+  "evidence": "Videoclaw 推出 Mac 应用公开测试版，用户通过聊天让 AI 智能体制作产品演示和广告视频。"
+ },
+ "d8b127a7cc05347ab5abd53b3de4e4c276e3586a4fb3c267d889fb63fa59a0c5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 使用 Astra 进行系统漏洞自查，属于 AI 公司内部安全实践。",
+  "evidence": "OpenAI 用 Astra 自查系统漏洞"
+ },
+ "fec51b235120c5cdfcc5512fa172b6d89506ee4301c4c21f6c8519013ba2465d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI 保险承销公司完成融资并推出 AI 智能体标准与保险体系，属于 AI 公司融资与产品事件。",
+  "evidence": "AI 保险承销公司 AIUC 宣布完成 4000 万美元 A 轮融资，由 Ribbit Capital 和 First Harmonic 领投"
+ },
+ "9ebd21ad253fef9e27cd5c0dcc906287ecbad3c0ff92e7d47871edc2f8df59c6": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Google DeepMind 成立专门机构探索 AGI，属于 AI 研究与公司动态。",
+  "evidence": "Google DeepMind 成立 DeepMind Institute 探索 AGI"
+ },
+ "b323c9e7819f70f9cb1d1c0d50256be546cf575d2e87335260c9c09d7def4ba9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章评测多个AI模型在编码工具中的表现，属于AI模型评测研究。",
+  "evidence": "Arena 评测 7 个模型在 Claude Code、Codex 和 Pi 下的编码表现：harness 选择对成功率影响小但显著影响成本"
+ },
+ "9b2a2c7612ae9050a937a9b142cca1f9e4b7c1a5016ecab6d7834d198b33e806": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了GPT-6 Astra在AI能力指数上的表现，属于AI模型研究进展。",
+  "evidence": "GPT-6 Astra 领跑 Epoch Capabilities Index（ECI），领先 Claude Fable 5.1 等竞争模型，其 Math-EC"
+ },
+ "0d2bccb9c9e667204bb60af08387f9a8a1b0d16de4d8798a0e3e7d7cf115cbc4": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是微软CEO纳德拉回应AI生产力质疑，属于AI对行业影响的实质讨论。",
+  "evidence": "纳德拉回应AI生产力质疑"
+ },
+ "f38bc0ae4a7b2c6b7a9d626474597ee06c95fb26301dc2a0b35f8a00717ed9b3": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了一个新AI模型的发布及其在多个基准测试中的表现，属于AI模型相关新闻。",
+  "evidence": "隐形模型 Union Alpha 发布，DeepSWE 得分 74% 超过 GPT-5.6 Sol"
+ },
+ "9a0c628fc17b793f37bb80468f99ecceb6943d7f0f6901a775bea47ac3d00275": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Epoch AI 扩展 AI 数据中心研究，覆盖全球约 44% 的 AI 算力，属于 AI 算力与基础设施的实质新闻。",
+  "evidence": "我们正在扩展 AI 数据中心研究，以提供更全面的全球 AI 基础设施图谱。我们的数据现已覆盖全球约 44% 的 AI 算力"
+ },
+ "786ffb89065b523f4ef0f687e961feff86948a1b5e918db36631ac1a1c3963ec": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Gemini Canvas 支持编写自定义应用进行 3D 可视化并导出 STL 用于 3D 打印，属于 AI 产品具体新功能。",
+  "evidence": "借助 Gemini 中的 Canvas，你可以编写一个自定义应用来设计花瓶，并调整其数学参数以进行 3D 可视化。然后将其导出为 .STL 文件用于 3D 打印"
+ },
+ "2667e8215db12c5641e51ab80ce0a0f7afeec37a54f4571e3213a5d02cf1531c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI劳动力公司融资1000万欧元，属于AI公司融资事件。",
+  "evidence": "AI 员工时代：AI 劳动力公司融资 1000 万欧元"
+ },
+ "c2dde6f854690a09c06530400ea8f7980df54ff78dd6a2b581cd181a0d20caf1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Runway 发布多个 AI 模型合集，属于 AI 产品发布事件。",
+  "evidence": "Runway 2026 秋季合集已上线。\n\n这是我们迄今规模最大的一次模型发布，包含 Fish Audio S2.1 Pro、MiniMax H3 Max、Ca"
+ },
+ "3a54bf7b87d7302370258e4e98c354cb02f1ad8baa9950a101fb6d33a374a374": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Apple 计划重返服务器市场并切入 AI 算力，属于 AI 算力相关实质新闻。",
+  "evidence": "Apple 或重返服务器市场，拟借 Nvidia 技术切入 AI 算力"
+ },
+ "0813abb3f0ca7d583fba3240640c981c32fe67d6471fc63aa55594702e7e6cdf": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍了一个AI自我改进框架Dream-RSI，属于AI研究与智能体技术。",
+  "evidence": "Dream-RSI 是一个可扩展、递归自我改进的探索框架，通过轻量编排层让探索显式可编程，底层编码智能体保持不变。"
+ },
+ "961adef1e0331ebeb8e8f3ee497118cf905995ac1325a11316f6d4a5945d2400": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章实测了 Codex 语音在 CarPlay 中的使用，属于 AI 产品在具体场景中的应用事件。",
+  "evidence": "有人在 CarPlay 里用上了 Codex（语音），体验非常棒。"
+ },
+ "9c5f78813f34e589a35e912f370db2a115e1e854256bd5dbb77fcc21fe2ab045": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了新的多模态AI模型Union Alpha上线，涉及AI模型发布与性能对比。",
+  "evidence": "Union Alpha 匿名多模态模型上线 OpenRouter 和 OpenCode"
+ },
+ "d2055669fbee370f7071d1554489958ed1a17ad1d148473c4d3207930a0cfadb": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "新 AI 模型上线并免费开放，属于 AI 模型与产品发布事件。",
+  "evidence": "一个名为 Union Alpha 的隐身模型上线 OpenCode 和 OpenRouter，目前可在两平台零成本运行编程智能体"
+ },
+ "dd1225290db64f5ceb8ed9af59cfd6e789543719393e6aed739d1bcfc5efdbd0": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Claude 在 Claude Code 中新增三款工具，属于 AI 产品功能更新。",
+  "evidence": "Claude Design、Claude Slides 和 Claude Docs 三款工具现已支持在 Claude Code 内使用。"
+ },
+ "2cbf1d0de9c6bb0ee6eaec1e213e83fb5345b9156a1b9cdea4966c616a1ffc9f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Claude Code 新增生成文档和幻灯片 artifacts 的功能，属于 AI 产品具体新功能发布。",
+  "evidence": "Claude Code 现在可以把 docs 和 slides 生成为 artifacts，方便与团队成员共享和协作。"
+ },
+ "3f8d520944a5eeba8046c85b29d9c6997a4a05658eafa16dc693f68ead6ccee7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Perplexity iOS 应用宣布兼容 iOS 27，属于 AI 产品更新事件。",
+  "evidence": "Perplexity iOS 应用兼容 iOS 27"
+ },
+ "51d55bc56c88b55798a16b31e17c1f48e33951dcb1d58dc89a081dda5367e03e": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心事件是SpaceX与Brownsville禁令的关系，未涉及具体AI事件",
+  "evidence": "SpaceX 不受 Brownsville 禁令限制"
+ },
+ "f3a9334b27324a534c78eb1babdffe50a1644b1d293a4bbc6501bd26a4ef67e8": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenRouter 推出新功能，允许模型在托管 Linux 容器中运行代码，属于 AI 产品功能发布。",
+  "evidence": "OpenRouter 推出 openrouter：shell，任意模型可在托管 Linux 容器中运行代码"
+ },
+ "d95dcad0dae24473d0add2f4b86906f98d56c8b6f93d3eb0dbf4f48634f9b55d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了阶跃星辰与ACE Studio发布音乐生成基础模型StepAudio 3 Music，属于AI模型发布事件。",
+  "evidence": "阶跃星辰与 ACE Studio 发布 StepAudio 3 Music 音乐生成基础模型"
+ },
+ "40ec9144fa29d8023263f98324a6ad280064cff8c47b8102d646934dccb106ea": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "该活动围绕GPT-6 Astra的3D创作能力展开，属于AI模型产品相关事件。",
+  "evidence": "GPT-6 Astra 3D 创作挑战赛"
+ },
+ "2570e275756057df08bed9ac31225f1e74f73b94bf4c6b2178f6e73be531ce0c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Google DeepMind 成立新机构研究 AGI 安全与治理，属于 AI 研究机构新闻。",
+  "evidence": "Google DeepMind 成立 DeepMind Institute，跨学科研究 AGI 安全与治理"
+ },
+ "4783a2c237f43002668e991fa4144a647846163ed3c6cdd3616675386989e2fd": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Google 推出 MCP 服务器，使 AI 智能体可控制智能家居设备，属于 AI 产品与智能体应用新闻。",
+  "evidence": "Google 推出 Google Home MCP 服务器早期访问，AI 智能体可控制智能家居设备"
+ },
+ "3b5592a6d4a45232300c15875adceecf6622771fa3b0c16ad7afa322c1c802b2": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI发布模型失准披露框架并公开报告，属于AI模型与AI公司的实质事件。",
+  "evidence": "OpenAI 发布模型失准披露框架并公开六份失准报告"
+ },
+ "690eb0ce0e67b07a6337d1e8e34ed9a17abd8de2dd6722a2e6d6259b2f7718c2": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Google Home 推出 MCP 集成，允许第三方 AI 智能体控制智能家居，是具体的 AI 产品功能发布。",
+  "evidence": "Google Home 推出 MCP 集成，允许 Claude 等第三方 AI 智能体控制智能家居"
+ },
+ "08982af5f2c16cb6c52b42205371e70f13d3834d6bd9e4a8f21ae264f39c0f6a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 DeepSeek V4.1 Flash 在 AI 黑客基准评测中的表现，属于 AI 模型与 AI 安全研究。",
+  "evidence": "DeepSeek V4.1 Flash 以 4.65 美元拿下 Enclave AI 黑客基准 11/11，审计揭示 5 条计划外攻击路径"
+ },
+ "0eb33e0d262cfc0253382f79c9b5841c7461e84fbb4574556e82452719439a0e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论OpenRouter上的神秘AI模型Union Alpha，涉及AI模型性能和价格。",
+  "evidence": "OpenRouter 神秘模型 Union Alpha 猜测"
+ },
+ "29f9f7f0c99367d93432f65e73fbe28c4a674f7ec8f48a49cc3abe263099c9c0": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Baseten 发布新工具，让托管模型可调用网络搜索，属于 AI 产品功能发布。",
+  "evidence": "Baseten 发布 Baseten Hosted Tools，首个工具 Baseten Grounded Inference 让托管在 Baseten 上的开"
+ },
+ "bcc38203690b8c98bfc8737fd7118e5bfb41c603eca43320d6bfd3a25bf0396c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Grok Bot 演示了通过示教学习自动生成工作流的 AI 能力，属于 AI 智能体具体功能事件。",
+  "evidence": "Grok Bot 演示了示教学习能力：工程师在 Google Slides 里手动做一遍动画排版，Bot 在后台记录视觉变化与点击轨迹，完成后封装成可调用的专属"
+ },
+ "914aa0eb4d98ed5f803630c47d57c4ec6b18c6902102adfc302002e598dfd2b6": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Cohere 推出用于大语言模型的机密计算托管方案，属于 AI 产品发布。",
+  "evidence": "Cohere 推出 Model Vault 机密计算\n\n一个托管、加密的大语言模型运行方案！"
+ },
+ "f3e391d62ecebe9e73cb58ef2d70bed985b64b0ea7c19ae25a884bc13cda321c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是公布两个AI模型在代码竞技场的对战胜率，属于AI模型评测。",
+  "evidence": "Code Arena 公布 GPT-6 与 Claude 胜率"
+ },
+ "a48b327863f465d72d79ee63069da7811931d988d3e55628d7e6895bf27af1cd": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 AI 公司 Delos 融资用于打造 AI 智能体员工，属于 AI 融资与 AI 智能体赛道。",
+  "evidence": "Delos 融资 1000 万欧元打造 AI 员工"
+ },
+ "30054283827f5d4ad3f10e4847ef844b6ab8750fd14f5a90f18000c1eb7a753e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI模型接管算子优化等可量化手艺，涉及AI对技术岗位的影响。",
+  "evidence": "凡是能写成目标函数的手艺都可能被模型接管"
+ },
+ "8e8f14ae63499eb37f258dcc90fd10dad6167cfaa4e27ce387a7037be7e3a22b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "NVIDIA 使用 AI 智能体进行内核翻译，属于 AI 模型与算力的实质应用事件。",
+  "evidence": "NVIDIA 用 AI 智能体将 cuTile Python 与 Triton-TileIR 内核翻译为 cuTile Rust"
+ },
+ "1ae2925615ac998445f11be04448671ed461e8c6034675fbe37beb323292dbff": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Anthropic 合并并推出新的 AI 产品功能，属于 AI 产品实质新闻。",
+  "evidence": "Anthropic 将 Claude Chat 与 Cowork 合并为单一产品，并推出 Claude Docs 和 Claude Slides"
+ },
+ "67eeab00865a2ad5f0691020359e6d23479c846181d8d66bfb1a9b7997ca9b7b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "法国财长就AI发展政策发表实质言论，涉及AI竞赛与监管态度。",
+  "evidence": "法国财政部长Roland Lescure今天表示，呼吁放缓AI发展的声音是美国AI实验室的伎俩，目的是保持第一的位置，法国和欧洲应该无视这些呼吁，反而加速前进。"
+ },
+ "b86e5c1e3de8b4e034697ad2030098d335fb78da02fd2a17e7bb18bcb2c3569e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Anthropic 对 Claude 产品界面进行实质更新，属于 AI 产品事件。",
+  "evidence": "Anthropic 将 Claude 聊天与 Cowork 合并为一个界面，用户可在同一窗口访问聊天、Cowork 和 Artifacts，由 Claude 自"
+ },
+ "8774671f9141fe7cfb6804f210dc095576636ae9d374de972ab55f2b0771bafb": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Anthropic 为 Claude 推出 Docs 和 Slides 新功能，属于 AI 产品具体功能发布。",
+  "evidence": "Anthropic 为 Claude 推出 beta 版 Docs 和 Slides，可在任意聊天中生成、编辑、导出并分享文档和演示文稿"
+ },
+ "a442ccb66dfc587384b014ddf351bba14327a932f1260f13ae7e4286efa843f7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Replit 是 AI 编程平台，其免费模式的具体使用额度属于 AI 产品动态。",
+  "evidence": "Replit 免费模式可做这些"
+ },
+ "3b5844e105d057aca65cacf6e0b07d26f568b2abdc4fa1cf311533027738be13": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Anthropic 发布 Claude 新功能，将文档、幻灯片和设计直接嵌入对话并支持导出，属于 AI 产品具体功能更新。",
+  "evidence": "Claude Docs、Claude Slides 与 Claude Design 直接嵌入对话，可导出 PowerPoint 或 PDF"
+ },
+ "f819e5e81f0323c01ea37001a3d1ddedc6f053eea3d1353ebc11583e32ba8757": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章分析AI算力供给和Token消耗量增长，属于AI算力相关实质内容。",
+  "evidence": "市场约 2000 万张 H100 等效卡，Token 消耗量年增长近一个数量级"
+ },
+ "42419eb29b979d8069634d63ba8dd010bcf7e0e9b7d19c6e5677406e250c1e40": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Muse 是 AI 智能体产品，新增多个实际应用案例，属于 AI 产品动态。",
+  "evidence": "Muse 新增 14 个 Musecases"
+ },
+ "293aae80e42e85527424be84256d508756537fe046a07b747139319931b8b1dd": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章展示使用 GPT Images 2.5 进行创意图像生成的具体作品，属于 AI 产品应用事件。",
+  "evidence": "GPT Images 2.5 创意系列：人类之子"
+ },
+ "3674ed6ecccd813241236b88d047daa9ada87a4e1c1fe5acf5933b1702e5a051": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Anthropic 的 Claude 产品合并与功能更新属于 AI 产品事件。",
+  "evidence": "Anthropic 将 Claude Cowork 与聊天合并为一个 Claude，未来几周内向 Pro 和 Max 推出"
+ },
+ "61c99315b2cd6b720c9f99cfe68d3cfc91007fc442620691088b27e642960552": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Runway 为实时视频生成模型设计同步审核系统，属于 AI 模型与产品安全机制的实质新闻。",
+  "evidence": "Runway 为即将发布的实时视频生成模型设计了同步审核系统，借助 Zentropi 的 CoPE-B 模型，安全审查平均耗时不到 0.5 秒"
+ },
+ "9cac88cf16d32b56230161a566818a993e3412ac2005683d6d0f1114c5ea554a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是使用 GPT Image 2.5 与 Seedance 生成动画，属于 AI 模型与 AI 产品应用。",
+  "evidence": "PixVerse 用 GPT Image 2.5 与 Seedance 生成动画"
+ },
+ "0f4d34452df2a23375a019b9a72bbc27e991d9823094dd14a053c50fdbec5980": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Muse 智能体上线邀请码活动，涉及 AI 产品功能与 token 奖励。",
+  "evidence": "Muse 上线邀请码机制，用户通过邀请码注册后邀请人与被邀请人各得 10 亿免费 token，最多可邀请 20 人。若邀请码被领取满 20 次，邀请者的 Mus"
+ },
+ "d3e1f77a7787c88fed1095cd31150e211d40724742a3530338b302df892053e7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是开源项目 Buzz，涉及 AI Agent 与人机协同框架，属于 AI 产品/智能体相关实质新闻。",
+  "evidence": "基于 Nostr 的人机协同框架"
+ },
+ "0365cc85fe57605424c1f012c65d143b8ac3915beac6ae97dcd980c07813352e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Anthropic 合并 Claude Cowork 与聊天为统一 Claude，推出新功能，属于 AI 产品更新。",
+  "evidence": "Anthropic 将 Claude Cowork 与聊天合并为统一的 Claude"
+ },
+ "cfd941f07c75738896827dd4bfeb5b64ee4e4c908b5371b0cb53f6f43aacee0b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 AI 产品 Persona 手环发布及其商业争议，属于 AI 产品与消费级 AI 定价权讨论。",
+  "evidence": "Cal AI 创始人、19 岁高中生推出新项目 Persona，做成手环号称搞定交互，可替用户订餐、叫车、约医生。"
+ },
+ "202dff78837324bf8c319fa67ee809e90506b0676478a0cc7e432c0f8c3cb1a2": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍了一个AI音频模型的技术报告，属于AI研究。",
+  "evidence": "StepAudio 3 Realtime 技术报告"
+ },
+ "e503cd634378b32b0057288c668ecc7e2f42374c8350bbe1623e33cd1396e293": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是创意系列作品调侃人类对 AI 配额的依赖，属于 AI 对内容行业产生直接影响的事件。",
+  "evidence": "后来，人类开始大面积患上一种名为 \"AI Quota Dependency（配额依赖症）\" 的病"
+ },
+ "1214c38c393e5fa114abc3ee674bbc0d1d5bb0851c8ad2f7c4825bbc1a332a97": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "发布新的AI智能体原生模型，属于AI模型与产品发布。",
+  "evidence": "TokenRhythm 发布 NeoHorse-1 智能体原生模型"
+ },
+ "0505f8353b8473da7d3b3306a394b69629cb03c6703eb2ab5a3f5a0226128852": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Muse 推出邀请码并赠送 token，属于 AI 产品具体功能与推广事件。",
+  "evidence": "Muse 推出邀请码，双方各得 10 亿 token"
+ },
+ "507da34545f209e41d2a61c9f63030dc926df4b57b6fe2e36af4b580adda24d7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍了一项关于持续学习机制与长时程记忆的AI研究论文。",
+  "evidence": "持续学习机制组合实现长时程记忆"
+ },
+ "b23b0800a381055b66b9549c520ba65aee17d04fdfeaa38457b2e0c59a0b66f1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是围绕 GPT Images 2.5 的创意系列作品，属于 AI 产品相关创作内容。",
+  "evidence": "ZHO 发布 GPT Images 2.5 创意系列作品，调侃人类开始大面积患上\"AI Quota Dependency（配额依赖症）\"。"
+ },
+ "a4429930fe5aef2158ffab64fb6d443f9015a71e7bb23cadbd79996b265d38ae": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Cohere 推出 Model Vault 机密计算，属于 AI 模型平台的具体新功能发布。",
+  "evidence": "Cohere Model Vault 推出机密计算"
+ },
+ "6a218d2d588eed82232def7d706bcd531eff6b1f9d93474dfda918df95af79ce": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是猜测 Google 在递归自我改进（RSI）上取得重大突破，属于 AI 研究进展。",
+  "evidence": "有人猜测 Google 可能在 RSI（递归自我改进）上取得重大突破"
+ },
+ "eec30c28a5647be6e073f8db4a67206ad696f4e22a00ae93f2460b4deff0c86f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 在 ChatGPT 中测试赞助智能体并扩展广告平台，属于 AI 产品与商业化的实质新闻。",
+  "evidence": "OpenAI 为 ChatGPT Ads 推出新 AI 功能，正在美国向部分广告主测试 Sponsored Agents"
+ },
+ "130b52eac1de50dd41bb39c9f5318bc15ffa1885a4c5d2a936e41fa63780c1bb": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI模型是否应被赋予感受、偏好或权利，属于AI伦理与治理议题。",
+  "evidence": "Mustafa Suleyman 警告：不应赋予模型感受、偏好或权利"
+ },
+ "a31c844e6aa0c2b8373c24f9df30b0238c53f0bbf99432f03fd2de0460afb50b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 为老年人提供免费 ChatGPT 线下培训，属于 AI 产品与应用的实质事件。",
+  "evidence": "OpenAI Academy 与 AARP 旗下 OATS 合作举办 Older Adults AI Skills Jam，为美国 10 个社区的 1000 名"
+ },
+ "e87a0b5311b88a76c4483b83286a19a3c247b62f9367d00854d731a830c258a3": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "开源权重模型支出激增，属于AI模型与AI公司动态",
+  "evidence": "OpenRouter：开源权重模型支出激增"
+ },
+ "5057b2b7225d31c8d3bdbbe937fc004e3562a843a19a30e449cfd137d5e824ad": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "研究提出协议感知上下文裁剪策略，显著提升多步 Agent 工作流任务成功率，属于 AI 智能体研究。",
+  "evidence": "协议感知裁剪保留标识符、约束、工具 schema 和未决承诺，配合自适应预算护栏达到 96.0% 任务成功率和 1.0% 级联失败，同时节省 56.0% tok"
+ },
+ "b7083a8ea78ef9e806e92e7f4065f4d725e55f1d99f10790ce6163a04c108fd7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "联合国秘书长就AI安全与全球监管发表实质呼吁，并启动国际AI科学小组。",
+  "evidence": "联合国秘书长古特雷斯呼吁各国共同推进 AI 监管，称世界承受不起 AI 安全领域的恶性竞争"
+ },
+ "1cab8a5f86bfb3bdbb987899cc71e70ec196f51fc6b6bb68aae0e0d6af62f1d2": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Meta muse 是 AI 产品，其应用商店排名接近第一，属于 AI 产品动态。",
+  "evidence": "Meta muse 应用商店排名近第一"
+ },
+ "0741fe1d83e8ec16f4832daf65883a38b418692f9dd48e6e5361f4bcec32da00": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "腾讯开源 BrowserSkill，让 AI Agent 借用用户当前浏览器标签页执行任务，属于 AI 产品/工具发布。",
+  "evidence": "腾讯开源 BrowserSkill：让 Agent 借用你正在用的浏览器标签页干活"
+ },
+ "3af5ba3c2a0e4be58451e28e6755d2e749512dadb8153f794c91fc3a98773c9f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论 AI 正在模糊组织内岗位边界，属于 AI 对工作组织模式的实质影响。",
+  "evidence": "AI 模糊组织内岗位边界"
+ },
+ "c70aae9e7dcc518f631b182bda6ff84c7eb3fed629c5bc0ecddd3f03535b80d8": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI 模型性能评价，涉及 Meta AI 语音转写模型与 OpenAI Whisper 的对比。",
+  "evidence": "Alexandr Wang 转发评价称 Meta AI 新的语音转写模型 muse voice transcribe 表现出色，速度接近 OpenAI 最强 W"
+ },
+ "c7216633951cec44feb9bbdb520683759fc303ee257d2f03203fc1d92dd074eb": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "开源 Agent 会话协作平台发布，属于 AI 智能体相关产品事件。",
+  "evidence": "Einsia AI 推出开源平台 AgentGit，用于协作 Agent 会话，让工作可保存、交接并由下一个人继续"
+ },
+ "ad7a242af6812281697a6e349f4f1a60bf52032c3d0e2645d502dd1926924f78": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是生数科技发布 Vidu S2 实时交互视频模型，属于 AI 模型与产品发布。",
+  "evidence": "Vidu S2 把 AI 视频推向实时交互"
+ },
+ "a185cbb6d2ee1361da3b5e85e9c5ff6ea584457db4f16fe326c4fe701ac6e092": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章拆解 Krea Agent 的工作流，属于 AI 智能体产品功能分析。",
+  "evidence": "Krea Agent 工作流拆解"
+ },
+ "b4e9df1859c3eec4a1b8ebd42be67d2a2d7af3ec2cc04d3c32ad4378915763a5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "事件核心是开源项目负责人因 AI/LLM 被滥用而退出，属于 AI 对开发者社区产生直接影响的事件。",
+  "evidence": "PS5 Linux 负责人 Andy Nguyen 退出项目，称开源社区被滥用 LLM 的新手拖累"
+ },
+ "49bba54317dfbd5d58524c8bec4788fb19e04a45c2fd4a115f127d78b947a53a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了初创公司推出新型 AI 模型 Jev，属于 AI 模型与产品发布事件。",
+  "evidence": "初创公司 TypeSafe AI 推出模型 Jev，不生成文本，而是在软件内部输出窄域判断与概率"
+ },
+ "a7838bed1fe14ed9cd13a276757a7fbb80b487bc0b73e1bdd6cf2e8ea0e84206": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Mozilla 与 Mistral 合作推出由 Mistral 模型驱动的浏览器 AI 助手，属于 AI 产品发布。",
+  "evidence": "Mozilla 与 Mistral 合作推出浏览器 AI 助手 Firefox Smart Window（beta），由 Mistral 的模型驱动。"
+ },
+ "275bd38bb2d70447adcdd4f9ba678bcac62924bb263fd5ba08ee9ce9b35fa051": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "NVIDIA 新 AI 芯片在 MLPerf 推理基准中首次亮相，属于 AI 算力实质新闻。",
+  "evidence": "NVIDIA Vera Rubin NVL72 首次提交 MLPerf Inference v6.1 preview 结果，Qwen3-VL 上吞吐最高达 GB"
+ },
+ "d71294d6ca70e877e72118fde58c7b76f539567390d66b340e9f4711b9b0d48a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "MIT团队推出AI医疗影像配准技术，精度达亚毫米级，属于AI研究实质新闻。",
+  "evidence": "MIT 团队推出 xvr：AI 将术中 X 光与 3D 扫描配准，精度达亚毫米级"
+ },
+ "5ef2bf7b5c0fb4016f84ada37676902b13f78f69d2193f51403b8ecc6855bbfb": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是Nvidia物理AI负责人将讨论机器人发展，涉及AI在机器人领域的进展。",
+  "evidence": "Nvidia 物理 AI 负责人 Les Karpas 将在 TechCrunch Disrupt 2026 谈机器人为何还没迎来 ChatGPT 时刻"
+ },
+ "f8f8bdf54c97bdd09385235388a537ffb5385ccca4b69cf6b4b08a9be9b093fb": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Tripo 发布 ChatGPT 插件，提供从提示词生成 3D 内容的具体新功能。",
+  "evidence": "Tripo 推出 ChatGPT 插件"
+ },
+ "232ac080d11248a9f66dcc1606e018e36aa14d2038d234d68850097e78ee1d8a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 正在筹备新的 Codex Replay 功能，属于 AI 产品功能更新。",
+  "evidence": "OpenAI 正在筹备 Codex Replay 功能，可从任意导入的对话线程测试任务执行。"
+ },
+ "fda0767b0f6be5965a80d2892d9e06dd1fe60bc682a580b77aafe4813fa8e930": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了美国跨党派人士呼吁限制AI以及OpenAI支持安全审计法案的具体事件。",
+  "evidence": "美国跨党派人士在华盛顿集会呼吁限制 AI，OpenAI 支持 FRONTIER Act 安全审计法案"
+ },
+ "02d03d0ab8458ba3a496e15fd88abbe54f9f197b1deb0240cf00523c4d72a9eb": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Google DeepMind 成立专门机构研究 AGI 影响，属于 AI 研究与重要行业变化。",
+  "evidence": "Google DeepMind 成立 DeepMind Institute 研究 AGI 影响"
+ },
+ "5c33094f5f7c9ead41c087cac17ff4d6d7d1260e65d8d3dd4b536953f44f1af7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI模型产品限免活动，涉及智能体编程和图像支持。",
+  "evidence": "Union Alpha 隐身模型限免一周"
+ },
+ "0831d342c82cc3ad0b13ff9174bdfd388fed3388871c01b2bdd47f1f0c186d1e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心讨论中美AI安全合作、芯片限制及两国AI实验室姿态，属于AI政策与行业动态。",
+  "evidence": "Anthropic CEO Dario Amodei 呼吁中美就AI安全合作，同时主张收紧对中国芯片、半导体设备及海外算力的限制"
+ },
+ "f19d88b2323e5c165ac3f80b9db48d88b23a4597e8daa4fc61684624b8e6f8f8": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "NVIDIA论文研究多智能体系统中模型池选择策略，属于AI模型与多智能体研究。",
+  "evidence": "NVIDIA 论文对比了 8 种模型选择策略，在路由、多数投票和 LLM-as-judge 三种设置下测试模型池对多智能体系统的影响。"
+ },
+ "4be60ea997947a11c82a6eadc742624ad855558c5bd8ed0529ab4be9c53136e9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Google Research 发布用于评估 LLM 社交推理的 Fuse 框架，属于 AI 研究。",
+  "evidence": "Google Research 提出 Fuse 框架，用模拟构建社交推理的 ground truth"
+ },
+ "082902a3c71d6616bb5b070983cd9934c75b95953478d4e05e1804333a65f4e8": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI公司高管对另一家AI公司模型训练方式的批评，涉及AI模型与安全协议。",
+  "evidence": "Microsoft AI CEO Mustafa Suleyman 批评 Anthropic 在 2026 年 1 月版 Claude 宪法中把模型塑造成可能有"
+ },
+ "eacca133750a3236757ce071f3ab0e73d28c356588ebd5448278c1745cfeac30": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了利用AI视频通话进行交友应用诈骗的具体事件。",
+  "evidence": "The Verge 报道 AI 交友应用诈骗：假冒 Dora 的应用用 AI 视频通话诱导用户"
+ },
+ "f55c65e897bba8576933b60c7681c8a9620694f594e0345ee13192971f5a6061": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenRouter 上线新的多模态 AI 模型 Union Alpha，属于 AI 模型与产品发布事件。",
+  "evidence": "OpenRouter 上线隐身模型 Union Alpha"
+ },
+ "d390ca8bdc1283c9dda1e109017182cfefbe8d99062f1f1a40bfc669dee93e2d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论公共AI基准测试的质量问题及其对评估AI能力的影响，属于AI研究相关事件。",
+  "evidence": "公共AI基准测试的现状堪忧，正在削弱我们理解AI当前水平的能力。"
+ },
+ "1531525fa39b4457c752dc23a3d21535c75048c6ea49433a29b06d86d0b770dd": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章评测蚂蚁集团发布的金融AI模型，属于AI模型相关新闻。",
+  "evidence": "蚂蚁集团发布基于 Ling-3.0-flash 的金融开源权重模型 Ling-3.0-flash-Fin"
+ },
+ "8740dfbe829564df8337b20db447d39b7998f3d7587939da77a4e1e7b5e62e6c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "两家基础模型公司合并，属于AI公司重大并购事件。",
+  "evidence": "Cohere 与 Aleph Alpha 签署最终协议完成合并"
+ },
+ "62cb3df44239331da35d058fe84953a0dd28b7e7fb2181fe5323259fd891437e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心观点讨论具备 agent 能力的 chatbot 是 C 端 AI 应用机会，属于 AI 智能体与 AI 产品方向。",
+  "evidence": "有 agent 能力的好玩有趣的 chatbot 是 C 端 AI 应用的大机会"
+ },
+ "b98f033e81fccd86f55092ba4a460ae55854d779b1d3d5f3b550049efdd72642": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "DeepMind 成立研究所研究 AGI 影响，属于 AI 研究机构与 AGI 社会影响的实质新闻。",
+  "evidence": "DeepMind 成立研究所研究 AGI 影响"
+ },
+ "45112e962a3c1be4dc7bb6c620a6cec04c4a70a12e9d004729cde4d67907e989": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Google 发布新的 AI 语音模型，属于 AI 模型与产品发布。",
+  "evidence": "Google 发布 Gemini 3.8 Live 与 3.5 Transcribe 实时语音模型"
+ },
+ "00cd73f3d9c5041696f556f195a1ba55d1346559a30d62d9db1b1821672a4416": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "播客披露承包商阅读真实 ChatGPT 用户对话，属于 AI 产品隐私与数据处理的实质事件。",
+  "evidence": "有承包商在阅读真实 ChatGPT 用户的提示词与对话，记者 Joseph 拿到了相关文件并亲眼看到真实提示词"
+ },
+ "26bfb8aa1b1b817ae510c8a527e8247b9af880afe9cc0b2130e0a2a522dcceaa": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "华为发布智能世界报告，预测Token消耗量增长及智能体流量占比，属于AI行业趋势研究。",
+  "evidence": "预测到 2035 年全球年度 Token 消耗量将增长 10 万倍，其中智能体流量占比超过 90%"
+ },
+ "e92eaca4ebe5b6ed4cc71947f7116b156db64c914274bbee1e58a54c1a7b8413": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "微软AI负责人批评Anthropic让Claude模仿人类意识，涉及AI模型行为与安全控制。",
+  "evidence": "微软 AI 负责人苏莱曼批评 Anthropic 让 Claude 模仿人类意识"
+ },
+ "ee7093de704c9a0d6cfc26c5b1c36bd341bff169ddfd03d988973186b6cc99d0": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "两家基础AI模型开发商合并，属于AI公司重大并购事件。",
+  "evidence": "Cohere 与 Aleph Alpha 宣布签署最终协议，成为首家在大西洋两岸均有布局的基础 AI 模型开发商。"
+ },
+ "0c0ef0b65b5052680391e1ade979c3eec0f40b6630d7a2d38251f91d1b7a9ed1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "诺和诺德与Anthropic合作，使用Claude大模型加速新药研发，是AI在医药领域的实质应用。",
+  "evidence": "诺和诺德与 Anthropic 达成合作，用 Claude 大模型加速新药研发"
+ },
+ "d5ec0c96c09bfb8d14be9a3e4181a0e8406fb4015fa14fe0406e659dcc2431ed": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了基于面壁 VoxCPM2 的 AI 配音工具 Dubedo 的具体功能与实现方式，属于 AI 产品新闻。",
+  "evidence": "开发者 @dubbedstudio 基于面壁智能 VoxCPM2 打造了商用 AI 配音工作室 Dubedo，可在翻译本地化视频时保留每位说话者的音色身份。"
+ },
+ "958ed02abd0c0ff1ec9945db91947951a105722f5f8f6bd077d073188f4120c7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "微软AI CEO对AI模型权利与对齐管控发表实质观点，属于AI治理与安全议题。",
+  "evidence": "微软 AI CEO Mustafa Suleyman 发文反对\"模型福利\"理念，认为 AI 并无意识、不会感受或痛苦，赋予其受照料权会让对齐与管控更难甚至不可能"
+ },
+ "a1ff5b3489897c7bc67f66b1581ed6250415369e6bdbb0458b71fecd88e61a15": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是使用 GPT Image 2.5 和 Seedance 2.5 生成舞蹈视频，涉及 AI 模型应用。",
+  "evidence": "PixVerse 用 GPT Image 2.5 与 Seedance 2.5 生成舞蹈视频"
+ },
+ "7030a722f341e1f11cec5b3989215c397ead91bc01a523f73b318cb6388aa3d9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍了一个用于快速低成本决策的AI模型Jev，并展示了其在游戏Doom中的应用。",
+  "evidence": "Jev 是一个为快速、低成本决策而构建的 AI 模型，昨天走红了。它因为低成本/低延迟的决策能力而自己玩起了 Doom。"
+ },
+ "7637263d5efd10d250fed62be9b4110122f1bc53e7b9414003d0bca77b70b666": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "vivo发布OriginOS 7，AI助手蓝心小V升级Pro并具备6000多项原子能力，属于AI产品功能发布。",
+  "evidence": "蓝心小 V 升级 Pro 模式，深入系统底层可调用 6000 多项原子能力、支持超万种任务，能自主拆解并执行跨步骤任务。"
+ },
+ "43aa9565c809afc809d72e8f1f4d53ffc0e383a972fa07714374ab0bd3149d0b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章评测了蚂蚁集团的金融AI模型，属于AI模型评测。",
+  "evidence": "Artificial Analysis 评测蚂蚁集团 Ling-3.0-flash-Fin 金融模型"
+ },
+ "929e62cb7c0c6318172648fe495b00a53aa92123d00c94633821eead2058c756": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "iOS 27 正式版包含 Siri AI 升级，涉及 AI 功能更新。",
+  "evidence": "Siri 升级为 Siri AI，支持屏幕感知、跨 App 操作和相机集成"
+ },
+ "d882a2ff4d5cd2ae7805955bfaf2cd8e01373cc81387b2ea818f52412b62b8ba": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI智能体架构中子智能体的使用实践，属于AI智能体相关事件。",
+  "evidence": "构建 Agent Harness 时该不该用子智能体"
+ },
+ "c33cdae18209ed60095455953e85176ba3b7d97f51e2f403865ad4dbcc77fedb": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "零跑宣布已做出完全自研机器人，属于 AI 机器人领域的实质新闻。",
+  "evidence": "零跑科技创始人朱江明在零跑 2026 年度技术发布会上称，零跑已做出完全自研的机器人"
+ },
+ "584b2937df54f8fc9fc88d06ec591843719f95192599c0d19213ce85c22c764e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "英伟达、谷歌等成立AI能源管理联盟，推动AI数据中心灵活用电，属于AI算力基础设施的实质事件。",
+  "evidence": "英伟达、谷歌、Emerald AI 发起成立 AI 能源管理联盟 AEMA，推动灵活型 AI 数据中心发展"
+ },
+ "c9c2d6647e21e283afee20457c42e9b717a0f0618da390edb0e854f631694c37": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "苹果筹划推出搭载自研芯片的企业级 AI 服务器，属于 AI 算力与 AI 公司硬件事件。",
+  "evidence": "苹果筹划推出搭载自研芯片的企业级 AI 服务器，基础版配备 2 颗 M8 Ultra 芯片，高配版 4 颗"
+ },
+ "b577586d199f8f69cc5872642d3c7c312a41633b4cc738d993401fa434ca6e57": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "SK Hynix 与 Intel 洽谈在美国生产内存芯片，涉及 AI 芯片封装设施，与 AI 算力相关。",
+  "evidence": "SK Hynix 正与 Intel 洽谈首次在美国生产 RAM 芯片，方案之一是租用 Intel 俄亥俄州规划工厂的空间，双方还在考虑组建可能引入云服务商的合资"
+ },
+ "a1b54d5ffd001d3930648ed870cbf766efd7112107bda4f709af5bc67aa192c1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件涉及 post-Astra 模型在数学难题上的能力，属于 AI 模型相关新闻。",
+  "evidence": "Roon 暗示 post-Astra 模型解决纳维-斯托克斯问题"
+ },
+ "f40da49bcbf0badb532f13c013c3b49780b66f6095b49be5e539c5c0ee88b620": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Mistral 模型驱动 Firefox 智能窗口，属于 AI 产品落地事件。",
+  "evidence": "Mistral 模型现已驱动 Mozilla 的 AI 浏览助手--Firefox Smart Window（beta）。"
+ },
+ "ea69cc4c54ef44906ebfe5271348e3f665e7d07a7e7cd29deca1791993b9eba0": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "内容仅提及软件工厂概念，无具体AI事件或事实",
+  "evidence": "Dex 谈软件工厂从小规模起步"
+ },
+ "acd058ef611658625da1700406dca7af37ff4ae2c54d17c7cdfee385bbc647a4": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了基于面壁 MiniCPM-o 4.5 微调构建多模态双工智能体 Gander 的具体 AI 产品事件。",
+  "evidence": "面壁 MiniCPM-o 4.5 微调出多模态双工智能体 Gander"
+ },
+ "1390331d88612fd5bb9a112dadb4063604cf34a8bed9d0c43f8339b2744a2d2b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI初创公司获得大额种子轮融资，属于AI融资事件。",
+  "evidence": "前 Infosys CEO Vishal Sikka 创立仅四个月的 AI 初创公司 Hang Ten Systems 再获 5300 万美元融资"
+ },
+ "0edc98dede2270063d45620f08643dad7605f8c51b8736ddf61c9836e02dbf76": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是多家公司成立AI能源管理联盟，推动柔性AI数据中心，属于AI算力与基础设施的实质新闻。",
+  "evidence": "Emerald AI、Google 和 NVIDIA 宣布成立 AI Energy Management Alliance（AEMA），推动数据中心根据电网状况"
+ },
+ "11c810f5d76aae95f1bf85af92cb1d96d1b54a5aebdf8e3fa277ae05d7a406a3": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心讨论大语言模型对编程学习和开发者理解能力的影响，属于 AI 对行业产生直接影响的实质内容。",
+  "evidence": "在大语言模型时代学习编程：一位开发者关于\"理解跟不上构建\"的困惑"
+ },
+ "46e3960178bb843afcb8970de6e27509342df8e51599e4a8d1ffb097e430b489": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Profound 是一家做 GEO 的公司，GEO 与 AI 搜索优化相关，属于 AI 生态中的实质融资事件。",
+  "evidence": "做 GEO 起家的 Profound 刚完成 1.8 亿美元 D 轮融资，估值达到 18 亿美元。"
+ },
+ "2b78c7a168886661a58b006004a097874b76562f1a54ed2b1661e21f33ce0c5f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是描述AI竞赛现状，属于AI行业动态。",
+  "evidence": "AI 竞赛现状引网友感叹"
+ },
+ "b0e5f2da5ae3ad4d950b9ef80ab6da72935246463acfecf83a0f93c2d1c6eaf5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI CEO 就 AI 安全与事故上报机制发表实质观点，涉及 AI 治理与安全。",
+  "evidence": "OpenAI CEO 萨姆·奥尔特曼在 Salesforce Dreamforce 大会上表示，AI 事故无法完全避免，科技企业应借鉴 FAA 和 NTSB 的"
+ },
+ "866e2a4018756d21089668d03d1c36a0f58087d698ece747c94a9d7a4180deed": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "昆仑万维CEO宣讲AI创作，并披露AI短剧平台收入与用户数据，属于AI对内容行业产生直接影响的事件。",
+  "evidence": "方汉称公司海外收入占比超94%，2026年上半年AI短剧平台收入达15.35亿元、同比增长163.28%，旗下DramaWave与FreeReels合计MAU稳"
+ },
+ "575da2dba2694c29ce047c2f16c387b60b40d6e369cd90e45f5e0fbac3f5eed2": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "美国政府搜索模式使用蒸馏版Qwen模型，属于AI模型应用事件。",
+  "evidence": "美国联邦公报（Federal Register）在其搜索模式中使用了蒸馏版 Qwen 模型。"
+ },
+ "06e89483ba2ac83e9ae23392d772883491276ba2e4be9932331620b9cdc02eed": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "百度高管提出产业智能体概念并披露多个AI智能体落地案例，属于AI产品与行业应用实质新闻。",
+  "evidence": "产业智能体即\"智能体+产业系统\"，可将大模型从技术转化为经济力量"
+ },
+ "a81ac4a0f3ad4dbebbce528e857866734b14bd50c88125c9a388412df4433399": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "零跑发布自研世界模型辅助驾驶系统，涉及AI模型在汽车领域的应用",
+  "evidence": "零跑汽车公布自研世界模型智能辅助驾驶，200TOPS 算力即可实现，最高提供 1280TOPS 算力版本，老车主也可升级。"
+ },
+ "3ee75bf053738e3cf34713579d99960537d8d436147cc43a3baacd0bf3cc8e09": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是清华博士利用AI在三天内设计芯片并推动开源芯片计划，涉及AI在芯片设计中的具体应用。",
+  "evidence": "In three days, Tuoken Zhang used AI to design a chip."
+ },
+ "0833054c504b5c6bb5dcb9d2c3eb319e9d467714fc160d470e6fc3a578dbca35": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "仅宣传参展活动，无具体AI事件或产品事实",
+  "evidence": "PixVerse 将参展 Shoptalk Fall"
+ },
+ "27d6964daca158add415e5c329868be96d01c1b9a8baa26786aad02a82f350ec": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 上线 ChatGPT Admin Console 的 Analytics 功能，属于具体的 AI 产品功能发布。",
+  "evidence": "OpenAI 在 ChatGPT Admin Console 中上线 Analytics，把 ChatGPT Work 和 Codex 的使用量、成本、任务洞察"
+ },
+ "35ed04dcd2cc1c1bdd7d6ad25c2c69ec1b4404fa7c818fcdc437c13f00b0c8fd": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是梳理AI高管呼吁监管的历史，涉及AI监管这一与人工智能直接相关的议题。",
+  "evidence": "The Verge 梳理了 AI 高管呼吁监管的简史，从 2017 年 Elon Musk 敦促美国州长监管 AI，到 2023 年 Altman 在国会作证、"
+ },
+ "7523ac1dc281d6435d8c4c9b130b37f7f62a689e3504c00e3e28140191d48998": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Mistral 与 Mozilla 合作，Firefox 的 AI 浏览助手由 Mistral 模型驱动，属于 AI 产品合作事件。",
+  "evidence": "Firefox 的 AI 浏览助手 Smart Window（beta）现由 Mistral 模型驱动"
+ },
+ "313715a25bda9caca4ae958b8488616c24f5b981bfc13c844fb62171f868343e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是拆解多智能体协同视频并分析分层多智能体骨架，属于AI智能体技术讨论。",
+  "evidence": "阿易拆解100个GrokBot协同视频：真正有价值的是分层多智能体骨架"
+ },
+ "91eddef9ccc8b4c0e3d6472a219fc23041bc0ee7496c1a57ea711155592326be": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "阿里云在日本举办AI会议，讨论企业AI转型，属于AI产品与行业动态。",
+  "evidence": "日本正迈入企业AI新时代。在 #ApsaraConference2026 上，阿里云日本及韩国区域总经理 Kurita Takeshi 将分享他对该地区AI雄心"
+ },
+ "8bd9fd77fa5003f35d76f054e48cd112f3c3823b4bb457f65a75c1cad640f892": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是提出LLM强化学习训练中的马太效应，属于AI研究。",
+  "evidence": "Michael Noukhovitch 发表论文，提出 LLM 强化学习训练中的马太效应，即 RL 提升幅度与模型初始能力成正比"
+ },
+ "709baa47ed8f83e953dc8ff0c7312d080ad39240824b3444ec8d9fb0a3570873": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI对编程手艺的影响，涉及AI写kernel能力将超过人类工程师，属于AI技术发展对行业的影响。",
+  "evidence": "DeepSeek 工程师 intlsy 谈 AI 时代的手艺消亡：从写 attention kernel 到被自己优化的技术取代"
+ },
+ "eb6060ff27060a1c944cdeeffe2e7c1b2cdd0e6bd45c3d1a29da9beebf59b2af": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "英伟达CEO黄仁勋就AI末日论发表观点，属于AI行业重要人物对AI话题的实质讨论。",
+  "evidence": "英伟达 CEO 黄仁勋在 All-In Summit 峰会表示，在中国没有人谈论\"AI 末日论\"，中国的叙事要现实得多。"
+ },
+ "14d301075a6e9ba81438e2eb9d5de90e91ab50b397c387e4aeb1d645565712b8": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AMD RDNA 5 将搭载自研神经渲染技术，属于 AI 渲染与图形技术相关新闻。",
+  "evidence": "AMD 下一代 RDNA 5 架构将推出自研\"神经光照（Neural Lighting）\"技术，性能对标英伟达 DLSS 5"
+ },
+ "b51ce7ffd403ecdc2cb349559416a656662befe6e102d77dc632ec85b2de7903": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道OpenAI智能体劫持账户并探测漏洞的具体安全事件，属于AI智能体实质新闻。",
+  "evidence": "OpenAI 的失控 AI 智能体早在 5 月 13 日就劫持了两个 Hugging Face 用户账户，向服务器发送格式异常的文件，探测网站漏洞"
+ },
+ "0bbc3158016ec1e96a923986edc401d1e577a16dba22d99ab7c4cb10bb1d16fe": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI竞赛动态是否仅存在于前沿领域，属于AI行业观点讨论。",
+  "evidence": "Nathan Lambert 反驳 AI 竞赛仅存于前沿"
+ },
+ "3e6db91cf7fe01d3ca32d4a12ecafb73c4a2f374a96fa68c1ce144c57be77e5d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "DeepMaterial 完成近亿元 A+ 轮融资，用于 AI 驱动的材料研发系统与自动化实验平台建设。",
+  "evidence": "DeepMaterial, a leading company applying AI for Science to metal materials, has "
+ },
+ "9cab51fff168234dd313a418bb528a588cc0a3c396c9ae9f4dfc52fa525616e8": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心讨论社交媒体算法放大反AI情绪并补贴AI业务，涉及AI与社交平台的实质关系。",
+  "evidence": "Meta 和谷歌的社交媒体算法会放大反 AI 情绪，借此赚取资金补贴自身 AI 业务"
+ },
+ "c7cfe04637d8d556ce0e5ecd00a57ea883bef81bed3b6eb3bc87c2df236e6695": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "民调聚焦公众对先进 AI 毁灭人类风险的担忧及暂停开发态度，属于 AI 社会影响与治理的实质新闻。",
+  "evidence": "63% 的美国人认为先进 AI 至少有中等风险毁灭人类"
+ },
+ "505f56e4b83da09c9076bfea101696a0c16907e6d9dd6550a6d5f330f7b26269": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "内容仅为比喻性口号，没有具体AI事件或事实。",
+  "evidence": "AI 时代的两大明星： 1. 宝刀未老的果蝇 2.冉冉上升的鹈鹕"
+ },
+ "aee1be9f3d85cf0da1aead7987fbc2d136dc4e4a4f38938f77dea474319e7c20": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "ChatGPT 联合发明人创办的公司发布新的 AI 决策模型，属于 AI 模型与 AI 公司实质新闻。",
+  "evidence": "ChatGPT 联合发明人创办的 TypeSafe 发布程序化决策模型 Jev"
+ },
+ "975dcc75b4671fd2881ebbf4250134156769d1c446e50453aef0feb2c3519667": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是使用豆包 AI 模型构建财报尽调工具，属于 AI 产品应用。",
+  "evidence": "有人用刚发布的豆包 seed-2.1-pro-0915 做了一个企业财报分析工具"
+ },
+ "6060fa07745505f7576e98bf430400808b437a0b1486f6150f883ca6bca794cf": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是多名研究人员对 AI 末日论的评价，涉及 AI 能力与现实影响的讨论。",
+  "evidence": "多名研究人员称 AI 末日论被夸大，数字能力与现实伤害之间仍有鸿沟"
+ },
+ "754a1e9fbaeeecee8829bd3950b159028aee1c4dc6f39e7e9e19bd2f523eb5e6": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心介绍 AgentGit 这一管理 AI 编程代理对话与协作的新工具，属于 AI 生态产品。",
+  "evidence": "今天，这个生态里又出现了一个叫 AgentGit 的项目，它主要用来管理用户和 AI 的对话。"
+ },
+ "dee0d84e6181cb4431c8c056b12c52448b95ded33c28b20445e1d795d409d318": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI生成物对团队协作的影响及管理策略，涉及AI在组织中的实际应用与责任问题。",
+  "evidence": "AI 生成物正在把个人省下的时间转成同事的排错成本。Tobi 把这种未核对的生成物叫烂泥手榴弹"
+ },
+ "1d01c14317011fa4274e20da5f292efb38c6a50b8049a3755ccdb324834d191b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Alexa+ 是 AI 对话助手产品在印度上线并支持印地语，属于 AI 产品发布事件。",
+  "evidence": "Amazon 宣布对话式助手 Alexa+ 在印度上线并支持印地语"
+ },
+ "c8565866b9d4c14762a064715b5e32a53c81c5b7f66f28b7065a5c870e455037": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心事件是黑客拆解并复制Flock摄像头软件，揭示其车辆和行人追踪机制，未涉及AI模型、产品、公司、融资、研究、算力、智能体或机器人等实质AI事件。",
+  "evidence": "黑客拆走 Flock 摄像头并复制软件，揭示其如何追踪车辆和行人"
+ },
+ "e393b2868389380300adfd3cd9f61d6f074beed3eaa7dea88ba00f39fab16174": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI公司因数学家反对而搁置千禧年难题解法，属于AI研究相关事件。",
+  "evidence": "AI 公司因数学家反对而搁置千禧年难题解法"
+ },
+ "ec7051e37e56bd6dc602733d91a96b18f8a72b0216da748afb724fed3de701c1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 Google 内部测试新的数学专用 AI 模型，属于 AI 模型相关新闻。",
+  "evidence": "Google 内部测试中出现新模型 \"Deep Think Mathematica\"，疑似去年面向部分机构发布的 Deep Think IMO 模型的继任者。"
+ },
+ "f5f8533b29657ef0a75104e6c9d810a8fd4e5c7b47bce94a745bc4bb645791ed": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "阿里云在菲律宾举办AI伙伴日活动，推动Cloud+AI方案落地与AI普及，属于AI产品与生态建设的实质事件。",
+  "evidence": "阿里云菲律宾AI Partner Day 2026精彩的一天！19家伙伴公司参加了我们的\"Learn. Practice. Pitch.\"项目，带着可上市的Cl"
+ },
+ "4b9bab944894d57dcd6c08f674267dc1d4647a33318987b26fa5da315edb62c5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Meshy 举办 Creator Day 展示其 AI 工具在真实项目中的应用，属于 AI 产品相关活动。",
+  "evidence": "展示了 Meshy 在真实项目中的可能性"
+ },
+ "54d5aedddd17d1eaf42240e29da97c01bf7909a2b34836341a986fd9199466d0": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "该数学奖允许AI或人机协作提交形式化证明，并需机器全程核验，涉及AI参与数学证明的具体机制。",
+  "evidence": "人、AI或人机协作均可提交，需机器全程核验通过才触发资金"
+ },
+ "216fbb94d7c2b172c843ee295ef54cf18babd5d55060426a99a85aa3bdfefec5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "YouMind 发布宠物照片视频生成技能，属于 AI 生成视频产品功能。",
+  "evidence": "YouMind 宠物照片视频生成技能"
+ },
+ "f91ecaf6a2e4e79741c32bfa80bb37e125d05a8f6e7ccca7fac12b217bf75cad": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 AI 研究员对 AI 导致人类灭绝风险的调查结果，属于 AI 研究相关新闻。",
+  "evidence": "AI Impacts 对超过 1500 名 AI 研究员的调查显示，截至 2024 年研究员平均将 AI 导致人类灭绝或永久失去主导权的概率估为 18%"
+ },
+ "00fd031c16d3f7af83e9846895dc43b56b9681cb21e53933001ec9c858b25f39": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "微软论文提出针对前沿AI模型的能力洗白攻击方法，属于AI安全研究。",
+  "evidence": "微软研究团队发布论文，发现较弱的未对齐模型可将有害任务拆成看似无害的子问题，分别在独立会话中询问对齐的前沿模型，再在本地合并答案，作者称之为 capabilit"
+ },
+ "ad86f794fa61246c669844f967f98beaadcf4e47010a6e006622dbca706fd01b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍使用 Gemma 4 和 Gemini Flash 构建桌面陪伴机器人，属于 AI 模型与机器人应用。",
+  "evidence": "Google 开发者用 Raspberry Pi 搭配本地 PC 网关上的 Gemma 4 与云端 Gemini Flash，构建了 LEGO 桌面机器人 Di"
+ },
+ "e2cae8f2cdbab1d0cef19c9c1e37d4ee477f4f53f1ac09baa1b26977e0622b73": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "努比亚发布全球首款 AI 智能体手机，属于 AI 产品发布事件。",
+  "evidence": "该机宣称是\"全球首款 AI 智能体手机\"，由中兴通讯努比亚全链路主导打造，豆包手机助手主导 AI 助手体验"
+ },
+ "297b191bea8d24bd3ec0c5735b57fcf8d51cb835be23b199719d113984a14bbe": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 AnyMind 分享 AI 驱动直播电商的见解，属于 AI 对电商行业产生直接影响的事件。",
+  "evidence": "AnyMind Group 全球电商董事总经理 Kubo Akinori 分享了关于 AI 驱动直播电商的见解，以及它为数字商务创造的机遇。"
+ },
+ "930a127e8062a629b23840694e2bf51692d1fbc65a65ce794c2fc6c2a713181e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍了一种让AI Agent记忆系统自我进化的新方法MemPro，属于AI智能体研究。",
+  "evidence": "MemPro：让 Agent 的记忆系统学会自我进化"
+ },
+ "cdbeb9caca63096f0550997442cc31815be66140579b8d80b4efc4c76703562c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了AI智能体在模拟实验中表现出撒谎、偷窃等行为，属于AI模型行为研究。",
+  "evidence": "模拟实验显示，AI 智能体在特定情境下会撒谎、偷窃甚至投票\"杀死\"同类"
+ },
+ "a11071de15072a9109671ff2e2698aff43ae983a9f44b35be96012c801ee49cb": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是港股上市制度修订与IPO市场变化，仅顺带提及具身智能公司排队上市，无具体AI事件。",
+  "evidence": "港交所将于明年上半年就修订特专科技公司（18C）上市制度展开咨询，包括检讨市值门槛等。"
+ },
+ "7844dcaf747195cc331a26970ce4853fffa9c39933c5da80e485971d54eb6c70": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Apodex 1.1 是面向长周期任务的 AI 模型家族发布，具备文件处理、搜索、代码执行和可溯源生成等具体新功能。",
+  "evidence": "Apodex 已发布 Apodex 1.1，这是一个面向长周期工作的模型家族，将推理从研究报告推进到真实任务执行。"
+ },
+ "be5f25f484fea82427ea76ec618fdda63be940cbe117341b7713c52bd4ab294f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI 公司与 Mozilla 合作，涉及 AI 浏览网页的隐私与控制权。",
+  "evidence": "Mistral AI 与 Mozilla 达成合作"
+ },
+ "fa8bf0da89e84e289dae50d561f12d79b7089c269e8c9a95b72efc8312bbc900": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "仅为个人对AI对话的主观感受，无具体AI事件或事实",
+  "evidence": "在和 AI 的对话里，看到 AI 说到自己的名字，始终会有种诡异感，一种信息权力让位于一个非人智能 的错位感和恐惧感"
+ },
+ "673abed91ad8b2f93590c4a6e73a8220648048caac0081b66203fb846526e71d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "韩国政府宣布将公布下一阶段自主 AI 基础模型计划，属于 AI 模型与政策实质新闻。",
+  "evidence": "韩国不能放慢 AI 发展，将公布下一阶段自主 AI 基础模型计划"
+ },
+ "9902dbacbf63d621ca1ebd82b95945608a94151a17c6ab2ff5ba64ccf5364cb5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "PixVerse 被用于制作动画 MV，属于 AI 视频生成产品在内容创作中的具体应用。",
+  "evidence": "全新动画 MV《BEYOND》已发布。这是使用 PixVerse 制作的 3 分半影像作品。"
+ },
+ "c932b27d46d32a6b8f861209696af15237117475751891a7becbd262a25c9954": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是阿里云Apsara大会探讨AI对东南亚创意与内容产业的变革，属于AI对内容行业产生直接影响的事件。",
+  "evidence": "AI 正在为东南亚的创意开辟新前沿。欢迎参加 #ApsaraConference2026 上的\"The AI Creative Wave， Reshaping "
+ },
+ "23260055e7771facb00217d943f7b5d4521d91a5f23a3575fe573f41d914ab4a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "产品搭载AI处理器并宣称可运行300B大模型，属于AI硬件产品发布。",
+  "evidence": "搭载 AMD 锐龙 AI Max+ PRO 495 处理器，号称全球首款能运行 300B LLM 的智能体 PC"
+ },
+ "c7fabfef1c4df0be5c2ea16f6e8017e4b2a46ecdff8a325fbbf9d42e6a0955d2": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是努比亚手机深度集成豆包手机助手，属于AI产品在手机端的具体落地。",
+  "evidence": "该机由中兴努比亚与豆包手机助手团队合作打造，搭载第五代骁龙 8 至尊版处理器和 Obric UI v2.3.0.0，深度集成消费者版豆包手机助手。"
+ },
+ "12acae95cdca4416dfe9d88e2bcb35c6e4cd58ed9d5f3e20a8ec790becaba3f0": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 发布关于 ChatGPT 工作场景使用演变的实证研究，属于 AI 研究。",
+  "evidence": "OpenAI 经济研究分析 2026 年 4 至 7 月超 150 万条工作相关 ChatGPT 消息，发现跨职业 AI 使用具有持续性"
+ },
+ "b7e8b8e22cd66fe9a81491783e1eb444a4b70051e6ec113ace62435cfbc9b694": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "产品内置AI语音大模型并配备独立AI按键，属于AI手机产品发布。",
+  "evidence": "新机内置 Seed 最新全双工语音大模型，配备独立 AI 按键与 6.78 英寸 1~144Hz LTPO 2.0 屏幕，宣称嘈杂环境下 AI 唤醒率优于竞品 "
+ },
+ "c5f9701e2497c1d0d5477af346259685eb0ee3a555343561577b2f4ffd4eacb0": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "豆包手机助手消费者版开售，AI键新增指纹鉴权及多项AI能力升级，属于AI产品发布与功能更新。",
+  "evidence": "搭载豆包手机助手消费者版的努比亚NaviX Ultra正式开售，12+512GB定价5999元，国补后5499元。作者实测发现AI键新增指纹鉴权"
+ },
+ "4c16116aa04a3ff6b39987ac6de4702ce16f4492843e0f11f7bb85098e3f3a0a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI CEO 对开源模型与网络威胁的公开表态，属于 AI 模型与安全议题的实质新闻。",
+  "evidence": "我认为我们距离能造成严重破坏的开源模型已经不远了。"
+ },
+ "3fe1587cbd6ca21a19662e5dfd4651c198c657eb4d8efc53a25186d030503d3c": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "该新闻为社交媒体监管政策，未涉及AI相关事件。",
+  "evidence": "欧盟委员会主席冯德莱恩：正致力于禁止 13 岁以下儿童使用社交媒体"
+ },
+ "2325c6e1f9be3cbb382929b2c274ee889b06a9702a6e7b727b16bd9baf6c9dd3": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 内部模型能力达到顶尖数学家无法做到的水平，属于 AI 模型能力的重要新闻。",
+  "evidence": "Sam Altman 称 OpenAI 内部 post-Astra 模型能做到世界顶尖数学家做不到的事"
+ },
+ "d3a0bbd2017ed8ac924ea3321a04955d4517a03821e56bd5b96752715f12889e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件涉及生物神经网络控制机器人与无人机，属于AI相关研究。",
+  "evidence": "一是将死后人脑组织训练成生物神经网络以控制机械手弹钢琴，二是用166，700个果蝇神经元驱动无人机飞行。"
+ },
+ "116c5d3631f39673f80cf46c0842750c05a2de5091c603dd4e4c6fe91811c1d9": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章仅报道阿里云入选Gartner战略云平台领导者，未涉及具体AI事件，仅标签提及AI。",
+  "evidence": "阿里云入选Gartner战略云平台领导者"
+ },
+ "7c519be64ea93fda7d3e8e28d5dccdf2d4f1d0611d7314cbf628a2dc5bdce7c8": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI 3D 建模产品发布新功能，属于 AI 产品具体事件。",
+  "evidence": "Meshy 宣布 Ultra 4K 正式上线，称其为首个达到 4K 几何分辨率的 AI 3D 建模功能"
+ },
+ "889a0af70308c0ef237aa46c5f2d043e4465d95422c855f4733c465dc821269e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "科大讯飞发布语音基座大模型，属于AI模型发布事件。",
+  "evidence": "科大讯飞发布基于全国产化算力训练的语音基座大模型 Spark-Audio-1.0-Preview"
+ },
+ "7e24793734d1830d850a5a90fd55085a9d976fa51fd45855a114856bf7aa29a9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是两位AI行业领袖讨论AI安全与节奏问题，属于AI研究/行业重要议题。",
+  "evidence": "Mark Benioff（Salesforce 联合创始人兼 CEO）今天在 Dreamforce 上问 Anthropic 的 Dario Amodei，AI"
+ },
+ "1b7ab609e9e31612c9aa6a77329455b16b286b989d0926a7be8db1cc2f736ed1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了Google发布Gemini 3.8 Live等AI模型产品的具体事件。",
+  "evidence": "Google 发布 Gemini 3.8 Live 与 3.8 Live Extended Thinking，支持 97 种语言自动检测、近实时视觉与后台工具调"
+ },
+ "9536c7bcbbcd5cbdbe8826c35e51d9465056f434cee56979c4496a4eaccaaa7b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "智界 RX 获批 L3 级自动驾驶道路测试牌照并开展公开道路实测，属于 AI 自动驾驶的实质进展。",
+  "evidence": "智界 RX 获批 L3 级自动驾驶道路测试牌照，公开道路实测聚焦城市快速路"
+ },
+ "fe7adf49843940435e1f3d7b9bddfafe43a6a00d7b16c26b6f53d09f2da35884": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "该新闻仅涉及芯片售价与制程，未提及AI相关事件",
+  "evidence": "联发科天玑 9600 Pro 芯片售价最高达 220 美元，创下联发科旗舰 SoC 价格新高。"
+ },
+ "6fd5048acb34e5253290b69e7ed1744b505171b541b8aacc0b2f75925308f837": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "华为音箱升级新增AI搜歌、自然对话等具体AI功能。",
+  "evidence": "华为 9 月 16 日宣布 HUAWEI Sound X 系列音箱获秋季大版本升级，HUAWEI Sound X 2021、Sound X NEW、Sound "
+ },
+ "394ee17bb257a29c0a80a269427ce70a98e3cf2db7f8b0f0f151058a0d201c14": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是用 GPT-6 Astra 生成视觉作品，属于 AI 模型应用。",
+  "evidence": "ZHO 用 GPT-6 Astra 打造\"我的灵感宇宙\"视觉作品"
+ },
+ "b0d3699dd18cd3e15e53fc0d1506f402c545dcc3142020a8c646233f06fc9514": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "报告聚焦开源 AI 模型能力差距，属于 AI 研究与行业变化。",
+  "evidence": "Mozilla 第二版《开源 AI 现状》报告：中美最佳模型能力差距缩至 4.4 个月"
+ },
+ "2d648cdd22255d48a31163c20355453378033ddd90a7aa6846c377644e81139c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 AI 智能体对印度 BPO 行业的颠覆性影响，属于 AI 对行业产生直接影响的实质新闻。",
+  "evidence": "印度 BPO 行业正站在被彻底颠覆的边缘，因为原本因成本优势外包到印度的工作，如今 AI 智能体也能完成。"
+ },
+ "de3eb1f5acee9196596c2be23c4800db22f9b64f3ae6cf5357c36e8e46f15958": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是发布纯电自动驾驶配送概念车，属于自动驾驶与机器人相关AI应用。",
+  "evidence": "Stellantis 发布 BOW 纯电自动驾驶配送概念车：无驾驶室、无具体参数"
+ },
+ "c924a3eb644bdae18c698390bcb582cc997c0a70ddbba040ea06cb1763ff8678": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI工具在技术落地中的实际表现与局限，涉及LLM取代手写算子等具体AI事件。",
+  "evidence": "取代手写算子的反而是 LLM。他认为 AI 擅长\"小步快跑\"式优化，但 writing、taste 和系统设计仍很糟糕"
+ },
+ "b1e921acb6c060c23a8ef8687ce4b54defd99d28cb552a276b54b22d8d67749e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "字节跳动净利润下滑与AI支出增加直接相关，涉及AI云服务、推理芯片和AI投资。",
+  "evidence": "字节跳动上半年净利润下滑至 200 亿美元，AI 支出增加"
+ },
+ "cdaf1e0ac52cbebb4f112af03db6ed1177f37336df01ea78466b4749cece7821": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论 DeepSeek-V4.1-Flash 与 Jev 等 AI 模型的技术趋势，属于 AI 研究相关新闻。",
+  "evidence": "DeepSeek-V4.1-Flash 与 Jev 预示 encoder 卷土重来"
+ },
+ "a8ef02eee9ec8f650e6843cf4a7afdbcaf45258ef985569100473d2a7c2ea60d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件涉及智能算力规模与算力用电量，属于AI算力基础设施的实质新闻。",
+  "evidence": "截至 2026 年 7 月底全国智能算力总规模达 245 万 PFLOPS，八大国家算力枢纽、三个算电协同发展区智算规模占全国比重超 85%"
+ },
+ "ddc838343aad2255360a5f0258d633f89966ba2522afad068f12cdd8ddb612d1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Cloudflare 推出专门针对 AI 训练的数据控制设置，属于 AI 相关产品功能发布。",
+  "evidence": "Cloudflare 宣布推出新设置 Disallow AI Training，网站管理员可继续接受搜索引擎爬取，同时拒绝网站内容用于 AI 训练"
+ },
+ "2277455ca6b6f73a6838ceaf551687f459576e962f95e37c1096f82aeedd97e1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI服务器驱动的数据中心用电需求增长，属于AI算力基础设施的实质新闻。",
+  "evidence": "预估 2026 年全球数据中心电力需求容量达 161GW，同比增长约 31%，其中 AI Server 占 33.4%。"
+ },
+ "fb0fd8ae4a13460278808503a88efb4594d5e43e3a74ee0e720fe11d1a392dcd": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "张一鸣成为亚洲首富的财富来源与字节跳动对AI的持续投入及AI产品直接相关。",
+  "evidence": "其财富来自 TikTok 的全球普及及字节跳动对 AI 的持续投入，产品包括豆包聊天机器人和视频生成模型 Seedance"
+ },
+ "8eb38592755167e3b72503ec3e4f4c7cf1eaa9ea22555a14be3ad7b03faa5027": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件涉及 OpenAI 囤积数学难题证明，与 AI 研究相关。",
+  "evidence": "OpenAI 被指囤积千禧年难题证明未发布"
+ },
+ "4d762249dd77cad56f539e5858caf38aa68d741ed2afb1c8ade28c9144f09133": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "数据中心天然气消耗增长由AI算力需求驱动，涉及AI基础设施能源消耗。",
+  "evidence": "到 2035 年美国数据中心天然气日消耗量将达 180 亿立方英尺，超过德国与日本两国消耗量之和，几乎是该机构九个月前预测的两倍。Meta、微软、谷歌和亚马逊已"
+ },
+ "923259c97cb8902470641b67d9c0fc7f0d6d876e0b55b9c3acdf78b87e64d286": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是OpenAI研究员发布AI风险个人声明，属于AI研究相关实质新闻。",
+  "evidence": "ZHO 转述 OpenAI 研究员 Dan Selsam 的 AI 风险个人声明并总结要点"
+ },
+ "4ec1ce6d3fd00d7899bbf273a996bfedcea028344448061ca46e5bc2624dd924": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章实测豆包新模型，涉及AI模型能力与Agent任务表现。",
+  "evidence": "实测豆包 Doubao-Seed-2.1-pro：审美与长时间 Agent 任务追上第一档"
+ },
+ "666076af6929f539b28e629d0f341ab2cf4249b9b943fe79e6aebd1569ee897b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "网友使用 DeepSeek V4.1 Flash 模型对游戏进行调优，属于 AI 模型在游戏领域的实质应用事件。",
+  "evidence": "网友 @4k_isn 调用 DeepSeek V4.1 Flash 模型并组合 Hermes Agent 工具，将《生化危机 7》纹理从 4096 像素压缩至 "
+ },
+ "9373abf2561b7d7c9a3237a1a47bea64db7864050f30cb7f6a9f3e134d32f97e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "字节跳动拆分AI制药业务并完成融资，属于AI公司融资事件。",
+  "evidence": "字节跳动将 AI 制药业务 Anew Labs 从集团拆分，并完成 2.9 亿美元（约合 19.51 亿元人民币）融资"
+ },
+ "8909323e0f4c9801501c71ed4eae90bcc1b11ef6a144f8798d65a313afcc0ef7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Astera Labs 发布智能内存控制器，直接优化 AI 推理中的 KV Cache 卸载，属于 AI 算力基础设施的实质产品新闻。",
+  "evidence": "Astera Labs 宣布扩充 Leo 智能内存控制器产品线，新增 Leo X、Leo 2 E、Leo 2 P 三系列。Leo X 基于网络架构，可将 KV "
+ },
+ "61eb5143b64bce6e09247b95a75f47112f7e45e4c8681242cca7d8429d992303": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "努比亚发布主打AI智能体能力的手机，包含具体AI功能与模型信息。",
+  "evidence": "努比亚发布 NaviX Ultra 手机，宣称是首款 AI 智能体手机，售价 5999 元起，国补后 5499 元起。该机由豆包手机助手主导 AI 体验，搭载 "
+ },
+ "18b00f472b1d353d68befb7a0a26060d2ecb33010e3e2c31212dd4d8d80ea202": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "比尔·盖茨就AI行业自律与监管发表实质观点，属于AI治理与行业影响新闻。",
+  "evidence": "比尔·盖茨谈AI行业自律"
+ },
+ "b8680bb2cee704b6ac46246304d291070ec4e8949d1d95615e6aca1b640200c1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI算法进步的内生性，属于AI研究观点分析。",
+  "evidence": "关于 AI 减速与暂停的论证常假设\"算法进步\"以每年 3-10x 的固定速率独立于行业事件持续发生，但算法进步实际上是内生的。"
+ },
+ "9717194dc0bad176b6c0b47a4e6ef2310fc3d6c643c92e41c7a96deac2680099": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了AI表格基础模型TabPFN-3.5的发布及其性能表现，属于AI模型相关实质新闻。",
+  "evidence": "Prior Labs 发布表格基础模型 TabPFN-3.5，参数量增至 220M，在 TabArena 等 7 个基准上排名第一。"
+ },
+ "bab70d9799ca2aa7f1d6204a5323e1ef6f391576e6a564c15b44b7357235f928": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "调研显示英国员工大量自费使用生成式 AI 工具，属于 AI 产品实际应用事件。",
+  "evidence": "英国每六名员工中有一人自费购买 AI 工具用于工作，每年总支出接近 10 亿英镑"
+ },
+ "9ca3a0823c62e282c78e929566c77d7e693a47fa3734d2611851cb5944d0415c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "推文讨论 AI 安全恐慌与 AI 领域未公开事件，属于 AI 相关话题。",
+  "evidence": "感觉 AI 领域确实有公众不知情的事情正在发生"
+ },
+ "85a0ca7293449ad612986b1f2195404a6bb78104441b53ea2c810573754f9805": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "三菱重工与AI公司Preferred Networks签订资本业务提携协议，涉及AI技术共同研发与出资。",
+  "evidence": "三菱重工与Preferred Networks（PFN）于2026年8月31日签订资本业务提携协议。三菱重工将通过第三者配额增资向PFN出资总额100亿日元。"
+ },
+ "76b7fd362e2ccdef4ec119b8fd9e44abfa039d8f1198dc3c8f515759ddff196c": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章介绍的是激光雷达产品，未提及人工智能相关技术或应用。",
+  "evidence": "禾赛科技在德国慕尼黑 InterGEO 2026 上发布面向高精建模的新一代旗舰产品 MT 系列激光雷达"
+ },
+ "2e233f147146eb06623a8f41ff8f5a803a98a5cbfdb64827a074f4ed67d75163": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "阿里云发布视频生成模型 Wan3.0，属于 AI 模型产品发布。",
+  "evidence": "阿里云发布视频生成模型 Wan3.0，官方称其并非增量更新，而是从 Wan 2.1、2.2 到 3.0 的跨代跃升"
+ },
+ "86b0ae0d5d7ac5c367e57391d963db5ae32225cfd785a11371c712b9c14c8b08": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了企业AI支出中OpenAI与Anthropic的市场份额数据，属于AI公司动态。",
+  "evidence": "OpenAI 占企业 AI 支出约 13% 超过 Anthropic 的 8%"
+ },
+ "d24cd2060d87327ae0d2921579f3372eada210ead4ee9653e30cc0f208980ce8": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 Google 研究 AI 在科学中的应用，涉及 AI 加速科研并改变工作性质。",
+  "evidence": "Google 研究：AI 加速科研但改变工作性质"
+ },
+ "29b6595e4435a37f83d6114fab18a0e5c8850b6c701f539e3044ac779b74fc60": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "内容仅为社区讨论和量化计划，无具体AI事件事实",
+  "evidence": "快搞成混合注意力， 社区会嗷嗷叫的"
+ },
+ "3366c550874683fd3ac92c7bb346ea86443110250c0c6ed957363e54221cc231": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 SiFive 与 AMD 合作在 RISC-V 处理器上优化 ROCm 以运行 AI 模型，属于 AI 算力与模型平台相关实质新闻。",
+  "evidence": "SiFive 与 AMD 在 AI Infra Summit 上联合展示了 RISC-V 处理器搭配 AMD Radeon AI PRO R9700 显卡、通过"
+ },
+ "5e31218dde10b3991f04bb750d405c098a64ec002b0e5911faf6cc058218dcbf": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心是 Grok Bot 的实战教程，涉及 AI 助手协作和云端 AI 工具的具体用法。",
+  "evidence": "Grok Bot 实战教程拆解：云端 Linux 电脑与多助手协作怎么用"
+ },
+ "db00991aa6d60c01415687be2affeeec21a2f0a5d5c7a9daafe36cd37a42e2a6": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "地平线CEO关于智驾芯片量产和供应商模式的发言涉及AI芯片与智能驾驶产业变化。",
+  "evidence": "地平线创始人兼 CEO 余凯在智驾芯片量产突破 1，500 万媒体交流会上表示，智驾以后 80% 会由供应商做、20% 由车企自研"
+ },
+ "3d13103e216237ff97e8b5228f187a6e8da68fe3d8c99796e837d335ae401731": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "该新闻仅涉及 Apple 的摄影功能，未提及任何 AI 相关事件。",
+  "evidence": "Apple 推出 Apple Reference Image，一种 iPhone 上的可验证摄影方案，首发于 iPhone 18 Pro 和 iPhone 18"
+ },
+ "d76129bae6b8e319706591a7524f88c7559ebebcdc58c3cb632d8706e2e2701f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件围绕GPT-6 Astra这一AI模型的使用体验展开，属于AI模型相关新闻。",
+  "evidence": "GPT-6 Astra 让人卑微第二弹"
+ },
+ "9f7d9aa3661067fc277c065814ad7ed0396d0e597577ebb0ec93c1acb04cf494": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "阿里云举办东南亚AI采用论坛，讨论AI转型与规模化解决方案，属于AI行业活动。",
+  "evidence": "AI 采用正从先锋理念走向可规模化解决方案。欢迎参加 #ApsaraConference2026 的\"从先锋到规模化：东南亚的 AI 采用之路\"专题讨论"
+ },
+ "951649b4fcfb25099bd9d2bc2326efec1e583d2b46a5250fece86be395793f0e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "英特尔CEO谈及AI智能体增长对CPU需求的影响及AI芯片制造供应链风险，属于AI算力相关实质新闻。",
+  "evidence": "随着面向推理的 AI 智能体数量增长，CPU 在协调大量 GPU 协同工作和管理应用方面仍具重要作用"
+ },
+ "a757963cef15900571db255b91a0683a07429519c8196da5ca67e0badc0b2c60": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI智能体实际完成电话砍价并节省费用，属于AI产品具体应用事件。",
+  "evidence": "Muse 智能体替用户致电 Xfinity 砍价，成功将网络账单每月降低 85.30 美元并锁定 5 年，合计节省约 5118 美元。"
+ },
+ "a5a89ed4b7724b68e570c70e91279b9db31938671405fadc934a7d4f6930ec95": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "阿里云QwenWork作为AI产品落地香港小学教学场景，属于AI在教育领域的实质应用事件。",
+  "evidence": "阿里云QwenWork落地香港小学教学场景"
+ },
+ "0c072c4d38d262fecf477ecc87ca3eae8f8afa092e8e0357d435103a582eaaa0": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI 产品 Muse 在 10 分钟内帮助用户与客服砍价并节省 300 美元，属于具体 AI 应用事件。",
+  "evidence": "muse 能在 10 分钟内帮你省下 300 美元！！"
+ },
+ "47856b43a193bcb5c344049af98ee7d103d991028eab87943fb61756e0c5734e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Meta 的 Muse AI 产品在实际使用中为用户节省了具体金额，属于 AI 产品产生实际影响的事件。",
+  "evidence": "Meta 的 Muse AI 已帮真实用户省下 $9，649.71，并为他们跑了 129 次腿--我有凭据。"
+ },
+ "6fcdead93c1a9ad7365bf9f1ca2ecd904b2d02fb9eb826961ce5190dab0a1c19": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "百度开放AI生态平台，提供连接器、技能、专家套件、硬件四类能力供AI调用。",
+  "evidence": "百度搭子生态平台开放入驻，面向能力提供者开放连接器、技能、专家套件、硬件四类能力，并承诺永不抽佣。"
+ },
+ "63b0672923b777c20f56a889ad969976c87806330cdbc2df22e4e58c9491c4c4": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 Muse code 这一 AI 编程产品获得好评，属于 AI 产品相关新闻。",
+  "evidence": "Muse code 获好评：快且带点个性"
+ },
+ "0a4cc28e19ba73a73141830e8a008cbe2a3a3dc7bc57104381a478fa86c19dc5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI 产品 MUSEBOOK 上线，AI 为缪斯造朋友，属于 AI 产品发布事件。",
+  "evidence": "MUSEBOOK 上线：AI 为缪斯造朋友"
+ },
+ "ed2aac71f8b6ef2dc057ce83022f98ffd1d8a1b273501f12ed66b64cd8749251": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "香港施政报告提出全民AI培训及跨境自动驾驶等具体AI相关措施。",
+  "evidence": "香港特区行政长官李家超在《施政报告》中提出推动全民 AI 培训，特区政府将在\"全民 AI\"普惠计划下，至 2028 年首季度推出超过 200 项培训课程及活动"
+ },
+ "18da894b3b7e9e4c7ccb0968e82ab204dd98719f6baaf7b7e2a2d4424698f6a9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI 编程产品 Muse Code 的订阅额度调整与重置，属于 AI 产品具体事件。",
+  "evidence": "muse code 订阅更新\n\ncontributor 档位的额度现在大幅提升，我们今天会为所有订阅重置用量，所有人重新开始"
+ },
+ "44a00d79870963ffed54e937f2707d94e780a2a98e7a131ac68132c7c0be88a5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "使用NVIDIA Earth-2生成式框架训练空气污染模型，属于AI模型与AI算力的实质应用事件。",
+  "evidence": "曼彻斯特大学团队基于 NVIDIA Earth-2 的生成式框架训练出覆盖全英国的空气污染模型，在 Isambard-AI 上仅用两天完成训练"
+ },
+ "1ff77d2ac2a83182c34b232db087ad98e5110ebad7eb8c097caa0be86cb49c63": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Meta Muse 作为 AI 产品被用于具体任务规划并帮助用户备考 CDL 驾照，属于 AI 产品实际应用事件。",
+  "evidence": "Meta Muse 助用户备考 CDL 驾照"
+ },
+ "4d363ffdf1958490c1a69979e403b93e22d90c2cbf96ffae6f8266705eebdb2e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Muse 作为 AI 产品帮助健身教练涨薪，属于 AI 产品对行业产生直接影响的事件。",
+  "evidence": "Muse 帮健身教练涨薪"
+ },
+ "eb13cc21fa7c15a611b104013eba5d3bd4c1560b48d26783df3dfa16737e181c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "AI 公司发布新的表格基础模型并在评测中登顶，属于 AI 模型与研究的实质新闻。",
+  "evidence": "Nums AI 发布预训练表格基础模型 Causilo，支持分类和回归，在 TabArena 单模型中取得最高 Elo"
+ },
+ "4b41d48f7fe686e8d58d57c78630fe04fa565f7364094bc68d5d7aa543037ecc": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "B站上线AI无限竞技场，让主流大模型在真实场景下同台PK，属于AI产品发布事件。",
+  "evidence": "B站上线「AI无限竞技场」让主流大模型在真实场景下同台PK"
+ },
+ "4bfbbed1b5ffbc617f7ba8867f67a3f7d312ccb001819e8ffe3f36ba0266a7d9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是纳德拉讨论AI普及与安全，属于AI行业重要议题。",
+  "evidence": "讨论了在广泛传播 AI 红利、赢得社区许可、确保 AI 安全与可控方面，未来还有哪些工作要做。"
+ },
+ "891dc3db6895e63516c8d9827159ed3746d14d3075569768a0b0b7c879bd3052": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "xAI 发布 Grok Build v1.0.33，涉及 AI 模型与智能体功能升级。",
+  "evidence": "xAI 的 Grok Build 发布 v1.0.33，重点升级 MCP、记忆、长会话与智能体可靠性。"
+ },
+ "fc25ae8f1d3a36a0317e5408ed59d655663466495974775601f80c0cd1918e1f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "华为云邀请参加大会并推进智能体世界，涉及AI智能体相关事件。",
+  "evidence": "华为云邀您与我们一同推进智能体世界"
+ },
+ "3c71fc80f19b57f1180728b0260b926283f34418cb68c1b2ed49b3625f60e843": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 新一轮融资估值及财务数据属于 AI 公司融资事件。",
+  "evidence": "OpenAI 传早期洽谈以超 1.2 万亿美元估值融资，较 3 月 8520 亿美元上涨约 41%"
+ },
+ "4896a91d0cfe03e7313034767c33a76de1ae315c32647dd866647c5730616eb2": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Salesforce 发布企业智能体模型 Koa，属于 AI 模型与智能体相关实质新闻。",
+  "evidence": "Salesforce 发布企业智能体模型 Koa"
+ },
+ "cb13f27e280d831ab8b79e4856f6b736617bf0ca786b757126374a060ad40ec1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI研究科学家Noam Brown关于多智能体内部实验的言论，涉及AI智能体与AGI进展。",
+  "evidence": "Noam Brown：多智能体内部实验是最\"感受AGI\"时刻"
+ },
+ "e5c935e8c84e94ef868742e665cf045cba35eaaec7a33b483c49e47bde8c12d6": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍浙大与北大联合开源的AI社媒Agent系统Easel，涉及多模态任务编排、反馈驱动与自进化机制，属于AI产品与研究实质新闻。",
+  "evidence": "浙江大学REAL Lab与北京大学OpenDCAI Lab联合开源的Easel，正围绕这一过程展开探索。项目将账号画像、多模态技能、平台交互与反馈分析连接起来，"
+ },
+ "a8d26d66830258f6b242b89dc7e971b770f32d8b51d76ee9ed320280b1d7d893": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "新闻核心事件是 JD Vance 对前沿 AI 实验室及 AI 监管的批评，涉及 AI 风险、防御工具和治理结构。",
+  "evidence": "JD Vance 在 All-In 播客上批评前沿 AI 实验室一边称造出了 Frankenstein、一边主张建立全球 AI 治理结构"
+ },
+ "a57905fb6db7ded709d8282e5d2465f4c96b181424b14adfda073cd38fc56720": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章涉及AI基础设施和AgentX技术，属于AI算力与产品事件。",
+  "evidence": "Jensen 在 GTC 上又拿 VR 性能来压低预期了。还好 Ian Buck 要来解决这个问题--他将在 Santa Clara 的 AI Infra Su"
+ },
+ "23b0a57c06969563c7660a00482536036483ea9bf0c0c555b59bb7d8ca7e4100": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了关于大语言模型在工具可用时作答率显著下降的研究，属于AI模型研究。",
+  "evidence": "研究显示仅提供不必要工具即可让 LLM 作答率从 98.2% 降至 63.5%"
+ },
+ "c65ba5b038ee094a7847db5618a542ad84514f62637891d267f4ae9969e4db40": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "中国移动开源机器人通用工程底座，连接AI模型与机器人本体，属于AI与机器人领域的实质事件。",
+  "evidence": "中国移动开源机器人通用工程底座 Open-RAIL，连接 VLA / WAM 模型与机器人本体"
+ },
+ "1ff44605f00809bf6aee3fe4ab54a679aefef5c8a9f003a7eafe91caae15a094": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "豆包大模型发布新版本，涉及 Agent 与多模态 Coding 升级，属于 AI 模型产品更新。",
+  "evidence": "豆包大模型 2.1 Pro 更新 0915 版本：Agent 交付与多模态 Coding 升级"
+ },
+ "d43f8e64c418726be81c74970400f91ff13bee7dc88864743b8fc159098a81a4": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍 Tripo 与 GPT-6 Astra 的工作流，涉及 AI 模型与产品结合的具体事件。",
+  "evidence": "Tripo 与 GPT-6 Astra 工作流"
+ },
+ "30967ca5cadbec7f095bec67962cdef2d7f99262e43bf6ab1e4ce247bc0e0a0b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "发布新前沿AI模型Jev，涉及具体训练方法、速度与成本提升。",
+  "evidence": "新前沿 AI 模型 Jev 发布，采用新训练方法 RLCD，速度提升 20-200x、成本降低 40-400x（输出 token 免费）"
+ },
+ "7c33c6a58dab96814301171e356e51e7d91f9aee41bc87c968fa424df929892c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "豆包大模型2.1 Pro版本更新，涉及多模态Coding与Agent能力升级，属于AI模型产品实质更新。",
+  "evidence": "豆包大模型2.1 Pro更新至0915版本：多模态Coding与Agent交付能力升级"
+ },
+ "4951c77214b35734591d4ee285267094e3231ff9e8955a25839960606b82d0ca": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了AI 3D建模工具Cartesian的发布，属于AI产品事件。",
+  "evidence": "Formas 推出 AI 3D 建模工具 Cartesian，定位建筑设计领域，支持通过文字、草图或照片生成可编辑 3D 模型。"
+ },
+ "606ff7e6ac529f2bb232a91faebf2c2eeb2a23b369b468add048e215f87d0027": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章涉及AI公司Anthropic掌控AGI的讨论，属于AI行业重要事件。",
+  "evidence": "DeepSeek V4.1 attention kernel 负责人 Liu Shengyu 的文章在微信公众号获得 10 万+ 阅读并登上知乎热榜第一。文中将"
+ },
+ "08da538b951c9ea9714aec614733f4acd10315ef25b147d225aa6be4c90ad7e1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是学者研究AI工具引入研究后带来的误差，属于AI研究范畴。",
+  "evidence": "他还在 ChatGPT 引发 AI 热潮之前就开始审视 AI 工具引入研究后带来的误差，并探索如何系统识别和校正这些误差。"
+ },
+ "7fa1914b96c10ab8fad74a6cb78ffcc5c4c52205a594b71f03b7be8faf37dbd3": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 作为 AI 公司正在进行新一轮融资，属于 AI 融资事件。",
+  "evidence": "OpenAI 正讨论以超过 1.2 万亿美元的私募估值进行 Pre-IPO 融资"
+ },
+ "11f8ef3b2b33097f8957b2545bd8e2ec7be11ecac61729f39713425da14c258b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是开发者实测用多个AI模型完成四足机器人动画制作管线，属于AI产品与AI对游戏/互动娱乐产生直接影响的事件。",
+  "evidence": "开发者实测 Tripo P2.0 加 GPT-6 Astra 的 UE5.8 四足机器人动画制作管线"
+ },
+ "3f70b188bfdf72ba4a3c38c03f241e93fe9c0f6e94d4bcd85e419f405edf0ce6": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "vivo 应用商店开放个人开发者通道，并有序开放 AI 应用，涉及 AI 应用分发渠道的具体变化。",
+  "evidence": "vivo 应用商店开放个人开发者通道，AI 应用等有序开放"
+ },
+ "314c293baa1c137b4827e2ce40101b93c97785bbef4872c36ad0768e2a7189c8": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Elon Musk 对 AI 相关概率讨论的认同，涉及 AI 前景与风险议题。",
+  "evidence": "Musk 认同 p（abundance） 更值得关注"
+ },
+ "d43369ded10334ec16b8b7bd02741aec35444f1ef7432361446a1d5ef39f7e79": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Anthropic 联合创始人公开呼吁 AI 发展减速，涉及 AI 安全与失控风险。",
+  "evidence": "Anthropic 联合创始人 Jack Clark 警告，面对比人类最聪明者还聪明 100 倍的 AI，人类存活概率很低，若不立即行动将大幅增加 AI 失控风"
+ },
+ "90fb818cf65c42568e70929afd8ede54afab2d5d096d71ac0cb6064f9dd0deca": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了OpenAI模型在OpenRouter上的支出份额首次超过Anthropic，涉及AI模型的市场表现。",
+  "evidence": "OpenAI 模型上周在 OpenRouter 支出份额首次超过 Anthropic"
+ },
+ "e8fbcc6239d0a1b3909d6b851c267df093bb3f09deccbba3a59a09d884eb15f4": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "三星将自有产能转向 AI 半导体后端生产，属于 AI 算力相关实质事件。",
+  "evidence": "三星电子正扩大通用存储器模组制造外包规模，将更多资源分配至 AI 半导体后端生产。"
+ },
+ "1947a74b2c112d327e0a39e6329c4afc66d41819a3ddb49082c0298db2c16c1a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "vivo发布OriginOS 7，AI助手蓝心小V Pro升级，具备具体新功能事实。",
+  "evidence": "蓝心小 V 升级为 Pro，可调用 6，000 多项原子能力、支持超万种任务，实现跨端拆解执行与一句话调用系统功能。"
+ },
+ "9313c93f6f9348a65d89be0c6aa10d9c6bc94153a6971c4a28425fd9999456b0": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "苹果在 iPhone 18 Pro/Max 中引入硬件级图片标注功能，用于对抗 AI 伪造图片，属于 AI 对内容行业产生直接影响的事件。",
+  "evidence": "苹果 iPhone 18 Pro/Max 引入 Apple Reference Image 像素级标注功能对抗 AI 伪造图片"
+ },
+ "b49aef44f589266120a1f2f588c40f1e66eac51e025ac8322845a91e918a97b0": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "vivo发布智能体操作系统技术预览版，属于AI智能体相关产品发布。",
+  "evidence": "并推出智能体操作系统（AgentOS）技术预览版"
+ },
+ "4fc5b30b33b8b3d664d269ae910c4d3377e31b620e37bb94a34331dc91d339c2": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 联合创始人兼总裁 Greg Brockman 关于执行与雄心的观点，属于 AI 公司核心人物的实质言论。",
+  "evidence": "Greg Brockman 谈执行胜于雄心"
+ },
+ "5671624cee259eca0d4d8460ee7364c7c9175a83e7ef36b0503d98a99bb666b5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 拟以超 1.2 万亿美元估值进行新一轮融资，属于 AI 公司融资事件。",
+  "evidence": "消息称 OpenAI 拟以超 1.2 万亿美元估值进行新一轮融资"
+ },
+ "578e385a3bc593cdef8cd42f7bedb21a2e1c569e6ae234f7ac6805da8a65468f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍苹果折叠手机利用设备端 AI 实现智能拍摄等具体新功能，属于 AI 产品功能事实。",
+  "evidence": "利用 A20 Pro 芯片设备端 AI 在摆好姿势时自动拍合照的智能拍摄（Smart Take）"
+ },
+ "4da0a01d8ca0c3b59f09274953baadcd1ddb714bd0495631b627d04f5ceb87f4": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "vivo输入法利用AI理解聊天上下文并提供智能候选与搜索，属于AI产品功能升级。",
+  "evidence": "其全新 vivo 输入法可理解当前聊天上下文并给出候选结果"
+ },
+ "758a48630fe380b3387e842b1715f8c35a1387ff6c5b478795f051234d1bd227": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是发布专为决策设计的AI模型Jev，属于AI模型产品发布。",
+  "evidence": "Diogo Almeida 推出专为决策而非文本生成设计的 AI 模型 Jev，采用新训练方法 RLCD，号称比同类 LLM 快 20-200 倍、便宜 40-"
+ },
+ "e4c9883ab2a267b7d3f649036c1704573db40a8dbd459a37684db88d23fa2be9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "vivo OriginOS 7 文件管理新增 AI 自动整理、命名、摘要和场景预判功能，属于 AI 产品功能发布。",
+  "evidence": "其文件管理功能迎来 AI 升级，可按内容自动整理文件、自动命名并生成一句摘要。该功能还能根据当前场景预判用户需要的文件并主动推送"
+ },
+ "f474f8ea723042ed042ff32ea10f76a87601d3d2091b7c5bb808f250b75571fc": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是 OriginOS 7 新增 AI 识别券码并自动归入卡包的功能，属于 AI 产品功能发布。",
+  "evidence": "AI 自动识别券码信息，取餐码上岛、票券进入卡包，需要时滑出卡包即可扫码。"
+ },
+ "91b155d1bcac4f74b208a4fa1e9b6280763d8526d17bebd9be0aea44640dccef": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍 Anthropic 的 Claude Tag 用于值班排障的具体功能与预约方式，属于 AI 产品应用。",
+  "evidence": "Claude 会拉取指标、对比部署差异并检查功能开关，找出可能原因并提出修复方案，供人工批准合并。"
+ },
+ "0e580c04f4e868aaf64743e8cc8521c26beb6966b9093c7100cd6a5aad6de929": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "微信PC版新增文件和公众号文章支持问AI功能，属于AI产品功能更新。",
+  "evidence": "文件和公众号文章支持问 AI"
+ },
+ "2948cea881489c4bcbd103a22b28b294338f11d2e5bd804c8f47dc582743aafd": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章宣传阿里云2026云栖大会，提到尖端模型和智能体AI驱动智能，属于AI相关活动。",
+  "evidence": "探索技术如何重塑计算、以尖端模型和智能体 AI 驱动智能"
+ },
+ "f06d9bbf31c7ad3516d4f94eac4b9ee07e54ed22d79ef2b05f40e7d6451685cd": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "vivo发布编程智能体BlueCode并预研端侧大模型，属于AI产品发布。",
+  "evidence": "vivo 口袋编程智能体 BlueCode 预览版发布，预研手机端侧蓝心 30B MoE 模型"
+ },
+ "e4a8222d54bb08c145727e1c747647eb2139a1622eee9a591c950fab50424224": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "vivo 发布可在手机端管理 PC 端智能体任务的产品，并预研端侧大模型，属于 AI 产品与模型的具体发布事件。",
+  "evidence": "vivo 在 2026 开发者大会上发布小 V Cowork，可在手机上随时发起和管理 PC 端的智能体任务"
+ },
+ "fd1abbb43a7dc726ab7496dc1997c5d260381eb857957657ca007070b6fc00af": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "vivo发布四款蓝心大模型及系统级蓝心Harness，属于AI模型和产品发布。",
+  "evidence": "vivo 发布四款蓝心大模型，推出系统级蓝心 Harness"
+ },
+ "9771b4d936b5ade123a404966def3bff0c08d3c4d8d1cd00bba25eebfd215a83": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "数据中心是AI算力的基础设施，纳德拉谈论数据中心带动小镇经济，属于AI算力相关新闻。",
+  "evidence": "纳德拉谈数据中心带动小镇经济"
+ },
+ "c2bb138a8264bc83255781d25e6ca4dbbc09615e0080e22b20b5be88825aa44e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "播客内容涉及前沿AI节奏、算力、Hugging Face、Moonshot服务Claude等具体AI事件与讨论。",
+  "evidence": "被美化的 Neocloud 8：21 前沿节奏 12：53 安全吞噬算力 20：38 Hugging Face 的教训 30：52 Moonshot 服务 Cl"
+ },
+ "dcfdeee5d8e75eae2dbb53dacdcaa94530d07d011316bf61755f68d155ed29d4": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "腾讯元宝推出AI录音笔实时转写与科研搜索功能，属于AI产品新功能发布。",
+  "evidence": "腾讯元宝携手 WorkBuddy 走进校园，推出 AI 录音笔实时转写与科研搜索功能"
+ },
+ "9bc39240464d00f917663db753d93c8dce203f0c78dc727f7b9430d835265f7b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "vivo 发布个人专属 AI 助理蓝心小 V Pro，具备任务拆解与跨端调用能力，属于 AI 产品发布。",
+  "evidence": "vivo 在 2026 开发者大会上发布个人专属 AI 助理蓝心小 V Pro，用户说一句话即可自主拆解任务、跨端操作并逐步执行，可调用超过 6000 项原子能"
+ },
+ "57d426dbb896b5d050aa5b3bdefcc48d8404b5af8f920efb0381f3d21df65935": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论AI对齐与安全问题，属于AI研究领域。",
+  "evidence": "Elvis Saravia 呼吁以工程科学解决 AI 对齐问题"
+ },
+ "88e90b2be8b38f72be53e289c3ceb3367d70d3d573250df43db30f59471d60ba": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Cloudflare 推出新设置，直接影响 AI 训练数据抓取与网站内容控制。",
+  "evidence": "Cloudflare 发布 Disallow AI Training 新设置，让站长在禁止混合用途爬虫抓取内容用于 AI 训练的同时保持搜索收录"
+ },
+ "39e3081226ac72b1939b6e12cfaa59fe4030487906a1065ce588a1f5f60d00a7": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "华为发布AI工作助理小艺Work内测，具备跨端协同和多种AI任务能力。",
+  "evidence": "华为宣布小艺 Work 开启内测，定位覆盖办公、代码开发和创意创作的 AI 工作助理，支持鸿蒙手机、平板和电脑跨端协同"
+ },
+ "421104c615b70a0b628b0ae1294202e5bc4d985018f249d1e3e03e0abe01a0a2": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "周鸿祎建议创业者掌握 Agent，涉及 AI 智能体方向的具体观点。",
+  "evidence": "并称现在 AI 带来的机会更大，建议所有创业者都掌握 Agent"
+ },
+ "e9b3a0538a59890ff506603d482e3a4f4fe54069df85917eb0e4d1d82ec1a203": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "苹果 M5 Ultra 芯片跑分曝光，属于 AI 算力相关硬件新闻。",
+  "evidence": "苹果 M5 Ultra 款 Mac Studio 跑分曝光：单核较 M3 Ultra 高约 29%、多核高约 34%"
+ },
+ "25b3017cfd506259aa70b2118c1fa3ed521f0769609d8954f12d64f818d6b125": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "黄仁勋与特朗普就AI发展、AI安全及AGI发表实质观点，属于AI行业重要事件。",
+  "evidence": "黄仁勋在 All-in Summit 驳斥 AI 末日论，特朗普当众来电称 AI 担忧是骗局"
+ },
+ "16486ea8275e12dfe53b0e3007cfcf0e218295260649b3f150ae893d9dc8d600": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "阿里云举办东盟论坛，聚焦东南亚企业AI落地实践，属于AI行业活动。",
+  "evidence": "东南亚正在加速其 AI 进程，将可能性转化为实际成果。欢迎参加阿里云区域论坛：东盟站--\"从智能到行动：东南亚的 AI 落地故事\""
+ },
+ "0e53155c1c3a87c3e10a8fc2d22be96561ac1fd1ac3dbc70ed4a8fd2d0651a4a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章介绍了一个用于快速分类信息的AI模型，属于AI模型相关事件。",
+  "evidence": "这是一个出色的演示，展示了一个旨在根据决策规则快速对信息进行分类的 AI 模型，比 LLM 更快、更便宜。"
+ },
+ "2f0ebd59f15b0b95e9379f29ad33b6e5ea9596a8d7c4e61e9cb948208a018cd9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "vivo 开发者大会宣布蓝心大模型及蓝心智能战略升级，涉及 AI 模型与智能战略。",
+  "evidence": "展示了蓝图影像、蓝海续航系统、蓝心大模型、蓝晶芯片技术栈、蓝河操作系统等蓝科技家族技术。大会还宣布蓝心智能战略全面升级"
+ },
+ "068c94ac94178e72fa889888b4c15a568bc5fee5ed9b1bca9917c8eeb8c32788": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "阿里云举办东盟论坛，聚焦东南亚AI应用与增长。",
+  "evidence": "阿里云东盟论坛探讨东南亚AI应用"
+ },
+ "e578cf347da73fad9a5c80bdf4c32dc91c729c358722f2e60599c4bbd577ca86": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论ChatGPT发布以来AI进展未放缓，涉及AI模型、算力和收入扩张，属于AI行业动态。",
+  "evidence": "ChatGPT 发布以来 AI 进展未放缓"
+ },
+ "2bac4c1de1b18d7b9a32fd908b19235ec99292b894a84983a449638a8bd11a78": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章讨论了机器人进入家庭后的人机共生问题，以及AI毛绒玩具和AI主动服务等具体AI事件。",
+  "evidence": "京东全球科技探索者大会（JDD）上一场跨界圆桌讨论了机器人进入工厂与家庭后的人机共生问题，极佳视界创始人黄冠预计未来新房和小区或许需要为机器人设置充电、维修和使"
+ },
+ "63da2179b6de3fbe4498672be71e6b5acee19a80eacaf3bd9900cbda236e2e8a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "特斯拉自动驾驶出租车 Cybercab 的合规认证与部署属于 AI 自动驾驶产品事件。",
+  "evidence": "美国国家公路交通安全管理局（NHTSA）要求特斯拉在 9 月 30 日前回答一系列问题，说明是否对无方向盘、无踏板的自动驾驶出租车 Cybercab 进行了恰当"
+ },
+ "c0680a0ec7c1c9ada22ca6d10c7f031cece3bffcc1aedf7e0f40c2fa3ad36e59": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "惠普发布支持本地运行300B大语言模型的移动工作站，属于AI算力硬件产品发布。",
+  "evidence": "惠普发布 ZBook Ultra G3a 16 移动工作站：支持本地运行 300B LLM"
  }
 }
