@@ -350,7 +350,7 @@ def main(argv: list[str] | None = None) -> int:
         canary = {"accountName": args.account, "sourceGroup": group,
                   "targetDate": args.date, "collectionWindow": window,
                   "agentProfile": "manus-1.6-lite", "createAttempts": 0,
-                  "promptVariant": "compact-inline-v2" if args.compact_prompt else "window-attachment",
+                  "promptVariant": "compact-inline-v3" if args.compact_prompt else "window-attachment",
                   "creditLimit": args.canary_credit_limit,
                   "status": "reserved", "resolved": False,
                   "startedAt": datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(timespec="seconds")}
