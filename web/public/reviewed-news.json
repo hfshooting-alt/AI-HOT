@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "reviewed": true,
+      "reviewedAt": "2026-09-18T14:17:02+08:00",
+      "collectionWindow": {
+        "start": "2026-09-17T09:30:00+08:00",
+        "end": "2026-09-18T09:30:00+08:00",
+        "timezone": "Asia/Shanghai"
+      },
+      "bodyAcquisition": "Codex browser, manually reviewed continuous prefix",
+      "manusTaskId": "BgqeEkMTTE9epeWpUxXMBi",
+      "item": {
+        "id": "manus:a66e6565657e5897",
+        "title": "开源模型夯爆了！ZDTaichu5.0-9B，10B以内空间具身智能卷出通用类第一",
+        "summary": "紫东太初开源9B参数通用多模态模型ZDTaichu5.0-9B，面向空间感知、跨视角三维推理和具身任务规划。报道介绍其自适应循环推理机制，并称同步开放了数据生产管线方案。按报道引用的评测口径，该模型在9项空间理解基准中取得8项同参数通用组别第一；这一成绩属于发布方披露，尚未经本站独立复测。",
+        "url": "https://jigou.jiqizhixin.com/articles/2026-09-17-11",
+        "source": "官网资讯：机器之心",
+        "sourceType": "media",
+        "category": "模型发布/更新",
+        "categoryUnclassified": false,
+        "publishedAt": "2026-09-17T15:50:00+08:00",
+        "publishedPrecision": "datetime",
+        "timeEvidence": null,
+        "discoveredAt": "",
+        "timeBasis": "published",
+        "score": null,
+        "selected": null,
+        "aihotUrl": "",
+        "originalUrl": "https://jigou.jiqizhixin.com/articles/2026-09-17-11",
+        "reason": null,
+        "mpName": "机器之心",
+        "sourceRefs": [
+          {
+            "collector": "manus",
+            "source": "机器之心",
+            "url": "https://jigou.jiqizhixin.com/articles/2026-09-17-11",
+            "publishedAt": "2026-09-17T15:50:00+08:00"
+          }
+        ],
+        "evidenceKind": "article_body",
+        "classification": {
+          "cat": "release",
+          "catLabel": "产品和模型发布",
+          "dims": [
+            {
+              "label": "行业",
+              "value": "AI模型"
+            },
+            {
+              "label": "发布主体",
+              "value": "其他"
+            }
+          ],
+          "autoFallback": false
+        },
+        "num": 1,
+        "timeText": "昨天 15:50"
+      },
+      "companies": [
+        {
+          "id": "company:84cf0413e1d314bc",
+          "company_name": "中科紫东太初（北京）科技有限公司",
+          "aliases": [
+            "紫东太初"
+          ],
+          "product_names": [
+            "ZDTaichu5.0-9B",
+            "紫东太初"
+          ],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": "研发多模态大模型及人工智能开放服务平台，面向科研、制造、医疗、交通、教育等场景开展应用。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "AI模型",
+            "国家/地区": "中国"
+          },
+          "fieldSources": {
+            "product_names": [
+              {
+                "value": "ZDTaichu5.0-9B",
+                "articleId": "manus:a66e6565657e5897",
+                "url": "https://jigou.jiqizhixin.com/articles/2026-09-17-11",
+                "title": "开源模型夯爆了！ZDTaichu5.0-9B，10B以内空间具身智能卷出通用类第一",
+                "publishedAt": "2026-09-17T15:50:00+08:00",
+                "sourceName": "机器之心",
+                "origin": "article"
+              }
+            ],
+            "company_name": [
+              {
+                "value": "中科紫东太初（北京）科技有限公司",
+                "articleId": "research:dfa326b7326ecb85",
+                "url": "https://cloud.zidongtaichu.com/about-us",
+                "title": "关于我们 - 紫东太初云",
+                "publishedAt": "",
+                "sourceName": "公开资料核验",
+                "origin": "research",
+                "quote": "中科紫东太初（北京）科技有限公司是依托中国科学院自动化研究所的人工智能技术优势而转化的大模型公司",
+                "checkedAt": "2026-09-18T14:17:02+08:00"
+              }
+            ],
+            "business": [
+              {
+                "value": "研发多模态大模型及人工智能开放服务平台，面向科研、制造、医疗、交通、教育等场景开展应用。",
+                "articleId": "research:dfa326b7326ecb85",
+                "url": "https://cloud.zidongtaichu.com/about-us",
+                "title": "关于我们 - 紫东太初云",
+                "publishedAt": "",
+                "sourceName": "公开资料核验",
+                "origin": "research",
+                "quote": "公司将依托紫东太初多模态大模型及人工智能开放服务平台开展相关落地应用",
+                "checkedAt": "2026-09-18T14:17:02+08:00"
+              }
+            ],
+            "country": [
+              {
+                "value": "中国",
+                "articleId": "research:dfa326b7326ecb85",
+                "url": "https://cloud.zidongtaichu.com/about-us",
+                "title": "关于我们 - 紫东太初云",
+                "publishedAt": "",
+                "sourceName": "公开资料核验",
+                "origin": "research",
+                "quote": "公司地址：北京市海淀区知春路65号院1号楼A座16层1601",
+                "checkedAt": "2026-09-18T14:17:02+08:00",
+                "countryBasis": "官网公司地址；不是注册日期或全球总部判定"
+              }
+            ]
+          },
+          "sourceArticles": [
+            {
+              "id": "manus:a66e6565657e5897",
+              "title": "开源模型夯爆了！ZDTaichu5.0-9B，10B以内空间具身智能卷出通用类第一",
+              "url": "https://jigou.jiqizhixin.com/articles/2026-09-17-11",
+              "publishedAt": "2026-09-17T15:50:00+08:00",
+              "sourceName": "机器之心",
+              "category": "release"
+            }
+          ],
+          "firstSeenAt": "2026-09-17T15:50:00+08:00",
+          "lastSeenAt": "2026-09-17T15:50:00+08:00",
+          "entityType": "company",
+          "productUpdates": [
+            {
+              "name": "ZDTaichu5.0-9B",
+              "relationship": "owned",
+              "quote": "紫东太初开源的这个通用多模态大模型 ZDTaichu5.0-9B",
+              "articleId": "manus:a66e6565657e5897",
+              "url": "https://jigou.jiqizhixin.com/articles/2026-09-17-11",
+              "title": "开源模型夯爆了！ZDTaichu5.0-9B，10B以内空间具身智能卷出通用类第一",
+              "publishedAt": "2026-09-17T15:50:00+08:00"
+            },
+            {
+              "name": "紫东太初",
+              "relationship": "unknown",
+              "quote": "",
+              "articleId": "",
+              "url": "",
+              "publishedAt": "",
+              "title": ""
+            }
+          ],
+          "updatedAt": "2026-09-17T15:50:00+08:00",
+          "brandProfiles": {
+            "紫东太初": {
+              "id": "company:a658fbc24f5e3832",
+              "company_name": "紫东太初",
+              "aliases": [],
+              "product_names": [
+                "ZDTaichu5.0-9B"
+              ],
+              "founded": null,
+              "country": null,
+              "team": null,
+              "business": null,
+              "investors": null,
+              "total_funding": null,
+              "valuation": null,
+              "dims": {
+                "行业": "AI模型",
+                "国家/地区": "其他"
+              },
+              "fieldSources": {
+                "company_name": [
+                  {
+                    "value": "紫东太初",
+                    "articleId": "manus:a66e6565657e5897",
+                    "url": "https://jigou.jiqizhixin.com/articles/2026-09-17-11",
+                    "title": "开源模型夯爆了！ZDTaichu5.0-9B，10B以内空间具身智能卷出通用类第一",
+                    "publishedAt": "2026-09-17T15:50:00+08:00",
+                    "sourceName": "机器之心",
+                    "origin": "article"
+                  }
+                ],
+                "product_names": [
+                  {
+                    "value": "ZDTaichu5.0-9B",
+                    "articleId": "manus:a66e6565657e5897",
+                    "url": "https://jigou.jiqizhixin.com/articles/2026-09-17-11",
+                    "title": "开源模型夯爆了！ZDTaichu5.0-9B，10B以内空间具身智能卷出通用类第一",
+                    "publishedAt": "2026-09-17T15:50:00+08:00",
+                    "sourceName": "机器之心",
+                    "origin": "article"
+                  }
+                ]
+              },
+              "sourceArticles": [
+                {
+                  "id": "manus:a66e6565657e5897",
+                  "title": "开源模型夯爆了！ZDTaichu5.0-9B，10B以内空间具身智能卷出通用类第一",
+                  "url": "https://jigou.jiqizhixin.com/articles/2026-09-17-11",
+                  "publishedAt": "2026-09-17T15:50:00+08:00",
+                  "sourceName": "机器之心",
+                  "category": "release"
+                }
+              ],
+              "firstSeenAt": "2026-09-17T15:50:00+08:00",
+              "lastSeenAt": "2026-09-17T15:50:00+08:00",
+              "entityType": "company",
+              "productUpdates": [
+                {
+                  "name": "ZDTaichu5.0-9B",
+                  "relationship": "owned",
+                  "quote": "紫东太初开源的这个通用多模态大模型 ZDTaichu5.0-9B",
+                  "articleId": "manus:a66e6565657e5897",
+                  "url": "https://jigou.jiqizhixin.com/articles/2026-09-17-11",
+                  "title": "开源模型夯爆了！ZDTaichu5.0-9B，10B以内空间具身智能卷出通用类第一",
+                  "publishedAt": "2026-09-17T15:50:00+08:00"
+                }
+              ],
+              "updatedAt": "2026-09-17T15:50:00+08:00"
+            }
+          },
+          "latestReportAt": "2026-09-17T15:50:00+08:00",
+          "profileUpdatedAt": "2026-09-18T14:17:03+08:00"
+        }
+      ]
+    }
+  ]
+}

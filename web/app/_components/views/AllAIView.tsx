@@ -4,7 +4,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { NewsItem } from "../../_lib/domain/types";
-import { loadAll, loadSnapshot, mergePools, poolFromSnapshot } from "../../_lib/data/api";
+import { loadAll, loadSnapshot, loadReviewedNews, mergePools, poolFromSnapshot } from "../../_lib/data/api";
+import { mergeReviewedNews } from "../../_lib/data/reviewed-news.mjs";
 import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/display/format";
 import { categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
 import { matchItem, sourceKindOf } from "../../_lib/display/source";
@@ -33,7 +34,7 @@ export function AllAIView() {
     let cancelled = false;
     (async () => {
       // 快照池 + AIHOT 实时流合并
-      const snap = await loadSnapshot();
+      const [snap, reviewed] = await Promise.all([loadSnapshot(), loadReviewedNews()]);
       const base = snap ? poolFromSnapshot(snap) : [];
       const batch = snap?.publicationMode === "pipeline";
       const all = batch ? null : await loadAll();
@@ -43,7 +44,7 @@ export function AllAIView() {
         merged = base.length ? mergePools(base, all.items) : all.items;
       }
       if (cancelled) return;
-      setItems(merged);
+      setItems(mergeReviewedNews(merged, reviewed, snap?.collectionStatus?.collectionWindow.end));
       setLoading(false);
     })();
     return () => {

@@ -11,6 +11,7 @@ import type {
   Snapshot,
   WeeklyJournal,
 } from "../domain/types";
+import { mergeReviewedCompanies } from "./reviewed-news.mjs";
 
 /** 兼容站点根目录与 GitHub Pages 的 /AI-HOT/ 子路径。 */
 function publicAsset(path: string): string {
@@ -32,6 +33,15 @@ async function fetchJSON<T>(url: string): Promise<T> {
 export async function loadSnapshot(): Promise<Snapshot | null> {
   try {
     return await fetchJSON<Snapshot>(publicAsset("snapshot.json"));
+  } catch {
+    return null;
+  }
+}
+
+/** 单篇审核补录独立于定时采集批次，缺失时不影响主新闻流。 */
+export async function loadReviewedNews(): Promise<unknown> {
+  try {
+    return await fetchJSON<unknown>(publicAsset("reviewed-news.json"));
   } catch {
     return null;
   }
@@ -132,7 +142,10 @@ let companyOverviewLoaded = false;
 export async function loadCompanyOverview(): Promise<CompanyOverview | null> {
   if (companyOverviewLoaded) return companyOverviewCache;
   try {
-    companyOverviewCache = await fetchJSON<CompanyOverview>(publicAsset("company-overview.json"));
+    const [overview, reviewed] = await Promise.all([
+      fetchJSON<CompanyOverview>(publicAsset("company-overview.json")), loadReviewedNews(),
+    ]);
+    companyOverviewCache = mergeReviewedCompanies(overview, reviewed);
   } catch {
     companyOverviewCache = null;
   }
