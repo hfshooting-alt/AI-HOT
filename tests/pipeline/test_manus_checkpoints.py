@@ -20,6 +20,18 @@ ARTICLE = {'account_name': 'Test', 'source_platform': 'Website', 'source_home_ur
 
 
 class CheckpointTest(unittest.TestCase):
+    def test_jiqizhixin_requires_explicit_article_byline(self):
+        source = {'account_name': '机器之心', 'platform': 'Official Jiqizhixin',
+                  'home_url': 'https://jigou.jiqizhixin.com/industry'}
+        article = {**ARTICLE, 'account_name': '机器之心',
+                   'source_platform': source['platform'], 'source_home_url': source['home_url'],
+                   'article_url': 'https://jigou.jiqizhixin.com/articles/test'}
+        for author in (None, 'ScienceAI', '新闻资讯'):
+            self.assertFalse(accept_article({**article, 'author': author}, 'group_a',
+                '2026-09-14', ['机器之心'], WINDOW, [source]))
+        self.assertTrue(accept_article({**article, 'author': '机器之心'}, 'group_a',
+            '2026-09-14', ['机器之心'], WINDOW, [source]))
+
     def test_malformed_final_envelope_keeps_prior_checkpoint(self):
         client = ManusClient('test', 'manus-1.6', 0, 1)
         def finish(task_id, **kwargs):

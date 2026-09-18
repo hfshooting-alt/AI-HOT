@@ -95,6 +95,10 @@ def accept_article(article, group, date, accounts, window, source_specs=None):
         return False
     if not str(article['article_url']).startswith(('https://', 'http://')):
         return False
+    # This mixed-publisher list requires an explicit byline; site branding alone
+    # cannot establish that the article was published by the configured newsroom.
+    if article['source_platform'] == 'Official Jiqizhixin' and article.get('author') != '机器之心':
+        return False
     if source_specs is not None:
         source = next((s for s in source_specs if s['account_name'] == article['account_name']), None)
         if not source or (source['platform'], source['home_url']) != (article['source_platform'], article['source_home_url']):

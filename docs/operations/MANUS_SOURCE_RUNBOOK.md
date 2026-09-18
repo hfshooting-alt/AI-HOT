@@ -13,6 +13,12 @@ Manus只依据文章原始发布／发送时间收录，新增点赞、评论、
 
 ## 2. 手动运行与调试
 
+### 精简内联指令对照测试（2026-09-18）
+
+在单账号窗口canary参数上加 `--compact-prompt`，使用 `scripts/prompts/manus_discovery_compact.md`，规则直接置入消息，不附prompt文件。只允许与 `--account --ten-am` 同用，生产默认继续使用原版本；同账号同日一次、Lite、创建不重试、20 credits观察止损仍适用。报告记录 `promptVariant`，隔离结果不可直接覆盖正式feed。跨日期、跨模型对比不能当作严格A/B实验。
+
+Official Jiqizhixin文章必须明确author=机器之心，空署名或其他发布者不接受。站点标识不能代替文章署名。9月18日v1试验7 credits返回1篇，但详情证据不足、不入库；v2仅完成离线验证，详见[实验记录](../history/2026-09-18-COMPACT_MANUS_CANARY.md)。
+
 ### 获取能力样本（2026-09-10）
 
 `python scripts/probe_source_capability.py --date 2026-09-10 --accounts "机器之心" --allow-paid` 只获取1篇、最多2篇样本后结束，不检查全天边界。每来源每天一次，Lite、240秒、20 credits观察止损线、创建不重试、并发2。输出在 `work/source-capability/<date>/`。`capability` 表示文章/发布者/精确时间样本可取得；`sampleWindowVerified` 单独验证固定窗口；`coverage` 保留 unconfirmed。时间越窗样本可证明访问能力，但不进入该窗口新闻。旧任务仅有进度叙述时明确标注证据级别，不伪造成结构化样本。

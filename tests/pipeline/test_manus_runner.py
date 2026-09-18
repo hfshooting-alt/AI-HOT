@@ -109,6 +109,12 @@ class TestSingleAccountCanary(unittest.TestCase):
                 runner.main(["--account", "TestAccount"])
         load.assert_not_called()
 
+    def test_compact_prompt_cannot_change_production_run(self):
+        with patch.object(runner.Settings, 'from_environment') as load:
+            with self.assertRaises(SystemExit):
+                runner.main(['--compact-prompt', '--ten-am'])
+        load.assert_not_called()
+
     def test_account_canary_is_lite_single_attempt_and_isolated(self):
         captured = {}
         class FakeClient:

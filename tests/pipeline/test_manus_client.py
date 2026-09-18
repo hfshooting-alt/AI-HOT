@@ -64,6 +64,20 @@ RESULT_VALUE = {"source_group": "group_a", "target_date": "2026-08-16",
 
 
 class StoppedTaskTests(unittest.TestCase):
+    def test_inline_prompt_preserves_rules_window_and_output_contract(self):
+        client, transport = make_client([OK_CREATE], inline_prompt=True)
+        client.create_crawl_task('RULES: identity and original publication only',
+            'group_a', '2026-09-18', 'test', 'window ends 09:30 Asia/Shanghai')
+        payload = transport.calls[0][2]
+        content = payload['message']['content']
+        self.assertEqual(len(content), 1)
+        self.assertEqual(content[0]['type'], 'text')
+        for value in ('group_a', '2026-09-18', '09:30 Asia/Shanghai',
+                      'identity and original publication only'):
+            self.assertIn(value, content[0]['text'])
+        self.assertNotIn('file_data', content[0])
+        validate_output_schema(payload['structured_output_schema'])
+
     def test_stopped_without_result_exits_after_delivery_grace(self):
         clock = [0]
         client, transport = make_client([page([{'type': 'status_update',

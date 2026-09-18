@@ -137,8 +137,10 @@ class ManusClient:
         min_request_interval_seconds: float = 0.0,
         page_limit: int = 200,
         create_interval_seconds: float = 0.0,
+        inline_prompt: bool = False,
     ) -> None:
         self.api_key = api_key
+        self.inline_prompt = inline_prompt
         self.agent_profile = agent_profile
         self.poll_seconds = poll_seconds
         self.timeout_seconds = timeout_seconds
@@ -243,6 +245,10 @@ class ManusClient:
             "agent_profile": self.agent_profile,
             "structured_output_schema": schema,
         }
+        if self.inline_prompt:
+            payload['message']['content'] = [{'type': 'text', 'text':
+                f'source_group: {source_group}\ntarget_date: {target_date}\n'
+                f'{task_brief}\n\n{prompt_text}'}]
         last_error: ManusAPIError | None = None
         for attempt in range(self.create_retries + 1):
             try:

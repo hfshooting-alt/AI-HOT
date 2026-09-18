@@ -296,6 +296,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--resume", action="store_true", help="复用同日校验通过且来源全部成功的发现组")
     parser.add_argument("--ten-am", action="store_true", help="date 为窗口结束日，采集前一日十点至当日十点")
     parser.add_argument("--account", help="单账号低成本 canary；结果隔离且不进入生产 feed")
+    parser.add_argument("--compact-prompt", action="store_true", help="仅单账号窗口测试：精简规则直接放入消息")
     parser.add_argument("--allow-paid", action="store_true", help="显式允许单账号 canary 创建一个付费任务")
     parser.add_argument("--canary-timeout-seconds", type=int, default=600,
                         help="单账号 canary 最长等待秒数，范围 60-600（默认 600）")
@@ -320,12 +321,17 @@ def main(argv: list[str] | None = None) -> int:
     if args.account and args.credit_limit_per_source:
         parser.error("单账号 canary 只使用 --canary-credit-limit")
 
+    if args.compact_prompt and not (args.account and args.ten_am):
+        parser.error('--compact-prompt 仅用于 --account --ten-am 隔离测试')
     settings = Settings.from_environment(PROJECT_ROOT)
     window = ten_am_window(args.date) if args.ten_am else None
     if window:
         settings = replace(settings, work_dir=settings.work_dir / "ten-am",
                            discovery_prompt_path=PROJECT_ROOT / "scripts/prompts/manus_discovery_window.md")
     groups_cfg = load_sources(settings.sources_path)
+    if args.compact_prompt:
+        settings = replace(settings, discovery_prompt_path=PROJECT_ROOT /
+                           'scripts/prompts/manus_discovery_compact.md')
     canary = None
     if args.account:
         try:
@@ -344,6 +350,7 @@ def main(argv: list[str] | None = None) -> int:
         canary = {"accountName": args.account, "sourceGroup": group,
                   "targetDate": args.date, "collectionWindow": window,
                   "agentProfile": "manus-1.6-lite", "createAttempts": 0,
+                  "promptVariant": "compact-inline-v2" if args.compact_prompt else "window-attachment",
                   "creditLimit": args.canary_credit_limit,
                   "status": "reserved", "resolved": False,
                   "startedAt": datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(timespec="seconds")}
@@ -355,6 +362,7 @@ def main(argv: list[str] | None = None) -> int:
         register_grace_seconds=settings.register_grace_seconds,
         create_retries=0 if canary or args.credit_limit_per_source else 3,
         create_interval_seconds=7,
+        inline_prompt=args.compact_prompt,
     )
 
     raw_dir = settings.work_dir / args.date / "raw"
