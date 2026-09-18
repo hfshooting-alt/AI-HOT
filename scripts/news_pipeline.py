@@ -15,7 +15,8 @@ import tag_news
 from source_status import reason_code
 from manus_source import contracts
 from manus_source.config import load_sources
-from manus_source.window import ten_am_window, matching_item
+from manus_source.window import ten_am_window
+from aihot_window import in_window as aihot_in_window
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -27,9 +28,9 @@ def read(path):
 def collect(date, out, api_base='https://aihot.virxact.com'):
     window = ten_am_window(date)
     # Seven-day API pagination avoids losing the start of the fixed window when
-    # GitHub schedules start late. The exact 24h filter still applies locally.
+    # GitHub schedules start late. Narrow by AIHOT's timeline, not original date.
     items = snapshot.fetch_items(api_base, snapshot.timestamp(window['start']), '7d')
-    payload = {'collectionWindow': window, 'items': [i for i in items if matching_item(window, i)],
+    payload = {'collectionWindow': window, 'items': [i for i in items if aihot_in_window(window, i)],
                'dailyReport': snapshot.fetch_latest_daily(api_base),
                'hot': snapshot.fetch_hot_topics(api_base)}
     manus.atomic_write_json(Path(out), payload)
@@ -147,7 +148,7 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
     if not any(a['status'] == 'complete' or
                (a['status'] == 'partial' and a['usableArticles'] > 0) for a in audits):
         raise ValueError('All sources unavailable; keep previous publication')
-    pool = candidates([i for i in aihot['items'] if matching_item(window, i)], articles)
+    pool = candidates(aihot['items'], articles)
     from publication_review import review as review_publication
     original_pool_count = len(pool)
     pool, time_quarantine = review_publication(pool, window)

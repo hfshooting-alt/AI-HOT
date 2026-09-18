@@ -34,6 +34,13 @@ from datetime import date, datetime, timedelta, timezone
 import tag_news  # 打标签 harness（同目录）
 from manus_source import contracts  # Manus feed 契约校验（同目录包）
 from manus_source.window import ten_am_window, timestamp, matching_item
+from aihot_window import in_window as aihot_in_window
+
+
+def matches_collection_window(window, item):
+    if item.get('collector') == 'aihot' or str(item.get('id', '')).startswith('aihot:'):
+        return aihot_in_window(window, item)
+    return matching_item(window, item)
 
 MANUS_MAX_STALE_DAYS = 3  # feed targetDate 旧于该窗口视为过期，降级为仅 aihot 数据
 
@@ -769,7 +776,7 @@ def build_daily_nav(all_days: dict[str, dict], weekly_nav: list[dict], time_ref:
 
 
 def build_view(view: str, items: list[dict], day: datetime, days: int, generated_at: datetime, mp_status: dict,
-               time_ref: datetime | None = None, end: datetime | None = None) -> dict:
+               time_ref: datetime | None = None, end: datetime | None = None, preselected: bool = False) -> dict:
     """组装 daily / weekly 视图。items 需已按 publishedAt 降序。
 
     day: 视图锚点日（当天 00:00 北京时间）；窗口起点 = day - (days-1) 天
@@ -779,7 +786,7 @@ def build_view(view: str, items: list[dict], day: datetime, days: int, generated
     start = day - timedelta(days=days - 1)
     end = end or (day + timedelta(days=1))
     ref = time_ref or day
-    raw = [i for i in items if start <= to_bj(i.get("publishedAt") or "") < end]
+    raw = list(items) if preselected else [i for i in items if start <= to_bj(i.get("publishedAt") or "") < end]
     raw.sort(key=lambda i: to_bj(i.get("publishedAt") or ""), reverse=True)
     converted = [build_item(it, idx + 1, ref) for idx, it in enumerate(raw)]
     sections = group_sections(converted)
@@ -934,20 +941,24 @@ def main() -> int:
     else:
         print(f"Manus 核验源降级：{mp_status['note']}", file=sys.stderr)
 
-    if window:
+    if window and prepared is None:
         # 分页响应可能越过边界；只入库明确处于固定窗口内的新文章。
-        items = [i for i in items if matching_item(window, i)]
+        items = [i for i in items if matches_collection_window(window, i)]
 
     # A validated reprocessed batch supersedes earlier candidates in its exact
     # window, including newly excluded stories. Other history remains intact.
     if prepared is not None and window:
         os.makedirs(args.archive_dir, exist_ok=True)
-        current_date = window_start.date()
+        # Slow-source articles may be published before this batch's start.
+        current_date = min([window_start.date() - timedelta(days=3)] +
+                           [to_bj(i['publishedAt']).date() for i in prepared['items']])
         while current_date <= window_end.date():
             key = current_date.isoformat()
             path = _day_file_path(args.archive_dir, key)
             day = _load_day_file(path) or {'date': key, 'finalized': False, 'finalizedAt': None, 'items': []}
-            day['items'] = [i for i in day['items'] if not matching_item(window, i)]
+            incoming_ids = {i['id'] for i in prepared['items']}
+            day['items'] = [i for i in day['items'] if i.get('id') not in incoming_ids
+                            and not matches_collection_window(window, i)]
             day['items'].extend(i for i in prepared['items'] if to_bj(i['publishedAt']).date() == current_date)
             day['updatedAt'] = now_bj.isoformat()
             _save_day_file(path, day)
@@ -1026,8 +1037,10 @@ def main() -> int:
     daily_view["vol"] = f"VOL.{now_bj.year}-{now_bj.month:02d}-{now_bj.day:02d}"
     daily_view["range"]["cnLabel"] = fmt_cn_date(now_bj.date()) + " " + WEEKDAYS[now_bj.weekday()]
     if window:
-        daily_view = build_view("daily", [i for i in items if matching_item(window, i)],
-                                window_start, 1, generated_at, mp_status, time_ref=now_bj, end=window_end)
+        daily_view = build_view("daily", prepared['items'] if prepared is not None else
+                                [i for i in items if matches_collection_window(window, i)],
+                                window_start, 1, generated_at, mp_status, time_ref=now_bj, end=window_end,
+                                preselected=prepared is not None)
         label = f"{fmt_cn_date(window_start.date())} {window_start:%H:%M} 至 {fmt_cn_date(window_end.date())} {window_end:%H:%M}"
         daily_view["range"].update(start=window_start.date().isoformat(), end=window_end.date().isoformat(),
                                     label=label, cnLabel=label, startAt=window["start"], endAt=window["end"])
@@ -1036,7 +1049,8 @@ def main() -> int:
     # 新版前端字段：全部 AI 动态 / 热点榜 / 日报周报导航 / 分类标签
     # 定时十点快照应完整展示该 24 小时窗口；非窗口构建沿用旧版 200 条上限，
     # 避免把整个历史归档一次性塞进前端。
-    current_items = [i for i in items if matching_item(window, i)] if window else items[:200]
+    current_items = (prepared['items'] if prepared is not None else
+                     [i for i in items if matches_collection_window(window, i)] if window else items[:200])
     all_pool = format_items(current_items, now_bj)
     category_counts: dict[str, int] = {}
     for it in all_pool:

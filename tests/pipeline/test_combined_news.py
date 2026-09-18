@@ -18,6 +18,7 @@ import news_pipeline as news
 import build_snapshot as snapshot
 import screen_news
 import enrich_news
+from aihot_window import in_window as aihot_in_window
 from automation import runner, publish
 from manus_source.config import load_sources
 from manus_source.window import ten_am_window
@@ -145,6 +146,23 @@ class CombinedNews(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'window'):
             self.process()
 
+    def test_aihot_timeline_keeps_slow_sources_and_obeys_batch_boundaries(self):
+        window = ten_am_window(DATE)
+        item = {**self.item, 'publishedAt': '2026-09-08T12:00:00+08:00',
+                'discoveredAt': '2026-09-10T08:00:00+08:00'}
+        self.assertTrue(aihot_in_window(window, item))
+        self.assertFalse(aihot_in_window(window, {**item, 'discoveredAt': window['end']}))
+        self.assertTrue(aihot_in_window(window, {**item, 'discoveredAt': window['start']}))
+        self.assertFalse(aihot_in_window(window, {**item, 'publishedAt': '2026-09-01T12:00:00+08:00'}))
+        self.assertTrue(aihot_in_window(window, {**item, 'publishedAt': None}))
+        with patch.object(snapshot, 'fetch_items', return_value=[item]), \
+             patch.object(snapshot, 'fetch_latest_daily', return_value=None), \
+             patch.object(snapshot, 'fetch_hot_topics', return_value={}):
+            news.collect(DATE, self.workspace / 'inputs/aihot.json')
+        result = self.process(enabled=False)
+        self.assertEqual(len(result['items']), 1)
+        self.assertEqual(result['items'][0]['publishedAt'], item['publishedAt'])
+
     def test_failed_summary_never_publishes_fallback(self):
         with self.assertRaisesRegex(ValueError, 'summary/classification'):
             news.process(DATE, self.workspace, self.raw, screen_fn=screen, enrich_fn=lambda *args: {})
@@ -205,6 +223,14 @@ class CombinedNews(unittest.TestCase):
         self.assertIn('news', calls)
 
     def test_snapshot_reads_prepared_pool_without_network_or_old_manus(self):
+        # The original article predates the window; the approved AIHOT batch
+        # must survive snapshot construction and previously frozen archives.
+        self.item.update(publishedAt='2026-09-08T12:00:00+08:00',
+                         discoveredAt='2026-09-10T08:00:00+08:00')
+        publish.save(self.workspace / 'inputs/aihot.json',
+                     {'collectionWindow': ten_am_window(DATE), 'items': [self.item]})
+        publish.save(self.workspace / 'archive/2026-09-08.json',
+                     {'date': '2026-09-08', 'finalized': True, 'items': []})
         result = self.process()
         args = ['build_snapshot.py', '--window-date', DATE,
                 '--input-json', str(self.workspace / 'inputs/processed.json'), '--no-tags', '--require-tags',
@@ -221,6 +247,14 @@ class CombinedNews(unittest.TestCase):
         actual = news.read(self.workspace / 'snapshot.json')
         self.assertEqual(actual['collectionStatus'], result['collectionStatus'])
         self.assertEqual(actual['all']['items'][0]['id'], 'aihot:example')
+        self.assertEqual(actual['daily']['total'], 1)
+        self.assertEqual(news.read(self.workspace / 'archive/2026-09-08.json')['items'][0]['id'], 'aihot:example')
+        publish.save(self.workspace / 'web/public/snapshot.json', actual)
+        runner.validate_candidates(self.workspace, ROOT, ['news', 'snapshot'])
+        actual['all']['items'] = []
+        publish.save(self.workspace / 'web/public/snapshot.json', actual)
+        with self.assertRaisesRegex(ValueError, '新闻与网页批次不一致'):
+            runner.validate_candidates(self.workspace, ROOT, ['news', 'snapshot'])
 
     def test_retry_collector_invalidates_successful_downstream(self):
         calls = []

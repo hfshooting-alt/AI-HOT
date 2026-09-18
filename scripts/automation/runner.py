@@ -79,6 +79,15 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
             status = snapshot.get('collectionStatus') or {}
             if not any(s.get('status') in ('complete', 'partial') for s in status.get('sources', [])):
                 raise ValueError('没有成功来源，禁止发布')
+            processed = json.loads((workspace / 'inputs/processed.json').read_text(encoding='utf-8'))
+            approved = processed['items']
+            visible = (snapshot.get('all') or {}).get('items', [])
+            if (snapshot.get('collectionWindow') != processed.get('collectionWindow')
+                    or status != processed.get('collectionStatus')
+                    or len(visible) != len(approved)
+                    or {i['id'] for i in visible} != {i['id'] for i in approved}
+                    or status.get('publishedArticles') != len(visible)):
+                raise ValueError('已审核新闻与网页批次不一致，禁止发布')
     if "funding" in stages:
         table = json.loads((workspace / "data/funding/current.json").read_text(encoding="utf-8"))
         validate_table(table, tag_news.load_taxonomy(str(tx_path)))
