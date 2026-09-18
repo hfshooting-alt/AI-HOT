@@ -14,6 +14,8 @@ Artifact只有在上传完成后才持久保存；runner被强制销毁、任务
 
 ## GitHub恢复入口
 
+零模型调用的演练入口为 **加密恢复云端演练（固定数据零模型调用）**。两个独立runner分别生成固定失败样本并加密上传、下载解密并执行真实缓存重建及发布前校验。它只使用`work/recovery-rehearsal`中的隔离目录；验证2条模拟新闻、1家模拟公司、1个产品和1条融资记录，并检查缓存缺失/包损坏被拒绝及正式数据校验值不变。权限仅contents:read，没有数据提交或Pages部署步骤。Artifact名称带`synthetic`，不得用于正式批次恢复。
+
 Actions → **从加密缓存恢复数据（不调用模型）** → Run workflow：
 
 1. `run_id` 填原采集运行ID，必须已有 `pipeline-recovery-<ID>`。

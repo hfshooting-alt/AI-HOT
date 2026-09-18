@@ -1,0 +1,67 @@
+name: 加密恢复云端演练（固定数据零模型调用）
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/automation/recovery_rehearsal.py'
+      - '.github/workflows/recovery-rehearsal.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: scripts
+      PYTHONIOENCODING: utf-8
+      TZ: Asia/Shanghai
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r scripts/requirements.txt
+      - name: 固定失败样本与加密包（禁止网络）
+        env:
+          PIPELINE_RECOVERY_KEY: ${{ secrets.PIPELINE_RECOVERY_KEY || secrets.PARATERA_API_KEY || secrets.DEEPSEEK_API_KEY || secrets.MANUS_API_KEY }}
+        run: python -m automation.recovery_rehearsal produce --bundle work/rehearsal-artifact/recovery.bin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: synthetic-recovery-${{ github.run_id }}
+          path: work/rehearsal-artifact/recovery.bin
+          if-no-files-found: error
+          retention-days: 7
+
+  verify:
+    needs: produce
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: scripts
+      PYTHONIOENCODING: utf-8
+      TZ: Asia/Shanghai
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r scripts/requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: synthetic-recovery-${{ github.run_id }}
+          path: work/rehearsal-download
+      - name: 新runner解密、缓存重建与真实发布前校验
+        env:
+          PIPELINE_RECOVERY_KEY: ${{ secrets.PIPELINE_RECOVERY_KEY || secrets.PARATERA_API_KEY || secrets.DEEPSEEK_API_KEY || secrets.MANUS_API_KEY }}
+        run: python -m automation.recovery_rehearsal verify --bundle work/rehearsal-download/recovery.bin
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: recovery-rehearsal-report-${{ github.run_id }}
+          path: work/recovery-rehearsal/*-report.json
+          if-no-files-found: warn
+          retention-days: 7
