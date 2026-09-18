@@ -1,5 +1,7 @@
 # 当前状态（2026-09-18）
 
+最新用户口径：机器之心网站新闻作者可空，不以author缺失拒收；配置来源、同站文章URL、原始发布时间仍校验。正文修复采用同次Manus发现结果交回content_text/content_title，阶段B匹配URL和标题后复用，减少重复HTTP失败。真实浏览器正文片段+原author=null通过交接校验，379项Python/38项Node通过；未新增Manus/DeepSeek调用，尚未真实验证新字段的模型交付。GitHub免费浏览器试验35305890986超时；该回退默认关闭，生产不安装浏览器。见[正文修复记录](../history/2026-09-18-ARTICLE_BODY_REPAIR.md)。
+
 更正机器之心单篇判定：浏览器渲染后可见完整正文及“机器之心 原创”，列表同URL精确时间为2026/09/17 15:50。该篇应收录，已另存审核候选并通过窗口/来源校验，尚未正式发布。先前仅凭静态导航/登录文本判定证据不足不充分；prompt已补充动态正文读取与同URL列表时间核对。
 
 机器之心精简内联指令canary已完成：一次Lite、7 credits、161秒，返回1篇partial候选。但author为空且详情证据不足，复核不入库。已补Official Jiqizhixin显式署名校验；精简v2仅离线测试，不推广生产、不再付费重试。371项Python/38项Node通过，见[实验记录](../history/2026-09-18-COMPACT_MANUS_CANARY.md)。

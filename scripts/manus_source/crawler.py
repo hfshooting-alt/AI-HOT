@@ -18,6 +18,7 @@
 from __future__ import annotations
 
 import time
+import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from html.parser import HTMLParser
 from typing import Callable
@@ -247,13 +248,30 @@ def crawl_one(article: dict, target_date: str, *, max_content_chars: int = 20000
         "content_truncated": False,
         "note": None,
     }
+    carried = article.get('content_text')
+    carried_title = article.get('content_title')
+    if (article.get('source_platform') == 'Official Jiqizhixin'
+            and rendered_page.supported(url) and isinstance(carried, str)
+            and isinstance(carried_title, str) and carried_title.strip()
+            and len(carried.strip()) >= min_content_chars
+            and not _title_mismatch(article['title'], carried_title)
+            and not contracts._is_risk_page(carried)):
+        text = carried.strip()
+        truncated = bool(max_content_chars and len(text) >= max_content_chars)
+        if max_content_chars and len(text) > max_content_chars:
+            text = truncate_head_tail(text, max_content_chars)
+        record.update(content_text=text, content_status='complete',
+                      content_truncated=truncated,
+                      note='复用发现阶段同URL浏览器正文；未经再次HTTP抓取')
+        return record
+    render_enabled = render_fn is not None or os.getenv('CRAWL_BROWSER_FALLBACK') == '1'
     try:
         final_url, html = fetch_html(url, timeout_seconds=timeout_seconds, retries=retries,
                                      user_agent=user_agent,
                                      request_delay_seconds=request_delay_seconds,
                                      transport=transport)
     except CrawlError as error:
-        if not rendered_page.supported(url):
+        if not render_enabled or not rendered_page.supported(url):
             record["note"] = str(error)
             return record
         final_url, html = url, b''
@@ -262,7 +280,7 @@ def crawl_one(article: dict, target_date: str, *, max_content_chars: int = 20000
         return record
 
     text, meta_title = extract_text(html)
-    if (rendered_page.supported(url) and not _looks_like_risk_page(html, text)
+    if (render_enabled and rendered_page.supported(url) and not _looks_like_risk_page(html, text)
             and (not text or len(text.strip()) < min_content_chars
                  or _title_mismatch(article.get('title') or '', meta_title or ''))):
         try:

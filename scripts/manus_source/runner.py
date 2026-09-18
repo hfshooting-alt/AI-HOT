@@ -63,6 +63,16 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
                   checkpoint_path=None) -> dict:
     """提交单组发现任务并等待结果；契约校验通过后返回原始 payload，失败抛异常。"""
     schema = deepcopy(DISCOVERY_OUTPUT_SCHEMA)
+    if any(s.get('platform') == 'Official Jiqizhixin' for s in (source_specs or [])):
+        article_schema = schema['properties']['articles']['items']
+        for field in ('content_text', 'content_title'):
+            article_schema['properties'][field] = {'type': ['string', 'null']}
+            article_schema['required'].append(field)
+        prompt_text += ('\n机器之心动态正文交接：本来源例外地将已读取的正文随文章一并回传，'
+            'content_title填写页面实际标题，content_text填写同一文章浏览器可见正文（最多20000字符），'
+            '不写摘要、不推断补写。每篇AIHOT_ARTICLE进度及最终JSON均携带这两个字段；'
+            '读不到时都填null，仍回传已核实元数据，不因正文抓取失败丢弃已发现文章。'
+            '其他来源这两个字段填null。此为同一任务结果复用，不新增任务或扩大费用上限。')
     if window:
         article_schema = schema["properties"]["articles"]["items"]
         article_schema["properties"]["published_at"] = {"type": ["string", "null"]}
@@ -84,6 +94,10 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
         if not isinstance(article, dict) or not isinstance(article.get('article_url'), str):
             return
         previous = verified.get(article.get('article_url'))
+        if (previous and previous.get('content_text') and not article.get('content_text')
+                and previous.get('title') == article.get('title')):
+            article = {**article, 'content_text': previous['content_text'],
+                       'content_title': previous.get('content_title')}
         if previous and previous.get('published_time_text') == article.get('published_time_text'):
             article = {**article, **{k: previous[k] for k in ('published_at', 'published_date', 'publishedPrecision', 'timeEvidence') if k in previous}}
         else:

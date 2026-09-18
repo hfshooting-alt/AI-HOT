@@ -1,7 +1,7 @@
 import sys
 import unittest
 from pathlib import Path
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
 from manus_source.crawler import crawl_one
@@ -44,3 +44,19 @@ class RenderedArticleTests(unittest.TestCase):
         self.assertFalse(supported('https://jigou.jiqizhixin.com.evil.test/articles/test'))
         self.assertFalse(supported('http://jigou.jiqizhixin.com/articles/test'))
         self.assertFalse(supported('https://jigou.jiqizhixin.com/industry'))
+
+    def test_discovery_body_is_reused_without_second_request(self):
+        article = {**self.article, 'source_platform': 'Official Jiqizhixin',
+                   'author': None, 'content_title': self.article['title'],
+                   'content_text': '这是浏览器已经读取的文章正文。' * 50}
+        with patch('manus_source.crawler.fetch_html') as request:
+            result = crawl_one(article, '2026-09-18')
+        request.assert_not_called()
+        self.assertEqual(result['content_status'], 'complete')
+        self.assertEqual(result['content_text'], article['content_text'])
+
+    def test_mismatched_carried_title_is_not_used(self):
+        article = {**self.article, 'source_platform': 'Official Jiqizhixin',
+                   'content_title': '另一篇文章', 'content_text': '不应该接收的正文。' * 50}
+        result = crawl_one(article, '2026-09-18', transport=lambda u,h: (u,self.promo))
+        self.assertEqual(result['content_status'], 'failed')

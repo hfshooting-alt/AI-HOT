@@ -9,6 +9,7 @@ from unittest.mock import Mock, patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
 from manus_source.checkpoints import accept_article, checkpoint_articles, partial_payload, normalize_article_time
 from manus_source.client import ManusClient, ManusAPIError, CreatedTask
+from manus_source.client import validate_output_schema
 from manus_source.runner import run_discovery, DiscoveryRunError
 
 WINDOW = {'start': '2026-09-13T09:30:00+08:00', 'end': '2026-09-14T09:30:00+08:00', 'timezone': 'Asia/Shanghai'}
@@ -20,6 +21,35 @@ ARTICLE = {'account_name': 'Test', 'source_platform': 'Website', 'source_home_ur
 
 
 class CheckpointTest(unittest.TestCase):
+    def test_final_metadata_does_not_erase_checkpoint_body(self):
+        client = ManusClient('test', 'manus-1.6', 0, 1)
+        def finish(task_id, **kwargs):
+            kwargs['on_checkpoint']({**ARTICLE, 'content_text': 'body', 'content_title': ARTICLE['title']})
+            return {'source_group': 'group_a', 'target_date': '2026-09-14',
+                    'articles': [ARTICLE], 'source_audits': [{'account_name': 'Test',
+                    'article_count': 1, 'source_status': 'complete', 'note': None}]}
+        with patch.object(client, 'create_crawl_task', return_value=CreatedTask('t', 'https://example.com/t')), \
+             patch.object(client, 'wait_for_structured_result', side_effect=finish):
+            result = run_discovery(client, 'group_a', '2026-09-14', 'prompt', ['Test'], WINDOW,
+                                   source_specs=[SOURCE])
+        self.assertEqual(result['articles'][0]['content_text'], 'body')
+
+    def test_jiqizhixin_body_handoff_schema_passes_preflight(self):
+        source = {'account_name': '机器之心', 'platform': 'Official Jiqizhixin',
+                  'home_url': 'https://jigou.jiqizhixin.com/industry'}
+        client = Mock()
+        client.create_crawl_task.return_value = CreatedTask('test', 'https://example.com/test')
+        client.wait_for_structured_result.return_value = {
+            'source_group': 'group_a', 'target_date': '2026-09-14', 'articles': [],
+            'source_audits': [{'account_name': '机器之心', 'article_count': 0,
+                              'source_status': 'complete', 'note': None}]}
+        run_discovery(client, 'group_a', '2026-09-14', 'prompt', ['机器之心'], WINDOW,
+                      source_specs=[source])
+        schema = client.create_crawl_task.call_args.kwargs['output_schema']
+        validate_output_schema(schema)
+        self.assertIn('content_text', schema['properties']['articles']['items']['required'])
+        self.assertIn('content_title', schema['properties']['articles']['items']['required'])
+
     def test_jiqizhixin_accepts_missing_author_but_not_other_publishers(self):
         source = {'account_name': '机器之心', 'platform': 'Official Jiqizhixin',
                   'home_url': 'https://jigou.jiqizhixin.com/industry'}

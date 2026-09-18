@@ -59,8 +59,6 @@ jobs:
         run: python scripts/automation/schedule_audit.py
       - name: 安装依赖
         run: python -m pip install -r scripts/requirements.txt
-      - name: 安装动态正文读取浏览器
-        run: python -m playwright install --with-deps chromium
       - name: 离线契约与流水线回归
         run: python scripts/test_pipeline.py offline
       - name: 公司搜索配额日期（北京时间）

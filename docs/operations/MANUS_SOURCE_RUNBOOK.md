@@ -19,7 +19,9 @@ Manus只依据文章原始发布／发送时间收录，新增点赞、评论、
 
 2026-09-18用户更正：Official Jiqizhixin作者缺失允许author=null，按已配置入口、同站文章URL与原始发布时间收录。明确的其他发布者仍区分，不猜作者。v1样本后经浏览器核实正文可读，已更正为可收录候选，详见[实验记录](../history/2026-09-18-COMPACT_MANUS_CANARY.md)。
 
-阶段B：普通HTTP若只返回数据服务介绍或缺正文，对该站articles路径尝试一次匿名Chromium读取`.detail__info-body`，保留标题/跳转/长度校验。每日CI安装playwright及Chromium；本地需`python -m pip install -r scripts/requirements.txt`及`python -m playwright install chromium`。没有浏览器或资源被拦截时单篇失败隔离，不调用付费回退。`test-pipeline.yml`的手动`verify_rendered_article`选项仅读取固定样本，不调用模型；离线push/PR测试不会联网。
+阶段B：机器之心发现任务在同一输出中交回content_text及content_title（未读取时null），仍受原任务费用限制。爬虫优先复用同URL且标题匹配的正文，经长度与风控检查后交后续模型；缺正文时保留元数据并走原有抓取/隔离路径。全文仅在work中传递，不直接公开。作者为空不妨碍正文复用。
+
+普通HTTP实测返回数据服务介绍页；本地自动浏览器部分资源被ORB阻断，GitHub单篇渲染试验35305890986亦超时。独立浏览器回退因此默认关闭，仅`CRAWL_BROWSER_FALLBACK=1`诊断启用。生产不安装浏览器；诊断需额外安装playwright与Chromium。`test-pipeline.yml`手动verify_rendered_article仅读取固定样本，不调用模型；离线push/PR测试不会联网。不得关闭浏览器安全检查来绕过资源阻断。
 
 ### 获取能力样本（2026-09-10）
 
