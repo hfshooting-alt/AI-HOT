@@ -26,6 +26,7 @@ from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
 from . import contracts
+from . import rendered_page
 
 DEFAULT_USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -229,6 +230,7 @@ def crawl_one(article: dict, target_date: str, *, max_content_chars: int = 20000
               user_agent: str = DEFAULT_USER_AGENT, request_delay_seconds: float = 0.0,
               jina_fallback: bool = False,
               transport: Callable[[str, dict], tuple[str, bytes]] | None = None,
+              render_fn=None,
               ) -> dict:
     """单篇完整流程：抓取 → 跳转检查 → 提取 → 风控/漂移/过短判定 → 截断。
 
@@ -251,13 +253,26 @@ def crawl_one(article: dict, target_date: str, *, max_content_chars: int = 20000
                                      request_delay_seconds=request_delay_seconds,
                                      transport=transport)
     except CrawlError as error:
-        record["note"] = str(error)
-        return record
+        if not rendered_page.supported(url):
+            record["note"] = str(error)
+            return record
+        final_url, html = url, b''
     if _url_drifted(url, final_url):
         record["note"] = f"页面跳转漂移：请求 {url} → 落地 {final_url}"
         return record
 
     text, meta_title = extract_text(html)
+    if (rendered_page.supported(url) and not _looks_like_risk_page(html, text)
+            and (not text or len(text.strip()) < min_content_chars
+                 or _title_mismatch(article.get('title') or '', meta_title or ''))):
+        try:
+            final_url, html = (render_fn or rendered_page.fetch_article)(url, timeout_seconds)
+            if _url_drifted(url, final_url):
+                raise CrawlError('渲染页面跳转漂移')
+            text, meta_title = extract_text(html)
+        except Exception as error:
+            record['note'] = f'浏览器正文回退失败（{type(error).__name__}）；保留发现记录待处理'
+            return record
     if not text and jina_fallback:
         text = fetch_jina_text(url, timeout_seconds=timeout_seconds, user_agent=user_agent)
     # 判定顺序：风控页 → 无正文 → 正文过短 → 标题漂移（避免 404/风控页被误报为漂移）

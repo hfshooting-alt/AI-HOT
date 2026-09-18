@@ -95,10 +95,15 @@ def accept_article(article, group, date, accounts, window, source_specs=None):
         return False
     if not str(article['article_url']).startswith(('https://', 'http://')):
         return False
-    # This mixed-publisher list requires an explicit byline; site branding alone
-    # cannot establish that the article was published by the configured newsroom.
-    if article['source_platform'] == 'Official Jiqizhixin' and article.get('author') != '机器之心':
-        return False
+    # Author is optional. Configured source identity and the original publication
+    # window determine admission; missing bylines must not discard valid news.
+    if article['source_platform'] == 'Official Jiqizhixin':
+        parsed = urlparse(article['article_url'])
+        if parsed.hostname != 'jigou.jiqizhixin.com' or not parsed.path.startswith('/articles/'):
+            return False
+    if (article['source_platform'] == 'Official Jiqizhixin'
+            and article.get('author') in ('ScienceAI', '新闻资讯')):
+        return False  # Explicitly identified third-party publishers remain excluded.
     if source_specs is not None:
         source = next((s for s in source_specs if s['account_name'] == article['account_name']), None)
         if not source or (source['platform'], source['home_url']) != (article['source_platform'], article['source_home_url']):

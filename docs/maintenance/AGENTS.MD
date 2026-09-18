@@ -1,5 +1,7 @@
 # docs/maintenance/AGENTS.MD — AI HOT 项目 Agent 开发守则
 
+2026-09-18用户更正：机器之心网站文章作者缺失可为null，不得作为拒收理由。校验配置入口、同站文章URL与发布时间；明确识别的ScienceAI/新闻资讯等第三方发布者仍沿用原有区分。正文提取对该站增加匿名浏览器回退，不能关闭安全检查、绕过真实登录墙或验证码。
+
 2026-09-15：用户授权完成当前全库联网资料复核，本轮73次DeepSeek请求共享台账，失败不自动重试、无Manus调用。该一次性授权不改变每日采集费用边界。`research.propose(full_review=True)`仅供显式全库复核，默认仍最多5次。注册日期证据用dateBasis=registration及legalEntity区分控股法人；countryBasis注明总部/登记/公司地址来源。已审阅fact.replace=true可更新旧值并保留旧证据，未经审阅不直接替换。内部部门source_kind=division合并新闻但不变成产品。
 
 公司联网补全入口及证据边界见[操作说明](../operations/COMPANY_WEB_RESEARCH.md)。GLM-4V搜索结果只是线索；不能用模型回答或未经核对的搜索摘要自动写入公司库。旧模型原生搜索试验保持停用；已接入的每日 Manus 链接发现与 DeepSeek 网页补全以操作说明为准。

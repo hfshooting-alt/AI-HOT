@@ -15,6 +15,11 @@ on:
       - 'config/**'
       - '.github/workflows/**'
   workflow_dispatch:
+    inputs:
+      verify_rendered_article:
+        description: '免费读取固定机器之心样本正文，不调用模型或采集其他文章'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -34,3 +39,9 @@ jobs:
       - run: python -m pip install -r scripts/requirements.txt
       - name: 无本地配置与密钥的离线回归
         run: python scripts/test_pipeline.py offline
+      - name: 安装正文样本验证浏览器
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.verify_rendered_article }}
+        run: python -m playwright install --with-deps chromium
+      - name: 验证公开文章正文（无模型调用）
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.verify_rendered_article }}
+        run: python scripts/probe_article_content.py

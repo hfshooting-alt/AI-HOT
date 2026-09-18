@@ -4,10 +4,10 @@
 
 固定北京时间窗口：{{WINDOW_START}}（含）至{{WINDOW_END}}（不含）。target_date仅为批次标识，不要求发布日期等于它，也不随实际开工时间移动窗口。
 
-机器之心详情需读取浏览器渲染后的正文。文本抓取只有导航/登录入口时，检查渲染后的文章区域；出现“登录”不等于正文不可读。详情署名可与同URL列表卡片的绝对发布时间结合，note注明各证据位置，author填已核实媒体署名。遵守原有等待与费用上限，不绕过真实登录墙或验证。
+机器之心详情需读取浏览器渲染后的正文。文本抓取只有导航/登录入口时，检查渲染后的文章区域；出现“登录”不等于正文不可读。详情署名可与同URL列表卡片的绝对发布时间结合，note注明各证据位置，author填实际可见署名，无则null。遵守原有等待与费用上限，不绕过真实登录墙或验证。
 
 执行顺序：
-1. 核对列表名称为配置媒体或明确配置的显示名，不猜别名。机器之心产业页只收详情署名机器之心的文章，author必须写机器之心，不能为null；站点标志或列表署名不能代替详情署名。排除ScienceAI、新闻资讯及其他机构。详情正文或署名未核实不得发complete文章。腾讯用图文，网易用全部。列表等待累计最多30秒，必要时切换标签一次、原URL重开一次；仍失败就结束并报告list_not_loaded或identity_mismatch，不循环刷新。
+1. 核对列表名称为配置媒体或明确配置的显示名，不猜别名。机器之心来源按配置入口和同站文章URL核实，author缺失可为null，不因缺少作者拒收。排除ScienceAI、新闻资讯及其他机构。详情正文未核实不得发complete文章。腾讯用图文，网易用全部。列表等待累计最多30秒，必要时切换标签一次、原URL重开一次；仍失败就结束并报告list_not_loaded或identity_mismatch，不循环刷新。
 2. 从顶部按时间顺序处理。列表明确晚于窗口的先跳过；候选打开详情核验标题、署名、正文存在性及发布时间，可读取同文datePublished/time标签。原始发送时间有效；评论、点赞、互动、编辑时间和dateModified无效；URL日期不能作时间证据。中国媒体无时区时间按Asia/Shanghai，明确时区换算北京时间。
 3. 每核实一篇立即单独发进度消息：AIHOT_ARTICLE {完整文章JSON}。然后继续下一篇，不等待全页扫描完成。文章字段：account_name、source_platform、source_home_url逐字复制配置；article_url、title必填；published_at为含时区ISO8601，published_date为北京日期；published_time_text无相对文字时null；author无署名时null；extraction_status="complete"；note写明身份和时间证据所在页。
 4. 时间例外：原文或对应列表卡片写“昨天”，前一自然日全天纳入；“N小时前/分钟前”逐字记published_time_text，published_at/published_date可null交本地换算，不编造精确时间。只有日期且处于窗口两天内的隔离；相对时间边界不确定也隔离。单篇失败继续，并记录覆盖缺口。

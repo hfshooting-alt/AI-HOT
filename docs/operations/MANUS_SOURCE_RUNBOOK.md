@@ -17,7 +17,9 @@ Manus只依据文章原始发布／发送时间收录，新增点赞、评论、
 
 在单账号窗口canary参数上加 `--compact-prompt`，使用 `scripts/prompts/manus_discovery_compact.md`，规则直接置入消息，不附prompt文件。只允许与 `--account --ten-am` 同用，生产默认继续使用原版本；同账号同日一次、Lite、创建不重试、20 credits观察止损仍适用。报告记录 `promptVariant`，隔离结果不可直接覆盖正式feed。跨日期、跨模型对比不能当作严格A/B实验。
 
-Official Jiqizhixin文章必须明确author=机器之心，空署名或其他发布者不接受。站点标识不能代替文章署名。9月18日v1试验7 credits返回1篇，但详情证据不足、不入库；v2仅完成离线验证，详见[实验记录](../history/2026-09-18-COMPACT_MANUS_CANARY.md)。
+2026-09-18用户更正：Official Jiqizhixin作者缺失允许author=null，按已配置入口、同站文章URL与原始发布时间收录。明确的其他发布者仍区分，不猜作者。v1样本后经浏览器核实正文可读，已更正为可收录候选，详见[实验记录](../history/2026-09-18-COMPACT_MANUS_CANARY.md)。
+
+阶段B：普通HTTP若只返回数据服务介绍或缺正文，对该站articles路径尝试一次匿名Chromium读取`.detail__info-body`，保留标题/跳转/长度校验。每日CI安装playwright及Chromium；本地需`python -m pip install -r scripts/requirements.txt`及`python -m playwright install chromium`。没有浏览器或资源被拦截时单篇失败隔离，不调用付费回退。`test-pipeline.yml`的手动`verify_rendered_article`选项仅读取固定样本，不调用模型；离线push/PR测试不会联网。
 
 ### 获取能力样本（2026-09-10）
 
