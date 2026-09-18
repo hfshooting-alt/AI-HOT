@@ -63,6 +63,33 @@ RESULT_VALUE = {"source_group": "group_a", "target_date": "2026-08-16",
                 "source_audits": [], "articles": []}
 
 
+class StoppedTaskTests(unittest.TestCase):
+    def test_stopped_without_result_exits_after_delivery_grace(self):
+        clock = [0]
+        client, transport = make_client([page([{'type': 'status_update',
+            'status_update': {'agent_status': 'stopped'}}])],
+            poll_seconds=10, timeout_seconds=3600)
+        with patch('manus_source.client.time.monotonic', side_effect=lambda: clock[0]), \
+             patch('manus_source.client.time.sleep', side_effect=lambda n: clock.__setitem__(0, clock[0]+n)):
+            with self.assertRaisesRegex(ManusAPIError, 'Task stopped without structured result'):
+                client.wait_for_structured_result('stopped-task')
+        self.assertEqual(clock[0], 30)
+        self.assertEqual(len(transport.calls), 4)
+
+    def test_stopped_drains_next_page_before_ending(self):
+        client, transport = make_client([
+            page([{'type': 'status_update', 'status_update': {'agent_status': 'stopped'}}], 'next'),
+            page([structured_ok(RESULT_VALUE)])])
+        self.assertEqual(client.wait_for_structured_result('task'), RESULT_VALUE)
+        self.assertIn('cursor=next', transport.calls[1][1])
+
+    def test_stopped_accepts_delayed_result_on_next_poll(self):
+        client, _ = make_client([
+            page([{'type': 'status_update', 'status_update': {'agent_status': 'stopped'}}]),
+            page([structured_ok(RESULT_VALUE)])])
+        self.assertEqual(client.wait_for_structured_result('task'), RESULT_VALUE)
+
+
 class TestCreateTask(unittest.TestCase):
     def test_window_schema_passes_strict_validation_before_creation(self):
         from manus_source.runner import run_discovery

@@ -299,6 +299,7 @@ class ManusClient:
         availability_deadline = time.monotonic() + self.register_grace_seconds
         last_error: str | None = None
         last_status: str | None = None
+        stopped_since: float | None = None
         while time.monotonic() < deadline:
             try:
                 cursor: str | None = None
@@ -321,6 +322,17 @@ class ManusClient:
                     if cursor in seen_cursors:
                         raise ManusAPIError('Repeated Manus message cursor')
                     seen_cursors.add(cursor)
+                # A stopped task may deliver its structured result on a later
+                # page/poll. Drain pages first, allow a short delivery grace,
+                # then let the caller recover checkpoints instead of waiting an hour.
+                if last_status == "stopped":
+                    if stopped_since is None:
+                        stopped_since = time.monotonic()
+                    elif time.monotonic() - stopped_since >= 30:
+                        raise ManusAPIError("Task stopped without structured result: " +
+                                            (last_error or "no result delivered"))
+                else:
+                    stopped_since = None
                 if observed_credit_limit is not None:
                     detail = self._request("GET", "task.detail?" + urlencode({"task_id": task_id}))
                     credits = (detail.get("task") or {}).get("credit_usage")

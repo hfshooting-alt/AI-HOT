@@ -128,12 +128,17 @@ jobs:
           git pull --rebase origin main
           git push
           gh workflow run deploy-pages.yml --ref main
+      - name: 汇总不含正文的费用与停止诊断
+        if: always()
+        run: python scripts/automation/diagnostic_summary.py
       - name: 保存不含正文与密钥的阶段状态
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: pipeline-status-${{ github.run_id }}
-          path: work/runs/**/state.json
+          path: |
+            work/runs/**/state.json
+            work/diagnostic-summary.json
           retention-days: 7
           if-no-files-found: ignore
       - name: 运行摘要
