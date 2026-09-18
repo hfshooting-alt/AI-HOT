@@ -49,6 +49,18 @@ class ResearchTest(unittest.TestCase):
         self.assertEqual(result[0]['sourceArticles'],[{'id':'a'}])
         self.assertEqual(apply_reviewed_research(result,rules),result)
 
+    def test_company_alias_merge_does_not_create_a_product(self):
+        row=dict(id='company:alias',company_name='Alias',aliases=[],product_names=['Model-9B'],
+                 fieldSources={},sourceArticles=[{'id':'article'}],firstSeenAt='2026',lastSeenAt='2026')
+        rules={'checkedAt':'2026-09-18','records':[{'record_name':'Alias','owner_company':'Legal Company',
+            'source_kind':'company_alias','reviewed':True,'facts':[{'field':'owner_company','value':'Legal Company',
+            'url':'https://example.com/about','title':'Official','quote':'Legal Company'}]}]}
+        result=apply_reviewed_research([row],rules)
+        self.assertEqual(result[0]['product_names'],['Model-9B'])
+        self.assertIn('Alias',result[0]['aliases'])
+        self.assertEqual(result[0]['sourceArticles'],[{'id':'article'}])
+        self.assertEqual(apply_reviewed_research(result,rules),result)
+
     def test_full_review_requires_explicit_mode_and_shared_budget(self):
         tx=tag_news.load_taxonomy(str(ROOT/'config/taxonomy.json'))
         packet={'record_name':'X','sources':[{'url':'https://example.com','title':'Official','text':'Company X'}]}

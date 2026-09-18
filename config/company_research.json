@@ -2782,6 +2782,7 @@
     },
     {
       "record_name": "紫东太初",
+      "source_kind": "company_alias",
       "owner_company": "中科紫东太初（北京）科技有限公司",
       "entity_type": "brand",
       "reviewed": true,

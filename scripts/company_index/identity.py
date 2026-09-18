@@ -49,7 +49,7 @@ def apply_reviewed_research(companies, rules=None):
             target['entityType'] = 'company'
             # 品牌资料单独保留，不把产品成立年份/负责人当成母公司字段。
             target.setdefault('brandProfiles', {})[source['company_name']] = source
-            source_products = [] if rule.get('source_kind') == 'division' else [source['company_name']]
+            source_products = [] if rule.get('source_kind') in ('division', 'company_alias') else [source['company_name']]
             target['aliases'] = list(dict.fromkeys([*target.get('aliases', []), source['company_name'], *source.get('aliases', [])]))
             target['product_names'] = list(dict.fromkeys([*target['product_names'], *source_products, *source['product_names']]))
             target.setdefault('productUpdates', []).extend(u for u in source.get('productUpdates', []) if u not in target.get('productUpdates', []))

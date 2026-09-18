@@ -18,4 +18,6 @@ web/public/reviewed-news.json 独立保存已审核新闻及公司记录。新�
 
 web/public/reviewed-news-report.json 是本次脱敏审核记录，含模型原摘要、最终摘要、处理范围及调用统计，不含全文和密钥。该文件是单篇审核，不代表新正文交接 schema 已获真实 Manus 任务验收。
 
-本次修改基于同批次运行中的并发风险采取独立补录；未取消、重启或另开付费采集。379 项 Python 回归、42 项 Node 测试及 TypeScript 类型检查用于本次验收，另需核对 Pages 实际展示。
+本次修改基于同批次运行中的并发风险采取独立补录；未取消、重启或另开付费采集。380 项 Python 回归、42 项 Node 测试及 TypeScript 类型检查用于本次验收，另需核对 Pages 实际展示。
+
+页面验收修正：公司简称合并使用source_kind=company_alias，不把简称自动增加为产品。产品列表只保留本篇具体型号ZDTaichu5.0-9B；新增离线测试验证简称、新闻来源保留且不造产品。

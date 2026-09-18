@@ -31,8 +31,7 @@
       "company_name": "中科紫东太初（北京）科技有限公司",
       "entityType": "company",
       "product_names": [
-        "ZDTaichu5.0-9B",
-        "紫东太初"
+        "ZDTaichu5.0-9B"
       ],
       "business": "研发多模态大模型及人工智能开放服务平台，面向科研、制造、医疗、交通、教育等场景开展应用。",
       "productUpdates": [
@@ -93,7 +92,8 @@
         "countryBasis": "官网公司地址；不是注册日期或全球总部判定"
       }
     ],
-    "reviewNote": "报道使用紫东太初品牌名；官网关于我们确认对应运营公司。保留模型原始新闻链接，不把跑分作为独立实测。"
+    "reviewNote": "报道使用紫东太初品牌名；官网关于我们确认对应运营公司。保留模型原始新闻链接，不把跑分作为独立实测。",
+    "source_kind": "company_alias"
   },
   "integration": "Independent reviewed supplement, not a completed daily scan",
   "publicationScope": "Independent reviewed news and company supplement; canonical scheduled datasets remain unchanged"
