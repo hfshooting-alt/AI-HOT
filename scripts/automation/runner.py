@@ -44,12 +44,13 @@ def reuse_candidate_caches(runs: Path, workspace: Path) -> None:
             save(target, merged)
 
 
-def tree_digest(root: Path) -> str:
+def tree_digest(root: Path, *, portable=False) -> str:
     digest = hashlib.sha256()
     if root.exists():
         for path in sorted(root.rglob("*")):
             if path.is_file():
-                digest.update(str(path.relative_to(root)).encode())
+                relative = path.relative_to(root)
+                digest.update((relative.as_posix() if portable else str(relative)).encode())
                 digest.update(path.read_bytes())
     return digest.hexdigest()
 
@@ -217,9 +218,15 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
                     dest.mkdir(parents=True, exist_ok=True)
             reuse_candidate_caches(runs, workspace)
             state = {"date": date, "fingerprint": sig, "stages": {}, "published": False,
+                     "modelContext": {
+                         "LLM_MODEL": os.getenv('LLM_MODEL', '').strip() or json.loads(
+                             (root / 'config/taxonomy.json').read_text(encoding='utf-8')
+                             if (root / 'config/taxonomy.json').exists() else '{}').get('model', {}).get('model', ''),
+                         "LLM_API_BASE": os.getenv('LLM_API_BASE', '')},
                      "sourceMode": source_mode,
                      "collectionWindow": ten_am_window(date) if ten_am else None,
                      "baseline": {rel: tree_digest(root / rel) for rel in ALLOWED}}
+            state['recoveryBaseline'] = {rel: tree_digest(root / rel, portable=True) for rel in ALLOWED}
             save(run_dir / "state.json", state)
             save(latest, {"runId": run_id})
         commands = plan(root, run_dir / "workspace", date, resume, skip_search, ten_am=ten_am,
@@ -298,6 +305,8 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
                 raise ValueError("正式数据已由其他运行更新，禁止旧候选覆盖；请开始新运行")
             publish(root, run_dir, [p for p in ALLOWED if p in outputs])
             state["published"] = True
+            state['publishedOutputs'] = {rel: tree_digest(root / rel) for rel in outputs}
+            state['recoveryPublishedOutputs'] = {rel: tree_digest(root / rel, portable=True) for rel in outputs}
         save(run_dir / "state.json", state)
         print("候选产物已保留，未发布" if no_promote else "所选阶段完成，产物已更新", flush=True)
         return 0

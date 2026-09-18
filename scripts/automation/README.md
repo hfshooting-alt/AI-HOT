@@ -9,3 +9,6 @@ CLI：`../run_pipeline.py`。操作说明见 [自动数据流水线](../../docs/
 | `publish.py` | 固定输出目录的备份替换、日志和失败恢复 |
 
 业务规则继续由 Manus、快照和融资模块维护；这里复用其 CLI。测试位于 `tests/pipeline/test_automation.py`，外部调用使用固定样本替代。
+# 加密恢复
+
+`recovery.py` 负责CI加密保存、解密校验及缓存齐全时的公司/融资重建；不执行采集或付费请求，独立候选沿用 `candidate.py` 发布门禁。详见[操作说明](../../docs/operations/PIPELINE_RECOVERY.md)。

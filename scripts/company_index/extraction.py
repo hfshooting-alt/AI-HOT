@@ -146,6 +146,7 @@ def extract_articles(tx: dict, articles: list[dict], cache_path, llm_fn) -> tupl
                 results[article["id"]] = result
                 if result["status"] == "complete":
                     cache[cache_key(tx, article)] = result
+            tag_news.save_cache(str(cache_path), cache)
             if time.monotonic() - started < float(cfg["budget_seconds"]):
                 for _ in range(len(done)):
                     if not submit_next():

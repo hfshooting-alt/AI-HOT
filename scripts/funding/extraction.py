@@ -175,6 +175,7 @@ def extract_articles(tx: dict, articles: list[dict], cache_path: Path | str,
                 # 失败结果不进缓存：下次运行（如配置好 key 后）自动重试
                 if r.get("status") == "complete":
                     cache[article_cache_key(tx, art)] = r
+                    tag_news.save_cache(str(cache_path), cache)
                 results[art["id"]] = r
                 done += 1
         tag_news.save_cache(str(cache_path), cache)

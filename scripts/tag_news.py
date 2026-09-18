@@ -188,8 +188,10 @@ def load_cache(path: str) -> dict:
 
 
 def save_cache(path: str, cache: dict) -> None:
-    with open(path, "w", encoding="utf-8") as f:
+    temp = str(path) + '.tmp'
+    with open(temp, "w", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=False, indent=1)
+    os.replace(temp, path)
 
 
 def tag_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict]:

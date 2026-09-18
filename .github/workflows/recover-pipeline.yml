@@ -1,0 +1,104 @@
+name: 从加密缓存恢复数据（不调用模型）
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: '原采集 Actions 运行 ID，必须具有 pipeline-recovery 恢复包'
+        required: true
+        type: string
+      promote:
+        description: '完整校验通过后发布并部署 Pages；关闭则仅验证'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: ai-hot-data-pipeline
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TZ: Asia/Shanghai
+      PYTHONIOENCODING: utf-8
+      PYTHONPATH: scripts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r scripts/requirements.txt
+      - name: 下载指定运行的加密包
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RECOVERY_RUN_ID: ${{ inputs.run_id }}
+        shell: bash
+        run: |
+          [[ "$RECOVERY_RUN_ID" =~ ^[0-9]+$ ]] || exit 1
+          gh run download "$RECOVERY_RUN_ID" --name "pipeline-recovery-$RECOVERY_RUN_ID" --dir work/download
+      - name: 解密到独立工作目录
+        id: unpack
+        env:
+          PIPELINE_RECOVERY_KEY: ${{ secrets.PIPELINE_RECOVERY_KEY || secrets.PARATERA_API_KEY || secrets.DEEPSEEK_API_KEY || secrets.MANUS_API_KEY }}
+        run: python -m automation.recovery unpack --path work/download/recovery.bin
+      - name: 校验来源并选取原运行
+        id: source
+        env:
+          RECOVERY_DIRECTORY: ${{ steps.unpack.outputs.directory }}
+          RECOVERY_RUN_ID: ${{ inputs.run_id }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          base = Path(os.environ['RECOVERY_DIRECTORY'])
+          manifest = json.loads((base/'manifest.json').read_text())
+          if str(manifest['githubRunId']) != os.environ['RECOVERY_RUN_ID']:
+              raise ValueError('恢复包运行ID不匹配')
+          states = list((base/'work/runs').glob('**/state.json'))
+          if len(states) != 1:
+              raise ValueError('原运行目录不唯一，需本地指定恢复对象')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write(f'runDirectory={states[0].parent}\n')
+          PY
+      - name: 仅用缓存重建并校验（网络禁止）
+        id: rebuild
+        env:
+          RECOVERY_SOURCE: ${{ steps.source.outputs.runDirectory }}
+        run: python -m automation.recovery rebuild --path "$RECOVERY_SOURCE"
+      - name: 发布已校验候选并部署
+        if: ${{ inputs.promote }}
+        env:
+          REVIEW_DIRECTORY: ${{ steps.rebuild.outputs.reviewDirectory }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/run_pipeline.py publish-candidate --candidate "$REVIEW_DIRECTORY"
+          git add data/manus data/funding data/company-overview data/archive data/cache web/public
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: 恢复已缓存的 AI HOT 批次'
+          git pull --rebase origin main
+          git push
+          gh workflow run deploy-pages.yml --ref main
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for path in Path('work/recovery-candidates').glob('*/recovery-report.json'):
+              report = json.loads(path.read_text())
+              report.update(published=True, pagesDeploymentRequested=True)
+              path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
+          PY
+      - name: 保存恢复结果诊断（无正文）
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recovery-report-${{ github.run_id }}
+          path: work/recovery-candidates/**/recovery-report.json
+          retention-days: 7
+          if-no-files-found: ignore

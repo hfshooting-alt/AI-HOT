@@ -302,6 +302,7 @@ def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict
                         cache.pop(key, None)  # 清除旧降级缓存，下次运行可恢复。
                     results[enrich_item_key(it)] = r
                     done += 1
+                    tag_news.save_cache(cache_path, cache)
                     submit_next()
         tag_news.save_cache(cache_path, cache)
         print(f"正文加工：新增 {done} 条（缓存命中 {len(items) - len(todo)} 条，"

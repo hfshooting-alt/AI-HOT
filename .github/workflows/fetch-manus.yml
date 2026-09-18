@@ -131,6 +131,19 @@ jobs:
       - name: 汇总不含正文的费用与停止诊断
         if: always()
         run: python scripts/automation/diagnostic_summary.py
+      - name: 加密保存采集证据与模型缓存
+        if: ${{ always() && !inputs.dry_run }}
+        env:
+          PIPELINE_RECOVERY_KEY: ${{ secrets.PIPELINE_RECOVERY_KEY || secrets.PARATERA_API_KEY || secrets.DEEPSEEK_API_KEY || secrets.MANUS_API_KEY }}
+        run: PYTHONPATH=scripts python -m automation.recovery pack --path work/checkpoint/recovery.bin
+      - name: 上传加密恢复包
+        if: ${{ always() && !inputs.dry_run }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-recovery-${{ github.run_id }}
+          path: work/checkpoint/recovery.bin
+          retention-days: 7
+          if-no-files-found: warn
       - name: 保存不含正文与密钥的阶段状态
         if: always()
         uses: actions/upload-artifact@v4

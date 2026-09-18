@@ -37,7 +37,7 @@ Actions 页 → `AI HOT 每日采集与完整数据更新` → Run workflow：
 | `dry_run=true` | 仅输出计划，不调用接口、不更新数据 |
 | `skip_search=true` | 跳过可选 Tavily 搜索 |
 
-推荐先运行 `doctor` 和 `run --dry-run`，配置密钥后再执行 `run --no-promote`，检查候选结果后 `run --resume` 发布。CI 不保留候选正文；此恢复流程适用于本地。
+推荐先运行 `doctor` 和 `run --dry-run`，配置密钥后再执行 `run --no-promote`，检查候选结果后 `run --resume` 发布。同代码/配置的resume适用于本地；CI现加密保存候选正文与缓存，修改代码后的无模型恢复使用[加密恢复流程](PIPELINE_RECOVERY.md)，不修改旧fingerprint。
 
 本地分阶段调试（需 `.env` 配置 `MANUS_API_KEY` / `DEEPSEEK_API_KEY`，参考 `config/env.example`；
 也可用设置页免手改：`node scripts/settings-server.mjs` 后打开 Next.js 应用「设置」视图保存）：
