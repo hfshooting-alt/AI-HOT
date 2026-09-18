@@ -23,7 +23,14 @@ def apply_reviewed_research(companies, rules=None):
         owner = rule.get('owner_company')
         if any(f.get('verificationStatus') == 'provisional' and f.get('field') in ('owner_company', 'company_name', 'product_names') for f in rule.get('facts', [])):
             raise ValueError('暂定资料不能合并主体或确认产品归属')
-        target = next((c for c in rows if c['company_name'] == owner), None) if owner else source
+        # Use the same name normalization as entity IDs. Spelling variants such
+        # as Z.ai / Z .AI must reuse the existing entity instead of appending a
+        # second row with the same ID. Do not match product aliases here.
+        target = next((c for c in rows if normalize_company_key(c['company_name'])
+                       == normalize_company_key(owner)), None) if owner else source
+        if target is not None and owner and target['company_name'] != owner:
+            target['aliases'] = list(dict.fromkeys([*target.get('aliases', []), target['company_name']]))
+            target['company_name'] = owner
         if source is None and target is None:
             continue
         for candidate in rule.get('candidateOwners', []):
@@ -40,7 +47,7 @@ def apply_reviewed_research(companies, rules=None):
                            and f.get('value') == owner and f.get('quote') and f.get('url', '').startswith('https://')), None)
         if owned and not owner_fact:
             raise ValueError('自有产品补全缺少归属证据')
-        if source is not None and owner and source['company_name'] != owner:
+        if source is not None and owner and source is not target:
             if target is None:
                 target = copy.deepcopy(source)
                 target.update(id=entity_id(normalize_company_key(owner)), company_name=owner, aliases=[],

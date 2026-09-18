@@ -24,12 +24,14 @@ def validate(data: dict, tx: dict) -> None:
         raise ValueError("companies 必须为数组")
     industry_values = {v["label"] for v in tx["dimensions"]["industry"]["values"]}
     region_values = {v["label"] for v in tx["dimensions"]["region"]["values"]}
-    ids = set()
+    ids = {}
     for rec in companies:
         rid = rec.get("id")
-        if not isinstance(rid, str) or not rid.startswith("company:") or rid in ids:
-            raise ValueError("公司 id 缺失或重复")
-        ids.add(rid)
+        if not isinstance(rid, str) or not rid.startswith("company:"):
+            raise ValueError(f"公司 id 缺失或不合法：{rec.get('company_name')!r}")
+        if rid in ids:
+            raise ValueError(f"公司 id 重复：{rid}，{ids[rid]!r} / {rec.get('company_name')!r}")
+        ids[rid] = rec.get('company_name')
         if rec.get('entityType') in ('foundation', 'open_source_organization'):
             evidence = rec.get('entityTypeEvidence') or {}
             if not evidence.get('quote') or not evidence.get('url', '').startswith('https://') or not evidence.get('checkedAt'):

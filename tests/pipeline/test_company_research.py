@@ -12,6 +12,38 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class ResearchTest(unittest.TestCase):
+    def test_owner_spelling_variant_reuses_entity_and_preserves_both_articles(self):
+        from company_index.entities import entity_id
+        from funding.companies import normalize_company_key
+        base = dict(aliases=[], product_names=[], fieldSources={}, firstSeenAt='2026-09-17', lastSeenAt='2026-09-18')
+        parent = dict(base, id=entity_id(normalize_company_key('Z.ai')), company_name='Z.ai',
+                      country='中国', sourceArticles=[{'id': 'old'}])
+        product = dict(base, id='company:product', company_name='GLM-5.3',
+                       product_names=['GLM-5.3'], sourceArticles=[{'id': 'new'}])
+        rules = {'checkedAt': '2026-09-18', 'records': [{'record_name': 'GLM-5.3',
+            'owner_company': 'Z .AI', 'reviewed': True, 'facts': [{'field': 'owner_company',
+            'value': 'Z .AI', 'url': 'https://example.com', 'title': 'Official', 'quote': 'Z .AI'}]}]}
+        result = apply_reviewed_research([parent, product], rules)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]['id'], parent['id'])
+        self.assertEqual(result[0]['country'], '中国')
+        self.assertEqual({a['id'] for a in result[0]['sourceArticles']}, {'old', 'new'})
+        self.assertEqual(result[0]['product_names'], ['GLM-5.3'])
+        self.assertIn('Z.ai', result[0]['aliases'])
+        self.assertEqual(apply_reviewed_research(result, rules), result)
+
+    def test_alias_rule_for_same_normalized_owner_does_not_self_merge(self):
+        row = dict(id='company:existing', company_name='Z.ai', aliases=[], product_names=['GLM-5.3'],
+                   sourceArticles=[{'id': 'news'}], fieldSources={}, country='中国')
+        rules = {'checkedAt': '2026-09-18', 'records': [{'record_name': 'Z.ai',
+            'owner_company': 'Z .AI', 'reviewed': True, 'source_kind': 'company_alias', 'facts': []}]}
+        result = apply_reviewed_research([row], rules)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]['id'], row['id'])
+        self.assertEqual(result[0]['country'], '中国')
+        self.assertNotIn('brandProfiles', result[0])
+        self.assertEqual(apply_reviewed_research(result, rules), result)
+
     def test_provisional_only_fills_blanks_and_does_not_merge_candidates(self):
         fact={'field':'country','value':'英国','verificationStatus':'provisional','reason':'历史总部口径，现主体待核实','url':'https://example.com','title':'About','quote':'London'}
         candidate={'name':'Parent','url':'https://example.com','quote':'Parent','reason':'维护方，法人归属未定','checkedAt':'2026-09-15'}
