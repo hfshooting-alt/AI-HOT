@@ -68,7 +68,13 @@ def merge_entities(articles: list[dict], extracts: dict[str, dict], previous: di
                     "lastSeenAt": article.get("publishedAt") or "",
                 }
             rec = companies[rid]
-            rec['entityType'] = item.get('entity_type', 'company')
+            incoming_type = item.get('entity_type', 'company')
+            # A product alias (e.g. a known company's app) can update that company
+            # without turning the company itself into an unassigned product.
+            product_alias = (incoming_type == 'product' and rec.get('entityType') == 'company'
+                             and normalize_company_key(rec['company_name']) != keys[0])
+            if not product_alias:
+                rec['entityType'] = incoming_type
             is_latest = timestamp(article.get('publishedAt')) >= timestamp(rec.get('lastSeenAt'))
             for key in keys:
                 lookup[key] = rid

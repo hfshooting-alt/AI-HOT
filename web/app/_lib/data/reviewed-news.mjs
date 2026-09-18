@@ -34,6 +34,7 @@ export function mergeReviewedCompanies(overview, data) {
   if (!overview || data?.schemaVersion !== 1 || !Array.isArray(data.entries)) return overview;
   const result = structuredClone(overview);
   const union = (a, b, key) => [...new Map([...a, ...b].map(value => [key(value), value])).values()];
+  const productKey = name => name.replace(/\s+/g, '').toLowerCase();
   for (const entry of data.entries) {
     if (entry?.reviewed !== true || !Number.isFinite(Date.parse(entry.reviewedAt))) continue;
     if (!Array.isArray(entry.companies)) continue;
@@ -55,9 +56,14 @@ export function mergeReviewedCompanies(overview, data) {
       }
       old.sourceArticles = union(company.sourceArticles || [],old.sourceArticles || [],row => row.id)
         .sort((a,b) => Date.parse(b.publishedAt)-Date.parse(a.publishedAt));
-      old.productUpdates = union(company.productUpdates || [],old.productUpdates || [],row => `${row.articleId}|${row.name}`)
+      // Names approved for the table are authoritative. Legacy evidence can
+      // contain a removed brand or differently cased spelling of the same model.
+      const productNames = new Map([...(company.product_names || []), ...(old.product_names || [])]
+        .map(name => [productKey(name), name]));
+      old.productUpdates = union(company.productUpdates || [],old.productUpdates || [],row => `${row.articleId}|${productKey(row.name)}`)
+        .filter(row => productNames.has(productKey(row.name)))
         .sort((a,b) => Date.parse(b.publishedAt)-Date.parse(a.publishedAt));
-      old.product_names = [...new Set([...old.productUpdates.map(row=>row.name), ...(old.product_names || []), ...(company.product_names || [])])];
+      old.product_names = [...new Set([...old.productUpdates.map(row=>productNames.get(productKey(row.name))), ...productNames.values()])];
       old.fieldSources ||= {};
       for (const [field, evidence] of Object.entries(company.fieldSources || {})) {
         old.fieldSources[field] = union(evidence,old.fieldSources[field] || [],row => JSON.stringify(row));

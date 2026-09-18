@@ -7,6 +7,19 @@ const item = {id:'manus:one', title:'模型发布', summary:'核验摘要', url:
 const entry = {reviewed:true, reviewedAt:'2026-09-18T14:00:00+08:00',
   collectionWindow:{start:'2026-09-17T09:30:00+08:00',end:'2026-09-18T09:30:00+08:00'}, item};
 const data = {schemaVersion:1, entries:[entry]};
+test('company merge does not revive removed product names or count casing variants twice', () => {
+  const company = {id:'company:one',company_name:'Owner',sourceArticles:[{id:item.id,publishedAt:item.publishedAt}],
+    lastSeenAt:item.publishedAt,product_names:['Model'],
+    productUpdates:[{articleId:item.id,name:'Model',publishedAt:item.publishedAt},
+      {articleId:item.id,name:'Removed brand',publishedAt:item.publishedAt}]};
+  const older = {...company, product_names:['MODEL'],
+    productUpdates:[{articleId:item.id,name:'MODEL',publishedAt:item.publishedAt}]};
+  const merged = mergeReviewedCompanies({companies:[company],stats:{}},
+    {schemaVersion:1,entries:[{...entry,companies:[older]}]});
+  assert.deepEqual(merged.companies[0].product_names,['Model']);
+  assert.equal(merged.companies[0].productUpdates.length,1);
+  assert.equal(merged.stats.productsTotal,1);
+});
 test('reviewed supplement preserves existing news, sorts, and does not mutate inputs', () => {
   const base = [{...item, id:'aihot:old', title:'旧新闻', url:'https://example.com/old', publishedAt:'2026-09-17T09:00:00+08:00'}];
   const before = JSON.stringify(base);

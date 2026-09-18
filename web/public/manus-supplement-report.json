@@ -1,0 +1,998 @@
+{
+  "schemaVersion": 1,
+  "kind": "reviewed_manus_recovery_supplement",
+  "reviewedAt": "2026-09-18T16:53:39+08:00",
+  "sourceRunId": 35314232820,
+  "collectionWindow": {
+    "start": "2026-09-17T09:30:00+08:00",
+    "end": "2026-09-18T09:30:00+08:00",
+    "timezone": "Asia/Shanghai"
+  },
+  "inputArticles": 7,
+  "acceptedArticles": 7,
+  "excludedArticles": 0,
+  "quarantinedArticles": 0,
+  "newManusTasks": 0,
+  "newManusCredits": 0,
+  "model": "DeepSeek-V4-Pro",
+  "modelRequests": 21,
+  "totalTokens": 96875,
+  "decisions": [
+    {
+      "id": "manus:7a972f6ca6b983b9",
+      "title": "Ora-Orb，一个“活过来”的水晶球+占卜= 迈向个人 AI 的最完美起点",
+      "url": "https://www.163.com/dy/article/L73M1BD70511N33R.html?spss=dy_author",
+      "source": "硅星人",
+      "publishedAt": "2026-09-18T09:21:14+08:00",
+      "disposition": "approved",
+      "relevance": {
+        "status": "complete",
+        "relevant": true,
+        "reason": "文章核心事件是AI公司Ora-Orb推出结合AI占卜师的水晶球硬件及随占手链，属于AI产品与AI硬件发布。",
+        "evidence": "Ora-Orb 是前飞书高管、蓝湖/MasterGo CMO 孙峰创办的 AI 公司。简单说，他们把一个 AI 占卜师放进了一颗真正的水晶球里"
+      },
+      "summary": "孙峰创办的AI公司Ora-Orb正在开发水晶球形态的AI占卜硬件，通过运势、塔罗、解梦等场景积累用户个人上下文。据团队披露，硬件已进入DVT阶段，计划在1月CES首发后开启众筹，拟定价365美元，含第一年APP订阅；另设计了随占手链。产品尚未大规模上市，当前主要为原型、前测及早期用户反馈。",
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      }
+    },
+    {
+      "id": "manus:c7364de40afe2f0b",
+      "title": "深度｜当彭博退向 API，大模型正在接管投行和券商的核心工作流",
+      "url": "https://www.163.com/dy/article/L72I66RE0556EX0D.html?spss=dy_author",
+      "source": "ZFinance",
+      "publishedAt": "2026-09-17T22:54:45+08:00",
+      "disposition": "approved",
+      "relevance": {
+        "status": "complete",
+        "relevant": true,
+        "reason": "文章核心事件是大模型 Kimi 在金融投行工作流中的具体应用与落地，属于 AI 对行业产生实质影响。",
+        "evidence": "中信建投、中金公司、易方达、红杉资本等十余家头部机构，开始把这套动作的一部分交给一个叫 Kimi 的对话框。"
+      },
+      "summary": "报道介绍月之暗面的Kimi在金融机构中的应用：将财务建模、研报、PPT、持仓早报等工作封装为九项技能，通过MCP连接数据与原文出处。文中称WindClaw已接入Kimi；月之暗面与中信建投共建风险评估网关，落实数据分级、授权、脱敏和审计。据报道披露的试点数据，单家企业初步调查准备的人工投入由4小时降至1小时，输出仍须业务人员复核。",
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      }
+    },
+    {
+      "id": "manus:e98245968352f5a2",
+      "title": "能主动找活干的Agent硬件，「Violoop」一天内众筹破百万美元｜对话创始人",
+      "url": "https://www.baijing.cn/article/56733",
+      "source": "白鲸出海",
+      "publishedAt": "2026-09-17T21:33:00+08:00",
+      "disposition": "approved",
+      "relevance": {
+        "status": "complete",
+        "relevant": true,
+        "reason": "文章核心事件是AI Agent硬件产品Violoop众筹破百万美元并完成融资，属于AI产品与AI硬件商业化事件。",
+        "evidence": "能主动找活干的Agent硬件，「Violoop」一天内众筹破百万美元｜对话创始人"
+      },
+      "summary": "AI Agent硬件公司Violoop宣布完成亿元级天使轮及Pre-A轮融资，投资方包括联想创投、中金保时捷、蓝驰创投、元生资本、启赋资本和清科控股。其首款产品Violoop X于北京时间9月16日登陆Kickstarter开启众筹，上线20小时众筹金额突破100万美元，截至17日13时总额达1143837美元，来自全球1971位支持者。",
+      "classification": {
+        "category": "financing",
+        "tags": {
+          "industry": "ai_other",
+          "region": "cn"
+        },
+        "autoFallback": false,
+        "autoFilled": []
+      }
+    },
+    {
+      "id": "manus:2a753ac847e0d485",
+      "title": "把苹果AI搞黄了的男人",
+      "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
+      "source": "硅星人",
+      "publishedAt": "2026-09-17T13:24:56+08:00",
+      "disposition": "approved",
+      "relevance": {
+        "status": "complete",
+        "relevant": true,
+        "reason": "文章核心事件是苹果AI负责人约翰·詹南德雷亚及其主导的Apple Intelligence延期与失败，属于AI产品与AI公司重要行业变化。",
+        "evidence": "苹果第一次向世界展示了Apple Intelligence（“Apple智能”）。"
+      },
+      "summary": "2026年9月9日苹果秋季发布会展示了新版Siri及多款AI功能，但此前苹果AI已多次延期。约翰·詹南德雷亚2018年从谷歌加入苹果，掌舵AI业务近八年，任内新一代Siri核心功能未能兑现，苹果于2025年3月公开承认延期，并撤下相关广告。此后Siri被转交迈克·罗克韦尔，机器人项目划给约翰·特努斯，詹南德雷亚职权被削减，2025年12月苹果官宣其退休安排，2026年4月他正式离开，以兼职顾问身份加入英国AI初创公司CuspAI。",
+      "classification": {
+        "category": "bigtech",
+        "tags": {
+          "change_type": "personnel",
+          "company": "other"
+        },
+        "autoFallback": false,
+        "autoFilled": []
+      }
+    },
+    {
+      "id": "manus:fecdf3bc09552fa6",
+      "title": "一只鹈鹕成了Agent时代的大明星",
+      "url": "https://www.163.com/dy/article/L71HIR8P0511N33R.html?spss=dy_author",
+      "source": "硅星人",
+      "publishedAt": "2026-09-17T13:24:56+08:00",
+      "disposition": "approved",
+      "relevance": {
+        "status": "complete",
+        "relevant": true,
+        "reason": "文章核心事件是社区用鹈鹕骑自行车任务测试GPT-6 Astra等AI模型的能力波动与降智现象，属于AI模型与AI智能体的实质新闻。",
+        "evidence": "每次新模型上线，都会有人用鹈鹕骑自行车来测试模型的能力。"
+      },
+      "summary": "开源项目CodexRadar的发起人Lambda在社区发起“鹈鹕杯”比赛，参赛者围绕“画一只骑自行车的鹈鹕”用模型生成作品。该测试因任务直观且能反映动作理解、时序一致性等能力，被用于观察模型状态。GPT-6 Astra上线后，用户频繁讨论其“降智”现象，同一提示词下鹈鹕出现踩空、车轮关系错乱等问题。Open赛道有作品用GPT-6 Astra生成长达30分钟的一镜到底SVG骑行故事。",
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      }
+    },
+    {
+      "id": "manus:b5005d409d5db29c",
+      "title": "教育最奢侈的“一人一解法”，即将变成日常",
+      "url": "https://www.163.com/dy/article/L71HIJDH0511N33R.html?spss=dy_author",
+      "source": "硅星人",
+      "publishedAt": "2026-09-17T13:24:48+08:00",
+      "disposition": "approved",
+      "relevance": {
+        "status": "complete",
+        "relevant": true,
+        "reason": "文章核心事件是豆包爱学等AI教育产品通过大模型实现个性化教学，属于AI产品对教育行业的直接影响。",
+        "evidence": "以大模型为代表的新一代 AI，又给个性化教学打开了新的空间。"
+      },
+      "summary": "豆包爱学于5月底上线“豆包课堂”，将数学和古诗词学习融入可互动的AI课程，并支持游戏化课程定制，用户可让AI生成图文互动的专属课程。其“问答”页面的学习模式可根据学生知识水平和兴趣提供个性化教学，例如从不同视角讲解鲁迅文章、按难度展开《红楼梦》诗词教学。系统还会自动调用笔顺学习、竖式列式等学习组件，并根据学习内容推荐测验题目，同时引入互动网页能力，实时生成带动画和交互的学习页面。",
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      }
+    },
+    {
+      "id": "manus:6cd7e21c6a383313",
+      "title": "对话Articuler.ai：AI社交最不该做的，是让Agent替你社交",
+      "url": "https://www.163.com/dy/article/L7197UAN0511N33R.html?spss=dy_author",
+      "source": "硅星人",
+      "publishedAt": "2026-09-17T10:59:10+08:00",
+      "disposition": "approved",
+      "relevance": {
+        "status": "complete",
+        "relevant": true,
+        "reason": "文章核心事件是AI社交产品Articuler.ai的产品逻辑、融资与业务进展，属于AI产品与AI社交赛道。",
+        "evidence": "Articuler.ai 想改变这件事。\n它是一款面向全球职场人群的 AI 社交应用：用户说出自己要找的投资人、客户、候选人或工作机会，平台找出最值得认识的人，"
+      },
+      "summary": "Articuler.ai是一款面向全球职场人群的AI社交应用，用户可提出寻找投资人、客户、候选人或工作机会的需求，平台据此匹配值得认识的人并辅助发起联系。该产品以AI原生职场人Networking平台定位上线，近期延伸至线下活动场景，在活动前帮助用户明确目标并提前找到值得深聊的人。",
+      "classification": {
+        "category": "interview",
+        "tags": {
+          "industry": "ai_social",
+          "interviewee": "founder_ceo"
+        },
+        "autoFallback": false,
+        "autoFilled": []
+      }
+    }
+  ],
+  "reviewChanges": [
+    {
+      "articleId": "manus:7a972f6ca6b983b9",
+      "subject": "Instinct",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:7a972f6ca6b983b9",
+      "subject": "Today AI",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "月之暗面",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "中信建投",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "中信建投",
+      "reason": "风险评估网关是通用方案名称，移出产品；保留使用Kimi的关联。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "Wind",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "同花顺",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "东方财富",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "恒生电子",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "标普",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "财联社",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "财新",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "新华财经",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "新华财经",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "天眼查",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "天眼查",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "元典法律",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "元典法律",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "飞书",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "飞书",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "腾讯文档",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "腾讯文档",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "钉钉",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "钉钉",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "企业微信",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "企业微信",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "Office",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "Office",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "WPS",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "WPS",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "中金公司",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "易方达",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "红杉资本",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "工商银行",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "汇添富",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "真格基金",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "蚂蚁数科",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "百度智能云",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "科大讯飞",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "Bloomberg",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "国寿股权",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "人保资本",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "Violoop",
+      "reason": "成立月份未明确为法人注册日期；不写入注册字段。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "Violoop",
+      "reason": "本文提供单轮/指定轮次金额，不足以证明累计融资；保留融资原文与投资方。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "Violoop",
+      "reason": "按文章明确披露的工商主体记录公司，Violoop保留为品牌别名。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "联想创投",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "中金保时捷",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "蓝驰创投",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "元生资本",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "启赋资本",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "清科控股",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "向阳资本",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "OpenClaw",
+      "reason": "学校或仅用于个人履历、背景类比；不新增公司/产品关联。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "联想",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "联想",
+      "reason": "AI PC为通用类别；战略合作探索不冒充已经集成的产品。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "微软",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "Hark",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "Hark",
+      "reason": "本文提供单轮/指定轮次金额，不足以证明累计融资；保留融资原文与投资方。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "Figure AI",
+      "reason": "学校或仅用于个人履历、背景类比；不新增公司/产品关联。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "DeepSeek",
+      "reason": "学校或仅用于个人履历、背景类比；不新增公司/产品关联。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "Kimi",
+      "reason": "学校或仅用于个人履历、背景类比；不新增公司/产品关联。"
+    },
+    {
+      "articleId": "manus:e98245968352f5a2",
+      "subject": "ADI",
+      "reason": "学校或仅用于个人履历、背景类比；不新增公司/产品关联。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "苹果",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "谷歌",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "三星",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "荣耀",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "字节跳动",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "努比亚",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "OpenAI",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "微软",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "Meta",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "OPPO",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "vivo",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "小米",
+      "reason": "本次正文未直接证明国家；移除本次推断值，保留既有有证据资料。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "Netscape",
+      "reason": "学校或仅用于个人履历、背景类比；不新增公司/产品关联。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "Tellme",
+      "reason": "学校或仅用于个人履历、背景类比；不新增公司/产品关联。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "Metaweb",
+      "reason": "学校或仅用于个人履历、背景类比；不新增公司/产品关联。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "General Magic",
+      "reason": "学校或仅用于个人履历、背景类比；不新增公司/产品关联。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "INMOS",
+      "reason": "学校或仅用于个人履历、背景类比；不新增公司/产品关联。"
+    },
+    {
+      "articleId": "manus:2a753ac847e0d485",
+      "subject": "SGI",
+      "reason": "学校或仅用于个人履历、背景类比；不新增公司/产品关联。"
+    },
+    {
+      "articleId": "manus:fecdf3bc09552fa6",
+      "subject": "OpenAI",
+      "reason": "Pro 20x为订阅档位，不作为独立AI产品。"
+    },
+    {
+      "articleId": "manus:b5005d409d5db29c",
+      "subject": "豆包爱学",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:b5005d409d5db29c",
+      "subject": "豆包爱学",
+      "reason": "问答、学习模式、互动网页为功能，不单列产品；豆包爱学归属待核实。"
+    },
+    {
+      "articleId": "manus:b5005d409d5db29c",
+      "subject": "Alpha School",
+      "reason": "学校或仅用于个人履历、背景类比；不新增公司/产品关联。"
+    },
+    {
+      "articleId": "manus:6cd7e21c6a383313",
+      "subject": "Articuler.ai",
+      "reason": "本文提供单轮/指定轮次金额，不足以证明累计融资；保留融资原文与投资方。"
+    },
+    {
+      "articleId": "manus:6cd7e21c6a383313",
+      "subject": "Boardy",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:6cd7e21c6a383313",
+      "subject": "Happenstance",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:6cd7e21c6a383313",
+      "subject": "Series",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:6cd7e21c6a383313",
+      "subject": "Shapr",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:6cd7e21c6a383313",
+      "subject": "Polywork",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:6cd7e21c6a383313",
+      "subject": "LinkedIn",
+      "reason": "文章只确认产品/平台；仅复用已审核归属，否则保留待核实，不新造同名公司。"
+    },
+    {
+      "articleId": "manus:6cd7e21c6a383313",
+      "subject": "香港大学商学院",
+      "reason": "学校或仅用于个人履历、背景类比；不新增公司/产品关联。"
+    },
+    {
+      "articleId": "manus:7a972f6ca6b983b9",
+      "subject": "summary/classification",
+      "reason": "正文明确尚未大规模上市、计划首发；改为行业新闻，并删除已经推出的表述。"
+    },
+    {
+      "articleId": "manus:c7364de40afe2f0b",
+      "subject": "summary/classification",
+      "reason": "对效率和试点指标补充报道归因，不把宣传口径写成本站独立验证。"
+    },
+    {
+      "articleId": "manus:b5005d409d5db29c",
+      "subject": "summary/classification",
+      "reason": "报道是现有产品教学体验，5月底上线为历史背景，不是本次新发布。"
+    }
+  ],
+  "affectedCompanies": [
+    {
+      "id": "company:ea3bd73e2b506e00",
+      "name": "Meta",
+      "new": false
+    },
+    {
+      "id": "company:d8aa831d0a10600f",
+      "name": "Ora-Orb",
+      "new": true
+    },
+    {
+      "id": "company:481243d2f2a235c1",
+      "name": "月之暗面（Moonshot AI）",
+      "new": false
+    },
+    {
+      "id": "company:455ece81de5605d8",
+      "name": "百度",
+      "new": false
+    },
+    {
+      "id": "company:7ca2b7da6e0f8654",
+      "name": "科大讯飞",
+      "new": false
+    },
+    {
+      "id": "company:702c213feab1671d",
+      "name": "字节跳动",
+      "new": true
+    },
+    {
+      "id": "company:07f1ddc2ae00ab7b",
+      "name": "中信建投",
+      "new": true
+    },
+    {
+      "id": "company:9b58e68145a79ca0",
+      "name": "Wind",
+      "new": true
+    },
+    {
+      "id": "company:99da41b4a60e34d3",
+      "name": "同花顺",
+      "new": true
+    },
+    {
+      "id": "company:9b632338ff201419",
+      "name": "东方财富",
+      "new": true
+    },
+    {
+      "id": "company:800ba6f5a80b7e78",
+      "name": "恒生电子",
+      "new": true
+    },
+    {
+      "id": "company:82e8df4b8ce40dbd",
+      "name": "标普",
+      "new": true
+    },
+    {
+      "id": "company:213c5450340bc288",
+      "name": "财联社",
+      "new": true
+    },
+    {
+      "id": "company:5df3c4440e1b60f5",
+      "name": "财新",
+      "new": true
+    },
+    {
+      "id": "company:961a46b10d474f59",
+      "name": "中金公司",
+      "new": true
+    },
+    {
+      "id": "company:3d7372c4ddb8c99a",
+      "name": "易方达",
+      "new": true
+    },
+    {
+      "id": "company:0d6030b311785a79",
+      "name": "红杉资本",
+      "new": true
+    },
+    {
+      "id": "company:e7e901fd1d79de18",
+      "name": "工商银行",
+      "new": true
+    },
+    {
+      "id": "company:b800f08ce3e9d46d",
+      "name": "汇添富",
+      "new": true
+    },
+    {
+      "id": "company:a9823db154a2d56e",
+      "name": "真格基金",
+      "new": true
+    },
+    {
+      "id": "company:2abf8289b2f2113f",
+      "name": "蚂蚁数科",
+      "new": true
+    },
+    {
+      "id": "company:0fb9765e58d296e5",
+      "name": "Bloomberg",
+      "new": true
+    },
+    {
+      "id": "company:7cccf4963a5a4fa8",
+      "name": "国寿股权",
+      "new": true
+    },
+    {
+      "id": "company:943554fd41b11461",
+      "name": "人保资本",
+      "new": true
+    },
+    {
+      "id": "company:12b0c8b376b8375e",
+      "name": "微软",
+      "new": false
+    },
+    {
+      "id": "company:536bc8fc40cad38c",
+      "name": "联想",
+      "new": false
+    },
+    {
+      "id": "company:cdbeb987b4043111",
+      "name": "深圳本惟无界科技有限公司",
+      "new": true
+    },
+    {
+      "id": "company:04e61ad2f4cefc5f",
+      "name": "联想创投",
+      "new": true
+    },
+    {
+      "id": "company:6e44f8b27c30f4b1",
+      "name": "中金保时捷",
+      "new": true
+    },
+    {
+      "id": "company:7f951a166512d5d6",
+      "name": "蓝驰创投",
+      "new": true
+    },
+    {
+      "id": "company:c23888e0fd282e36",
+      "name": "元生资本",
+      "new": true
+    },
+    {
+      "id": "company:2cbde498153a59d1",
+      "name": "启赋资本",
+      "new": true
+    },
+    {
+      "id": "company:6db3cfa7a8329ecb",
+      "name": "清科控股",
+      "new": true
+    },
+    {
+      "id": "company:4cbf38ae7e757b61",
+      "name": "向阳资本",
+      "new": true
+    },
+    {
+      "id": "company:245f1e177c5169cb",
+      "name": "Hark",
+      "new": true
+    },
+    {
+      "id": "company:7d3194f79e645c42",
+      "name": "OpenAI",
+      "new": false
+    },
+    {
+      "id": "company:50537dab76505dfc",
+      "name": "苹果",
+      "new": false
+    },
+    {
+      "id": "company:6ef7552b4631e789",
+      "name": "努比亚",
+      "new": false
+    },
+    {
+      "id": "company:522d3edeb64a7ca4",
+      "name": "小米",
+      "new": false
+    },
+    {
+      "id": "company:bbdefa2950f49882",
+      "name": "Google",
+      "new": false
+    },
+    {
+      "id": "company:69337578b2468a88",
+      "name": "vivo",
+      "new": false
+    },
+    {
+      "id": "company:be548deba4a093d7",
+      "name": "荣耀",
+      "new": false
+    },
+    {
+      "id": "company:8147e6fed86d42c1",
+      "name": "OPPO",
+      "new": false
+    },
+    {
+      "id": "company:5fdd673ed1fcff1d",
+      "name": "三星",
+      "new": true
+    },
+    {
+      "id": "company:3bc9f78028bc2dba",
+      "name": "CuspAI",
+      "new": true
+    },
+    {
+      "id": "company:334fae0bf2c88515",
+      "name": "Articuler.ai",
+      "new": true
+    },
+    {
+      "id": "company:8bdd9fe2717e1d3d",
+      "name": "麟阁创投",
+      "new": true
+    },
+    {
+      "id": "company:21c5a9691d332d8f",
+      "name": "拙朴投资",
+      "new": true
+    },
+    {
+      "id": "company:36d546fcbb9aa855",
+      "name": "王川家族办公室",
+      "new": true
+    },
+    {
+      "id": "company:b52f9fb7dc32bc88",
+      "name": "奇绩创坛",
+      "new": true
+    }
+  ],
+  "pendingEntities": [
+    {
+      "id": "company:26e59d6a3c92de80",
+      "name": "Instinct"
+    },
+    {
+      "id": "company:aa2fc71224b8249e",
+      "name": "Today AI"
+    },
+    {
+      "id": "company:cbec38b2a84e91d3",
+      "name": "新华财经"
+    },
+    {
+      "id": "company:a00973e736085258",
+      "name": "天眼查"
+    },
+    {
+      "id": "company:64d949731cc8b84f",
+      "name": "元典法律"
+    },
+    {
+      "id": "company:43215b26e86d6bff",
+      "name": "腾讯文档"
+    },
+    {
+      "id": "company:27389885c97c4ab1",
+      "name": "钉钉"
+    },
+    {
+      "id": "company:f3943a7b368154d1",
+      "name": "企业微信"
+    },
+    {
+      "id": "company:5cc3f82838ba7260",
+      "name": "Office"
+    },
+    {
+      "id": "company:29bfc880e3d6ff83",
+      "name": "WPS"
+    },
+    {
+      "id": "company:4cfb159352e76593",
+      "name": "CodexRadar"
+    },
+    {
+      "id": "company:54fc72f17aa6be98",
+      "name": "豆包爱学"
+    },
+    {
+      "id": "company:3deeed6ec8da7018",
+      "name": "Boardy"
+    },
+    {
+      "id": "company:4f9c2d632136e270",
+      "name": "Happenstance"
+    },
+    {
+      "id": "company:9cda38ea3a2bd78c",
+      "name": "Series"
+    },
+    {
+      "id": "company:03fa5d2196731301",
+      "name": "Shapr"
+    },
+    {
+      "id": "company:d81097e0c5dcb0b9",
+      "name": "Polywork"
+    },
+    {
+      "id": "company:84308bea454057aa",
+      "name": "LinkedIn"
+    }
+  ],
+  "fundingRows": [
+    {
+      "id": "fund:7d8f8432f99115c8",
+      "name": "深圳本惟无界科技有限公司"
+    },
+    {
+      "id": "fund:1437c187d64f0ac4",
+      "name": "Hark"
+    }
+  ],
+  "baseNews": 408,
+  "supplements": 8,
+  "companiesTotal": 403,
+  "productsTotal": 829,
+  "published": true,
+  "scope": "Seven saved Manus articles only; original scheduled run remains failed; previous published data retained",
+  "publicationScope": "Reviewed supplement; failed daily-run state and original batch metadata retained"
+}

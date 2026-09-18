@@ -43,6 +43,24 @@ def item(article_id, title, url, category, summary, dims=None):
 
 
 class CompanyOverviewTest(unittest.TestCase):
+    def test_product_alias_does_not_demote_existing_company(self):
+        article = {'id': 'company-news', 'title': 'Owner launches App', 'url': 'https://example.com/one',
+                   'publishedAt': '2026-09-17T10:00:00+08:00'}
+        extraction = {'company_name': 'Owner', 'aliases': ['App'], 'entity_type': 'company',
+                      'product_names': ['App'], 'products': [], 'industry_id': 'ai_other'}
+        rows = merge_entities([article], {article['id']: {'companies': [extraction]}}, {}, TX)
+        later = {**article, 'id': 'product-news', 'title': 'App update',
+                 'publishedAt': '2026-09-18T09:00:00+08:00'}
+        product = {**extraction, 'company_name': 'App', 'aliases': [], 'entity_type': 'product'}
+        merged = merge_entities([later], {later['id']: {'companies': [product]}}, {'companies': rows}, TX)
+        self.assertEqual(len(merged), 1)
+        self.assertEqual(merged[0]['entityType'], 'company')
+        self.assertEqual(merged[0]['company_name'], 'Owner')
+        self.assertEqual(merged[0]['sourceArticles'][0]['id'], 'product-news')
+        # Unknown products still remain products; this is not an ownership guess.
+        standalone = merge_entities([later], {later['id']: {'companies': [product]}}, {}, TX)
+        self.assertEqual(standalone[0]['entityType'], 'product')
+
     def test_legacy_company_time_is_beijing_and_explicit_offset_is_preserved(self):
         from company_index.entities import timestamp
         self.assertEqual(timestamp('2026-09-16T09:30:00'), timestamp('2026-09-16T01:30:00Z'))
