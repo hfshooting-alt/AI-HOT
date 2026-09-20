@@ -2874,6 +2874,171 @@
         "checkedAt": "2026-09-20"
       }
     ]
-  }
+  },
+    {
+      "record_name": "LangChain",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "提供开放智能体工程平台和开源框架，帮助企业构建、控制和拥有智能体智能",
+          "source_index": 0,
+          "quote": "open agent engineering platform and open source frameworks",
+          "url": "https://www.langchain.com/about",
+          "title": "About LangChain: an open platform to own your intelligence",
+          "checkedAt": "2026-09-20T16:20:23+08:00",
+          "verificationStatus": "provisional",
+          "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "source_index": 0,
+          "quote": "headquartered in San Francisco",
+          "url": "https://www.langchain.com/about",
+          "title": "About LangChain: an open platform to own your intelligence",
+          "checkedAt": "2026-09-20T16:20:23+08:00",
+          "verificationStatus": "provisional",
+          "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。",
+          "countryBasis": "headquarters"
+        },
+        {
+          "field": "team",
+          "value": "Harrison Chase 和 Ankush Gola 为联合创始人",
+          "source_index": 0,
+          "quote": "Harrison teamed up with co-founder Ankush Gola",
+          "url": "https://www.langchain.com/about",
+          "title": "About LangChain: an open platform to own your intelligence",
+          "checkedAt": "2026-09-20T16:20:23+08:00",
+          "verificationStatus": "provisional",
+          "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+        }
+      ]
+    },
+    {
+      "record_name": "Sakana AI",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "前沿AI研发公司，开发AI科学家、多智能体编排基础模型、面向日本的Namazu大语言模型等，并为日本大型企业和公共部门提供AI解决方案",
+          "source_index": 0,
+          "quote": "Frontier AI R&D company",
+          "url": "https://sakana.ai/company-info/",
+          "title": "Corporate Info — Sakana AI",
+          "checkedAt": "2026-09-20T16:20:23+08:00",
+          "verificationStatus": "provisional",
+          "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+        },
+        {
+          "field": "country",
+          "value": "日本",
+          "source_index": 0,
+          "quote": "Tokyo, 106-0041 JAPAN",
+          "url": "https://sakana.ai/company-info/",
+          "title": "Corporate Info — Sakana AI",
+          "checkedAt": "2026-09-20T16:20:23+08:00",
+          "verificationStatus": "provisional",
+          "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。",
+          "countryBasis": "headquarters"
+        },
+        {
+          "field": "team",
+          "value": "David Ha（联合创始人兼CEO）、Ren Ito（联合创始人兼董事长）、Llion Jones（联合创始人兼CTO）",
+          "source_index": 0,
+          "quote": "David Ha (CEO), Ren Ito (Chairman), and Llion Jones (CTO)",
+          "url": "https://sakana.ai/company-info/",
+          "title": "Corporate Info — Sakana AI",
+          "checkedAt": "2026-09-20T16:20:23+08:00",
+          "verificationStatus": "provisional",
+          "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+        }
+      ]
+    },
+    {
+      "record_name": "OpenRouter",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "LLM 市场与 AI 网关，帮助开发者访问和比较不同提供商的多种 AI 模型",
+          "source_index": 0,
+          "quote": "the first LLM marketplace",
+          "url": "https://openrouter.ai/about",
+          "title": "About - The Unified Interface For LLMs | OpenRouter",
+          "checkedAt": "2026-09-20T16:20:23+08:00",
+          "verificationStatus": "provisional",
+          "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+        }
+      ]
+    },
+    {
+      "record_name": "Vercel",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "为开发者与智能体提供应用基础设施，支持从开发到生产部署。",
+          "url": "https://vercel.com/careers/vercel-development-representative-startups-5815357004",
+          "title": "Vercel Development Representative, Startups",
+          "quote": "Vercel is the agentic infrastructure company",
+          "checkedAt": "2026-09-20T16:20:23+08:00",
+          "verificationStatus": "provisional",
+          "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "source_index": 0,
+          "quote": "office is located in San Fransisco, CA",
+          "url": "https://vercel.com/careers/vercel-development-representative-startups-5815357004",
+          "title": "Vercel Development Representative, Startups",
+          "checkedAt": "2026-09-20T16:20:23+08:00",
+          "verificationStatus": "provisional",
+          "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。按官网办公地口径，法人注册地待核实。",
+          "countryBasis": "company_address"
+        },
+        {
+          "field": "team",
+          "value": "Guillermo Rauch（CEO兼创始人）",
+          "source_index": 1,
+          "quote": "CEO and Founder, Guillermo Rauch",
+          "url": "https://vercel.com/go/builder-day",
+          "title": "Vercel Builder Day – Vercel",
+          "checkedAt": "2026-09-20T16:20:23+08:00",
+          "verificationStatus": "provisional",
+          "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+        }
+      ]
+    },
+    {
+      "record_name": "Perplexity",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "business",
+          "value": "实时搜索互联网并提供带来源和引用的快速清晰答案的答案引擎",
+          "source_index": 0,
+          "quote": "Busca en internet en tiempo real",
+          "url": "https://www.perplexity.ai/es/hub/careers",
+          "title": "Perplexity - Carreras",
+          "checkedAt": "2026-09-20T16:20:23+08:00",
+          "verificationStatus": "provisional",
+          "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+        },
+        {
+          "field": "country",
+          "value": "美国",
+          "source_index": 0,
+          "quote": "Nuestra base está en San Francisco",
+          "url": "https://www.perplexity.ai/es/hub/careers",
+          "title": "Perplexity - Carreras",
+          "checkedAt": "2026-09-20T16:20:23+08:00",
+          "verificationStatus": "provisional",
+          "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。",
+          "countryBasis": "headquarters"
+        }
+      ]
+    }
   ]
 }

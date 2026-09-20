@@ -19,4 +19,6 @@ daily_research 保留 read_page、eligible_fact 导入入口，实现集中在 p
 
 排错顺序：先查 companyDiscovery 的链接发现状态，再查 knownLinkResearch 的页面／模型／隔离记录，最后对照私有台账和字段来源。不要用重新付费运行代替读取已有证据。
 
+knownLinkResearchState 新记录包含主体和逐字段结果；同日重跑累计使用已记录额度。基本资料优先于仅缺财务字段，身份/支付等系统失败由共享 FailureCircuit 停止后续补全。历史哈希记录的 completed 不代表全字段已搜索或已填齐。
+
 业务边界见[操作说明](../../docs/operations/COMPANY_WEB_RESEARCH.md)。

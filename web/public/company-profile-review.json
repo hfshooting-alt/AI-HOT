@@ -1,0 +1,86 @@
+{
+  "checkedAt": "2026-09-20T16:20:23+08:00",
+  "mode": "reviewed_supplement",
+  "model": "DeepSeek-V4-Pro",
+  "modelRequests": 5,
+  "totalTokens": 9129,
+  "filled": 12,
+  "records": [
+    {
+      "id": "company:f3f2184b56f946c6",
+      "name": "LangChain",
+      "filledFields": [
+        "business",
+        "country",
+        "team"
+      ],
+      "urls": [
+        "https://www.langchain.com/about"
+      ],
+      "note": "主营业务、总部国家和联合创始人由官网支持；创立年份不能直接作为法人注册日期。"
+    },
+    {
+      "id": "company:74308f54478d4828",
+      "name": "Sakana AI",
+      "filledFields": [
+        "business",
+        "country",
+        "team"
+      ],
+      "urls": [
+        "https://sakana.ai/company-info/"
+      ],
+      "note": "官网支持业务、日本总部及管理团队；Founded July 2023 不作为法人登记证据。"
+    },
+    {
+      "id": "company:7f871cbf905f6e0c",
+      "name": "OpenRouter",
+      "filledFields": [
+        "business"
+      ],
+      "urls": [
+        "https://openrouter.ai/about"
+      ],
+      "note": "官网支持主营业务；隐私条款中的美国服务器不代表公司国家，已剔除该建议。"
+    },
+    {
+      "id": "company:9d3508a8484ee252",
+      "name": "Vercel",
+      "filledFields": [
+        "business",
+        "country",
+        "team"
+      ],
+      "urls": [
+        "https://vercel.com/careers/vercel-development-representative-startups-5815357004",
+        "https://vercel.com/go/builder-day"
+      ],
+      "note": "补入业务、CEO和创始人；国家按官网办公地暂定。模型业务引文跨换行未匹配，人工核对后缩短为原文片段。"
+    },
+    {
+      "id": "company:45d780f82c9247fc",
+      "name": "Perplexity",
+      "filledFields": [
+        "business",
+        "country"
+      ],
+      "urls": [
+        "https://www.perplexity.ai/es/hub/careers"
+      ],
+      "note": "官网支持实时搜索业务及旧金山总部；直接HTTP读取失败后，本轮通过公开网页工具读取官网。"
+    }
+  ],
+  "validation": "本次为独立小批量补全，不改写每日运行记录。全部新增值保留来源与暂定口径；未新增新闻或产品。",
+  "excludedSuggestions": [
+    {
+      "name": "OpenRouter",
+      "field": "country",
+      "reason": "服务器位置不证明公司国家"
+    },
+    {
+      "name": "Sakana AI",
+      "field": "founded",
+      "reason": "创立时间不证明法人注册时间"
+    }
+  ]
+}

@@ -108,6 +108,8 @@ AI-HOT/
 已有候选可通过`run_pipeline.py review-candidate`校验，再通过`publish-candidate`发布；不重新调用接口。详细步骤见[运行手册](docs/operations/AUTOMATED_PIPELINE.md)。当前交接与历史验证记录已分别归档。
 ## 公司资料联网核验
 
+当前优先补主营业务、国家、法人注册日期和团队；单轮最多5主体/10页/5次模型请求，并抵扣已发布状态中的同日用量。失败后另起新运行的配额边界见操作说明。补全记录区分未轮到、无可读页面、模型失败和无合格增量，空白不表示网上没有资料。最近一次[空缺审计与小批量验证](docs/history/2026-09-20-COMPANY_PROFILE_AND_CANARY.md)及[操作说明](docs/operations/COMPANY_WEB_RESEARCH.md)可用于排错。
+
 主体支持商业公司、基金会与开源组织，非商业主体保留类型和官网依据，赞助商不作为产品归属。[官网资料补全记录](docs/history/2026-09-14/OFFICIAL_COMPANY_RESEARCH.md)。
 
 已有新闻关联实体的 GLM-4V 搜索试验入口、DeepSeek 证据核验及发布边界见[操作说明](docs/operations/COMPANY_WEB_RESEARCH.md)。当前处于独立业务样本验证阶段。

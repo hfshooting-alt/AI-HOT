@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-20T15:52:20+08:00",
+  "generatedAt": "2026-09-20T16:20:23+08:00",
   "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
   "stats": {
     "articlesProcessed": 238,
@@ -29942,15 +29942,15 @@
         "Portable Computer"
       ],
       "founded": null,
-      "country": null,
+      "country": "美国",
       "team": null,
-      "business": null,
+      "business": "实时搜索互联网并提供带来源和引用的快速清晰答案的答案引擎",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -30289,6 +30289,37 @@
             "sourceName": "X：Aravind Srinivas（Perplexity CEO） (@AravSrinivas)",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "实时搜索互联网并提供带来源和引用的快速清晰答案的答案引擎",
+            "articleId": "research:49fab395b07bc56e",
+            "url": "https://www.perplexity.ai/es/hub/careers",
+            "title": "Perplexity - Carreras",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Busca en internet en tiempo real",
+            "checkedAt": "2026-09-20T16:20:23+08:00",
+            "verificationStatus": "provisional",
+            "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:49fab395b07bc56e",
+            "url": "https://www.perplexity.ai/es/hub/careers",
+            "title": "Perplexity - Carreras",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Nuestra base está en San Francisco",
+            "checkedAt": "2026-09-20T16:20:23+08:00",
+            "countryBasis": "headquarters",
+            "verificationStatus": "provisional",
+            "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+          }
         ]
       },
       "sourceArticles": [
@@ -30615,7 +30646,7 @@
       ],
       "updatedAt": "2026-09-19T23:21:09.000Z",
       "latestReportAt": "2026-09-19T23:21:09.000Z",
-      "profileUpdatedAt": "2026-09-20T15:16:37+08:00"
+      "profileUpdatedAt": "2026-09-20T16:20:23+08:00"
     },
     {
       "id": "company:f3f2184b56f946c6",
@@ -30629,15 +30660,15 @@
         "付费媒体智能体"
       ],
       "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
+      "country": "美国",
+      "team": "Harrison Chase 和 Ankush Gola 为联合创始人",
+      "business": "提供开放智能体工程平台和开源框架，帮助企业构建、控制和拥有智能体智能",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -30723,6 +30754,52 @@
             "publishedAt": "2026-09-14T02:05:46.000Z",
             "sourceName": "LangChain：Blog（RSS）",
             "origin": "article"
+          }
+        ],
+        "business": [
+          {
+            "value": "提供开放智能体工程平台和开源框架，帮助企业构建、控制和拥有智能体智能",
+            "articleId": "research:132f62e5e651bfec",
+            "url": "https://www.langchain.com/about",
+            "title": "About LangChain: an open platform to own your intelligence",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "open agent engineering platform and open source frameworks",
+            "checkedAt": "2026-09-20T16:20:23+08:00",
+            "verificationStatus": "provisional",
+            "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:132f62e5e651bfec",
+            "url": "https://www.langchain.com/about",
+            "title": "About LangChain: an open platform to own your intelligence",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "headquartered in San Francisco",
+            "checkedAt": "2026-09-20T16:20:23+08:00",
+            "countryBasis": "headquarters",
+            "verificationStatus": "provisional",
+            "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+          }
+        ],
+        "team": [
+          {
+            "value": "Harrison Chase 和 Ankush Gola 为联合创始人",
+            "articleId": "research:132f62e5e651bfec",
+            "url": "https://www.langchain.com/about",
+            "title": "About LangChain: an open platform to own your intelligence",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Harrison teamed up with co-founder Ankush Gola",
+            "checkedAt": "2026-09-20T16:20:23+08:00",
+            "verificationStatus": "provisional",
+            "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
           }
         ]
       },
@@ -30812,7 +30889,7 @@
       ],
       "updatedAt": "2026-09-19T23:09:51.000Z",
       "latestReportAt": "2026-09-19T23:09:51.000Z",
-      "profileUpdatedAt": "2026-09-20T15:16:37+08:00"
+      "profileUpdatedAt": "2026-09-20T16:20:23+08:00"
     },
     {
       "id": "company:bc74d4c225d5b7d9",
@@ -31039,15 +31116,15 @@
         "Opus 4.5"
       ],
       "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
+      "country": "美国",
+      "team": "Guillermo Rauch（CEO兼创始人）",
+      "business": "为开发者与智能体提供应用基础设施，支持从开发到生产部署。",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "美国"
       },
       "fieldSources": {
         "company_name": [
@@ -31133,6 +31210,52 @@
             "publishedAt": "2026-09-15T00:47:29.000Z",
             "sourceName": "X：洪明 (@hongming731)",
             "origin": "article"
+          }
+        ],
+        "business": [
+          {
+            "value": "为开发者与智能体提供应用基础设施，支持从开发到生产部署。",
+            "articleId": "research:c081822679cb0170",
+            "url": "https://vercel.com/careers/vercel-development-representative-startups-5815357004",
+            "title": "Vercel Development Representative, Startups",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Vercel is the agentic infrastructure company",
+            "checkedAt": "2026-09-20T16:20:23+08:00",
+            "verificationStatus": "provisional",
+            "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "research:c081822679cb0170",
+            "url": "https://vercel.com/careers/vercel-development-representative-startups-5815357004",
+            "title": "Vercel Development Representative, Startups",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "office is located in San Fransisco, CA",
+            "checkedAt": "2026-09-20T16:20:23+08:00",
+            "countryBasis": "company_address",
+            "verificationStatus": "provisional",
+            "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。按官网办公地口径，法人注册地待核实。"
+          }
+        ],
+        "team": [
+          {
+            "value": "Guillermo Rauch（CEO兼创始人）",
+            "articleId": "research:38eca60158b1786d",
+            "url": "https://vercel.com/go/builder-day",
+            "title": "Vercel Builder Day – Vercel",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "CEO and Founder, Guillermo Rauch",
+            "checkedAt": "2026-09-20T16:20:23+08:00",
+            "verificationStatus": "provisional",
+            "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
           }
         ]
       },
@@ -31223,7 +31346,7 @@
       ],
       "updatedAt": "2026-09-19T22:04:55.000Z",
       "latestReportAt": "2026-09-19T22:04:55.000Z",
-      "profileUpdatedAt": "2026-09-20T15:16:37+08:00"
+      "profileUpdatedAt": "2026-09-20T16:20:23+08:00"
     },
     {
       "id": "company:7cd0576a396e77fb",
@@ -32077,15 +32200,15 @@
         "PC-ALM"
       ],
       "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
+      "country": "日本",
+      "team": "David Ha（联合创始人兼CEO）、Ren Ito（联合创始人兼董事长）、Llion Jones（联合创始人兼CTO）",
+      "business": "前沿AI研发公司，开发AI科学家、多智能体编排基础模型、面向日本的Namazu大语言模型等，并为日本大型企业和公共部门提供AI解决方案",
       "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
         "行业": "其他AI应用",
-        "国家/地区": "其他"
+        "国家/地区": "日韩"
       },
       "fieldSources": {
         "company_name": [
@@ -32144,6 +32267,52 @@
             "publishedAt": "2026-09-15T10:28:46.002Z",
             "sourceName": "Hacker News 热门（buzzing.cc 中文翻译）",
             "origin": "article"
+          }
+        ],
+        "business": [
+          {
+            "value": "前沿AI研发公司，开发AI科学家、多智能体编排基础模型、面向日本的Namazu大语言模型等，并为日本大型企业和公共部门提供AI解决方案",
+            "articleId": "research:cac66cef3b619744",
+            "url": "https://sakana.ai/company-info/",
+            "title": "Corporate Info — Sakana AI",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Frontier AI R&D company",
+            "checkedAt": "2026-09-20T16:20:23+08:00",
+            "verificationStatus": "provisional",
+            "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+          }
+        ],
+        "country": [
+          {
+            "value": "日本",
+            "articleId": "research:cac66cef3b619744",
+            "url": "https://sakana.ai/company-info/",
+            "title": "Corporate Info — Sakana AI",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Tokyo, 106-0041 JAPAN",
+            "checkedAt": "2026-09-20T16:20:23+08:00",
+            "countryBasis": "headquarters",
+            "verificationStatus": "provisional",
+            "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+          }
+        ],
+        "team": [
+          {
+            "value": "David Ha（联合创始人兼CEO）、Ren Ito（联合创始人兼董事长）、Llion Jones（联合创始人兼CTO）",
+            "articleId": "research:cac66cef3b619744",
+            "url": "https://sakana.ai/company-info/",
+            "title": "Corporate Info — Sakana AI",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "David Ha (CEO), Ren Ito (Chairman), and Llion Jones (CTO)",
+            "checkedAt": "2026-09-20T16:20:23+08:00",
+            "verificationStatus": "provisional",
+            "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
           }
         ]
       },
@@ -32206,7 +32375,7 @@
       ],
       "updatedAt": "2026-09-19T20:53:39.000Z",
       "latestReportAt": "2026-09-19T20:53:39.000Z",
-      "profileUpdatedAt": "2026-09-20T15:16:37+08:00"
+      "profileUpdatedAt": "2026-09-20T16:20:23+08:00"
     },
     {
       "id": "company:7f871cbf905f6e0c",
@@ -32225,7 +32394,7 @@
       "founded": null,
       "country": null,
       "team": null,
-      "business": null,
+      "business": "LLM 市场与 AI 网关，帮助开发者访问和比较不同提供商的多种 AI 模型",
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -32525,6 +32694,21 @@
             "sourceName": "X：OpenRouter (@OpenRouter)",
             "origin": "article"
           }
+        ],
+        "business": [
+          {
+            "value": "LLM 市场与 AI 网关，帮助开发者访问和比较不同提供商的多种 AI 模型",
+            "articleId": "research:c3cac3524985d250",
+            "url": "https://openrouter.ai/about",
+            "title": "About - The Unified Interface For LLMs | OpenRouter",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "the first LLM marketplace",
+            "checkedAt": "2026-09-20T16:20:23+08:00",
+            "verificationStatus": "provisional",
+            "reason": "本轮读取官网正文、经DeepSeek提议及人工逐字段复核；只补现有空白，保留可追溯来源。"
+          }
         ]
       },
       "sourceArticles": [
@@ -32804,7 +32988,7 @@
       ],
       "updatedAt": "2026-09-19T20:47:48.000Z",
       "latestReportAt": "2026-09-19T20:47:48.000Z",
-      "profileUpdatedAt": "2026-09-20T15:16:37+08:00"
+      "profileUpdatedAt": "2026-09-20T16:20:23+08:00"
     },
     {
       "id": "company:72e8088a05b38ae3",
