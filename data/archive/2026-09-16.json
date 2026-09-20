@@ -1,7 +1,7 @@
 {
  "date": "2026-09-16",
- "finalized": false,
- "finalizedAt": null,
+ "finalized": true,
+ "finalizedAt": "2026-09-20T15:06:38.727767+08:00",
  "items": [
   {
    "id": "aihot:cmu3fnsdh06mhrotbth8lcuoo",
@@ -18353,5 +18353,5 @@
    "contentSha256": "9a358a9e4e13361558705496ee378bd6bb7ced5f5e3eb87296506726e1bf5d8f"
   }
  ],
- "updatedAt": "2026-09-17T15:57:06.375422+08:00"
+ "updatedAt": "2026-09-20T15:06:38.727767+08:00"
 }

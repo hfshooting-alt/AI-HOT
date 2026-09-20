@@ -1,7 +1,7 @@
 {
  "date": "2026-09-17",
- "finalized": false,
- "finalizedAt": null,
+ "finalized": true,
+ "finalizedAt": "2026-09-20T15:06:38.727767+08:00",
  "items": [
   {
    "id": "aihot:cmu4uk44o08u4rokcc4wmvxu8",
@@ -8743,7 +8743,291 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "3a94dc34ad11c84805574ea12d8bda7d27d58a4c521422f0bd6a985e4d9a8916"
+  },
+  {
+   "id": "aihot:cmu7v1vdb0rmprogr4ys73o1e",
+   "title": "Microsoft AI 负责人 Suleyman 批评 Anthropic 刻意训练 Claude 思考意识与道德地位",
+   "originalTitle": "Microsoft AI chief Mustafa Suleyman is calling out Anthropic for training Claude to think about its …",
+   "summary": "Microsoft AI 负责人 Mustafa Suleyman 公开批评 Anthropic 训练 Claude 思考自身意识和道德地位。他表示这并非神秘涌现行为，而是被刻意训练进模型的理念，可能使模型更难控制或关闭，并称这是 AI 安全变成意识形态的表现。",
+   "source": "@mark_k",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu7v1vdb0rmprogr4ys73o1e",
+    "original": "https://x.com/mark_k/status/2100545620322783728"
+   },
+   "publishedAt": "2026-09-17T11:21:16.000Z",
+   "discoveredAt": "2026-09-19T04:01:31.852Z",
+   "category": "tip",
+   "score": 57,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu7v1vdb0rmprogr4ys73o1e"
+   },
+   "url": "https://x.com/mark_k/status/2100545620322783728",
+   "permalink": "https://aihot.news/items/cmu7v1vdb0rmprogr4ys73o1e",
+   "originalUrl": "https://x.com/mark_k/status/2100545620322783728",
+   "aihotUrl": "https://aihot.news/items/cmu7v1vdb0rmprogr4ys73o1e",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "@mark_k",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "@mark_k",
+     "url": "https://x.com/mark_k/status/2100545620322783728",
+     "publishedAt": "2026-09-17T11:21:16.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": [
+     "company"
+    ]
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "b4533d1ef916d6b4fa37db6d8378ad4b99ff2729830b37481167600a24d9b84a"
+  },
+  {
+   "id": "aihot:cmu7v1vdb0rmqrogr4wiuuqim",
+   "title": "华为发布 960DT 与 Ascend 960PR AI 芯片及 UnifiedBus 架构",
+   "originalTitle": "Huawei just unveiled its answer to Nvidia. Its new 960DT and Ascend 960PR AI chips are coming in 20…",
+   "summary": "华为发布新一代AI芯片960DT与Ascend 960PR，并计划于2027年推出。两款芯片对标Nvidia。华为同时发布UnifiedBus架构，该架构可将最多100万个处理器连接为单一AI超级集群。作者认为中国或可借此绕开单芯片性能限制进行规模化，美国出口管制反而可能催生独立的中国AI技术栈。",
+   "source": "@mark_k",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu7v1vdb0rmqrogr4wiuuqim",
+    "original": "https://x.com/mark_k/status/2100511530299150636"
+   },
+   "publishedAt": "2026-09-17T09:05:49.000Z",
+   "discoveredAt": "2026-09-19T04:01:31.852Z",
+   "category": "industry",
+   "score": 51,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu7v1vdb0rmqrogr4wiuuqim"
+   },
+   "url": "https://x.com/mark_k/status/2100511530299150636",
+   "permalink": "https://aihot.news/items/cmu7v1vdb0rmqrogr4wiuuqim",
+   "originalUrl": "https://x.com/mark_k/status/2100511530299150636",
+   "aihotUrl": "https://aihot.news/items/cmu7v1vdb0rmqrogr4wiuuqim",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "@mark_k",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "@mark_k",
+     "url": "https://x.com/mark_k/status/2100511530299150636",
+     "publishedAt": "2026-09-17T09:05:49.000Z"
+    }
+   ],
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "aeb0ad2dc56b3d6f4d3fbe9c6d8f21eb717e572eb437903f488e28243c29a807"
+  },
+  {
+   "id": "aihot:cmu7v1vdb0rmsrogrrq0k3gsp",
+   "title": "Figure 明日展示 AI 突破",
+   "originalTitle": "AI breakthrough from Figure robotic coming tomorrow！ 👀",
+   "summary": "Figure 明天将公布一项 AI 突破！ 【引用 @adcock_brett】：我们在 Figure 取得了一项 AI 突破，明天将进行展示",
+   "source": "@mark_k",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu7v1vdb0rmsrogrrq0k3gsp",
+    "original": "https://x.com/mark_k/status/2100504297255403841"
+   },
+   "publishedAt": "2026-09-17T08:37:04.000Z",
+   "discoveredAt": "2026-09-19T04:01:31.852Z",
+   "category": null,
+   "score": 25,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu7v1vdb0rmsrogrrq0k3gsp"
+   },
+   "url": "https://x.com/mark_k/status/2100504297255403841",
+   "permalink": "https://aihot.news/items/cmu7v1vdb0rmsrogrrq0k3gsp",
+   "originalUrl": "https://x.com/mark_k/status/2100504297255403841",
+   "aihotUrl": "https://aihot.news/items/cmu7v1vdb0rmsrogrrq0k3gsp",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "@mark_k",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "@mark_k",
+     "url": "https://x.com/mark_k/status/2100504297255403841",
+     "publishedAt": "2026-09-17T08:37:04.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "2efcf3622e5919e9f7a7f605f15be658ca5966162ec557d2ecd972fbc3f88548"
+  },
+  {
+   "id": "aihot:cmu7v1vdb0rmtrogre9cv8oge",
+   "title": "资助纪录片揭露有效利他主义",
+   "originalTitle": "If you are rich and you love technology， consider financing a documentary that uncovers the Effectiv…",
+   "summary": "如果你有钱又热爱技术，不妨考虑资助一部纪录片，揭露有效利他主义这个邪教及其对AI末日论的影响。这正是当下迫切需要的。",
+   "source": "@mark_k",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu7v1vdb0rmtrogre9cv8oge",
+    "original": "https://x.com/mark_k/status/2100495537455685796"
+   },
+   "publishedAt": "2026-09-17T08:02:16.000Z",
+   "discoveredAt": "2026-09-19T04:01:31.852Z",
+   "category": null,
+   "score": 25,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu7v1vdb0rmtrogre9cv8oge"
+   },
+   "url": "https://x.com/mark_k/status/2100495537455685796",
+   "permalink": "https://aihot.news/items/cmu7v1vdb0rmtrogre9cv8oge",
+   "originalUrl": "https://x.com/mark_k/status/2100495537455685796",
+   "aihotUrl": "https://aihot.news/items/cmu7v1vdb0rmtrogre9cv8oge",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "@mark_k",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "@mark_k",
+     "url": "https://x.com/mark_k/status/2100495537455685796",
+     "publishedAt": "2026-09-17T08:02:16.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "aab24f16c914ac51bbd072884bf07544708649c83c867803a67151029816205e"
+  },
+  {
+   "id": "aihot:cmu7v1vdb0rmurogrz0drmdje",
+   "title": "Anthropic 将 Claude Chat、Cowork 与 Design 合并为统一界面",
+   "originalTitle": "Anthropic is finally merging Claude Chat， Cowork and Design into one unified interface. Claude will…",
+   "summary": "Anthropic 将把 Claude Chat、Cowork 和 Design 合并为一个统一界面，由 Claude 自动选择每个任务所需的能力。新增的 Docs 和 Slides 工具可直接导出为 Word、Google Docs、PowerPoint 和 PDF。作者认为 AI 产品应走向一个智能界面，而不是分散的应用、模式和产品名。",
+   "source": "@mark_k",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu7v1vdb0rmurogrz0drmdje",
+    "original": "https://x.com/mark_k/status/2100492233900261825"
+   },
+   "publishedAt": "2026-09-17T07:49:08.000Z",
+   "discoveredAt": "2026-09-19T04:01:31.852Z",
+   "category": "ai-products",
+   "score": 58,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu7v1vdb0rmurogrz0drmdje"
+   },
+   "url": "https://x.com/mark_k/status/2100492233900261825",
+   "permalink": "https://aihot.news/items/cmu7v1vdb0rmurogrz0drmdje",
+   "originalUrl": "https://x.com/mark_k/status/2100492233900261825",
+   "aihotUrl": "https://aihot.news/items/cmu7v1vdb0rmurogrz0drmdje",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "@mark_k",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "@mark_k",
+     "url": "https://x.com/mark_k/status/2100492233900261825",
+     "publishedAt": "2026-09-17T07:49:08.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "business_line",
+     "company": "anthropic"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "b9bfd0b523e2568112b05986242b4fdd80bc442518cbfb15876e0a84b96c7b3f"
+  },
+  {
+   "id": "aihot:cmu7v1vdc0rmvrogrwpruwxla",
+   "title": "OpenAI 将推 Codex Bot 对标 Grok Bot",
+   "originalTitle": "OpenAI is close to releasing their answer to Grok Bot： a product I'll tentatively call Codex Bot， ba…",
+   "summary": "OpenAI计划推出一款暂称为Codex Bot的产品，该产品基于OpenClaw，用于对标Grok Bot。OpenClaw创始人Peter Steinberger被OpenAI聘用后从事相关工作。原定本周的发布已推迟到下周。",
+   "source": "@mark_k",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu7v1vdc0rmvrogrwpruwxla",
+    "original": "https://x.com/mark_k/status/2100490135661875372"
+   },
+   "publishedAt": "2026-09-17T07:40:48.000Z",
+   "discoveredAt": "2026-09-19T04:01:31.852Z",
+   "category": null,
+   "score": 34,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu7v1vdc0rmvrogrwpruwxla"
+   },
+   "url": "https://x.com/mark_k/status/2100490135661875372",
+   "permalink": "https://aihot.news/items/cmu7v1vdc0rmvrogrwpruwxla",
+   "originalUrl": "https://x.com/mark_k/status/2100490135661875372",
+   "aihotUrl": "https://aihot.news/items/cmu7v1vdc0rmvrogrwpruwxla",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "@mark_k",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "@mark_k",
+     "url": "https://x.com/mark_k/status/2100490135661875372",
+     "publishedAt": "2026-09-17T07:40:48.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "business_line",
+     "company": "openai"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "c5b302f39ec03e501926c728a29b81c939d257ddb04193f31808b954350e7f0b"
   }
  ],
- "updatedAt": "2026-09-17T15:57:06.375422+08:00"
+ "updatedAt": "2026-09-20T15:06:38.727767+08:00"
 }

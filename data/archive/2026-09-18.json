@@ -1,0 +1,101 @@
+{
+ "date": "2026-09-18",
+ "finalized": true,
+ "finalizedAt": "2026-09-20T15:06:38.727767+08:00",
+ "items": [
+  {
+   "id": "aihot:cmu7xzg5y0urprogroylry92w",
+   "title": "OpenAI 发布澳大利亚青少年安全蓝图",
+   "originalTitle": "Introducing the Australian Youth Safety Blueprint",
+   "summary": "OpenAI发布澳大利亚青少年安全蓝图，提出六支柱路线图，涵盖AI素养、适龄防护、隐私保护型年龄验证、现实危机支持对接和家长控制。今年8月，OpenAI已开始在澳大利亚为13至17岁用户推出ChatGPT for Teens默认体验，并配合家长控制与未满18岁安全政策。",
+   "source": "OpenAI：官网动态（RSS · 排除企业/客户案例）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu7xzg5y0urprogroylry92w",
+    "original": "https://openai.com/index/australian-youth-safety-blueprint"
+   },
+   "publishedAt": "2026-09-18T12:00:00.000Z",
+   "discoveredAt": "2026-09-19T05:23:42.755Z",
+   "category": null,
+   "score": 36,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu7xzg5y0urprogroylry92w"
+   },
+   "url": "https://openai.com/index/australian-youth-safety-blueprint",
+   "permalink": "https://aihot.news/items/cmu7xzg5y0urprogroylry92w",
+   "originalUrl": "https://openai.com/index/australian-youth-safety-blueprint",
+   "aihotUrl": "https://aihot.news/items/cmu7xzg5y0urprogroylry92w",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "OpenAI：官网动态（RSS · 排除企业/客户案例）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "OpenAI：官网动态（RSS · 排除企业/客户案例）",
+     "url": "https://openai.com/index/australian-youth-safety-blueprint",
+     "publishedAt": "2026-09-18T12:00:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "openai"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "770eb608f7f029a736d349647ade56d6ad21000f610982e80a883323b62a8038"
+  },
+  {
+   "id": "aihot:cmu8gsh6h1kozrogrl3hzgznp",
+   "title": "Vibe Check：Astra 是独立电影人的突破吗？",
+   "originalTitle": "Vibe Check： Is Astra a Breakthrough for Indie Filmmakers？",
+   "summary": "一家专业创意工作室对 GPT-6 进行了实测，用于评估 Astra 对独立电影人的价值。原文未披露测试的具体指标、分数或结论。",
+   "source": "Every：最新文章（网页）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu8gsh6h1kozrogrl3hzgznp",
+    "original": "https://every.to/vibe-check/vibe-check-is-astra-a-breakthrough-for-indie-filmmakers"
+   },
+   "publishedAt": "2026-09-17T16:00:00.000Z",
+   "discoveredAt": "2026-09-19T14:10:05.123Z",
+   "category": null,
+   "score": 21,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu8gsh6h1kozrogrl3hzgznp"
+   },
+   "url": "https://every.to/vibe-check/vibe-check-is-astra-a-breakthrough-for-indie-filmmakers",
+   "permalink": "https://aihot.news/items/cmu8gsh6h1kozrogrl3hzgznp",
+   "originalUrl": "https://every.to/vibe-check/vibe-check-is-astra-a-breakthrough-for-indie-filmmakers",
+   "aihotUrl": "https://aihot.news/items/cmu8gsh6h1kozrogrl3hzgznp",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "Every：最新文章（网页）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "Every：最新文章（网页）",
+     "url": "https://every.to/vibe-check/vibe-check-is-astra-a-breakthrough-for-indie-filmmakers",
+     "publishedAt": "2026-09-17T16:00:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "38417d5abeca3100684eafbe4b50c323183cfc35bf28401b6608b379bb8390a0"
+  }
+ ],
+ "updatedAt": "2026-09-20T15:06:38.727767+08:00"
+}
