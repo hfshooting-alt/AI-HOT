@@ -20,8 +20,14 @@ def summarize(root):
             row = json.loads(path.read_text(encoding='utf-8'))
             if not isinstance(row, dict):
                 continue
-            stops.append({'taskId': row.get('taskId'),
-                          'stopSucceeded': row.get('stopSucceeded') is True})
+            stop = {'taskId': row.get('taskId'), 'stopSucceeded': row.get('stopSucceeded') is True}
+            if 'stopAccepted' in row:
+                stop['stopAccepted'] = row['stopAccepted'] is True
+            if 'remoteStatus' in row:
+                allowed = {'pending', 'running', 'completed', 'failed', 'stopped', 'cancelled', 'error', 'waiting'}
+                status = row['remoteStatus']
+                stop['remoteStatus'] = status if isinstance(status, str) and status in allowed else 'unknown'
+            stops.append(stop)
         except (OSError, ValueError):
             continue
     return {'costReports': costs, 'taskStops': stops}

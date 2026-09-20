@@ -155,21 +155,28 @@ class ManusClient:
         self.create_interval_seconds = create_interval_seconds
         self._create_lock = threading.Lock()
         self._next_create_at = 0.0
+        self._creation_blocked = threading.Event()
+        self._task_statuses: dict[str, str] = {}
 
     # ================= 基础请求 =================
 
     def _request(self, method: str, path: str, payload: dict[str, Any] | None = None) -> dict[str, Any]:
-        if method == 'POST' and path == 'task.create' and self.create_interval_seconds > 0:
+        if method == 'POST' and path == 'task.create':
             # 三个采集线程共用客户端；创建节奏与任务执行并发分别控制。
             with self._create_lock:
+                if self._creation_blocked.is_set():
+                    raise ManusAPIError('cost_circuit_open: remote stop unconfirmed; task not created')
                 wait = self._next_create_at - time.monotonic()
                 if wait > 0:
                     time.sleep(wait)
+                if self._creation_blocked.is_set():
+                    raise ManusAPIError('cost_circuit_open: remote stop unconfirmed; task not created')
                 self._next_create_at = time.monotonic() + self.create_interval_seconds
                 try:
                     return self._send_request(method, path, payload)
                 except ManusAPIError as error:
-                    if any(code in str(error) for code in ('HTTP 429', 'rate_limited', 'resource_exhausted')):
+                    if self.create_interval_seconds > 0 and any(
+                            code in str(error) for code in ('HTTP 429', 'rate_limited', 'resource_exhausted')):
                         self._next_create_at = max(self._next_create_at, time.monotonic() + 60)
                     raise
         return self._send_request(method, path, payload)
@@ -197,8 +204,35 @@ class ManusClient:
         return value
 
     def stop_task(self, task_id: str) -> None:
-        """尽力停止已创建任务，供受限 canary 和超时收口使用。"""
+        """Request stopping; an accepted request alone does not confirm termination."""
         self._request("POST", "task.stop", {"task_id": task_id})
+
+    def block_new_tasks(self) -> None:
+        """Block queued creations before a worker can start its next source."""
+        self._creation_blocked.set()
+
+    def confirm_task_stopped(self, task_id: str) -> dict:
+        """Reuse drained status messages, otherwise make at most three detail reads."""
+        status = self._task_statuses.get(task_id)
+        error = None
+        for attempt in range(3):
+            if status in ('stopped', 'error'):
+                return {'confirmed': True, 'remoteStatus': status, 'error': None}
+            if attempt:
+                time.sleep(min(30, max(5, self.poll_seconds)))
+            try:
+                detail = self._request('GET', 'task.detail?' + urlencode({'task_id': task_id}))
+                task = detail.get('task')
+                status = task.get('status') if isinstance(task, dict) else None
+                status = status if isinstance(status, str) else None
+                if isinstance(status, str):
+                    self._task_statuses[task_id] = status
+                error = None
+            except (OSError, ValueError, ManusAPIError) as exc:
+                error = str(exc)[:160]
+        confirmed = status in ('stopped', 'error')
+        return {'confirmed': confirmed, 'remoteStatus': status or 'unknown',
+                'error': None if confirmed else (error or 'Remote stop not confirmed; task may still consume credits')}
 
     @staticmethod
     def _is_retryable(error_text: str) -> bool:
@@ -320,6 +354,8 @@ class ManusClient:
                         for article in checkpoint_articles(response):
                             on_checkpoint(article)
                     value, last_status, last_error = self._process_page(response, last_status, last_error)
+                    if last_status:
+                        self._task_statuses[task_id] = last_status
                     if value is not None:
                         return value
                     cursor = response.get("next_cursor")
@@ -377,6 +413,10 @@ class ManusClient:
             for article in checkpoint_articles(response):
                 on_checkpoint(article)
             for event in response.get('messages', []):
+                if event.get('type') == 'status_update':
+                    status = event.get('status_update', {}).get('agent_status')
+                    if isinstance(status, str):
+                        self._task_statuses[task_id] = status
                 structured = event.get('structured_output_result', {})
                 if event.get('type') == 'structured_output_result' and structured.get('success'):
                     value = structured.get('value')

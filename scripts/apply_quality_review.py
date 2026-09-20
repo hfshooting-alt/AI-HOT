@@ -114,8 +114,8 @@ def apply(overview, snapshot, rules, tx):
             return
         before = item.get('classification')
         item['classification'] = tag_news.to_display(tx, tag_news.validate(tx, {'category': decision['category'], 'tags': decision.get('tags', {})}))
-        item['classificationOrigin'] = 'deepseek-review'
-        item['classificationReview'] = {'reviewedAt': rules['reviewedAt'], 'reason': decision['reason']}
+        item['classificationOrigin'] = decision.get('origin', 'deepseek-review')
+        item['classificationReview'] = {'reviewedAt': decision.get('reviewedAt', rules['reviewedAt']), 'reason': decision['reason']}
         if item['id'] not in seen:
             audit['classifications'].append({'id': item['id'], 'title': item['title'], 'url': item.get('url'), 'before': before, 'after': item['classification'], 'reason': decision['reason']})
             seen.add(item['id'])

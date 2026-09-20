@@ -25,6 +25,16 @@ TX = json.loads((ROOT / "config/taxonomy.json").read_text(encoding="utf-8"))
 
 
 class WorkspaceTest(unittest.TestCase):
+    def test_restored_artifact_cannot_hide_model_outage_with_old_cache(self):
+        for stats in ({'articlesProcessed': 34, 'extractionFailed': 9},
+                      {'modelCalls': 168, 'cacheHits': 7, 'articlesComplete': 7},
+                      {'modelCalls': 2, 'modelSuccesses': 0, 'cacheHits': 25},
+                      {'modelCalls': 4, 'modelSuccesses': 1, 'circuitOpen': True}):
+            with self.subTest(stats=stats), self.assertRaises(ValueError):
+                runner.validate_model_stage(stats, '公司')
+        runner.validate_model_stage({'modelCalls': 0, 'modelSuccesses': 0, 'cacheHits': 7}, '公司')
+        runner.validate_model_stage({'modelCalls': 2, 'modelSuccesses': 1}, '公司')
+
     def test_candidate_cache_reuse_does_not_copy_news(self):
         runs = self.root / "work/runs/2026-09-10"
         old = runs / ("a" * 32) / "workspace"
@@ -68,7 +78,7 @@ class WorkspaceTest(unittest.TestCase):
         def fail(*args, **kwargs):
             raise RuntimeError("offline simulated failure")
         args = (snapshot, self.root / "missing.json", self.root / "work", TX, self.root / "data/funding")
-        with self.assertRaisesRegex(ValueError, "全部抽取失败"):
+        with self.assertRaisesRegex(ValueError, "新请求全部失败"):
             funding_table.build_funding_table(*args, llm_fn=fail, skip_search=True)
         table = funding_table.build_funding_table(*args, llm_fn=lambda *a, **k: '{"companies": []}', skip_search=True)
         self.assertEqual(table["companies"], [])
@@ -93,7 +103,8 @@ class WorkspaceTest(unittest.TestCase):
         cache = self.root / "cache.json"
         cache.write_text(json.dumps({key: {"enrichmentStatus": "fallback"}}), encoding="utf-8")
         with patch.object(enrich_news, "enrich_one", side_effect=[
-            {"enrichmentStatus": "fallback"}, {"enrichmentStatus": "complete", "summary": "ok"}]) as fn:
+            {"enrichmentStatus": "fallback"}, {"enrichmentStatus": "complete", "summary": "ok",
+                "classification": {"category": "general", "tags": {}, "autoFallback": False}}]) as fn:
             enrich_news.enrich_items([item], TX, str(cache))
             self.assertNotIn(key, json.loads(cache.read_text()))
             enrich_news.enrich_items([item], TX, str(cache))

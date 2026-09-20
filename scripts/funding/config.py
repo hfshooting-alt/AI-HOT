@@ -5,6 +5,7 @@ from zoneinfo import ZoneInfo
 
 FUNDING_DEFAULTS = {
     "content_input_chars": 16000,
+    "max_output_tokens": 3072,
     "timeout_seconds": 90,
     "concurrency": 3,
     "budget_seconds": 600,

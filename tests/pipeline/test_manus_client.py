@@ -64,6 +64,54 @@ RESULT_VALUE = {"source_group": "group_a", "target_date": "2026-08-16",
 
 
 class StoppedTaskTests(unittest.TestCase):
+    def test_stop_confirmation_reuses_drained_terminal_event(self):
+        client, transport = make_client([page([{'type': 'status_update',
+            'status_update': {'agent_status': 'stopped'}}])])
+        client.read_stopped_results('t-1', lambda a: None)
+        self.assertEqual(client.confirm_task_stopped('t-1'),
+                         {'confirmed': True, 'remoteStatus': 'stopped', 'error': None})
+        self.assertEqual(len(transport.calls), 1)
+
+    def test_accepted_stop_waits_for_bounded_terminal_confirmation(self):
+        client, transport = make_client([
+            {'ok': True}, {'ok': True, 'task': {'status': 'running'}},
+            {'ok': True, 'task': {'status': 'running'}},
+            {'ok': True, 'task': {'status': 'stopped'}}])
+        client.stop_task('t-1')
+        with patch('manus_source.client.time.sleep') as sleep:
+            confirmed = client.confirm_task_stopped('t-1')
+        self.assertTrue(confirmed['confirmed'])
+        self.assertEqual(confirmed['remoteStatus'], 'stopped')
+        self.assertEqual([c.args[0] for c in sleep.call_args_list], [5, 5])
+        self.assertEqual(len(transport.calls), 4)
+
+    def test_unresolved_stop_is_not_reported_as_terminal(self):
+        client, transport = make_client([{'ok': True, 'task': {'status': 'running'}}])
+        with patch('manus_source.client.time.sleep'):
+            confirmed = client.confirm_task_stopped('t-1')
+        self.assertFalse(confirmed['confirmed'])
+        self.assertEqual(confirmed['remoteStatus'], 'running')
+        self.assertIn('may still consume credits', confirmed['error'])
+        self.assertEqual(len(transport.calls), 3)
+
+    def test_missing_remote_status_is_reported_unknown(self):
+        client, transport = make_client([{'ok': True, 'task': None}])
+        with patch('manus_source.client.time.sleep'):
+            confirmed = client.confirm_task_stopped('t-1')
+        self.assertFalse(confirmed['confirmed'])
+        self.assertEqual(confirmed['remoteStatus'], 'unknown')
+        self.assertEqual(len(transport.calls), 3)
+
+    def test_queued_create_rechecks_block_after_waiting(self):
+        client, transport = make_client([OK_CREATE], create_interval_seconds=7,
+                                        create_retries=0)
+        client._next_create_at = 107
+        with patch('manus_source.client.time.monotonic', return_value=100), \
+             patch('manus_source.client.time.sleep', side_effect=lambda n: client.block_new_tasks()):
+            with self.assertRaisesRegex(ManusAPIError, 'task not created'):
+                client.create_crawl_task('p', 'g', 'd', 't', 'b')
+        self.assertEqual(transport.calls, [])
+
     def test_inline_prompt_preserves_rules_window_and_output_contract(self):
         client, transport = make_client([OK_CREATE], inline_prompt=True)
         client.create_crawl_task('RULES: identity and original publication only',

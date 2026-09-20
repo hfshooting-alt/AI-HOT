@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(Path(__file__).parent))
 from _tempdir import make_temp_dir
 import build_company_overview as overview
-from company_index.extraction import extract_articles
+from company_index.extraction import extract_articles, extract_one, cache_key
 from company_index.extraction import build_prompt
 from company_index.entities import merge_entities
 from company_index.inputs import load_articles
@@ -43,6 +43,36 @@ def item(article_id, title, url, category, summary, dims=None):
 
 
 class CompanyOverviewTest(unittest.TestCase):
+    def test_company_output_capacity_is_stage_specific_and_configurable(self):
+        article = {'id': 'a', 'title': '甲公司发布工具', 'sourceName': '测试',
+                   'category': 'release', 'content_text': '甲公司发布了研发工具。'}
+        baseline_key = cache_key(TX, article)
+        for configured, expected in ((None, 6144), (8192, 8192)):
+            with self.subTest(configured=configured):
+                tx = json.loads(json.dumps(TX))
+                tx.setdefault('companyOverview', {}).pop('max_output_tokens', None)
+                if configured is not None:
+                    tx['companyOverview']['max_output_tokens'] = configured
+                model = MockLLM(['{"companies":[]}'])
+                result = extract_one(tx, article, model)
+                self.assertEqual(result['status'], 'complete')
+                self.assertEqual(model.calls[0][2]['max_tokens'], expected)
+                self.assertNotIn('operation', model.calls[0][2])
+                self.assertEqual(cache_key(tx, article), baseline_key)
+
+    def test_output_capacity_change_reuses_successful_company_cache(self):
+        article = {'id': 'a', 'title': '甲公司发布工具', 'sourceName': '测试',
+                   'category': 'release', 'content_text': '甲公司发布了研发工具。'}
+        model = MockLLM(['{"companies":[]}'])
+        extract_articles(TX, [article], self.cache, model)
+        tx = json.loads(json.dumps(TX))
+        tx.setdefault('companyOverview', {})['max_output_tokens'] = 8192
+        unused_model = MockLLM([])
+        _, stats = extract_articles(tx, [article], self.cache, unused_model)
+        self.assertEqual(stats['cacheHits'], 1)
+        self.assertEqual(stats['modelCalls'], 0)
+        self.assertEqual(unused_model.calls, [])
+
     def test_product_alias_does_not_demote_existing_company(self):
         article = {'id': 'company-news', 'title': 'Owner launches App', 'url': 'https://example.com/one',
                    'publishedAt': '2026-09-17T10:00:00+08:00'}
@@ -165,6 +195,18 @@ class CompanyOverviewTest(unittest.TestCase):
         self.assertEqual(len(result['articleFailures']), 1)
         self.assertTrue(result['articleFailures'][0]['url'].startswith('https://'))
 
+    def test_cached_success_cannot_hide_total_new_request_failure(self):
+        model = MockLLM(['{"companies":[]}', 'invalid'])
+        overview.build(self.snapshot, self.feed, self.root/'work', self.previous,
+                       self.cache, TX, llm_fn=model, require_complete=True, allow_partial=True)
+        with self.assertRaisesRegex(ValueError, '新请求全部失败'):
+            overview.build(self.snapshot, self.feed, self.root/'work', self.previous,
+                           self.cache, TX, llm_fn=MockLLM(['invalid']),
+                           require_complete=True, allow_partial=True)
+        failures = json.loads((self.cache/'extraction_cache_failures.json').read_text(encoding='utf-8'))
+        self.assertEqual(len(failures), 1)
+        self.assertEqual(next(iter(failures.values()))['error']['category'], 'invalid_response')
+
     def test_all_categories_merge_company_products_and_field_sources(self):
         release = json.dumps({"companies": [{"company_name": "星河科技", "aliases": [],
             "product_names": ["小星"], "country": "中国", "business": "AI陪伴产品",
@@ -235,7 +277,7 @@ class CompanyOverviewTest(unittest.TestCase):
         self.assertEqual(len(rows[0]["fieldSources"]["product_names"]), 2)
 
     def test_failed_extraction_does_not_overwrite_previous(self):
-        with self.assertRaisesRegex(ValueError, "全部文章"):
+        with self.assertRaisesRegex(ValueError, "新请求全部失败"):
             self.build(["bad", "bad"])
 
     def test_previous_company_is_retained_and_updated(self):

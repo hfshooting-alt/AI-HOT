@@ -4,9 +4,11 @@ import json
 import os
 import time
 from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
+from pathlib import Path
 
 import tag_news
 from llm_common import parse_output
+from llm_failures import FailureCircuit, LLMRequestError, safe_error
 from .products import normalize as normalize_products, guard_integrated_product_identities, is_named_product
 from .config import PROMPT_VERSION, SCALAR_FIELDS, overview_cfg
 
@@ -86,25 +88,36 @@ def cache_key(tx: dict, article: dict) -> str:
 
 def extract_one(tx: dict, article: dict, llm_fn) -> dict:
     if len((article.get("content_text") or "").strip()) < 4:
-        return {"status": "failed", "companies": [], "reason": "文章内容不足"}
+        return {"status": "failed", "companies": [], "reason": "文章内容不足",
+                "modelAttempted": False, "error": safe_error(LLMRequestError("content"))}
     system, user = build_prompt(tx, article)
+    cfg = overview_cfg(tx)
     try:
         raw = parse_output(llm_fn(tx, system, user,
-                                  timeout_seconds=overview_cfg(tx)["timeout_seconds"]))
+                                  timeout_seconds=cfg["timeout_seconds"],
+                                  max_tokens=cfg["max_output_tokens"]))
         if not isinstance(raw, dict) or not isinstance(raw.get("companies"), list):
-            raise ValueError("模型输出结构不合法")
+            raise LLMRequestError("invalid_response")
         companies = [c for c in (normalize_company(v, tx) for v in raw["companies"]) if c]
         for company in companies:
             company["products"] = normalize_products(company.get("products"), article)
-        return {"status": "complete", "companies": guard_integrated_product_identities(companies)}
+        return {"status": "complete", "companies": guard_integrated_product_identities(companies),
+                "modelAttempted": True}
     except Exception as exc:  # noqa: BLE001 - 单篇失败由统计与发布门槛处理
-        return {"status": "failed", "companies": [], "reason": str(exc)[:160]}
+        error = safe_error(exc)
+        return {"status": "failed", "companies": [], "reason": error["category"],
+                "modelAttempted": True, "error": error}
 
 
 def extract_articles(tx: dict, articles: list[dict], cache_path, llm_fn) -> tuple[dict, dict]:
     """只缓存成功结果；每轮新调用数和总耗时有硬上限。"""
     cache = tag_news.load_cache(str(cache_path))
     results, pending = {}, []
+    failure_path = Path(cache_path).with_name(Path(cache_path).stem + "_failures.json")
+
+    def save_failures():
+        tag_news.save_cache(str(failure_path), {key: value for key, value in results.items()
+                                              if value.get("status") != "complete"})
     cache_hits = 0
     for article in articles:
         hit = cache.get(cache_key(tx, article))
@@ -120,20 +133,35 @@ def extract_articles(tx: dict, articles: list[dict], cache_path, llm_fn) -> tupl
         results[article["id"]] = {"status": "pending", "companies": [], "reason": "超过本轮调用上限"}
     started = time.monotonic()
     calls = 0
+    successes = 0
+    failure_categories = {}
+    circuit = FailureCircuit()
     timed_out = []
+    stopped = []
     queue = iter(selected)
     with ThreadPoolExecutor(max_workers=max(1, int(cfg["concurrency"]))) as pool:
         futures = {}
 
         def submit_next():
-            nonlocal calls
             try:
                 article = next(queue)
             except StopIteration:
                 return False
-            calls += 1
             futures[pool.submit(extract_one, tx, article, llm_fn)] = article
             return True
+
+        def collect(future, article):
+            nonlocal calls, successes
+            result = future.result()
+            results[article["id"]] = result
+            calls += int(result.get("modelAttempted", True))
+            circuit.observe(result)
+            if result["status"] == "complete":
+                successes += 1
+                cache[cache_key(tx, article)] = result
+            else:
+                category = result.get("error", {}).get("category", "unknown")
+                failure_categories[category] = failure_categories.get(category, 0) + 1
 
         for _ in range(max(1, int(cfg["concurrency"]))):
             if not submit_next():
@@ -142,11 +170,12 @@ def extract_articles(tx: dict, articles: list[dict], cache_path, llm_fn) -> tupl
             done, _ = wait(futures, return_when=FIRST_COMPLETED)
             for future in done:
                 article = futures.pop(future)
-                result = future.result()
-                results[article["id"]] = result
-                if result["status"] == "complete":
-                    cache[cache_key(tx, article)] = result
+                collect(future, article)
             tag_news.save_cache(str(cache_path), cache)
+            save_failures()
+            if circuit.stopped:
+                stopped.extend(queue)
+                break
             if time.monotonic() - started < float(cfg["budget_seconds"]):
                 for _ in range(len(done)):
                     if not submit_next():
@@ -156,13 +185,19 @@ def extract_articles(tx: dict, articles: list[dict], cache_path, llm_fn) -> tupl
                 break
         # 已提交的调用必须收口并记录，不能把正在消费的任务伪装成未调用。
         for future, article in list(futures.items()):
-            result = future.result()
-            results[article["id"]] = result
-            if result["status"] == "complete":
-                cache[cache_key(tx, article)] = result
+            collect(future, article)
+            tag_news.save_cache(str(cache_path), cache)
+            save_failures()
     for article in timed_out:
         results[article["id"]] = {"status": "pending", "companies": [], "reason": "超过本轮时间预算"}
+    for article in stopped:
+        results[article["id"]] = {"status": "pending", "companies": [], "reason": "模型失败保护已停止后续请求",
+                                  "error": circuit.reason, "modelAttempted": False}
     tag_news.save_cache(str(cache_path), cache)
+    save_failures()
     return results, {"modelCalls": calls, "cacheHits": cache_hits,
+                     "modelSuccesses": successes, "modelFailures": calls - successes,
+                     "failureCategories": failure_categories,
+                     "circuitOpen": circuit.stopped, "circuitReason": circuit.reason,
                      "articlesDeferred": len(deferred) + sum(
                          1 for a in selected if results.get(a["id"], {}).get("status") == "pending")}

@@ -1,11 +1,11 @@
 """融资流水线：extraction。"""
 import hashlib
-import sys
 import time
 from pathlib import Path
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 import tag_news
 from llm_common import call_llm, parse_output
+from llm_failures import FailureCircuit, LLMRequestError, safe_error
 from .config import funding_cfg, COMPANY_FIELDS, FIELD_LABELS, ENUM_FIELDS, FUNDING_PROMPT_VERSION
 
 
@@ -117,25 +117,26 @@ def normalize_company_fields(raw: dict, tx: dict | None = None) -> dict | None:
 
 
 def extract_one(tx: dict, article: dict, llm_fn=call_llm) -> dict:
-    """单篇抽取（含 1 次重试）。恒返回 {"status", "companies"}。"""
+    """单篇只请求一次；异常只保留安全诊断，失败不自动重试。"""
     cfg = funding_cfg(tx)
     content = (article.get("content_text") or "").strip()
     if not content or len(content) < 50:
-        return {"status": "failed", "companies": []}
+        return {"status": "failed", "companies": [], "modelAttempted": False,
+                "reason": "文章内容不足", "error": safe_error(LLMRequestError("content"))}
     system, user = build_extract_prompt(tx, article.get("title") or "",
                                         article.get("mpName") or "", content)
-    for attempt in range(2):
-        try:
-            text = llm_fn(tx, system, user + ("\n注意：只输出 JSON 对象。" if attempt else ""),
-                          timeout_seconds=cfg["timeout_seconds"])
-            raw = parse_output(text)
-            if isinstance(raw, dict) and isinstance(raw.get("companies"), list):
-                companies = [c for c in (normalize_company_fields(x, tx) for x in raw["companies"])
-                             if c]
-                return {"status": "complete", "companies": companies}
-        except Exception:  # noqa: BLE001 - 网络/接口错误进入重试
-            pass
-    return {"status": "failed", "companies": []}
+    try:
+        text = llm_fn(tx, system, user, timeout_seconds=cfg["timeout_seconds"],
+                      max_tokens=cfg["max_output_tokens"])
+        raw = parse_output(text)
+        if not isinstance(raw, dict) or not isinstance(raw.get("companies"), list):
+            raise LLMRequestError("invalid_response")
+        companies = [c for c in (normalize_company_fields(x, tx) for x in raw["companies"]) if c]
+        return {"status": "complete", "companies": companies, "modelAttempted": True}
+    except Exception as exc:  # noqa: BLE001 - 单篇隔离；队列据安全类别决定停止
+        error = safe_error(exc)
+        return {"status": "failed", "companies": [], "modelAttempted": True,
+                "reason": error["category"], "error": error}
 
 
 def article_cache_key(tx: dict, article: dict) -> str:
@@ -154,30 +155,72 @@ def extract_articles(tx: dict, articles: list[dict], cache_path: Path | str,
     cache_path = Path(cache_path)
     cache = tag_news.load_cache(str(cache_path))
     results: dict[str, dict] = {}
+    failure_path = cache_path.with_name(cache_path.stem + "_failures.json")
+
+    def save_failures():
+        tag_news.save_cache(str(failure_path), {key: value for key, value in results.items()
+                                              if value.get("status") != "complete"})
     todo = []
     for art in articles:
         k = article_cache_key(tx, art)
-        if k in cache:
-            results[art["id"]] = cache[k]
+        if cache.get(k, {}).get("status") == "complete":
+            results[art["id"]] = {**cache[k], "cacheHit": True, "modelAttempted": False}
         else:
             todo.append(art)
     if todo:
-        deadline = time.time() + cfg["budget_seconds"]
+        deadline = time.monotonic() + cfg["budget_seconds"]
         done = 0
-        with ThreadPoolExecutor(max_workers=cfg["concurrency"]) as ex:
-            futs = {ex.submit(extract_one, tx, a, llm_fn): a for a in todo}
-            for fut in as_completed(futs):
-                if time.time() > deadline:
-                    print("    融资抽取预算超时，剩余文章本轮跳过", file=sys.stderr)
-                    break
-                art = futs[fut]
+        circuit = FailureCircuit()
+        queue = iter(todo)
+        concurrency = max(1, int(cfg["concurrency"]))
+        with ThreadPoolExecutor(max_workers=concurrency) as ex:
+            futs = {}
+
+            def submit_next():
+                try:
+                    art = next(queue)
+                except StopIteration:
+                    return False
+                futs[ex.submit(extract_one, tx, art, llm_fn)] = art
+                return True
+
+            def collect(fut, art):
+                nonlocal done
                 r = fut.result()
-                # 失败结果不进缓存：下次运行（如配置好 key 后）自动重试
+                circuit.observe(r)
                 if r.get("status") == "complete":
                     cache[article_cache_key(tx, art)] = r
                     tag_news.save_cache(str(cache_path), cache)
                 results[art["id"]] = r
                 done += 1
+
+            for _ in range(concurrency):
+                if not submit_next():
+                    break
+            while futs:
+                finished, _ = wait(futs, return_when=FIRST_COMPLETED)
+                for fut in finished:
+                    collect(fut, futs.pop(fut))
+                save_failures()
+                if circuit.stopped or time.monotonic() >= deadline:
+                    reason = "模型失败保护已停止后续请求" if circuit.stopped else "超过本轮时间预算"
+                    for art in queue:
+                        results[art["id"]] = {"status": "pending", "companies": [],
+                                              "reason": reason, "modelAttempted": False,
+                                              "error": circuit.reason}
+                    break
+                for _ in range(len(finished)):
+                    if not submit_next():
+                        break
+            # Drain the bounded in-flight calls, retaining all paid successes.
+            for fut, art in futs.items():
+                collect(fut, art)
+                save_failures()
         tag_news.save_cache(str(cache_path), cache)
+        save_failures()
         print(f"融资抽取：新增 {done} 篇（缓存命中 {len(articles) - len(todo)} 篇）")
+        if circuit.stopped:
+            raise ValueError(f'融资模型阶段停止：{circuit.reason["category"]}；保留成功缓存，禁止晋升')
+    else:
+        save_failures()
     return results

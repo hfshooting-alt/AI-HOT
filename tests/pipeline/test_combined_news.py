@@ -98,6 +98,52 @@ class CombinedNews(unittest.TestCase):
         self.assertEqual(len(result['items'][0]['sourceRefs']), 2)
         self.assertNotIn('content_text', result['items'][0])
 
+    def set_manus_yesterday(self, *, conflict=False, duplicate=False):
+        self.manus_sample()
+        fields = {'published_at': '2026-09-09', 'published_date': '2026-09-09',
+                  'publishedPrecision': 'date', 'published_time_text': '昨天',
+                  'timeEvidence': {'originalText': '昨天', 'observedAt': '2026-09-10T14:00:00+08:00'}}
+        if not duplicate:
+            fields.update(title='另一篇只有日期精度的报道', article_url='https://example.com/yesterday')
+        if conflict:
+            fields['note'] = '列表标注“昨天”；详情页显示“2026-09-08 19:04发布于广东”，与列表相对时间不一致。'
+        for name in ('discovery-group_a.json', 'content-batch-01.json'):
+            path = self.raw / DATE / 'raw' / name
+            data = news.read(path)
+            data['articles'][0].update(fields)
+            publish.save(path, data)
+
+    def test_yesterday_date_precision_survives_sorting_and_feed(self):
+        self.set_manus_yesterday()
+        result = self.process()
+        self.assertEqual(len(result['items']), 2)
+        manuscript = next(i for i in result['items'] if i['collector'] == 'manus')
+        self.assertEqual(manuscript['publishedAt'], '2026-09-09')
+        self.assertEqual(manuscript['publishedPrecision'], 'date')
+        self.assertEqual(manuscript['timeEvidence']['originalText'], '昨天')
+        self.assertEqual(result['items'][0]['collector'], 'aihot')
+        self.assertEqual(news.read(self.workspace / 'data/manus/current.json')['items'][0]['publishedAt'], '2026-09-09')
+        # Sorting must not relax the original timestamp contract.
+        with self.assertRaises(ValueError):
+            snapshot.timestamp('2026-09-09')
+
+    def test_conflicting_manus_time_is_isolated_before_aihot_deduplication(self):
+        self.set_manus_yesterday(conflict=True, duplicate=True)
+        result = self.process()
+        self.assertEqual(len(result['items']), 1)
+        self.assertEqual(result['items'][0]['collector'], 'aihot')
+        self.assertEqual(result['items'][0]['evidenceKind'], 'upstream_title_summary')
+        quarantine = result['collectionStatus']['quarantined']
+        self.assertEqual(len(quarantine), 1)
+        self.assertEqual(quarantine[0]['reasonCode'], 'original_publication_time_conflict')
+        self.assertNotIn('note', quarantine[0])
+        audit = next(a for a in result['collectionStatus']['sources'] if a['name'] == '游戏葡萄')
+        self.assertEqual(audit['usableArticles'], 0)
+        self.assertEqual(audit['status'], 'partial')
+        evidence = news.read(self.workspace / 'inputs/publication-time-review.json')
+        self.assertIn('2026-09-08 19:04发布', evidence[0]['note'])
+        self.assertEqual(evidence[0]['published_at'], '2026-09-09')
+
     def test_all_sources_failed_blocks_publication(self):
         publish.save(self.workspace.parent / 'state.json', {'stages': {'aihot': {'status': 'failed'}}})
         with self.assertRaisesRegex(ValueError, 'All sources'):
@@ -123,6 +169,67 @@ class CombinedNews(unittest.TestCase):
             return {}, {'irrelevant': 0}
         with self.assertRaisesRegex(ValueError, 'relevance'):
             news.process(DATE, self.workspace, self.raw, screen_fn=failed, enrich_fn=enrich)
+
+    def two_aihot_candidates(self):
+        (self.workspace / 'data/cache').mkdir(parents=True, exist_ok=True)
+        other = {**self.item, 'id': 'second', 'title': '另一公司发布AI工具', 'url': 'https://example.com/second'}
+        publish.save(self.workspace / 'inputs/aihot.json',
+                     {'collectionWindow': ten_am_window(DATE), 'items': [self.item, other]})
+        return news.candidates([self.item, other], [])
+
+    def test_one_new_relevance_timeout_blocks_despite_one_cached_success(self):
+        pool = self.two_aihot_candidates()
+        tx = news.tag_news.load_taxonomy(str(ROOT / 'config/taxonomy.json'))
+        cache = self.workspace / 'data/cache/news_relevance.json'
+        screen_news.screen_items(pool[:1], tx, cache, lambda *a, **k: json.dumps(
+            {'relevant': True, 'reason': '具体AI事件', 'evidence': pool[0]['title']}))
+        saved = news.read(cache)
+        calls = []
+        def timeout(*args, **kwargs):
+            calls.append(1)
+            raise TimeoutError('private response')
+        def actual_screen(items, taxonomy, path, **kwargs):
+            return screen_news.screen_items(items, taxonomy, path, llm_fn=timeout, **kwargs)
+        with self.assertRaisesRegex(ValueError, 'no new model success'):
+            news.process(DATE, self.workspace, self.raw, enabled=False, screen_fn=actual_screen, enrich_fn=enrich)
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(news.read(cache), saved)
+        self.assertFalse((self.workspace / 'inputs/processed.json').exists())
+        self.assertEqual(news.read(self.workspace / 'inputs/model-failure.json')['modelSuccesses'], 0)
+
+    def test_one_new_enrichment_timeout_blocks_despite_one_cached_success(self):
+        pool = self.two_aihot_candidates()
+        tx = news.tag_news.load_taxonomy(str(ROOT / 'config/taxonomy.json'))
+        cache = self.workspace / 'data/cache/news_enrichment.json'
+        with patch.object(enrich_news, 'call_llm', return_value=json.dumps(
+                {'category': 'general', 'tags': {}, 'summary': '公开信息描述产品功能。' * 12})):
+            enrich_news.enrich_items(pool[:1], tx, str(cache))
+        saved = news.read(cache)
+        with patch.object(enrich_news, 'call_llm', side_effect=TimeoutError('private response')) as call:
+            with self.assertRaisesRegex(ValueError, 'no new model success'):
+                news.process(DATE, self.workspace, self.raw, enabled=False, screen_fn=screen)
+        self.assertEqual(call.call_count, 1)
+        self.assertEqual(news.read(cache), saved)
+        self.assertFalse((self.workspace / 'inputs/processed.json').exists())
+        self.assertEqual(news.read(self.workspace / 'inputs/model-failure.json')['stage'], 'enrichment')
+
+    def test_content_only_failure_and_pure_cache_reuse_are_not_service_outages(self):
+        pool = self.two_aihot_candidates()
+        tx = news.tag_news.load_taxonomy(str(ROOT / 'config/taxonomy.json'))
+        cache = self.workspace / 'data/cache/news_relevance.json'
+        screen_news.screen_items(pool[:1], tx, cache, lambda *a, **k: json.dumps(
+            {'relevant': True, 'reason': '具体AI事件', 'evidence': pool[0]['title']}))
+        def actual_screen(items, taxonomy, path, **kwargs):
+            return screen_news.screen_items(items, taxonomy, path, llm_fn=lambda *a, **k: json.dumps(
+                {'relevant': True, 'reason': '证据不合格', 'evidence': '输入中不存在的内容'}), **kwargs)
+        result = news.process(DATE, self.workspace, self.raw, enabled=False, screen_fn=actual_screen, enrich_fn=enrich)
+        self.assertEqual(len(result['items']), 1)
+        self.assertEqual(result['collectionStatus']['quarantinedArticles'], 1)
+        cached = {'status': 'complete', 'modelAttempted': False, 'cacheHit': True}
+        succeeded = {'status': 'complete', 'modelAttempted': True, 'cacheHit': False}
+        failed = {'status': 'failed', 'modelAttempted': True, 'error': {'category': 'timeout'}}
+        self.assertIsNone(news.new_model_failure({'cached': cached}, 'status'))
+        self.assertIsNone(news.new_model_failure({'success': succeeded, 'failed': failed}, 'status'))
 
     def test_failed_item_is_isolated_at_each_model_stage(self):
         second = {**self.item, 'id': 'second', 'title': '另一篇报道', 'url': 'https://example.com/second'}

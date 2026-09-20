@@ -7,7 +7,8 @@ from pathlib import Path
 from unittest.mock import Mock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
-from manus_source.checkpoints import accept_article, checkpoint_articles, partial_payload, normalize_article_time
+from manus_source.checkpoints import (accept_article, checkpoint_articles, partial_payload,
+                                     normalize_article_time, publication_time_conflict)
 from manus_source.client import ManusClient, ManusAPIError, CreatedTask
 from manus_source.client import validate_output_schema
 from manus_source.runner import run_discovery, DiscoveryRunError
@@ -21,6 +22,112 @@ ARTICLE = {'account_name': 'Test', 'source_platform': 'Website', 'source_home_ur
 
 
 class CheckpointTest(unittest.TestCase):
+    def test_explicit_publication_conflict_cannot_use_yesterday_exception(self):
+        raw = {**ARTICLE, 'published_time_text': '昨天',
+               'note': '详情页同时显示“2026-09-12 19:04发布于广东”，与列表相对时间不一致；published_at置空。'}
+        normalized = normalize_article_time(raw, datetime.fromisoformat('2026-09-14T10:00:00+08:00'))
+        self.assertTrue(publication_time_conflict(normalized))
+        self.assertFalse(accept_article(normalized, 'group_a', '2026-09-14', ['Test'], WINDOW, [SOURCE]))
+        for note in ('详情页2026-09-12 19:04评论，与列表不一致',
+                     'URL为20260912，不能作发布时间；昨天已核实',
+                     '昨天发布；署名与账号显示名称不一致',
+                     '详情2026-09-13 19:04发布；署名与账号显示名称不一致'):
+            with self.subTest(note=note):
+                self.assertFalse(publication_time_conflict({**normalized, 'note': note}))
+
+    def test_unconfirmed_stop_blocks_next_create_but_keeps_checkpoint(self):
+        client = ManusClient('test', 'manus-1.6', 0, 1, create_retries=0)
+        def wait(task_id, **kwargs):
+            kwargs['on_checkpoint'](ARTICLE)
+            raise ManusAPIError('Observed credit threshold reached: 20 >= 20')
+        with patch.object(client, 'create_crawl_task', return_value=CreatedTask('t', 'https://example.com/t')), \
+             patch.object(client, 'wait_for_structured_result', side_effect=wait), \
+             patch.object(client, 'stop_task'), \
+             patch.object(client, 'read_stopped_results', return_value={'articles': None}), \
+             patch.object(client, 'confirm_task_stopped', return_value={
+                 'confirmed': False, 'remoteStatus': 'running', 'error': 'stop unconfirmed'}):
+            with self.assertRaises(DiscoveryRunError) as caught:
+                run_discovery(client, 'group_a', '2026-09-14', 'prompt', ['Test'], WINDOW, 20, [SOURCE])
+        self.assertTrue(caught.exception.stop_accepted)
+        self.assertFalse(caught.exception.stop_succeeded)
+        self.assertEqual(caught.exception.remote_status, 'running')
+        self.assertEqual(caught.exception.partial_payload['articles'], [ARTICLE])
+        with patch.object(client, 'transport') as transport:
+            with self.assertRaisesRegex(ManusAPIError, 'task not created'):
+                client.create_crawl_task('p', 'g', 'd', 't', 'b')
+        transport.assert_not_called()
+
+    def test_later_publication_conflict_revokes_earlier_checkpoint(self):
+        client = ManusClient('test', 'manus-1.6', 0, 1)
+        conflict = {**ARTICLE, 'published_time_text': '昨天',
+                    'note': '详情2026-09-12 19:04发布，与列表昨天不一致。'}
+        def finish(task_id, **kwargs):
+            kwargs['on_checkpoint'](ARTICLE)
+            return {'source_group': 'group_a', 'target_date': '2026-09-14',
+                    'articles': [conflict], 'source_audits': [{'account_name': 'Test',
+                    'article_count': 1, 'source_status': 'complete', 'note': None}]}
+        with patch.object(client, 'create_crawl_task', return_value=CreatedTask('t', 'https://example.com/t')), \
+             patch.object(client, 'wait_for_structured_result', side_effect=finish):
+            result = run_discovery(client, 'group_a', '2026-09-14', 'prompt', ['Test'],
+                                   WINDOW, source_specs=[SOURCE])
+        self.assertEqual(result['articles'], [])
+        self.assertEqual(result['source_audits'][0]['source_status'], 'failed')
+
+    def test_malformed_time_keeps_checkpoint_but_downgrades_coverage(self):
+        client = ManusClient('test', 'manus-1.6', 0, 1)
+        def finish(task_id, **kwargs):
+            kwargs['on_checkpoint'](ARTICLE)
+            return {'source_group': 'group_a', 'target_date': '2026-09-14',
+                    'articles': [{**ARTICLE, 'published_at': 'invalid'}],
+                    'source_audits': [{'account_name': 'Test', 'article_count': 1,
+                                       'source_status': 'complete', 'note': None}]}
+        with patch.object(client, 'create_crawl_task', return_value=CreatedTask('t', 'https://example.com/t')), \
+             patch.object(client, 'wait_for_structured_result', side_effect=finish):
+            result = run_discovery(client, 'group_a', '2026-09-14', 'prompt', ['Test'],
+                                   WINDOW, source_specs=[SOURCE])
+        self.assertEqual(result['articles'], [ARTICLE])
+        self.assertEqual(result['source_audits'][0]['source_status'], 'partial')
+
+    def test_repeated_relative_time_preserves_first_local_observation(self):
+        client = ManusClient('test', 'manus-1.6', 0, 1)
+        raw = {**ARTICLE, 'published_at': None, 'published_date': None,
+               'published_time_text': '昨天'}
+        observed = datetime.fromisoformat('2026-09-14T10:00:00+08:00')
+        normalized = normalize_article_time(raw, observed)
+        def finish(task_id, **kwargs):
+            kwargs['on_checkpoint'](raw)
+            kwargs['on_checkpoint'](raw)
+            return {'source_group': 'group_a', 'target_date': '2026-09-14',
+                    'articles': [raw], 'source_audits': [{'account_name': 'Test',
+                    'article_count': 1, 'source_status': 'complete', 'note': None}]}
+        with patch.object(client, 'create_crawl_task', return_value=CreatedTask('t', 'https://example.com/t')), \
+             patch.object(client, 'wait_for_structured_result', side_effect=finish), \
+             patch('manus_source.checkpoints.normalize_article_time', return_value=normalized) as normalize:
+            result = run_discovery(client, 'group_a', '2026-09-14', 'prompt', ['Test'],
+                                   WINDOW, source_specs=[SOURCE])
+        normalize.assert_called_once_with(raw)
+        self.assertEqual(result['articles'], [normalized])
+
+    def test_later_absolute_time_replaces_checkpoint_and_rechecks_window(self):
+        for latest_time, accepted in [('2026-09-14T08:15:00+08:00', True),
+                                      ('2026-09-12T08:00:00+08:00', False)]:
+            with self.subTest(latest_time=latest_time):
+                client = ManusClient('test', 'manus-1.6', 0, 1)
+                corrected = {**ARTICLE, 'published_at': latest_time,
+                             'published_date': latest_time[:10], 'published_time_text': None}
+                def finish(task_id, **kwargs):
+                    kwargs['on_checkpoint']({**ARTICLE, 'published_time_text': None})
+                    return {'source_group': 'group_a', 'target_date': '2026-09-14',
+                            'articles': [corrected], 'source_audits': [{'account_name': 'Test',
+                            'article_count': 1, 'source_status': 'complete', 'note': None}]}
+                with patch.object(client, 'create_crawl_task', return_value=CreatedTask('t', 'https://example.com/t')), \
+                     patch.object(client, 'wait_for_structured_result', side_effect=finish):
+                    result = run_discovery(client, 'group_a', '2026-09-14', 'prompt', ['Test'],
+                                           WINDOW, source_specs=[SOURCE])
+                self.assertEqual(result['articles'], [corrected] if accepted else [])
+                self.assertEqual(result['source_audits'][0]['source_status'],
+                                 'complete' if accepted else 'failed')
+
     def test_final_metadata_does_not_erase_checkpoint_body(self):
         client = ManusClient('test', 'manus-1.6', 0, 1)
         def finish(task_id, **kwargs):
@@ -179,6 +286,7 @@ class CheckpointTest(unittest.TestCase):
         with patch.object(client, 'create_crawl_task', return_value=CreatedTask('t', 'https://example.com/t')), \
              patch.object(client, 'wait_for_structured_result', side_effect=wait), \
              patch.object(client, 'stop_task') as stop, \
+             patch.object(client, 'confirm_task_stopped', return_value={'confirmed': True, 'remoteStatus': 'stopped'}), \
              patch.object(client, 'read_stopped_results', return_value=None):
             with self.assertRaises(DiscoveryRunError) as caught:
                 run_discovery(client, 'group_a', '2026-09-14', 'prompt', ['Test'], WINDOW, 20, [SOURCE])
@@ -192,6 +300,7 @@ class CheckpointTest(unittest.TestCase):
         with patch.object(client, 'create_crawl_task', return_value=CreatedTask('t', 'https://example.com/t')), \
              patch.object(client, 'wait_for_structured_result', side_effect=TimeoutError('timeout')), \
              patch.object(client, 'stop_task'), \
+             patch.object(client, 'confirm_task_stopped', return_value={'confirmed': True, 'remoteStatus': 'stopped'}), \
              patch.object(client, 'read_stopped_results', return_value={'articles': [ARTICLE]}):
             with self.assertRaises(DiscoveryRunError) as caught:
                 run_discovery(client, 'group_a', '2026-09-14', 'prompt', ['Test'], WINDOW, 20, [SOURCE])

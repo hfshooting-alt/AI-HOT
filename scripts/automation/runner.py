@@ -55,6 +55,20 @@ def tree_digest(root: Path, *, portable=False) -> str:
     return digest.hexdigest()
 
 
+def validate_model_stage(stats: dict, name: str) -> None:
+    """A restored artifact must pass the same model-health gate as a live build."""
+    if stats.get('circuitOpen'):
+        raise ValueError(f'{name}模型阶段已停止，禁止发布')
+    if 'modelCalls' not in stats and stats.get('extractionFailed', 0):
+        raise ValueError(f'{name}旧候选缺少新请求统计且有抽取失败，需要重建验收')
+    if stats.get('modelCalls', 0):
+        successes = stats.get('modelSuccesses')
+        if successes is None and 'articlesComplete' in stats:
+            successes = max(0, stats['articlesComplete'] - stats.get('cacheHits', 0))
+        if successes == 0:
+            raise ValueError(f'{name}模型新请求全部失败，旧缓存不能代替本轮成功')
+
+
 def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
     import tag_news
     from build_manus_feed import validate_publishable
@@ -91,6 +105,7 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
     if "funding" in stages:
         table = json.loads((workspace / "data/funding/current.json").read_text(encoding="utf-8"))
         validate_table(table, tag_news.load_taxonomy(str(tx_path)))
+        validate_model_stage(table.get('stats', {}), '融资')
         web_table = json.loads((workspace / "web/public/funding-table.json").read_text(encoding="utf-8"))
         if table != web_table:
             raise ValueError("候选融资产物不一致")
@@ -101,6 +116,7 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
         if overview != web_overview:
             raise ValueError("候选公司与产品产物不一致")
         stats = overview.get('stats', {})
+        validate_model_stage(stats, '公司')
         if (stats.get('articlesFailed', 0) + stats.get('articlesDeferred', 0)
                 != len(overview.get('articleFailures', []))):
             raise ValueError('公司隔离清单与失败/待处理计数不一致，禁止发布')

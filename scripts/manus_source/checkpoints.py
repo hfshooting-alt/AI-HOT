@@ -7,6 +7,31 @@ from . import contracts
 from .window import BJ
 
 
+def publication_time_conflict(article):
+    """Quarantine explicitly reported original-publication conflicts with relative labels."""
+    label = article.get('published_time_text')
+    note = article.get('note')
+    if not isinstance(label, str) or not isinstance(note, str):
+        return False
+    if not (label == '昨天' or re.fullmatch(r'\d+\s*(小时|分钟)前', label)):
+        return False
+    if not re.search(r'(?:时间|日期|相对|昨天|列表)[^。；\n]{0,60}(?:不一致|冲突|矛盾)'
+                     r'|(?:不一致|冲突|矛盾)[^。；\n]{0,60}(?:时间|日期|相对|昨天|列表)', note):
+        return False
+    # Only a stated absolute publication timestamp counts here, never a URL date,
+    # comment time, model estimate, or an unrelated bare date in a long note.
+    matches = re.findall(
+        r'(\d{4}[-/]\d{2}[-/]\d{2}[ T]\d{2}:\d{2}(?::\d{2})?)\s*["“”]?\s*(?:发布|发表|发送)',
+        note)
+    for value in matches:
+        try:
+            datetime.fromisoformat(value.replace('/', '-'))
+            return True
+        except ValueError:
+            continue
+    return False
+
+
 def normalize_article_time(article, observed_at=None):
     """Chinese media wall-clock timestamps are Beijing time; explicit offsets convert."""
     result = dict(article)
@@ -94,6 +119,8 @@ def accept_article(article, group, date, accounts, window, source_specs=None):
     if any(not isinstance(article.get(k), str) or not article[k] for k in required) or article['extraction_status'] != 'complete':
         return False
     if not str(article['article_url']).startswith(('https://', 'http://')):
+        return False
+    if publication_time_conflict(article):
         return False
     # Author is optional. Configured source identity and the original publication
     # window determine admission; missing bylines must not discard valid news.

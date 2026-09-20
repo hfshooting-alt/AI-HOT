@@ -14,6 +14,7 @@ import threading
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+from llm_failures import LLMRequestError, safe_error
 
 # 项目根 = 本文件（scripts/）的上级目录；.env 真实文件已被 .gitignore 忽略。
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -94,7 +95,9 @@ def call_llm(tx: dict, system: str, user: str, timeout_seconds: int | None = Non
     m = tx["model"]
     api_key = os.environ.get(m["api_key_env"], "")
     if not api_key:
-        raise RuntimeError(f"环境变量 {m['api_key_env']} 未配置")
+        error = LLMRequestError("configuration")
+        record_failure(resolve_model(tx), error, operation)
+        raise error
     base = os.environ.get(m["api_base_env"], "") or m["default_base"]
     model = resolve_model(tx)
     body = {
@@ -108,15 +111,48 @@ def call_llm(tx: dict, system: str, user: str, timeout_seconds: int | None = Non
         ],
     }
     body.update(model_request_options(model))
-    req = urllib.request.Request(
-        base.rstrip("/") + "/chat/completions",
-        data=json.dumps(body).encode("utf-8"),
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"},
-    )
-    with urllib.request.urlopen(req, timeout=timeout_seconds or m.get("timeout_seconds", 20)) as resp:
-        d = json.loads(resp.read().decode("utf-8"))
-    record_usage(model, d.get("usage"), operation)
-    return d["choices"][0]["message"]["content"] or ""
+    try:
+        req = urllib.request.Request(
+            base.rstrip("/") + "/chat/completions",
+            data=json.dumps(body).encode("utf-8"),
+            headers={"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"},
+        )
+        with urllib.request.urlopen(req, timeout=timeout_seconds or m.get("timeout_seconds", 20)) as resp:
+            try:
+                d = json.loads(resp.read().decode("utf-8"))
+            except (ValueError, UnicodeError):
+                raise LLMRequestError("invalid_response") from None
+        if not isinstance(d, dict):
+            raise LLMRequestError("invalid_response")
+        record_usage(model, d.get("usage"), operation)
+        try:
+            content = d["choices"][0]["message"]["content"]
+        except (KeyError, IndexError, TypeError):
+            raise LLMRequestError("invalid_response") from None
+        if not isinstance(content, str) or not content.strip():
+            raise LLMRequestError("invalid_response")
+        return content
+    except Exception as exc:
+        diagnostic = safe_error(exc)
+        record_failure(model, exc, operation)
+        raise LLMRequestError(diagnostic["category"], diagnostic["httpStatus"]) from None
+
+
+def record_failure(model: str, exc: Exception, operation: str = "unspecified") -> None:
+    """Append safe failures beside usage, preserving failure counts without bodies."""
+    raw_path = os.environ.get("LLM_FAILURE_LOG", "").strip()
+    usage_path = os.environ.get("LLM_USAGE_LOG", "").strip()
+    path = (Path(raw_path) if raw_path else
+            Path(usage_path).with_name(Path(usage_path).stem + "-failures.jsonl") if usage_path else
+            _PROJECT_ROOT / "work" / "llm-failures.jsonl")
+    if not path.is_absolute():
+        path = _PROJECT_ROOT / path
+    row = {"at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+           "model": model, "operation": operation, "error": safe_error(exc)}
+    with _USAGE_LOCK:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps(row, ensure_ascii=False, separators=(",", ":")) + "\n")
 
 
 def parse_output(text: str) -> dict | None:

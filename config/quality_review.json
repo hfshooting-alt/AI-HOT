@@ -85,6 +85,56 @@
       "fingerprint": "8a734e3a5db6c3c920193abd63e5e27066d6d527193a4552a1ac812fb72e175f",
       "title": "DeepSeek 计划 9 月 10 日前后发布 V4.1 Flash，各项指标全面超越 V4 Pro",
       "url": "https://www.ithome.com/1/000/222.htm"
+    },
+    "aihot:cmu69gwp30fz7rofjwqbwa7lo": {
+      "category": "general",
+      "reason": "原文是已有浏览器 Agent 接入 Jev 的实测视频，未提供本次新产品或新版本发布的事实。",
+      "fingerprint": "43338009e852c7a1dd70bb5642967c4b26e9080b6df1ae971f16078d892bcda9",
+      "title": "Browser Use 创始人实测开源浏览器 Agent：查航班 7 秒、单次成本 0.0039 美元",
+      "url": "https://x.com/AYi_AInotes/status/2100753475772526610",
+      "reviewedAt": "2026-09-20",
+      "origin": "editorial-review",
+      "evidenceScope": "saved_upstream_title_and_summary"
+    },
+    "aihot:cmu5m8v9k0bkiroqo8w4e9kkp": {
+      "category": "bigtech",
+      "reason": "正文称计划于 2027 年 Q1 发布，当前是未来路线图调整，不是已发布产品。",
+      "fingerprint": "4f742538328b664872e09ea60b7d095b0f8470925d4bc825468b8b7ea72269d7",
+      "title": "华为将 Ascend 960DT AI 芯片发布提前至 2027 年 Q1，对标 Nvidia",
+      "url": "https://techcrunch.com/2026/09/17/huawei-plans-q1-2027-launch-of-new-ai-chip-as-it-takes-on-nvidia",
+      "reviewedAt": "2026-09-20",
+      "origin": "editorial-review",
+      "evidenceScope": "saved_upstream_title_and_summary"
+    },
+    "aihot:cmu5bpgmj074zro8tl9no6hf4": {
+      "category": "bigtech",
+      "reason": "正文称上月已发布，本次是峰会性能目标更新，不应再算本次新品发布。",
+      "fingerprint": "d0c0834e4ed19a0d548ff34aef98b56f288206d67e742726f6b1878138617cc7",
+      "title": "三星发布 zHBM：目标将 AI 系统响应速度提升 10 倍",
+      "url": "https://www.ithome.com/1/003/698.htm",
+      "reviewedAt": "2026-09-20",
+      "origin": "editorial-review",
+      "evidenceScope": "saved_upstream_title_and_summary"
+    },
+    "aihot:cmu5ryemu0hw9roqoe1ap9pd9": {
+      "category": "paper",
+      "reason": "本次发布对象为 NeMo Data Designer 技术报告，未证明工具本体本次首次上线。",
+      "fingerprint": "8a321aeda6167de8a0342a8aa41daa75f72e532a86ee76dd651793096c92ff28",
+      "title": "NVIDIA 发布 NeMo Data Designer 合成数据工具报告",
+      "url": "https://x.com/dair_ai/status/2100628354043101640",
+      "reviewedAt": "2026-09-20",
+      "origin": "editorial-review",
+      "evidenceScope": "saved_upstream_title_and_summary"
+    },
+    "aihot:cmu65t3i50bzbrofj6yb2pxmh": {
+      "category": "general",
+      "reason": "已有证据介绍 Jev 的架构与适用范围，没有本次发布或新版本事件。",
+      "fingerprint": "8db52ecb13c2eb8a0e017bae0e3846761168d45b17f94aaa736a56de3613e9c9",
+      "title": "Jev 模型：放弃自回归，靠 RLCD 做决策",
+      "url": "https://x.com/karminski3/status/2100724328975462779",
+      "reviewedAt": "2026-09-20",
+      "origin": "editorial-review",
+      "evidenceScope": "saved_upstream_title_and_summary"
     }
   },
   "productRelationships": [

@@ -22,7 +22,8 @@ MAGIC = b'AIHOT-RECOVERY-1\n'
 LIMIT = 512 * 1024 * 1024
 # Exact operational directories only: no checkout, .env, executables or node_modules.
 TREES = ('work/runs', 'work/manus', 'work/company-web-research', 'work/company-discovery')
-EXTRA_FILES = ('work/llm-usage.jsonl', 'work/diagnostic-summary.json', 'work/schedule-audit.json')
+EXTRA_FILES = ('work/llm-usage.jsonl', 'work/llm-failures.jsonl',
+               'work/diagnostic-summary.json', 'work/schedule-audit.json')
 
 
 def cipher(secret, salt):

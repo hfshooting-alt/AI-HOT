@@ -62,6 +62,29 @@ class RecoveryTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             recovery.pack(self.root, self.bundle, '')
 
+    def test_default_safe_model_failure_log_survives_encrypted_recovery(self):
+        import llm_common
+        import urllib.error
+        error = urllib.error.HTTPError('https://example.com/private-token', 429,
+            'PRIVATE-PROVIDER-BODY', {'Authorization': 'PRIVATE-HEADER'}, None)
+        with patch.object(llm_common, '_PROJECT_ROOT', self.root), patch.dict(os.environ, {}, clear=True):
+            llm_common.record_usage('offline-model', {'total_tokens': 10}, 'news_enrichment')
+            llm_common.record_failure('offline-model', error, 'news_enrichment')
+        original = (self.root / 'work/llm-failures.jsonl').read_bytes()
+        self.assertNotIn(b'PRIVATE', original)
+        self.assertNotIn(b'private-token', original)
+        # Adding one operational log must not broaden recovery to arbitrary work files.
+        (self.root / 'work/llm-debug.jsonl').write_text('PRIVATE-UNAPPROVED-LOG')
+        recovery.pack(self.root, self.bundle, KEY)
+        self.assertNotIn(original, self.bundle.read_bytes())
+        restored = recovery.unpack(self.root, self.bundle, KEY)
+        self.assertEqual((restored / 'work/llm-failures.jsonl').read_bytes(), original)
+        self.assertTrue((restored / 'work/llm-usage.jsonl').exists())
+        self.assertFalse((restored / 'work/llm-debug.jsonl').exists())
+        diagnostic = json.loads(original)
+        self.assertEqual(diagnostic['error']['category'], 'rate_limit')
+        self.assertEqual(diagnostic['error']['httpStatus'], 429)
+
     def test_authenticated_archive_path_traversal_still_rejected(self):
         buf = io.BytesIO()
         path = 'work/runs/../../escape.json'

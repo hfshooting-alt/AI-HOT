@@ -97,6 +97,11 @@ def build_funding_table(snapshot_path: Path, feed_path: Path, work_dir: Path, tx
     cache_dir = Path(cache_dir)
     cache_dir.mkdir(parents=True, exist_ok=True)
     extracts = extract_articles(tx, articles, cache_dir / "extraction_cache.json", llm_fn)
+    model_calls = sum(bool(r.get("modelAttempted")) for r in extracts.values())
+    model_successes = sum(bool(r.get("modelAttempted")) and r.get("status") == "complete"
+                          for r in extracts.values())
+    if model_calls and not model_successes:
+        raise ValueError('融资模型阶段新请求全部失败；旧缓存不能代替本轮模型成功')
 
     companies = merge_companies(articles, extracts)
     extraction_failed = len(articles) - sum(
@@ -119,6 +124,10 @@ def build_funding_table(snapshot_path: Path, feed_path: Path, work_dir: Path, tx
 
     stats = {
         "articlesProcessed": len(articles),
+        "modelCalls": model_calls,
+        "modelSuccesses": model_successes,
+        "modelFailures": model_calls - model_successes,
+        "cacheHits": sum(bool(r.get("cacheHit")) for r in extracts.values()),
         "extractionFailed": extraction_failed,
         "articlesWithoutFundingInfo": no_funding,
         "companiesTotal": len(companies),

@@ -9,6 +9,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import tag_news  # noqa: E402
 from llm_common import call_llm, parse_output, resolve_model  # noqa: E402
+from upstream_briefs import is_brief
+from llm_failures import FailureCircuit, safe_error
 
 DEFAULTS = {
     "content_input_chars": 5000,
@@ -79,8 +81,10 @@ def source_evidence(evidence: str, *texts: str) -> str | None:
 def screen_one(tx: dict, item: dict, llm_fn=call_llm) -> dict:
     content = (item.get("content_text") or "").strip()
     title = (item.get("title") or "").strip()
-    if len(content) < 50:
-        return {"status": "failed", "relevant": None, "reason": "文章内容不足", "evidence": ""}
+    if len(content) < 50 and not is_brief(item):
+        return {"status": "failed", "relevant": None, "reason": "文章内容不足", "evidence": "",
+                "modelAttempted": False, "cacheHit": False,
+                "error": {"category": "content", "httpStatus": None, "systemic": False}}
     system, user = build_prompt(tx, item)
     try:
         c = cfg(tx)
@@ -99,9 +103,14 @@ def screen_one(tx: dict, item: dict, llm_fn=call_llm) -> dict:
         if not isinstance(reason, str) or not reason.strip():
             raise ValueError("reason 缺失")
         return {"status": "complete", "relevant": raw["relevant"],
-                "reason": reason.strip()[:120], "evidence": evidence}
+                "reason": reason.strip()[:120], "evidence": evidence,
+                "modelAttempted": True, "cacheHit": False}
     except Exception as exc:  # 单条失败留待下轮，不将不确定内容发布
-        return {"status": "failed", "relevant": None, "reason": str(exc)[:160], "evidence": ""}
+        error = safe_error(exc)
+        if isinstance(exc, ValueError) and 'evidence' in str(exc):
+            error = {'category': 'content', 'httpStatus': None, 'systemic': False}
+        return {"status": "failed", "relevant": None, "reason": error['category'], "error": error, "evidence": "",
+                "modelAttempted": True, "cacheHit": False}
 
 
 def screen_items(items: list[dict], tx: dict, cache_path: str | Path,
@@ -114,7 +123,7 @@ def screen_items(items: list[dict], tx: dict, cache_path: str | Path,
     for item in items:
         hit = cache.get(cache_key(tx, item))
         if isinstance(hit, dict) and hit.get("status") == "complete":
-            results[item_key(item)] = hit
+            results[item_key(item)] = {**hit, 'modelAttempted': False, 'cacheHit': True}
             hits += 1
         else:
             pending.append(item)
@@ -123,16 +132,18 @@ def screen_items(items: list[dict], tx: dict, cache_path: str | Path,
     selected, deferred = pending[:max(0, limit)], pending[max(0, limit):]
     for item in deferred:
         results[item_key(item)] = {"status": "pending", "relevant": None,
-                                   "reason": "超过本轮相关性筛选调用上限", "evidence": ""}
+                                   "reason": "超过本轮相关性筛选调用上限", "evidence": "",
+                                   "modelAttempted": False, "cacheHit": False}
     started = time.monotonic()
     calls = 0
+    circuit = FailureCircuit()
     queue = iter(selected)
     with ThreadPoolExecutor(max_workers=max(1, int(c["concurrency"]))) as pool:
         futures = {}
 
         def submit_next() -> bool:
             nonlocal calls
-            if time.monotonic() - started >= c["budget_seconds"]:
+            if circuit.stopped or time.monotonic() - started >= c["budget_seconds"]:
                 return False
             try:
                 item = next(queue)
@@ -150,19 +161,28 @@ def screen_items(items: list[dict], tx: dict, cache_path: str | Path,
             for future in done:
                 item = futures.pop(future)
                 result = future.result()
+                circuit.observe(result)
                 results[item_key(item)] = result
                 if result.get("status") == "complete":
                     cache[cache_key(tx, item)] = result
+                    # Preserve verified results before admitting another paid call.
+                    tag_news.save_cache(str(cache_path), cache)
                 submit_next()
     for item in selected:
         results.setdefault(item_key(item), {"status": "pending", "relevant": None,
-                                            "reason": "本轮时间预算已用完", "evidence": ""})
+                                            "reason": "本轮时间预算已用完", "evidence": "",
+                                            "modelAttempted": False, "cacheHit": False})
     tag_news.save_cache(str(cache_path), cache)
     stats = {
         "input": len(items), "cacheHits": hits, "calls": calls,
+        "modelCalls": sum(r.get('modelAttempted') is True for r in results.values()),
+        "modelSuccesses": sum(r.get('modelAttempted') is True and r.get('status') == 'complete'
+                              for r in results.values()),
         "relevant": sum(r.get("relevant") is True for r in results.values()),
         "irrelevant": sum(r.get("relevant") is False for r in results.values()),
         "failed": sum(r.get("status") == "failed" for r in results.values()),
         "pending": sum(r.get("status") == "pending" for r in results.values()),
     }
+    if circuit.stopped:
+        stats.update(circuitStopped=True, circuitReason=circuit.reason)
     return results, stats

@@ -53,6 +53,30 @@ def make_item(**overrides):
 
 
 class TestEnrichOne(unittest.TestCase):
+    def test_short_upstream_summary_is_not_padded_or_invented(self):
+        item = make_item(title='Grok Bot 现已支持语音', summary='Grok Bot 现在有语音了',
+                         content_text='Grok Bot 现已支持语音\n\nGrok Bot 现在有语音了',
+                         evidenceKind='upstream_title_summary')
+        r, mock = self.run_with([json.dumps({'category':'general', 'tags':{},
+            'summary':'模型编造了上游没有提供的背景、商业化效果和用户数据。'})], item)
+        self.assertEqual(r['enrichmentStatus'], 'complete')
+        self.assertEqual(r['summary'], item['summary'])
+        self.assertEqual(r['summaryOrigin'], 'upstream_brief')
+        self.assertIn(':brief-v1', enrich_news.enrich_cache_key(TX, item))
+
+    def test_enrichment_auth_failure_stops_pending_requests(self):
+        from llm_failures import LLMRequestError
+        tx = copy.deepcopy(TX); tx.setdefault('enrich', {}).update(concurrency=1, max_new_items_per_run=20)
+        mock = MockLLM([LLMRequestError('authentication', 401)])
+        tmp = make_temp_dir('enrich-circuit-')
+        old = enrich_news.call_llm; enrich_news.call_llm = mock
+        try:
+            results = enrich_news.enrich_items([make_item(title=str(i)) for i in range(20)], tx, os.path.join(tmp,'cache.json'))
+            self.assertEqual(len(mock.calls), 1)
+            self.assertTrue(any(r.get('batchStopped') for r in results.values()))
+        finally:
+            enrich_news.call_llm=old; shutil.rmtree(tmp, ignore_errors=True)
+
     def run_with(self, outputs, item=None):
         mock = MockLLM(outputs)
         old = enrich_news.call_llm
@@ -87,14 +111,22 @@ class TestEnrichOne(unittest.TestCase):
         self.assertEqual(r["enrichmentStatus"], "complete")
         self.assertEqual(r["classification"]["category"], "general")
 
-    def test_invalid_category_uses_validate_fallback_with_trace(self):
+    def test_invalid_category_cannot_succeed_with_a_valid_summary(self):
         payload = json.dumps({"summary": GOOD_SUMMARY, "category": "不存在的类别", "tags": {}},
                              ensure_ascii=False)
         r, _ = self.run_with([payload])
-        self.assertEqual(r["enrichmentStatus"], "complete")
+        self.assertEqual(r["enrichmentStatus"], "fallback")
         self.assertEqual(r["classification"]["category"], "general")
-        self.assertTrue(r["classification"]["autoFallback"])  # 留痕
-        self.assertEqual(r["summary"], GOOD_SUMMARY)  # 摘要仍保留
+        self.assertTrue(r["classification"]["autoFallback"])
+        self.assertEqual(r['error']['category'], 'invalid_response')
+        self.assertTrue(r['modelAttempted'])
+
+    def test_invalid_tags_structure_cannot_succeed(self):
+        payload = json.dumps({'summary': GOOD_SUMMARY, 'category': 'general', 'tags': []})
+        r, mock = self.run_with([payload])
+        self.assertEqual(r['enrichmentStatus'], 'fallback')
+        self.assertEqual(r['error']['category'], 'invalid_response')
+        self.assertEqual(len(mock.calls), 1)
 
     def test_out_of_range_tag_injected_with_trace(self):
         payload = json.dumps({"summary": GOOD_SUMMARY, "category": "release", "release_evidence": CONTENT[:20],
@@ -158,6 +190,7 @@ class TestEnrichOne(unittest.TestCase):
                                  item=make_item(content_text=bad))
             self.assertEqual(r["enrichmentStatus"], "failed")
             self.assertEqual(r["summary"], "")
+            self.assertFalse(r['modelAttempted'])
 
 
 class TestCache(unittest.TestCase):
@@ -177,8 +210,10 @@ class TestCache(unittest.TestCase):
             enrich_news.enrich_items([item], TX, self.cache_path)
             self.assertEqual(len(mock.calls), 1)
             # 相同正文：缓存命中，不再调用模型
-            enrich_news.enrich_items([make_item()], TX, self.cache_path)
+            reused = enrich_news.enrich_items([make_item()], TX, self.cache_path)
             self.assertEqual(len(mock.calls), 1)
+            self.assertTrue(reused[enrich_news.enrich_item_key(item)]['cacheHit'])
+            self.assertFalse(reused[enrich_news.enrich_item_key(item)]['modelAttempted'])
             # 正文变化：缓存失效，重新调用
             enrich_news.enrich_items([make_item(content_text=CONTENT + "补充新内容。")],
                                      TX, self.cache_path)
@@ -210,6 +245,36 @@ class TestCache(unittest.TestCase):
             enrich_news.call_llm = old
         self.assertEqual(len(mock.calls), 1)
         self.assertEqual(len(results), 1)
+
+
+    def test_invalid_classification_stops_queue_and_never_enters_cache(self):
+        tx = copy.deepcopy(TX)
+        tx['enrich'].update(concurrency=1, max_new_items_per_run=10)
+        mock = MockLLM([TimeoutError(), json.dumps({'summary': GOOD_SUMMARY, 'category': 'invalid', 'tags': {}}), TimeoutError()])
+        old = enrich_news.call_llm; enrich_news.call_llm = mock
+        try:
+            results = enrich_news.enrich_items([make_item(title=str(i)) for i in range(10)], tx, self.cache_path)
+        finally:
+            enrich_news.call_llm = old
+        self.assertEqual(len(mock.calls), 3)
+        self.assertTrue(all(r.get('batchStopped') for r in results.values()))
+        self.assertEqual(tag_news.load_cache(self.cache_path), {})
+
+    def test_legacy_invalid_complete_cache_is_rejected_without_invalidating_good_cache(self):
+        good_item, bad_item = make_item(title='good'), make_item(title='bad')
+        good = {'summary': GOOD_SUMMARY, 'classification': tag_news.validate(TX, {'category': 'general', 'tags': {}}),
+                'enrichmentStatus': 'complete', 'modelAttempted': True}
+        bad = {**good, 'classification': tag_news.fallback_result(TX)}
+        cache = {enrich_news.enrich_cache_key(TX, good_item): good, enrich_news.enrich_cache_key(TX, bad_item): bad}
+        tag_news.save_cache(self.cache_path, cache)
+        mock = MockLLM([TimeoutError()]); old = enrich_news.call_llm; enrich_news.call_llm = mock
+        try:
+            result = enrich_news.enrich_items([good_item, bad_item], TX, self.cache_path)
+        finally:
+            enrich_news.call_llm = old
+        self.assertEqual(len(mock.calls), 1)
+        self.assertTrue(result[enrich_news.enrich_item_key(good_item)]['cacheHit'])
+        self.assertEqual(tag_news.load_cache(self.cache_path), {enrich_news.enrich_cache_key(TX, good_item): good})
 
 
 class TestSelftest(unittest.TestCase):

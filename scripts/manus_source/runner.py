@@ -10,6 +10,7 @@
 import argparse
 import hashlib
 import json
+import re
 import sys
 from copy import deepcopy
 from dataclasses import replace
@@ -21,7 +22,7 @@ from zoneinfo import ZoneInfo
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from manus_source import contracts  # noqa: E402
 from manus_source.client import ManusClient, DISCOVERY_OUTPUT_SCHEMA  # noqa: E402
-from manus_source.window import ten_am_window  # noqa: E402
+from manus_source.window import ten_am_window, timestamp  # noqa: E402
 from manus_source.config import Settings, load_sources, render_sources_block  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -38,10 +39,13 @@ DISCOVERY_BRIEF = ("仅处理该 source_group；仅采集 published_date 等于 
 
 class DiscoveryRunError(RuntimeError):
     def __init__(self, task_id: str, cause: Exception, *, stop_succeeded: bool,
-                 stop_error: str | None = None):
+                 stop_error: str | None = None, stop_accepted: bool = False,
+                 remote_status: str = 'unknown'):
         self.task_id = task_id
         self.stop_succeeded = stop_succeeded
         self.stop_error = stop_error
+        self.stop_accepted = stop_accepted
+        self.remote_status = remote_status
         self.partial_payload = None
         super().__init__(str(cause))
 
@@ -54,6 +58,14 @@ def render_discovery_prompt(template_path: Path, sources: list[dict]) -> str:
     template = template_path.read_text(encoding="utf-8")
     if "{{SOURCES}}" not in template:
         raise RuntimeError("发现 prompt 缺少 {{SOURCES}} 占位符")
+    if not any(source.get('platform') == 'Official Jiqizhixin' for source in sources):
+        # These platform instructions are standalone lines in the shared templates.
+        # Sending them to unrelated single-source tasks has produced cross-source work.
+        template = re.sub(r'(?m)^(?:- )?Official Jiqizhixin[^\n]*\n?|^机器之心详情[^\n]*\n?',
+                          '', template)
+        # The compact canary template embeds the identity exception in a shared step.
+        template = re.sub(r'机器之心来源按配置入口[^\n]*?排除ScienceAI、新闻资讯及其他机构。',
+                          '', template)
     return template.replace("{{SOURCES}}", render_sources_block(sources))
 
 
@@ -78,6 +90,9 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
         article_schema["properties"]["published_at"] = {"type": ["string", "null"]}
         article_schema['properties']['published_time_text'] = {'type': ['string', 'null']}
         article_schema["required"].extend(["published_at", "published_time_text"])
+        prompt_text += ('\n原始发布时间冲突：详情页或同文元数据已有明确原始发布/发送时间时，'
+            '不得用列表“昨天”或其他相对文字覆盖它。绝对原始时间与相对文字冲突且无法核清时，'
+            '隔离该篇并在note保留双方证据，继续其他文章；不得置空绝对时间后套相对时间例外。')
     task = client.create_crawl_task(
         prompt_text=prompt_text,
         source_group=group,
@@ -88,17 +103,34 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
         output_schema=schema,
     )
     print(f"[{group}] Manus task created: {task.task_url}", flush=True)
-    from manus_source.checkpoints import accept_article, partial_payload, normalize_article_time
+    from manus_source.checkpoints import (accept_article, partial_payload, normalize_article_time,
+                                         publication_time_conflict)
     verified = {}
+    def persist_checkpoints():
+        if checkpoint_path:
+            path = Path(checkpoint_path)
+            path.parent.mkdir(parents=True, exist_ok=True)
+            temp = path.with_suffix('.tmp')
+            temp.write_text(json.dumps({'taskId': task.task_id, 'articles': list(verified.values())},
+                                      ensure_ascii=False, indent=2), encoding='utf-8')
+            temp.replace(path)
+
     def checkpoint(article):
         if not isinstance(article, dict) or not isinstance(article.get('article_url'), str):
             return
         previous = verified.get(article.get('article_url'))
+        if publication_time_conflict(article):
+            if previous and all(previous.get(key) == article.get(key) for key in
+                                ('account_name', 'source_platform', 'source_home_url', 'title')):
+                verified.pop(article['article_url'], None)
+                persist_checkpoints()
+            return False
         if (previous and previous.get('content_text') and not article.get('content_text')
                 and previous.get('title') == article.get('title')):
             article = {**article, 'content_text': previous['content_text'],
                        'content_title': previous.get('content_title')}
-        if previous and previous.get('published_time_text') == article.get('published_time_text'):
+        if (previous and article.get('published_time_text')
+                and previous.get('published_time_text') == article.get('published_time_text')):
             article = {**article, **{k: previous[k] for k in ('published_at', 'published_date', 'publishedPrecision', 'timeEvidence') if k in previous}}
         else:
             try:
@@ -107,34 +139,55 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
                 return  # 单条模型字段类型错误不能中断其余进度回收。
         if accept_article(article, group, target_date, expected_accounts, window, source_specs):
             verified[article['article_url']] = article
-            if checkpoint_path:
-                path = Path(checkpoint_path)
-                path.parent.mkdir(parents=True, exist_ok=True)
-                temp = path.with_suffix('.tmp')
-                temp.write_text(json.dumps({'taskId': task.task_id, 'articles': list(verified.values())},
-                                          ensure_ascii=False, indent=2), encoding='utf-8')
-                temp.replace(path)
+            persist_checkpoints()
+            return True
+        elif (previous and window and article.get('extraction_status') == 'complete'
+                and not article.get('published_time_text')
+                and all(previous.get(key) == article.get(key) for key in
+                        ('account_name', 'source_platform', 'source_home_url', 'title'))):
+            # A later explicit timestamp can correct an earlier in-window claim.
+            # Invalidate the old checkpoint when that correction fails admission;
+            # malformed/missing timestamps cannot erase a previously verified article.
+            try:
+                timestamp(article.get('published_at'))
+            except (ValueError, TypeError):
+                return
+            verified.pop(article['article_url'], None)
+            persist_checkpoints()
     try:
         payload = client.wait_for_structured_result(
             task.task_id, observed_credit_limit=observed_credit_limit,
             **({'on_checkpoint': checkpoint} if isinstance(client, ManusClient) else {}))
     except Exception as error:
+        stop_accepted = False
         stop_succeeded = False
         stop_error = None
+        remote_status = 'unknown'
         try:
             client.stop_task(task.task_id)
-            stop_succeeded = True
+            stop_accepted = True
         except Exception as exc:  # noqa: BLE001 - 保留原始异常并显式记录停止失败
             stop_error = str(exc)[:160]
-        if stop_succeeded and isinstance(client, ManusClient):
+        if stop_accepted and isinstance(client, ManusClient):
             try:
                 stopped = client.read_stopped_results(task.task_id, checkpoint)
                 for article in (stopped or {}).get('articles', []):
                     checkpoint(article)
-            except (OSError, ValueError, RuntimeError):
+            except (OSError, ValueError, RuntimeError, TypeError, AttributeError):
                 pass  # Previously persisted checkpoints remain usable.
+        try:
+            confirmation = client.confirm_task_stopped(task.task_id)
+            stop_succeeded = confirmation.get('confirmed') is True
+            remote_status = confirmation.get('remoteStatus') or 'unknown'
+            if not stop_succeeded:
+                stop_error = confirmation.get('error') or 'Remote stop not confirmed; task may still consume credits'
+        except (AttributeError, OSError, ValueError, RuntimeError, TypeError) as exc:
+            stop_error = str(exc)[:160]
+        if not stop_succeeded and isinstance(client, ManusClient):
+            client.block_new_tasks()
         failure = DiscoveryRunError(task.task_id, error, stop_succeeded=stop_succeeded,
-                                    stop_error=stop_error)
+                                    stop_error=stop_error, stop_accepted=stop_accepted,
+                                    remote_status=remote_status)
         if verified:
             failure.partial_payload = partial_payload(group, target_date, expected_accounts,
                 window, list(verified.values()), 'coverage_unverified: ' + str(error)[:300])
@@ -149,12 +202,11 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
             payload["collectionWindow"] = window
             rejected = {}
             for article in payload['articles']:
-                checkpoint(article)
+                accepted = checkpoint(article)
                 if not isinstance(article, dict):
                     rejected['__invalid__'] = rejected.get('__invalid__', 0) + 1
                     continue
-                url = article.get('article_url')
-                if article.get('extraction_status') == 'complete' and (not isinstance(url, str) or url not in verified):
+                if article.get('extraction_status') == 'complete' and not accepted:
                     name = article.get('account_name')
                     name = name if isinstance(name, str) and name in expected_accounts else '__invalid__'
                     rejected[name] = rejected.get(name, 0) + 1
@@ -460,6 +512,8 @@ def main(argv: list[str] | None = None) -> int:
                 group, source = futs[fut]
                 name = source["account_name"]
                 try:
+                    if fut.cancelled():
+                        raise RuntimeError('cost_circuit_open: remote stop unconfirmed; task not created')
                     payload = fut.result()
                     payload['sourceIdentity'] = source_identity(source)
                     source_payloads[group][name] = payload
@@ -477,6 +531,7 @@ def main(argv: list[str] | None = None) -> int:
                         diagnostics.mkdir(parents=True, exist_ok=True)
                         record = {"accountName": name, "taskId": error.task_id,
                                   "reason": str(error), "stopSucceeded": error.stop_succeeded,
+                                  "stopAccepted": error.stop_accepted, "remoteStatus": error.remote_status,
                                   "stopError": error.stop_error,
                                   "recordedAt": datetime.now(ZoneInfo("Asia/Shanghai")).isoformat()}
                         (diagnostics / f"{canary_slug(name)}.json").write_text(
@@ -556,6 +611,7 @@ def main(argv: list[str] | None = None) -> int:
                             json.dumps(error.partial_payload, ensure_ascii=False, indent=2), encoding='utf-8')
                     if canary and isinstance(error, DiscoveryRunError):
                         canary.update(taskId=error.task_id, stopRequested=True,
+                                      stopAccepted=error.stop_accepted, remoteStatus=error.remote_status,
                                       resolved=error.stop_succeeded)
                         if error.stop_error:
                             canary["stopError"] = error.stop_error

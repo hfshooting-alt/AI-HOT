@@ -2,7 +2,7 @@
 """test_funding_table.py — 融资动态表格 harness 离线单测（mock 模型/搜索，不发真实请求）。
 
 覆盖：输入装配（snapshot+feed 去重、正文关联）、LLM 抽取（合法/非法输出、无正文、
-重试）、公司归一化去重合并、Tavily 搜索补全（无 key 跳过、缓存命中、filledBySearch
+失败不重试）、公司归一化去重合并、Tavily 搜索补全（无 key 跳过、缓存命中、filledBySearch
 留痕）、输出 schema 校验与原子晋升。
 
 运行：python -m unittest tests.test_funding_table -v
@@ -35,8 +35,8 @@ class MockLLM:
         self.outputs = list(outputs)
         self.calls = []
 
-    def __call__(self, tx, system, user, timeout_seconds=None):
-        self.calls.append({"system": system, "user": user})
+    def __call__(self, tx, system, user, timeout_seconds=None, max_tokens=None):
+        self.calls.append({"system": system, "user": user, "max_tokens": max_tokens})
         out = self.outputs.pop(0) if len(self.outputs) > 1 else self.outputs[0]
         if isinstance(out, Exception):
             raise out
@@ -132,6 +132,35 @@ class TestPoolLoading(unittest.TestCase):
 
 
 class TestExtraction(unittest.TestCase):
+    def test_funding_output_capacity_is_stage_specific_and_configurable(self):
+        article = {'id': 'a', 'title': '甲公司融资', 'mpName': '测试', 'content_text': LONG_CONTENT}
+        baseline_key = funding_table.article_cache_key(TX, article)
+        for configured, expected in ((None, 3072), (4096, 4096)):
+            with self.subTest(configured=configured):
+                tx = json.loads(json.dumps(TX))
+                tx.setdefault('funding', {}).pop('max_output_tokens', None)
+                if configured is not None:
+                    tx['funding']['max_output_tokens'] = configured
+                model = MockLLM(['{"companies":[]}'])
+                result = funding_table.extract_one(tx, article, model)
+                self.assertEqual(result['status'], 'complete')
+                self.assertEqual(model.calls[0]['max_tokens'], expected)
+                self.assertEqual(funding_table.article_cache_key(tx, article), baseline_key)
+
+    def test_output_capacity_change_reuses_successful_funding_cache(self):
+        directory = make_temp_dir('fund-capacity-cache-')
+        self.addCleanup(shutil.rmtree, directory, ignore_errors=True)
+        cache_path = os.path.join(directory, 'extract-cache.json')
+        article = {'id': 'a', 'title': '甲公司融资', 'mpName': '测试', 'content_text': LONG_CONTENT}
+        funding_table.extract_articles(TX, [article], cache_path, MockLLM(['{"companies":[]}']))
+        tx = json.loads(json.dumps(TX))
+        tx.setdefault('funding', {})['max_output_tokens'] = 4096
+        unused_model = MockLLM([])
+        result = funding_table.extract_articles(tx, [article], cache_path, unused_model)
+        self.assertTrue(result['a']['cacheHit'])
+        self.assertFalse(result['a']['modelAttempted'])
+        self.assertEqual(unused_model.calls, [])
+
     def test_legal_output(self):
         payload = json.dumps({
             "has_funding_info": True,
@@ -155,19 +184,22 @@ class TestExtraction(unittest.TestCase):
         self.assertIn("正文", mock.calls[0]["user"])
         self.assertIn("company_name", mock.calls[0]["system"])
 
-    def test_invalid_output_retried_then_failed(self):
+    def test_invalid_output_fails_without_retry(self):
         mock = MockLLM(["not json", "still not json"])
         art = {"id": "a", "title": "t", "mpName": "机器之心", "content_text": LONG_CONTENT}
         r = funding_table.extract_one(TX, art, llm_fn=mock)
         self.assertEqual(r["status"], "failed")
-        self.assertEqual(mock.calls.__len__(), 2)
+        self.assertEqual(len(mock.calls), 1)
+        self.assertEqual(r['error']['category'], 'invalid_response')
 
-    def test_network_error_then_success(self):
+    def test_network_error_does_not_consume_retry_response(self):
         payload = json.dumps({"companies": [{"company_name": "甲"}]}, ensure_ascii=False)
         mock = MockLLM([RuntimeError("boom"), payload])
         art = {"id": "a", "title": "t", "mpName": "机器之心", "content_text": LONG_CONTENT}
         r = funding_table.extract_one(TX, art, llm_fn=mock)
-        self.assertEqual(r["status"], "complete")
+        self.assertEqual(r["status"], "failed")
+        self.assertEqual(len(mock.calls), 1)
+        self.assertNotIn('boom', json.dumps(r))
 
     def test_short_content_failed_without_llm(self):
         mock = MockLLM(["{}"])

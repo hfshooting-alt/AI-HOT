@@ -74,10 +74,13 @@ class TestRunnerTimeout(unittest.TestCase):
                 raise TimeoutError("timed out")
             def stop_task(self, task_id):
                 stopped.append(task_id)
+            def confirm_task_stopped(self, task_id):
+                return {'confirmed': True, 'remoteStatus': 'stopped', 'error': None}
         with self.assertRaises(runner.DiscoveryRunError) as ctx:
             runner.run_discovery(FakeClient(), "group_a", "2026-08-27", "prompt", ["TestAccount"])
         self.assertEqual(stopped, ["task-1"])
         self.assertTrue(ctx.exception.stop_succeeded)
+        self.assertTrue(ctx.exception.stop_accepted)
         self.assertEqual(ctx.exception.task_id, "task-1")
 
 
@@ -428,6 +431,24 @@ class TestDiscoveryPrompt(unittest.TestCase):
 
 
 class TestWindowPrompt(unittest.TestCase):
+    def test_each_configured_source_only_receives_its_jiqizhixin_rules(self):
+        groups = runner.load_sources(runner.PROJECT_ROOT / 'config/manus_sources.json')
+        for sources in groups.values():
+            for source in sources:
+                for filename in ('manus_discovery_window.md', 'manus_discovery_compact.md',
+                                 'manus_discovery.md'):
+                    with self.subTest(source=source['account_name'], template=filename):
+                        rendered = runner.render_discovery_prompt(
+                            runner.PROJECT_ROOT / 'scripts/prompts' / filename, [source])
+                        self.assertIn(source['home_url'], rendered)
+                        if source['platform'] == 'Official Jiqizhixin':
+                            self.assertIn('ScienceAI', rendered)
+                            self.assertRegex(rendered, r'author(?:=|缺失可为)null')
+                        else:
+                            self.assertNotIn('机器之心', rendered)
+                            self.assertNotIn('Official Jiqizhixin', rendered)
+                            self.assertNotIn('ScienceAI', rendered)
+
     def test_actual_window_template_has_bounded_loading_and_identity_rules(self):
         rendered = runner.render_discovery_prompt(
             runner.PROJECT_ROOT / 'scripts/prompts/manus_discovery_window.md',

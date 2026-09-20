@@ -12,6 +12,7 @@
     python3 scripts/enrich_news.py --selftest
 """
 import argparse
+import copy
 import hashlib
 import json
 import re
@@ -23,6 +24,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import tag_news  # noqa: E402
 from llm_common import call_llm, parse_output  # noqa: E402
+from llm_failures import FailureCircuit, safe_error
+from upstream_briefs import is_brief, source_text
 
 ENRICH_DEFAULTS = {
     "content_input_chars": 16000,
@@ -188,47 +191,71 @@ def enrich_one(tx: dict, item: dict) -> dict:
     由上层（build_manus_feed）判定为失败统计、不进入发布数据。
     """
     content = (item.get("content_text") or "").strip()
+    brief = is_brief(item)
+    if brief:
+        tx = copy.deepcopy(tx)
+        tx.setdefault('enrich', {}).update(summary_min_chars=4, summary_sentence_min_chars=4, summary_max_chars=60)
     cfg = enrich_cfg(tx)
     title = (item.get("title") or "").strip()
-    if not content or len(content) < 50:
+    if not content or (len(content) < 50 and not brief):
         return {"summary": "", "classification": tag_news.fallback_result(tx),
-                "enrichmentStatus": "failed"}
+                "enrichmentStatus": "failed", "modelAttempted": False, "cacheHit": False,
+                "error": {'category': 'content', 'httpStatus': None, 'systemic': False}}
     system, user = build_enrich_prompt(tx, title, item.get("mpName") or "", content)
+    last_error = {'category': 'invalid_response', 'httpStatus': None, 'systemic': False}
     for attempt in range(max(1, min(2, int(cfg["max_attempts"])))):
         try:
             text = call_llm(tx, system, user + ("\n注意：只输出 JSON 对象。" if attempt else ""),
                             timeout_seconds=cfg["timeout_seconds"], operation="news_enrichment")
             raw = parse_output(text)
-            # 分类/标签交给 tag_news.validate() 的既有兜底机制。模型已经给出合法
-            # taxonomy 结构、但摘要长度不合格时，保留模型分类，只用原文段落生成
-            # 确定性摘要。这样不会为格式问题再付一次调用费用，也不会丢掉模型标签。
+            # A valid summary cannot turn an invalid classification into a
+            # successful model call. Keep existing per-dimension normalization.
             if isinstance(raw, dict):
                 raw = enforce_event_boundary(raw, title)
                 if raw.get('category') == 'release' and (not isinstance(raw.get('release_evidence'), str)
                         or len(raw['release_evidence'].strip()) < 4
                         or raw['release_evidence'].strip() not in content):
+                    last_error = {'category': 'content', 'httpStatus': None, 'systemic': False}
                     continue
                 raw["summary"] = fit_model_summary(tx, raw.get("summary"))
                 valid_categories = {c["id"] for c in tx["categories"]}
                 classification_structured = (
                     raw.get("category") in valid_categories and isinstance(raw.get("tags"), dict)
                 )
+                if not classification_structured:
+                    last_error = {'category': 'invalid_response', 'httpStatus': None, 'systemic': False}
+                    break
+                classification = tag_news.validate(tx, raw)
+                if brief:
+                    return {'summary': source_text(item), 'summaryOrigin': 'upstream_brief',
+                            'classification': classification, 'enrichmentStatus': 'complete',
+                            'modelAttempted': True, 'cacheHit': False}
                 if validate_summary(tx, raw.get("summary")):
                     return {"summary": raw["summary"].strip(),
                             "summaryOrigin": "model",
-                            "classification": tag_news.validate(tx, raw),
-                            "enrichmentStatus": "complete"}
+                            "classification": classification,
+                            "enrichmentStatus": "complete", "modelAttempted": True, "cacheHit": False}
                 source_summary = deterministic_summary(tx, content, title)
                 if classification_structured and source_summary:
                     return {"summary": source_summary,
                             "rejectedModelSummary": raw.get("summary"),
                             "summaryOrigin": "source_extract",
-                            "classification": tag_news.validate(tx, raw),
-                            "enrichmentStatus": "complete"}
-        except Exception as exc:  # noqa: BLE001 - 网络/接口错误进入重试或兜底
-            if attempt:
-                print(f"    正文加工失败（已兜底）: {exc}", file=sys.stderr)
-    return fallback_enrichment(tx, content, title)
+                            "classification": classification,
+                            "enrichmentStatus": "complete", "modelAttempted": True, "cacheHit": False}
+        except Exception as exc:  # Transport errors never trigger blind paid retries.
+            last_error = safe_error(exc)
+            break
+    return {**fallback_enrichment(tx, content, title), 'error': last_error,
+            'modelAttempted': True, 'cacheHit': False}
+
+
+def valid_enrichment(tx: dict, result: dict) -> bool:
+    classification = result.get('classification') or {}
+    return (result.get('enrichmentStatus') == 'complete' and bool(result.get('summary'))
+            and isinstance(classification, dict)
+            and classification.get('autoFallback') is False
+            and classification.get('category') in {c['id'] for c in tx['categories']}
+            and isinstance(classification.get('tags'), dict))
 
 
 # ================= 缓存与批量 =================
@@ -247,7 +274,8 @@ def enrich_cache_key(tx: dict, item: dict) -> str:
     正文、prompt、taxonomy 或模型任一变更都会自动失效旧结果；缓存只存加工结果。
     """
     content_sha = hashlib.sha256((item.get("content_text") or "").encode("utf-8")).hexdigest()[:16]
-    return f"{tag_news.cache_prefix(tx)}:enrich-v{ENRICH_PROMPT_VERSION}:{enrich_item_key(item)}:{content_sha}"
+    suffix = ':brief-v1' if is_brief(item) else ''
+    return f"{tag_news.cache_prefix(tx)}:enrich-v{ENRICH_PROMPT_VERSION}:{enrich_item_key(item)}:{content_sha}{suffix}"
 
 
 def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict]:
@@ -261,11 +289,11 @@ def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict
     todo = []
     for it in items:
         k = enrich_cache_key(tx, it)
-        if isinstance(cache.get(k), dict) and cache[k].get("enrichmentStatus") == "complete":
+        if isinstance(cache.get(k), dict) and valid_enrichment(tx, cache[k]):
             cached = cache[k]
             if (cached.get('classification') or {}).get('category') == 'release' and is_preview(it.get('title', '')):
                 cached = {**cached, 'classification': tag_news.validate(tx, {'category': 'general', 'tags': {}})}
-            results[enrich_item_key(it)] = cached
+            results[enrich_item_key(it)] = {**cached, 'modelAttempted': False, 'cacheHit': True}
         else:
             todo.append(it)
     if todo:
@@ -273,12 +301,13 @@ def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict
         selected, deferred = todo[:limit], todo[limit:]
         deadline = time.monotonic() + cfg["budget_seconds"]
         done = 0
+        circuit = FailureCircuit()
         with ThreadPoolExecutor(max_workers=cfg["concurrency"]) as ex:
             queue = iter(selected)
             futs = {}
 
             def submit_next() -> bool:
-                if time.monotonic() >= deadline:
+                if circuit.stopped or time.monotonic() >= deadline:
                     return False
                 try:
                     item = next(queue)
@@ -295,8 +324,10 @@ def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict
                 for fut in finished:
                     it = futs.pop(fut)
                     r = fut.result()
+                    circuit.observe({'status': 'complete' if valid_enrichment(tx, r) else 'failed',
+                                     'error': r.get('error')})
                     key = enrich_cache_key(tx, it)
-                    if r.get("enrichmentStatus") == "complete":
+                    if valid_enrichment(tx, r):
                         cache[key] = r
                     else:
                         cache.pop(key, None)  # 清除旧降级缓存，下次运行可恢复。
@@ -307,6 +338,9 @@ def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict
         tag_news.save_cache(cache_path, cache)
         print(f"正文加工：新增 {done} 条（缓存命中 {len(items) - len(todo)} 条，"
               f"本轮上限外 {len(deferred)} 条）")
+        if circuit.stopped:
+            results = {key: {**value, 'batchStopped': True, 'circuitReason': circuit.reason}
+                       for key, value in results.items()}
     return results
 
 

@@ -12,6 +12,7 @@ SCALAR_FIELDS = (
 ALL_EVIDENCE_FIELDS = ("company_name", "product_names", *SCALAR_FIELDS)
 DEFAULTS = {
     "content_input_chars": 8000,
+    "max_output_tokens": 6144,
     "timeout_seconds": 90,
     "concurrency": 2,
     "budget_seconds": 300,

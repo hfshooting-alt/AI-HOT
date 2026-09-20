@@ -39,6 +39,11 @@ def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
     cache_dir = Path(cache_dir)
     cache_dir.mkdir(parents=True, exist_ok=True)
     extracts, cost = extract_articles(tx, articles, cache_dir / "extraction_cache.json", llm_fn)
+    if cost.get('circuitOpen'):
+        reason = (cost.get('circuitReason') or {}).get('category', 'unknown')
+        raise ValueError(f'公司模型阶段停止：{reason}；保留成功缓存，禁止晋升')
+    if cost['modelCalls'] and not cost.get('modelSuccesses'):
+        raise ValueError('公司模型阶段新请求全部失败；旧缓存不能代替本轮模型成功')
     previous = load_previous(previous_path)
     previous['companies'] = previous.get('companies', []) + previous.get('pendingEntities', []) + previous.get('excludedEntities', [])
     product_baseline = replace_article_products(previous, {a['id'] for a in articles
@@ -49,6 +54,10 @@ def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
     stats = {"articlesProcessed": len(articles), "articlesComplete": complete,
              "articlesFailed": failed, "articlesDeferred": cost["articlesDeferred"],
              "modelCalls": cost["modelCalls"], "cacheHits": cost["cacheHits"],
+             "modelSuccesses": cost.get("modelSuccesses", 0),
+             "modelFailures": cost.get("modelFailures", 0),
+             "failureCategories": cost.get("failureCategories", {}),
+             "circuitOpen": cost.get("circuitOpen", False),
              "companiesTotal": len(companies),
              "productsTotal": sum(len(c["product_names"]) for c in companies)}
     data = assemble(companies, stats, generated_at or now_bj_iso())

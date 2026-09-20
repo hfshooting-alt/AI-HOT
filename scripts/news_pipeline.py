@@ -5,6 +5,8 @@ Raw inputs stay in the candidate workspace. Only processed metadata is published
 import argparse
 import copy
 import json
+import traceback
+from datetime import date as calendar_date, datetime, time
 from pathlib import Path
 
 import build_snapshot as snapshot
@@ -15,6 +17,7 @@ import tag_news
 from source_status import reason_code
 from manus_source import contracts
 from manus_source.config import load_sources
+from manus_source.checkpoints import publication_time_conflict
 from manus_source.window import ten_am_window
 from aihot_window import in_window as aihot_in_window
 
@@ -72,15 +75,29 @@ def load_manus(date, work_dir, groups, enabled=True):
             ok, _ = contracts.validate_content_batch(read(path), date, expected, 100, dates)
             for a in ok:
                 if a['article_url'] in metadata:
-                    articles[a['article_url']] = {**a, **metadata[a['article_url']]}
+                    article = {**a, **metadata[a['article_url']]}
+                    if publication_time_conflict(article):
+                        article['publicationTimeConflict'] = True
+                    articles[a['article_url']] = article
         except (OSError, ValueError, KeyError, TypeError):
             continue
     for audit in audits:
-        audit['usableArticles'] = sum(a['account_name'] == audit['name'] for a in articles.values())
+        audit['usableArticles'] = sum(a['account_name'] == audit['name']
+                                      and not a.get('publicationTimeConflict') for a in articles.values())
         if audit['status'] == 'complete' and audit['usableArticles'] < audit['discoveredArticles']:
             audit['status'] = 'partial'
-            audit['reasonCode'] = 'content_incomplete'
+            audit['reasonCode'] = ('original_publication_time_conflict' if any(
+                a['account_name'] == audit['name'] and a.get('publicationTimeConflict')
+                for a in articles.values()) else 'content_incomplete')
     return discoveries, audits, list(articles.values())
+
+
+def candidate_sort_time(item):
+    """Date precision uses a day key for ordering without inventing a publication time."""
+    value = item['publishedAt']
+    if item.get('publishedPrecision') == 'date':
+        return datetime.combine(calendar_date.fromisoformat(value), time.min, tzinfo=snapshot.BJ)
+    return snapshot.timestamp(value)
 
 
 def candidates(aihot, manus_articles):
@@ -127,7 +144,21 @@ def candidates(aihot, manus_articles):
             urls[url] = item
         titles[title] = item
         unique.append(item)
-    return sorted(unique, key=lambda i: snapshot.timestamp(i['publishedAt']), reverse=True)
+    return sorted(unique, key=candidate_sort_time, reverse=True)
+
+
+def new_model_failure(results, status_field):
+    """Cached success cannot certify a stage whose new model calls all failed."""
+    attempted = [r for r in results.values() if r.get('modelAttempted') is True and not r.get('cacheHit')]
+    succeeded = [r for r in attempted if r.get(status_field) == 'complete'
+                 and (status_field != 'enrichmentStatus'
+                      or (r.get('classification') or {}).get('autoFallback') is False)]
+    failures = [r for r in attempted if (r.get('error') or {}).get('category') != 'content'
+                and r not in succeeded]
+    if attempted and not succeeded and failures:
+        return {'reason': 'no_new_model_success', 'modelCalls': len(attempted), 'modelSuccesses': 0,
+                'error': failures[0].get('error') or {'category': 'unknown', 'httpStatus': None, 'systemic': False}}
+    return None
 
 
 def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_fn=None):
@@ -148,10 +179,26 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
     if not any(a['status'] == 'complete' or
                (a['status'] == 'partial' and a['usableArticles'] > 0) for a in audits):
         raise ValueError('All sources unavailable; keep previous publication')
-    pool = candidates(aihot['items'], articles)
+    conflicts, usable = [], []
+    for article in articles:
+        if article.get('publicationTimeConflict'):
+            conflicts.append({'id': contracts.stable_article_id(article['account_name'], article['published_date'], article['title']),
+                'title': article['title'], 'url': article['article_url'], 'stage': 'publication_time',
+                'reasonCode': 'original_publication_time_conflict',
+                'reason': '列表相对时间与正文原始发布时间冲突，保留证据待核实。'})
+        else:
+            usable.append(article)
+    # Keep the original time evidence private and isolate it before cross-source
+    # deduplication, so an independent AIHOT summary can still be processed.
+    manus.atomic_write_json(workspace / 'inputs/publication-time-review.json', [
+        {k: a.get(k) for k in ('account_name', 'article_url', 'title', 'published_at',
+                              'published_date', 'publishedPrecision', 'published_time_text', 'timeEvidence', 'note')}
+        for a in articles if a.get('publicationTimeConflict')])
+    pool = candidates(aihot['items'], usable)
     from publication_review import review as review_publication
-    original_pool_count = len(pool)
+    original_pool_count = len(pool) + len(conflicts)
     pool, time_quarantine = review_publication(pool, window)
+    time_quarantine = conflicts + time_quarantine
     tx = copy.deepcopy(tag_news.load_taxonomy(str(ROOT / 'config/taxonomy.json')))
     for key in ('relevance', 'enrich'):
         tx.setdefault(key, {}).update(max_new_items_per_run=len(pool), budget_seconds=7200)
@@ -163,6 +210,13 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
     manus.atomic_write_json(workspace / 'inputs/relevance-review.json', [
         {'id': i['id'], 'title': i['title'], 'url': i['url'],
          'result': results.get(screen_news.item_key(i), {})} for i in pool])
+    if stats.get('circuitStopped'):
+        manus.atomic_write_json(workspace / 'inputs/model-failure.json', {'stage': 'relevance', 'error': stats['circuitReason']})
+        raise ValueError('Shared relevance request circuit stopped; preserve completed caches')
+    failure = new_model_failure(results, 'status')
+    if failure:
+        manus.atomic_write_json(workspace / 'inputs/model-failure.json', {'stage': 'relevance', **failure})
+        raise ValueError('Shared relevance has no new model success; preserve completed caches')
     quarantined = [{'id': i['id'], 'title': i['title'], 'url': i['url'], 'stage': 'relevance',
                     'reason': '内容或原文证据不足，相关性未核实'} for i in pool
                    if results.get(screen_news.item_key(i), {}).get('status') != 'complete']
@@ -171,6 +225,14 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
     if pool and len(quarantined) == len(pool):
         raise ValueError('Shared relevance processing unavailable; keep previous publication')
     enriched = enrich_fn(selected, tx, str(cache_dir / 'news_enrichment.json'))
+    stopped = next((r for r in enriched.values() if r.get('batchStopped')), None)
+    if stopped:
+        manus.atomic_write_json(workspace / 'inputs/model-failure.json', {'stage': 'enrichment', 'error': stopped.get('circuitReason')})
+        raise ValueError('Shared summary request circuit stopped; preserve completed caches')
+    failure = new_model_failure(enriched, 'enrichmentStatus')
+    if failure:
+        manus.atomic_write_json(workspace / 'inputs/model-failure.json', {'stage': 'enrichment', **failure})
+        raise ValueError('Shared summary has no new model success; preserve completed caches')
     processed = []
     for item in selected:
         result = enriched.get(enrich_news.enrich_item_key(item), {})
@@ -224,7 +286,13 @@ def main():
             process(args.date, args.workspace, args.manus_work_dir, not args.without_manus)
         return 0
     except (OSError, ValueError, KeyError, TypeError) as exc:
-        print(f'News stage failed: {type(exc).__name__}')
+        frames = [{'file': Path(f.filename).name, 'line': f.lineno, 'function': f.name}
+                  for f in traceback.extract_tb(exc.__traceback__)[-6:]]
+        diagnostic = {'command': args.command, 'errorType': type(exc).__name__, 'frames': frames}
+        # Preserve execution locations without printing exceptions that may
+        # contain upstream bodies, request URLs or credentials.
+        manus.atomic_write_json(args.workspace / 'inputs/stage-error.json', diagnostic)
+        print(f'News stage failed: {json.dumps(diagnostic, ensure_ascii=False)}')
         return 1
 
 

@@ -72,7 +72,9 @@ def main():
     if any(r.get('summaryOrigin') != 'model' for r in summaries.values()) or len(summaries) != len(items):
         raise SystemExit('摘要小样本未全部通过，结果已缓存，停止公司抽取和预览更新')
     def bounded_llm(tx, system, user, **kwargs):
-        return budgeted_llm(tx, system, user, **kwargs, max_tokens=2048, operation='company_extraction')
+        kwargs.setdefault('max_tokens', 2048)
+        kwargs.setdefault('operation', 'company_extraction')
+        return budgeted_llm(tx, system, user, **kwargs)
     extracts, costs = extract_articles(tx, articles, out / 'extraction_cache.json', bounded_llm)
     if any(r['status'] != 'complete' for r in extracts.values()):
         raise SystemExit('公司抽取未全部成功，结果已缓存，停止预览更新')
