@@ -228,6 +228,24 @@
   ],
   "excludedProducts": [
     {
+      "company": "DeepSeek",
+      "name": "API",
+      "articleId": "aihot:cmu92r7mm05tjrojrjbgb9tc6",
+      "quote": "DeepSeek 公布最新 API 峰谷计费规则，调休上班的周末及中国法定节假日全天均按空闲时段计费",
+      "reason": "仅接口类别，没有具体名称或型号。剔除对应产品关系，保留公司和原新闻。",
+      "reviewedAt": "2026-09-20",
+      "origin": "manual-evidence-review"
+    },
+    {
+      "company": "LinkedIn",
+      "name": "MCP",
+      "articleId": "aihot:cmu927gpv054krojrq6scu77f",
+      "quote": "LinkedIn 用 MCP 构建组织级上下文层",
+      "reason": "引文描述协议使用，没有具名软件产品。剔除对应产品关系，保留公司和原新闻。",
+      "reviewedAt": "2026-09-20",
+      "origin": "manual-evidence-review"
+    },
+    {
       "company": "Techaro",
       "articleId": "aihot:cmtz6em7r0w0wroupc3l2ajzv",
       "name": "Lygma AGI",

@@ -27,7 +27,8 @@ LIMIT = 512 * 1024 * 1024
 TREES = ('work/runs', 'work/manus', 'work/company-web-research', 'work/company-discovery',
          'work/company-research-budget')
 EXTRA_FILES = ('work/llm-usage.jsonl', 'work/llm-failures.jsonl',
-               'work/diagnostic-summary.json', 'work/schedule-audit.json')
+               'work/diagnostic-summary.json', 'work/schedule-audit.json',
+               'work/publication-receipt.json')
 
 
 def cipher(secret, salt):

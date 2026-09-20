@@ -1519,17 +1519,17 @@
     },
     {
       "record_name": "AllSpark",
-      "entity_type": "company",
+      "owner_company": "小红书",
+      "source_kind": "division",
       "reviewed": true,
       "facts": [
         {
-          "field": "business",
-          "value": "开源搜索智能体",
-          "quote": "Iris-pro is an open-weight search agent post-trained from Qwen3.5-397B-A17B.",
-          "url": "https://huggingface.co/AllSpark-Research/Iris-pro",
-          "title": "AllSpark · 公开资料核验",
-          "checkedAt": "2026-09-15",
-          "replace": true
+          "field": "owner_company",
+          "value": "小红书",
+          "quote": "Researcher @ Xiaohongshu · AllSpark",
+          "url": "https://phellonchen.github.io/",
+          "title": "AllSpark 研究员任职履历：小红书内部团队",
+          "checkedAt": "2026-09-20"
         }
       ]
     },

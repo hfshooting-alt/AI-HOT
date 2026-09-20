@@ -12,6 +12,8 @@ import hashlib
 import json
 import re
 import sys
+import threading
+from contextlib import nullcontext
 from copy import deepcopy
 from dataclasses import replace
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -21,7 +23,7 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from manus_source import contracts  # noqa: E402
-from manus_source.client import ManusClient, DISCOVERY_OUTPUT_SCHEMA  # noqa: E402
+from manus_source.client import ManusClient, DISCOVERY_OUTPUT_SCHEMA, observed_at  # noqa: E402
 from manus_source.window import ten_am_window, timestamp  # noqa: E402
 from manus_source.config import Settings, load_sources, render_sources_block  # noqa: E402
 
@@ -48,6 +50,67 @@ class DiscoveryRunError(RuntimeError):
         self.remote_status = remote_status
         self.partial_payload = None
         super().__init__(str(cause))
+
+
+class SourceReceiptReport:
+    """Persist allowlisted task observations without changing collection or retry behavior."""
+    def __init__(self, report, path, groups):
+        self.report, self.path = report, path
+        self.lock = threading.Lock()
+        report['sourceReceipts'] = [
+            {'accountName': source['account_name'], 'sourceGroup': group,
+             'execution': 'not_created', 'creationState': 'not_created',
+             'createAttempts': 0, 'taskId': None, 'lastRemoteStatus': 'unknown',
+             'terminalConfirmed': False, 'terminalObservedAt': None,
+             'notCreatedReason': 'not_dispatched'}
+            for group, sources in groups.items() for source in sources]
+        self.rows = {(row['sourceGroup'], row['accountName']): row
+                     for row in report['sourceReceipts']}
+
+    def update(self, group, name, **fields):
+        with self.lock:
+            row = self.rows[group, name]
+            row.update(fields)
+            if row['creationState'] == 'created':
+                row.update(execution='created', notCreatedReason=None)
+            elif row['creationState'] == 'unknown':
+                row.update(execution='creation_unknown', notCreatedReason=None)
+            self._write()
+
+    def callback(self, group, name):
+        return lambda receipt: self.update(group, name, **receipt)
+
+    def _write(self):
+        try:
+            temp = self.path.with_suffix('.tmp')
+            temp.write_text(json.dumps(self.report, ensure_ascii=False, indent=2), encoding='utf-8')
+            temp.replace(self.path)
+        except Exception as error:  # Diagnostics cannot change task creation, stopping or retries.
+            self.report['receiptWriteError'] = type(error).__name__
+            print(f'Manus receipt persistence failed: {type(error).__name__}', flush=True)
+
+    def finish(self):
+        with self.lock:
+            rows = list(self.rows.values())
+            for row in rows:
+                if row['execution'] == 'queued':
+                    row.update(execution='not_created', notCreatedReason='creation_not_observed')
+            self.report.update(
+                sourceCountMeaning='configured_sources',
+                attemptedSourceCount=sum(row['createAttempts'] > 0 for row in rows),
+                createdSourceCount=sum(row['creationState'] == 'created' for row in rows),
+                cachedSourceCount=sum(row['execution'] == 'cache_reused' for row in rows),
+                notCreatedSourceCount=sum(row['execution'] == 'not_created' for row in rows),
+                creationUnknownSourceCount=sum(row['creationState'] == 'unknown' for row in rows),
+                observedTerminalTaskCount=sum(row['creationState'] == 'created'
+                                              and row['terminalConfirmed'] for row in rows))
+            self._write()
+
+
+def run_discovery_with_receipt(client, arguments, callback):
+    scope = getattr(client, 'receipt_scope', None)
+    with scope(callback) if callable(scope) else nullcontext():
+        return run_discovery(client, *arguments)
 
 
 def default_target_date() -> str:
@@ -442,16 +505,20 @@ def main(argv: list[str] | None = None) -> int:
         stamp = datetime.now(ZoneInfo("Asia/Shanghai")).strftime("%Y%m%dT%H%M%S%f")
         (history / f"{stamp}.json").write_bytes(cost_path.read_bytes())
     cost_report = None
+    receipts = None
     if canary:
         if canary_path.exists():
             print(f"该账号当天已有 canary 尝试：{canary_path}", file=sys.stderr)
             return 1
+        receipts = SourceReceiptReport(canary, canary_path, groups_cfg)
         try:
             canary["balanceBefore"] = client.available_credits()
             if canary["balanceBefore"] < args.canary_credit_limit:
                 raise RuntimeError("Manus 余额低于 canary 保留线")
         except Exception as exc:  # noqa: BLE001 - 余额不可确认时禁止创建任务
             canary.update(status="blocked", error=str(exc)[:160])
+            receipts.update(group, args.account, notCreatedReason='budget_unavailable')
+            receipts.finish()
             canary_path.write_text(json.dumps(canary, ensure_ascii=False, indent=2), encoding="utf-8")
             print("无法确认 Manus 余额，canary 未创建任务", file=sys.stderr)
             return 1
@@ -464,16 +531,23 @@ def main(argv: list[str] | None = None) -> int:
             "groups": list(args.groups),
             "sourceIsolation": True,
             "sourceCount": selected_source_count,
+            "collectionWindow": window,
             "creditLimitPerSource": args.credit_limit_per_source,
             "maxObservedRunCredits": args.credit_limit_per_source * selected_source_count,
             "status": "reserved",
         }
+        receipts = SourceReceiptReport(cost_report, cost_path,
+                                       {group: groups_cfg[group] for group in args.groups})
         try:
             cost_report["balanceBefore"] = client.available_credits()
             if cost_report["balanceBefore"] < cost_report["maxObservedRunCredits"]:
                 raise RuntimeError("Manus 余额低于本轮发现任务保留线")
         except Exception as exc:  # noqa: BLE001 - 费用不可确认时禁止创建生产任务
             cost_report.update(status="blocked", error=str(exc)[:160])
+            for group in args.groups:
+                for source in groups_cfg[group]:
+                    receipts.update(group, source['account_name'], notCreatedReason='budget_unavailable')
+            receipts.finish()
             cost_path.write_text(json.dumps(cost_report, ensure_ascii=False, indent=2), encoding="utf-8")
             print("无法确认 Manus 发现阶段预算，未创建任务", file=sys.stderr)
             return 1
@@ -495,6 +569,11 @@ def main(argv: list[str] | None = None) -> int:
                         args.retry_failed_sources)
                     if cached is not None:
                         source_payloads[group][source["account_name"]] = cached
+                        audit = cached['source_audits'][0]
+                        receipts.update(group, source['account_name'], execution='cache_reused',
+                                        notCreatedReason='cache_reused', cacheOrigin=origin,
+                                        cacheReusedObservedAt=observed_at(),
+                                        sourceStatus=audit['source_status'], articleCount=audit['article_count'])
                         print(f"[{group}/{source['account_name']}] 复用 {origin}", flush=True)
                         continue
                     prompt_text = render_discovery_prompt(
@@ -503,10 +582,13 @@ def main(argv: list[str] | None = None) -> int:
                         prompt_text = prompt_text.replace(
                             "{{WINDOW_START}}", window["start"]).replace(
                             "{{WINDOW_END}}", window["end"])
-                    fut = ex.submit(
-                        run_discovery, client, group, args.date, prompt_text,
+                    receipts.update(group, source['account_name'], execution='queued',
+                                    notCreatedReason='not_dispatched')
+                    arguments = (group, args.date, prompt_text,
                         [source["account_name"]], window, args.credit_limit_per_source,
                         [source], account_dir / f"{canary_slug(source['account_name'])}.checkpoints.json")
+                    fut = ex.submit(run_discovery_with_receipt, client, arguments,
+                                    receipts.callback(group, source['account_name']))
                     futs[fut] = (group, source)
             for fut in as_completed(futs):
                 group, source = futs[fut]
@@ -521,6 +603,8 @@ def main(argv: list[str] | None = None) -> int:
                         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
                     audit = payload["source_audits"][0]
                     count = audit["article_count"]
+                    receipts.update(group, name, sourceStatus=audit['source_status'],
+                                    articleCount=count, collectionFinishedObservedAt=observed_at())
                     if audit["source_status"] == "complete":
                         print(f"[{group}/{name}] 来源完成：{count} 篇", flush=True)
                     else:
@@ -546,6 +630,18 @@ def main(argv: list[str] | None = None) -> int:
                                failed_source_payload(group, args.date, source, window, reason))
                     payload['sourceIdentity'] = source_identity(source)
                     source_payloads[group][name] = payload
+                    receipt_fields = {'sourceStatus': payload['source_audits'][0]['source_status'],
+                                      'articleCount': payload['source_audits'][0]['article_count'],
+                                      'collectionFinishedObservedAt': observed_at()}
+                    if isinstance(error, DiscoveryRunError):
+                        receipt_fields.update(taskId=error.task_id, creationState='created',
+                                              stopAccepted=error.stop_accepted,
+                                              lastRemoteStatus=error.remote_status,
+                                              terminalConfirmed=error.stop_succeeded)
+                    elif 'task not created' in reason:
+                        receipt_fields.update(execution='not_created', creationState='not_created',
+                                              notCreatedReason='cost_circuit_open')
+                    receipts.update(group, name, **receipt_fields)
                     (account_dir / f"{canary_slug(name)}.json").write_text(
                         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
                     source_failures.append(f"{name}: {reason}")
@@ -587,9 +683,14 @@ def main(argv: list[str] | None = None) -> int:
                 if canary:
                     canary["createAttempts"] = 1
                     canary_path.write_text(json.dumps(canary, ensure_ascii=False, indent=2), encoding="utf-8")
-                futs[ex.submit(run_discovery, client, group, args.date, prompt_text,
-                               accounts, window, limit, sources,
-                               raw_dir / f"checkpoints-{group}.json")] = group
+                arguments = (group, args.date, prompt_text, accounts, window, limit, sources,
+                             raw_dir / f"checkpoints-{group}.json")
+                if canary:
+                    fut = ex.submit(run_discovery_with_receipt, client, arguments,
+                                    receipts.callback(group, args.account))
+                else:
+                    fut = ex.submit(run_discovery, client, *arguments)
+                futs[fut] = group
             for fut in as_completed(futs):
                 group = futs[fut]
                 try:
@@ -618,6 +719,10 @@ def main(argv: list[str] | None = None) -> int:
                     print(f"[{group}] 发现失败：{error}", flush=True)
 
     if canary:
+        receipts.finish()
+        receipt = canary['sourceReceipts'][0]
+        if receipt.get('taskId'):
+            canary['taskId'] = receipt['taskId']
         canary["finishedAt"] = datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(timespec="seconds")
         if failures:
             canary.update(status="failed", error=failures[0][:160])
@@ -627,6 +732,9 @@ def main(argv: list[str] | None = None) -> int:
             canary.update(status="complete", resolved=True,
                           sourceStatus=audit["source_status"],
                           articleCount=audit["article_count"])
+            if receipt.get('taskId'):
+                canary.update(resolved=receipt['terminalConfirmed'],
+                              remoteStatus=receipt['lastRemoteStatus'])
         try:
             canary["balanceAfter"] = client.available_credits()
             canary["creditsUsed"] = max(0, canary["balanceBefore"] - canary["balanceAfter"])
@@ -634,6 +742,7 @@ def main(argv: list[str] | None = None) -> int:
             canary["balanceError"] = str(exc)[:160]
         canary_path.write_text(json.dumps(canary, ensure_ascii=False, indent=2), encoding="utf-8")
     if cost_report is not None:
+        receipts.finish()
         audited_source_failures = [
             f"{audit['account_name']}: {audit.get('note') or '来源审计失败'}"
             for payload in results.values()

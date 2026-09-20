@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-20T22:46:49+08:00",
+  "generatedAt": "2026-09-20T23:18:55+08:00",
   "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
   "stats": {
     "articlesProcessed": 240,
@@ -14,7 +14,7 @@
     "failureCategories": {},
     "circuitOpen": false,
     "companiesTotal": 576,
-    "productsTotal": 1221,
+    "productsTotal": 1219,
     "pendingEntities": 164,
     "excludedEntities": 2,
     "previouslyProcessedArticles": 238
@@ -13929,9 +13929,109 @@
       ]
     },
     {
-      "id": "company:a998d43ae529559d",
-      "company_name": "AllSpark",
+      "id": "company:84308bea454057aa",
+      "company_name": "LinkedIn",
+      "aliases": [],
+      "product_names": [
+        "LinkedIn"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": "职业社交平台，记录职业身份和已有关系，通过招聘和销售业务获得收入",
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "LinkedIn",
+            "articleId": "aihot:cmu927gpv054krojrq6scu77f",
+            "url": "https://x.com/hongming731/status/2101463493342044268",
+            "title": "BestBlogs 早报：Muse Agentic 架构与 LLM 推理路由",
+            "publishedAt": "2026-09-20T00:08:34.000Z",
+            "sourceName": "X：洪明 (@hongming731)",
+            "origin": "article"
+          },
+          {
+            "value": "LinkedIn",
+            "articleId": "manus:6cd7e21c6a383313",
+            "url": "https://www.163.com/dy/article/L7197UAN0511N33R.html?spss=dy_author",
+            "title": "对话Articuler.ai：AI社交最不该做的，是让Agent替你社交",
+            "publishedAt": "2026-09-17T10:59:10+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "LinkedIn",
+            "articleId": "manus:6cd7e21c6a383313",
+            "url": "https://www.163.com/dy/article/L7197UAN0511N33R.html?spss=dy_author",
+            "title": "对话Articuler.ai：AI社交最不该做的，是让Agent替你社交",
+            "publishedAt": "2026-09-17T10:59:10+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          }
+        ],
+        "business": [
+          {
+            "value": "职业社交平台，记录职业身份和已有关系，通过招聘和销售业务获得收入",
+            "articleId": "manus:6cd7e21c6a383313",
+            "url": "https://www.163.com/dy/article/L7197UAN0511N33R.html?spss=dy_author",
+            "title": "对话Articuler.ai：AI社交最不该做的，是让Agent替你社交",
+            "publishedAt": "2026-09-17T10:59:10+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu927gpv054krojrq6scu77f",
+          "title": "BestBlogs 早报：Muse Agentic 架构与 LLM 推理路由",
+          "url": "https://x.com/hongming731/status/2101463493342044268",
+          "publishedAt": "2026-09-20T00:08:34.000Z",
+          "sourceName": "X：洪明 (@hongming731)",
+          "category": "general"
+        },
+        {
+          "id": "manus:6cd7e21c6a383313",
+          "title": "对话Articuler.ai：AI社交最不该做的，是让Agent替你社交",
+          "url": "https://www.163.com/dy/article/L7197UAN0511N33R.html?spss=dy_author",
+          "publishedAt": "2026-09-17T10:59:10+08:00",
+          "sourceName": "硅星人",
+          "category": "interview"
+        }
+      ],
+      "firstSeenAt": "2026-09-17T10:59:10+08:00",
+      "lastSeenAt": "2026-09-20T00:08:34.000Z",
+      "entityType": "company",
+      "productUpdates": [
+        {
+          "name": "LinkedIn",
+          "relationship": "unknown",
+          "quote": "LinkedIn",
+          "articleId": "manus:6cd7e21c6a383313",
+          "url": "https://www.163.com/dy/article/L7197UAN0511N33R.html?spss=dy_author",
+          "title": "对话Articuler.ai：AI社交最不该做的，是让Agent替你社交",
+          "publishedAt": "2026-09-17T10:59:10+08:00"
+        }
+      ],
+      "updatedAt": "2026-09-20T00:08:34.000Z",
+      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+      "latestReportAt": "2026-09-20T00:08:34.000Z",
+      "profileUpdatedAt": "2026-09-20T23:18:55+08:00"
+    },
+    {
+      "id": "company:d26c6a08a591011a",
+      "company_name": "小红书",
       "aliases": [
+        "AllSpark",
         "小红书"
       ],
       "product_names": [
@@ -13943,8 +14043,8 @@
       ],
       "founded": null,
       "country": null,
-      "team": "AllSpark 团队",
-      "business": "开源搜索智能体",
+      "team": null,
+      "business": null,
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -13953,53 +14053,6 @@
         "国家/地区": "其他"
       },
       "fieldSources": {
-        "company_name": [
-          {
-            "value": "小红书",
-            "articleId": "aihot:cmu927gpv054krojrq6scu77f",
-            "url": "https://x.com/hongming731/status/2101463493342044268",
-            "title": "BestBlogs 早报：Muse Agentic 架构与 LLM 推理路由",
-            "publishedAt": "2026-09-20T00:08:34.000Z",
-            "sourceName": "X：洪明 (@hongming731)",
-            "origin": "article"
-          },
-          {
-            "value": "小红书",
-            "articleId": "aihot:cmu927gpv054lrojrdjeoup61",
-            "url": "https://x.com/hongming731/status/2101463436819591315",
-            "title": "BestBlogs 早报：小红书 Muse、OpenAI 推理路由与 LinkedIn 上下文工程",
-            "publishedAt": "2026-09-20T00:08:21.000Z",
-            "sourceName": "X：洪明 (@hongming731)",
-            "origin": "article"
-          },
-          {
-            "value": "小红书",
-            "articleId": "aihot:cmu3xxqx70jmoroc1orfhnwm2",
-            "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496400&idx=1&sn=64957c6e3a95d71fe7a51146825c04db",
-            "title": "EMNLP 2026|MemPro：让 Agent 的记忆系统学会自我进化",
-            "publishedAt": "2026-09-16T09:59:00.000Z",
-            "sourceName": "公众号：小红书技术（dots.llm）",
-            "origin": "article"
-          },
-          {
-            "value": "小红书",
-            "articleId": "aihot:cmu12ocst0b6nro2nypi25zyq",
-            "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496383&idx=1&sn=2db8607f797615a3647d9fec7e54f448",
-            "title": "小红书 AllSpark 开源 Search Agent 模型 Iris，35B 与 397B 版本同量级成绩领先",
-            "publishedAt": "2026-09-14T09:59:00.000Z",
-            "sourceName": "公众号：小红书技术（dots.llm）",
-            "origin": "article"
-          },
-          {
-            "value": "AllSpark",
-            "articleId": "aihot:cmtzu1b4303hyro394wkmr8wg",
-            "url": "https://the-decoder.com/iris-mini-and-iris-pro-are-the-strongest-open-weight-search-agents-in-their-class",
-            "title": "AllSpark 发布 Iris-mini 和 Iris-pro 开源搜索智能体",
-            "publishedAt": "2026-09-13T12:58:18.000Z",
-            "sourceName": "The Decoder：AI News（RSS）",
-            "origin": "article"
-          }
-        ],
         "product_names": [
           {
             "value": "Muse",
@@ -14056,28 +14109,17 @@
             "origin": "article"
           }
         ],
-        "business": [
+        "company_name": [
           {
-            "value": "开源搜索智能体",
-            "articleId": "research:ae692a1e3123ba7a",
-            "url": "https://huggingface.co/AllSpark-Research/Iris-pro",
-            "title": "AllSpark · 公开资料核验",
+            "value": "小红书",
+            "articleId": "research:8049581d3d286821",
+            "url": "https://phellonchen.github.io/",
+            "title": "AllSpark 研究员任职履历：小红书内部团队",
             "publishedAt": "",
             "sourceName": "公开资料核验",
             "origin": "research",
-            "quote": "Iris-pro is an open-weight search agent post-trained from Qwen3.5-397B-A17B.",
-            "checkedAt": "2026-09-15"
-          }
-        ],
-        "team": [
-          {
-            "value": "AllSpark 团队",
-            "articleId": "aihot:cmu12ocst0b6nro2nypi25zyq",
-            "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496383&idx=1&sn=2db8607f797615a3647d9fec7e54f448",
-            "title": "小红书 AllSpark 开源 Search Agent 模型 Iris，35B 与 397B 版本同量级成绩领先",
-            "publishedAt": "2026-09-14T09:59:00.000Z",
-            "sourceName": "公众号：小红书技术（dots.llm）",
-            "origin": "article"
+            "quote": "Researcher @ Xiaohongshu · AllSpark",
+            "checkedAt": "2026-09-20"
           }
         ]
       },
@@ -14128,7 +14170,7 @@
       "entityType": "company",
       "updatedAt": "2026-09-20T00:08:34.000Z",
       "latestReportAt": "2026-09-20T00:08:34.000Z",
-      "profileUpdatedAt": "2026-09-20T15:16:37+08:00",
+      "profileUpdatedAt": "2026-09-20T23:18:55+08:00",
       "productUpdates": [
         {
           "name": "Muse",
@@ -14184,125 +14226,267 @@
           "title": "AllSpark 发布 Iris-mini 和 Iris-pro 开源搜索智能体",
           "publishedAt": "2026-09-13T12:58:18.000Z"
         }
-      ]
-    },
-    {
-      "id": "company:84308bea454057aa",
-      "company_name": "LinkedIn",
-      "aliases": [],
-      "product_names": [
-        "MCP",
-        "LinkedIn"
       ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": "职业社交平台，记录职业身份和已有关系，通过招聘和销售业务获得收入",
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "其他AI应用",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "LinkedIn",
-            "articleId": "aihot:cmu927gpv054krojrq6scu77f",
-            "url": "https://x.com/hongming731/status/2101463493342044268",
-            "title": "BestBlogs 早报：Muse Agentic 架构与 LLM 推理路由",
-            "publishedAt": "2026-09-20T00:08:34.000Z",
-            "sourceName": "X：洪明 (@hongming731)",
-            "origin": "article"
+      "brandProfiles": {
+        "AllSpark": {
+          "id": "company:a998d43ae529559d",
+          "company_name": "AllSpark",
+          "aliases": [
+            "小红书"
+          ],
+          "product_names": [
+            "Muse",
+            "MemPro",
+            "Iris",
+            "Iris-mini",
+            "Iris-pro"
+          ],
+          "founded": null,
+          "country": null,
+          "team": "AllSpark 团队",
+          "business": "开源搜索智能体",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "其他AI应用",
+            "国家/地区": "其他"
           },
-          {
-            "value": "LinkedIn",
-            "articleId": "manus:6cd7e21c6a383313",
-            "url": "https://www.163.com/dy/article/L7197UAN0511N33R.html?spss=dy_author",
-            "title": "对话Articuler.ai：AI社交最不该做的，是让Agent替你社交",
-            "publishedAt": "2026-09-17T10:59:10+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "MCP",
-            "articleId": "aihot:cmu927gpv054krojrq6scu77f",
-            "url": "https://x.com/hongming731/status/2101463493342044268",
-            "title": "BestBlogs 早报：Muse Agentic 架构与 LLM 推理路由",
-            "publishedAt": "2026-09-20T00:08:34.000Z",
-            "sourceName": "X：洪明 (@hongming731)",
-            "origin": "article"
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "小红书",
+                "articleId": "aihot:cmu927gpv054krojrq6scu77f",
+                "url": "https://x.com/hongming731/status/2101463493342044268",
+                "title": "BestBlogs 早报：Muse Agentic 架构与 LLM 推理路由",
+                "publishedAt": "2026-09-20T00:08:34.000Z",
+                "sourceName": "X：洪明 (@hongming731)",
+                "origin": "article"
+              },
+              {
+                "value": "小红书",
+                "articleId": "aihot:cmu927gpv054lrojrdjeoup61",
+                "url": "https://x.com/hongming731/status/2101463436819591315",
+                "title": "BestBlogs 早报：小红书 Muse、OpenAI 推理路由与 LinkedIn 上下文工程",
+                "publishedAt": "2026-09-20T00:08:21.000Z",
+                "sourceName": "X：洪明 (@hongming731)",
+                "origin": "article"
+              },
+              {
+                "value": "小红书",
+                "articleId": "aihot:cmu3xxqx70jmoroc1orfhnwm2",
+                "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496400&idx=1&sn=64957c6e3a95d71fe7a51146825c04db",
+                "title": "EMNLP 2026|MemPro：让 Agent 的记忆系统学会自我进化",
+                "publishedAt": "2026-09-16T09:59:00.000Z",
+                "sourceName": "公众号：小红书技术（dots.llm）",
+                "origin": "article"
+              },
+              {
+                "value": "小红书",
+                "articleId": "aihot:cmu12ocst0b6nro2nypi25zyq",
+                "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496383&idx=1&sn=2db8607f797615a3647d9fec7e54f448",
+                "title": "小红书 AllSpark 开源 Search Agent 模型 Iris，35B 与 397B 版本同量级成绩领先",
+                "publishedAt": "2026-09-14T09:59:00.000Z",
+                "sourceName": "公众号：小红书技术（dots.llm）",
+                "origin": "article"
+              },
+              {
+                "value": "AllSpark",
+                "articleId": "aihot:cmtzu1b4303hyro394wkmr8wg",
+                "url": "https://the-decoder.com/iris-mini-and-iris-pro-are-the-strongest-open-weight-search-agents-in-their-class",
+                "title": "AllSpark 发布 Iris-mini 和 Iris-pro 开源搜索智能体",
+                "publishedAt": "2026-09-13T12:58:18.000Z",
+                "sourceName": "The Decoder：AI News（RSS）",
+                "origin": "article"
+              }
+            ],
+            "product_names": [
+              {
+                "value": "Muse",
+                "articleId": "aihot:cmu927gpv054krojrq6scu77f",
+                "url": "https://x.com/hongming731/status/2101463493342044268",
+                "title": "BestBlogs 早报：Muse Agentic 架构与 LLM 推理路由",
+                "publishedAt": "2026-09-20T00:08:34.000Z",
+                "sourceName": "X：洪明 (@hongming731)",
+                "origin": "article"
+              },
+              {
+                "value": "Muse",
+                "articleId": "aihot:cmu927gpv054lrojrdjeoup61",
+                "url": "https://x.com/hongming731/status/2101463436819591315",
+                "title": "BestBlogs 早报：小红书 Muse、OpenAI 推理路由与 LinkedIn 上下文工程",
+                "publishedAt": "2026-09-20T00:08:21.000Z",
+                "sourceName": "X：洪明 (@hongming731)",
+                "origin": "article"
+              },
+              {
+                "value": "MemPro",
+                "articleId": "aihot:cmu3xxqx70jmoroc1orfhnwm2",
+                "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496400&idx=1&sn=64957c6e3a95d71fe7a51146825c04db",
+                "title": "EMNLP 2026|MemPro：让 Agent 的记忆系统学会自我进化",
+                "publishedAt": "2026-09-16T09:59:00.000Z",
+                "sourceName": "公众号：小红书技术（dots.llm）",
+                "origin": "article"
+              },
+              {
+                "value": "Iris",
+                "articleId": "aihot:cmu12ocst0b6nro2nypi25zyq",
+                "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496383&idx=1&sn=2db8607f797615a3647d9fec7e54f448",
+                "title": "小红书 AllSpark 开源 Search Agent 模型 Iris，35B 与 397B 版本同量级成绩领先",
+                "publishedAt": "2026-09-14T09:59:00.000Z",
+                "sourceName": "公众号：小红书技术（dots.llm）",
+                "origin": "article"
+              },
+              {
+                "value": "Iris-mini",
+                "articleId": "aihot:cmtzu1b4303hyro394wkmr8wg",
+                "url": "https://the-decoder.com/iris-mini-and-iris-pro-are-the-strongest-open-weight-search-agents-in-their-class",
+                "title": "AllSpark 发布 Iris-mini 和 Iris-pro 开源搜索智能体",
+                "publishedAt": "2026-09-13T12:58:18.000Z",
+                "sourceName": "The Decoder：AI News（RSS）",
+                "origin": "article"
+              },
+              {
+                "value": "Iris-pro",
+                "articleId": "aihot:cmtzu1b4303hyro394wkmr8wg",
+                "url": "https://the-decoder.com/iris-mini-and-iris-pro-are-the-strongest-open-weight-search-agents-in-their-class",
+                "title": "AllSpark 发布 Iris-mini 和 Iris-pro 开源搜索智能体",
+                "publishedAt": "2026-09-13T12:58:18.000Z",
+                "sourceName": "The Decoder：AI News（RSS）",
+                "origin": "article"
+              }
+            ],
+            "business": [
+              {
+                "value": "开源搜索智能体",
+                "articleId": "research:ae692a1e3123ba7a",
+                "url": "https://huggingface.co/AllSpark-Research/Iris-pro",
+                "title": "AllSpark · 公开资料核验",
+                "publishedAt": "",
+                "sourceName": "公开资料核验",
+                "origin": "research",
+                "quote": "Iris-pro is an open-weight search agent post-trained from Qwen3.5-397B-A17B.",
+                "checkedAt": "2026-09-15"
+              }
+            ],
+            "team": [
+              {
+                "value": "AllSpark 团队",
+                "articleId": "aihot:cmu12ocst0b6nro2nypi25zyq",
+                "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496383&idx=1&sn=2db8607f797615a3647d9fec7e54f448",
+                "title": "小红书 AllSpark 开源 Search Agent 模型 Iris，35B 与 397B 版本同量级成绩领先",
+                "publishedAt": "2026-09-14T09:59:00.000Z",
+                "sourceName": "公众号：小红书技术（dots.llm）",
+                "origin": "article"
+              }
+            ]
           },
-          {
-            "value": "LinkedIn",
-            "articleId": "manus:6cd7e21c6a383313",
-            "url": "https://www.163.com/dy/article/L7197UAN0511N33R.html?spss=dy_author",
-            "title": "对话Articuler.ai：AI社交最不该做的，是让Agent替你社交",
-            "publishedAt": "2026-09-17T10:59:10+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          }
-        ],
-        "business": [
-          {
-            "value": "职业社交平台，记录职业身份和已有关系，通过招聘和销售业务获得收入",
-            "articleId": "manus:6cd7e21c6a383313",
-            "url": "https://www.163.com/dy/article/L7197UAN0511N33R.html?spss=dy_author",
-            "title": "对话Articuler.ai：AI社交最不该做的，是让Agent替你社交",
-            "publishedAt": "2026-09-17T10:59:10+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmu927gpv054krojrq6scu77f",
-          "title": "BestBlogs 早报：Muse Agentic 架构与 LLM 推理路由",
-          "url": "https://x.com/hongming731/status/2101463493342044268",
-          "publishedAt": "2026-09-20T00:08:34.000Z",
-          "sourceName": "X：洪明 (@hongming731)",
-          "category": "general"
-        },
-        {
-          "id": "manus:6cd7e21c6a383313",
-          "title": "对话Articuler.ai：AI社交最不该做的，是让Agent替你社交",
-          "url": "https://www.163.com/dy/article/L7197UAN0511N33R.html?spss=dy_author",
-          "publishedAt": "2026-09-17T10:59:10+08:00",
-          "sourceName": "硅星人",
-          "category": "interview"
+          "sourceArticles": [
+            {
+              "id": "aihot:cmu927gpv054krojrq6scu77f",
+              "title": "BestBlogs 早报：Muse Agentic 架构与 LLM 推理路由",
+              "url": "https://x.com/hongming731/status/2101463493342044268",
+              "publishedAt": "2026-09-20T00:08:34.000Z",
+              "sourceName": "X：洪明 (@hongming731)",
+              "category": "general"
+            },
+            {
+              "id": "aihot:cmu927gpv054lrojrdjeoup61",
+              "title": "BestBlogs 早报：小红书 Muse、OpenAI 推理路由与 LinkedIn 上下文工程",
+              "url": "https://x.com/hongming731/status/2101463436819591315",
+              "publishedAt": "2026-09-20T00:08:21.000Z",
+              "sourceName": "X：洪明 (@hongming731)",
+              "category": "general"
+            },
+            {
+              "id": "aihot:cmu3xxqx70jmoroc1orfhnwm2",
+              "title": "EMNLP 2026|MemPro：让 Agent 的记忆系统学会自我进化",
+              "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496400&idx=1&sn=64957c6e3a95d71fe7a51146825c04db",
+              "publishedAt": "2026-09-16T09:59:00.000Z",
+              "sourceName": "公众号：小红书技术（dots.llm）",
+              "category": "paper"
+            },
+            {
+              "id": "aihot:cmu12ocst0b6nro2nypi25zyq",
+              "title": "小红书 AllSpark 开源 Search Agent 模型 Iris，35B 与 397B 版本同量级成绩领先",
+              "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496383&idx=1&sn=2db8607f797615a3647d9fec7e54f448",
+              "publishedAt": "2026-09-14T09:59:00.000Z",
+              "sourceName": "公众号：小红书技术（dots.llm）",
+              "category": "release"
+            },
+            {
+              "id": "aihot:cmtzu1b4303hyro394wkmr8wg",
+              "title": "AllSpark 发布 Iris-mini 和 Iris-pro 开源搜索智能体",
+              "url": "https://the-decoder.com/iris-mini-and-iris-pro-are-the-strongest-open-weight-search-agents-in-their-class",
+              "publishedAt": "2026-09-13T12:58:18.000Z",
+              "sourceName": "The Decoder：AI News（RSS）",
+              "category": "release"
+            }
+          ],
+          "firstSeenAt": "2026-09-13T12:58:18.000Z",
+          "lastSeenAt": "2026-09-20T00:08:34.000Z",
+          "entityType": "company",
+          "updatedAt": "2026-09-20T00:08:34.000Z",
+          "latestReportAt": "2026-09-20T00:08:34.000Z",
+          "profileUpdatedAt": "2026-09-20T15:16:37+08:00",
+          "productUpdates": [
+            {
+              "name": "Muse",
+              "relationship": "owned",
+              "quote": "小红书 Muse 实践拆解 Agent Team、Harness、One Workspace 与结构化状态协同",
+              "articleId": "aihot:cmu927gpv054krojrq6scu77f",
+              "url": "https://x.com/hongming731/status/2101463493342044268",
+              "title": "BestBlogs 早报：Muse Agentic 架构与 LLM 推理路由",
+              "publishedAt": "2026-09-20T00:08:34.000Z"
+            },
+            {
+              "name": "Muse",
+              "relationship": "owned",
+              "quote": "小红书 Muse 用统一上下文与 Harness 控制架构衔接需求、设计与编码交付",
+              "articleId": "aihot:cmu927gpv054lrojrdjeoup61",
+              "url": "https://x.com/hongming731/status/2101463436819591315",
+              "title": "BestBlogs 早报：小红书 Muse、OpenAI 推理路由与 LinkedIn 上下文工程",
+              "publishedAt": "2026-09-20T00:08:21.000Z"
+            },
+            {
+              "name": "MemPro",
+              "relationship": "owned",
+              "quote": "小红书技术团队提出 MemPro",
+              "articleId": "aihot:cmu3xxqx70jmoroc1orfhnwm2",
+              "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496400&idx=1&sn=64957c6e3a95d71fe7a51146825c04db",
+              "title": "EMNLP 2026|MemPro：让 Agent 的记忆系统学会自我进化",
+              "publishedAt": "2026-09-16T09:59:00.000Z"
+            },
+            {
+              "name": "Iris",
+              "relationship": "owned",
+              "quote": "小红书 AllSpark 团队发布并开源 Search Agent 模型 Iris",
+              "articleId": "aihot:cmu12ocst0b6nro2nypi25zyq",
+              "url": "https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496383&idx=1&sn=2db8607f797615a3647d9fec7e54f448",
+              "title": "小红书 AllSpark 开源 Search Agent 模型 Iris，35B 与 397B 版本同量级成绩领先",
+              "publishedAt": "2026-09-14T09:59:00.000Z"
+            },
+            {
+              "name": "Iris-mini",
+              "relationship": "owned",
+              "quote": "AllSpark 团队发布 Iris-mini（35B，基于 Qwen3.6-35B-A3B）",
+              "articleId": "aihot:cmtzu1b4303hyro394wkmr8wg",
+              "url": "https://the-decoder.com/iris-mini-and-iris-pro-are-the-strongest-open-weight-search-agents-in-their-class",
+              "title": "AllSpark 发布 Iris-mini 和 Iris-pro 开源搜索智能体",
+              "publishedAt": "2026-09-13T12:58:18.000Z"
+            },
+            {
+              "name": "Iris-pro",
+              "relationship": "owned",
+              "quote": "AllSpark 团队发布 Iris-mini（35B，基于 Qwen3.6-35B-A3B）和 Iris-pro（397B，基于 Qwen3.5-397B-A17B）",
+              "articleId": "aihot:cmtzu1b4303hyro394wkmr8wg",
+              "url": "https://the-decoder.com/iris-mini-and-iris-pro-are-the-strongest-open-weight-search-agents-in-their-class",
+              "title": "AllSpark 发布 Iris-mini 和 Iris-pro 开源搜索智能体",
+              "publishedAt": "2026-09-13T12:58:18.000Z"
+            }
+          ]
         }
-      ],
-      "firstSeenAt": "2026-09-17T10:59:10+08:00",
-      "lastSeenAt": "2026-09-20T00:08:34.000Z",
-      "entityType": "company",
-      "productUpdates": [
-        {
-          "name": "MCP",
-          "relationship": "used",
-          "quote": "LinkedIn 用 MCP 构建组织级上下文层",
-          "articleId": "aihot:cmu927gpv054krojrq6scu77f",
-          "url": "https://x.com/hongming731/status/2101463493342044268",
-          "title": "BestBlogs 早报：Muse Agentic 架构与 LLM 推理路由",
-          "publishedAt": "2026-09-20T00:08:34.000Z"
-        },
-        {
-          "name": "LinkedIn",
-          "relationship": "unknown",
-          "quote": "LinkedIn",
-          "articleId": "manus:6cd7e21c6a383313",
-          "url": "https://www.163.com/dy/article/L7197UAN0511N33R.html?spss=dy_author",
-          "title": "对话Articuler.ai：AI社交最不该做的，是让Agent替你社交",
-          "publishedAt": "2026-09-17T10:59:10+08:00"
-        }
-      ],
-      "updatedAt": "2026-09-20T00:08:34.000Z",
-      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
-      "latestReportAt": "2026-09-20T00:08:34.000Z",
-      "profileUpdatedAt": "2026-09-20T15:16:37+08:00"
+      }
     },
     {
       "id": "company:12b0c8b376b8375e",
@@ -25538,7 +25722,6 @@
       "company_name": "DeepSeek",
       "aliases": [],
       "product_names": [
-        "API",
         "deepseek-flash",
         "deepseek-v4-pro",
         "DeepSeek v4.1",
@@ -25791,15 +25974,6 @@
           }
         ],
         "product_names": [
-          {
-            "value": "API",
-            "articleId": "aihot:cmu92r7mm05tjrojrjbgb9tc6",
-            "url": "https://www.ithome.com/1/004/589.htm",
-            "title": "IT早报 0920：苹果 CEO 特努斯称 iPhone Duo 是乔布斯理念体现；Anthropic 拟推迟 IPO 至 11 月；DeepSeek 公布 API 峰谷计费新规",
-            "publishedAt": "2026-09-19T23:54:28.000Z",
-            "sourceName": "IT之家（RSS）",
-            "origin": "article"
-          },
           {
             "value": "deepseek-flash",
             "articleId": "aihot:cmu88qsg8193erogr27im07mt",
@@ -26202,15 +26376,6 @@
       "entityType": "company",
       "productUpdates": [
         {
-          "name": "API",
-          "relationship": "owned",
-          "quote": "DeepSeek 公布最新 API 峰谷计费规则，调休上班的周末及中国法定节假日全天均按空闲时段计费",
-          "articleId": "aihot:cmu92r7mm05tjrojrjbgb9tc6",
-          "url": "https://www.ithome.com/1/004/589.htm",
-          "title": "IT早报 0920：苹果 CEO 特努斯称 iPhone Duo 是乔布斯理念体现；Anthropic 拟推迟 IPO 至 11 月；DeepSeek 公布 API 峰谷计费新规",
-          "publishedAt": "2026-09-19T23:54:28.000Z"
-        },
-        {
           "name": "deepseek-flash",
           "relationship": "owned",
           "quote": "涉及模型为 deepseek-flash 与 deepseek-v4-pro",
@@ -26375,7 +26540,7 @@
       ],
       "updatedAt": "2026-09-19T23:54:28.000Z",
       "latestReportAt": "2026-09-19T23:54:28.000Z",
-      "profileUpdatedAt": "2026-09-20T15:47:35+08:00"
+      "profileUpdatedAt": "2026-09-20T23:18:55+08:00"
     },
     {
       "id": "company:bbdefa2950f49882",
@@ -114313,5 +114478,19 @@
     "newManusTasks": 0,
     "reassemblyModelCalls": 0,
     "note": "Original scheduled run remains unchanged; existing 238 extractions retain their original versions."
-  }
+  },
+  "reviewedCorrections": [
+    {
+      "checkedAt": "2026-09-20T23:18:55+08:00",
+      "kind": "product_and_division_review",
+      "changedCompanies": [
+        "LinkedIn",
+        "小红书",
+        "DeepSeek"
+      ],
+      "newModelCalls": 0,
+      "newManusTasks": 0,
+      "note": "API/MCP exact article exclusions; AllSpark division of Xiaohongshu; original news and product relationships preserved."
+    }
+  ]
 }

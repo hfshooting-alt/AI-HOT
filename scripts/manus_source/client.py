@@ -13,11 +13,15 @@ import json
 import random
 import time
 import threading
+from contextlib import contextmanager
+from copy import deepcopy
 from dataclasses import dataclass
+from datetime import datetime
 from typing import Any, Callable
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo
 
 API_BASE_URL = "https://api.manus.ai/v2"
 
@@ -76,6 +80,21 @@ DISCOVERY_OUTPUT_SCHEMA = {
 
 class ManusAPIError(RuntimeError):
     pass
+
+
+def observed_at() -> str:
+    """Client observation time, never a substitute for a remote event timestamp."""
+    return datetime.now(ZoneInfo('Asia/Shanghai')).isoformat(timespec='milliseconds')
+
+
+def remote_time(value, *, milliseconds=False):
+    try:
+        if isinstance(value, bool) or value is None:
+            return None
+        return datetime.fromtimestamp(float(value) / (1000 if milliseconds else 1),
+                                      ZoneInfo('Asia/Shanghai')).isoformat(timespec='milliseconds')
+    except (ValueError, TypeError, OverflowError, OSError):
+        return None
 
 
 def validate_output_schema(schema: dict, path: str = '$') -> None:
@@ -157,10 +176,89 @@ class ManusClient:
         self._next_create_at = 0.0
         self._creation_blocked = threading.Event()
         self._task_statuses: dict[str, str] = {}
+        self._task_receipts: dict[str, dict] = {}
+        self._receipt_callbacks = {}
+        self._receipt_lock = threading.RLock()
+        self._receipt_context = threading.local()
+
+    @contextmanager
+    def receipt_scope(self, callback):
+        """Bind one worker's source without sharing its identity with other threads."""
+        previous = getattr(self._receipt_context, 'callback', None)
+        self._receipt_context.callback = callback
+        try:
+            yield
+        finally:
+            self._receipt_context.callback = previous
+
+    @staticmethod
+    def _emit_receipt(callback, receipt):
+        if callback:
+            try:
+                callback(deepcopy(receipt))
+            except Exception as error:  # Receipt observers must never retry or orphan a paid task.
+                # A failed audit write must not lose an already-created task ID.
+                print(f'Manus receipt persistence failed: {type(error).__name__}', flush=True)
+
+    def task_receipt(self, task_id):
+        with self._receipt_lock:
+            return deepcopy(self._task_receipts.get(task_id, {}))
+
+    def _update_receipt(self, task_id, **fields):
+        with self._receipt_lock:
+            receipt = self._task_receipts.setdefault(task_id, {'taskId': task_id})
+            receipt.update(fields)
+            snapshot = deepcopy(receipt)
+            callback = self._receipt_callbacks.get(task_id)
+        self._emit_receipt(callback, snapshot)
+
+    def _observe_status(self, task_id, status, event_at=None, source='task.listMessages'):
+        if status not in ('pending', 'running', 'waiting', 'stopped', 'error'):
+            return
+        receipt = self.task_receipt(task_id)
+        previous_event = receipt.get('lastStatusEventAt')
+        if event_at and previous_event and event_at < previous_event:
+            return  # Re-reading an earlier page must not regress a known terminal state.
+        now = observed_at()
+        fields = {'lastRemoteStatus': status, 'lastStatusObservedAt': now,
+                  'lastStatusSource': source, 'terminalConfirmed': status in ('stopped', 'error')}
+        if event_at:
+            fields['lastStatusEventAt'] = event_at
+        if fields['terminalConfirmed']:
+            fields['terminalObservedAt'] = receipt.get('terminalObservedAt') or now
+            if event_at:
+                fields['terminalEventAt'] = event_at
+        self._task_statuses[task_id] = status
+        self._update_receipt(task_id, **fields)
+
+    def _observe_messages(self, task_id, response):
+        # Inspect the whole page, including a terminal event after structured output.
+        for event in response.get('messages', []):
+            if event.get('type') == 'status_update':
+                self._observe_status(task_id, event.get('status_update', {}).get('agent_status'),
+                                     remote_time(event.get('timestamp'), milliseconds=True))
+
+    def _observe_detail(self, task_id, response):
+        task = response.get('task')
+        if not isinstance(task, dict):
+            return
+        fields = {}
+        for key, field in (('created_at', 'remoteCreatedAt'), ('updated_at', 'remoteUpdatedAt')):
+            value = remote_time(task.get(key))
+            if value:
+                fields[field] = value
+        credits = task.get('credit_usage')
+        if type(credits) in (int, float) and credits >= 0:
+            fields.update(lastObservedCredits=credits, creditsObservedAt=observed_at(),
+                          creditsObservedWithTerminalStatus=task.get('status') in ('stopped', 'error'))
+        if fields:
+            self._update_receipt(task_id, **fields)
+        self._observe_status(task_id, task.get('status'), source='task.detail')
 
     # ================= 基础请求 =================
 
-    def _request(self, method: str, path: str, payload: dict[str, Any] | None = None) -> dict[str, Any]:
+    def _request(self, method: str, path: str, payload: dict[str, Any] | None = None,
+                 *, before_create=None) -> dict[str, Any]:
         if method == 'POST' and path == 'task.create':
             # 三个采集线程共用客户端；创建节奏与任务执行并发分别控制。
             with self._create_lock:
@@ -173,6 +271,8 @@ class ManusClient:
                     raise ManusAPIError('cost_circuit_open: remote stop unconfirmed; task not created')
                 self._next_create_at = time.monotonic() + self.create_interval_seconds
                 try:
+                    if before_create:
+                        before_create()
                     return self._send_request(method, path, payload)
                 except ManusAPIError as error:
                     if self.create_interval_seconds > 0 and any(
@@ -205,7 +305,9 @@ class ManusClient:
 
     def stop_task(self, task_id: str) -> None:
         """Request stopping; an accepted request alone does not confirm termination."""
+        self._update_receipt(task_id, stopRequestedObservedAt=observed_at(), stopAccepted=False)
         self._request("POST", "task.stop", {"task_id": task_id})
+        self._update_receipt(task_id, stopAccepted=True, stopAcceptedObservedAt=observed_at())
 
     def block_new_tasks(self) -> None:
         """Block queued creations before a worker can start its next source."""
@@ -222,6 +324,7 @@ class ManusClient:
                 time.sleep(min(30, max(5, self.poll_seconds)))
             try:
                 detail = self._request('GET', 'task.detail?' + urlencode({'task_id': task_id}))
+                self._observe_detail(task_id, detail)
                 task = detail.get('task')
                 status = task.get('status') if isinstance(task, dict) else None
                 status = status if isinstance(status, str) else None
@@ -284,13 +387,33 @@ class ManusClient:
                 f'source_group: {source_group}\ntarget_date: {target_date}\n'
                 f'{task_brief}\n\n{prompt_text}'}]
         last_error: ManusAPIError | None = None
+        callback = getattr(self._receipt_context, 'callback', None)
+        receipt = {'taskId': None, 'creationState': 'not_created', 'createAttempts': 0,
+                   'createRequestedObservedAt': None, 'createdResponseObservedAt': None,
+                   'lastRemoteStatus': 'unknown', 'terminalConfirmed': False,
+                   'terminalObservedAt': None, 'terminalEventAt': None}
+
+        def before_create():
+            receipt.update(creationState='unknown', createAttempts=receipt['createAttempts'] + 1,
+                           createRequestedObservedAt=observed_at())
+            self._emit_receipt(callback, receipt)
+
         for attempt in range(self.create_retries + 1):
             try:
-                response = self._request("POST", "task.create", payload)
-                return CreatedTask(task_id=response["task_id"], task_url=response["task_url"])
+                response = self._request("POST", "task.create", payload, before_create=before_create)
+                task_id = response['task_id']
+                receipt.update(taskId=task_id, creationState='created',
+                               createdResponseObservedAt=observed_at())
+                with self._receipt_lock:
+                    self._task_receipts[task_id] = deepcopy(receipt)
+                    self._receipt_callbacks[task_id] = callback
+                self._emit_receipt(callback, receipt)
+                return CreatedTask(task_id=task_id, task_url=response["task_url"])
             except ManusAPIError as error:
                 last_error = error
                 if attempt >= self.create_retries or not self._is_retryable(str(error)):
+                    receipt['creationState'] = 'unknown' if receipt['createAttempts'] else 'not_created'
+                    self._emit_receipt(callback, receipt)
                     raise
                 delay = self.retry_base_seconds * (2 ** attempt)
                 delay += random.uniform(0, self.retry_jitter_seconds)
@@ -349,12 +472,13 @@ class ManusClient:
                     if cursor:
                         query["cursor"] = cursor
                     response = self._request("GET", f"task.listMessages?{urlencode(query)}")
+                    self._observe_messages(task_id, response)
                     if on_checkpoint:
                         from .checkpoints import checkpoint_articles
                         for article in checkpoint_articles(response):
                             on_checkpoint(article)
                     value, last_status, last_error = self._process_page(response, last_status, last_error)
-                    if last_status:
+                    if last_status and task_id not in self._task_statuses:
                         self._task_statuses[task_id] = last_status
                     if value is not None:
                         return value
@@ -377,6 +501,7 @@ class ManusClient:
                     stopped_since = None
                 if observed_credit_limit is not None:
                     detail = self._request("GET", "task.detail?" + urlencode({"task_id": task_id}))
+                    self._observe_detail(task_id, detail)
                     credits = (detail.get("task") or {}).get("credit_usage")
                     if type(credits) in (int, float) and credits >= observed_credit_limit:
                         raise ManusAPIError(
@@ -410,13 +535,10 @@ class ManusClient:
             if cursor:
                 query['cursor'] = cursor
             response = self._request('GET', 'task.listMessages?' + urlencode(query))
+            self._observe_messages(task_id, response)
             for article in checkpoint_articles(response):
                 on_checkpoint(article)
             for event in response.get('messages', []):
-                if event.get('type') == 'status_update':
-                    status = event.get('status_update', {}).get('agent_status')
-                    if isinstance(status, str):
-                        self._task_statuses[task_id] = status
                 structured = event.get('structured_output_result', {})
                 if event.get('type') == 'structured_output_result' and structured.get('success'):
                     value = structured.get('value')

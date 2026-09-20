@@ -168,7 +168,19 @@ jobs:
           git commit -m "chore: 更新 AI HOT 全链路数据"
           git pull --rebase origin main
           git push
-          gh workflow run deploy-pages.yml --ref main
+          PUSHED_SHA="$(git rev-parse HEAD)"
+          record_receipt() {
+            if ! PYTHONPATH=scripts python -m automation.publication_receipt --data-sha "$PUSHED_SHA" --pages-dispatch "$1"; then
+              echo "::warning::发布回执写入失败；Pages 触发状态需日志补证。"
+            fi
+          }
+          record_receipt pending
+          if gh workflow run deploy-pages.yml --ref main; then
+            record_receipt accepted
+          else
+            record_receipt failed
+            exit 1
+          fi
       - name: 汇总不含正文的费用与停止诊断
         if: always()
         run: python scripts/automation/diagnostic_summary.py
@@ -193,6 +205,8 @@ jobs:
           path: |
             work/runs/**/state.json
             work/diagnostic-summary.json
+            work/schedule-audit.json
+            work/publication-receipt.json
           retention-days: 7
           if-no-files-found: ignore
       - name: 运行摘要
