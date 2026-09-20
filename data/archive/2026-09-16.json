@@ -18351,7 +18351,468 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "9a358a9e4e13361558705496ee378bd6bb7ced5f5e3eb87296506726e1bf5d8f"
+  },
+  {
+   "id": "aihot:cmu5hmk750655roqogv3rrhyp",
+   "title": "CERA-MoA：让路由机制与持续学习 LLM 智能体协同演化",
+   "originalTitle": "CERA-MoA： Co-Evolving Routing Mechanisms with Continually Learning LLM Agents",
+   "summary": "CERA-MoA是一个迭代强化学习框架，用于让动态路由器与独立智能体策略协同演化，以解决现有Mixture-of-Agents范式中查询路由与智能体微调相互割裂的问题。",
+   "source": "HuggingFace Daily Papers（社区热门论文）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu5hmk750655roqogv3rrhyp",
+    "original": "https://arxiv.org/abs/2609.18779"
+   },
+   "publishedAt": "2026-09-16T00:00:00.000Z",
+   "discoveredAt": "2026-09-17T12:10:14.852Z",
+   "category": null,
+   "score": 34,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu5hmk750655roqogv3rrhyp"
+   },
+   "url": "https://arxiv.org/abs/2609.18779",
+   "permalink": "https://aihot.news/items/cmu5hmk750655roqogv3rrhyp",
+   "originalUrl": "https://arxiv.org/abs/2609.18779",
+   "aihotUrl": "https://aihot.news/items/cmu5hmk750655roqogv3rrhyp",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "HuggingFace Daily Papers（社区热门论文）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "HuggingFace Daily Papers（社区热门论文）",
+     "url": "https://arxiv.org/abs/2609.18779",
+     "publishedAt": "2026-09-16T00:00:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "c8cf39993aaf1eae24466073968b4bc9a88d5a248eee7b6bb1bcbcb796e65fbe"
+  },
+  {
+   "id": "aihot:cmu5fhe6m07f5ro7nrtg353xa",
+   "title": "Edge0 用预路由预测让 35B MoE 模型在 24GB 单卡从 SSD 流式推理",
+   "originalTitle": "The Other Half of the Memory Wall： Serving 35B MoEs from SSD with Trained Routing Prediction",
+   "summary": "论文提出一种名为Edge0的流式MoE推理引擎，通过每层提前一个token预测下一层路由的prerouter，使专家预取与实际路由一致，解决SSD卸载无法提前读取的延迟问题，从而让35B MoE模型在24GB单卡上从SSD流式推理。",
+   "source": "HuggingFace Daily Papers（社区热门论文）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu5fhe6m07f5ro7nrtg353xa",
+    "original": "https://arxiv.org/abs/2609.18063"
+   },
+   "publishedAt": "2026-09-16T00:00:00.000Z",
+   "discoveredAt": "2026-09-17T11:10:14.671Z",
+   "category": "paper",
+   "score": 72,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu5fhe6m07f5ro7nrtg353xa"
+   },
+   "url": "https://arxiv.org/abs/2609.18063",
+   "permalink": "https://aihot.news/items/cmu5fhe6m07f5ro7nrtg353xa",
+   "originalUrl": "https://arxiv.org/abs/2609.18063",
+   "aihotUrl": "https://aihot.news/items/cmu5fhe6m07f5ro7nrtg353xa",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "HuggingFace Daily Papers（社区热门论文）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "HuggingFace Daily Papers（社区热门论文）",
+     "url": "https://arxiv.org/abs/2609.18063",
+     "publishedAt": "2026-09-16T00:00:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "7179801076d748e60c2d840945ee6fc0fd01b216b316905c77184877f023f576"
+  },
+  {
+   "id": "aihot:cmu5fhe6m07f3ro7ny5903sna",
+   "title": "用 VLM 智能体实现上下文机器人学习",
+   "originalTitle": "In-Context Robot Learning with VLM Agents",
+   "summary": "GPT-Policy是一个面向上下文机器人学习的通用智能体框架，由上下文编译器、提出机器人工具动作的VLM和验证并执行动作的受限控制器组成，无需梯度更新或改动任务专属参数。真机试验显示，人类视频演示即使没有机器人动作标签也能提升任务完成度，对齐的动作参考在接触敏感任务上带来进一步提升。",
+   "source": "HuggingFace Daily Papers（社区热门论文）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu5fhe6m07f3ro7ny5903sna",
+    "original": "https://arxiv.org/abs/2609.19138"
+   },
+   "publishedAt": "2026-09-16T00:00:00.000Z",
+   "discoveredAt": "2026-09-17T11:10:14.671Z",
+   "category": null,
+   "score": 40,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu5fhe6m07f3ro7ny5903sna"
+   },
+   "url": "https://arxiv.org/abs/2609.19138",
+   "permalink": "https://aihot.news/items/cmu5fhe6m07f3ro7ny5903sna",
+   "originalUrl": "https://arxiv.org/abs/2609.19138",
+   "aihotUrl": "https://aihot.news/items/cmu5fhe6m07f3ro7ny5903sna",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "HuggingFace Daily Papers（社区热门论文）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "HuggingFace Daily Papers（社区热门论文）",
+     "url": "https://arxiv.org/abs/2609.19138",
+     "publishedAt": "2026-09-16T00:00:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "dc17b7f07d01905fb53e7b238857e5dd598f95d770e7fd2dda56d9df569815de"
+  },
+  {
+   "id": "aihot:cmu56wpkg03hcro4oc21uptno",
+   "title": "PPO 评论家学习再思考：价值平坦化成因与 SP3O 缓解方法",
+   "originalTitle": "Rethinking Critic Learning in PPO： Understanding and Mitigating Value Flattening",
+   "summary": "一项研究揭示PPO评论家存在价值平坦化失效模式，中间状态的真实价值随Monte Carlo延续剧烈变化，而评论家预测相对平坦，且该现象随状态空间增大而加剧。研究提出SP3O方法，每条回复仅对少量间隔良好的状态施加价值损失。在Qwen3-Base上的实验显示，每条回复仅监督三个状态即可缓解价值平坦化，并在不同模型规模和评测集上稳定提升策略表现。",
+   "source": "HuggingFace Daily Papers（社区热门论文）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu56wpkg03hcro4oc21uptno",
+    "original": "https://arxiv.org/abs/2609.18708"
+   },
+   "publishedAt": "2026-09-16T00:00:00.000Z",
+   "discoveredAt": "2026-09-17T07:10:13.184Z",
+   "category": null,
+   "score": 35,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu56wpkg03hcro4oc21uptno"
+   },
+   "url": "https://arxiv.org/abs/2609.18708",
+   "permalink": "https://aihot.news/items/cmu56wpkg03hcro4oc21uptno",
+   "originalUrl": "https://arxiv.org/abs/2609.18708",
+   "aihotUrl": "https://aihot.news/items/cmu56wpkg03hcro4oc21uptno",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "HuggingFace Daily Papers（社区热门论文）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "HuggingFace Daily Papers（社区热门论文）",
+     "url": "https://arxiv.org/abs/2609.18708",
+     "publishedAt": "2026-09-16T00:00:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "c9d669a601e5aa0009556df5bec93edcba6861e95a86ebbb9c57e81c0d723202"
+  },
+  {
+   "id": "aihot:cmu56wpkg03haro4oph740zc9",
+   "title": "PANORAMA：通过掩码候选选择实现全景接地的图像描述",
+   "originalTitle": "PANORAMA： Panoptic Grounded Captioning via Mask Proposal Selection",
+   "summary": "研究提出PANORAMA，一种将短语接地建模为从短语条件掩码候选池中选择的视觉语言模型，可同时描述前景物体与背景区域，并为每个短语生成像素级掩码。团队构建了基于全景分割数据集的人工标注基准PanoCaps，并提出短语-掩码匹配协议与gPQ指标。PANORAMA在PanoCaps上取得最佳整体接地表现，并在多个像素级接地任务上匹配或超越专用模型，代码、数据与模型均已开放。",
+   "source": "HuggingFace Daily Papers（社区热门论文）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu56wpkg03haro4oph740zc9",
+    "original": "https://arxiv.org/abs/2609.19143"
+   },
+   "publishedAt": "2026-09-16T00:00:00.000Z",
+   "discoveredAt": "2026-09-17T07:10:13.184Z",
+   "category": null,
+   "score": 39,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu56wpkg03haro4oph740zc9"
+   },
+   "url": "https://arxiv.org/abs/2609.19143",
+   "permalink": "https://aihot.news/items/cmu56wpkg03haro4oph740zc9",
+   "originalUrl": "https://arxiv.org/abs/2609.19143",
+   "aihotUrl": "https://aihot.news/items/cmu56wpkg03haro4oph740zc9",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "HuggingFace Daily Papers（社区热门论文）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "HuggingFace Daily Papers（社区热门论文）",
+     "url": "https://arxiv.org/abs/2609.19143",
+     "publishedAt": "2026-09-16T00:00:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "90208c61e07c89f6304445ce2e873a01eef2fef09aff7d3cf60b363ba3dae38b"
+  },
+  {
+   "id": "aihot:cmu54rj8p0dleroqb2us58gz0",
+   "title": "面向LLM偏好对齐的零阶范式 ComPO",
+   "originalTitle": "A Zeroth-Order Paradigm for LLM Preference Alignment",
+   "summary": "研究者提出零阶对齐方法ComPO，该方法基于比较预言机从偏好对中提取方向信息，不直接优化可微偏好损失，并在平滑性、梯度稀疏等条件下给出离线方案的收敛保证。在线版本保留离线比较机制，用无标注策略生成做相对参考策略的reverse-KL控制。在Mistral、Llama、Gemma-2、Qwen3和Gemma-3上的实验显示其优于现有直接对齐方法，包括长度控制胜率。",
+   "source": "HuggingFace Daily Papers（社区热门论文）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu54rj8p0dleroqb2us58gz0",
+    "original": "https://arxiv.org/abs/2609.19144"
+   },
+   "publishedAt": "2026-09-16T00:00:00.000Z",
+   "discoveredAt": "2026-09-17T06:10:12.647Z",
+   "category": null,
+   "score": 35,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu54rj8p0dleroqb2us58gz0"
+   },
+   "url": "https://arxiv.org/abs/2609.19144",
+   "permalink": "https://aihot.news/items/cmu54rj8p0dleroqb2us58gz0",
+   "originalUrl": "https://arxiv.org/abs/2609.19144",
+   "aihotUrl": "https://aihot.news/items/cmu54rj8p0dleroqb2us58gz0",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "HuggingFace Daily Papers（社区热门论文）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "HuggingFace Daily Papers（社区热门论文）",
+     "url": "https://arxiv.org/abs/2609.19144",
+     "publishedAt": "2026-09-16T00:00:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "ee408c0be8ef9cc0e95947c14472ba250d6f4155acf30e3228e4ddab8fa3796e"
+  },
+  {
+   "id": "aihot:cmu54rj8p0dldroqbzazkmbnq",
+   "title": "ActionPiece：重新思考自回归 VLA 模型的动作 tokenization",
+   "originalTitle": "ActionPiece： Rethinking Action Tokenization for Autoregressive Vision-Language-Action Models",
+   "summary": "一项研究针对自回归视觉语言动作模型的动作分词方法，提出了物理排序一致性指标，用于衡量动作分词重建后是否保留动作之间的局部物理距离排序。",
+   "source": "HuggingFace Daily Papers（社区热门论文）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu54rj8p0dldroqbzazkmbnq",
+    "original": "https://arxiv.org/abs/2609.18487"
+   },
+   "publishedAt": "2026-09-16T00:00:00.000Z",
+   "discoveredAt": "2026-09-17T06:10:12.647Z",
+   "category": null,
+   "score": 43,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu54rj8p0dldroqbzazkmbnq"
+   },
+   "url": "https://arxiv.org/abs/2609.18487",
+   "permalink": "https://aihot.news/items/cmu54rj8p0dldroqbzazkmbnq",
+   "originalUrl": "https://arxiv.org/abs/2609.18487",
+   "aihotUrl": "https://aihot.news/items/cmu54rj8p0dldroqbzazkmbnq",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "HuggingFace Daily Papers（社区热门论文）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "HuggingFace Daily Papers（社区热门论文）",
+     "url": "https://arxiv.org/abs/2609.18487",
+     "publishedAt": "2026-09-16T00:00:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "cccc792d4eb2e462e17e8e0ecb6317f335a2a7da4af9bd05c64269170d52e72b"
+  },
+  {
+   "id": "aihot:cmu50h7ju068eroqb0dcsyc2u",
+   "title": "Agora 论文提出以 Git 作为共享记忆的集体 AutoResearch 系统",
+   "originalTitle": "Agora： Git as Shared Memory for Collective AutoResearch",
+   "summary": "Agora论文提出一个集体AutoResearch系统，使用Git存储的只追加有向无环图作为智能体共享记忆，每条结果、洞察或验证都作为可检出复现的commit。",
+   "source": "HuggingFace Daily Papers（社区热门论文）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu50h7ju068eroqb0dcsyc2u",
+    "original": "https://arxiv.org/abs/2609.18094"
+   },
+   "publishedAt": "2026-09-16T00:00:00.000Z",
+   "discoveredAt": "2026-09-17T04:10:12.245Z",
+   "category": "paper",
+   "score": 55,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu50h7ju068eroqb0dcsyc2u"
+   },
+   "url": "https://arxiv.org/abs/2609.18094",
+   "permalink": "https://aihot.news/items/cmu50h7ju068eroqb0dcsyc2u",
+   "originalUrl": "https://arxiv.org/abs/2609.18094",
+   "aihotUrl": "https://aihot.news/items/cmu50h7ju068eroqb0dcsyc2u",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "HuggingFace Daily Papers（社区热门论文）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "HuggingFace Daily Papers（社区热门论文）",
+     "url": "https://arxiv.org/abs/2609.18094",
+     "publishedAt": "2026-09-16T00:00:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "744aaba680898dfef1454bef6fd936eec120e15ced518f4006f0592f0b7aeb07"
+  },
+  {
+   "id": "aihot:cmu4yc0oo0cwmrokcpk8km7ix",
+   "title": "ScienceIDE：把全球科学代码库变成智能体可学习环境",
+   "originalTitle": "ScienceIDE： Turning World's Scientific Codebase into Agent Learnable Environments",
+   "summary": "研究团队推出ScienceIDE，将科学代码仓库转化为可供智能体执行、生成任务并做科学验证的可编程环境。基于验证过的交互轨迹，团队训练了PhAI-IDE-72B、PhAI-IDE-9B和PhAI-IDE-4B三个模型，这些模型在留出的科学代码修复任务及部分代码、推理、知识通用基准上均有提升。",
+   "source": "HuggingFace Daily Papers（社区热门论文）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu4yc0oo0cwmrokcpk8km7ix",
+    "original": "https://arxiv.org/abs/2609.19134"
+   },
+   "publishedAt": "2026-09-16T00:00:00.000Z",
+   "discoveredAt": "2026-09-17T03:10:11.330Z",
+   "category": null,
+   "score": 44,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu4yc0oo0cwmrokcpk8km7ix"
+   },
+   "url": "https://arxiv.org/abs/2609.19134",
+   "permalink": "https://aihot.news/items/cmu4yc0oo0cwmrokcpk8km7ix",
+   "originalUrl": "https://arxiv.org/abs/2609.19134",
+   "aihotUrl": "https://aihot.news/items/cmu4yc0oo0cwmrokcpk8km7ix",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "HuggingFace Daily Papers（社区热门论文）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "HuggingFace Daily Papers（社区热门论文）",
+     "url": "https://arxiv.org/abs/2609.19134",
+     "publishedAt": "2026-09-16T00:00:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "495166c16b5003953b88c39c7be2f1556aae187d56e18347a33ec3efb9a58ae4"
+  },
+  {
+   "id": "aihot:cmu4w6u5s0ahurokc1jkbnkiq",
+   "title": "ProgramDistill：从交互式 Web 应用到可验证的参考引导 SWE 任务基准",
+   "originalTitle": "ProgramDistill： From Interactive Web Apps to Verifiable Reference-Guided SWE Tasks",
+   "summary": "研究团队推出ProgramDistill基准，通过mine-craft-patch流水线在26个应用中自动挖掘1975个可重放验证的行为，构建出4063个任务，用于评测编码智能体从可运行参考应用中推断功能的能力。",
+   "source": "HuggingFace Daily Papers（社区热门论文）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmu4w6u5s0ahurokc1jkbnkiq",
+    "original": "https://arxiv.org/abs/2609.18805"
+   },
+   "publishedAt": "2026-09-16T00:00:00.000Z",
+   "discoveredAt": "2026-09-17T02:10:10.568Z",
+   "category": null,
+   "score": 44,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmu4w6u5s0ahurokc1jkbnkiq"
+   },
+   "url": "https://arxiv.org/abs/2609.18805",
+   "permalink": "https://aihot.news/items/cmu4w6u5s0ahurokc1jkbnkiq",
+   "originalUrl": "https://arxiv.org/abs/2609.18805",
+   "aihotUrl": "https://aihot.news/items/cmu4w6u5s0ahurokc1jkbnkiq",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "HuggingFace Daily Papers（社区热门论文）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "HuggingFace Daily Papers（社区热门论文）",
+     "url": "https://arxiv.org/abs/2609.18805",
+     "publishedAt": "2026-09-16T00:00:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "391faf8a2ff99fe28948a81ebfafbc33ba434ac00ac960378f9bb5feb51e3b6f"
   }
  ],
- "updatedAt": "2026-09-20T15:06:38.727767+08:00"
+ "updatedAt": "2026-09-20T15:30:24.799530+08:00",
+ "reviewedBackfills": [
+  {
+   "at": "2026-09-20T15:30:24+08:00",
+   "sourceWindow": {
+    "start": "2026-09-17T09:30:00+08:00",
+    "end": "2026-09-18T09:30:00+08:00",
+    "timezone": "Asia/Shanghai"
+   },
+   "reason": "Recovered previously unpublished, model-processed batch"
+  }
+ ]
 }

@@ -1,824 +1,1088 @@
 {
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzwtyf403bbroymkmhniatu:cee661b9e7c0e6bb": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "智谱",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": "约50亿美元",
-    "valuation": null,
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0f6bsx0lw2roryi619fkcf:9e54f40c858d5e06": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Anthropic",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": null,
-    "valuation": "约2万亿美元",
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0jgo260r4froryczn18ma5:7d42ed37a7cb89bb": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "智谱",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": "约50亿美元",
-    "valuation": null,
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   },
-   {
-    "company_name": "Anthropic",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": null,
-    "valuation": "约2万亿美元",
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0goak20nogroryhop1kiso:3ce5b741183dc9cc": {
-  "status": "complete",
-  "companies": []
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzpegzo036croxqz63t5d0k:8557c26aa280099e": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "智谱",
-    "product_name": "GLM",
-    "founded": null,
-    "country": null,
-    "industry": "AI模型/基础设施",
-    "team": null,
-    "business": "研发GLM基础模型及完全自训练体系",
-    "investors": null,
-    "total_funding": "约50亿美元",
-    "valuation": null,
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzpegzo036eroxqlqt1cu18:846103b4f07f540e": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Flexion Robotics",
-    "product_name": null,
-    "founded": "2024年",
-    "country": "苏黎世",
-    "industry": null,
-    "team": "英伟达两名从事机器人研发多年的员工离职创办",
-    "business": null,
-    "investors": "英伟达",
-    "total_funding": "超过5700万美元",
-    "valuation": null,
-    "industry_id": "具身智能/机器人",
-    "company_type_id": "初创公司"
-   },
-   {
-    "company_name": "INT21",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": "英伟达离职员工徐冰创办",
-    "business": "利用AI优化芯片软件",
-    "investors": null,
-    "total_funding": null,
-    "valuation": null,
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzwtyf403bbroymkmhniatu:7006907b56e08110": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "智谱",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": "约50亿美元",
-    "valuation": null,
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0jgo260r4froryczn18ma5:188a53ba2841598c": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "智谱",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": "约50亿美元",
-    "valuation": null,
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   },
-   {
-    "company_name": "Anthropic",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": null,
-    "valuation": "约2万亿美元",
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0f6bsx0lw2roryi619fkcf:68c83ae3fa190cc3": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Anthropic",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": null,
-    "valuation": "约 2 万亿美元",
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzpegzo036croxqz63t5d0k:7b29af2a245bb00f": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "智谱",
-    "product_name": "GLM",
-    "founded": null,
-    "country": null,
-    "industry": "AI模型/基础设施",
-    "team": null,
-    "business": "研发GLM基础模型及完全自训练体系",
-    "investors": null,
-    "total_funding": "约50亿美元",
-    "valuation": null,
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0goak20nogroryhop1kiso:d256551b1b437029": {
-  "status": "complete",
-  "companies": []
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzpegzo036eroxqlqt1cu18:9427d327a19e0cc9": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Flexion Robotics",
-    "product_name": null,
-    "founded": "2024年",
-    "country": "苏黎世",
-    "industry": "机器人",
-    "team": "英伟达两名从事机器人研发多年的员工离职创办",
-    "business": null,
-    "investors": "英伟达",
-    "total_funding": "超过5700万美元",
-    "valuation": null,
-    "industry_id": "具身智能/机器人",
-    "company_type_id": "初创公司"
-   },
-   {
-    "company_name": "INT21",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": "AI模型/基础设施",
-    "team": "英伟达离职员工徐冰创办",
-    "business": "用AI优化芯片软件",
-    "investors": null,
-    "total_funding": null,
-    "valuation": null,
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu1ewtks04a4rocn6l6d6vry:0e2a318f43ae3130": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Temporal",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": "Lightspeed、Wellington Management、高盛、Tiger Global",
-    "total_funding": "5.5亿美元",
-    "valuation": "125.5亿美元",
-    "industry_id": "其他",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu1xiqfu03wvromgvtvbgjie:8e1e26f4672c82cc": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "OpenAI",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": null,
-    "valuation": null,
-    "industry_id": "其他",
-    "company_type_id": "大厂/已上市"
-   },
-   {
-    "company_name": "Glass Imaging",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": null,
-    "valuation": "超过3亿美元",
-    "industry_id": "其他",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu1g31xf07frrocnmjfagq29:27422d45b9d330cb": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Anthropic",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": null,
-    "valuation": "2 万亿美元",
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu10nf3b08q5ro2nw9q42mmz:6104c4e40113ff16": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "浙江威邦震电光电技术有限公司",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": "道彤投资、IDG资本、道远资本、峰瑞资本、方正合生、纳通资本、苏高新",
-    "total_funding": "近亿元",
-    "valuation": null,
-    "industry_id": "其他",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu2xjf3x02n3roc1yqq51scd:c713fec4525f72c5": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Poolday",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": "AI创作工具/生产力",
-    "team": null,
-    "business": "使用 AI 智能体自动化视频制作全流程，用户通过一次提示词即可剪辑真实素材，系统按任务自动选择生成模型，并在交付前自查成片",
-    "investors": null,
-    "total_funding": "1100 万美元",
-    "valuation": null,
-    "industry_id": "AI创作工具/生产力",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu3fnsdh06mhrotbth8lcuoo:5f2e12ab922ec00b": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "TypeSafe AI",
-    "product_name": "Jev",
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": "ChatGPT与RLHF共同发明人之一Diogo Almeida",
-    "business": "前沿基座模型",
-    "investors": null,
-    "total_funding": "4000万美元",
-    "valuation": null,
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu2xjf4h02n7roc1vxuxefpt:4153436687eedcbe": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Poolday",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": "AI创作工具/生产力",
-    "team": null,
-    "business": "用AI智能体端到端完成视频制作，输入目标和素材后，系统会提问、规划、生成、剪辑、合成并自检成片",
-    "investors": null,
-    "total_funding": "1100万美元",
-    "valuation": null,
-    "industry_id": "AI创作工具/生产力",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu2ujdr602ifrowk1x2zd23b:b8aa66e750f173de": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Profound",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": "营销软件公司",
-    "investors": "Sequoia、Kleiner Perkins、Lightspeed Venture Partners、Khosla Ventures",
-    "total_funding": null,
-    "valuation": "18 亿美元",
-    "industry_id": "其他",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu2p6dp00eoxrovqu47umis0:f96919f98461b796": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "AIUC",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": "前Anthropic员工Rune Kvist与METR前首席运营官Rajiv Dattani共同创办",
-    "business": "为AI智能体提供第三方安全审计服务",
-    "investors": "Ribbit Capital",
-    "total_funding": "5500万美元",
-    "valuation": null,
-    "industry_id": "其他",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu2ubpio02bdrowk226hbidp:38bd68e3f1efdd9d": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Flam",
-    "product_name": "Flicks",
-    "founded": null,
-    "country": null,
-    "industry": "AI互动内容/娱乐",
-    "team": null,
-    "business": "推出可交互视频格式 Flicks，能把多个变化版本打包进一个小文件，观众在播放中点击即可改变屏幕内容",
-    "investors": "QED Investors",
-    "total_funding": "4000万美元",
-    "valuation": null,
-    "industry_id": "AI互动内容/娱乐",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu4h9v6a0quiro4wdsnuzctt:9f3c903a92557efa": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Delos",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": "为 AI 员工配备专属邮箱、电话号码及 Microsoft 或 Google 账号，团队可通过 Slack、Teams、邮件或电话联系，AI 无需提示即可主动跟进工作",
-    "investors": null,
-    "total_funding": "1000 万欧元",
-    "valuation": null,
-    "industry_id": "其他",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu4gs1rh0qavro4wnja04czf:fcfa2bbbafe645c2": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "AIUC",
-    "product_name": "AIUC-1",
-    "founded": null,
-    "country": null,
-    "industry": "AI保险承销",
-    "team": null,
-    "business": "AI保险承销",
-    "investors": "Ribbit Capital、First Harmonic",
-    "total_funding": "4000万美元",
-    "valuation": null,
-    "industry_id": "其他",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu4e1ur20jzzro4wz8xup4se:98a8484eb23e5015": {
-  "status": "complete",
-  "companies": []
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu4cic5u0iacro4wprp2jqed:1f3047e5af1dc23e": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Delos",
-    "product_name": "Workers",
-    "founded": null,
-    "country": "巴黎",
-    "industry": "AI模型/基础设施",
-    "team": null,
-    "business": "打造可承担销售跟进、IT 工单等日常工作的 AI 智能体",
-    "investors": "Bpifrance、Founders Future、C4 Ventures",
-    "total_funding": "1000 万欧元",
-    "valuation": null,
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu45pn6i0ad9ro4wa2h9x1ti:776ca2babf8bee04": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Hang Ten Systems",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": "前 Infosys CEO Vishal Sikka 创立",
-    "business": null,
-    "investors": "Temasek 旗下 Xora",
-    "total_funding": "8500 万美元",
-    "valuation": null,
-    "industry_id": "其他",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu43xpoy08gxro4wd3ohoauk:9b28db39db654463": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Profound",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": null,
-    "valuation": "18 亿美元",
-    "industry_id": "其他",
-    "company_type_id": "其他"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu4oq6y108cqrodcqnwrignq:b781732943c75793": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Rogo",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": "Kleiner Perkins、Sequoia",
-    "total_funding": null,
-    "valuation": null,
-    "industry_id": "其他",
-    "company_type_id": "初创公司"
-   },
-   {
-    "company_name": "Rillet",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": "1亿美元",
-    "valuation": null,
-    "industry_id": "其他",
-    "company_type_id": "初创公司"
-   },
-   {
-    "company_name": "Hanover Park",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": "2700万美元",
-    "valuation": null,
-    "industry_id": "其他",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu3rz0fq0cyrroc1uyar4nr8:61b8310fd6eb16fc": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Anew Labs",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": "AI药物发现",
-    "investors": "原红杉中国HSG、IDG资本、高瓴投资、五源资本",
-    "total_funding": "2.9亿美元",
-    "valuation": "15亿美元",
-    "industry_id": "其他",
-    "company_type_id": "其他"
-   },
-   {
-    "company_name": "字节跳动",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": null,
-    "valuation": null,
-    "industry_id": "其他",
-    "company_type_id": "大厂/已上市"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu3qgn2j0b7qroc1e0v7ui5h:1491a1bdee663b24": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Preferred Networks",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": "三菱重工",
-    "total_funding": "100亿日元",
-    "valuation": null,
-    "industry_id": "其他",
-    "company_type_id": "其他"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu3m6rnd03tsroc1iws7gubx:a06060f4f19f5b93": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "OpenAI",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": null,
-    "valuation": "超1.2万亿美元",
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   },
-   {
-    "company_name": "Anthropic",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": null,
-    "valuation": "约2万亿美元",
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu3l471y05glroo4ykl56cgz:a5f4ae5397c0df13": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "OpenAI",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": null,
-    "valuation": "超过1.2万亿美元",
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:manus:de3178cd9de124f7:4f9f26e380431c35": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "DeepMaterial",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": "AI for Science / 金属材料研发",
-    "team": null,
-    "business": "将AI for Science应用于金属材料研发，构建AI驱动的材料研发闭环，已发布近20种新型高性能材料",
-    "investors": "BlueRun Ventures",
-    "total_funding": "近亿元人民币",
-    "valuation": null,
-    "industry_id": "其他",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu3jebae03lnroo46srbor3b:6bf9e18f987dc588": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "OpenAI",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": "1220 亿美元",
-    "valuation": "1.2 万亿美元",
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "大厂/已上市"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu7vvrzj0snprogrhdwta01y:c902e3c6c7eb8fdb": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "OpenAI",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": "1220亿美元",
-    "valuation": null,
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "其他"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu8qikyg099cro3kikev8qx0:bdf356edcecc63e7": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Anthropic",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": null,
-    "investors": null,
-    "total_funding": null,
-    "valuation": "4万亿美元",
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu8f0g7k1j09rogrlwp5ynmy:102ebe22fc7c3054": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "Vals",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": "团队从年初8人增至25人",
-    "business": "提供AI基准测试服务，按法律、金融、编程等行业评估模型完成复杂任务的能力",
-    "investors": "Andreessen Horowitz",
-    "total_funding": "4000万美元",
-    "valuation": null,
-    "industry_id": "AI模型/基础设施",
-    "company_type_id": "初创公司"
-   }
-  ]
- },
- "1:3:DeepSeek-V4-Pro:fpv4:manus:de3178cd9de124f7:c649249c9e24519e": {
-  "status": "complete",
-  "companies": [
-   {
-    "company_name": "DeepMaterial",
-    "product_name": null,
-    "founded": null,
-    "country": null,
-    "industry": null,
-    "team": null,
-    "business": "将AI用于金属材料研发，已实现AI驱动材料研发的完整闭环，并发布近20种新型高性能材料，部分已进入量产",
-    "investors": "蓝驰创投",
-    "total_funding": "近亿元人民币A+轮融资",
-    "valuation": null,
-    "industry_id": "其他",
-    "company_type_id": "初创公司"
-   }
-  ]
- }
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzwtyf403bbroymkmhniatu:cee661b9e7c0e6bb": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "智谱",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": "约50亿美元",
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0f6bsx0lw2roryi619fkcf:9e54f40c858d5e06": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Anthropic",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": "约2万亿美元",
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0jgo260r4froryczn18ma5:7d42ed37a7cb89bb": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "智谱",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": "约50亿美元",
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      },
+      {
+        "company_name": "Anthropic",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": "约2万亿美元",
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0goak20nogroryhop1kiso:3ce5b741183dc9cc": {
+    "status": "complete",
+    "companies": []
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzpegzo036croxqz63t5d0k:8557c26aa280099e": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "智谱",
+        "product_name": "GLM",
+        "founded": null,
+        "country": null,
+        "industry": "AI模型/基础设施",
+        "team": null,
+        "business": "研发GLM基础模型及完全自训练体系",
+        "investors": null,
+        "total_funding": "约50亿美元",
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzpegzo036eroxqlqt1cu18:846103b4f07f540e": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Flexion Robotics",
+        "product_name": null,
+        "founded": "2024年",
+        "country": "苏黎世",
+        "industry": null,
+        "team": "英伟达两名从事机器人研发多年的员工离职创办",
+        "business": null,
+        "investors": "英伟达",
+        "total_funding": "超过5700万美元",
+        "valuation": null,
+        "industry_id": "具身智能/机器人",
+        "company_type_id": "初创公司"
+      },
+      {
+        "company_name": "INT21",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": "英伟达离职员工徐冰创办",
+        "business": "利用AI优化芯片软件",
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzwtyf403bbroymkmhniatu:7006907b56e08110": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "智谱",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": "约50亿美元",
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0jgo260r4froryczn18ma5:188a53ba2841598c": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "智谱",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": "约50亿美元",
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      },
+      {
+        "company_name": "Anthropic",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": "约2万亿美元",
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0f6bsx0lw2roryi619fkcf:68c83ae3fa190cc3": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Anthropic",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": "约 2 万亿美元",
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzpegzo036croxqz63t5d0k:7b29af2a245bb00f": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "智谱",
+        "product_name": "GLM",
+        "founded": null,
+        "country": null,
+        "industry": "AI模型/基础设施",
+        "team": null,
+        "business": "研发GLM基础模型及完全自训练体系",
+        "investors": null,
+        "total_funding": "约50亿美元",
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu0goak20nogroryhop1kiso:d256551b1b437029": {
+    "status": "complete",
+    "companies": []
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmtzpegzo036eroxqlqt1cu18:9427d327a19e0cc9": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Flexion Robotics",
+        "product_name": null,
+        "founded": "2024年",
+        "country": "苏黎世",
+        "industry": "机器人",
+        "team": "英伟达两名从事机器人研发多年的员工离职创办",
+        "business": null,
+        "investors": "英伟达",
+        "total_funding": "超过5700万美元",
+        "valuation": null,
+        "industry_id": "具身智能/机器人",
+        "company_type_id": "初创公司"
+      },
+      {
+        "company_name": "INT21",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": "AI模型/基础设施",
+        "team": "英伟达离职员工徐冰创办",
+        "business": "用AI优化芯片软件",
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu1ewtks04a4rocn6l6d6vry:0e2a318f43ae3130": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Temporal",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": "Lightspeed、Wellington Management、高盛、Tiger Global",
+        "total_funding": "5.5亿美元",
+        "valuation": "125.5亿美元",
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu1xiqfu03wvromgvtvbgjie:8e1e26f4672c82cc": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "OpenAI",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "大厂/已上市"
+      },
+      {
+        "company_name": "Glass Imaging",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": "超过3亿美元",
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu1g31xf07frrocnmjfagq29:27422d45b9d330cb": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Anthropic",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": "2 万亿美元",
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu10nf3b08q5ro2nw9q42mmz:6104c4e40113ff16": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "浙江威邦震电光电技术有限公司",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": "道彤投资、IDG资本、道远资本、峰瑞资本、方正合生、纳通资本、苏高新",
+        "total_funding": "近亿元",
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu2xjf3x02n3roc1yqq51scd:c713fec4525f72c5": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Poolday",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": "AI创作工具/生产力",
+        "team": null,
+        "business": "使用 AI 智能体自动化视频制作全流程，用户通过一次提示词即可剪辑真实素材，系统按任务自动选择生成模型，并在交付前自查成片",
+        "investors": null,
+        "total_funding": "1100 万美元",
+        "valuation": null,
+        "industry_id": "AI创作工具/生产力",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu3fnsdh06mhrotbth8lcuoo:5f2e12ab922ec00b": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "TypeSafe AI",
+        "product_name": "Jev",
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": "ChatGPT与RLHF共同发明人之一Diogo Almeida",
+        "business": "前沿基座模型",
+        "investors": null,
+        "total_funding": "4000万美元",
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu2xjf4h02n7roc1vxuxefpt:4153436687eedcbe": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Poolday",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": "AI创作工具/生产力",
+        "team": null,
+        "business": "用AI智能体端到端完成视频制作，输入目标和素材后，系统会提问、规划、生成、剪辑、合成并自检成片",
+        "investors": null,
+        "total_funding": "1100万美元",
+        "valuation": null,
+        "industry_id": "AI创作工具/生产力",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu2ujdr602ifrowk1x2zd23b:b8aa66e750f173de": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Profound",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": "营销软件公司",
+        "investors": "Sequoia、Kleiner Perkins、Lightspeed Venture Partners、Khosla Ventures",
+        "total_funding": null,
+        "valuation": "18 亿美元",
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu2p6dp00eoxrovqu47umis0:f96919f98461b796": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "AIUC",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": "前Anthropic员工Rune Kvist与METR前首席运营官Rajiv Dattani共同创办",
+        "business": "为AI智能体提供第三方安全审计服务",
+        "investors": "Ribbit Capital",
+        "total_funding": "5500万美元",
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu2ubpio02bdrowk226hbidp:38bd68e3f1efdd9d": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Flam",
+        "product_name": "Flicks",
+        "founded": null,
+        "country": null,
+        "industry": "AI互动内容/娱乐",
+        "team": null,
+        "business": "推出可交互视频格式 Flicks，能把多个变化版本打包进一个小文件，观众在播放中点击即可改变屏幕内容",
+        "investors": "QED Investors",
+        "total_funding": "4000万美元",
+        "valuation": null,
+        "industry_id": "AI互动内容/娱乐",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu4h9v6a0quiro4wdsnuzctt:9f3c903a92557efa": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Delos",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": "为 AI 员工配备专属邮箱、电话号码及 Microsoft 或 Google 账号，团队可通过 Slack、Teams、邮件或电话联系，AI 无需提示即可主动跟进工作",
+        "investors": null,
+        "total_funding": "1000 万欧元",
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu4gs1rh0qavro4wnja04czf:fcfa2bbbafe645c2": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "AIUC",
+        "product_name": "AIUC-1",
+        "founded": null,
+        "country": null,
+        "industry": "AI保险承销",
+        "team": null,
+        "business": "AI保险承销",
+        "investors": "Ribbit Capital、First Harmonic",
+        "total_funding": "4000万美元",
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu4e1ur20jzzro4wz8xup4se:98a8484eb23e5015": {
+    "status": "complete",
+    "companies": []
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu4cic5u0iacro4wprp2jqed:1f3047e5af1dc23e": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Delos",
+        "product_name": "Workers",
+        "founded": null,
+        "country": "巴黎",
+        "industry": "AI模型/基础设施",
+        "team": null,
+        "business": "打造可承担销售跟进、IT 工单等日常工作的 AI 智能体",
+        "investors": "Bpifrance、Founders Future、C4 Ventures",
+        "total_funding": "1000 万欧元",
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu45pn6i0ad9ro4wa2h9x1ti:776ca2babf8bee04": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Hang Ten Systems",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": "前 Infosys CEO Vishal Sikka 创立",
+        "business": null,
+        "investors": "Temasek 旗下 Xora",
+        "total_funding": "8500 万美元",
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu43xpoy08gxro4wd3ohoauk:9b28db39db654463": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Profound",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": "18 亿美元",
+        "industry_id": "其他",
+        "company_type_id": "其他"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu4oq6y108cqrodcqnwrignq:b781732943c75793": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Rogo",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": "Kleiner Perkins、Sequoia",
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      },
+      {
+        "company_name": "Rillet",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": "1亿美元",
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      },
+      {
+        "company_name": "Hanover Park",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": "2700万美元",
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu3rz0fq0cyrroc1uyar4nr8:61b8310fd6eb16fc": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Anew Labs",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": "AI药物发现",
+        "investors": "原红杉中国HSG、IDG资本、高瓴投资、五源资本",
+        "total_funding": "2.9亿美元",
+        "valuation": "15亿美元",
+        "industry_id": "其他",
+        "company_type_id": "其他"
+      },
+      {
+        "company_name": "字节跳动",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "大厂/已上市"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu3qgn2j0b7qroc1e0v7ui5h:1491a1bdee663b24": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Preferred Networks",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": "三菱重工",
+        "total_funding": "100亿日元",
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "其他"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu3m6rnd03tsroc1iws7gubx:a06060f4f19f5b93": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "OpenAI",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": "超1.2万亿美元",
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      },
+      {
+        "company_name": "Anthropic",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": "约2万亿美元",
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu3l471y05glroo4ykl56cgz:a5f4ae5397c0df13": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "OpenAI",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": "超过1.2万亿美元",
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:manus:de3178cd9de124f7:4f9f26e380431c35": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "DeepMaterial",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": "AI for Science / 金属材料研发",
+        "team": null,
+        "business": "将AI for Science应用于金属材料研发，构建AI驱动的材料研发闭环，已发布近20种新型高性能材料",
+        "investors": "BlueRun Ventures",
+        "total_funding": "近亿元人民币",
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu3jebae03lnroo46srbor3b:6bf9e18f987dc588": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "OpenAI",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": "1220 亿美元",
+        "valuation": "1.2 万亿美元",
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "大厂/已上市"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu7vvrzj0snprogrhdwta01y:c902e3c6c7eb8fdb": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "OpenAI",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": "1220亿美元",
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "其他"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu8qikyg099cro3kikev8qx0:bdf356edcecc63e7": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Anthropic",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": "4万亿美元",
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu8f0g7k1j09rogrlwp5ynmy:102ebe22fc7c3054": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Vals",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": "团队从年初8人增至25人",
+        "business": "提供AI基准测试服务，按法律、金融、编程等行业评估模型完成复杂任务的能力",
+        "investors": "Andreessen Horowitz",
+        "total_funding": "4000万美元",
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:manus:de3178cd9de124f7:c649249c9e24519e": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "DeepMaterial",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": "将AI用于金属材料研发，已实现AI驱动材料研发的完整闭环，并发布近20种新型高性能材料，部分已进入量产",
+        "investors": "蓝驰创投",
+        "total_funding": "近亿元人民币A+轮融资",
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ]
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu5dun6b05owro7n71lltudq:0b6f08ecfd1a5d33": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Emulate",
+        "product_name": null,
+        "founded": null,
+        "country": "英国",
+        "industry": null,
+        "team": "前谷歌 DeepMind 研究员创立",
+        "business": null,
+        "investors": "英国 Index Ventures 和硅谷 Lightspeed Venture Partners 预计共同领投",
+        "total_funding": null,
+        "valuation": "37 亿美元",
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ],
+    "modelAttempted": true
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu66m4u20cmzrofjd7ocoi2o:e6292fdc2204de46": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Crusoe",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": "Atreides Management、Mubadala Capital、Valor Equity Partners、Nvidia、Founders Fund、GIC",
+        "total_funding": "39 亿美元",
+        "valuation": "309 亿美元",
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ],
+    "modelAttempted": true
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu5bpgmj074uro8t7yaqoa1z:2b38bf4db12d71f5": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Manus",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": "腾讯、HSG、真格基金",
+        "total_funding": "5亿美元",
+        "valuation": "40亿美元",
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ],
+    "modelAttempted": true
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:manus:e98245968352f5a2:685c81ec269e081e": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Violoop",
+        "product_name": "Violoop X",
+        "founded": "2025年12月",
+        "country": null,
+        "industry": "AI硬件/Agent硬件",
+        "team": "创始人兼CEO何佳霖，曾创办在线招聘平台和房地产科技平台，YC W19创业者；联合创始人兼CTO朱贤桢，MIT电子工程与计算机科学本硕连读，曾在ADI和微软参与Xbox、HoloLens、Surface等硬件开发",
+        "business": "开发物理级AI Operator边缘侧电脑硬件，通过HDMI/Type-C连接现有电脑，感知屏幕、形成长期记忆并控制键鼠跨应用执行任务",
+        "investors": "联想创投、中金保时捷、蓝驰创投、元生资本、启赋资本、清科控股",
+        "total_funding": "亿元级天使轮及Pre-A轮融资",
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      },
+      {
+        "company_name": "Hark",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": "个人智能与AI原生硬件",
+        "team": "创始人Brett Adcock",
+        "business": "开发个人智能与AI原生硬件，让AI具备语音、视觉、长期记忆和主动性",
+        "investors": null,
+        "total_funding": "超过7亿美元Series A融资",
+        "valuation": "投后估值60亿美元",
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ],
+    "modelAttempted": true
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu5aq9b605tgro8tpqghnlf4:acc73431d59b33ca": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "智谱",
+        "product_name": "Z.ai",
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": "$5B",
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ],
+    "modelAttempted": true
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu540t1o0a6nroqb4veminu6:446844c181b199c0": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Treble",
+        "product_name": null,
+        "founded": null,
+        "country": "冰岛",
+        "industry": null,
+        "team": null,
+        "business": "语音模拟平台，提供合成数据生成与模型评测",
+        "investors": "Paladin Capital Group、KOMPAS VC、Frumtak Ventures、EIC、Omega ehf",
+        "total_funding": "超 4000 万美元",
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "初创公司"
+      }
+    ],
+    "modelAttempted": true
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu58l3ij03e6ro8t36dbb7jy:9d5b341209ef9f9c": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "紫金矿业",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "大厂/已上市"
+      },
+      {
+        "company_name": "宁德时代",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "大厂/已上市"
+      },
+      {
+        "company_name": "EdgeConneX China",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "其他",
+        "company_type_id": "其他"
+      }
+    ],
+    "modelAttempted": true
+  },
+  "1:3:DeepSeek-V4-Pro:fpv4:aihot:cmu5thq070jjbroqotckz8oim:983d83c703178781": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "Moonshot",
+        "product_name": null,
+        "founded": null,
+        "country": "中国",
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": "$50B",
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      },
+      {
+        "company_name": "DeepSeek",
+        "product_name": null,
+        "founded": null,
+        "country": "中国",
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      },
+      {
+        "company_name": "OpenAI",
+        "product_name": null,
+        "founded": null,
+        "country": "美国",
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      },
+      {
+        "company_name": "Anthropic",
+        "product_name": null,
+        "founded": null,
+        "country": "美国",
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "AI模型/基础设施",
+        "company_type_id": "初创公司"
+      }
+    ],
+    "modelAttempted": true
+  },
+  "1:3:DeepSeek-V4-Pro:fpv5:aihot:cmu5lqvse0auzroqognb8ek7r:54990e5c59201a26": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "地瓜机器人",
+        "product_name": null,
+        "founded": null,
+        "country": null,
+        "industry": null,
+        "team": null,
+        "business": null,
+        "investors": "线性",
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "具身智能/机器人",
+        "company_type_id": "初创公司"
+      }
+    ],
+    "modelAttempted": true
+  }
 }

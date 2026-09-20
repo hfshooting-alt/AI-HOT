@@ -1,708 +1,1115 @@
 {
- "schemaVersion": 1,
- "generatedAt": "2026-09-20T15:18:21+08:00",
- "coverageNote": "覆盖快照日报+周报池与最新 Manus feed 中的融资类新闻（约最近一周）",
- "searchNote": "未配置 TAVILY_API_KEY，缺失字段未补全",
- "stats": {
-  "articlesProcessed": 29,
-  "extractionFailed": 0,
-  "articlesWithoutFundingInfo": 2,
-  "companiesTotal": 21,
-  "companiesSearched": 0
- },
- "companies": [
-  {
-   "id": "fund:556dcd26a54fb752",
-   "company_name": "Anthropic",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": null,
-   "valuation": "4万亿美元",
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-20T15:47:35+08:00",
+  "coverageNote": "覆盖快照日报+周报池与最新 Manus feed 中的融资类新闻（约最近一周）",
+  "searchNote": "复用已验证的历史与最新融资抽取结果，无新增模型或搜索调用",
+  "stats": {
+    "articlesProcessed": 38,
+    "modelCalls": 0,
+    "modelSuccesses": 0,
+    "modelFailures": 0,
+    "cacheHits": 38,
+    "extractionFailed": 0,
+    "articlesWithoutFundingInfo": 2,
+    "companiesTotal": 33,
+    "companiesSearched": 0
+  },
+  "companies": [
     {
-     "id": "aihot:cmu8qikyg099cro3kikev8qx0",
-     "title": "投资者看好 Anthropic 上市后达 4 万亿美元估值，但低价模型冲击其经济性",
-     "url": "https://x.com/rohanpaul_ai/status/2101378665145835558",
-     "publishedAt": "2026-09-19T18:31:30.000Z",
-     "mpName": "X：Rohan Paul (@rohanpaul_ai)"
+      "id": "fund:556dcd26a54fb752",
+      "company_name": "Anthropic",
+      "product_name": null,
+      "founded": null,
+      "country": "美国",
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": "4万亿美元",
+      "dims": {
+        "所属行业": "AI模型/基础设施",
+        "公司类型": "初创公司",
+        "国家/地区": "美国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu8qikyg099cro3kikev8qx0",
+          "title": "投资者看好 Anthropic 上市后达 4 万亿美元估值，但低价模型冲击其经济性",
+          "url": "https://x.com/rohanpaul_ai/status/2101378665145835558",
+          "publishedAt": "2026-09-19T18:31:30.000Z",
+          "mpName": "X：Rohan Paul (@rohanpaul_ai)"
+        },
+        {
+          "id": "aihot:cmu5thq070jjbroqotckz8oim",
+          "title": "Rhodium 研究：中国前沿实验室估值对 ARR 倍数远高于美国同行",
+          "url": "https://x.com/rohanpaul_ai/status/2100639674511552766",
+          "publishedAt": "2026-09-17T17:35:01.000Z",
+          "mpName": "X：Rohan Paul (@rohanpaul_ai)"
+        },
+        {
+          "id": "aihot:cmu3m6rnd03tsroc1iws7gubx",
+          "title": "OpenAI 传早期洽谈以超 1.2 万亿美元估值融资，较 3 月 8520 亿美元上涨约 41%",
+          "url": "https://x.com/kimmonismus/status/2100082761726115849",
+          "publishedAt": "2026-09-16T04:42:02.000Z",
+          "mpName": "X：Kim (@kimmonismus)"
+        },
+        {
+          "id": "aihot:cmu1g31xf07frrocnmjfagq29",
+          "title": "Anthropic 计划登陆纳斯达克，连续第二季度盈利瞄准 2 万亿美元估值",
+          "url": "https://the-decoder.com/anthropic-eyes-nasdaq-listing-as-a-second-profitable-quarter-aims-to-win-over-investors-ahead-of-a-mega-ipo",
+          "publishedAt": "2026-09-14T15:46:45.000Z",
+          "mpName": "The Decoder：AI News（RSS）"
+        },
+        {
+          "id": "aihot:cmu0jgo260r4froryczn18ma5",
+          "title": "IT早报 0914：马斯克、奥尔特曼响应 Anthropic 呼吁放缓前沿 AI 开发；智谱官宣 50 亿美元融资",
+          "url": "https://www.ithome.com/1/001/899.htm",
+          "publishedAt": "2026-09-14T00:03:00.000Z",
+          "mpName": "IT之家（RSS）"
+        },
+        {
+          "id": "aihot:cmu0f6bsx0lw2roryi619fkcf",
+          "title": "曝 Anthropic 选定纳斯达克上市，目标估值约 2 万亿美元",
+          "url": "https://www.ithome.com/1/001/871.htm",
+          "publishedAt": "2026-09-13T22:41:40.000Z",
+          "mpName": "IT之家（RSS）"
+        }
+      ]
     },
     {
-     "id": "aihot:cmu3m6rnd03tsroc1iws7gubx",
-     "title": "OpenAI 传早期洽谈以超 1.2 万亿美元估值融资，较 3 月 8520 亿美元上涨约 41%",
-     "url": "https://x.com/kimmonismus/status/2100082761726115849",
-     "publishedAt": "2026-09-16T04:42:02.000Z",
-     "mpName": "X：Kim (@kimmonismus)"
+      "id": "fund:b2021c4149dfd5dc",
+      "company_name": "Vals",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": "团队从年初8人增至25人",
+      "business": "提供AI基准测试服务，按法律、金融、编程等行业评估模型完成复杂任务的能力",
+      "investors": "Andreessen Horowitz",
+      "total_funding": "4000万美元",
+      "valuation": null,
+      "dims": {
+        "所属行业": "AI模型/基础设施",
+        "公司类型": "初创公司",
+        "国家/地区": "美国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu8f0g7k1j09rogrlwp5ynmy",
+          "title": "Andreessen Horowitz 投资的 Vals 想成为 AI 基准测试的黄金标准",
+          "url": "https://techcrunch.com/2026/09/19/vals-backed-by-andreessen-horowitz-is-looking-to-become-the-gold-standard-for-ai-benchmarking",
+          "publishedAt": "2026-09-19T13:00:00.000Z",
+          "mpName": "TechCrunch：AI（RSS）"
+        }
+      ]
     },
     {
-     "id": "aihot:cmu1g31xf07frrocnmjfagq29",
-     "title": "Anthropic 计划登陆纳斯达克，连续第二季度盈利瞄准 2 万亿美元估值",
-     "url": "https://the-decoder.com/anthropic-eyes-nasdaq-listing-as-a-second-profitable-quarter-aims-to-win-over-investors-ahead-of-a-mega-ipo",
-     "publishedAt": "2026-09-14T15:46:45.000Z",
-     "mpName": "The Decoder：AI News（RSS）"
+      "id": "fund:2c6ee24b09816a6f",
+      "company_name": "OpenAI",
+      "product_name": null,
+      "founded": null,
+      "country": "美国",
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": "1220亿美元",
+      "valuation": "超1.2万亿美元",
+      "dims": {
+        "所属行业": "AI模型/基础设施",
+        "公司类型": "初创公司",
+        "国家/地区": "美国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu7vvrzj0snprogrhdwta01y",
+          "title": "报道称 OpenAI 未来 5 年自由现金流为负 2780 亿美元，拟投入 8560 亿美元建算力基础设施",
+          "url": "https://www.ithome.com/1/004/420.htm",
+          "publishedAt": "2026-09-19T03:53:04.000Z",
+          "mpName": "IT之家（RSS）"
+        },
+        {
+          "id": "aihot:cmu5thq070jjbroqotckz8oim",
+          "title": "Rhodium 研究：中国前沿实验室估值对 ARR 倍数远高于美国同行",
+          "url": "https://x.com/rohanpaul_ai/status/2100639674511552766",
+          "publishedAt": "2026-09-17T17:35:01.000Z",
+          "mpName": "X：Rohan Paul (@rohanpaul_ai)"
+        },
+        {
+          "id": "aihot:cmu3m6rnd03tsroc1iws7gubx",
+          "title": "OpenAI 传早期洽谈以超 1.2 万亿美元估值融资，较 3 月 8520 亿美元上涨约 41%",
+          "url": "https://x.com/kimmonismus/status/2100082761726115849",
+          "publishedAt": "2026-09-16T04:42:02.000Z",
+          "mpName": "X：Kim (@kimmonismus)"
+        },
+        {
+          "id": "aihot:cmu3l471y05glroo4ykl56cgz",
+          "title": "WSJ 称 OpenAI 正讨论 1.2 万亿美元估值的新一轮融资",
+          "url": "https://x.com/rohanpaul_ai/status/2100072244269694986",
+          "publishedAt": "2026-09-16T04:00:15.000Z",
+          "mpName": "X：Rohan Paul (@rohanpaul_ai)"
+        },
+        {
+          "id": "aihot:cmu3jebae03lnroo46srbor3b",
+          "title": "消息称 OpenAI 拟以超 1.2 万亿美元估值进行新一轮融资",
+          "url": "https://www.ithome.com/1/002/970.htm",
+          "publishedAt": "2026-09-16T03:23:03.000Z",
+          "mpName": "IT之家（RSS）"
+        },
+        {
+          "id": "aihot:cmu1xiqfu03wvromgvtvbgjie",
+          "title": "曝 OpenAI 收购手机影像初创公司 Glass Imaging，估值超 3 亿美元",
+          "url": "https://www.ithome.com/1/002/359.htm",
+          "publishedAt": "2026-09-14T23:41:04.000Z",
+          "mpName": "IT之家（RSS）"
+        }
+      ]
     },
     {
-     "id": "aihot:cmu0jgo260r4froryczn18ma5",
-     "title": "IT早报 0914：马斯克、奥尔特曼响应 Anthropic 呼吁放缓前沿 AI 开发；智谱官宣 50 亿美元融资",
-     "url": "https://www.ithome.com/1/001/899.htm",
-     "publishedAt": "2026-09-14T00:03:00.000Z",
-     "mpName": "IT之家（RSS）"
+      "id": "fund:0ace2bc21dc4f03e",
+      "company_name": "Crusoe",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": "Atreides Management、Mubadala Capital、Valor Equity Partners、Nvidia、Founders Fund、GIC",
+      "total_funding": "39 亿美元",
+      "valuation": "309 亿美元",
+      "dims": {
+        "所属行业": "AI模型/基础设施",
+        "公司类型": "初创公司",
+        "国家/地区": "美国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu66m4u20cmzrofjd7ocoi2o",
+          "title": "Crusoe 融资 39 亿美元建大型数据中心与模块化 AI 工厂，估值达 309 亿美元",
+          "url": "https://techcrunch.com/2026/09/17/crusoe-raises-3-9b-to-build-massive-data-centers-and-small-modular-ai-factories",
+          "publishedAt": "2026-09-17T23:25:52.000Z",
+          "mpName": "TechCrunch：AI（RSS）"
+        }
+      ]
     },
     {
-     "id": "aihot:cmu0f6bsx0lw2roryi619fkcf",
-     "title": "曝 Anthropic 选定纳斯达克上市，目标估值约 2 万亿美元",
-     "url": "https://www.ithome.com/1/001/871.htm",
-     "publishedAt": "2026-09-13T22:41:40.000Z",
-     "mpName": "IT之家（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:b2021c4149dfd5dc",
-   "company_name": "Vals",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": "团队从年初8人增至25人",
-   "business": "提供AI基准测试服务，按法律、金融、编程等行业评估模型完成复杂任务的能力",
-   "investors": "Andreessen Horowitz",
-   "total_funding": "4000万美元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu8f0g7k1j09rogrlwp5ynmy",
-     "title": "Andreessen Horowitz 投资的 Vals 想成为 AI 基准测试的黄金标准",
-     "url": "https://techcrunch.com/2026/09/19/vals-backed-by-andreessen-horowitz-is-looking-to-become-the-gold-standard-for-ai-benchmarking",
-     "publishedAt": "2026-09-19T13:00:00.000Z",
-     "mpName": "TechCrunch：AI（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:2c6ee24b09816a6f",
-   "company_name": "OpenAI",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": "1220亿美元",
-   "valuation": "超1.2万亿美元",
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu7vvrzj0snprogrhdwta01y",
-     "title": "报道称 OpenAI 未来 5 年自由现金流为负 2780 亿美元，拟投入 8560 亿美元建算力基础设施",
-     "url": "https://www.ithome.com/1/004/420.htm",
-     "publishedAt": "2026-09-19T03:53:04.000Z",
-     "mpName": "IT之家（RSS）"
+      "id": "fund:edf2a6a1dc43e604",
+      "company_name": "Moonshot",
+      "product_name": null,
+      "founded": null,
+      "country": "中国",
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": "$50B",
+      "dims": {
+        "所属行业": "AI模型/基础设施",
+        "公司类型": "初创公司",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu5thq070jjbroqotckz8oim",
+          "title": "Rhodium 研究：中国前沿实验室估值对 ARR 倍数远高于美国同行",
+          "url": "https://x.com/rohanpaul_ai/status/2100639674511552766",
+          "publishedAt": "2026-09-17T17:35:01.000Z",
+          "mpName": "X：Rohan Paul (@rohanpaul_ai)"
+        }
+      ]
     },
     {
-     "id": "aihot:cmu3m6rnd03tsroc1iws7gubx",
-     "title": "OpenAI 传早期洽谈以超 1.2 万亿美元估值融资，较 3 月 8520 亿美元上涨约 41%",
-     "url": "https://x.com/kimmonismus/status/2100082761726115849",
-     "publishedAt": "2026-09-16T04:42:02.000Z",
-     "mpName": "X：Kim (@kimmonismus)"
+      "id": "fund:b6db407c448546bf",
+      "company_name": "DeepSeek",
+      "product_name": null,
+      "founded": null,
+      "country": "中国",
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "所属行业": "AI模型/基础设施",
+        "公司类型": "初创公司",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu5thq070jjbroqotckz8oim",
+          "title": "Rhodium 研究：中国前沿实验室估值对 ARR 倍数远高于美国同行",
+          "url": "https://x.com/rohanpaul_ai/status/2100639674511552766",
+          "publishedAt": "2026-09-17T17:35:01.000Z",
+          "mpName": "X：Rohan Paul (@rohanpaul_ai)"
+        }
+      ]
     },
     {
-     "id": "aihot:cmu3l471y05glroo4ykl56cgz",
-     "title": "WSJ 称 OpenAI 正讨论 1.2 万亿美元估值的新一轮融资",
-     "url": "https://x.com/rohanpaul_ai/status/2100072244269694986",
-     "publishedAt": "2026-09-16T04:00:15.000Z",
-     "mpName": "X：Rohan Paul (@rohanpaul_ai)"
+      "id": "fund:f54d84f9ede6a57f",
+      "company_name": "Violoop",
+      "product_name": "Violoop X",
+      "founded": "2025年12月",
+      "country": null,
+      "industry": "AI硬件/Agent硬件",
+      "team": "创始人兼CEO何佳霖，曾创办在线招聘平台和房地产科技平台，YC W19创业者；联合创始人兼CTO朱贤桢，MIT电子工程与计算机科学本硕连读，曾在ADI和微软参与Xbox、HoloLens、Surface等硬件开发",
+      "business": "开发物理级AI Operator边缘侧电脑硬件，通过HDMI/Type-C连接现有电脑，感知屏幕、形成长期记忆并控制键鼠跨应用执行任务",
+      "investors": "联想创投、中金保时捷、蓝驰创投、元生资本、启赋资本、清科控股",
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "manus:e98245968352f5a2",
+          "title": "能主动找活干的Agent硬件，「Violoop」一天内众筹破百万美元｜对话创始人",
+          "url": "https://www.baijing.cn/article/56733",
+          "publishedAt": "2026-09-17T21:33:00+08:00",
+          "mpName": "白鲸出海"
+        }
+      ],
+      "fieldQuarantines": [
+        {
+          "field": "total_funding",
+          "originalValue": "亿元级天使轮及Pre-A轮融资",
+          "reasonCode": "single_round_not_total",
+          "reason": "单轮融资金额不能作为累计融资",
+          "articleId": "manus:e98245968352f5a2",
+          "url": "https://www.baijing.cn/article/56733",
+          "title": "能主动找活干的Agent硬件，「Violoop」一天内众筹破百万美元｜对话创始人",
+          "publishedAt": "2026-09-17T21:33:00+08:00",
+          "sourceName": "白鲸出海",
+          "origin": "article"
+        }
+      ]
     },
     {
-     "id": "aihot:cmu3jebae03lnroo46srbor3b",
-     "title": "消息称 OpenAI 拟以超 1.2 万亿美元估值进行新一轮融资",
-     "url": "https://www.ithome.com/1/002/970.htm",
-     "publishedAt": "2026-09-16T03:23:03.000Z",
-     "mpName": "IT之家（RSS）"
+      "id": "fund:1437c187d64f0ac4",
+      "company_name": "Hark",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": "个人智能与AI原生硬件",
+      "team": "创始人Brett Adcock",
+      "business": "开发个人智能与AI原生硬件，让AI具备语音、视觉、长期记忆和主动性",
+      "investors": null,
+      "total_funding": "超过7亿美元Series A融资",
+      "valuation": "投后估值60亿美元",
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "manus:e98245968352f5a2",
+          "title": "能主动找活干的Agent硬件，「Violoop」一天内众筹破百万美元｜对话创始人",
+          "url": "https://www.baijing.cn/article/56733",
+          "publishedAt": "2026-09-17T21:33:00+08:00",
+          "mpName": "白鲸出海"
+        }
+      ]
     },
     {
-     "id": "aihot:cmu1xiqfu03wvromgvtvbgjie",
-     "title": "曝 OpenAI 收购手机影像初创公司 Glass Imaging，估值超 3 亿美元",
-     "url": "https://www.ithome.com/1/002/359.htm",
-     "publishedAt": "2026-09-14T23:41:04.000Z",
-     "mpName": "IT之家（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:43b06c9f8e90b4e1",
-   "company_name": "Rogo",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": "Kleiner Perkins、Sequoia",
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu4oq6y108cqrodcqnwrignq",
-     "title": "市场地图：89 家获 VC 投资的 AI 金融科技初创公司，覆盖投行、审计、银行与合规",
-     "url": "https://www.newcomer.co/p/market-map-89-vc-backed-startups",
-     "publishedAt": "2026-09-16T21:45:16.000Z",
-     "mpName": "Newcomer 新闻长文（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:a7b94662052df3d6",
-   "company_name": "Rillet",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": "1亿美元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu4oq6y108cqrodcqnwrignq",
-     "title": "市场地图：89 家获 VC 投资的 AI 金融科技初创公司，覆盖投行、审计、银行与合规",
-     "url": "https://www.newcomer.co/p/market-map-89-vc-backed-startups",
-     "publishedAt": "2026-09-16T21:45:16.000Z",
-     "mpName": "Newcomer 新闻长文（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:313c456d4cd7de27",
-   "company_name": "Hanover Park",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": "2700万美元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu4oq6y108cqrodcqnwrignq",
-     "title": "市场地图：89 家获 VC 投资的 AI 金融科技初创公司，覆盖投行、审计、银行与合规",
-     "url": "https://www.newcomer.co/p/market-map-89-vc-backed-startups",
-     "publishedAt": "2026-09-16T21:45:16.000Z",
-     "mpName": "Newcomer 新闻长文（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:2bbc715e6f9aec7a",
-   "company_name": "DeepMaterial",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": "将AI用于金属材料研发，已实现AI驱动材料研发的完整闭环，并发布近20种新型高性能材料，部分已进入量产",
-   "investors": "蓝驰创投",
-   "total_funding": "近亿元人民币A+轮融资",
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "manus:de3178cd9de124f7",
-     "title": "DeepMaterial Closes A+ Funding Round: Driving Self-Evolving RSI with Real-World Data | BlueRun Ventures",
-     "url": "https://elsewhere.news/en/lanchi/arsi",
-     "publishedAt": "2026-09-16T19:09:00+08:00",
-     "mpName": "elsewhere别处发生"
-    }
-   ]
-  },
-  {
-   "id": "fund:6d22fca83c58000a",
-   "company_name": "Delos",
-   "product_name": "Workers",
-   "founded": null,
-   "country": "巴黎",
-   "industry": "AI模型/基础设施",
-   "team": null,
-   "business": "为 AI 员工配备专属邮箱、电话号码及 Microsoft 或 Google 账号，团队可通过 Slack、Teams、邮件或电话联系，AI 无需提示即可主动跟进工作",
-   "investors": "Bpifrance、Founders Future、C4 Ventures",
-   "total_funding": "1000 万欧元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "欧洲"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu4h9v6a0quiro4wdsnuzctt",
-     "title": "Delos 为 AI 员工配邮箱电话，融资 €10M",
-     "url": "https://x.com/omarsar0/status/2100298017664623088",
-     "publishedAt": "2026-09-16T18:57:23.000Z",
-     "mpName": "X：Elvis Saravia (@omarsar0, DAIR.AI)"
+      "id": "fund:593713af87d65afe",
+      "company_name": "Emulate",
+      "product_name": null,
+      "founded": null,
+      "country": "英国",
+      "industry": null,
+      "team": "前谷歌 DeepMind 研究员创立",
+      "business": null,
+      "investors": "英国 Index Ventures 和硅谷 Lightspeed Venture Partners 预计共同领投",
+      "total_funding": null,
+      "valuation": "拟议融资完成后估值可达 37 亿美元",
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "欧洲"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu5dun6b05owro7n71lltudq",
+          "title": "前 DeepMind 研究员创立的 Emulate 拟融资 7 亿美元，估值或达 37 亿美元",
+          "url": "https://www.ithome.com/1/003/785.htm",
+          "publishedAt": "2026-09-17T10:21:54.000Z",
+          "mpName": "IT之家（RSS）"
+        }
+      ]
     },
     {
-     "id": "aihot:cmu4cic5u0iacro4wprp2jqed",
-     "title": "Delos 融资 1000 万欧元打造 AI 员工",
-     "url": "https://x.com/testingcatalog/status/2100265219494674859",
-     "publishedAt": "2026-09-16T16:47:04.000Z",
-     "mpName": "X：Testing Catalog (@testingcatalog)"
-    }
-   ]
-  },
-  {
-   "id": "fund:cc307060edcc9ef4",
-   "company_name": "AIUC",
-   "product_name": "AIUC-1",
-   "founded": null,
-   "country": null,
-   "industry": "AI保险承销",
-   "team": "前Anthropic员工Rune Kvist与METR前首席运营官Rajiv Dattani共同创办",
-   "business": "AI保险承销",
-   "investors": "Ribbit Capital、First Harmonic",
-   "total_funding": "4000万美元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu4gs1rh0qavro4wnja04czf",
-     "title": "AIUC 宣布 4000 万美元 A 轮融资，推出 AIUC-1 智能体标准与保险体系",
-     "url": "https://www.latent.space/p/aiuc",
-     "publishedAt": "2026-09-16T18:07:45.000Z",
-     "mpName": "Latent Space（RSS）"
+      "id": "fund:c323b4e526f179c0",
+      "company_name": "Manus",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": "腾讯、HSG、真格基金",
+      "total_funding": "5亿美元",
+      "valuation": "40亿美元",
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu5bpgmj074uro8t7yaqoa1z",
+          "title": "消息称 Manus 即将完成 5 亿美元融资，估值翻倍至 40 亿美元",
+          "url": "https://www.ithome.com/1/003/734.htm",
+          "publishedAt": "2026-09-17T09:21:28.000Z",
+          "mpName": "IT之家（RSS）"
+        }
+      ]
     },
     {
-     "id": "aihot:cmu2p6dp00eoxrovqu47umis0",
-     "title": "前 Anthropic 员工与 METR 前 COO 创办 AIUC，为 AI 智能体做第三方安全审计，融资 4000 万美元",
-     "url": "https://techcrunch.com/2026/09/15/early-anthropic-hire-former-metr-coo-have-found-a-way-to-rein-in-rogue-ai-agents",
-     "publishedAt": "2026-09-15T13:00:00.000Z",
-     "mpName": "TechCrunch：AI（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:c2ac9cf4a964be10",
-   "company_name": "Hang Ten Systems",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": "前 Infosys CEO Vishal Sikka 创立",
-   "business": null,
-   "investors": "Temasek 旗下 Xora",
-   "total_funding": "8500 万美元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "其他"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu45pn6i0ad9ro4wa2h9x1ti",
-     "title": "前 Infosys CEO 的 AI 初创公司 Hang Ten Systems 再获 5300 万美元种子轮融资",
-     "url": "https://techcrunch.com/2026/09/16/former-infosys-chiefs-ai-startup-adds-50m-to-seed-weeks-after-initial-raise",
-     "publishedAt": "2026-09-16T13:00:00.000Z",
-     "mpName": "TechCrunch：AI（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:6681a88e6288b92e",
-   "company_name": "Profound",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": "营销软件公司",
-   "investors": "Sequoia、Kleiner Perkins、Lightspeed Venture Partners、Khosla Ventures",
-   "total_funding": null,
-   "valuation": "18 亿美元",
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu43xpoy08gxro4wd3ohoauk",
-     "title": "Profound 完成 1.8 亿美元 D 轮融资",
-     "url": "https://x.com/frxiaobei/status/2100207573983191173",
-     "publishedAt": "2026-09-16T12:58:00.000Z",
-     "mpName": "X：小北 (@frxiaobei)"
+      "id": "fund:7f567eea1a570c93",
+      "company_name": "智谱",
+      "product_name": "Z.ai",
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": "$5B",
+      "valuation": null,
+      "dims": {
+        "所属行业": "AI模型/基础设施",
+        "公司类型": "初创公司",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu5aq9b605tgro8tpqghnlf4",
+          "title": "智谱 Z.ai 完成约 $5B 融资，Coding Plan 销售重启后增长超 15 倍",
+          "url": "https://x.com/thexpin/status/2100506292670660834",
+          "publishedAt": "2026-09-17T08:45:00.000Z",
+          "mpName": "X：X.PIN (@thexpin)"
+        },
+        {
+          "id": "aihot:cmu0jgo260r4froryczn18ma5",
+          "title": "IT早报 0914：马斯克、奥尔特曼响应 Anthropic 呼吁放缓前沿 AI 开发；智谱官宣 50 亿美元融资",
+          "url": "https://www.ithome.com/1/001/899.htm",
+          "publishedAt": "2026-09-14T00:03:00.000Z",
+          "mpName": "IT之家（RSS）"
+        }
+      ]
     },
     {
-     "id": "aihot:cmu2ujdr602ifrowk1x2zd23b",
-     "title": "AEO 创业公司 Profound 融资 1.8 亿美元，估值达 18 亿美元",
-     "url": "https://techcrunch.com/2026/09/15/aeo-startup-profound-hits-unicorn-valuation-raises-180m-series-d-7-months-after-last-round",
-     "publishedAt": "2026-09-15T15:22:48.000Z",
-     "mpName": "TechCrunch：AI（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:1c299206b28d351e",
-   "company_name": "Anew Labs",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": "AI药物发现",
-   "investors": "原红杉中国HSG、IDG资本、高瓴投资、五源资本",
-   "total_funding": "2.9亿美元",
-   "valuation": "15亿美元",
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "其他",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu3rz0fq0cyrroc1uyar4nr8",
-     "title": "消息称字节跳动完成 2.9 亿美元融资，用于拆分 AI 制药业务 Anew Labs",
-     "url": "https://www.ithome.com/1/003/089.htm",
-     "publishedAt": "2026-09-16T07:08:12.000Z",
-     "mpName": "IT之家（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:0be08473910e7752",
-   "company_name": "字节跳动",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "大厂/已上市",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu3rz0fq0cyrroc1uyar4nr8",
-     "title": "消息称字节跳动完成 2.9 亿美元融资，用于拆分 AI 制药业务 Anew Labs",
-     "url": "https://www.ithome.com/1/003/089.htm",
-     "publishedAt": "2026-09-16T07:08:12.000Z",
-     "mpName": "IT之家（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:172af6c3d7cd33ba",
-   "company_name": "Preferred Networks",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": "三菱重工",
-   "total_funding": "100亿日元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "其他",
-    "国家/地区": "日韩"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu3qgn2j0b7qroc1e0v7ui5h",
-     "title": "三菱重工与Preferred Networks签订资本业务提携协议，出资总额100亿日元",
-     "url": "https://www.preferred.jp/ja/news/pr20260916",
-     "publishedAt": "2026-09-16T06:42:02.272Z",
-     "mpName": "Preferred Networks：AI 研究与产品"
-    }
-   ]
-  },
-  {
-   "id": "fund:f2e8790b6ac0a0ef",
-   "company_name": "TypeSafe AI",
-   "product_name": "Jev",
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": "ChatGPT与RLHF共同发明人之一Diogo Almeida",
-   "business": "前沿基座模型",
-   "investors": null,
-   "total_funding": "4000万美元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu3fnsdh06mhrotbth8lcuoo",
-     "title": "ChatGPT 共同发明人发布 Jev 基座模型",
-     "url": "https://x.com/AYi_AInotes/status/2100031941189783886",
-     "publishedAt": "2026-09-16T01:20:06.000Z",
-     "mpName": "X：阿易 AI Notes (@AYi_AInotes)"
-    }
-   ]
-  },
-  {
-   "id": "fund:3fac461f3cbef2e8",
-   "company_name": "Poolday",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": "AI创作工具/生产力",
-   "team": null,
-   "business": "使用 AI 智能体自动化视频制作全流程，用户通过一次提示词即可剪辑真实素材，系统按任务自动选择生成模型，并在交付前自查成片",
-   "investors": null,
-   "total_funding": "1100 万美元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI创作工具/生产力",
-    "公司类型": "初创公司",
-    "国家/地区": "其他"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu2xjf3x02n3roc1yqq51scd",
-     "title": "Poolday 用 AI 智能体自动化视频制作全流程",
-     "url": "https://x.com/omarsar0/status/2099908124551585996",
-     "publishedAt": "2026-09-15T17:08:05.000Z",
-     "mpName": "X：Elvis Saravia (@omarsar0, DAIR.AI)"
+      "id": "fund:ebbaaacaa9143de8",
+      "company_name": "紫金矿业",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "大厂/已上市",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu58l3ij03e6ro8t36dbb7jy",
+          "title": "紫金矿业10亿元投资AI与人形机器人基金",
+          "url": "https://x.com/thexpin/status/2100489934633361700",
+          "publishedAt": "2026-09-17T07:40:00.000Z",
+          "mpName": "X：X.PIN (@thexpin)"
+        }
+      ]
     },
     {
-     "id": "aihot:cmu2xjf4h02n7roc1vxuxefpt",
-     "title": "Poolday 获 1100 万美元融资，AI 智能体全流程做视频",
-     "url": "https://x.com/rohanpaul_ai/status/2099902236839334166",
-     "publishedAt": "2026-09-15T16:44:42.000Z",
-     "mpName": "X：Rohan Paul (@rohanpaul_ai)"
-    }
-   ]
-  },
-  {
-   "id": "fund:2d1c78a165d1f3a5",
-   "company_name": "Flam",
-   "product_name": "Flicks",
-   "founded": null,
-   "country": null,
-   "industry": "AI互动内容/娱乐",
-   "team": null,
-   "business": "推出可交互视频格式 Flicks，能把多个变化版本打包进一个小文件，观众在播放中点击即可改变屏幕内容",
-   "investors": "QED Investors",
-   "total_funding": "4000万美元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI互动内容/娱乐",
-    "公司类型": "初创公司",
-    "国家/地区": "其他"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
+      "id": "fund:ed9777dbfbce3b1d",
+      "company_name": "宁德时代",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "大厂/已上市",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu58l3ij03e6ro8t36dbb7jy",
+          "title": "紫金矿业10亿元投资AI与人形机器人基金",
+          "url": "https://x.com/thexpin/status/2100489934633361700",
+          "publishedAt": "2026-09-17T07:40:00.000Z",
+          "mpName": "X：X.PIN (@thexpin)"
+        }
+      ]
+    },
     {
-     "id": "aihot:cmu2ubpio02bdrowk226hbidp",
-     "title": "Flam 获 4000 万美元 B 轮，推可交互视频格式 Flicks",
-     "url": "https://x.com/kimmonismus/status/2099880639420092505",
-     "publishedAt": "2026-09-15T15:18:52.000Z",
-     "mpName": "X：Kim (@kimmonismus)"
-    }
-   ]
-  },
-  {
-   "id": "fund:42afe7a07878792e",
-   "company_name": "Glass Imaging",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": null,
-   "valuation": "超过3亿美元",
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
+      "id": "fund:76a09b4c89485d9d",
+      "company_name": "EdgeConneX China",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "其他",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu58l3ij03e6ro8t36dbb7jy",
+          "title": "紫金矿业10亿元投资AI与人形机器人基金",
+          "url": "https://x.com/thexpin/status/2100489934633361700",
+          "publishedAt": "2026-09-17T07:40:00.000Z",
+          "mpName": "X：X.PIN (@thexpin)"
+        }
+      ]
+    },
     {
-     "id": "aihot:cmu1xiqfu03wvromgvtvbgjie",
-     "title": "曝 OpenAI 收购手机影像初创公司 Glass Imaging，估值超 3 亿美元",
-     "url": "https://www.ithome.com/1/002/359.htm",
-     "publishedAt": "2026-09-14T23:41:04.000Z",
-     "mpName": "IT之家（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:ef6299c9e7fdae6d",
-   "company_name": "Temporal",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": "Lightspeed、Wellington Management、高盛、Tiger Global",
-   "total_funding": "5.5亿美元",
-   "valuation": "125.5亿美元",
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
+      "id": "fund:aeae602eb9eb23a1",
+      "company_name": "Treble",
+      "product_name": null,
+      "founded": null,
+      "country": "冰岛",
+      "industry": null,
+      "team": null,
+      "business": "语音模拟平台，提供合成数据生成与模型评测",
+      "investors": "Paladin Capital Group、KOMPAS VC、Frumtak Ventures、EIC、Omega ehf",
+      "total_funding": "超 4000 万美元",
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "欧洲"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu540t1o0a6nroqb4veminu6",
+          "title": "冰岛语音模拟平台 Treble 获 1800 万美元融资",
+          "url": "https://techcrunch.com/2026/09/16/iceland-based-treble-raises-18-million-for-its-voice-simulation-platform",
+          "publishedAt": "2026-09-17T05:00:00.000Z",
+          "mpName": "TechCrunch：AI（RSS）"
+        }
+      ]
+    },
     {
-     "id": "aihot:cmu1ewtks04a4rocn6l6d6vry",
-     "title": "Temporal 完成 5.5 亿美元 E 轮融资，估值 125.5 亿美元",
-     "url": "https://temporal.io/blog/temporal-raises-usd550m-series-e-at-usd12-55b-valuation-ai",
-     "publishedAt": "2026-09-14T13:16:31.000Z",
-     "mpName": "Hacker News：AI 热帖"
-    }
-   ]
-  },
-  {
-   "id": "fund:f4cf01f0b2c572ef",
-   "company_name": "浙江威邦震电光电技术有限公司",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": "道彤投资、IDG资本、道远资本、峰瑞资本、方正合生、纳通资本、苏高新",
-   "total_funding": "近亿元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
+      "id": "fund:e655a7368e74af2c",
+      "company_name": "地瓜机器人",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": "线性",
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "所属行业": "具身智能/机器人",
+        "公司类型": "初创公司",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu5lqvse0auzroqognb8ek7r",
+          "title": "「地瓜机器人」完成4亿美元C轮融资，线性连续七轮加注 | Linear Portfolio",
+          "url": "https://elsewhere.news/zh/linearcapital/4c-linear-portfolio",
+          "publishedAt": "2026-09-17T03:46:00.000Z",
+          "mpName": "elsewhere：文章（RSS）"
+        }
+      ]
+    },
     {
-     "id": "aihot:cmu10nf3b08q5ro2nw9q42mmz",
-     "title": "威邦震电完成近亿元B轮融资，道彤投资领投，推进工业检测、临床及AI for Science商业化",
-     "url": "https://elsewhere.news/zh/daltonventure/bai-for-sciencenews",
-     "publishedAt": "2026-09-14T07:16:14.000Z",
-     "mpName": "elsewhere：文章（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:7f567eea1a570c93",
-   "company_name": "智谱",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": "约50亿美元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
+      "id": "fund:43b06c9f8e90b4e1",
+      "company_name": "Rogo",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": "Kleiner Perkins、Sequoia",
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "美国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu4oq6y108cqrodcqnwrignq",
+          "title": "市场地图：89 家获 VC 投资的 AI 金融科技初创公司，覆盖投行、审计、银行与合规",
+          "url": "https://www.newcomer.co/p/market-map-89-vc-backed-startups",
+          "publishedAt": "2026-09-16T21:45:16.000Z",
+          "mpName": "Newcomer 新闻长文（RSS）"
+        }
+      ]
+    },
     {
-     "id": "aihot:cmu0jgo260r4froryczn18ma5",
-     "title": "IT早报 0914：马斯克、奥尔特曼响应 Anthropic 呼吁放缓前沿 AI 开发；智谱官宣 50 亿美元融资",
-     "url": "https://www.ithome.com/1/001/899.htm",
-     "publishedAt": "2026-09-14T00:03:00.000Z",
-     "mpName": "IT之家（RSS）"
+      "id": "fund:a7b94662052df3d6",
+      "company_name": "Rillet",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": "1亿美元",
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "美国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu4oq6y108cqrodcqnwrignq",
+          "title": "市场地图：89 家获 VC 投资的 AI 金融科技初创公司，覆盖投行、审计、银行与合规",
+          "url": "https://www.newcomer.co/p/market-map-89-vc-backed-startups",
+          "publishedAt": "2026-09-16T21:45:16.000Z",
+          "mpName": "Newcomer 新闻长文（RSS）"
+        }
+      ]
+    },
+    {
+      "id": "fund:313c456d4cd7de27",
+      "company_name": "Hanover Park",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": "2700万美元",
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "美国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu4oq6y108cqrodcqnwrignq",
+          "title": "市场地图：89 家获 VC 投资的 AI 金融科技初创公司，覆盖投行、审计、银行与合规",
+          "url": "https://www.newcomer.co/p/market-map-89-vc-backed-startups",
+          "publishedAt": "2026-09-16T21:45:16.000Z",
+          "mpName": "Newcomer 新闻长文（RSS）"
+        }
+      ]
+    },
+    {
+      "id": "fund:6d22fca83c58000a",
+      "company_name": "Delos",
+      "product_name": "Workers",
+      "founded": null,
+      "country": "巴黎",
+      "industry": "AI模型/基础设施",
+      "team": null,
+      "business": "为 AI 员工配备专属邮箱、电话号码及 Microsoft 或 Google 账号，团队可通过 Slack、Teams、邮件或电话联系，AI 无需提示即可主动跟进工作",
+      "investors": "Bpifrance、Founders Future、C4 Ventures",
+      "total_funding": "1000 万欧元",
+      "valuation": null,
+      "dims": {
+        "所属行业": "AI模型/基础设施",
+        "公司类型": "初创公司",
+        "国家/地区": "欧洲"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu4h9v6a0quiro4wdsnuzctt",
+          "title": "Delos 为 AI 员工配邮箱电话，融资 €10M",
+          "url": "https://x.com/omarsar0/status/2100298017664623088",
+          "publishedAt": "2026-09-16T18:57:23.000Z",
+          "mpName": "X：Elvis Saravia (@omarsar0, DAIR.AI)"
+        },
+        {
+          "id": "aihot:cmu4cic5u0iacro4wprp2jqed",
+          "title": "Delos 融资 1000 万欧元打造 AI 员工",
+          "url": "https://x.com/testingcatalog/status/2100265219494674859",
+          "publishedAt": "2026-09-16T16:47:04.000Z",
+          "mpName": "X：Testing Catalog (@testingcatalog)"
+        }
+      ]
+    },
+    {
+      "id": "fund:cc307060edcc9ef4",
+      "company_name": "AIUC",
+      "product_name": "AIUC-1",
+      "founded": null,
+      "country": null,
+      "industry": "AI保险承销",
+      "team": "前Anthropic员工Rune Kvist与METR前首席运营官Rajiv Dattani共同创办",
+      "business": "AI保险承销",
+      "investors": "Ribbit Capital、First Harmonic",
+      "total_funding": "4000万美元",
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "美国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu4gs1rh0qavro4wnja04czf",
+          "title": "AIUC 宣布 4000 万美元 A 轮融资，推出 AIUC-1 智能体标准与保险体系",
+          "url": "https://www.latent.space/p/aiuc",
+          "publishedAt": "2026-09-16T18:07:45.000Z",
+          "mpName": "Latent Space（RSS）"
+        },
+        {
+          "id": "aihot:cmu2p6dp00eoxrovqu47umis0",
+          "title": "前 Anthropic 员工与 METR 前 COO 创办 AIUC，为 AI 智能体做第三方安全审计，融资 4000 万美元",
+          "url": "https://techcrunch.com/2026/09/15/early-anthropic-hire-former-metr-coo-have-found-a-way-to-rein-in-rogue-ai-agents",
+          "publishedAt": "2026-09-15T13:00:00.000Z",
+          "mpName": "TechCrunch：AI（RSS）"
+        }
+      ]
+    },
+    {
+      "id": "fund:c2ac9cf4a964be10",
+      "company_name": "Hang Ten Systems",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": "前 Infosys CEO Vishal Sikka 创立",
+      "business": null,
+      "investors": "Temasek 旗下 Xora",
+      "total_funding": "8500 万美元",
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "其他"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu45pn6i0ad9ro4wa2h9x1ti",
+          "title": "前 Infosys CEO 的 AI 初创公司 Hang Ten Systems 再获 5300 万美元种子轮融资",
+          "url": "https://techcrunch.com/2026/09/16/former-infosys-chiefs-ai-startup-adds-50m-to-seed-weeks-after-initial-raise",
+          "publishedAt": "2026-09-16T13:00:00.000Z",
+          "mpName": "TechCrunch：AI（RSS）"
+        }
+      ]
+    },
+    {
+      "id": "fund:6681a88e6288b92e",
+      "company_name": "Profound",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": "营销软件公司",
+      "investors": "Sequoia、Kleiner Perkins、Lightspeed Venture Partners、Khosla Ventures",
+      "total_funding": null,
+      "valuation": "18 亿美元",
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "美国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu43xpoy08gxro4wd3ohoauk",
+          "title": "Profound 完成 1.8 亿美元 D 轮融资",
+          "url": "https://x.com/frxiaobei/status/2100207573983191173",
+          "publishedAt": "2026-09-16T12:58:00.000Z",
+          "mpName": "X：小北 (@frxiaobei)"
+        },
+        {
+          "id": "aihot:cmu2ujdr602ifrowk1x2zd23b",
+          "title": "AEO 创业公司 Profound 融资 1.8 亿美元，估值达 18 亿美元",
+          "url": "https://techcrunch.com/2026/09/15/aeo-startup-profound-hits-unicorn-valuation-raises-180m-series-d-7-months-after-last-round",
+          "publishedAt": "2026-09-15T15:22:48.000Z",
+          "mpName": "TechCrunch：AI（RSS）"
+        }
+      ]
+    },
+    {
+      "id": "fund:2bbc715e6f9aec7a",
+      "company_name": "DeepMaterial",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": "将AI用于金属材料研发，已实现AI驱动材料研发的完整闭环，并发布近20种新型高性能材料，部分已进入量产",
+      "investors": "蓝驰创投",
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "manus:de3178cd9de124f7",
+          "title": "DeepMaterial Closes A+ Funding Round: Driving Self-Evolving RSI with Real-World Data | BlueRun Ventures",
+          "url": "https://elsewhere.news/en/lanchi/arsi",
+          "publishedAt": "2026-09-16T19:09:00+08:00",
+          "mpName": "elsewhere别处发生"
+        }
+      ],
+      "fieldQuarantines": [
+        {
+          "field": "total_funding",
+          "originalValue": "近亿元人民币A+轮融资",
+          "reasonCode": "single_round_not_total",
+          "reason": "单轮融资金额不能作为累计融资",
+          "articleId": "manus:de3178cd9de124f7",
+          "url": "https://elsewhere.news/en/lanchi/arsi",
+          "title": "DeepMaterial Closes A+ Funding Round: Driving Self-Evolving RSI with Real-World Data | BlueRun Ventures",
+          "publishedAt": "2026-09-16T19:09:00+08:00",
+          "sourceName": "elsewhere别处发生",
+          "origin": "article"
+        }
+      ]
+    },
+    {
+      "id": "fund:1c299206b28d351e",
+      "company_name": "Anew Labs",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": "AI药物发现",
+      "investors": "原红杉中国HSG、IDG资本、高瓴投资、五源资本",
+      "total_funding": "2.9亿美元",
+      "valuation": "15亿美元",
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "其他",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu3rz0fq0cyrroc1uyar4nr8",
+          "title": "消息称字节跳动完成 2.9 亿美元融资，用于拆分 AI 制药业务 Anew Labs",
+          "url": "https://www.ithome.com/1/003/089.htm",
+          "publishedAt": "2026-09-16T07:08:12.000Z",
+          "mpName": "IT之家（RSS）"
+        }
+      ]
+    },
+    {
+      "id": "fund:0be08473910e7752",
+      "company_name": "字节跳动",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "大厂/已上市",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu3rz0fq0cyrroc1uyar4nr8",
+          "title": "消息称字节跳动完成 2.9 亿美元融资，用于拆分 AI 制药业务 Anew Labs",
+          "url": "https://www.ithome.com/1/003/089.htm",
+          "publishedAt": "2026-09-16T07:08:12.000Z",
+          "mpName": "IT之家（RSS）"
+        }
+      ]
+    },
+    {
+      "id": "fund:172af6c3d7cd33ba",
+      "company_name": "Preferred Networks",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": "三菱重工",
+      "total_funding": "100亿日元",
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "其他",
+        "国家/地区": "日韩"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu3qgn2j0b7qroc1e0v7ui5h",
+          "title": "三菱重工与Preferred Networks签订资本业务提携协议，出资总额100亿日元",
+          "url": "https://www.preferred.jp/ja/news/pr20260916",
+          "publishedAt": "2026-09-16T06:42:02.272Z",
+          "mpName": "Preferred Networks：AI 研究与产品"
+        }
+      ]
+    },
+    {
+      "id": "fund:f2e8790b6ac0a0ef",
+      "company_name": "TypeSafe AI",
+      "product_name": "Jev",
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": "ChatGPT与RLHF共同发明人之一Diogo Almeida",
+      "business": "前沿基座模型",
+      "investors": null,
+      "total_funding": "4000万美元",
+      "valuation": null,
+      "dims": {
+        "所属行业": "AI模型/基础设施",
+        "公司类型": "初创公司",
+        "国家/地区": "美国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu3fnsdh06mhrotbth8lcuoo",
+          "title": "ChatGPT 共同发明人发布 Jev 基座模型",
+          "url": "https://x.com/AYi_AInotes/status/2100031941189783886",
+          "publishedAt": "2026-09-16T01:20:06.000Z",
+          "mpName": "X：阿易 AI Notes (@AYi_AInotes)"
+        }
+      ]
+    },
+    {
+      "id": "fund:3fac461f3cbef2e8",
+      "company_name": "Poolday",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": "AI创作工具/生产力",
+      "team": null,
+      "business": "使用 AI 智能体自动化视频制作全流程，用户通过一次提示词即可剪辑真实素材，系统按任务自动选择生成模型，并在交付前自查成片",
+      "investors": null,
+      "total_funding": "1100 万美元",
+      "valuation": null,
+      "dims": {
+        "所属行业": "AI创作工具/生产力",
+        "公司类型": "初创公司",
+        "国家/地区": "其他"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu2xjf3x02n3roc1yqq51scd",
+          "title": "Poolday 用 AI 智能体自动化视频制作全流程",
+          "url": "https://x.com/omarsar0/status/2099908124551585996",
+          "publishedAt": "2026-09-15T17:08:05.000Z",
+          "mpName": "X：Elvis Saravia (@omarsar0, DAIR.AI)"
+        },
+        {
+          "id": "aihot:cmu2xjf4h02n7roc1vxuxefpt",
+          "title": "Poolday 获 1100 万美元融资，AI 智能体全流程做视频",
+          "url": "https://x.com/rohanpaul_ai/status/2099902236839334166",
+          "publishedAt": "2026-09-15T16:44:42.000Z",
+          "mpName": "X：Rohan Paul (@rohanpaul_ai)"
+        }
+      ]
+    },
+    {
+      "id": "fund:2d1c78a165d1f3a5",
+      "company_name": "Flam",
+      "product_name": "Flicks",
+      "founded": null,
+      "country": null,
+      "industry": "AI互动内容/娱乐",
+      "team": null,
+      "business": "推出可交互视频格式 Flicks，能把多个变化版本打包进一个小文件，观众在播放中点击即可改变屏幕内容",
+      "investors": "QED Investors",
+      "total_funding": "4000万美元",
+      "valuation": null,
+      "dims": {
+        "所属行业": "AI互动内容/娱乐",
+        "公司类型": "初创公司",
+        "国家/地区": "其他"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu2ubpio02bdrowk226hbidp",
+          "title": "Flam 获 4000 万美元 B 轮，推可交互视频格式 Flicks",
+          "url": "https://x.com/kimmonismus/status/2099880639420092505",
+          "publishedAt": "2026-09-15T15:18:52.000Z",
+          "mpName": "X：Kim (@kimmonismus)"
+        }
+      ]
+    },
+    {
+      "id": "fund:42afe7a07878792e",
+      "company_name": "Glass Imaging",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": "超过3亿美元",
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "美国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu1xiqfu03wvromgvtvbgjie",
+          "title": "曝 OpenAI 收购手机影像初创公司 Glass Imaging，估值超 3 亿美元",
+          "url": "https://www.ithome.com/1/002/359.htm",
+          "publishedAt": "2026-09-14T23:41:04.000Z",
+          "mpName": "IT之家（RSS）"
+        }
+      ]
+    },
+    {
+      "id": "fund:ef6299c9e7fdae6d",
+      "company_name": "Temporal",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": "Lightspeed、Wellington Management、高盛、Tiger Global",
+      "total_funding": "5.5亿美元",
+      "valuation": "125.5亿美元",
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "美国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu1ewtks04a4rocn6l6d6vry",
+          "title": "Temporal 完成 5.5 亿美元 E 轮融资，估值 125.5 亿美元",
+          "url": "https://temporal.io/blog/temporal-raises-usd550m-series-e-at-usd12-55b-valuation-ai",
+          "publishedAt": "2026-09-14T13:16:31.000Z",
+          "mpName": "Hacker News：AI 热帖"
+        }
+      ]
+    },
+    {
+      "id": "fund:f4cf01f0b2c572ef",
+      "company_name": "浙江威邦震电光电技术有限公司",
+      "product_name": null,
+      "founded": null,
+      "country": null,
+      "industry": null,
+      "team": null,
+      "business": null,
+      "investors": "道彤投资、IDG资本、道远资本、峰瑞资本、方正合生、纳通资本、苏高新",
+      "total_funding": "近亿元",
+      "valuation": null,
+      "dims": {
+        "所属行业": "其他",
+        "公司类型": "初创公司",
+        "国家/地区": "中国"
+      },
+      "filledBySearch": [],
+      "searchSources": [],
+      "sourceArticles": [
+        {
+          "id": "aihot:cmu10nf3b08q5ro2nw9q42mmz",
+          "title": "威邦震电完成近亿元B轮融资，道彤投资领投，推进工业检测、临床及AI for Science商业化",
+          "url": "https://elsewhere.news/zh/daltonventure/bai-for-sciencenews",
+          "publishedAt": "2026-09-14T07:16:14.000Z",
+          "mpName": "elsewhere：文章（RSS）"
+        }
+      ]
     }
-   ]
+  ],
+  "reviewedRecovery": {
+    "at": "2026-09-20T15:47:35+08:00",
+    "kind": "historical_backfill",
+    "originalCacheVersionsPreserved": true,
+    "newApiCalls": 0
   }
- ]
 }
