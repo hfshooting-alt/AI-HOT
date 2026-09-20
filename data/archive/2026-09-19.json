@@ -3250,6 +3250,41 @@
    "contentSha256": "b0f2faebd7eef1b03111dec338dd4b3454ac68a87952fdea79d69f75fae60979"
   },
   {
+   "id": "manus:5843bd63f6673402",
+   "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+   "url": "https://news.qq.com/rain/a/20260919A08I7000",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "manus",
+   "publishedAt": "2026-09-19T16:30:02+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": null,
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "manus",
+     "source": "智东西",
+     "url": "https://news.qq.com/rain/a/20260919A08I7000",
+     "publishedAt": "2026-09-19T16:30:02+08:00"
+    }
+   ],
+   "summary": "在华为全联接大会2026上，华为发布AI资产广场，供开发者上架和查找AI资产。华为计算首席战略官朱照生宣布昇腾已跨越生态拐点，CANN社区成为中国活跃度最高的开源社区，昇腾成为PyTorch社区官方支持的首个中国算力平台，并介绍Agentic计算在超节点开发、思程、SIMD+SIMT混合编程、HiFloat4低精度格式和Agent编程调优五个方面的变化。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "45618b20da79ac9f3253fc4715f1471162bb9042fbf42d3418c57b6ae1ef5128"
+  },
+  {
    "id": "aihot:cmu852zra15airogrzqligyjy",
    "title": "Anthropic 新模型确认，IPO 推迟至 11 月",
    "originalTitle": "Good news： Anthropics new models confirmed， possibly the already tested and routed Opus 5.2 and Fabl…",
@@ -4811,6 +4846,46 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "05680afe74f92585b15e33fc197aa007acdbd8f16e25236f25f673888e736195"
+  },
+  {
+   "id": "manus:aad2cf7c8a361e67",
+   "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+   "url": "https://news.qq.com/rain/a/20260919A067RE00",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "manus",
+   "publishedAt": "2026-09-19T12:30:03+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": null,
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "manus",
+     "source": "智东西",
+     "url": "https://news.qq.com/rain/a/20260919A067RE00",
+     "publishedAt": "2026-09-19T12:30:03+08:00"
+    }
+   ],
+   "summary": "在2026年华为全联接大会上，华为介绍灵衢统一互联协议和超节点集群，公布昇腾960芯片、超节点及OceanStor M900 AI记忆存储等基础设施进展。昇腾960风冷、液冷超节点计划分别于2027年第2、3季度上市。华为称，基于灵衢的单集群可支持100万颗AI处理器，10万卡集群的模型浮点算力利用率可从20%提升至35%。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "a2ed3dbffc7685d47c9ec78f90dd2c0023610a2d2f9a2d981bd62d1e1033f923",
+   "summaryReview": {
+    "reviewedAt": "2026-09-20",
+    "origin": "manual-evidence-review",
+    "reason": "区分协议介绍与新产品首发，并保留正文未来上市限定；性能数字归因华为。"
+   }
   },
   {
    "id": "aihot:cmu7w4mi50swnrogr4kspk0bu",
@@ -6682,5 +6757,5 @@
    "contentSha256": "f23dabf722b396dd08ad68dc70e53cf50c414ae1615c6b7d8f7575afb45f6468"
   }
  ],
- "updatedAt": "2026-09-20T15:30:24.799530+08:00"
+ "updatedAt": "2026-09-20T22:46:48.117128+08:00"
 }

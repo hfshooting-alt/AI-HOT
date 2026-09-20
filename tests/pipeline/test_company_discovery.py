@@ -13,7 +13,7 @@ class CompanyDiscoveryTest(unittest.TestCase):
     TX = {"model": {"model": "offline-research-model"}}
 
     def setUp(self):
-        env=patch.dict("os.environ", {"COMPANY_DISCOVERY_QUOTA_READY":"1"})
+        env=patch.dict("os.environ", {"COMPANY_DISCOVERY_QUOTA_READY":"1", "GITHUB_ACTIONS":""})
         env.start();self.addCleanup(env.stop)
 
     def client(self):
@@ -59,7 +59,7 @@ class CompanyDiscoveryTest(unittest.TestCase):
         read=Mock(return_value={'url':'https://example.com/legal','title':'Legal','text':'X in China'})
         model=Mock(return_value={'facts':[{'field':'country','value':'中国','url':'https://example.com/legal','title':'Legal','quote':'China'}]})
         with tempfile.TemporaryDirectory() as d:
-            data=enrich({'companies':[row]}, self.TX, d, rules={}, discovery_fn=find, read_fn=read, propose_fn=model)
+            data=enrich({'companies':[row]}, self.TX, d, budget_dir=Path(d)/'budget', rules={}, discovery_fn=find, read_fn=read, propose_fn=model)
         read.assert_called_once_with('https://example.com/legal')
         self.assertEqual(data['companies'][0]['country'],'中国')
         self.assertEqual(data['companies'][0]['business'],'Existing')
@@ -76,7 +76,7 @@ class CompanyDiscoveryTest(unittest.TestCase):
         model=Mock(return_value={'owner_company':'Company','facts':[{'field':'owner_company','value':'Company','url':'https://example.com','quote':'Company owns Tool','title':'About'}, {'field':'country','value':'美国','url':'https://example.com','quote':'US','title':'About'}]})
         find=Mock(return_value={'status':'completed','urls':['https://example.com']})
         with tempfile.TemporaryDirectory() as d:
-            result=enrich({'companies':[],'pendingEntities':[row]}, self.TX, d,rules={}, discovery_fn=find,read_fn=read,propose_fn=model)
+            result=enrich({'companies':[],'pendingEntities':[row]}, self.TX, d,budget_dir=Path(d)/'budget',rules={}, discovery_fn=find,read_fn=read,propose_fn=model)
         self.assertEqual(result['companies'],[])
         product=result['pendingEntities'][0]
         self.assertEqual(product['candidateOwners'][0]['name'],'Company')

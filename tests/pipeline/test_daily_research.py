@@ -4,10 +4,15 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import Mock, patch
-from company_index.daily_research import enrich, eligible_fact
+from company_index.daily_research import enrich as durable_enrich, eligible_fact
 from company_index.research import propose
 from automation.runner import plan
 from llm_failures import LLMRequestError
+
+
+def enrich(data, tx, directory, **kwargs):
+    kwargs.setdefault('budget_dir', Path(directory) / 'budget')
+    return durable_enrich(data, tx, directory, **kwargs)
 
 
 def sample(name='X'):
@@ -19,6 +24,8 @@ class DailyResearchTest(unittest.TestCase):
     TX = {"model": {"model": "offline-research-model"}}
 
     def setUp(self):
+        env = patch.dict('os.environ', {'GITHUB_ACTIONS': ''})
+        env.start(); self.addCleanup(env.stop)
         clock = patch('company_index.daily_research.now_bj_iso', return_value='2026-09-20T12:00:00+08:00')
         clock.start()
         self.addCleanup(clock.stop)
@@ -243,7 +250,7 @@ class DailyResearchTest(unittest.TestCase):
                 self.assertTrue(report['circuitOpen'])
                 self.assertEqual(report['circuitReason']['category'],'invalid_response')
                 self.assertEqual(report['deferred'],3)
-                self.assertEqual(json.loads((Path(d)/'requests.json').read_text())['attempts'],3)
+                self.assertEqual(json.loads((Path(d)/'budget/model-cache/2026-09-20/requests.json').read_text())['attempts'],3)
                 self.assertNotIn('private-invalid-response',json.dumps(result))
 
     def test_json_decode_errors_are_protocol_failures_not_content(self):

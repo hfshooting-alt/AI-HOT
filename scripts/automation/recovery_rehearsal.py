@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import shutil
 import sys
+from unittest.mock import patch
 
 import tag_news
 from . import recovery
@@ -20,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DATE = '2026-09-18'
 RUN = 'a' * 32
 MODEL = 'recovery-drill-fixture-model'
+RESEARCH_AT = DATE + 'T10:00:00+08:00'
 
 
 def setup(root, repository=ROOT):
@@ -41,7 +43,7 @@ def create(root):
               'candidateArticles': 2, 'publishedArticles': 2, 'excludedArticles': 0,
               'quarantinedArticles': 0, 'quarantined': []}
     save(w / 'inputs/processed.json', dict(collectionWindow=window, collectionStatus=status, items=items))
-    save(w / 'web/public/snapshot.json', dict(collectionWindow=window, collectionStatus=status,
+    save(w / 'web/public/snapshot.json', dict(generatedAt=DATE + 'T09:30:00+08:00', collectionWindow=window, collectionStatus=status,
         all={'items': items}, daily={'sections': [{'label': 'Fixture', 'items': items}]},
         weekly={'sections': []}, history=[], weeklyNav=[]))
     save(w / 'data/manus/current.json', dict(schemaVersion=2, targetDate=DATE,
@@ -54,7 +56,7 @@ def create(root):
     save(w / 'data/company-overview/current.json', {'companies': []})
     tx = tag_news.load_taxonomy(str(root / 'config/taxonomy.json'))
     company = {'company_name': 'Recovery Demo Labs', 'entity_type': 'company', 'aliases': [],
-        'country': '中国', 'business': 'Synthetic recovery test', 'product_names': ['DemoAgent'],
+        'country': '中国', 'business': None, 'product_names': ['DemoAgent'],
         'products': [{'name': 'DemoAgent', 'relationship': 'owned', 'quote': 'Recovery Demo Labs develops DemoAgent.'}]}
     save(w / 'data/company-overview/extraction_cache.json', {
         cache_key(tx, a): {'status': 'complete', 'companies': [company]} for a in evidence})
@@ -63,6 +65,33 @@ def create(root):
         article_cache_key(tx, a): {'status': 'complete', 'companies': [
             {'company_name': 'Recovery Demo Labs', 'total_funding': 'synthetic 1 million', 'country': '中国'}]} for a in fa})
     save(w / 'web/public/drill.svg', {'synthetic': True})
+    # A successful optional proposal is persisted before the candidate can be
+    # published. The overview itself deliberately remains the pre-research one.
+    import build_company_overview
+    from company_index.daily_research import enrich
+    from company_index.research import propose
+    prior = build_company_overview.build(w / 'web/public/snapshot.json',
+        w / 'data/manus/current.json', root / 'work/manus/ten-am',
+        w / 'data/company-overview/current.json', w / 'data/company-overview', tx,
+        llm_fn=recovery.deny_model, require_complete=True,
+        evidence_path=w / 'inputs/company-evidence.json')
+    for row in prior['companies']:
+        row['profileUpdatedAt'] = DATE + 'T09:30:00+08:00'
+    prior['generatedAt'] = DATE + 'T09:30:00+08:00'
+    save(w / 'data/company-overview/current.json', prior)
+    quote = 'Recovery Demo Labs develops DemoAgent.'
+    def fake_proposal(tx, packet, directory, **kwargs):
+        return propose(tx, packet, directory, llm_fn=lambda *a, **k: json.dumps({
+            'entity_type': 'company', 'facts': [{'field': 'business',
+            'value': '开发 DemoAgent 工具', 'source_index': 0, 'quote': quote}]}), **kwargs)
+    with patch.dict(os.environ, {'GITHUB_ACTIONS': '', 'COMPANY_RESEARCH_BUDGET_READY': ''}), \
+            patch('company_index.daily_research.now_bj_iso', return_value=RESEARCH_AT):
+        researched = enrich(prior, tx, root / 'work/company-web-research' / RUN,
+            budget_dir=root / 'work/company-research-budget', rules={},
+            read_fn=lambda url: {'url': url, 'title': 'Synthetic company page', 'text': quote},
+            propose_fn=fake_proposal)
+    assert researched['knownLinkResearch']['filled'] == 1
+    assert researched['companies'][0]['profileUpdatedAt'] == RESEARCH_AT
     save(run / 'state.json', {'date': DATE, 'fingerprint': 'original-failed-fixture-state',
         'modelContext': {'LLM_MODEL': MODEL}, 'published': False,
         'collectionWindow': window, 'recoveryBaseline': {rel: tree_digest(root / rel, portable=True) for rel in ALLOWED},
@@ -83,6 +112,15 @@ def verify(root, bundle, secret):
     assert summary['news'] == 2 and summary['companies'] == 1
     assert overview['stats']['cacheHits'] == 2 and overview['stats']['modelCalls'] == 0
     assert overview['companies'][0]['product_names'] == ['DemoAgent']
+    assert overview['companies'][0]['business'] == '开发 DemoAgent 工具'
+    assert overview['companies'][0]['profileUpdatedAt'] == RESEARCH_AT
+    assert overview['knownLinkResearch']['attempted'] == 0
+    assert overview['knownLinkResearch']['pagesFetched'] == 0
+    assert overview['knownLinkResearch']['cacheHits'] == 1
+    budget = restored / 'work/company-research-budget'
+    assert (budget / 'ledger.json').is_file()
+    assert len(list((budget / 'results').glob('*.json'))) == 1
+    assert len(list((budget / 'model-cache').glob('*/*.attempt'))) == 1
     assert len(funding['companies']) == 1 and funding['stats']['articlesProcessed'] == 1
     assert (source / 'state.json').read_bytes() == original
     assert not (root / 'web/public/snapshot.json').exists()
@@ -108,6 +146,8 @@ def verify(root, bundle, secret):
         'news': 2, 'companies': 1, 'products': 1, 'fundingRows': 1,
         'realCandidateValidation': True, 'missingCacheBlocked': True,
         'tamperedBundleBlocked': True, 'originalFailureStatePreserved': True,
+        'unpublishedResearchReplayed': True, 'originalResearchDatePreserved': True,
+        'researchRequests': 0, 'researchPages': 0,
         'published': False, 'window': summary['window']}
 
 

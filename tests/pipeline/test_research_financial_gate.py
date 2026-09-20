@@ -84,15 +84,15 @@ class ResearchFinancialGate(unittest.TestCase):
         original = copy.deepcopy(source)
         proposal = Mock(return_value={'facts': raw_facts})
         reader = lambda u: {'url': u, 'title': 'About', 'text': 'Mocked quote-validated page'}
-        with tempfile.TemporaryDirectory() as directory, patch('company_index.daily_research.resolve_model', return_value='offline-model'):
-            result = enrich({'companies': [source]}, {}, directory, read_fn=reader, propose_fn=proposal, rules={})
+        with tempfile.TemporaryDirectory() as directory, patch.dict('os.environ', {'GITHUB_ACTIONS': ''}):
+            result = enrich({'companies': [source]}, {'model': {'model': 'offline-model'}}, directory, budget_dir=Path(directory)/'budget', read_fn=reader, propose_fn=proposal, rules={})
             row = result['companies'][0]
             self.assertIsNone(row['valuation'])
             self.assertIsNone(row['total_funding'])
             self.assertEqual(result['knownLinkResearch']['filled'], 0)
             self.assertEqual(result['knownLinkResearch']['records'][0]['rejectedFacts'], 2)
             valid = fact('total_funding', '2026年完成合计近2亿美元融资', 'Example在2026年完成合计近2亿美元融资。')
-            result = enrich({'companies': [source]}, {}, directory, read_fn=reader,
+            result = enrich({'companies': [source]}, {'model': {'model': 'offline-model'}}, directory, budget_dir=Path(directory)/'valid-budget', read_fn=reader,
                             propose_fn=Mock(return_value={'facts': [valid]}), rules={})
             row = result['companies'][0]
             self.assertEqual(row['total_funding'], valid['value'])

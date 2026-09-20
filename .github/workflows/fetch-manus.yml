@@ -64,6 +64,46 @@ jobs:
       - name: 公司搜索配额日期（北京时间）
         id: research-day
         run: echo "day=$(TZ=Asia/Shanghai date +%F)" >> "$GITHUB_OUTPUT"
+      - name: 读取当天公司 DeepSeek 补全租约
+        id: company-research-restore
+        continue-on-error: true
+        if: ${{ github.event_name == 'schedule' || (!inputs.dry_run && (inputs.stage == 'all' || inputs.stage == 'overview')) }}
+        uses: actions/cache/restore@v4
+        with:
+          path: work/company-research-budget/lease.json
+          key: company-research-day-${{ steps.research-day.outputs.day }}
+      - name: 检查运行历史并预留整日公司补全额度
+        id: company-research-reserve
+        continue-on-error: true
+        if: ${{ steps.company-research-restore.outcome == 'success' }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          RESEARCH_DAY: ${{ steps.research-day.outputs.day }}
+        run: PYTHONPATH=scripts python -m company_index.research_budget --reserve --day "$RESEARCH_DAY" --directory work/company-research-budget
+      - name: 持久化非私有公司补全租约
+        id: company-research-save
+        continue-on-error: true
+        if: ${{ steps.company-research-reserve.outcome == 'success' }}
+        uses: actions/cache/save@v4
+        with:
+          path: work/company-research-budget/lease.json
+          key: company-research-day-${{ steps.research-day.outputs.day }}
+      - name: 读回确认公司补全租约
+        id: company-research-confirm
+        continue-on-error: true
+        if: ${{ steps.company-research-save.outcome == 'success' }}
+        uses: actions/cache/restore@v4
+        with:
+          path: work/company-research-budget/lease.json
+          key: company-research-day-${{ steps.research-day.outputs.day }}
+          fail-on-cache-miss: true
+      - name: 验证当前运行和北京时间日匹配租约
+        id: company-research-ready
+        continue-on-error: true
+        if: ${{ steps.company-research-confirm.outcome == 'success' && steps.company-research-confirm.outputs.cache-hit == 'true' }}
+        env:
+          RESEARCH_DAY: ${{ steps.research-day.outputs.day }}
+        run: PYTHONPATH=scripts python -m company_index.research_budget --check --day "$RESEARCH_DAY" --directory work/company-research-budget
       - name: 读取当天公司搜索占位
         continue-on-error: true
         uses: actions/cache/restore@v4
@@ -92,6 +132,7 @@ jobs:
           fail-on-cache-miss: true
       - name: 并行采集 → 统一模型处理 → 快照与公司库 → 发布成功来源
         env:
+          COMPANY_RESEARCH_BUDGET_READY: ${{ steps.company-research-ready.outcome == 'success' && '1' || '0' }}
           COMPANY_DISCOVERY_QUOTA_READY: ${{ steps.company-quota-confirm.outcome == 'success' && '1' || '0' }}
           MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.PARATERA_API_KEY || secrets.DEEPSEEK_API_KEY }}

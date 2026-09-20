@@ -20,6 +20,19 @@ from company_index.output import assemble, promote, validate
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def material_profile(row):
+    """Compare profile content without treating evidence order as a change."""
+    material = {k: v for k, v in row.items() if k not in (
+        'updatedAt', 'profileUpdatedAt', 'latestReportAt')}
+    if isinstance(material.get('fieldSources'), dict):
+        material['fieldSources'] = {
+            field: sorted(evidence, key=lambda item: json.dumps(item, ensure_ascii=False, sort_keys=True))
+            if isinstance(evidence, list) else evidence
+            for field, evidence in material['fieldSources'].items()
+        }
+    return material
+
+
 def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
           llm_fn=call_llm, generated_at=None, require_complete=False, evidence_path=None, allow_partial=False, replace_product_evidence=False):
     articles = load_articles(snapshot_path, feed_path, work_dir, tx)
@@ -84,12 +97,9 @@ def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
     for bucket in ('companies', 'pendingEntities', 'excludedEntities'):
         for rec in data.get(bucket, []):
             old = old_records.get(rec['id'])
-            def material(row):
-                return {k: v for k, v in row.items() if k not in (
-                    'updatedAt', 'profileUpdatedAt', 'latestReportAt')}
             rec['latestReportAt'] = rec.get('lastSeenAt') or ''
             rec['profileUpdatedAt'] = (old.get('profileUpdatedAt', '')
-                if old and material(old) == material(rec) else data['generatedAt'])
+                if old and material_profile(old) == material_profile(rec) else data['generatedAt'])
     validate(data, tx)
     return data
 
@@ -113,6 +123,8 @@ def main(argv=None):
     parser.add_argument('--known-link-research', action='store_true', help='读取已确认网页，最多5次模型补全，失败隔离')
     parser.add_argument('--discover-company', action='store_true', help='每天最多1个主体的Manus资料搜索，观察止损20credits')
     parser.add_argument('--research-dir', type=Path, default=ROOT / 'work/company-web-research')
+    parser.add_argument('--research-budget-dir', type=Path, default=ROOT / 'work/company-research-budget',
+                        help='独立于发布产物的资料补全配额与成功结果目录')
     args = parser.parse_args(argv)
     tx = tag_news.load_taxonomy(str(ROOT / args.taxonomy))
     try:
@@ -123,7 +135,8 @@ def main(argv=None):
         if args.known_link_research:
             from company_index.daily_research import enrich
             from company_index.discovery import discover
-            data = enrich(data, tx, args.research_dir, discovery_fn=discover if args.discover_company else None)
+            data = enrich(data, tx, args.research_dir, budget_dir=args.research_budget_dir,
+                          discovery_fn=discover if args.discover_company else None)
             validate(data, tx)
     except ValueError as exc:
         print(f"公司与产品库构建失败，保留上一次产物：{exc}", file=sys.stderr)

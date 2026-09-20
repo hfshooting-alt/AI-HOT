@@ -135,6 +135,35 @@
       "reviewedAt": "2026-09-20",
       "origin": "editorial-review",
       "evidenceScope": "saved_upstream_title_and_summary"
+    },
+    "manus:5843bd63f6673402": {
+      "category": "bigtech",
+      "tags": {
+        "change_type": "other",
+        "company": "other"
+      },
+      "reason": "正文核心为华为算力、云和鸿蒙生态及开发工具布局，保留大厂动态；未将已发布的HarmonyOS 7或协议技术进展误作本次旗舰新模型发布。",
+      "fingerprint": "1627b8c619a4c6f94803e0681573d949fa4ab80b84cd3939ae5d95db46d58a8f",
+      "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+      "url": "https://news.qq.com/rain/a/20260919A08I7000",
+      "reviewedAt": "2026-09-20",
+      "origin": "manual-evidence-review",
+      "evidenceScope": "saved_verified_article_body_and_model_summary"
+    },
+    "manus:aad2cf7c8a361e67": {
+      "category": "bigtech",
+      "tags": {
+        "change_type": "other",
+        "company": "other"
+      },
+      "reason": "正文核心为华为互联协议、芯片、超节点和存储基础设施及生态，不是新AI应用或旗舰新模型；昇腾960超节点仍写2027年上市。",
+      "fingerprint": "697ec6160477d5fed0130a27070239e516566fe526a724e07402e6a62f20fa56",
+      "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+      "url": "https://news.qq.com/rain/a/20260919A067RE00",
+      "reviewedAt": "2026-09-20",
+      "origin": "manual-evidence-review",
+      "evidenceScope": "saved_verified_article_body_and_model_summary",
+      "originalModelFingerprint": "1c9f617865254dda56458bc682bfaefb89a4581c0f9713c63939c92cbde0fba6"
     }
   },
   "productRelationships": [
@@ -159,6 +188,16 @@
       "relationship": "integrated",
       "quote": "其搜索槽位接入 Nimble 后",
       "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "华为",
+      "product": "Atlas 650E",
+      "articleId": "manus:aad2cf7c8a361e67",
+      "relationship": "owned",
+      "quote": "因此，华为基于灵衢推出从1卡到8卡的系列化、多层级一体机产品和鲲鹏昇腾模组。\nAtlas 650E可以通过双机灵衢直连，让16个NPU进行Full-Mesh组网，无需交换机。",
+      "reason": "相邻两句先明确华为推出一体机产品，再具体介绍Atlas 650E，支持华为产品归属。",
+      "reviewedAt": "2026-09-20",
+      "origin": "manual-evidence-review"
     }
   ],
   "productIdentityReviews": [
@@ -383,6 +422,60 @@
       "quote": "其第一方MAI模型的\"行为准则\"将于明天公开发布以征询公众意见",
       "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
       "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "华为",
+      "name": "灵衢互联协议",
+      "articleId": "manus:5843bd63f6673402",
+      "quote": "去年，华为发布灵衢互联协议",
+      "reason": "互联协议，不是独立可用产品；保留新闻技术信息。",
+      "reviewedAt": "2026-09-20",
+      "origin": "manual-evidence-review"
+    },
+    {
+      "company": "华为",
+      "name": "思程ThinkProcess",
+      "articleId": "manus:5843bd63f6673402",
+      "quote": "需要一个新的对象来运行和管理系统，为此，华为提出了思程ThinkProcess。",
+      "reason": "运行抽象和架构概念；正文写年底才对外开源，没有独立已可用产品证据。",
+      "reviewedAt": "2026-09-20",
+      "origin": "manual-evidence-review"
+    },
+    {
+      "company": "华为",
+      "name": "HiFloat8",
+      "articleId": "manus:5843bd63f6673402",
+      "quote": "去年华为发布HiFloat8浮点数据格式",
+      "reason": "浮点数值格式和技术标准，不是独立产品。",
+      "reviewedAt": "2026-09-20",
+      "origin": "manual-evidence-review"
+    },
+    {
+      "company": "华为",
+      "name": "HiFloat4",
+      "articleId": "manus:5843bd63f6673402",
+      "quote": "华为还提供了4bit浮点数据格式HiFloat4",
+      "reason": "浮点数值格式，不是独立产品。",
+      "reviewedAt": "2026-09-20",
+      "origin": "manual-evidence-review"
+    },
+    {
+      "company": "华为",
+      "name": "鸿蒙星河互联技术",
+      "articleId": "manus:5843bd63f6673402",
+      "quote": "HarmonyOS 7升级了鸿蒙星河互联技术",
+      "reason": "操作系统内部互联技术，保留在HarmonyOS 7及新闻动态，不另列独立产品。",
+      "reviewedAt": "2026-09-20",
+      "origin": "manual-evidence-review"
+    },
+    {
+      "company": "华为",
+      "name": "灵衢",
+      "articleId": "manus:aad2cf7c8a361e67",
+      "quote": "简单来说，灵衢（UnifiedBus），是华为整个算力底座的统一互联总线协议。",
+      "reason": "统一互联协议和架构，不是独立可用产品。",
+      "reviewedAt": "2026-09-20",
+      "origin": "manual-evidence-review"
     }
   ],
   "fieldValueReviews": [
@@ -585,6 +678,28 @@
       "quote": "完成约50亿美元融资",
       "reason": "同一笔股份配售与可转债发行的交易合计，未披露历年累计融资；本次依据该旧来源本身，不依据新4篇同额报道。",
       "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "科大讯飞",
+      "field": "country",
+      "from": "中国",
+      "to": null,
+      "articleId": "manus:aad2cf7c8a361e67",
+      "quote": "科大讯飞深耕AI大模型与应用技术创新，基于昇腾打造领先AI模型，开发了智能客服、办公等通用方案，金融、教育、医疗等行业场景化方案，为客户提供高质量AI解决方案。",
+      "reason": "该段只证明公司业务、行业方案及使用昇腾，没有注册地、总部或国家信息；不以模型记忆补中国。保留业务和新闻关联。",
+      "reviewedAt": "2026-09-20",
+      "origin": "manual-evidence-review"
+    },
+    {
+      "company": "华为",
+      "field": "business",
+      "from": "华为在华为全联接大会2026上分享鲲鹏/昇腾、华为云、鸿蒙操作系统的最新生态进展和面向Agentic时代的开发者工具布局，并发布AI资产广场。鲲鹏累计部署量超过2000万套，昇腾已跨越生态拐点，CANN社区成为中国活跃度最高的开源社区。华为云提出Agentic开发新范式，鸿蒙操作系统HarmonyOS 7实现Agent亲和系统架构、鸿蒙智能体框架2.0、系统智能体小艺三大升级。",
+      "to": "华为在华为全联接大会2026上分享鲲鹏/昇腾、华为云、鸿蒙操作系统的最新生态进展和面向Agentic时代的开发者工具布局，并发布AI资产广场。昇腾已跨越生态拐点，CANN社区成为中国活跃度最高的开源社区。华为云提出Agentic开发新范式，鸿蒙操作系统HarmonyOS 7实现Agent亲和系统架构、鸿蒙智能体框架2.0、系统智能体小艺三大升级。",
+      "articleId": "manus:5843bd63f6673402",
+      "quote": "华为在2019年12月份推出了开源openEuler，迄今openEuler的累计部署量超过2000万套",
+      "reason": "累计部署超过2000万套的原文主语是openEuler，不是鲲鹏；删除错归语句，保留同篇其余原业务描述，并在合并前纠正以免进入字段证据。",
+      "reviewedAt": "2026-09-20",
+      "origin": "manual-evidence-review"
     }
   ]
 }

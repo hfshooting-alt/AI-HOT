@@ -7,6 +7,22 @@ from llm_common import call_llm, parse_output, resolve_model
 from .output import atomic_write
 
 
+def proposal_key(tx, packet, *, isolate_invalid=False):
+    # Preserve the existing successful-cache identity and prompt versions.
+    return hashlib.sha256(json.dumps([4 if isolate_invalid else 3, resolve_model(tx), packet],
+        ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+
+
+def cached_proposal(directory, key):
+    path = Path(directory) / f'{key}.json'
+    if not path.exists():
+        return None
+    value = json.loads(path.read_text(encoding='utf-8'))
+    if not isinstance(value, dict) or not isinstance(value.get('facts'), list):
+        raise ValueError('资料补全缓存结构无效')
+    return value
+
+
 def propose(tx, packet, directory, *, allow_paid=False, max_requests=5, full_review=False, llm_fn=call_llm, isolate_invalid=False):
     if not 1 <= max_requests <= (80 if full_review else 5):
         raise ValueError('资料补全上限：默认5次，显式全库复核80次请求')
@@ -15,7 +31,7 @@ def propose(tx, packet, directory, *, allow_paid=False, max_requests=5, full_rev
         raise ValueError('补全需要可回溯的HTTPS网页摘录')
     root = Path(directory)
     root.mkdir(parents=True, exist_ok=True)
-    key = hashlib.sha256(json.dumps([4 if isolate_invalid else 3, resolve_model(tx), packet], ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+    key = proposal_key(tx, packet, isolate_invalid=isolate_invalid)
     cache = root / f'{key}.json'
     if cache.exists():
         return json.loads(cache.read_text(encoding='utf-8'))

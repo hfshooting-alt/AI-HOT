@@ -1,21 +1,23 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-20T16:20:23+08:00",
-  "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
+  "generatedAt": "2026-09-20T22:46:49+08:00",
+  "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
   "stats": {
-    "articlesProcessed": 238,
-    "articlesComplete": 238,
+    "articlesProcessed": 240,
+    "articlesComplete": 240,
     "articlesFailed": 0,
     "articlesDeferred": 0,
-    "modelCalls": 242,
-    "cacheHits": 0,
-    "companiesTotal": 577,
-    "productsTotal": 1199,
-    "pendingEntities": 161,
+    "modelCalls": 0,
+    "cacheHits": 2,
+    "modelSuccesses": 0,
+    "modelFailures": 0,
+    "failureCategories": {},
+    "circuitOpen": false,
+    "companiesTotal": 576,
+    "productsTotal": 1221,
+    "pendingEntities": 164,
     "excludedEntities": 2,
-    "modelSuccesses": 238,
-    "modelFailures": 4,
-    "circuitOpen": false
+    "previouslyProcessedArticles": 238
   },
   "companies": [
     {
@@ -14373,6 +14375,17 @@
           },
           {
             "value": "微软",
+            "articleId": "manus:9f4fd4c8b4b7bfa8",
+            "url": "https://www.163.com/dy/article/L7698BPQ0511N33R.html?spss=dy_author",
+            "title": "最后两周！AI大咖、明星Founder与VC齐聚旧金山，免费票限量开放",
+            "publishedAt": "2026-09-19T09:35:36+08:00",
+            "sourceName": "报道内容复核",
+            "origin": "article",
+            "quote": "微软负责自主AI模型研发的核心团队",
+            "checkedAt": "2026-09-20"
+          },
+          {
+            "value": "微软",
             "articleId": "aihot:cmu6a06vs0gnfrofjds6vb5rw",
             "url": "https://www.ithome.com/1/003/908.htm",
             "title": "微软与 OpenAI 内部文件曝光：高管曾警告 AI 对新闻机构有毁灭性影响",
@@ -14739,17 +14752,6 @@
             "publishedAt": "2026-09-13T19:36:34.000Z",
             "sourceName": "X：Satya Nadella (@satyanadella)",
             "origin": "article"
-          },
-          {
-            "value": "微软",
-            "articleId": "manus:9f4fd4c8b4b7bfa8",
-            "url": "https://www.163.com/dy/article/L7698BPQ0511N33R.html?spss=dy_author",
-            "title": "最后两周！AI大咖、明星Founder与VC齐聚旧金山，免费票限量开放",
-            "publishedAt": "2026-09-19T09:35:36+08:00",
-            "sourceName": "报道内容复核",
-            "origin": "article",
-            "quote": "微软负责自主AI模型研发的核心团队",
-            "checkedAt": "2026-09-20"
           }
         ],
         "product_names": [
@@ -14889,6 +14891,24 @@
             "origin": "article"
           },
           {
+            "value": "Humanist AI Code of Conduct",
+            "articleId": "aihot:cmu1f24zv04nrrocnrg6iiq22",
+            "url": "https://www.artificialintelligence-news.com/news/microsoft-ai-opens-review-humanist-ai-code-of-conduct",
+            "title": "Microsoft AI 发布人文主义 AI 行为准则草案并开启六周公众咨询",
+            "publishedAt": "2026-09-14T15:47:14.554Z",
+            "sourceName": "Artificial Intelligence News（网页）",
+            "origin": "article"
+          },
+          {
+            "value": "Humanist AI",
+            "articleId": "aihot:cmu1amkyo06czro7zjyq2u2d8",
+            "url": "https://x.com/mustafasuleyman/status/2099488602418028917",
+            "title": "Microsoft AI 发布 MAI 模型行为准则草案 Humanist AI 征求公众意见",
+            "publishedAt": "2026-09-14T13:21:04.000Z",
+            "sourceName": "X：Mustafa Suleyman（Microsoft AI CEO） (@mustafasuleyman)",
+            "origin": "article"
+          },
+          {
             "value": "Windows 11",
             "articleId": "aihot:cmu0nrihf0390rox2pyxkzw0s",
             "url": "https://www.ithome.com/1/001/961.htm",
@@ -14931,24 +14951,6 @@
             "title": "微软将 xAI Grok 模型整合进 Word、Excel 和 PowerPoint 的 Copilot",
             "publishedAt": "2026-09-13T22:59:20.000Z",
             "sourceName": "IT之家（RSS）",
-            "origin": "article"
-          },
-          {
-            "value": "Humanist AI Code of Conduct",
-            "articleId": "aihot:cmu1f24zv04nrrocnrg6iiq22",
-            "url": "https://www.artificialintelligence-news.com/news/microsoft-ai-opens-review-humanist-ai-code-of-conduct",
-            "title": "Microsoft AI 发布人文主义 AI 行为准则草案并开启六周公众咨询",
-            "publishedAt": "2026-09-14T15:47:14.554Z",
-            "sourceName": "Artificial Intelligence News（网页）",
-            "origin": "article"
-          },
-          {
-            "value": "Humanist AI",
-            "articleId": "aihot:cmu1amkyo06czro7zjyq2u2d8",
-            "url": "https://x.com/mustafasuleyman/status/2099488602418028917",
-            "title": "Microsoft AI 发布 MAI 模型行为准则草案 Humanist AI 征求公众意见",
-            "publishedAt": "2026-09-14T13:21:04.000Z",
-            "sourceName": "X：Mustafa Suleyman（Microsoft AI CEO） (@mustafasuleyman)",
             "origin": "article"
           }
         ],
@@ -26516,6 +26518,17 @@
           },
           {
             "value": "Google",
+            "articleId": "manus:d7f8c6a3a46e7e95",
+            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+            "title": "Anthropic之恶",
+            "publishedAt": "2026-09-19T09:35:54+08:00",
+            "sourceName": "报道内容复核",
+            "origin": "article",
+            "quote": "Google Brain团队",
+            "checkedAt": "2026-09-20"
+          },
+          {
+            "value": "Google",
             "articleId": "aihot:cmu87jpc217qqrogrdarz77dt",
             "url": "https://the-decoder.com/googles-gemini-also-accidentally-hacked-three-real-companies-during-security-testing",
             "title": "WSJ：Google Gemini 安全测试中意外入侵三家真实公司",
@@ -27129,17 +27142,6 @@
             "origin": "research",
             "quote": "Google Forms",
             "checkedAt": "2026-09-10"
-          },
-          {
-            "value": "Google",
-            "articleId": "manus:d7f8c6a3a46e7e95",
-            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-            "title": "Anthropic之恶",
-            "publishedAt": "2026-09-19T09:35:54+08:00",
-            "sourceName": "报道内容复核",
-            "origin": "article",
-            "quote": "Google Brain团队",
-            "checkedAt": "2026-09-20"
           }
         ],
         "product_names": [
@@ -35877,6 +35879,17 @@
           },
           {
             "value": "高通",
+            "articleId": "manus:9f4fd4c8b4b7bfa8",
+            "url": "https://www.163.com/dy/article/L7698BPQ0511N33R.html?spss=dy_author",
+            "title": "最后两周！AI大咖、明星Founder与VC齐聚旧金山，免费票限量开放",
+            "publishedAt": "2026-09-19T09:35:36+08:00",
+            "sourceName": "报道内容复核",
+            "origin": "article",
+            "quote": "NexaAI（现为Qualcomm旗下团队）",
+            "checkedAt": "2026-09-20"
+          },
+          {
+            "value": "高通",
             "articleId": "aihot:cmu86lmif16wfrogrfeepk910",
             "url": "https://www.ithome.com/1/004/471.htm",
             "title": "奇瑞捷豹路虎神行者 8 开启交付：标配华为乾崑智驾 ADS 5，28.99 万元起",
@@ -35910,17 +35923,6 @@
             "publishedAt": "2026-09-14T09:56:19.000Z",
             "sourceName": "IT之家（RSS）",
             "origin": "article"
-          },
-          {
-            "value": "高通",
-            "articleId": "manus:9f4fd4c8b4b7bfa8",
-            "url": "https://www.163.com/dy/article/L7698BPQ0511N33R.html?spss=dy_author",
-            "title": "最后两周！AI大咖、明星Founder与VC齐聚旧金山，免费票限量开放",
-            "publishedAt": "2026-09-19T09:35:36+08:00",
-            "sourceName": "报道内容复核",
-            "origin": "article",
-            "quote": "NexaAI（现为Qualcomm旗下团队）",
-            "checkedAt": "2026-09-20"
           }
         ],
         "product_names": [
@@ -35952,6 +35954,15 @@
             "origin": "article"
           },
           {
+            "value": "Nexa SDK",
+            "articleId": "manus:9f4fd4c8b4b7bfa8",
+            "url": "https://www.163.com/dy/article/L7698BPQ0511N33R.html?spss=dy_author",
+            "title": "最后两周！AI大咖、明星Founder与VC齐聚旧金山，免费票限量开放",
+            "publishedAt": "2026-09-19T09:35:36+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
             "value": "骁龙 8397 车规级芯片",
             "articleId": "aihot:cmu86lmif16wfrogrfeepk910",
             "url": "https://www.ithome.com/1/004/471.htm",
@@ -35976,15 +35987,6 @@
             "title": "三星电机与高通合作开发基于有机桥片的 2.1D 先进封装",
             "publishedAt": "2026-09-14T09:56:19.000Z",
             "sourceName": "IT之家（RSS）",
-            "origin": "article"
-          },
-          {
-            "value": "Nexa SDK",
-            "articleId": "manus:9f4fd4c8b4b7bfa8",
-            "url": "https://www.163.com/dy/article/L7698BPQ0511N33R.html?spss=dy_author",
-            "title": "最后两周！AI大咖、明星Founder与VC齐聚旧金山，免费票限量开放",
-            "publishedAt": "2026-09-19T09:35:36+08:00",
-            "sourceName": "硅星人",
             "origin": "article"
           }
         ]
@@ -45960,9 +45962,36 @@
       "aliases": [],
       "product_names": [
         "乾崑智驾 ADS 5",
-        "华为乾崑智驾 ADS 5",
+        "鲲鹏",
         "昇腾",
+        "华为云",
+        "鸿蒙操作系统",
+        "HarmonyOS 7",
+        "AI资产广场",
+        "Ascend C",
+        "CANNbot",
+        "Model Agent",
+        "MindStudio Agent",
+        "Solution Agent",
+        "AgentArts",
+        "华为云码道代码智能体",
+        "华为云DocZip",
+        "华为云AI Shell",
+        "Hands-on最佳实践中心",
+        "行业AI梦工厂",
+        "云商店",
+        "小艺开放平台",
+        "DevEco Code",
+        "DevEco CLI",
+        "HarmonyOS开发助手",
+        "华为乾崑智驾 ADS 5",
         "CANN",
+        "昇腾960芯片",
+        "昇腾960超节点",
+        "OceanStor M900 AI记忆存储",
+        "鲲鹏950超节点",
+        "星河UBG交换机",
+        "Atlas 650E",
         "Peerium",
         "Atlas 950",
         "Atlas 960",
@@ -45984,8 +46013,6 @@
         "950 系统",
         "Atlas 960 SuperPoD",
         "Atlas 950 SuperPoD",
-        "昇腾 960 超节点",
-        "昇腾 960 芯片",
         "Hi-ONE",
         "openEuler",
         "昇腾 960DT",
@@ -45996,10 +46023,8 @@
         "Sound X 鎏金剧院版",
         "Sound X4",
         "小艺 Work",
-        "鲲鹏",
         "超节点",
         "昇腾 950 系列",
-        "华为云",
         "3D 数据中心",
         "《3D 数据中心》专著",
         "《3D 数据中心概要设计图库》",
@@ -46018,6 +46043,24 @@
       },
       "fieldSources": {
         "company_name": [
+          {
+            "value": "华为",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "华为",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
           {
             "value": "华为",
             "articleId": "aihot:cmu86lmif16wfrogrfeepk910",
@@ -46173,6 +46216,267 @@
           }
         ],
         "product_names": [
+          {
+            "value": "鲲鹏",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "昇腾",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "华为云",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "鸿蒙操作系统",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "HarmonyOS 7",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "AI资产广场",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "Ascend C",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "CANNbot",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "Model Agent",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "MindStudio Agent",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "Solution Agent",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "AgentArts",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "华为云码道代码智能体",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "华为云DocZip",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "华为云AI Shell",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "Hands-on最佳实践中心",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "行业AI梦工厂",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "云商店",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "小艺开放平台",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "DevEco Code",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "DevEco CLI",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "HarmonyOS开发助手",
+            "articleId": "manus:5843bd63f6673402",
+            "url": "https://news.qq.com/rain/a/20260919A08I7000",
+            "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+            "publishedAt": "2026-09-19T16:30:02+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "昇腾960芯片",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "昇腾960超节点",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "OceanStor M900 AI记忆存储",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "鲲鹏950超节点",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "星河UBG交换机",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "Atlas 650E",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "CANN",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
           {
             "value": "乾崑智驾 ADS 5",
             "articleId": "aihot:cmu86lmif16wfrogrfeepk910",
@@ -46740,6 +47044,14 @@
           "category": "general"
         },
         {
+          "id": "manus:5843bd63f6673402",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "publishedAt": "2026-09-19T16:30:02+08:00",
+          "sourceName": "智东西",
+          "category": "bigtech"
+        },
+        {
           "id": "aihot:cmu84ggm814plrogrxy1kijh5",
           "title": "全新猛士 M817 获推 OTA 升级，带来华为乾崑智驾 ADS 5",
           "url": "https://www.ithome.com/1/004/455.htm",
@@ -46754,6 +47066,14 @@
           "publishedAt": "2026-09-19T06:44:26.000Z",
           "sourceName": "IT之家（RSS）",
           "category": "bigtech"
+        },
+        {
+          "id": "manus:aad2cf7c8a361e67",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "publishedAt": "2026-09-19T12:30:03+08:00",
+          "sourceName": "智东西",
+          "category": "release"
         },
         {
           "id": "aihot:cmu6a06vs0gnerofjjdk20wxe",
@@ -46882,6 +47202,204 @@
           "publishedAt": "2026-09-19T08:34:22.000Z"
         },
         {
+          "name": "鲲鹏",
+          "relationship": "owned",
+          "quote": "鲲鹏自2019年推出以来坚定推进开源开放",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "昇腾",
+          "relationship": "owned",
+          "quote": "昇腾始于华为2016年的一个技术项目",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "华为云",
+          "relationship": "owned",
+          "quote": "华为云伙伴与生态部总裁康晓宇介绍了华为云如何通过Agent Infra、Agent工具和开发者实践",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "鸿蒙操作系统",
+          "relationship": "owned",
+          "quote": "华为分享了鲲鹏/昇腾、华为云、鸿蒙操作系统的最新生态进展",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "HarmonyOS 7",
+          "relationship": "owned",
+          "quote": "今年9月7日，华为发布HarmonyOS 7商用版本",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "AI资产广场",
+          "relationship": "owned",
+          "quote": "AI资产广场今天正式发布。这是一个华为为开发者打造的一站式AI资产汇聚、分发、增值平台",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "Ascend C",
+          "relationship": "owned",
+          "quote": "Ascend C语言面向新架构全新升级",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "CANNbot",
+          "relationship": "owned",
+          "quote": "CANNbot算子生成：自动生成算子",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "Model Agent",
+          "relationship": "owned",
+          "quote": "Model Agent模型适配：适配链路自动编排",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "MindStudio Agent",
+          "relationship": "owned",
+          "quote": "MindStudio Agent精度调优：支持从集群到芯片的多级调优",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "Solution Agent",
+          "relationship": "owned",
+          "quote": "Solution Agent行业部署：内置300多个部署方案",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "AgentArts",
+          "relationship": "owned",
+          "quote": "华为云通过AgentArts开放Agent底层能力",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "华为云码道代码智能体",
+          "relationship": "owned",
+          "quote": "华为云码道代码智能体：在鸿蒙开发场景升级",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "华为云DocZip",
+          "relationship": "owned",
+          "quote": "华为云DocZip：开放多维文档能力",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "华为云AI Shell",
+          "relationship": "owned",
+          "quote": "华为云AI Shell：可帮助开发者自动完成部署发布智能体的工作",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "Hands-on最佳实践中心",
+          "relationship": "owned",
+          "quote": "Hands-on最佳实践中心围绕AI云原生、鸿蒙、AI办公等方向",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "行业AI梦工厂",
+          "relationship": "owned",
+          "quote": "行业AI梦工厂已发布了7大专区、500多个价值资产",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "云商店",
+          "relationship": "owned",
+          "quote": "云商店是华为云官方生态应用交易平台",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "小艺开放平台",
+          "relationship": "owned",
+          "quote": "小艺开放平台：一站式极简开发Skill和Agent",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "DevEco Code",
+          "relationship": "owned",
+          "quote": "DevEco Code和DevEco CLI：前者是鸿蒙编程智能体",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "DevEco CLI",
+          "relationship": "owned",
+          "quote": "DevEco Code和DevEco CLI：前者是鸿蒙编程智能体",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
+          "name": "HarmonyOS开发助手",
+          "relationship": "owned",
+          "quote": "HarmonyOS开发助手：围绕开发者全生命周期旅程",
+          "articleId": "manus:5843bd63f6673402",
+          "url": "https://news.qq.com/rain/a/20260919A08I7000",
+          "title": "华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化",
+          "publishedAt": "2026-09-19T16:30:02+08:00"
+        },
+        {
           "name": "华为乾崑智驾 ADS 5",
           "relationship": "owned",
           "quote": "带来华为乾崑智驾 ADS 5",
@@ -46907,6 +47425,70 @@
           "url": "https://www.ithome.com/1/004/441.htm",
           "title": "华为朱照生：昇腾已跨越生态拐点，要在 Agentic 时代构建 AI 新生态",
           "publishedAt": "2026-09-19T06:44:26.000Z"
+        },
+        {
+          "name": "昇腾960芯片",
+          "relationship": "owned",
+          "quote": "华为围绕灵衢互联架构及超节点集群，推出昇腾960芯片、昇腾960超节点、OceanStor M900 AI记忆存储等一系列AI基础设施新品",
+          "articleId": "manus:aad2cf7c8a361e67",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "publishedAt": "2026-09-19T12:30:03+08:00"
+        },
+        {
+          "name": "昇腾960超节点",
+          "relationship": "owned",
+          "quote": "华为围绕灵衢互联架构及超节点集群，推出昇腾960芯片、昇腾960超节点、OceanStor M900 AI记忆存储等一系列AI基础设施新品",
+          "articleId": "manus:aad2cf7c8a361e67",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "publishedAt": "2026-09-19T12:30:03+08:00"
+        },
+        {
+          "name": "OceanStor M900 AI记忆存储",
+          "relationship": "owned",
+          "quote": "华为围绕灵衢互联架构及超节点集群，推出昇腾960芯片、昇腾960超节点、OceanStor M900 AI记忆存储等一系列AI基础设施新品",
+          "articleId": "manus:aad2cf7c8a361e67",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "publishedAt": "2026-09-19T12:30:03+08:00"
+        },
+        {
+          "name": "鲲鹏950超节点",
+          "relationship": "owned",
+          "quote": "会上新发布的Agentic AI超节点集群由鲲鹏950超节点、昇腾960超节点、OceanStor M900记忆存储、星河UBG交换机组成",
+          "articleId": "manus:aad2cf7c8a361e67",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "publishedAt": "2026-09-19T12:30:03+08:00"
+        },
+        {
+          "name": "星河UBG交换机",
+          "relationship": "owned",
+          "quote": "会上新发布的Agentic AI超节点集群由鲲鹏950超节点、昇腾960超节点、OceanStor M900记忆存储、星河UBG交换机组成",
+          "articleId": "manus:aad2cf7c8a361e67",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "publishedAt": "2026-09-19T12:30:03+08:00"
+        },
+        {
+          "name": "Atlas 650E",
+          "relationship": "owned",
+          "quote": "因此，华为基于灵衢推出从1卡到8卡的系列化、多层级一体机产品和鲲鹏昇腾模组。\nAtlas 650E可以通过双机灵衢直连，让16个NPU进行Full-Mesh组网，无需交换机。",
+          "articleId": "manus:aad2cf7c8a361e67",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "publishedAt": "2026-09-19T12:30:03+08:00",
+          "reviewedAt": "2026-09-20"
+        },
+        {
+          "name": "CANN",
+          "relationship": "owned",
+          "quote": "去年8月5日，华为CANN全面开源开放，至今已跃升为中国开源项目活跃度第一",
+          "articleId": "manus:aad2cf7c8a361e67",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "publishedAt": "2026-09-19T12:30:03+08:00"
         },
         {
           "name": "Peerium",
@@ -47325,7 +47907,7 @@
       ],
       "updatedAt": "2026-09-19T08:34:22.000Z",
       "latestReportAt": "2026-09-19T08:34:22.000Z",
-      "profileUpdatedAt": "2026-09-20T15:16:37+08:00"
+      "profileUpdatedAt": "2026-09-20T22:46:49+08:00"
     },
     {
       "id": "company:3086a776700981cd",
@@ -49189,6 +49771,147 @@
       "updatedAt": "2026-09-19T06:27:05.174Z",
       "latestReportAt": "2026-09-19T06:27:05.174Z",
       "profileUpdatedAt": "2026-09-20T15:16:37+08:00"
+    },
+    {
+      "id": "company:7ca2b7da6e0f8654",
+      "company_name": "科大讯飞",
+      "aliases": [],
+      "product_names": [
+        "Spark-Audio-1.0-Preview"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": "AI大模型与应用技术创新，基于昇腾打造AI模型，开发智能客服、办公等通用方案及金融、教育、医疗等行业场景化方案",
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "科大讯飞",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "科大讯飞",
+            "articleId": "manus:c7364de40afe2f0b",
+            "url": "https://www.163.com/dy/article/L72I66RE0556EX0D.html?spss=dy_author",
+            "title": "深度｜当彭博退向 API，大模型正在接管投行和券商的核心工作流",
+            "publishedAt": "2026-09-17T22:54:45+08:00",
+            "sourceName": "ZFinance",
+            "origin": "article"
+          },
+          {
+            "value": "科大讯飞",
+            "articleId": "aihot:cmu3w9cln0hv8roc1uu7gw96c",
+            "url": "https://www.ithome.com/1/003/173.htm",
+            "title": "科大讯飞发布基于全国产化算力训练的语音基座大模型 Spark-Audio-1.0-Preview",
+            "publishedAt": "2026-09-16T08:44:34.000Z",
+            "sourceName": "IT之家（RSS）",
+            "origin": "article"
+          },
+          {
+            "value": "科大讯飞",
+            "articleId": "aihot:cmu2toatw06koro3xe3j0gbzf",
+            "url": "https://www.ithome.com/1/002/795.htm",
+            "title": "中文互联网基础语料 4.0 发布：数据量 120GB，上线中文互联网语料资源平台",
+            "publishedAt": "2026-09-15T14:49:09.000Z",
+            "sourceName": "IT之家（RSS）",
+            "origin": "article"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "Spark-Audio-1.0-Preview",
+            "articleId": "aihot:cmu3w9cln0hv8roc1uu7gw96c",
+            "url": "https://www.ithome.com/1/003/173.htm",
+            "title": "科大讯飞发布基于全国产化算力训练的语音基座大模型 Spark-Audio-1.0-Preview",
+            "publishedAt": "2026-09-16T08:44:34.000Z",
+            "sourceName": "IT之家（RSS）",
+            "origin": "article"
+          }
+        ],
+        "business": [
+          {
+            "value": "AI大模型与应用技术创新，基于昇腾打造AI模型，开发智能客服、办公等通用方案及金融、教育、医疗等行业场景化方案",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "金融大模型和智能体应用及服务",
+            "articleId": "manus:c7364de40afe2f0b",
+            "url": "https://www.163.com/dy/article/L72I66RE0556EX0D.html?spss=dy_author",
+            "title": "深度｜当彭博退向 API，大模型正在接管投行和券商的核心工作流",
+            "publishedAt": "2026-09-17T22:54:45+08:00",
+            "sourceName": "ZFinance",
+            "origin": "article"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:aad2cf7c8a361e67",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "publishedAt": "2026-09-19T12:30:03+08:00",
+          "sourceName": "智东西",
+          "category": "release"
+        },
+        {
+          "id": "manus:c7364de40afe2f0b",
+          "title": "深度｜当彭博退向 API，大模型正在接管投行和券商的核心工作流",
+          "url": "https://www.163.com/dy/article/L72I66RE0556EX0D.html?spss=dy_author",
+          "publishedAt": "2026-09-17T22:54:45+08:00",
+          "sourceName": "ZFinance",
+          "category": "general"
+        },
+        {
+          "id": "aihot:cmu3w9cln0hv8roc1uu7gw96c",
+          "title": "科大讯飞发布基于全国产化算力训练的语音基座大模型 Spark-Audio-1.0-Preview",
+          "url": "https://www.ithome.com/1/003/173.htm",
+          "publishedAt": "2026-09-16T08:44:34.000Z",
+          "sourceName": "IT之家（RSS）",
+          "category": "release"
+        },
+        {
+          "id": "aihot:cmu2toatw06koro3xe3j0gbzf",
+          "title": "中文互联网基础语料 4.0 发布：数据量 120GB，上线中文互联网语料资源平台",
+          "url": "https://www.ithome.com/1/002/795.htm",
+          "publishedAt": "2026-09-15T14:49:09.000Z",
+          "sourceName": "IT之家（RSS）",
+          "category": "release"
+        }
+      ],
+      "firstSeenAt": "2026-09-15T14:49:09.000Z",
+      "lastSeenAt": "2026-09-19T12:30:03+08:00",
+      "entityType": "company",
+      "productUpdates": [
+        {
+          "name": "Spark-Audio-1.0-Preview",
+          "relationship": "owned",
+          "quote": "科大讯飞发布基于全国产化算力训练的语音基座大模型 Spark-Audio-1.0-Preview",
+          "articleId": "aihot:cmu3w9cln0hv8roc1uu7gw96c",
+          "url": "https://www.ithome.com/1/003/173.htm",
+          "title": "科大讯飞发布基于全国产化算力训练的语音基座大模型 Spark-Audio-1.0-Preview",
+          "publishedAt": "2026-09-16T08:44:34.000Z"
+        }
+      ],
+      "updatedAt": "2026-09-19T12:30:03+08:00",
+      "latestReportAt": "2026-09-19T12:30:03+08:00",
+      "profileUpdatedAt": "2026-09-20T22:46:49+08:00"
     },
     {
       "id": "company:2dc010636b9dce91",
@@ -57201,121 +57924,6 @@
           "url": "https://mp.weixin.qq.com/s?__biz=MzA5NTQ5MzE5OQ%3D%3D&mid=2653160378&idx=1&sn=dc4bdc6b976ed417bd8ce88b38d68c7b",
           "title": "百度千帆Token Plan个人版上线积分制套餐并开放GLM-5.3",
           "publishedAt": "2026-09-15T11:28:54.000Z"
-        }
-      ],
-      "updatedAt": "2026-09-17T22:54:45+08:00",
-      "latestReportAt": "2026-09-17T22:54:45+08:00",
-      "profileUpdatedAt": "2026-09-18T16:53:39+08:00"
-    },
-    {
-      "id": "company:7ca2b7da6e0f8654",
-      "company_name": "科大讯飞",
-      "aliases": [],
-      "product_names": [
-        "Spark-Audio-1.0-Preview"
-      ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": "金融大模型和智能体应用及服务",
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "AI模型",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "科大讯飞",
-            "articleId": "manus:c7364de40afe2f0b",
-            "url": "https://www.163.com/dy/article/L72I66RE0556EX0D.html?spss=dy_author",
-            "title": "深度｜当彭博退向 API，大模型正在接管投行和券商的核心工作流",
-            "publishedAt": "2026-09-17T22:54:45+08:00",
-            "sourceName": "ZFinance",
-            "origin": "article"
-          },
-          {
-            "value": "科大讯飞",
-            "articleId": "aihot:cmu3w9cln0hv8roc1uu7gw96c",
-            "url": "https://www.ithome.com/1/003/173.htm",
-            "title": "科大讯飞发布基于全国产化算力训练的语音基座大模型 Spark-Audio-1.0-Preview",
-            "publishedAt": "2026-09-16T08:44:34.000Z",
-            "sourceName": "IT之家（RSS）",
-            "origin": "article"
-          },
-          {
-            "value": "科大讯飞",
-            "articleId": "aihot:cmu2toatw06koro3xe3j0gbzf",
-            "url": "https://www.ithome.com/1/002/795.htm",
-            "title": "中文互联网基础语料 4.0 发布：数据量 120GB，上线中文互联网语料资源平台",
-            "publishedAt": "2026-09-15T14:49:09.000Z",
-            "sourceName": "IT之家（RSS）",
-            "origin": "article"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "Spark-Audio-1.0-Preview",
-            "articleId": "aihot:cmu3w9cln0hv8roc1uu7gw96c",
-            "url": "https://www.ithome.com/1/003/173.htm",
-            "title": "科大讯飞发布基于全国产化算力训练的语音基座大模型 Spark-Audio-1.0-Preview",
-            "publishedAt": "2026-09-16T08:44:34.000Z",
-            "sourceName": "IT之家（RSS）",
-            "origin": "article"
-          }
-        ],
-        "business": [
-          {
-            "value": "金融大模型和智能体应用及服务",
-            "articleId": "manus:c7364de40afe2f0b",
-            "url": "https://www.163.com/dy/article/L72I66RE0556EX0D.html?spss=dy_author",
-            "title": "深度｜当彭博退向 API，大模型正在接管投行和券商的核心工作流",
-            "publishedAt": "2026-09-17T22:54:45+08:00",
-            "sourceName": "ZFinance",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "manus:c7364de40afe2f0b",
-          "title": "深度｜当彭博退向 API，大模型正在接管投行和券商的核心工作流",
-          "url": "https://www.163.com/dy/article/L72I66RE0556EX0D.html?spss=dy_author",
-          "publishedAt": "2026-09-17T22:54:45+08:00",
-          "sourceName": "ZFinance",
-          "category": "general"
-        },
-        {
-          "id": "aihot:cmu3w9cln0hv8roc1uu7gw96c",
-          "title": "科大讯飞发布基于全国产化算力训练的语音基座大模型 Spark-Audio-1.0-Preview",
-          "url": "https://www.ithome.com/1/003/173.htm",
-          "publishedAt": "2026-09-16T08:44:34.000Z",
-          "sourceName": "IT之家（RSS）",
-          "category": "release"
-        },
-        {
-          "id": "aihot:cmu2toatw06koro3xe3j0gbzf",
-          "title": "中文互联网基础语料 4.0 发布：数据量 120GB，上线中文互联网语料资源平台",
-          "url": "https://www.ithome.com/1/002/795.htm",
-          "publishedAt": "2026-09-15T14:49:09.000Z",
-          "sourceName": "IT之家（RSS）",
-          "category": "release"
-        }
-      ],
-      "firstSeenAt": "2026-09-15T14:49:09.000Z",
-      "lastSeenAt": "2026-09-17T22:54:45+08:00",
-      "entityType": "company",
-      "productUpdates": [
-        {
-          "name": "Spark-Audio-1.0-Preview",
-          "relationship": "owned",
-          "quote": "科大讯飞发布基于全国产化算力训练的语音基座大模型 Spark-Audio-1.0-Preview",
-          "articleId": "aihot:cmu3w9cln0hv8roc1uu7gw96c",
-          "url": "https://www.ithome.com/1/003/173.htm",
-          "title": "科大讯飞发布基于全国产化算力训练的语音基座大模型 Spark-Audio-1.0-Preview",
-          "publishedAt": "2026-09-16T08:44:34.000Z"
         }
       ],
       "updatedAt": "2026-09-17T22:54:45+08:00",
@@ -72433,111 +73041,6 @@
       ],
       "updatedAt": "2026-09-16T17:41:12.000Z",
       "latestReportAt": "2026-09-16T17:41:12.000Z",
-      "profileUpdatedAt": "2026-09-17T16:18:26+08:00"
-    },
-    {
-      "id": "company:62f8e1ec095e1857",
-      "company_name": "OpenCode",
-      "aliases": [],
-      "product_names": [
-        "Union Alpha"
-      ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "其他AI应用",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "OpenCode",
-            "articleId": "aihot:cmu4dkxmu0jlgro4w23k87u7c",
-            "url": "https://x.com/testingcatalog/status/2100272203535188239",
-            "title": "神秘模型 Union Alpha 上线 OpenCode 和 OpenRouter，免费一周",
-            "publishedAt": "2026-09-16T17:14:49.000Z",
-            "sourceName": "X：Testing Catalog (@testingcatalog)",
-            "origin": "article"
-          },
-          {
-            "value": "OpenCode",
-            "articleId": "aihot:cmu4cz9vn0it7ro4wlxf6ad3q",
-            "url": "https://x.com/rohanpaul_ai/status/2100271241685033105",
-            "title": "Union Alpha 匿名多模态模型上线 OpenRouter 和 OpenCode",
-            "publishedAt": "2026-09-16T17:10:59.000Z",
-            "sourceName": "X：Rohan Paul (@rohanpaul_ai)",
-            "origin": "article"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "Union Alpha",
-            "articleId": "aihot:cmu4dkxmu0jlgro4w23k87u7c",
-            "url": "https://x.com/testingcatalog/status/2100272203535188239",
-            "title": "神秘模型 Union Alpha 上线 OpenCode 和 OpenRouter，免费一周",
-            "publishedAt": "2026-09-16T17:14:49.000Z",
-            "sourceName": "X：Testing Catalog (@testingcatalog)",
-            "origin": "article"
-          },
-          {
-            "value": "Union Alpha",
-            "articleId": "aihot:cmu4cz9vn0it7ro4wlxf6ad3q",
-            "url": "https://x.com/rohanpaul_ai/status/2100271241685033105",
-            "title": "Union Alpha 匿名多模态模型上线 OpenRouter 和 OpenCode",
-            "publishedAt": "2026-09-16T17:10:59.000Z",
-            "sourceName": "X：Rohan Paul (@rohanpaul_ai)",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmu4dkxmu0jlgro4w23k87u7c",
-          "title": "神秘模型 Union Alpha 上线 OpenCode 和 OpenRouter，免费一周",
-          "url": "https://x.com/testingcatalog/status/2100272203535188239",
-          "publishedAt": "2026-09-16T17:14:49.000Z",
-          "sourceName": "X：Testing Catalog (@testingcatalog)",
-          "category": "release"
-        },
-        {
-          "id": "aihot:cmu4cz9vn0it7ro4wlxf6ad3q",
-          "title": "Union Alpha 匿名多模态模型上线 OpenRouter 和 OpenCode",
-          "url": "https://x.com/rohanpaul_ai/status/2100271241685033105",
-          "publishedAt": "2026-09-16T17:10:59.000Z",
-          "sourceName": "X：Rohan Paul (@rohanpaul_ai)",
-          "category": "release"
-        }
-      ],
-      "firstSeenAt": "2026-09-16T17:10:59.000Z",
-      "lastSeenAt": "2026-09-16T17:14:49.000Z",
-      "entityType": "company",
-      "productUpdates": [
-        {
-          "name": "Union Alpha",
-          "relationship": "integrated",
-          "quote": "神秘模型 Union Alpha 上线 OpenCode 和 OpenRouter",
-          "articleId": "aihot:cmu4dkxmu0jlgro4w23k87u7c",
-          "url": "https://x.com/testingcatalog/status/2100272203535188239",
-          "title": "神秘模型 Union Alpha 上线 OpenCode 和 OpenRouter，免费一周",
-          "publishedAt": "2026-09-16T17:14:49.000Z"
-        },
-        {
-          "name": "Union Alpha",
-          "relationship": "integrated",
-          "quote": "匿名\"隐身\"多模态模型 Union Alpha 今日上线 OpenRouter 和 OpenCode",
-          "articleId": "aihot:cmu4cz9vn0it7ro4wlxf6ad3q",
-          "url": "https://x.com/rohanpaul_ai/status/2100271241685033105",
-          "title": "Union Alpha 匿名多模态模型上线 OpenRouter 和 OpenCode",
-          "publishedAt": "2026-09-16T17:10:59.000Z"
-        }
-      ],
-      "updatedAt": "2026-09-16T17:14:49.000Z",
-      "latestReportAt": "2026-09-16T17:14:49.000Z",
       "profileUpdatedAt": "2026-09-17T16:18:26+08:00"
     },
     {
@@ -96703,7 +97206,6 @@
       "remoteStatus": "stopped"
     }
   },
-  "articleFailures": [],
   "pendingEntities": [
     {
       "id": "company:9e66a118b9a0fb8c",
@@ -99254,6 +99756,290 @@
       "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
       "latestReportAt": "2026-09-19T06:00:46.000Z",
       "profileUpdatedAt": "2026-09-20T15:16:37+08:00"
+    },
+    {
+      "id": "company:62f8e1ec095e1857",
+      "company_name": "OpenCode",
+      "aliases": [],
+      "product_names": [
+        "OpenCode",
+        "Union Alpha"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "OpenCode",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "OpenCode",
+            "articleId": "aihot:cmu4dkxmu0jlgro4w23k87u7c",
+            "url": "https://x.com/testingcatalog/status/2100272203535188239",
+            "title": "神秘模型 Union Alpha 上线 OpenCode 和 OpenRouter，免费一周",
+            "publishedAt": "2026-09-16T17:14:49.000Z",
+            "sourceName": "X：Testing Catalog (@testingcatalog)",
+            "origin": "article"
+          },
+          {
+            "value": "OpenCode",
+            "articleId": "aihot:cmu4cz9vn0it7ro4wlxf6ad3q",
+            "url": "https://x.com/rohanpaul_ai/status/2100271241685033105",
+            "title": "Union Alpha 匿名多模态模型上线 OpenRouter 和 OpenCode",
+            "publishedAt": "2026-09-16T17:10:59.000Z",
+            "sourceName": "X：Rohan Paul (@rohanpaul_ai)",
+            "origin": "article"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "OpenCode",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          },
+          {
+            "value": "Union Alpha",
+            "articleId": "aihot:cmu4dkxmu0jlgro4w23k87u7c",
+            "url": "https://x.com/testingcatalog/status/2100272203535188239",
+            "title": "神秘模型 Union Alpha 上线 OpenCode 和 OpenRouter，免费一周",
+            "publishedAt": "2026-09-16T17:14:49.000Z",
+            "sourceName": "X：Testing Catalog (@testingcatalog)",
+            "origin": "article"
+          },
+          {
+            "value": "Union Alpha",
+            "articleId": "aihot:cmu4cz9vn0it7ro4wlxf6ad3q",
+            "url": "https://x.com/rohanpaul_ai/status/2100271241685033105",
+            "title": "Union Alpha 匿名多模态模型上线 OpenRouter 和 OpenCode",
+            "publishedAt": "2026-09-16T17:10:59.000Z",
+            "sourceName": "X：Rohan Paul (@rohanpaul_ai)",
+            "origin": "article"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:aad2cf7c8a361e67",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "publishedAt": "2026-09-19T12:30:03+08:00",
+          "sourceName": "智东西",
+          "category": "release"
+        },
+        {
+          "id": "aihot:cmu4dkxmu0jlgro4w23k87u7c",
+          "title": "神秘模型 Union Alpha 上线 OpenCode 和 OpenRouter，免费一周",
+          "url": "https://x.com/testingcatalog/status/2100272203535188239",
+          "publishedAt": "2026-09-16T17:14:49.000Z",
+          "sourceName": "X：Testing Catalog (@testingcatalog)",
+          "category": "release"
+        },
+        {
+          "id": "aihot:cmu4cz9vn0it7ro4wlxf6ad3q",
+          "title": "Union Alpha 匿名多模态模型上线 OpenRouter 和 OpenCode",
+          "url": "https://x.com/rohanpaul_ai/status/2100271241685033105",
+          "publishedAt": "2026-09-16T17:10:59.000Z",
+          "sourceName": "X：Rohan Paul (@rohanpaul_ai)",
+          "category": "release"
+        }
+      ],
+      "firstSeenAt": "2026-09-16T17:10:59.000Z",
+      "lastSeenAt": "2026-09-19T12:30:03+08:00",
+      "entityType": "product",
+      "productUpdates": [
+        {
+          "name": "OpenCode",
+          "relationship": "unknown",
+          "quote": "华为正在与DeepSeek Harness、OpenCode、openJiuwen等开源框架协同，打造智能管理系统、推理加速库、安全框架等Agent插件化组件",
+          "articleId": "manus:aad2cf7c8a361e67",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "publishedAt": "2026-09-19T12:30:03+08:00"
+        },
+        {
+          "name": "Union Alpha",
+          "relationship": "integrated",
+          "quote": "神秘模型 Union Alpha 上线 OpenCode 和 OpenRouter",
+          "articleId": "aihot:cmu4dkxmu0jlgro4w23k87u7c",
+          "url": "https://x.com/testingcatalog/status/2100272203535188239",
+          "title": "神秘模型 Union Alpha 上线 OpenCode 和 OpenRouter，免费一周",
+          "publishedAt": "2026-09-16T17:14:49.000Z"
+        },
+        {
+          "name": "Union Alpha",
+          "relationship": "integrated",
+          "quote": "匿名\"隐身\"多模态模型 Union Alpha 今日上线 OpenRouter 和 OpenCode",
+          "articleId": "aihot:cmu4cz9vn0it7ro4wlxf6ad3q",
+          "url": "https://x.com/rohanpaul_ai/status/2100271241685033105",
+          "title": "Union Alpha 匿名多模态模型上线 OpenRouter 和 OpenCode",
+          "publishedAt": "2026-09-16T17:10:59.000Z"
+        }
+      ],
+      "updatedAt": "2026-09-19T12:30:03+08:00",
+      "latestReportAt": "2026-09-19T12:30:03+08:00",
+      "profileUpdatedAt": "2026-09-20T22:46:49+08:00",
+      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+    },
+    {
+      "id": "company:59bc772979c50f3f",
+      "company_name": "DeepSeek Harness",
+      "aliases": [],
+      "product_names": [
+        "DeepSeek Harness"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "DeepSeek Harness",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "DeepSeek Harness",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:aad2cf7c8a361e67",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "publishedAt": "2026-09-19T12:30:03+08:00",
+          "sourceName": "智东西",
+          "category": "release"
+        }
+      ],
+      "firstSeenAt": "2026-09-19T12:30:03+08:00",
+      "lastSeenAt": "2026-09-19T12:30:03+08:00",
+      "entityType": "product",
+      "productUpdates": [
+        {
+          "name": "DeepSeek Harness",
+          "relationship": "unknown",
+          "quote": "华为正在与DeepSeek Harness、OpenCode、openJiuwen等开源框架协同，打造智能管理系统、推理加速库、安全框架等Agent插件化组件",
+          "articleId": "manus:aad2cf7c8a361e67",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "publishedAt": "2026-09-19T12:30:03+08:00"
+        }
+      ],
+      "updatedAt": "2026-09-19T12:30:03+08:00",
+      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+      "latestReportAt": "2026-09-19T12:30:03+08:00",
+      "profileUpdatedAt": "2026-09-20T22:46:49+08:00"
+    },
+    {
+      "id": "company:3b9e1cdd9e593b5c",
+      "company_name": "openJiuwen",
+      "aliases": [],
+      "product_names": [
+        "openJiuwen"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "openJiuwen",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "openJiuwen",
+            "articleId": "manus:aad2cf7c8a361e67",
+            "url": "https://news.qq.com/rain/a/20260919A067RE00",
+            "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+            "publishedAt": "2026-09-19T12:30:03+08:00",
+            "sourceName": "智东西",
+            "origin": "article"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:aad2cf7c8a361e67",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "publishedAt": "2026-09-19T12:30:03+08:00",
+          "sourceName": "智东西",
+          "category": "release"
+        }
+      ],
+      "firstSeenAt": "2026-09-19T12:30:03+08:00",
+      "lastSeenAt": "2026-09-19T12:30:03+08:00",
+      "entityType": "product",
+      "productUpdates": [
+        {
+          "name": "openJiuwen",
+          "relationship": "unknown",
+          "quote": "华为正在与DeepSeek Harness、OpenCode、openJiuwen等开源框架协同，打造智能管理系统、推理加速库、安全框架等Agent插件化组件",
+          "articleId": "manus:aad2cf7c8a361e67",
+          "url": "https://news.qq.com/rain/a/20260919A067RE00",
+          "title": "通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解",
+          "publishedAt": "2026-09-19T12:30:03+08:00"
+        }
+      ],
+      "updatedAt": "2026-09-19T12:30:03+08:00",
+      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+      "latestReportAt": "2026-09-19T12:30:03+08:00",
+      "profileUpdatedAt": "2026-09-20T22:46:49+08:00"
     },
     {
       "id": "company:056bc4c79790db9d",
@@ -111901,6 +112687,18 @@
         "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
       },
       {
+        "name": "OpenCode",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "DeepSeek Harness",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "openJiuwen",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
         "name": "Alpha Arena",
         "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
       },
@@ -111930,6 +112728,50 @@
       },
       {
         "name": "Today AI",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "个人 LLM 文案校对工具",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Muse Image",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "MAI-Image-2.6",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Claude Projects",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "分享你的 AI 配置",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "ZCode",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Hister",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Mio",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "jasonzhou1993",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Opal Zero",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Grok Bot Ultra",
         "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
       },
       {
@@ -111965,11 +112807,87 @@
         "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
       },
       {
+        "name": "Helicon",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "GPT Astra",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Ztyle-01",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "AI Champion",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Grok 4.7",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "grill-me",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "知乎直答",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "夸克",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "OpenArt",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "SpicyChat AI",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "DataCamp",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Steering Arena",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Atlas3DAI",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
         "name": "CodexRadar",
         "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
       },
       {
+        "name": "QwenWork",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
         "name": "豆包爱学",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "jevlike",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "GPT6",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "Hyper3D Rodin",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "BANG",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "3Dworkshop",
         "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
       },
       {
@@ -112150,6 +113068,10 @@
       },
       {
         "name": "Gemini 3.8 Live",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "ScienceIDE",
         "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
       },
       {
@@ -113366,5 +114288,30 @@
       ],
       "note": "Exact historical evidence reviewed; raw caches and department history preserved"
     }
+  },
+  "articleFailures": [],
+  "incrementalProcessing": {
+    "kind": "reviewed_canary_supplement",
+    "previouslyPublishedArticles": 238,
+    "newArticles": 2,
+    "originalModelCalls": 6,
+    "previousBatchStats": {
+      "articlesProcessed": 238,
+      "articlesComplete": 238,
+      "articlesFailed": 0,
+      "articlesDeferred": 0,
+      "modelCalls": 242,
+      "cacheHits": 0,
+      "companiesTotal": 577,
+      "productsTotal": 1199,
+      "pendingEntities": 161,
+      "excludedEntities": 2,
+      "modelSuccesses": 238,
+      "modelFailures": 4,
+      "circuitOpen": false
+    },
+    "newManusTasks": 0,
+    "reassemblyModelCalls": 0,
+    "note": "Original scheduled run remains unchanged; existing 238 extractions retain their original versions."
   }
 }

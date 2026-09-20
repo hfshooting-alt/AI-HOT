@@ -27562,5 +27562,37 @@
     "enrichmentStatus": "complete",
     "modelAttempted": true,
     "cacheHit": false
+  },
+  "1:3:DeepSeek-V4-Pro:enrich-v3:en:fbda6cb8f9eca46f:45618b20da79ac9f": {
+    "summary": "在华为全联接大会2026上，华为发布AI资产广场，供开发者上架和查找AI资产。华为计算首席战略官朱照生宣布昇腾已跨越生态拐点，CANN社区成为中国活跃度最高的开源社区，昇腾成为PyTorch社区官方支持的首个中国算力平台，并介绍Agentic计算在超节点开发、思程、SIMD+SIMT混合编程、HiFloat4低精度格式和Agent编程调优五个方面的变化。",
+    "summaryOrigin": "model",
+    "classification": {
+      "category": "bigtech",
+      "tags": {
+        "change_type": "other",
+        "company": "other"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete",
+    "modelAttempted": true,
+    "cacheHit": false
+  },
+  "1:3:DeepSeek-V4-Pro:enrich-v3:en:8db3dc902a27480b:a2ed3dbffc7685d4": {
+    "summary": "在2026年华为全联接大会上，华为发布了灵衢互联架构及昇腾960芯片、昇腾960超节点、OceanStor M900 AI记忆存储等AI基础设施新品。灵衢是统一互联总线协议，将CPU、NPU、DPU、DDR、SSD等单元统一互联，贯穿单机、超节点和超大规模集群。华为公布的数据显示，基于灵衢的单集群可支持100万颗AI处理器，10万卡集群的模型浮点算力利用率从20%提升至35%。",
+    "summaryOrigin": "model",
+    "classification": {
+      "category": "release",
+      "tags": {
+        "industry": "ai_model",
+        "issuer": "bigcorp"
+      },
+      "autoFallback": false,
+      "autoFilled": []
+    },
+    "enrichmentStatus": "complete",
+    "modelAttempted": true,
+    "cacheHit": false
   }
 }

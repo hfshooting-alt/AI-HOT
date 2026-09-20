@@ -1,15 +1,18 @@
 """Encrypted CI checkpoints and cache-only recovery; never run collectors."""
 import argparse
 import base64
+from datetime import datetime
 import hashlib
 import io
 import json
 import os
 from pathlib import Path, PurePosixPath
+import re
 import shutil
 import sys
 import uuid
 import zipfile
+from zoneinfo import ZoneInfo
 
 from cryptography.fernet import Fernet, InvalidToken
 from cryptography.hazmat.primitives import hashes
@@ -21,7 +24,8 @@ from .candidate import safe_tree, prepare, code_digest
 MAGIC = b'AIHOT-RECOVERY-1\n'
 LIMIT = 512 * 1024 * 1024
 # Exact operational directories only: no checkout, .env, executables or node_modules.
-TREES = ('work/runs', 'work/manus', 'work/company-web-research', 'work/company-discovery')
+TREES = ('work/runs', 'work/manus', 'work/company-web-research', 'work/company-discovery',
+         'work/company-research-budget')
 EXTRA_FILES = ('work/llm-usage.jsonl', 'work/llm-failures.jsonl',
                'work/diagnostic-summary.json', 'work/schedule-audit.json')
 
@@ -37,11 +41,16 @@ def cipher(secret, salt):
 def allowed(name):
     p = PurePosixPath(name)
     suffixes = ('.json', '.jsonl', '.html')
+    # Legacy per-request reservations also prevent retrying a failed paid call.
+    # Do not broaden this to arbitrary .attempt files or other operational trees.
+    research_attempt = bool(re.fullmatch(
+        r'(?:work/company-web-research/(?:[^/]+/)*|'
+        r'work/company-research-budget/model-cache/\d{4}-\d{2}-\d{2}/)[0-9a-f]{64}\.attempt', name))
     if '/workspace/web/public/' in name or '/backup/web/public/' in name:
         suffixes += ('.svg', '.css', '.js', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.woff', '.woff2', '.txt', '.webmanifest')
     return (not p.is_absolute() and '\\' not in name and ':' not in name
             and all(v not in ('.', '..') and not v.startswith('.') for v in p.parts)
-            and p.suffix in suffixes
+            and (p.suffix in suffixes or research_attempt)
             and (name in EXTRA_FILES or any(name.startswith(prefix + '/') for prefix in TREES)))
 
 
@@ -146,6 +155,20 @@ def deny_model(*args, **kwargs):
     raise NeedsModel('缓存未命中；恢复模式禁止付费请求')
 
 
+def original_build_time(snapshot, feed, overview):
+    """Use recorded artifact times, never pretend cached evidence is new today."""
+    values = [snapshot.get('generatedAt'), (snapshot.get('daily') or {}).get('generatedAt'),
+              feed.get('generatedAt'), overview.get('generatedAt')]
+    dates = []
+    for value in values:
+        try:
+            date = datetime.fromisoformat(value.replace('Z', '+00:00'))
+            dates.append(date if date.tzinfo else date.replace(tzinfo=ZoneInfo('Asia/Shanghai')))
+        except (AttributeError, TypeError, ValueError):
+            continue
+    return max(dates).astimezone(ZoneInfo('Asia/Shanghai')).isoformat() if dates else None
+
+
 def rebuild(root, source_run):
     """Rebuild overview/funding from exact cached evidence into a new candidate."""
     from .candidate import read
@@ -215,9 +238,31 @@ def rebuild(root, source_run):
             if fc.get(article_cache_key(tx, a), {}).get('status') != 'complete']
         if any(report['missing'].values()):
             raise ValueError('存在未缓存的模型结果；缺项已记录，未发起请求')
+        private_budget = manifest_root / 'work/company-research-budget'
+        recorded_time = original_build_time(read(snapshot), read(feed),
+                                            read(workspace / 'data/company-overview/current.json'))
+        if (private_budget / 'ledger.json').exists() and not recorded_time:
+            raise ValueError('原运行缺少产物时间，禁止把恢复日期写成资料更新时间')
         data = overview.build(snapshot, feed, raw, workspace / 'data/company-overview/current.json',
             workspace / 'data/company-overview', tx, llm_fn=deny_model,
-            require_complete=True, allow_partial=True, evidence_path=evidence_path)
+            require_complete=True, allow_partial=True, evidence_path=evidence_path,
+            generated_at=recorded_time)
+        if (private_budget / 'ledger.json').exists():
+            from company_index.daily_research import enrich
+            # Isolate the recovered journal from both the live daily lease and
+            # the authenticated original checkpoint. Never reset either owner.
+            safe_tree(private_budget)
+            replay_budget = dest / 'company-research-budget'
+            shutil.copytree(private_budget, replay_budget)
+            data = enrich(data, tx, dest / 'company-web-research', budget_dir=replay_budget,
+                          replay_only=True, read_fn=deny_model, propose_fn=deny_model)
+            research = data.get('knownLinkResearch') or {}
+            if research.get('budgetUnavailable'):
+                raise ValueError('公司资料恢复台账或成功缓存不可用，停止恢复')
+            overview.validate(data, tx)
+            report['optionalResearch'] = 'replayed_cache_only'
+            report['optionalResearchReplay'] = {key: research.get(key, 0)
+                for key in ('cacheHits', 'filled', 'failed', 'attempted', 'pagesFetched', 'deferred')}
         promote(data, workspace / 'data/company-overview', workspace / 'web/public')
         table = funding.build_funding_table(snapshot, feed, raw, tx, workspace / 'data/funding',
                                            llm_fn=deny_model, skip_search=True)

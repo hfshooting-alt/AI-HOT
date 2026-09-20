@@ -13,9 +13,15 @@ from .identity import apply_reviewed_research, RULES_PATH
 from .research import propose
 from .page_evidence import read_page, eligible_fact
 from .entities import timestamp
+from .research_budget import ResearchBudget, BudgetUnavailable
 
 PROFILE_FIELDS = ('business', 'country', 'founded', 'team')
 DAILY_LIMITS = {'entities': 5, 'pages': 10, 'requests': 5}
+
+
+def input_key(model, row_id, urls, last_seen):
+    return hashlib.sha256(json.dumps([1, model, row_id, urls, last_seen],
+                                    ensure_ascii=False).encode()).hexdigest()
 
 
 def research_priority(row, pending_ids):
@@ -95,7 +101,7 @@ def research_error(error, phase):
     return safe_error(error)
 
 
-def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn=propose, rules=None, discovery_fn=None):
+def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn=propose, rules=None, discovery_fn=None, budget_dir=None, replay_only=False):
     if not 1 <= max_requests <= 5:
         raise ValueError('每日已知链接补全最多5次请求')
     result = copy.deepcopy(data)
@@ -113,7 +119,7 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
         old = history.get(rec['id'], {})
         known[rec['company_name']] = [*old.get('urls', []), *known.get(rec['company_name'], [])]
     selected = None
-    if discovery_fn:
+    if discovery_fn and not replay_only:
         candidates = [r for r in entities if (r['id'] in pending_ids or any(not r.get(f) for f in PROFILE_FIELDS))
                       and r['id'] not in history]
         if discovered.get('last', {}).get('status') == 'stop_unconfirmed':
@@ -136,7 +142,6 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
     day = checked_day(report['checkedAt'])
     model = resolve_model(tx)
     usage, unknown_dates, legacy = daily_usage(state, day)
-    report['dailyUsageBefore'] = dict(usage)
     report['unknownDateReservations'] = unknown_dates
     pool = [r for r in entities if r['id'] in pending_ids or any(not r.get(f) for f in SCALAR_FIELDS)]
     # 基本资料和待归属主体优先；同组按真实新闻时刻排序。
@@ -150,10 +155,25 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
     for row in pool:
         queue[research_priority(row, pending_ids)] += 1
     report['queue'] = queue
+    budget = ResearchBudget(budget_dir, clock=now_bj_iso)
+    try:
+        journal = budget.snapshot() if replay_only else budget.synchronize(state)
+        usage = budget.usage()
+    except BudgetUnavailable as error:
+        report.update(budgetUnavailable=str(error), dailyLimitReached=False,
+                      dailyUsageBefore=None, dailyUsageAfter=None, circuitOpen=False, circuitReason=None)
+        report['notAttempted'] = [{'id': r['id'], 'name': r['company_name'], 'reason': 'budget_unavailable'} for r in pool]
+        report['deferred'] = queue['deferred'] = len(pool)
+        result['knownLinkResearch'] = report
+        return result
+    report['dailyUsageBefore'] = dict(usage)
+    report['cacheHits'] = 0
+    report['replayOnly'] = replay_only
     circuit = FailureCircuit()
     # A saved authentication/payment failure remains visible when its input is
     # skipped. Reusing failure state must not silently restart the same service.
-    for entry in sorted((e for e in state.values() if isinstance(e, dict)
+    for entry in sorted((item['event'] for item in journal['inputs'].values()
+                        if isinstance((e := item.get('event')), dict)
                         and e.get('model') == model and checked_day(e.get('checkedAt')) == day),
                         key=lambda e: timestamp(e.get('checkedAt'))):
         if entry.get('status') in ('completed', 'completed_no_supported_fields'):
@@ -171,59 +191,116 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
         news_keys = {u.rstrip('/') for u in news_urls}
         urls.sort(key=lambda u: u.rstrip('/') in news_keys)
         urls = urls[:2]
-        key = hashlib.sha256(json.dumps([1, model, row['id'], urls,
-            row.get('lastSeenAt')], ensure_ascii=False).encode()).hexdigest()
-        if key in state:
+        key = input_key(model, row['id'], urls, row.get('lastSeenAt'))
+        try:
+            saved = budget.lookup(key)
+            if saved is None or (replay_only and 'proposal' not in saved):
+                # Discovery URLs may exist only in the durable input when the
+                # process stopped before publishing companyDiscovery history.
+                candidates = [(old_key, old) for old_key, old in journal['inputs'].items()
+                    if old['event'].get('id') == row['id']
+                    and old['event'].get('name') == row['company_name']
+                    and old['event'].get('model') == model
+                    and isinstance(old['event'].get('urls'), list)
+                    and all(isinstance(u, str) for u in old['event']['urls'])
+                    and checked_day(old['event'].get('checkedAt')) is not None]
+                for old_key, old in sorted(candidates,
+                        key=lambda item: timestamp(item[1]['event']['checkedAt']), reverse=True):
+                    event = old['event']
+                    previous_urls = {u.rstrip('/') for u in event.get('urls', [])}
+                    if not replay_only and any(u.rstrip('/') not in previous_urls | news_keys for u in urls):
+                        continue  # A genuinely new profile URL remains a new input.
+                    if input_key(model, row['id'], event['urls'], row.get('lastSeenAt')) == old_key:
+                        candidate = budget.lookup(old_key)
+                        if candidate and 'proposal' in candidate:
+                            key, saved = old_key, candidate
+                            break
+        except BudgetUnavailable as error:
+            saved = None
+            report['budgetUnavailable'] = str(error)
+        replay = saved is not None and 'proposal' in saved
+        if saved is not None and not replay:
+            state.setdefault(key, copy.deepcopy(saved['event']))
             report['skippedUnchanged'] += 1
             continue
-        daily_limited = (usage['entities'] >= DAILY_LIMITS['entities']
-                or usage['requests'] >= DAILY_LIMITS['requests']
-                or usage['pages'] + len(urls) > DAILY_LIMITS['pages'])
-        if (circuit.stopped or daily_limited or report['attempted'] >= max_requests
-                or fetched_entities >= max_requests):
-            report['deferred'] += 1
-            report['notAttempted'].append({'id': row['id'], 'name': row['company_name'],
-                'reason': 'model_circuit' if circuit.stopped else 'daily_limit' if daily_limited else 'run_limit'})
+        if replay and key in state:
+            report['skippedUnchanged'] += 1
             continue
-        fetched_entities += 1
-        usage['entities'] += 1
-        usage['pages'] += len(urls)
         event = {'id': row['id'], 'name': row['company_name'], 'urls': urls,
+                 'lastSeenAt': row.get('lastSeenAt'),
                  'missingFields': missing, 'filledFields': [], 'checkedAt': report['checkedAt'],
                  'priority': research_priority(row, pending_ids), 'pageResults': [],
                  'model': model, 'modelAttempted': False, 'status': 'attempted'}
-        state[key] = copy.deepcopy(event)
         sources = []
-        for url in urls:
-            cached = url in pages or url in page_failures
-            if not cached:
-                report['pagesFetched'] += 1
+        if replay:
+            event = copy.deepcopy(saved['event'])
+            event.update(modelAttempted=False, cacheHit=True)
+            event['checkedAt'] = saved['proposalCheckedAt']
+            report['cacheHits'] += 1
+        else:
+            reason = ('cache_missing' if replay_only else
+                      'budget_unavailable' if report.get('budgetUnavailable') else
+                      'model_circuit' if circuit.stopped else
+                      'run_limit' if report['attempted'] >= max_requests or fetched_entities >= max_requests else None)
+            if reason is None:
                 try:
-                    pages[url] = read_fn(url)
-                    if not isinstance(pages[url], dict) or not pages[url].get('text'):
-                        pages.pop(url, None)
-                        raise ValueError('页面正文不足')
-                except Exception as error:
-                    page_failures[url] = safe_failure(error)
-            if url in page_failures:
-                event['pageResults'].append({'url': url, 'status': 'failed', 'cached': cached,
-                                             **page_failures[url]})
-            else:
-                event['pageResults'].append({'url': url, 'status': 'readable', 'cached': cached})
-                sources.append(pages[url])
-        if not sources:
+                    reason = budget.begin(key, event)
+                except BudgetUnavailable as error:
+                    report['budgetUnavailable'] = str(error)
+                    reason = 'budget_unavailable'
+            if reason:
+                report['deferred'] += 1
+                report['notAttempted'].append({'id': row['id'], 'name': row['company_name'], 'reason': reason})
+                continue
+            fetched_entities += 1
+            state[key] = copy.deepcopy(event)
+            for url in urls:
+                cached = url in pages or url in page_failures
+                if not cached:
+                    permission = budget.permission()
+                    if permission:
+                        report['budgetUnavailable'] = permission
+                        event['pageResults'].append({'url': url, 'status': 'skipped', 'reason': permission})
+                        break
+                    report['pagesFetched'] += 1
+                    try:
+                        pages[url] = read_fn(url)
+                        if not isinstance(pages[url], dict) or not pages[url].get('text'):
+                            pages.pop(url, None)
+                            raise ValueError('页面正文不足')
+                    except Exception as error:
+                        page_failures[url] = safe_failure(error)
+                if url in page_failures:
+                    event['pageResults'].append({'url': url, 'status': 'failed', 'cached': cached,
+                                                 **page_failures[url]})
+                else:
+                    event['pageResults'].append({'url': url, 'status': 'readable', 'cached': cached})
+                    sources.append(pages[url])
+        if not sources and not replay:
             event['status'] = 'no_readable_page'
             report['failed'] += 1
         else:
             packet = {'record_name': row['company_name'], 'current_record': {f: row.get(f) for f in SCALAR_FIELDS},
                       'missing_fields': missing, 'sources': sources}
-            report['attempted'] += 1
-            usage['requests'] += 1
-            event['modelAttempted'] = True
             phase = 'proposal'
             try:
-                proposal = propose_fn(tx, packet, Path(directory), allow_paid=True,
-                                      max_requests=max_requests, isolate_invalid=True)
+                if replay:
+                    proposal = saved['proposal']
+                else:
+                    # run_proposal commits the model slot before calling code.
+                    # Its durable event also lets failures report actual attempts.
+                    try:
+                        proposal, attempted, original_time = budget.run_proposal(
+                            key, tx, packet, propose_fn, directory, max_requests=max_requests)
+                    finally:
+                        current = budget.lookup(key)
+                        event['modelAttempted'] = current['event'].get('modelAttempted', False)
+                        report['attempted'] += int(event['modelAttempted'])
+                    event['modelAttempted'] = attempted
+                    if not attempted:
+                        event['cacheHit'] = True
+                        report['cacheHits'] += 1
+                    event['checkedAt'] = original_time
                 if not isinstance(proposal, dict) or not isinstance(proposal.get('facts'), list):
                     raise LLMRequestError('invalid_response')
                 phase = 'evidence'
@@ -235,7 +312,7 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
                     if row['id'] in pending_ids:
                         if fact['field'] == 'owner_company' and fact['value'] != row['company_name']:
                             candidate = {'name':fact['value'],'url':fact['url'],'quote':fact['quote'],
-                                'checkedAt':report['checkedAt'],'reason':'网页归属线索经模型提取及逐字核对，法人映射待复核；尚未并入该公司。'}
+                                'checkedAt':event['checkedAt'],'reason':'网页归属线索经模型提取及逐字核对，法人映射待复核；尚未并入该公司。'}
                             owners = working.setdefault('candidateOwners', [])
                             if not any(c['name']==candidate['name'] and c['url']==candidate['url'] for c in owners):
                                 owners.append(candidate)
@@ -251,20 +328,25 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
                         continue
                     # 不把逐字引文通过冒充完整人工核验；自动补全不改归属或既有值。
                     facts.append({**fact, 'verificationStatus': 'provisional',
-                        'checkedAt': report['checkedAt'],
+                        'checkedAt': event['checkedAt'],
                         'reason': 'DeepSeek根据已知网页提出，原文引文已校验；主体及字段口径仍待复核。'})
-                replacement = apply_reviewed_research([working], {'checkedAt': report['checkedAt'],
+                replacement = apply_reviewed_research([working], {'checkedAt': event['checkedAt'],
                     'records': [{'record_name': row['company_name'], 'reviewed': True, 'facts': facts}]})[0]
                 filled_fields = list(dict.fromkeys(f['field'] for f in facts
                     if replacement.get(f['field']) != row.get(f['field'])))
                 if filled_fields or candidates_added:
                     row.update(replacement)
-                    row['profileUpdatedAt'] = report['checkedAt']
+                    row['profileUpdatedAt'] = max((row.get('profileUpdatedAt'), event['checkedAt']), key=timestamp)
                 event.update(status='completed' if filled_fields or candidates_added else 'completed_no_supported_fields',
                              filledFields=filled_fields + (['candidateOwners'] if candidates_added else []),
                              rejectedFacts=proposal.get('rejectedFacts', 0) + semantic_rejected)
                 report['filled'] += len(filled_fields) + candidates_added
                 circuit.observe({'status': 'complete'})
+            except BudgetUnavailable as error:
+                report['budgetUnavailable'] = str(error)
+                event.update(status='budget_deferred', budgetReason=str(error))
+                report['deferred'] += 1
+                report['notAttempted'].append({'id': row['id'], 'name': row['company_name'], 'reason': str(error)})
             except Exception as error:
                 event['status'] = 'model_or_evidence_failed'
                 event.update(safe_failure(error))
@@ -272,9 +354,19 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
                 circuit.observe({'status': 'failed', 'error': event['error']})
                 report['failed'] += 1
         state[key] = copy.deepcopy(event)
+        # Replaying a result must not erase the original charged attempt.
+        if not replay:
+            try:
+                budget.finish(key, event)
+            except BudgetUnavailable as error:
+                report['budgetUnavailable'] = str(error)
         report['records'].append(event)
     queue.update(processed=len(report['records']), deferred=report['deferred'],
                  skippedUnchanged=report['skippedUnchanged'])
+    try:
+        usage = budget.usage()
+    except BudgetUnavailable as error:
+        report['budgetUnavailable'] = str(error)
     report['dailyUsageAfter'] = usage
     report['dailyLimitReached'] = any(usage[k] >= limit for k, limit in DAILY_LIMITS.items())
     report.update(circuitOpen=circuit.stopped, circuitReason=circuit.reason)

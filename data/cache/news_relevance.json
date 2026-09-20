@@ -12618,5 +12618,21 @@
     "evidence": "大模型需要雷军",
     "modelAttempted": true,
     "cacheHit": false
+  },
+  "0d84f6f5ddeec15f2e4e8cace27b456abfcae98ced5bd5e19a07c90286836dd6": {
+    "status": "complete",
+    "relevant": true,
+    "reason": "华为发布AI资产广场并提出Agentic计算五大变化，涉及AI算力、智能体开发与生态进展。",
+    "evidence": "发布AI资产广场，帮开发者快速上架和找到合适的AI资产",
+    "modelAttempted": true,
+    "cacheHit": false
+  },
+  "08cd3295887c9a98ebb94dc24c7dca503a4d17918b62a454a29ddde340ac09f1": {
+    "status": "complete",
+    "relevant": true,
+    "reason": "文章核心事件是华为发布灵衢互联架构及昇腾960等AI基础设施新品，属于AI算力领域的实质新闻。",
+    "evidence": "华为围绕灵衢互联架构及超节点集群，推出昇腾960芯片、昇腾960超节点、OceanStor M900 AI记忆存储等一系列AI基础设施新品",
+    "modelAttempted": true,
+    "cacheHit": false
   }
 }

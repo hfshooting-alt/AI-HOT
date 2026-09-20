@@ -68494,5 +68494,345 @@
       }
     ],
     "modelAttempted": true
+  },
+  "9308d8a351dacca88ab090c8cba6171f99623e7615305305623e9e1e81a667c7": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "华为",
+        "entity_type": "company",
+        "aliases": [],
+        "product_names": [
+          "鲲鹏",
+          "昇腾",
+          "华为云",
+          "鸿蒙操作系统",
+          "HarmonyOS 7",
+          "AI资产广场",
+          "灵衢互联协议",
+          "思程ThinkProcess",
+          "Ascend C",
+          "HiFloat8",
+          "HiFloat4",
+          "CANNbot",
+          "Model Agent",
+          "MindStudio Agent",
+          "Solution Agent",
+          "AgentArts",
+          "华为云码道代码智能体",
+          "华为云DocZip",
+          "华为云AI Shell",
+          "Hands-on最佳实践中心",
+          "行业AI梦工厂",
+          "云商店",
+          "小艺开放平台",
+          "DevEco Code",
+          "DevEco CLI",
+          "HarmonyOS开发助手",
+          "鸿蒙星河互联技术"
+        ],
+        "products": [
+          {
+            "name": "鲲鹏",
+            "relationship": "owned",
+            "quote": "鲲鹏自2019年推出以来坚定推进开源开放"
+          },
+          {
+            "name": "昇腾",
+            "relationship": "owned",
+            "quote": "昇腾始于华为2016年的一个技术项目"
+          },
+          {
+            "name": "华为云",
+            "relationship": "owned",
+            "quote": "华为云伙伴与生态部总裁康晓宇介绍了华为云如何通过Agent Infra、Agent工具和开发者实践"
+          },
+          {
+            "name": "鸿蒙操作系统",
+            "relationship": "owned",
+            "quote": "华为分享了鲲鹏/昇腾、华为云、鸿蒙操作系统的最新生态进展"
+          },
+          {
+            "name": "HarmonyOS 7",
+            "relationship": "owned",
+            "quote": "今年9月7日，华为发布HarmonyOS 7商用版本"
+          },
+          {
+            "name": "AI资产广场",
+            "relationship": "owned",
+            "quote": "AI资产广场今天正式发布。这是一个华为为开发者打造的一站式AI资产汇聚、分发、增值平台"
+          },
+          {
+            "name": "灵衢互联协议",
+            "relationship": "owned",
+            "quote": "去年，华为发布灵衢互联协议"
+          },
+          {
+            "name": "思程ThinkProcess",
+            "relationship": "owned",
+            "quote": "为此，华为提出了思程ThinkProcess"
+          },
+          {
+            "name": "Ascend C",
+            "relationship": "owned",
+            "quote": "Ascend C语言面向新架构全新升级"
+          },
+          {
+            "name": "HiFloat8",
+            "relationship": "owned",
+            "quote": "去年华为发布HiFloat8浮点数据格式"
+          },
+          {
+            "name": "HiFloat4",
+            "relationship": "owned",
+            "quote": "华为还提供了4bit浮点数据格式HiFloat4"
+          },
+          {
+            "name": "CANNbot",
+            "relationship": "owned",
+            "quote": "CANNbot算子生成：自动生成算子"
+          },
+          {
+            "name": "Model Agent",
+            "relationship": "owned",
+            "quote": "Model Agent模型适配：适配链路自动编排"
+          },
+          {
+            "name": "MindStudio Agent",
+            "relationship": "owned",
+            "quote": "MindStudio Agent精度调优：支持从集群到芯片的多级调优"
+          },
+          {
+            "name": "Solution Agent",
+            "relationship": "owned",
+            "quote": "Solution Agent行业部署：内置300多个部署方案"
+          },
+          {
+            "name": "AgentArts",
+            "relationship": "owned",
+            "quote": "华为云通过AgentArts开放Agent底层能力"
+          },
+          {
+            "name": "华为云码道代码智能体",
+            "relationship": "owned",
+            "quote": "华为云码道代码智能体：在鸿蒙开发场景升级"
+          },
+          {
+            "name": "华为云DocZip",
+            "relationship": "owned",
+            "quote": "华为云DocZip：开放多维文档能力"
+          },
+          {
+            "name": "华为云AI Shell",
+            "relationship": "owned",
+            "quote": "华为云AI Shell：可帮助开发者自动完成部署发布智能体的工作"
+          },
+          {
+            "name": "Hands-on最佳实践中心",
+            "relationship": "owned",
+            "quote": "Hands-on最佳实践中心围绕AI云原生、鸿蒙、AI办公等方向"
+          },
+          {
+            "name": "行业AI梦工厂",
+            "relationship": "owned",
+            "quote": "行业AI梦工厂已发布了7大专区、500多个价值资产"
+          },
+          {
+            "name": "云商店",
+            "relationship": "owned",
+            "quote": "云商店是华为云官方生态应用交易平台"
+          },
+          {
+            "name": "小艺开放平台",
+            "relationship": "owned",
+            "quote": "小艺开放平台：一站式极简开发Skill和Agent"
+          },
+          {
+            "name": "DevEco Code",
+            "relationship": "owned",
+            "quote": "DevEco Code和DevEco CLI：前者是鸿蒙编程智能体"
+          },
+          {
+            "name": "DevEco CLI",
+            "relationship": "owned",
+            "quote": "DevEco Code和DevEco CLI：前者是鸿蒙编程智能体"
+          },
+          {
+            "name": "HarmonyOS开发助手",
+            "relationship": "owned",
+            "quote": "HarmonyOS开发助手：围绕开发者全生命周期旅程"
+          },
+          {
+            "name": "鸿蒙星河互联技术",
+            "relationship": "owned",
+            "quote": "HarmonyOS 7升级了鸿蒙星河互联技术"
+          }
+        ],
+        "founded": null,
+        "country": "中国",
+        "team": null,
+        "business": "华为在华为全联接大会2026上分享鲲鹏/昇腾、华为云、鸿蒙操作系统的最新生态进展和面向Agentic时代的开发者工具布局，并发布AI资产广场。鲲鹏累计部署量超过2000万套，昇腾已跨越生态拐点，CANN社区成为中国活跃度最高的开源社区。华为云提出Agentic开发新范式，鸿蒙操作系统HarmonyOS 7实现Agent亲和系统架构、鸿蒙智能体框架2.0、系统智能体小艺三大升级。",
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "ai_other"
+      }
+    ],
+    "modelAttempted": true
+  },
+  "c8bd72a30ae8ebf421e5841d624ccb2d9dc775d4299da180d7fcb4d630a0742f": {
+    "status": "complete",
+    "companies": [
+      {
+        "company_name": "华为",
+        "entity_type": "company",
+        "aliases": [],
+        "product_names": [
+          "灵衢",
+          "昇腾960芯片",
+          "昇腾960超节点",
+          "OceanStor M900 AI记忆存储",
+          "鲲鹏950超节点",
+          "星河UBG交换机",
+          "Atlas 650E",
+          "CANN"
+        ],
+        "products": [
+          {
+            "name": "灵衢",
+            "relationship": "owned",
+            "quote": "华为围绕灵衢互联架构及超节点集群，推出昇腾960芯片、昇腾960超节点、OceanStor M900 AI记忆存储等一系列AI基础设施新品"
+          },
+          {
+            "name": "昇腾960芯片",
+            "relationship": "owned",
+            "quote": "华为围绕灵衢互联架构及超节点集群，推出昇腾960芯片、昇腾960超节点、OceanStor M900 AI记忆存储等一系列AI基础设施新品"
+          },
+          {
+            "name": "昇腾960超节点",
+            "relationship": "owned",
+            "quote": "华为围绕灵衢互联架构及超节点集群，推出昇腾960芯片、昇腾960超节点、OceanStor M900 AI记忆存储等一系列AI基础设施新品"
+          },
+          {
+            "name": "OceanStor M900 AI记忆存储",
+            "relationship": "owned",
+            "quote": "华为围绕灵衢互联架构及超节点集群，推出昇腾960芯片、昇腾960超节点、OceanStor M900 AI记忆存储等一系列AI基础设施新品"
+          },
+          {
+            "name": "鲲鹏950超节点",
+            "relationship": "owned",
+            "quote": "会上新发布的Agentic AI超节点集群由鲲鹏950超节点、昇腾960超节点、OceanStor M900记忆存储、星河UBG交换机组成"
+          },
+          {
+            "name": "星河UBG交换机",
+            "relationship": "owned",
+            "quote": "会上新发布的Agentic AI超节点集群由鲲鹏950超节点、昇腾960超节点、OceanStor M900记忆存储、星河UBG交换机组成"
+          },
+          {
+            "name": "Atlas 650E",
+            "relationship": "unknown",
+            "quote": ""
+          },
+          {
+            "name": "CANN",
+            "relationship": "owned",
+            "quote": "去年8月5日，华为CANN全面开源开放，至今已跃升为中国开源项目活跃度第一"
+          }
+        ],
+        "founded": null,
+        "country": "中国",
+        "team": null,
+        "business": "AI基础设施、算力底座、超节点集群、互联架构",
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "ai_other"
+      },
+      {
+        "company_name": "科大讯飞",
+        "entity_type": "company",
+        "aliases": [],
+        "product_names": [],
+        "products": [],
+        "founded": null,
+        "country": "中国",
+        "team": null,
+        "business": "AI大模型与应用技术创新，基于昇腾打造AI模型，开发智能客服、办公等通用方案及金融、教育、医疗等行业场景化方案",
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "ai_other"
+      },
+      {
+        "company_name": "DeepSeek Harness",
+        "entity_type": "product",
+        "aliases": [],
+        "product_names": [
+          "DeepSeek Harness"
+        ],
+        "products": [
+          {
+            "name": "DeepSeek Harness",
+            "relationship": "unknown",
+            "quote": "华为正在与DeepSeek Harness、OpenCode、openJiuwen等开源框架协同，打造智能管理系统、推理加速库、安全框架等Agent插件化组件"
+          }
+        ],
+        "founded": null,
+        "country": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "ai_other"
+      },
+      {
+        "company_name": "OpenCode",
+        "entity_type": "product",
+        "aliases": [],
+        "product_names": [
+          "OpenCode"
+        ],
+        "products": [
+          {
+            "name": "OpenCode",
+            "relationship": "unknown",
+            "quote": "华为正在与DeepSeek Harness、OpenCode、openJiuwen等开源框架协同，打造智能管理系统、推理加速库、安全框架等Agent插件化组件"
+          }
+        ],
+        "founded": null,
+        "country": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "ai_other"
+      },
+      {
+        "company_name": "openJiuwen",
+        "entity_type": "product",
+        "aliases": [],
+        "product_names": [
+          "openJiuwen"
+        ],
+        "products": [
+          {
+            "name": "openJiuwen",
+            "relationship": "unknown",
+            "quote": "华为正在与DeepSeek Harness、OpenCode、openJiuwen等开源框架协同，打造智能管理系统、推理加速库、安全框架等Agent插件化组件"
+          }
+        ],
+        "founded": null,
+        "country": null,
+        "team": null,
+        "business": null,
+        "investors": null,
+        "total_funding": null,
+        "valuation": null,
+        "industry_id": "ai_other"
+      }
+    ],
+    "modelAttempted": true
   }
 }

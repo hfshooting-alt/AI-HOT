@@ -6,7 +6,7 @@ from pathlib import Path
 import shutil
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 import zipfile
 
 from automation import recovery, candidate
@@ -61,6 +61,48 @@ class RecoveryTest(unittest.TestCase):
         self.assertFalse((self.root / 'work/recovered').exists())
         with self.assertRaises(ValueError):
             recovery.pack(self.root, self.bundle, '')
+
+    def test_private_research_journal_results_and_attempts_restore_without_resetting_live_lease(self):
+        budget = self.root / 'work/company-research-budget'
+        save(budget / 'lease.json', {'owner': 'old-run:1'})
+        save(budget / 'ledger.json', {'requests': 5, 'private': 'PRIVATE-RESEARCH-JOURNAL'})
+        save(budget / 'results/result.json', {'facts': ['PRIVATE-SUCCESSFUL-PROPOSAL']})
+        attempt_name = 'work/company-web-research/nested/' + 'a' * 64 + '.attempt'
+        attempt = self.root / attempt_name
+        attempt.parent.mkdir(parents=True)
+        attempt.write_text('reserved', encoding='utf-8')
+        stable_attempt_name = 'work/company-research-budget/model-cache/2026-09-20/' + 'c' * 64 + '.attempt'
+        stable_attempt = self.root / stable_attempt_name
+        stable_attempt.parent.mkdir(parents=True)
+        stable_attempt.write_text('reserved before request', encoding='utf-8')
+        (attempt.parent / 'arbitrary.attempt').write_text('not allowed', encoding='utf-8')
+        (budget / ('b' * 64 + '.attempt')).write_text('not allowed', encoding='utf-8')
+        recovery.pack(self.root, self.bundle, KEY)
+        self.assertNotIn(b'PRIVATE-RESEARCH', self.bundle.read_bytes())
+        self.assertNotIn(b'PRIVATE-SUCCESSFUL', self.bundle.read_bytes())
+        # Unpack is isolated; old checkpoints cannot reset today's reservation.
+        save(budget / 'lease.json', {'owner': 'current-run:1'})
+        restored = recovery.unpack(self.root, self.bundle, KEY)
+        recovered_budget = restored / 'work/company-research-budget'
+        self.assertEqual(json.loads((budget / 'lease.json').read_text())['owner'], 'current-run:1')
+        self.assertEqual(json.loads((recovered_budget / 'lease.json').read_text())['owner'], 'old-run:1')
+        self.assertEqual(json.loads((recovered_budget / 'ledger.json').read_text())['requests'], 5)
+        self.assertTrue((recovered_budget / 'results/result.json').exists())
+        self.assertEqual((restored / attempt_name).read_text(), 'reserved')
+        self.assertEqual((restored / stable_attempt_name).read_text(), 'reserved before request')
+        self.assertFalse(any(p.name == 'arbitrary.attempt' for p in restored.rglob('*')))
+        self.assertFalse((recovered_budget / ('b' * 64 + '.attempt')).exists())
+
+    def test_attempt_exception_cannot_escape_private_research_tree(self):
+        digest = 'a' * 64 + '.attempt'
+        for name in ['work/runs/' + digest, 'work/company-web-research/../' + digest,
+                     'work/company-web-research/.hidden/' + digest,
+                     'work/company-research-budget/model-cache/arbitrary/' + digest,
+                     'work/company-research-budget/model-cache/2026-09-20/nested/' + digest,
+                     'work/company-web-research/' + ('g' * 64) + '.attempt',
+                     'work/company-web-research/' + ('a' * 63) + '.attempt']:
+            with self.subTest(name=name):
+                self.assertFalse(recovery.allowed(name))
 
     def test_default_safe_model_failure_log_survives_encrypted_recovery(self):
         import llm_common
@@ -147,6 +189,57 @@ class RecoveryTest(unittest.TestCase):
         self.assertFalse((self.root / 'web/public/snapshot.json').exists())
         self.assertEqual(json.loads((source / 'state.json').read_text()), self.state)
         self.assertTrue((Path(report['reviewDirectory']) / 'recovery-origin.json').exists())
+
+    def test_rebuild_replays_unpublished_research_with_original_evidence_dates(self):
+        import build_company_overview as overview
+        from company_index.daily_research import enrich
+        source = self.cached_fixture()
+        w = source / 'workspace'
+        manifest_root = next(p for p in source.parents if (p / 'manifest.json').exists())
+        budget = manifest_root / 'work/company-research-budget'
+        cache_path = w / 'data/company-overview/extraction_cache.json'
+        cache = json.loads(cache_path.read_text())
+        next(iter(cache.values()))['companies'] = [{'company_name': 'Replay Example Labs',
+            'entity_type': 'company', 'aliases': [], 'product_names': []}]
+        save(cache_path, cache)
+        snapshot = json.loads((w / 'web/public/snapshot.json').read_text())
+        snapshot['daily']['generatedAt'] = '2026-09-18T01:40:00Z'
+        save(w / 'web/public/snapshot.json', snapshot)
+        tx = tag_news.load_taxonomy(str(self.root / 'config/taxonomy.json'))
+        original_time = '2026-09-18T09:45:00+08:00'
+        with patch.dict(os.environ, {'LLM_MODEL': 'test-model', 'GITHUB_ACTIONS': ''}), \
+                patch('company_index.daily_research.now_bj_iso', return_value=original_time):
+            data = overview.build(w / 'web/public/snapshot.json', w / 'data/manus/current.json',
+                manifest_root / 'work/manus/ten-am', w / 'data/company-overview/current.json',
+                w / 'data/company-overview', tx, llm_fn=recovery.deny_model,
+                generated_at='2026-09-18T09:40:00+08:00',
+                evidence_path=w / 'inputs/company-evidence.json')
+            enriched = enrich(data, tx, self.root / 'unused-old-cache', budget_dir=budget, rules={},
+                discovery_fn=Mock(return_value={'status': 'completed', 'urls': ['https://example.com/about']}),
+                read_fn=lambda url: {'url': url, 'title': 'About', 'text': 'Headquarters in China'},
+                propose_fn=Mock(return_value={'facts': [{'field': 'country', 'value': '中国',
+                    'url': 'https://example.com/about', 'title': 'About', 'quote': 'Headquarters in China'}]}))
+        self.assertEqual(enriched['knownLinkResearch']['filled'], 1)
+        original_journal = (budget / 'ledger.json').read_bytes()
+        # The researched overview was never written, and discovery URLs exist
+        # only in the private journal when reconstruction starts.
+        self.assertEqual(json.loads((w / 'data/company-overview/current.json').read_text())['companies'], [])
+        save(self.root / 'work/company-research-budget/lease.json', {'owner': 'live-run:1'})
+        with patch.object(candidate, 'validate', return_value={'news': 1}), \
+                patch.object(recovery, 'deny_model', side_effect=AssertionError('must not request')) as network:
+            report = recovery.rebuild(self.root, source)
+        network.assert_not_called()
+        self.assertEqual(report['optionalResearch'], 'replayed_cache_only')
+        self.assertEqual(report['optionalResearchReplay']['cacheHits'], 1)
+        self.assertEqual(report['optionalResearchReplay']['attempted'], 0)
+        self.assertEqual(report['optionalResearchReplay']['pagesFetched'], 0)
+        result = json.loads((Path(report['reviewDirectory']) / 'workspace/data/company-overview/current.json').read_text(encoding='utf-8'))
+        row = result['companies'][0]
+        self.assertEqual(row['country'], '中国')
+        self.assertEqual(row['profileUpdatedAt'], original_time)
+        self.assertEqual(row['fieldSources']['country'][0]['checkedAt'], original_time)
+        self.assertEqual((budget / 'ledger.json').read_bytes(), original_journal)
+        self.assertEqual(json.loads((self.root / 'work/company-research-budget/lease.json').read_text())['owner'], 'live-run:1')
 
     def test_missing_cache_blocks_before_build_or_network(self):
         source = self.cached_fixture(cached=False)

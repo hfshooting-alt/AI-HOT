@@ -182,7 +182,8 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
         commands['overview'].extend(('--evidence-json', str(workspace / 'inputs/company-evidence.json')))
         commands['overview'].append('--allow-partial')
         commands['overview'].extend(('--known-link-research', '--research-dir',
-            str(root / 'work/company-web-research' / workspace.parent.name)))
+            str(root / 'work/company-web-research' / workspace.parent.name),
+            '--research-budget-dir', str(root / 'work/company-research-budget')))
         if source_mode == 'full':
             commands['overview'].append('--discover-company')
     return commands
