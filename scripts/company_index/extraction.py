@@ -25,9 +25,11 @@ def build_prompt(tx: dict, article: dict) -> tuple[str, str]:
 
 纯论文、架构、算法方法不作为产品返回；已经实际可用的开源工具继续保留。
 产品必须有可识别的名称或型号；“9款机器人本体”“4套行业解决方案”等未具名集合只保留在公司业务或新闻中，product_names/products不得收录，也不得创建同名待归属产品。
+通用业务或功能描述不是产品专名。例如原文只有“Treble的语音模拟平台”，将语音模拟平台保留在business，product_names/products留空；只有原文明示正式产品名称时才建产品。“TypeSafe AI的System One模型Jev”只支持具名产品Jev；System One是该句中的模型类型描述，不另拆成一款产品，除非原文明示还有独立命名的同名产品。
 产品归属只认开发或运营主体。集成、使用第三方产品同样保留到该公司的产品动态，但绝不能标成自有产品；只提到产品名不能推断归属。
 
 关系方向以company_name为主语、products.name为宾语：A公司把B公司开发的X接入自己的Y时，A的X关系是integrated，B的X关系是owned；A的Y若原文确认自有则是owned，不能因Y接收了集成而把Y标integrated。必须保留A所集成的X，不能只列Y。used同理表示该公司使用的第三方产品。
+例如“Databricks的搜索槽位接入Nimble”只支持Databricks对Nimble为integrated，不支持owned；句子的公司主语不会把接入的第三方产品变成自有产品。教程或兼容性说明不等于已部署：“LangChain发布如何将Jev与LangChain配合使用的教程”不能推断TypeSafe AI已经集成或使用LangChain；证据仅为配合使用的可能性时，关系保留unknown，不补造已发生的集成。
 文章只把某名称称为工具、产品或模型，不足以证明存在同名公司；即使你知道其商业背景，也不能补造company实体。合作产品已挂到集成公司的products时，无需再创建同名公司。独立产品没有公司归属时仍按entity_type=product保留。
 
 每家公司一条记录：
@@ -41,6 +43,7 @@ def build_prompt(tx: dict, article: dict) -> tuple[str, str]:
 
 只使用文章明确表达的事实。缺失字段为 null，数组缺失为 []。不得根据常识补全，不得把媒体来源本身当作被报道公司。
 country 必须是公司所属国家而不是市场覆盖范围。total_funding 是累计融资，不能把单轮融资填为累计融资；valuation 保留币种与估值时点，不能使用市值代替。不要以模型记忆补全团队和成立时间。
+融资金额、投资人及valuation必须保留原文交易状态和条件，包括“拟议”“谈判中”“计划”“预计”“即将”“完成后”“最高/可达”，不得把尚未完成的交易写成既成事实。例如“正深入谈判，计划融资最多7亿美元，完成后估值可达37亿美元”，valuation应为“融资完成后最高37亿美元（谈判中）”；不能只写“37亿美元”，也不能把拟议单轮融资写成已实现累计融资。
 founded优先当前法人注册/登记成立日期；仅有品牌创立、产品发布或不明确的成立年份时留null，不能冒充注册日期。日期用阿拉伯数字，保留原始精度，不补造月日。
 只输出 JSON：{{"companies":[{{"company_name":"...","entity_type":"company","aliases":[],"product_names":[],"products":[{{"name":"产品名","relationship":"unknown","quote":"原文逐字引文","kind":"product"}}],"founded":null,"country":null,"team":null,"business":null,"investors":null,"total_funding":null,"valuation":null,"industry_id":"ai_other"}}]}}"""
     cfg = overview_cfg(tx)

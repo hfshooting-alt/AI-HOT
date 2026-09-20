@@ -33,11 +33,26 @@ def reserve(directory=DIRECTORY, day=None, run_owner=None):
 def urls_from(value):
     """只接收明示HTTPS链接；保留先发现的法律页线索，最终由本地读取核验。"""
     if isinstance(value, dict):
-        candidates = [e.get('url') for e in value.get('evidence', []) if isinstance(e, dict)]
-    else:
-        candidates = re.findall(r'https://[^\s<>"\\]+', str(value))
-    return list(dict.fromkeys(u for u in candidates if isinstance(u, str)
-        and urlsplit(u).scheme == 'https' and urlsplit(u).hostname and not urlsplit(u).username))
+        values = [e.get('url') for e in value.get('evidence', []) if isinstance(e, dict)]
+        values.extend(value.get('urls', []) if isinstance(value.get('urls'), list) else [])
+        return urls_from(values)
+    if isinstance(value, (list, tuple)):
+        return list(dict.fromkeys(u for entry in value for u in urls_from(entry)))
+    if not isinstance(value, str):
+        return []
+    # Progress checkpoints may join several backtick-wrapped URLs with Chinese
+    # punctuation; tokenize each explicit link before validating it.
+    candidates = re.findall(r'https?://[^\s<>"\\`，。；、（）\[\]{}]+', value)
+    urls = []
+    for candidate in candidates:
+        url = candidate.rstrip('.,;:!?)')
+        try:
+            parsed = urlsplit(url)
+            if parsed.scheme == 'https' and parsed.hostname and not parsed.username:
+                urls.append(url)
+        except ValueError:
+            continue
+    return list(dict.fromkeys(urls))
 
 
 def discover(row, *, directory=DIRECTORY, client=None, day=None):

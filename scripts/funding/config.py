@@ -18,7 +18,7 @@ SEARCH_DEFAULTS = {
 }
 TABLE_SCHEMA_VERSION = 1
 # 抽取 prompt 版本：字段清单/约束变更时 +1，自动作废抽取缓存
-FUNDING_PROMPT_VERSION = 4
+FUNDING_PROMPT_VERSION = 5
 
 # 表格字段（company_name 为去重键，不计入）
 COMPANY_FIELDS = ("product_name", "founded", "country", "industry", "team",

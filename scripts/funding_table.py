@@ -18,6 +18,7 @@ classification 为 financing 的条目 → LLM 逐篇抽取公司级融资信息
     python scripts/funding_table.py --selftest         # 离线自检（不发请求）
 """
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -102,7 +103,9 @@ def build_funding_table(snapshot_path: Path, feed_path: Path, work_dir: Path, tx
                           for r in extracts.values())
     if model_calls and not model_successes:
         raise ValueError('融资模型阶段新请求全部失败；旧缓存不能代替本轮模型成功')
-
+    from apply_quality_review import apply_article_value_reviews
+    rules = json.loads((PROJECT_ROOT / 'config/quality_review.json').read_text(encoding='utf-8'))
+    extracts = apply_article_value_reviews(articles, extracts, rules)
     companies = merge_companies(articles, extracts)
     extraction_failed = len(articles) - sum(
         1 for art in articles if (extracts.get(art["id"]) or {}).get("status") == "complete")

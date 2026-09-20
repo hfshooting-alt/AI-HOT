@@ -44,6 +44,9 @@ def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
         raise ValueError(f'公司模型阶段停止：{reason}；保留成功缓存，禁止晋升')
     if cost['modelCalls'] and not cost.get('modelSuccesses'):
         raise ValueError('公司模型阶段新请求全部失败；旧缓存不能代替本轮模型成功')
+    from apply_quality_review import apply, apply_article_value_reviews
+    rules = json.loads((ROOT / 'config/quality_review.json').read_text(encoding='utf-8'))
+    extracts = apply_article_value_reviews(articles, extracts, rules)
     previous = load_previous(previous_path)
     previous['companies'] = previous.get('companies', []) + previous.get('pendingEntities', []) + previous.get('excludedEntities', [])
     product_baseline = replace_article_products(previous, {a['id'] for a in articles
@@ -69,9 +72,9 @@ def build(snapshot_path, feed_path, work_dir, previous_path, cache_dir, tx,
             if extracts.get(a['id'], {}).get('status') != 'complete']
     if require_complete and not allow_partial and (complete != len(articles) or failed or cost['articlesDeferred']):
         raise ValueError(f'公司抽取未完整完成：成功{complete}/{len(articles)}，失败{failed}，待处理{cost["articlesDeferred"]}')
-    from apply_quality_review import apply
-    rules = json.loads((ROOT / 'config/quality_review.json').read_text(encoding='utf-8'))
-    data, _, audit = apply(data, {}, rules, tx)
+    # Current inputs were reviewed before merging; only annotate their provenance
+    # here, so a stale/absent quote cannot be bypassed by a historical row rule.
+    data, _, audit = apply(data, {}, rules, tx, review_field_values=False)
     data['qualityReview'] = audit
     # Report time controls ranking; material profile changes control update time.
     # Legacy updatedAt was a report timestamp, so never migrate it as a verified

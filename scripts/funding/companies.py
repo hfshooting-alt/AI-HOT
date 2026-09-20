@@ -2,6 +2,9 @@
 import hashlib
 import re
 import unicodedata
+from datetime import datetime
+from zoneinfo import ZoneInfo
+from field_value_guard import guard_value
 from .config import COMPANY_FIELDS, COMPANY_SUFFIXES
 
 
@@ -24,6 +27,17 @@ def normalize_company_key(name: str) -> str:
 
 def company_row_id(key: str) -> str:
     return "fund:" + hashlib.md5(key.encode("utf-8")).hexdigest()[:16]
+
+
+def _timestamp(value):
+    """Compare actual instants; legacy naive times use Beijing, matching overview."""
+    if not isinstance(value, str):
+        return float('-inf')
+    try:
+        dt = datetime.fromisoformat(value.replace('Z', '+00:00'))
+        return (dt if dt.tzinfo else dt.replace(tzinfo=ZoneInfo('Asia/Shanghai'))).timestamp()
+    except (ValueError, TypeError):
+        return float('-inf')
 
 
 # 国家/地区文本 → 全局 region 枚举 label 的确定性映射
@@ -58,7 +72,7 @@ def _article_region_label(art: dict, country: str | None) -> str:
 def merge_companies(articles: list[dict], extracts: dict[str, dict]) -> list[dict]:
     """按归一化公司名去重合并：publishedAt 降序处理，新文章字段优先、旧文章补空。"""
     companies: dict[str, dict] = {}
-    for art in sorted(articles, key=lambda a: a.get("publishedAt") or "", reverse=True):
+    for art in sorted(articles, key=lambda a: _timestamp(a.get("publishedAt")), reverse=True):
         ext = extracts.get(art["id"]) or {}
         for c in ext.get("companies") or []:
             key = normalize_company_key(c.get("company_name") or "")
@@ -72,7 +86,7 @@ def merge_companies(articles: list[dict], extracts: dict[str, dict]) -> list[dic
                        "dims": {}, "filledBySearch": [],
                        "searchSources": [], "sourceArticles": []}
                 for f in COMPANY_FIELDS:
-                    rec[f] = c.get(f)
+                    rec[f] = guard_value(rec, f, c.get(f), art)
                 # dims 取最新文章的非空枚举值
                 rec["dims"]["所属行业"] = c.get("industry_id") or "其他"
                 rec["dims"]["公司类型"] = c.get("company_type_id") or "其他"
@@ -80,8 +94,9 @@ def merge_companies(articles: list[dict], extracts: dict[str, dict]) -> list[dic
                 companies[rid] = rec
             else:
                 for f in COMPANY_FIELDS:  # 旧文章只补空
-                    if rec[f] is None and c.get(f):
-                        rec[f] = c[f]
+                    value = guard_value(rec, f, c.get(f), art)
+                    if rec[f] is None and value:
+                        rec[f] = value
                 # dims 取最新非空
                 if rec["dims"].get("所属行业") == "其他" and c.get("industry_id") and c["industry_id"] != "其他":
                     rec["dims"]["所属行业"] = c["industry_id"]
@@ -100,8 +115,8 @@ def merge_companies(articles: list[dict], extracts: dict[str, dict]) -> list[dic
                     "mpName": art.get("mpName") or "",
                 })
     rows = sorted(companies.values(),
-                  key=lambda r: (r["sourceArticles"] or [{}])[0].get("publishedAt") or "",
+                  key=lambda r: _timestamp((r["sourceArticles"] or [{}])[0].get("publishedAt")),
                   reverse=True)
     for r in rows:
-        r["sourceArticles"].sort(key=lambda sa: sa.get("publishedAt") or "", reverse=True)
+        r["sourceArticles"].sort(key=lambda sa: _timestamp(sa.get("publishedAt")), reverse=True)
     return rows

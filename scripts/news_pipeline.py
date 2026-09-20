@@ -225,6 +225,9 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
     if pool and len(quarantined) == len(pool):
         raise ValueError('Shared relevance processing unavailable; keep previous publication')
     enriched = enrich_fn(selected, tx, str(cache_dir / 'news_enrichment.json'))
+    manus.atomic_write_json(workspace / 'inputs/enrichment-review.json', [
+        {'id': i['id'], 'title': i['title'], 'url': i['url'],
+         'result': enriched.get(enrich_news.enrich_item_key(i), {})} for i in selected])
     stopped = next((r for r in enriched.values() if r.get('batchStopped')), None)
     if stopped:
         manus.atomic_write_json(workspace / 'inputs/model-failure.json', {'stage': 'enrichment', 'error': stopped.get('circuitReason')})

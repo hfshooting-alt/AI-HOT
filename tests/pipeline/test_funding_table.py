@@ -74,6 +74,16 @@ def feed_item(iid, title, url, summary, published_at="2026-08-21T12:00:00+08:00"
 
 
 class TestPoolLoading(unittest.TestCase):
+    def test_funding_input_preserves_upstream_brief_evidence_kind(self):
+        from funding.inputs import to_article_record
+        title = '「地瓜机器人」完成4亿美元C轮融资，线性连续七轮加注 | Linear Portfolio'
+        source = {**snapshot_item('aihot:brief', title, 'https://example.com/brief', ''),
+                  'evidenceKind': 'upstream_title_summary'}
+        index = {source['url']: {'title': title, 'content_text': title}}
+        article = to_article_record(source, TX, index, is_feed=False)
+        self.assertEqual(article['evidenceKind'], 'upstream_title_summary')
+        self.assertEqual(article['content_text'], title)
+
     def setUp(self):
         self.dir = make_temp_dir("fund-pool-")
 
@@ -132,6 +142,38 @@ class TestPoolLoading(unittest.TestCase):
 
 
 class TestExtraction(unittest.TestCase):
+    def test_approved_upstream_brief_can_reach_funding_model(self):
+        title = '「地瓜机器人」完成4亿美元C轮融资，线性连续七轮加注 | Linear Portfolio'
+        self.assertLess(len(title), 50)
+        for evidence_kind, content, admitted in (
+                ('upstream_title_summary', title, True), ('article_body', title, False),
+                (None, title, False), ('upstream_title_summary', '太短', False)):
+            with self.subTest(evidence_kind=evidence_kind, content=content):
+                article = {'id': 'brief', 'title': title, 'content_text': content,
+                           'evidenceKind': evidence_kind}
+                model = MockLLM(['{"companies":[]}'])
+                result = funding_table.extract_one(TX, article, model)
+                self.assertEqual(result['status'], 'complete' if admitted else 'failed')
+                self.assertEqual(result['modelAttempted'], admitted)
+                self.assertEqual(len(model.calls), int(admitted))
+
+    def test_funding_prompt_preserves_conditional_transaction_state(self):
+        system, _ = funding_table.build_extract_prompt(TX, '谈判中的融资', '测试', LONG_CONTENT)
+        for boundary in ('拟议、谈判中、计划、预计、即将、完成后、最高/可达均不得省略',
+                         '融资完成后最高37亿美元（谈判中）',
+                         '预计领投者保留“预计”',
+                         '单轮或拟议融资不能冒充已实现累计融资'):
+            self.assertIn(boundary, system)
+
+    def test_funding_prompt_revision_has_distinct_cache_identity(self):
+        from funding.config import FUNDING_PROMPT_VERSION
+        self.assertEqual(FUNDING_PROMPT_VERSION, 5)
+        article = {'id': 'a', 'content_text': LONG_CONTENT}
+        current_key = funding_table.article_cache_key(TX, article)
+        with patch('funding.extraction.FUNDING_PROMPT_VERSION', 4):
+            old_key = funding_table.article_cache_key(TX, article)
+        self.assertNotEqual(current_key, old_key)
+
     def test_funding_output_capacity_is_stage_specific_and_configurable(self):
         article = {'id': 'a', 'title': '甲公司融资', 'mpName': '测试', 'content_text': LONG_CONTENT}
         baseline_key = funding_table.article_cache_key(TX, article)

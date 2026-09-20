@@ -212,6 +212,10 @@ class CombinedNews(unittest.TestCase):
         self.assertEqual(news.read(cache), saved)
         self.assertFalse((self.workspace / 'inputs/processed.json').exists())
         self.assertEqual(news.read(self.workspace / 'inputs/model-failure.json')['stage'], 'enrichment')
+        review = news.read(self.workspace / 'inputs/enrichment-review.json')
+        self.assertEqual(len(review), 2)
+        self.assertTrue(any(r['result'].get('error', {}).get('category') == 'timeout' for r in review))
+        self.assertNotIn('private response', json.dumps(review))
 
     def test_content_only_failure_and_pure_cache_reuse_are_not_service_outages(self):
         pool = self.two_aihot_candidates()

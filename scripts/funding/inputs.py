@@ -109,6 +109,7 @@ def to_article_record(item: dict, tx: dict, content_index: dict[str, dict],
         "publishedAt": item.get("publishedAt") or "",
         "dims": dims_from_feed_item(item, tx) if is_feed else dims_from_snapshot_item(item),
         "content_text": content,
+        "evidenceKind": item.get("evidenceKind"),
     }
 
 

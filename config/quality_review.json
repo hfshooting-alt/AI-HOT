@@ -151,6 +151,14 @@
       "articleId": "aihot:cmtzgtsbu036dro97c3qfiik7",
       "relationship": "integrated",
       "quote": "特斯拉车主手册披露：Grok 将支持语音收发短信"
+    },
+    {
+      "company": "Databricks",
+      "product": "Nimble",
+      "articleId": "aihot:cmu5ti79z0jjkroqo1ccu5wel",
+      "relationship": "integrated",
+      "quote": "其搜索槽位接入 Nimble 后",
+      "reviewedAt": "2026-09-20"
     }
   ],
   "productIdentityReviews": [
@@ -203,6 +211,380 @@
       "articleId": "aihot:cmu0jgo260r4drory55yz87bf",
       "name": "4套行业解决方案",
       "reason": "2026-09-14用户确认：未具名集合与类别描述不进入产品列表，保留公司和新闻。"
+    },
+    {
+      "company": "Treble",
+      "name": "语音模拟平台",
+      "articleId": "aihot:cmu540t1o0a6nroqb4veminu6",
+      "reason": "普通业务描述，没有独立产品专名。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "TypeSafe AI",
+      "name": "System One",
+      "articleId": "aihot:cmu69j7ws0g1rrofjkzsmf8f6",
+      "reason": "System One 模型 Jev 仅支持一个具名模型 Jev，不拆为两款产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "TypeSafe AI",
+      "name": "System One",
+      "articleId": "aihot:cmu57f4kd045rro4o0qrtb1kp",
+      "reason": "System One 是模型定位，具名产品为 Jev。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "TypeSafe AI",
+      "name": "LangChain",
+      "articleId": "aihot:cmu69j7ws0g1rrofjkzsmf8f6",
+      "reason": "第三方教程介绍组合使用，不证明 TypeSafe AI 已集成 LangChain。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "Microsoft AI",
+      "name": "MAI模型家族",
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "quote": "MAI模型家族",
+      "reason": "产品删除审核指令：原文只称覆盖多个方向的MAI模型家族，没有具体型号；同时移除products关系与product_names中的该集合项，保留Microsoft AI部门业务描述。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "微软",
+      "name": "MAI模型家族",
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "quote": "MAI模型家族",
+      "reason": "产品删除审核指令：原文只称覆盖多个方向的MAI模型家族，没有具体型号；同时移除products关系与product_names中的该集合项，保留Microsoft AI部门业务描述。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "微软",
+      "name": "MAI 模型",
+      "articleId": "aihot:cmu1g31xf07fqrocnrfoadb08",
+      "quote": "Microsoft AI 发布针对自家 MAI 模型的行为准则",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "Microsoft AI",
+      "name": "MAI 模型",
+      "articleId": "aihot:cmu1g31xf07fqrocnrfoadb08",
+      "quote": "Microsoft AI 发布针对自家 MAI 模型的行为准则",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "微软",
+      "name": "MAI",
+      "articleId": "aihot:cmu1amkyo06czro7zjyq2u2d8",
+      "quote": "Microsoft AI 发布治理 MAI 模型的行为准则草案",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "Microsoft AI",
+      "name": "MAI",
+      "articleId": "aihot:cmu1amkyo06czro7zjyq2u2d8",
+      "quote": "Microsoft AI 发布治理 MAI 模型的行为准则草案",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "微软",
+      "name": "MAI",
+      "articleId": "aihot:cmu0g1xxl0n1proryfcdzkdoc",
+      "quote": "将公开 MAI 模型行为准则",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "Microsoft AI",
+      "name": "MAI",
+      "articleId": "aihot:cmu0g1xxl0n1proryfcdzkdoc",
+      "quote": "将公开 MAI 模型行为准则",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "微软",
+      "name": "MAI 模型",
+      "articleId": "aihot:cmu0f6bsx0lvyroryli19klv3",
+      "quote": "支撑自研 MAI 模型的《行为准则》将于明日公布并面向公众征求意见",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "Microsoft AI",
+      "name": "MAI 模型",
+      "articleId": "aihot:cmu0f6bsx0lvyroryli19klv3",
+      "quote": "支撑自研 MAI 模型的《行为准则》将于明日公布并面向公众征求意见",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "微软",
+      "name": "MAI 模型",
+      "articleId": "aihot:cmu09ovja0d7hroryma8dzprx",
+      "quote": "微软将发布其第一方 MAI 模型所依据的\"行为准则\"以公开征求意见",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "Microsoft AI",
+      "name": "MAI 模型",
+      "articleId": "aihot:cmu09ovja0d7hroryma8dzprx",
+      "quote": "微软将发布其第一方 MAI 模型所依据的\"行为准则\"以公开征求意见",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "微软",
+      "name": "MAI",
+      "articleId": "aihot:cmu094cjy0cp8rory22zejojn",
+      "quote": "微软将发布其第一方 MAI 模型的\"行为准则\"公开征求意见",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "Microsoft AI",
+      "name": "MAI",
+      "articleId": "aihot:cmu094cjy0cp8rory22zejojn",
+      "quote": "微软将发布其第一方 MAI 模型的\"行为准则\"公开征求意见",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "微软",
+      "name": "MAI 模型",
+      "articleId": "aihot:cmu0937420cn4rory1zyvcm4l",
+      "quote": "微软还将发布其自研 MAI 模型背后的 Code of Conduct 供公开咨询",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "Microsoft AI",
+      "name": "MAI 模型",
+      "articleId": "aihot:cmu0937420cn4rory1zyvcm4l",
+      "quote": "微软还将发布其自研 MAI 模型背后的 Code of Conduct 供公开咨询",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "微软",
+      "name": "MAI",
+      "articleId": "aihot:cmu08tudr0c6prorynki5xbe5",
+      "quote": "其第一方MAI模型的\"行为准则\"将于明天公开发布以征询公众意见",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "Microsoft AI",
+      "name": "MAI",
+      "articleId": "aihot:cmu08tudr0c6prorynki5xbe5",
+      "quote": "其第一方MAI模型的\"行为准则\"将于明天公开发布以征询公众意见",
+      "reason": "行为准则报道仅泛称MAI模型，未给具体型号；保留报道关联，不作为具名产品。",
+      "reviewedAt": "2026-09-20"
+    }
+  ],
+  "fieldValueReviews": [
+    {
+      "company": "Emulate",
+      "field": "valuation",
+      "from": "37 亿美元",
+      "to": "拟议融资完成后估值可达 37 亿美元",
+      "articleId": "aihot:cmu5dun6b05owro7n71lltudq",
+      "quote": "完成后估值可达 37 亿美元",
+      "reason": "原文描述融资谈判，不能省略拟议及完成后限定。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Mercor",
+      "field": "total_funding",
+      "from": "3.5亿美元C轮融资",
+      "to": null,
+      "quote": "3.5亿美元C轮融资",
+      "reason": "原文只披露一笔具名轮次融资，不足以确认公司历年累计融资；本条抽取留空，保留原报道及已有有效累计资料。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Inferact",
+      "field": "total_funding",
+      "from": "1.5亿美元种子轮融资",
+      "to": null,
+      "quote": "1.5亿美元种子轮融资",
+      "reason": "原文只披露一笔具名轮次融资，不足以确认公司历年累计融资；本条抽取留空，保留原报道及已有有效累计资料。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Octen AI",
+      "field": "total_funding",
+      "from": "1000万美元种子轮融资",
+      "to": null,
+      "quote": "1,000 万美元种子轮融资",
+      "reason": "原文只披露一笔具名轮次融资，不足以确认公司历年累计融资；本条抽取留空，保留原报道及已有有效累计资料。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Simular AI",
+      "field": "total_funding",
+      "from": "2150万美元A轮融资",
+      "to": null,
+      "quote": "2150万美元A轮融资",
+      "reason": "原文只披露一笔具名轮次融资，不足以确认公司历年累计融资；本条抽取留空，保留原报道及已有有效累计资料。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "TinyFish",
+      "field": "total_funding",
+      "from": "4700万美元A轮融资",
+      "to": null,
+      "quote": "4700万美元A轮融资",
+      "reason": "原文只披露一笔具名轮次融资，不足以确认公司历年累计融资；本条抽取留空，保留原报道及已有有效累计资料。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Brix",
+      "field": "total_funding",
+      "from": "近1000万美元种子轮融资",
+      "to": null,
+      "quote": "近1000万美元种子轮融资",
+      "reason": "原文只披露一笔具名轮次融资，不足以确认公司历年累计融资；本条抽取留空，保留原报道及已有有效累计资料。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Character.AI",
+      "field": "total_funding",
+      "from": "1.5亿美元A轮融资",
+      "to": null,
+      "quote": "1.5亿美元A轮融资",
+      "reason": "原文只披露一笔具名轮次融资，不足以确认公司历年累计融资；本条抽取留空，保留原报道及已有有效累计资料。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Ditto",
+      "field": "total_funding",
+      "from": "920万美元种子轮融资",
+      "to": null,
+      "quote": "920 万美元种子轮融资",
+      "reason": "原文只披露一笔具名轮次融资，不足以确认公司历年累计融资；本条抽取留空，保留原报道及已有有效累计资料。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Fish Audio",
+      "field": "total_funding",
+      "from": "5200万美元种子轮融资",
+      "to": null,
+      "quote": "5200万美元种子轮融资",
+      "reason": "原文只披露一笔具名轮次融资，不足以确认公司历年累计融资；本条抽取留空，保留原报道及已有有效累计资料。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Visko",
+      "field": "total_funding",
+      "from": "1000万美元Pre-seed融资",
+      "to": null,
+      "quote": "1000万美元Pre-seed融资",
+      "reason": "原文只披露一笔具名轮次融资，不足以确认公司历年累计融资；本条抽取留空，保留原报道及已有有效累计资料。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Striker Venture Partners",
+      "field": "total_funding",
+      "from": "1.65亿美元首期基金",
+      "to": null,
+      "quote": "1.65亿美元首期基金",
+      "reason": "1.65亿美元是管理机构募集的首期基金规模，不能作为该公司获得的股权融资或累计融资。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:d7f8c6a3a46e7e95",
+      "company": "智谱",
+      "field": "total_funding",
+      "from": "50亿美元",
+      "to": null,
+      "quote": "一周前，该公司刚完成50亿美元融资",
+      "reason": "原文明确写刚完成，并非拟融资；50亿美元仅指一笔近期融资，没有累计口径，不能写入total_funding。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Nebius",
+      "field": "valuation",
+      "from": "市值约600亿美元",
+      "to": null,
+      "quote": "市值约600亿美元",
+      "reason": "600亿美元被原文明示为上市公司市值，不是融资估值，不能用市值填充valuation。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Mercor",
+      "field": "valuation",
+      "from": "100亿美元",
+      "to": "2025年C轮融资时估值100亿美元",
+      "quote": "2025年完成3.5亿美元C轮融资，估值达100亿美元",
+      "reason": "补足原文2025年和C轮时间口径，不能让宣传稿发布日期将历史轮次估值变成当前估值；原文未明确投前或投后，不补造。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Character.AI",
+      "field": "valuation",
+      "from": "当轮估值达10亿美元",
+      "to": "2023年A轮融资时估值10亿美元",
+      "quote": "2023年完成a16z领投的1.5亿美元A轮融资，当轮估值达10亿美元",
+      "reason": "当轮指2023年A轮；保留历史时间和轮次，不能作为2026年最新估值。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "articleId": "manus:9f4fd4c8b4b7bfa8",
+      "company": "Brix",
+      "field": "investors",
+      "from": "HF0孵化、入选NVIDIA Inception",
+      "to": null,
+      "quote": "HF0孵化、入选NVIDIA Inception",
+      "reason": "HF0孵化与入选NVIDIA Inception是项目/支持关系；该句没有披露种子轮出资人，不足以将二者记为股权投资方。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "智谱",
+      "field": "total_funding",
+      "from": "约50亿美元",
+      "to": null,
+      "articleId": "aihot:cmu0jgo260r4froryczn18ma5",
+      "quote": "完成约50亿美元融资",
+      "reason": "同一笔股份配售与可转债发行的交易合计，未披露历年累计融资；本次依据该旧来源本身，不依据新4篇同额报道。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "智谱",
+      "field": "total_funding",
+      "from": "约 50 亿美元",
+      "to": null,
+      "articleId": "aihot:cmu0jgo260r4froryczn18ma5",
+      "quote": "完成约50亿美元融资",
+      "reason": "同一笔股份配售与可转债发行的交易合计，未披露历年累计融资；本次依据该旧来源本身，不依据新4篇同额报道。",
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "company": "智谱",
+      "field": "total_funding",
+      "from": "约50亿美元",
+      "to": null,
+      "articleId": "aihot:cmtzpegzo036croxqz63t5d0k",
+      "quote": "完成约50亿美元融资",
+      "reason": "同一笔股份配售与可转债发行的交易合计，未披露历年累计融资；本次依据该旧来源本身，不依据新4篇同额报道。",
+      "reviewedAt": "2026-09-20"
     }
   ]
 }

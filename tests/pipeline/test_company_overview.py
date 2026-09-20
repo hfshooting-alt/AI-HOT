@@ -4,6 +4,7 @@ import shutil
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -43,6 +44,28 @@ def item(article_id, title, url, category, summary, dims=None):
 
 
 class CompanyOverviewTest(unittest.TestCase):
+    def test_company_prompt_covers_observed_attribution_and_transaction_errors(self):
+        system, _ = build_prompt(TX, {'title': '边界样本', 'sourceName': '测试',
+                                     'category': 'general', 'content_text': '测试正文'})
+        for boundary in (
+            'Databricks对Nimble为integrated，不支持owned',
+            '不能推断TypeSafe AI已经集成或使用LangChain',
+            '“TypeSafe AI的System One模型Jev”只支持具名产品Jev',
+            '将语音模拟平台保留在business，product_names/products留空',
+            '融资完成后最高37亿美元（谈判中）',
+            '不能把拟议单轮融资写成已实现累计融资',
+        ):
+            self.assertIn(boundary, system)
+
+    def test_company_prompt_revision_has_distinct_cache_identity(self):
+        from company_index.config import PROMPT_VERSION
+        self.assertEqual(PROMPT_VERSION, 14)
+        article = {'id': 'a', 'content_text': '甲公司发布了研发工具。'}
+        current_key = cache_key(TX, article)
+        with patch('company_index.extraction.PROMPT_VERSION', 13):
+            old_key = cache_key(TX, article)
+        self.assertNotEqual(current_key, old_key)
+
     def test_company_output_capacity_is_stage_specific_and_configurable(self):
         article = {'id': 'a', 'title': '甲公司发布工具', 'sourceName': '测试',
                    'category': 'release', 'content_text': '甲公司发布了研发工具。'}

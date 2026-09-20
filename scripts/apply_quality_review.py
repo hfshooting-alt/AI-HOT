@@ -6,6 +6,7 @@ import argparse
 import copy
 import hashlib
 import json
+import re
 from pathlib import Path
 
 import tag_news
@@ -19,9 +20,84 @@ def fingerprint(item):
     return hashlib.sha256(json.dumps([item.get('title'), item.get('summary')], ensure_ascii=False).encode()).hexdigest()
 
 
-def apply(overview, snapshot, rules, tx):
+def _field_decisions(rules):
+    allowed = {'valuation', 'total_funding', 'investors', 'country', 'founded', 'team', 'business'}
+    return [d for d in rules.get('fieldValueReviews', []) if d.get('field') in allowed
+            and all(isinstance(d.get(k), str) and d[k].strip()
+                    for k in ('company', 'from', 'articleId', 'quote', 'reason'))
+            and 'to' in d and (d['to'] is None or isinstance(d['to'], str) and d['to'].strip())
+            and d['from'] != d['to']]
+
+
+def _record_value_review(row, decision):
+    reviews = row.setdefault('fieldValueReviews', [])
+    if decision not in reviews:
+        reviews.append(copy.deepcopy(decision))
+
+
+def apply_article_value_reviews(articles, extracts, rules):
+    """Correct only a reviewed article's extraction before normal temporal merging.
+
+    Return a deep copy so successful model caches retain their original values
+    and cache keys. The saved quote must still occur in the collected evidence.
+    """
+    corrected = copy.deepcopy(extracts)
+    decisions = _field_decisions(rules)
+    for article in articles:
+        extracted = corrected.get(article['id']) or {}
+        if extracted.get('status') != 'complete':
+            continue
+        content = re.sub(r'\s+', '', article.get('content_text') or '')
+        for decision in decisions:
+            if (article['id'] != decision['articleId']
+                    or re.sub(r'\s+', '', decision['quote']) not in content):
+                continue
+            for company in extracted.get('companies', []):
+                field = decision['field']
+                if company.get('company_name') == decision['company'] and company.get(field) == decision['from']:
+                    company[field] = decision['to']
+                    _record_value_review(company, decision)
+    return corrected
+
+
+def apply_field_value_reviews(rows, rules, *, allow_updates=True):
+    """Legacy merged rows may change only when the winning field source is known.
+
+    General sourceArticles never establishes which article supplied a field.
+    Ambiguous dates or tied sources from different articles leave the row alone.
+    """
+    for row in rows:
+        for decision in _field_decisions(rules):
+            field = decision['field']
+            if (row.get('company_name') != decision['company']
+                    or row.get(field) not in (decision['from'], decision['to'])):
+                continue
+            if not allow_updates and row[field] != decision['to']:
+                continue
+            evidence = row.get('fieldSources', {}).get(field) or []
+            if not evidence:
+                continue
+            if len(evidence) > 1:
+                dates = [timestamp(e.get('publishedAt')) for e in evidence]
+                if float('-inf') in dates:
+                    continue
+                evidence = [e for e, date in zip(evidence, dates) if date == max(dates)]
+            if (any(e.get('articleId') != decision['articleId'] or e.get('origin', 'article') != 'article'
+                    for e in evidence)
+                    or not any(e.get('value') == row[field] for e in evidence)):
+                continue
+            row[field] = decision['to']
+            _record_value_review(row, decision)
+            for source in row.get('fieldSources', {}).get(field, []):
+                if decision['to'] is not None and source.get('articleId') == decision['articleId'] and source.get('value') in (decision['from'], decision['to']):
+                    source.update(value=decision['to'], originalValue=decision['from'],
+                                  quote=decision['quote'], reviewedAt=decision.get('reviewedAt'))
+
+
+def apply(overview, snapshot, rules, tx, *, review_field_values=True):
     overview, snapshot = copy.deepcopy(overview), copy.deepcopy(snapshot)
     rows = overview['companies'] = apply_reviewed_research(overview['companies'])
+    apply_field_value_reviews(rows, rules, allow_updates=review_field_values)
     audit = {'merged': [], 'pending': [], 'excluded': [], 'classifications': [], 'staleDecisions': []}
     for source, owner in rules['aliases'].items():
         src = next((r for r in rows if r['company_name'] == source), None)
@@ -97,7 +173,7 @@ def apply(overview, snapshot, rules, tx):
                 continue
             for update in row['productUpdates']:
                 if update['name'] == decision['product'] and update.get('articleId') == decision['articleId']:
-                    update.update(relationship=decision['relationship'], quote=decision['quote'], reviewedAt=rules['reviewedAt'])
+                    update.update(relationship=decision['relationship'], quote=decision['quote'], reviewedAt=decision.get('reviewedAt', rules['reviewedAt']))
     for row in rows:
         row['updatedAt'] = row['lastSeenAt']
         row['sourceArticles'].sort(key=lambda a: timestamp(a.get('publishedAt')), reverse=True)

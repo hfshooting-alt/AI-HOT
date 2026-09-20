@@ -6,6 +6,7 @@ from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 import tag_news
 from llm_common import call_llm, parse_output
 from llm_failures import FailureCircuit, LLMRequestError, safe_error
+from upstream_briefs import is_brief
 from .config import funding_cfg, COMPANY_FIELDS, FIELD_LABELS, ENUM_FIELDS, FUNDING_PROMPT_VERSION
 
 
@@ -58,6 +59,8 @@ def build_extract_prompt(tx: dict, title: str, source_name: str,
         "## 约束",
         "- 只陈述文中明确提到的事实，缺失字段一律输出 null，禁止臆造、推测或用常识填充",
         "- 金额、估值、时间保留原文表述（如“近3亿美元”“投后估值20亿美元”“2021年”）",
+        "- 融资金额、投资人和valuation保留原文交易状态与条件：拟议、谈判中、计划、预计、即将、完成后、最高/可达均不得省略；尚未完成的交易不能写成既成事实。",
+        "- 例如“正深入谈判，计划融资最多7亿美元，完成后估值可达37亿美元”，valuation写“融资完成后最高37亿美元（谈判中）”，不能简化为“37亿美元”。预计领投者保留“预计”；total_funding仅填原文明示的累计融资，单轮或拟议融资不能冒充已实现累计融资。",
         "- 团队情况概括创始团队背景（如“创始人来自华为，核心团队十余年华为经验”）",
         "- 历史投资人列出文中提及的投资方；主营业务一句话概括",
         "- 新闻不涉及具体公司的融资/投资/估值信息时，companies 返回空数组",
@@ -120,7 +123,7 @@ def extract_one(tx: dict, article: dict, llm_fn=call_llm) -> dict:
     """单篇只请求一次；异常只保留安全诊断，失败不自动重试。"""
     cfg = funding_cfg(tx)
     content = (article.get("content_text") or "").strip()
-    if not content or len(content) < 50:
+    if not content or (len(content) < 50 and not is_brief(article)):
         return {"status": "failed", "companies": [], "modelAttempted": False,
                 "reason": "文章内容不足", "error": safe_error(LLMRequestError("content"))}
     system, user = build_extract_prompt(tx, article.get("title") or "",

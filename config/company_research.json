@@ -2814,6 +2814,66 @@
         }
       ],
       "reviewNote": "报道使用紫东太初品牌名；官网关于我们确认对应运营公司。保留模型原始新闻链接，不把跑分作为独立实测。"
-    }
+    },
+  {
+    "record_name": "Google Brain",
+    "owner_company": "Google",
+    "source_kind": "division",
+    "reviewed": true,
+    "facts": [
+      {
+        "field": "owner_company",
+        "value": "Google",
+        "quote": "Google Brain团队",
+        "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+        "title": "Anthropic之恶",
+        "origin": "article",
+        "articleId": "manus:d7f8c6a3a46e7e95",
+        "publishedAt": "2026-09-19T09:35:54+08:00",
+        "sourceName": "报道内容复核",
+        "checkedAt": "2026-09-20"
+      }
+    ]
+  },
+  {
+    "record_name": "Microsoft AI",
+    "owner_company": "微软",
+    "source_kind": "division",
+    "reviewed": true,
+    "facts": [
+      {
+        "field": "owner_company",
+        "value": "微软",
+        "quote": "微软负责自主AI模型研发的核心团队",
+        "url": "https://www.163.com/dy/article/L7698BPQ0511N33R.html?spss=dy_author",
+        "title": "最后两周！AI大咖、明星Founder与VC齐聚旧金山，免费票限量开放",
+        "origin": "article",
+        "articleId": "manus:9f4fd4c8b4b7bfa8",
+        "publishedAt": "2026-09-19T09:35:36+08:00",
+        "sourceName": "报道内容复核",
+        "checkedAt": "2026-09-20"
+      }
+    ]
+  },
+  {
+    "record_name": "Nexa AI",
+    "owner_company": "高通",
+    "source_kind": "division",
+    "reviewed": true,
+    "facts": [
+      {
+        "field": "owner_company",
+        "value": "高通",
+        "quote": "NexaAI（现为Qualcomm旗下团队）",
+        "url": "https://www.163.com/dy/article/L7698BPQ0511N33R.html?spss=dy_author",
+        "title": "最后两周！AI大咖、明星Founder与VC齐聚旧金山，免费票限量开放",
+        "origin": "article",
+        "articleId": "manus:9f4fd4c8b4b7bfa8",
+        "publishedAt": "2026-09-19T09:35:36+08:00",
+        "sourceName": "报道内容复核",
+        "checkedAt": "2026-09-20"
+      }
+    ]
+  }
   ]
 }
