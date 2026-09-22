@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import base64
 import json
+import math
 import random
 import time
 import threading
@@ -160,12 +161,19 @@ class ManusClient:
         diagnostics_dir=None,
         late_result_grace_seconds: float = 0,
         require_terminal_confirmation: bool = False,
+        credit_usage_grace_seconds: float = 90,
     ) -> None:
         self.api_key = api_key
         self.inline_prompt = inline_prompt
         self.diagnostics_dir = diagnostics_dir
         self.late_result_grace_seconds = min(15, max(0, late_result_grace_seconds))
         self.require_terminal_confirmation = require_terminal_confirmation
+        if (type(credit_usage_grace_seconds) not in (int, float)
+                or not math.isfinite(credit_usage_grace_seconds) or credit_usage_grace_seconds < 0):
+            raise ValueError('Credit usage grace must be finite and non-negative')
+        self.credit_usage_grace_seconds = credit_usage_grace_seconds
+        self.last_credit_balance = {'total': None, 'refresh': None, 'usable': None,
+                                    'profile': agent_profile, 'complete': False}
         self.agent_profile = agent_profile
         self.poll_seconds = poll_seconds
         self.timeout_seconds = timeout_seconds
@@ -240,6 +248,10 @@ class ManusClient:
     def _observe_messages(self, task_id, response):
         # Inspect the whole page, including a terminal event after structured output.
         for event in response.get('messages', []):
+            if self.require_terminal_confirmation and event.get('type') == 'error_message':
+                if self._is_credit_exhausted(event.get('error_message', {}).get('content')):
+                    # Inspect the whole page even when a result precedes the error.
+                    self.block_new_tasks()
             if event.get('type') == 'status_update':
                 self._observe_status(task_id, event.get('status_update', {}).get('agent_status'),
                                      remote_time(event.get('timestamp'), milliseconds=True))
@@ -254,7 +266,7 @@ class ManusClient:
             if value:
                 fields[field] = value
         credits = task.get('credit_usage')
-        if type(credits) in (int, float) and credits >= 0:
+        if type(credits) in (int, float) and credits >= 0 and (type(credits) is int or math.isfinite(credits)):
             fields.update(lastObservedCredits=credits, creditsObservedAt=observed_at(),
                           creditsObservedWithTerminalStatus=task.get('status') in ('stopped', 'error'))
         if fields:
@@ -309,14 +321,32 @@ class ManusClient:
         return data
 
     def available_credits(self) -> int:
-        """读取当前余额；兼容 Manus v2 新旧两种返回位置。"""
+        """Return profile-usable credits; daily refresh credits only fund Lite.
+
+        A legacy total-only response is allowed outside production, explicitly
+        marked complete=False. Production requires the complete balance split.
+        """
+        self.last_credit_balance = {'total': None, 'refresh': None, 'usable': None,
+                                    'profile': self.agent_profile, 'complete': False}
         response = self._request("GET", "usage.availableCredits")
-        value = response.get("total_credits")
-        if value is None and isinstance(response.get("data"), dict):
-            value = response["data"].get("total_credits")
-        if type(value) is not int or value < 0:
+        balance = response
+        if balance.get('total_credits') is None and isinstance(response.get('data'), dict):
+            balance = response['data']
+        total = balance.get('total_credits')
+        if type(total) is not int or total < 0:
             raise ManusAPIError("Manus balance unavailable")
-        return value
+        self.last_credit_balance['total'] = total
+        if 'refresh_credits' not in balance:
+            if self.require_terminal_confirmation:
+                raise ManusAPIError('Manus balance unavailable: refresh credits missing')
+            self.last_credit_balance['usable'] = total
+            return total
+        refresh = balance['refresh_credits']
+        if type(refresh) is not int or not 0 <= refresh <= total:
+            raise ManusAPIError('Manus balance unavailable: invalid refresh credits')
+        usable = total if self.agent_profile == 'manus-1.6-lite' else total - refresh
+        self.last_credit_balance.update(refresh=refresh, usable=usable, complete=True)
+        return usable
 
     def stop_task(self, task_id: str) -> None:
         """Request stopping; an accepted request alone does not confirm termination."""
@@ -355,6 +385,15 @@ class ManusClient:
     @staticmethod
     def _is_retryable(error_text: str) -> bool:
         return any(marker in error_text for marker in RETRYABLE_HTTP_MARKERS)
+
+    @staticmethod
+    def _is_credit_exhausted(error_text) -> bool:
+        if not isinstance(error_text, str):
+            return False
+        text = error_text.lower().replace('_', ' ').replace('-', ' ')
+        return any(marker in text for marker in (
+            'not enough credit', 'insufficient credit', 'credit balance is insufficient',
+            'credit balance insufficient', 'credits exhausted', 'credits are exhausted'))
 
     # ================= 任务创建（指数退避 + 抖动） =================
 
@@ -474,6 +513,9 @@ class ManusClient:
                 last_error = result.get("error") or "Structured output extraction failed"
             elif event_type == "error_message":
                 last_error = event.get("error_message", {}).get("content") or "Task error"
+                if self.require_terminal_confirmation and self._is_credit_exhausted(last_error):
+                    self.block_new_tasks()
+                    raise ManusAPIError('Manus credits exhausted')
             elif event_type == "status_update":
                 if agent_status == "error":
                     raise ManusAPIError(last_error or "Task failed")
@@ -488,10 +530,17 @@ class ManusClient:
                                    observed_credit_limit: int | None = None, on_checkpoint=None) -> dict[str, Any]:
         """轮询直到拿到 structured output；注册延迟/瞬时错误继续轮询，终态与超时抛异常。"""
         deadline = time.monotonic() + self.timeout_seconds
+        credit_seen_at = deadline - self.timeout_seconds
+        watch_credits = self.require_terminal_confirmation and observed_credit_limit is not None
         availability_deadline = time.monotonic() + self.register_grace_seconds
         last_error: str | None = None
         last_status: str | None = None
         stopped_since: float | None = None
+
+        def require_recent_credit_observation():
+            if watch_credits and time.monotonic() - credit_seen_at >= self.credit_usage_grace_seconds:
+                raise ManusAPIError('Manus credit usage unavailable beyond observation grace')
+
         while time.monotonic() < deadline:
             try:
                 cursor: str | None = None
@@ -531,14 +580,25 @@ class ManusClient:
                 if observed_credit_limit is not None:
                     detail = self._request("GET", "task.detail?" + urlencode({"task_id": task_id}))
                     self._observe_detail(task_id, detail)
-                    credits = (detail.get("task") or {}).get("credit_usage")
-                    if type(credits) in (int, float) and credits >= observed_credit_limit:
+                    task_detail = detail.get('task')
+                    credits = task_detail.get('credit_usage') if isinstance(task_detail, dict) else None
+                    valid_credits = type(credits) in (int, float) and credits >= 0 and (
+                        type(credits) is int or math.isfinite(credits))
+                    if valid_credits and watch_credits:
+                        credit_seen_at = time.monotonic()
+                    elif not valid_credits:
+                        require_recent_credit_observation()
+                    if valid_credits and credits >= observed_credit_limit:
                         raise ManusAPIError(
                             f"Observed credit threshold reached: {credits} >= {observed_credit_limit}")
                 if last_status:
                     print(f"[{task_id}] Manus status: {last_status}", flush=True)
             except ManusAPIError as error:
                 error_text = str(error)
+                if self.require_terminal_confirmation and self._is_credit_exhausted(error_text):
+                    self.block_new_tasks()
+                    raise
+                require_recent_credit_observation()
                 # task.create 返回的 task_id 可能短暂查不到：注册延迟，不算失败
                 if "Manus HTTP 404" in error_text and time.monotonic() < availability_deadline:
                     print(f"[{task_id}] Manus task is registering; retrying…", flush=True)

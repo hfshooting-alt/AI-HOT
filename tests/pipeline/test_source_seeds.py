@@ -32,6 +32,57 @@ class SourceSeeds(unittest.TestCase):
     def build(self, transport, **kwargs):
         return seeds.build_source_seed(SOURCE, WINDOW, transport=transport, now_fn=lambda: NOW, **kwargs)
 
+    def test_compact_prioritizes_late_header_evidence_without_mutating_full_seed(self):
+        rows = [{'title': f'未知 {n}', 'url': f'https://www.baijing.cn/article/{n}',
+                 'windowHint': 'unknown'} for n in range(1, 8)]
+        rows += [{'title': '列表窗内', 'windowHint': 'within_window'},
+                 {'title': '详情窗内', 'windowHint': 'within_window', 'headerTime': {
+                     'displayedAt': '2026-09-21T17:12:00+08:00',
+                     'originalPublicationVerified': False}}]
+        seed = {'hintOnly': True, 'coverageComplete': False, 'identityVerified': False,
+                'collectionWindow': copy.deepcopy(WINDOW), 'candidates': rows,
+                'boundary': {'ordering': 'unverified'}}
+        original = copy.deepcopy(seed)
+        brief = seeds.compact_source_seed(seed)
+        self.assertEqual([r['title'] for r in brief['candidates']], ['详情窗内', '列表窗内', '未知 1'])
+        self.assertEqual(brief['totalCandidateHints'], 9)
+        self.assertEqual(brief['additionalCandidatesOmitted'], 6)
+        self.assertFalse(brief['omittedCandidatesExcluded'])
+        self.assertIn('省略项未被排除', brief['omissionNote'])
+        self.assertFalse(brief['coverageComplete'])
+        self.assertFalse(brief['identityVerified'])
+        brief['candidates'][0]['headerTime']['displayedAt'] = 'changed'
+        self.assertNotIn('collectionWindow', brief)
+        self.assertNotIn('boundary', brief)
+        self.assertEqual(seed, original)
+
+    def test_compact_stable_tiers_and_no_body_in_candidate_projection(self):
+        seed = {'candidates': [
+            {'title': 'unknown', 'windowHint': 'unknown', 'content_text': 'PRIVATE_BODY'},
+            {'title': 'boundary', 'windowHint': 'overlaps_boundary'},
+            {'title': 'likely', 'windowHint': 'likely_within_window'},
+            {'title': 'list', 'windowHint': 'within_window'},
+            {'title': 'outside header', 'windowHint': 'before_window', 'headerTime': {
+                'displayedAt': '2026-09-20T12:00:00+08:00'}},
+            {'title': 'inside header', 'windowHint': 'within_window', 'headerTime': {
+                'displayedAt': '2026-09-21T12:00:00+08:00', 'body': 'PRIVATE_BODY'},
+                'privateDiagnostics': 'PRIVATE_BODY'}]}
+        brief = seeds.compact_source_seed(seed)
+        self.assertEqual([r['title'] for r in brief['candidates']], ['inside header', 'likely', 'list'])
+        self.assertNotIn('PRIVATE_BODY', json.dumps(brief))
+        self.assertEqual(seeds.compact_source_seed({'candidates': seed['candidates'][:2]})['candidates'][0]['title'], 'boundary')
+
+    def test_compact_limit_is_explicit_and_never_exceeds_three(self):
+        seed = {'candidates': [{'title': str(n)} for n in range(5)]}
+        for limit in (0, 1, 2, 3):
+            brief = seeds.compact_source_seed(seed, limit)
+            self.assertEqual(len(brief['candidates']), limit)
+            self.assertEqual(brief['additionalCandidatesOmitted'], 5 - limit)
+        for bad in (-1, 4, True, 1.0):
+            with self.assertRaises(ValueError):
+                seeds.compact_source_seed(seed, bad)
+        self.assertEqual(seeds.compact_source_seed({'status': 'unsupported'})['candidates'], [])
+
     def fixture_transport(self, request, timeout, max_bytes):
         if request.full_url == seeds.BAIJING_LIST:
             if request.data == b'type=0&pn=1':

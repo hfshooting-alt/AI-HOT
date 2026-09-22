@@ -5,6 +5,7 @@ documented original-publication field. Preserve it and the observation time.
 Detail header times can narrow a hint to the requested window, but Manus must
 still verify original publication, source identity and complete coverage.
 """
+from copy import deepcopy
 from datetime import datetime, timedelta
 from html import unescape
 from html.parser import HTMLParser
@@ -28,6 +29,53 @@ _VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'me
 
 class SeedError(ValueError):
     """Only a fixed diagnostic code; no response bodies, headers or credentials."""
+
+
+def compact_source_seed(seed, max_candidates=3):
+    """Project up to three useful hints; omitted rows still require discovery.
+
+    Detail headers narrow a window hint but never establish original publication
+    or source identity. Preserve order within each evidence tier and never
+    mutate the full private observations used for audit or subsequent replay.
+    """
+    if type(max_candidates) is not int or not 0 <= max_candidates <= 3:
+        raise ValueError('max_candidates must be between 0 and 3')
+    if not isinstance(seed, dict):
+        raise ValueError('seed must be an object')
+    candidates = seed.get('candidates', [])
+    if not isinstance(candidates, list) or any(not isinstance(row, dict) for row in candidates):
+        raise ValueError('seed candidates must be objects')
+
+    def priority(row):
+        hint = row.get('windowHint')
+        header = row.get('headerTime')
+        if hint == 'within_window' and isinstance(header, dict) and header.get('displayedAt'):
+            return 0
+        if hint in ('within_window', 'likely_within_window', 'yesterday_exception_hint'):
+            return 1
+        if hint == 'overlaps_boundary':
+            return 2
+        if hint in (None, 'unknown'):
+            return 3
+        return 4
+
+    keys = ('status', 'hintOnly', 'coverageComplete', 'identityVerified', 'stopReason')
+    brief = {key: deepcopy(seed[key]) for key in keys if key in seed}
+    fields = ('title', 'url', 'listTimeText', 'listObservedAt', 'windowHint')
+    header_fields = ('displayedTimeText', 'displayedAt')
+    selected = sorted(candidates, key=priority)[:max_candidates]
+    brief['candidates'] = []
+    for row in selected:
+        item = {key: deepcopy(row[key]) for key in fields if key in row}
+        if isinstance(row.get('headerTime'), dict):
+            item['headerTime'] = {key: deepcopy(row['headerTime'][key])
+                                  for key in header_fields if key in row['headerTime']}
+        brief['candidates'].append(item)
+    brief['totalCandidateHints'] = len(candidates)
+    brief['additionalCandidatesOmitted'] = len(candidates) - len(selected)
+    brief['omittedCandidatesExcluded'] = False
+    brief['omissionNote'] = '仅压缩提示；省略项未被排除，仍须按配置来源发现与核验，不能据此宣称完整覆盖。'
+    return brief
 
 
 class _NoRedirect(HTTPRedirectHandler):
@@ -197,9 +245,12 @@ def build_source_seed(source, window, *, transport=None, max_pages=3, max_detail
     """Return hints/observations only; no source_status or discovery articles.
 
     transport(request, timeout_seconds, max_bytes) -> (status, final_url, bytes)
-    is an offline test seam. Only the exact configured Baijing source is supported.
+    is an offline test seam. Supported public sources remain hints-only.
     Network attempts include failures, with at most six, no retry or redirect.
     """
+    if isinstance(source, dict) and source.get('platform') == 'Tencent News':
+        from .tencent_seeds import build_tencent_seed
+        return build_tencent_seed(source, window, transport=transport, now_fn=now_fn)
     output = {'schemaVersion': 1, 'hintOnly': True, 'coverageComplete': False,
         'identityVerified': False, 'status': 'unsupported', 'requestsAttempted': 0,
         'candidates': [], 'observations': [], 'excludedByHeaderTime': [], 'pages': [],

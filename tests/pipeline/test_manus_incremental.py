@@ -60,8 +60,8 @@ class IncrementalTest(unittest.TestCase):
                 'candidates': [{'title': str(i), 'url': 'https://www.baijing.cn/article/1'} for i in range(20)]}
         text = source_seed_prompt(seed)
         data = json.loads(text.split('\n')[-1])
-        self.assertEqual(len(data['candidates']), 6)
-        self.assertEqual(data['additionalCandidatesOmitted'], 14)
+        self.assertEqual(len(data['candidates']), 2)
+        self.assertEqual(data['additionalCandidatesOmitted'], 18)
         self.assertNotIn('observations', data)
         self.assertFalse(data['coverageComplete'])
 

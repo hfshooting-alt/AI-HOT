@@ -163,7 +163,7 @@ class ReceiptRunnerTests(unittest.TestCase):
         def transport(method, path, payload):
             calls.append(path)
             if path == 'usage.availableCredits':
-                return {'ok': True, 'total_credits': 100}
+                return {'ok': True, 'total_credits': 100, 'refresh_credits': 0}
             if path == 'task.create':
                 return {'ok': True, 'task_id': 'task-1', 'task_url': 'https://example.com/task-1'}
             return terminal_page()
@@ -211,7 +211,7 @@ class ReceiptRunnerTests(unittest.TestCase):
         def transport(method, path, payload):
             calls.append(path)
             if path == 'usage.availableCredits':
-                return {'ok': True, 'total_credits': 100}
+                return {'ok': True, 'total_credits': 100, 'refresh_credits': 0}
             if path == 'task.create':
                 return {'ok': True, 'task_id': 'task-1', 'task_url': 'https://example.com/task-1'}
             return terminal_page()
@@ -250,7 +250,7 @@ class ReceiptRunnerTests(unittest.TestCase):
         def transport(method, path, payload):
             nonlocal active, peak, created
             if path == 'usage.availableCredits':
-                return {'ok': True, 'total_credits': 1000}
+                return {'ok': True, 'total_credits': 1000, 'refresh_credits': 0}
             if path == 'task.create':
                 attachment = payload['message']['content'][1]['file_data']
                 prompt = base64.b64decode(attachment.split(',', 1)[1]).decode()
