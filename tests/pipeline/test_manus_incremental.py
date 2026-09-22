@@ -111,3 +111,31 @@ class IncrementalTest(unittest.TestCase):
             result = run_discovery(client, 'group_a', '2026-09-22', 'prompt', ['Test'], WINDOW, 20, [source])
         self.assertEqual(result['source_audits'][0]['source_status'], 'complete')
         self.assertEqual(result['collectionWindow'], WINDOW)
+
+    def test_structured_result_does_not_release_worker_before_terminal_confirmation(self):
+        source = {'account_name': 'Test', 'platform': 'Website', 'home_url': 'https://example.com/'}
+        article = {'account_name': 'Test', 'source_platform': 'Website', 'source_home_url': source['home_url'],
+                   'article_url': 'https://example.com/1', 'title': 'Original article',
+                   'published_at': '2026-09-21T15:00:00+08:00', 'published_date': '2026-09-21',
+                   'published_time_text': None, 'author': None, 'extraction_status': 'complete', 'note': None}
+        final = {'source_group': 'group_a', 'target_date': '2026-09-22', 'articles': [article],
+                 'source_audits': [{'account_name': 'Test', 'source_status': 'complete', 'article_count': 1, 'note': None}]}
+        for stopped in (True, False):
+            client = ManusClient('offline', 'manus-1.6', 0, 1, require_terminal_confirmation=True)
+            with patch.object(client, 'create_crawl_task', return_value=CreatedTask('t', 'https://example.com/t')), \
+                 patch.object(client, 'wait_for_structured_result', return_value=final), \
+                 patch.object(client, 'stop_task') as stop, \
+                 patch.object(client, 'confirm_task_stopped', side_effect=[
+                     {'confirmed': False, 'remoteStatus': 'running'},
+                     {'confirmed': stopped, 'remoteStatus': 'stopped' if stopped else 'running'}]), \
+                 patch.object(client, 'read_stopped_results', return_value=None):
+                if stopped:
+                    result = run_discovery(client, 'group_a', '2026-09-22', 'prompt', ['Test'], WINDOW, 20, [source])
+                    self.assertEqual(len(result['articles']), 1)
+                    self.assertEqual(result['source_audits'][0]['source_status'], 'complete')
+                else:
+                    with self.assertRaises(DiscoveryRunError) as caught:
+                        run_discovery(client, 'group_a', '2026-09-22', 'prompt', ['Test'], WINDOW, 20, [source])
+                    self.assertEqual(len(caught.exception.partial_payload['articles']), 1)
+                stop.assert_called_once_with('t')
+                self.assertEqual(client._creation_blocked.is_set(), not stopped)

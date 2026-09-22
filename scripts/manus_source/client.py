@@ -19,7 +19,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Any, Callable
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
+from urllib.parse import quote, urlencode
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
@@ -159,11 +159,13 @@ class ManusClient:
         inline_prompt: bool = False,
         diagnostics_dir=None,
         late_result_grace_seconds: float = 0,
+        require_terminal_confirmation: bool = False,
     ) -> None:
         self.api_key = api_key
         self.inline_prompt = inline_prompt
         self.diagnostics_dir = diagnostics_dir
         self.late_result_grace_seconds = min(15, max(0, late_result_grace_seconds))
+        self.require_terminal_confirmation = require_terminal_confirmation
         self.agent_profile = agent_profile
         self.poll_seconds = poll_seconds
         self.timeout_seconds = timeout_seconds
@@ -277,9 +279,18 @@ class ManusClient:
                 try:
                     if before_create:
                         before_create()
-                    return self._send_request(method, path, payload)
-                except ManusAPIError as error:
-                    if self.create_interval_seconds > 0 and any(
+                    response = self._send_request(method, path, payload)
+                    if self.require_terminal_confirmation and self.create_retries == 0:
+                        task_id = response.get('task_id')
+                        if not isinstance(task_id, str) or not task_id.strip():
+                            raise ManusAPIError('Task create response has no usable task ID')
+                    return response
+                except Exception as error:
+                    if self.require_terminal_confirmation and self.create_retries == 0:
+                        # Keep the create lock until queued workers see the circuit.
+                        # A lost response can still represent a running paid task.
+                        self.block_new_tasks()
+                    if isinstance(error, ManusAPIError) and self.create_interval_seconds > 0 and any(
                             code in str(error) for code in ('HTTP 429', 'rate_limited', 'resource_exhausted')):
                         self._next_create_at = max(self._next_create_at, time.monotonic() + 60)
                     raise
@@ -317,11 +328,11 @@ class ManusClient:
         """Block queued creations before a worker can start its next source."""
         self._creation_blocked.set()
 
-    def confirm_task_stopped(self, task_id: str) -> dict:
+    def confirm_task_stopped(self, task_id: str, max_attempts: int = 3) -> dict:
         """Reuse drained status messages, otherwise make at most three detail reads."""
         status = self._task_statuses.get(task_id)
         error = None
-        for attempt in range(3):
+        for attempt in range(min(3, max(1, max_attempts))):
             if status in ('stopped', 'error'):
                 return {'confirmed': True, 'remoteStatus': status, 'error': None}
             if attempt:
@@ -409,6 +420,8 @@ class ManusClient:
             try:
                 response = self._request("POST", "task.create", payload, before_create=before_create)
                 task_id = response['task_id']
+                if not isinstance(task_id, str) or not task_id.strip():
+                    raise ManusAPIError('Task create response has no usable task ID')
                 if self.diagnostics_dir:
                     record_task_request(self.diagnostics_dir, payload, task_id=task_id)
                 receipt.update(taskId=task_id, creationState='created',
@@ -417,8 +430,15 @@ class ManusClient:
                     self._task_receipts[task_id] = deepcopy(receipt)
                     self._receipt_callbacks[task_id] = callback
                 self._emit_receipt(callback, receipt)
-                return CreatedTask(task_id=task_id, task_url=response["task_url"])
-            except ManusAPIError as error:
+                task_url = response.get('task_url')
+                if not isinstance(task_url, str) or not task_url.strip():
+                    task_url = 'https://manus.im/app/' + quote(task_id, safe='')
+                return CreatedTask(task_id=task_id, task_url=task_url)
+            except Exception as error:
+                if not isinstance(error, ManusAPIError):
+                    receipt['creationState'] = 'unknown' if receipt['createAttempts'] else 'not_created'
+                    self._emit_receipt(callback, receipt)
+                    raise
                 last_error = error
                 if attempt >= self.create_retries or not self._is_retryable(str(error)):
                     receipt['creationState'] = 'unknown' if receipt['createAttempts'] else 'not_created'

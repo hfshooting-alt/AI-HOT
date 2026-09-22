@@ -254,12 +254,22 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
                 return
             verified.pop(article['article_url'], None)
             persist_checkpoints()
+    payload = None
     try:
         payload = client.wait_for_structured_result(
             task.task_id, observed_credit_limit=observed_credit_limit,
             **({'on_checkpoint': checkpoint} if isinstance(client, ManusClient) else {}))
+        if isinstance(client, ManusClient) and client.require_terminal_confirmation:
+            # Preserve verified final articles even when a subsequent status GET
+            # fails and stopping cannot be confirmed.
+            articles = payload.get('articles') if isinstance(payload, dict) else None
+            if isinstance(articles, list):
+                for article in articles:
+                    checkpoint(article)
+            if not client.confirm_task_stopped(task.task_id, max_attempts=1).get('confirmed'):
+                raise RuntimeError('Structured result received but remote termination unconfirmed')
     except Exception as error:
-        recovered_final = None
+        recovered_final = payload if isinstance(payload, dict) else None
         stop_accepted = False
         stop_succeeded = False
         stop_error = None
@@ -567,6 +577,7 @@ def main(argv: list[str] | None = None) -> int:
         inline_prompt=args.compact_prompt or args.incremental_discovery,
         diagnostics_dir=settings.work_dir / args.date / 'task-traces',
         late_result_grace_seconds=15,
+        require_terminal_confirmation=True,
     )
 
     raw_dir = settings.work_dir / args.date / "raw"
