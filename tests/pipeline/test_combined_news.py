@@ -52,11 +52,13 @@ class CombinedNews(unittest.TestCase):
                      'publishedAt': '2026-09-10T08:00:00+08:00'}
         publish.save(self.workspace.parent / 'state.json', {'stages': {'aihot': {'status': 'success'}}})
         publish.save(self.workspace / 'inputs/aihot.json', {'collectionWindow': ten_am_window(DATE), 'items': [self.item]})
+        self.manus_sample()
 
     def process(self, **kwargs):
         return news.process(DATE, self.workspace, self.raw, screen_fn=screen, enrich_fn=enrich, **kwargs)
 
-    def manus_sample(self):
+    def manus_sample(self, items=None):
+        items = [self.item] if items is None else items
         for group, sources in self.groups.items():
             data = {'schema_version': 3, 'source_group': group, 'target_date': DATE,
                     'collectionWindow': ten_am_window(DATE), 'articles': [], 'source_audits': [
@@ -64,23 +66,24 @@ class CombinedNews(unittest.TestCase):
                         for s in sources]}
             if group == 'group_a':
                 s = sources[0]
-                art = {'account_name': s['account_name'], 'source_platform': s['platform'], 'source_home_url': s['home_url'],
-                       'title': self.item['title'], 'article_url': self.item['url'], 'published_date': DATE,
-                       'published_at': self.item['publishedAt'], 'author': None, 'extraction_status': 'complete', 'note': None}
-                data['articles'] = [art]
-                data['source_audits'][0]['article_count'] = 1
+                arts = [{'account_name': s['account_name'], 'source_platform': s['platform'], 'source_home_url': s['home_url'],
+                       'title': item['title'], 'article_url': item['url'], 'published_date': item['publishedAt'][:10],
+                       'published_at': item['publishedAt'], 'author': None, 'extraction_status': 'complete', 'note': None}
+                        for item in items]
+                data['articles'] = arts
+                data['source_audits'][0]['article_count'] = len(arts)
                 publish.save(self.raw / DATE / 'raw/content-batch-01.json', {'target_date': DATE, 'articles': [
                     {**art, 'content_text': '这是经过验证的文章正文。' * 30, 'content_status': 'complete',
-                     'content_truncated': False}]})
+                     'content_truncated': False} for art in arts]})
             publish.save(self.raw / DATE / 'raw' / f'discovery-{group}.json', data)
 
-    def test_manus_failure_keeps_aihot_and_never_injects_old_feed(self):
+    def test_manus_failure_never_injects_aihot_or_old_feed(self):
         publish.save(self.workspace / 'data/manus/current.json', {'ok': True, 'items': [{'id': 'old'}]})
-        result = self.process()
-        self.assertEqual(len(result['items']), 1)
-        self.assertEqual(result['items'][0]['collector'], 'aihot')
-        self.assertTrue(result['collectionStatus']['degraded'])
-        self.assertEqual(news.read(self.workspace / 'data/manus/current.json')['items'], [])
+        shutil.rmtree(self.raw)
+        with self.assertRaisesRegex(ValueError, 'All sources'):
+            self.process()
+        self.assertFalse((self.workspace / 'inputs/processed.json').exists())
+        self.assertEqual(news.read(self.workspace / 'data/manus/current.json')['items'], [{'id': 'old'}])
 
     def test_aihot_failure_keeps_verified_manus(self):
         self.manus_sample()
@@ -88,14 +91,14 @@ class CombinedNews(unittest.TestCase):
         result = self.process()
         self.assertEqual(len(result['items']), 1)
         self.assertEqual(result['items'][0]['collector'], 'manus')
-        self.assertEqual(result['collectionStatus']['sources'][0]['status'], 'failed')
+        self.assertTrue(all(a['collector'] == 'manus' for a in result['collectionStatus']['sources']))
 
     def test_duplicate_across_branches_processed_once_with_body(self):
         self.manus_sample()
         result = self.process()
         self.assertEqual(result['collectionStatus']['candidateArticles'], 1)
         self.assertEqual(result['items'][0]['evidenceKind'], 'article_body')
-        self.assertEqual(len(result['items'][0]['sourceRefs']), 2)
+        self.assertEqual(len(result['items'][0]['sourceRefs']), 1)
         self.assertNotIn('content_text', result['items'][0])
 
     def set_manus_yesterday(self, *, conflict=False, duplicate=False):
@@ -116,12 +119,12 @@ class CombinedNews(unittest.TestCase):
     def test_yesterday_date_precision_survives_sorting_and_feed(self):
         self.set_manus_yesterday()
         result = self.process()
-        self.assertEqual(len(result['items']), 2)
+        self.assertEqual(len(result['items']), 1)
         manuscript = next(i for i in result['items'] if i['collector'] == 'manus')
         self.assertEqual(manuscript['publishedAt'], '2026-09-09')
         self.assertEqual(manuscript['publishedPrecision'], 'date')
         self.assertEqual(manuscript['timeEvidence']['originalText'], '昨天')
-        self.assertEqual(result['items'][0]['collector'], 'aihot')
+        self.assertEqual(result['items'][0]['collector'], 'manus')
         self.assertEqual(news.read(self.workspace / 'data/manus/current.json')['items'][0]['publishedAt'], '2026-09-09')
         # Sorting must not relax the original timestamp contract.
         with self.assertRaises(ValueError):
@@ -130,9 +133,7 @@ class CombinedNews(unittest.TestCase):
     def test_conflicting_manus_time_is_isolated_before_aihot_deduplication(self):
         self.set_manus_yesterday(conflict=True, duplicate=True)
         result = self.process()
-        self.assertEqual(len(result['items']), 1)
-        self.assertEqual(result['items'][0]['collector'], 'aihot')
-        self.assertEqual(result['items'][0]['evidenceKind'], 'upstream_title_summary')
+        self.assertEqual(result['items'], [])
         quarantine = result['collectionStatus']['quarantined']
         self.assertEqual(len(quarantine), 1)
         self.assertEqual(quarantine[0]['reasonCode'], 'original_publication_time_conflict')
@@ -145,22 +146,21 @@ class CombinedNews(unittest.TestCase):
         self.assertEqual(evidence[0]['published_at'], '2026-09-09')
 
     def test_all_sources_failed_blocks_publication(self):
+        shutil.rmtree(self.raw)
         publish.save(self.workspace.parent / 'state.json', {'stages': {'aihot': {'status': 'failed'}}})
         with self.assertRaisesRegex(ValueError, 'All sources'):
             self.process()
         self.assertFalse((self.workspace / 'inputs/processed.json').exists())
 
-    def test_aihot_only_keeps_upstream_wechat_and_uses_model(self):
-        self.item.update(source='公众号：测试', sourceType='wechat')
-        publish.save(self.workspace / 'inputs/aihot.json', {'collectionWindow': ten_am_window(DATE), 'items': [self.item]})
-        result = self.process(enabled=False)
-        self.assertEqual(result['items'][0]['classification']['category'], 'general')
-        self.assertFalse(result['collectionStatus']['degraded'])
-        self.assertTrue(all(s['status'] == 'not_requested' for s in result['collectionStatus']['sources'][1:]))
+    def test_aihot_only_is_rejected_before_any_model(self):
+        with patch.object(news.screen_news, 'screen_items') as model:
+            with self.assertRaisesRegex(ValueError, 'AIHOT fallback is disabled'):
+                self.process(enabled=False)
+        model.assert_not_called()
 
     def test_verified_zero_articles_is_not_failure(self):
-        publish.save(self.workspace / 'inputs/aihot.json', {'collectionWindow': ten_am_window(DATE), 'items': []})
-        result = self.process(enabled=False)
+        self.manus_sample([])
+        result = self.process()
         self.assertEqual(result['items'], [])
         self.assertFalse(result['collectionStatus']['degraded'])
 
@@ -175,15 +175,15 @@ class CombinedNews(unittest.TestCase):
         self.assertEqual(saved['allArticles'][0]['garenaSelection']['status'], 'pending')
         self.assertNotIn('content_text', saved['allArticles'][0])
 
-    def two_aihot_candidates(self):
+    def two_manus_candidates(self):
         (self.workspace / 'data/cache').mkdir(parents=True, exist_ok=True)
         other = {**self.item, 'id': 'second', 'title': '另一公司发布AI工具', 'url': 'https://example.com/second'}
-        publish.save(self.workspace / 'inputs/aihot.json',
-                     {'collectionWindow': ten_am_window(DATE), 'items': [self.item, other]})
-        return news.candidates([self.item, other], [])
+        self.manus_sample([self.item, other])
+        _, _, articles = news.load_manus(DATE, self.raw, self.groups)
+        return news.candidates([], articles)
 
     def test_one_new_relevance_timeout_blocks_despite_one_cached_success(self):
-        pool = self.two_aihot_candidates()
+        pool = self.two_manus_candidates()
         tx = news.tag_news.load_taxonomy(str(ROOT / 'config/taxonomy.json'))
         cache = self.workspace / 'data/cache/news_relevance.json'
         screen_news.screen_items(pool[:1], tx, cache, lambda *a, **k: json.dumps(
@@ -196,14 +196,14 @@ class CombinedNews(unittest.TestCase):
         def actual_screen(items, taxonomy, path, **kwargs):
             return screen_news.screen_items(items, taxonomy, path, llm_fn=timeout, **kwargs)
         with self.assertRaisesRegex(ValueError, 'no new model success'):
-            news.process(DATE, self.workspace, self.raw, enabled=False, screen_fn=actual_screen, enrich_fn=enrich)
+            news.process(DATE, self.workspace, self.raw, screen_fn=actual_screen, enrich_fn=enrich)
         self.assertEqual(len(calls), 1)
         self.assertEqual(news.read(cache), saved)
         self.assertFalse((self.workspace / 'inputs/processed.json').exists())
         self.assertEqual(news.read(self.workspace / 'inputs/model-failure.json')['modelSuccesses'], 0)
 
     def test_one_new_enrichment_timeout_blocks_despite_one_cached_success(self):
-        pool = self.two_aihot_candidates()
+        pool = self.two_manus_candidates()
         tx = news.tag_news.load_taxonomy(str(ROOT / 'config/taxonomy.json'))
         cache = self.workspace / 'data/cache/news_enrichment.json'
         with patch.object(enrich_news, 'call_llm', return_value=json.dumps(
@@ -212,7 +212,7 @@ class CombinedNews(unittest.TestCase):
         saved = news.read(cache)
         with patch.object(enrich_news, 'call_llm', side_effect=TimeoutError('private response')) as call:
             with self.assertRaisesRegex(ValueError, 'no new model success'):
-                news.process(DATE, self.workspace, self.raw, enabled=False, screen_fn=screen)
+                news.process(DATE, self.workspace, self.raw, screen_fn=screen)
         self.assertEqual(call.call_count, 1)
         self.assertEqual(news.read(cache), saved)
         self.assertFalse((self.workspace / 'inputs/processed.json').exists())
@@ -227,7 +227,7 @@ class CombinedNews(unittest.TestCase):
         self.assertEqual([i['garenaSelection']['status'] for i in library['allArticles']], ['selected', 'pending'])
 
     def test_content_only_failure_and_pure_cache_reuse_are_not_service_outages(self):
-        pool = self.two_aihot_candidates()
+        pool = self.two_manus_candidates()
         tx = news.tag_news.load_taxonomy(str(ROOT / 'config/taxonomy.json'))
         cache = self.workspace / 'data/cache/news_relevance.json'
         screen_news.screen_items(pool[:1], tx, cache, lambda *a, **k: json.dumps(
@@ -235,7 +235,7 @@ class CombinedNews(unittest.TestCase):
         def actual_screen(items, taxonomy, path, **kwargs):
             return screen_news.screen_items(items, taxonomy, path, llm_fn=lambda *a, **k: json.dumps(
                 {'relevant': True, 'reason': '证据不合格', 'evidence': '输入中不存在的内容'}), **kwargs)
-        result = news.process(DATE, self.workspace, self.raw, enabled=False, screen_fn=actual_screen, enrich_fn=enrich)
+        result = news.process(DATE, self.workspace, self.raw, screen_fn=actual_screen, enrich_fn=enrich)
         self.assertEqual(len(result['items']), 1)
         self.assertEqual(result['collectionStatus']['quarantinedArticles'], 1)
         cached = {'status': 'complete', 'modelAttempted': False, 'cacheHit': True}
@@ -246,7 +246,7 @@ class CombinedNews(unittest.TestCase):
 
     def test_failed_item_is_isolated_at_each_model_stage(self):
         second = {**self.item, 'id': 'second', 'title': '另一篇报道', 'url': 'https://example.com/second'}
-        publish.save(self.workspace / 'inputs/aihot.json', {'collectionWindow': ten_am_window(DATE), 'items': [self.item, second]})
+        self.manus_sample([self.item, second])
         def partly_screen(items, *args, **kwargs):
             result, stats = screen(items, *args, **kwargs)
             result.pop(screen_news.item_key(items[1]))
@@ -263,10 +263,9 @@ class CombinedNews(unittest.TestCase):
             self.assertEqual(len(result['allArticles']), 2)
             self.assertEqual([i['garenaSelection']['status'] for i in result['allArticles']], ['selected', 'pending'])
 
-    def test_wrong_window_cannot_enter_current_batch(self):
+    def test_retired_aihot_input_is_not_read_even_with_wrong_window(self):
         publish.save(self.workspace / 'inputs/aihot.json', {'collectionWindow': {}, 'items': [self.item]})
-        with self.assertRaisesRegex(ValueError, 'window'):
-            self.process()
+        self.assertEqual(self.process()['items'][0]['collector'], 'manus')
 
     def test_aihot_timeline_keeps_slow_sources_and_obeys_batch_boundaries(self):
         window = ten_am_window(DATE)
@@ -277,13 +276,14 @@ class CombinedNews(unittest.TestCase):
         self.assertTrue(aihot_in_window(window, {**item, 'discoveredAt': window['start']}))
         self.assertFalse(aihot_in_window(window, {**item, 'publishedAt': '2026-09-01T12:00:00+08:00'}))
         self.assertTrue(aihot_in_window(window, {**item, 'publishedAt': None}))
-        with patch.object(snapshot, 'fetch_items', return_value=[item]), \
-             patch.object(snapshot, 'fetch_latest_daily', return_value=None), \
-             patch.object(snapshot, 'fetch_hot_topics', return_value={}):
-            news.collect(DATE, self.workspace / 'inputs/aihot.json')
-        result = self.process(enabled=False)
-        self.assertEqual(len(result['items']), 1)
-        self.assertEqual(result['items'][0]['publishedAt'], item['publishedAt'])
+        with patch.object(snapshot, 'fetch_items') as fetch, \
+             patch.object(snapshot, 'fetch_latest_daily') as daily, \
+             patch.object(snapshot, 'fetch_hot_topics') as hot:
+            with self.assertRaisesRegex(ValueError, 'AIHOT collection is disabled'):
+                news.collect(DATE, self.workspace / 'inputs/aihot.json')
+        fetch.assert_not_called()
+        daily.assert_not_called()
+        hot.assert_not_called()
 
     def test_failed_summary_never_publishes_fallback(self):
         with self.assertRaisesRegex(ValueError, 'summary/classification'):
@@ -293,30 +293,28 @@ class CombinedNews(unittest.TestCase):
         self.manus_sample()
         (self.raw / DATE / 'raw/content-batch-01.json').unlink()
         result = self.process()
-        self.assertEqual(len(result['items']), 1)
-        self.assertEqual(result['items'][0]['collector'], 'aihot')
+        self.assertEqual(result['items'], [])
         audit = next(a for a in result['collectionStatus']['sources'] if a['name'] == '游戏葡萄')
         self.assertEqual(audit['status'], 'partial')
         self.assertEqual(audit['usableArticles'], 0)
         self.assertEqual(audit['articleLibraryCount'], 1)
         self.assertEqual(len(result['allArticles']), 1)
-        self.assertEqual(len(result['allArticles'][0]['sourceRefs']), 2)
-        self.assertNotIn('metadataOnly', result['allArticles'][0])
+        self.assertEqual(len(result['allArticles'][0]['sourceRefs']), 1)
+        self.assertTrue(result['allArticles'][0]['metadataOnly'])
 
     def test_relevance_exclusion_stays_in_library_with_real_screen_keys(self):
-        pool = self.two_aihot_candidates()
+        pool = self.two_manus_candidates()
         def excluding(items, *args, **kwargs):
             result, stats = screen(items)
             result[screen_news.item_key(items[0])].update(reason='AI 公司融资')
             result[screen_news.item_key(items[1])].update(relevant=False, reason='普通游戏新闻')
             # Conservation derives from decisions, not potentially stale counters.
             return result, stats
-        result = news.process(DATE, self.workspace, self.raw, enabled=False, screen_fn=excluding, enrich_fn=enrich)
+        result = news.process(DATE, self.workspace, self.raw, screen_fn=excluding, enrich_fn=enrich)
         self.assertEqual([r['id'] for r in result['allArticles']], [i['id'] for i in pool])
         self.assertEqual([r['garenaSelection']['status'] for r in result['allArticles']], ['selected', 'not_selected'])
         self.assertEqual([r['garenaSelection']['reason'] for r in result['allArticles']], ['AI 公司融资', '普通游戏新闻'])
-        self.assertEqual(result['allArticles'][1]['summaryOrigin'], 'upstream')
-        self.assertEqual(result['allArticles'][1]['summary'], self.item['summary'])
+        self.assertEqual(result['allArticles'][1]['summary'], '')
         self.assertNotIn('classification', result['allArticles'][1])
         stats = result['collectionStatus']
         self.assertEqual((stats['candidateArticles'], stats['selectedArticles'], stats['excludedArticles'], stats['quarantinedArticles']), (2, 1, 1, 0))
@@ -390,10 +388,10 @@ class CombinedNews(unittest.TestCase):
         self.set_manus_yesterday(conflict=True)
         (self.raw / DATE / 'raw/content-batch-01.json').unlink()
         result = self.process()
-        self.assertEqual([r['collector'] for r in result['allArticles']], ['aihot'])
+        self.assertEqual(result['allArticles'], [])
         self.assertEqual(result['collectionStatus']['quarantinedArticles'], 1)
         self.assertEqual(result['collectionStatus']['quarantined'][0]['stage'], 'publication_time')
-        self.assertEqual(result['collectionStatus']['candidateArticles'], 2)
+        self.assertEqual(result['collectionStatus']['candidateArticles'], 1)
 
     def test_body_only_timestamp_conflict_retains_private_original_evidence(self):
         self.set_manus_yesterday()
@@ -402,7 +400,7 @@ class CombinedNews(unittest.TestCase):
         data['articles'][0]['note'] = '列表标注昨天；详情页显示2026-09-08 19:04发布，与列表相对时间不一致。'
         publish.save(path, data)
         result = self.process()
-        self.assertEqual([r['collector'] for r in result['allArticles']], ['aihot'])
+        self.assertEqual(result['allArticles'], [])
         evidence = news.read(self.workspace / 'inputs/publication-time-review.json')
         self.assertIn('2026-09-08 19:04发布', evidence[0]['note'])
 
@@ -412,7 +410,7 @@ class CombinedNews(unittest.TestCase):
                 'reason': '无具体 AI 事件'} for i in items}, {'irrelevant': len(items)})
         def forbidden(*args, **kwargs):
             self.fail('Excluded article reached enrichment')
-        result = news.process(DATE, self.workspace, self.raw, enabled=False, screen_fn=excluded, enrich_fn=forbidden)
+        result = news.process(DATE, self.workspace, self.raw, screen_fn=excluded, enrich_fn=forbidden)
         self.assertEqual(result['items'], [])
         self.assertEqual(result['allArticles'][0]['garenaSelection']['status'], 'not_selected')
         self.assertNotIn('classification', result['allArticles'][0])
@@ -429,7 +427,7 @@ class CombinedNews(unittest.TestCase):
                 def failed_enrich(items, *args):
                     return {enrich_news.enrich_item_key(i): {'enrichmentStatus': 'failed',
                         'modelAttempted': True, 'error': {'category': category}} for i in items}
-                result = news.process(DATE, self.workspace, self.raw, enabled=False,
+                result = news.process(DATE, self.workspace, self.raw,
                     screen_fn=failed_screen if stage == 'relevance' else screen,
                     enrich_fn=failed_enrich if stage == 'enrichment' else enrich)
                 self.assertEqual(result['items'], [])
@@ -459,39 +457,32 @@ class CombinedNews(unittest.TestCase):
         rows = load_articles(self.workspace / 'snapshot.json', self.workspace / 'missing.json', self.raw, {})
         self.assertEqual([r['id'] for r in rows], ['aihot:new'])
 
-    def test_collectors_start_concurrently_and_failure_does_not_skip_news(self):
+    def test_manus_failure_still_attempts_script_content_and_news_without_aihot(self):
         (self.root / 'config').mkdir()
         for name in ('taxonomy.json', 'manus_sources.json'):
             shutil.copy(ROOT / 'config' / name, self.root / 'config' / name)
-        barrier = threading.Barrier(2, timeout=3)
         calls = []
         def execute(cmd):
             if cmd[1].endswith('runner.py'):
-                barrier.wait()
                 calls.append('discovery')
                 return 1
             if 'collect' in cmd:
-                barrier.wait()
-                calls.append('aihot')
-                return 0
+                self.fail('AIHOT must never be collected')
             calls.append('news' if 'process' in cmd else Path(cmd[1]).stem)
             return 0
         with contextlib.redirect_stdout(io.StringIO()):
             code = runner.run(self.root, DATE, list(runner.COMBINED_STAGES), combined=True,
                               ten_am=True, no_promote=True, execute=execute)
         self.assertEqual(code, 0)
-        self.assertEqual(set(calls[:2]), {'discovery', 'aihot'})
+        self.assertEqual(calls[:2], ['discovery', 'content_phase'])
         self.assertIn('news', calls)
 
     def test_snapshot_reads_prepared_pool_without_network_or_old_manus(self):
-        # The original article predates the window; the approved AIHOT batch
-        # must survive snapshot construction and previously frozen archives.
-        self.item.update(publishedAt='2026-09-08T12:00:00+08:00',
-                         discoveredAt='2026-09-10T08:00:00+08:00')
-        publish.save(self.workspace / 'inputs/aihot.json',
-                     {'collectionWindow': ten_am_window(DATE), 'items': [self.item]})
-        publish.save(self.workspace / 'archive/2026-09-08.json',
-                     {'date': '2026-09-08', 'finalized': True, 'items': []})
+        # Approved Manus articles survive local rendering/frozen archives;
+        # stale upstream inputs and daily reports are never read as fallback.
+        publish.save(self.workspace / 'archive/2026-09-10.json',
+                     {'date': '2026-09-10', 'finalized': True, 'items': []})
+        publish.save(self.workspace / 'snapshot.json', {'dailyReports': {'2026-09-09': {'secret': 'old'}}})
         result = self.process()
         args = ['build_snapshot.py', '--window-date', DATE,
                 '--input-json', str(self.workspace / 'inputs/processed.json'), '--no-tags', '--require-tags',
@@ -507,9 +498,11 @@ class CombinedNews(unittest.TestCase):
                 self.assertEqual(snapshot.main(), 0)
         actual = news.read(self.workspace / 'snapshot.json')
         self.assertEqual(actual['collectionStatus'], result['collectionStatus'])
-        self.assertEqual(actual['all']['items'][0]['id'], 'aihot:example')
+        self.assertEqual(actual['all']['items'][0]['id'], result['items'][0]['id'])
+        self.assertEqual(actual['dailyReports'], {})
+        self.assertEqual(actual['hot'], {})
         self.assertEqual(actual['daily']['total'], 1)
-        self.assertEqual(news.read(self.workspace / 'archive/2026-09-08.json')['items'][0]['id'], 'aihot:example')
+        self.assertEqual(news.read(self.workspace / 'archive/2026-09-10.json')['items'][0]['id'], result['items'][0]['id'])
         publish.save(self.workspace / 'web/public/snapshot.json', actual)
         runner.validate_candidates(self.workspace, ROOT, ['news', 'snapshot'])
         actual['all']['items'] = []
@@ -527,7 +520,7 @@ class CombinedNews(unittest.TestCase):
             for resume in (False, True):
                 self.assertEqual(runner.run(self.root, DATE, list(runner.COMBINED_STAGES),
                     combined=True, ten_am=True, no_promote=True, resume=resume, execute=execute), 0)
-        self.assertEqual(calls.count('aihot'), 1)
+        self.assertEqual(calls.count('aihot'), 0)
         self.assertEqual(calls.count('news'), 2)
         self.assertEqual(calls.count('build_company_overview'), 2)
 
@@ -535,11 +528,12 @@ class CombinedNews(unittest.TestCase):
         calls = []
         def execute(cmd):
             calls.append(Path(cmd[1]).stem)
+            self.assertEqual(os.environ['MANUS_CONTENT_MODE'], 'script')
             return 1 if cmd[1].endswith('runner.py') else 0
         with patch.dict(os.environ, {'MANUS_CONTENT_MODE': 'manus'}), contextlib.redirect_stdout(io.StringIO()):
             self.assertEqual(runner.run(self.root, DATE, list(runner.COMBINED_STAGES),
                 combined=True, ten_am=True, no_promote=True, execute=execute), 0)
-        self.assertNotIn('content_phase', calls)
+        self.assertIn('content_phase', calls)
 
 
 if __name__ == '__main__':

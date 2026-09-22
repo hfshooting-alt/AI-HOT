@@ -9,7 +9,7 @@ def key(name):
 
 def is_named_product(name):
     """Quantity-only collections are business descriptions, not product identities."""
-    return isinstance(name, str) and bool(name.strip()) and not re.match(
+    return isinstance(name, str) and bool(name.strip()) and key(name) not in {'mcp', 'api', 'sdk'} and not re.match(
         r"^(?:[0-9一二三四五六七八九十百多数几]+)\s*(?:款|套|种|个)\s*", name.strip())
 
 def normalize(raw, article=None):

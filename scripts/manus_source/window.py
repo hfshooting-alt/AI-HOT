@@ -17,12 +17,17 @@ def cutoff_time():
 
 def ten_am_window(end_date: str) -> dict:
     day = date.fromisoformat(end_date)
-    end = datetime.combine(day, cutoff_time(), tzinfo=BJ)
+    explicit = os.environ.get('NEWS_COLLECTION_END')
+    end = timestamp(explicit) if explicit else datetime.combine(day, cutoff_time(), tzinfo=BJ)
+    if end.date() != day:
+        raise ValueError('NEWS_COLLECTION_END 北京日期必须与采集日期一致')
     return {"start": (end - timedelta(days=1)).isoformat(), "end": end.isoformat(),
             "timezone": "Asia/Shanghai"}
 
 
 def latest_cutoff_date(now: datetime | None = None) -> str:
+    if os.environ.get('NEWS_COLLECTION_END'):
+        return timestamp(os.environ['NEWS_COLLECTION_END']).date().isoformat()
     now = (now or datetime.now(BJ)).astimezone(BJ)
     day = now.date() if now.time().replace(tzinfo=None) >= cutoff_time() else now.date() - timedelta(days=1)
     return day.isoformat()

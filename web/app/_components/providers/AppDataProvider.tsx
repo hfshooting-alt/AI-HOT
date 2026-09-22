@@ -11,7 +11,7 @@ import {
 } from "react";
 import type { ViewKey } from "../../_lib/domain/types";
 
-const VALID_VIEWS: ViewKey[] = ["all", "selected", "company", "hot", "daily", "settings"];
+const VALID_VIEWS: ViewKey[] = ["all", "selected", "company", "settings"];
 
 interface AppState {
   view: ViewKey;

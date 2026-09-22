@@ -7,7 +7,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const SETTINGS_BASE = "http://127.0.0.1:9731";
-const STORAGE_KEY = "aihot.settings.form.v1";
+const STORAGE_KEY = "newsdaily.settings.form.v1";
 const REPO = "hfshooting-alt/AI-HOT";
 const PROBE_TIMEOUT_MS = 1500;
 
@@ -34,7 +34,7 @@ const FIELDS: FieldDef[] = [
     type: "password",
     secret: true,
     placeholder: "sk-...",
-    desc: "公众号采集（fetch-manus.yml / scripts/manus_source/runner.py）",
+    desc: "Manus 多信源文章采集",
   },
   {
     key: "DEEPSEEK_API_KEY",
@@ -102,7 +102,7 @@ function copyText(text: string): Promise<void> {
 
 function buildEnvContent(values: Record<string, string>): string {
   const lines = [
-    "# AI HOT 本地配置（由设置页生成；已被 .gitignore 忽略，勿提交）",
+    "# 新闻Daily 本地配置（由设置页生成；已被 .gitignore 忽略，勿提交）",
   ];
   for (const f of FIELDS) {
     const v = (values[f.key] || "").trim();
@@ -150,7 +150,7 @@ export function SettingsView() {
     }
   }, []);
 
-  const OFFLINE_HINT = "本地设置服务未启动：请在项目目录（AI-HOT，含 scripts/ 的目录）执行 node scripts/settings-server.mjs";
+  const OFFLINE_HINT = "本地设置服务未启动：请在项目目录（含 scripts/ 的目录）执行 node scripts/settings-server.mjs";
 
   /** 探测本地设置服务并刷新在线状态；返回清理函数（中止未完成的探测）。 */
   const probe = useCallback(() => {
@@ -248,7 +248,7 @@ export function SettingsView() {
   };
 
   const ghCommands = useCallback(() => {
-    const lines: string[] = ["# AI HOT · GitHub Actions Secrets/Variables 同步（在仓库目录执行）"];
+    const lines: string[] = ["# 新闻Daily · GitHub Actions Secrets/Variables 同步（在仓库目录执行）"];
     for (const k of GH_SECRET_KEYS) {
       const v = (values[k] || "").trim();
       const body = interactiveGh || !v ? "" : ` --body "${v}"`;
@@ -264,7 +264,7 @@ export function SettingsView() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "aihot.env";
+    a.download = "news-daily.env";
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -316,7 +316,7 @@ export function SettingsView() {
           {online === null ? "检测中…" : online ? "本地设置服务在线" : "本地设置服务离线"}
         </span>
         {online === false && (
-          <code className="text-xs text-mut-2">cd 项目目录（AI-HOT）; node scripts/settings-server.mjs</code>
+          <code className="text-xs text-mut-2">cd 项目目录; node scripts/settings-server.mjs</code>
         )}
         <button
           type="button"

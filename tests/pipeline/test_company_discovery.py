@@ -65,10 +65,12 @@ class CompanyDiscoveryTest(unittest.TestCase):
         self.assertEqual(data['companies'][0]['business'],'Existing')
         self.assertEqual(data['companies'][0]['fieldSources']['country'][0]['verificationStatus'],'provisional')
 
-    def test_aihot_only_never_creates_manus_research(self):
-        for mode,expected in [('full',True),('aihot-only',False)]:
+    def test_manus_only_preserves_research_and_rejects_retired_mode(self):
+        for mode in ('full', 'manus-only'):
             cmd=plan(Path('/root'),Path('/root/work/one/workspace'),'2026-09-15',combined=True,source_mode=mode)['overview']
-            self.assertEqual('--discover-company' in cmd,expected)
+            self.assertIn('--discover-company', cmd)
+        with self.assertRaisesRegex(ValueError, 'AIHOT'):
+            plan(Path('/root'),Path('/root/work/one/workspace'),'2026-09-15',combined=True,source_mode='aihot-only')
 
     def test_product_ownership_stays_candidate_and_never_becomes_company_fields(self):
         row={'id':'company:tool','company_name':'Tool','fieldSources':{},'sourceArticles':[]}

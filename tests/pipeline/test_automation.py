@@ -215,14 +215,14 @@ class WorkspaceTest(unittest.TestCase):
             checks = doctor.inspect(self.root, ["feed"])
         self.assertFalse(next(c for c in checks if c["check"] == "DEEPSEEK_API_KEY")["ok"])
 
-    def test_aihot_only_preflight_and_plan_need_no_paid_keys(self):
+    def test_local_snapshot_preflight_and_manus_only_plan(self):
         with patch.dict(os.environ, {}, clear=True):
             checks = doctor.inspect(self.root, ["snapshot"], require_llm=False)
         self.assertFalse(any(c["check"] in ("MANUS_API_KEY", "DEEPSEEK_API_KEY") for c in checks))
         commands = runner.plan(self.root, self.root / "candidate", "2026-09-09",
-                               ten_am=True, source_mode="aihot-only")
-        self.assertIn("--no-tags", commands["snapshot"])
-        self.assertIn("--exclude-wechat", commands["snapshot"])
+                               ten_am=True, source_mode="manus-only")
+        self.assertNotIn("--exclude-wechat", commands["snapshot"])
+        self.assertNotIn('aihot', commands)
         self.assertIn("24h", commands["snapshot"])
         out_path = Path(commands["snapshot"][commands["snapshot"].index("--out") + 1])
         self.assertEqual(out_path, self.root / "candidate/legacy-index.html")
@@ -236,23 +236,23 @@ class WorkspaceTest(unittest.TestCase):
     def test_dry_run_is_read_only_and_never_executes(self):
         with patch.object(run_pipeline, "ROOT", self.root), patch.object(run_pipeline, "run") as run_mock:
             with contextlib.redirect_stdout(io.StringIO()) as out:
-                self.assertEqual(run_pipeline.main(["run", "--dry-run", "--date", "2026-09-07"]), 0)
+                self.assertEqual(run_pipeline.main(["run", "--dry-run", "--window-mode", "ten-am", "--date", "2026-09-07"]), 0)
         run_mock.assert_not_called()
         self.assertFalse((self.root / "work").exists())
         self.assertEqual([s["stage"] for s in json.loads(out.getvalue())["stages"]], list(runner.COMBINED_STAGES))
 
-    def test_aihot_only_dry_run_retains_model_and_company_stages(self):
+    def test_full_alias_dry_run_retains_model_and_company_stages_without_aihot(self):
         with patch.object(run_pipeline, "ROOT", self.root), patch.object(run_pipeline, "run") as run_mock:
             with contextlib.redirect_stdout(io.StringIO()) as out:
-                self.assertEqual(run_pipeline.main(["run", "--dry-run", "--date", "2026-09-09",
-                                                    "--source-mode", "aihot-only"]), 0)
+                self.assertEqual(run_pipeline.main(["run", "--dry-run", "--window-mode", "ten-am", "--date", "2026-09-09",
+                                                    "--source-mode", "full"]), 0)
         run_mock.assert_not_called()
         payload = json.loads(out.getvalue())
-        self.assertEqual(payload["sourceMode"], "aihot-only")
-        self.assertEqual([s["stage"] for s in payload["stages"]], ["aihot", "news", "snapshot", "overview", "funding"])
-        self.assertEqual(payload['parallelCollectors'], ['aihot'])
-        self.assertIn('--without-manus', payload['stages'][1]['command'])
-        self.assertNotIn('--exclude-wechat', payload['stages'][2]['command'])
+        self.assertEqual(payload["sourceMode"], "manus-only")
+        self.assertEqual([s["stage"] for s in payload["stages"]], ["discovery", "content", "news", "snapshot", "overview", "funding"])
+        self.assertEqual(payload['parallelCollectors'], ['discovery'])
+        self.assertNotIn('--without-manus', payload['stages'][2]['command'])
+        self.assertNotIn('--exclude-wechat', payload['stages'][3]['command'])
 
     def test_invalid_candidate_is_not_published(self):
         with self.assertRaises((FileNotFoundError, ValueError)):

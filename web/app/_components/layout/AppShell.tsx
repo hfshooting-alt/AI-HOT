@@ -6,10 +6,8 @@ import type { ViewKey } from "../../_lib/domain/types";
 import { AppDataProvider, useApp } from "../providers/AppDataProvider";
 import { Sidebar, SidebarContent } from "./Sidebar";
 import { BrandLogo, CloseIcon, MenuIcon } from "../shared/icons";
-import { HotView } from "../views/HotView";
 import { AllAIView } from "../views/AllAIView";
 import { CompanyOverviewView } from "../views/CompanyOverviewView";
-import { DailyReportView } from "../views/DailyReportView";
 import { SettingsView } from "../views/SettingsView";
 
 function ShellBody() {
@@ -57,7 +55,7 @@ function ShellBody() {
         </button>
         <BrandLogo className="size-7" />
         <span className="text-[15px] font-extrabold text-ink">
-          AI<span className="text-brand"> HOT</span>
+          新闻<span className="text-brand">Daily</span>
         </span>
       </div>
 
@@ -90,8 +88,6 @@ function ShellBody() {
           {visited.has("all") && panel("all", <AllAIView mode="all" />)}
           {visited.has("selected") && panel("selected", <AllAIView mode="selected" />)}
           {visited.has("company") && panel("company", <CompanyOverviewView />)}
-          {visited.has("hot") && panel("hot", <HotView />)}
-          {visited.has("daily") && panel("daily", <DailyReportView />)}
           {visited.has("settings") && panel("settings", <SettingsView />)}
         </main>
       </div>

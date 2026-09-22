@@ -1266,5 +1266,59 @@
    }
   ],
   "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:manus:66e7f2a7dc7b6784:e4158c77f632cbb4": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Bold Games",
+    "product_name": "Market Match",
+    "founded": "今年成立",
+    "country": "土耳其",
+    "industry": "手游",
+    "team": "CEO Ulaş Mergen 此前先后在 Dream Games、Rollic 和 Bigger Games 工作；目前 Bold 只有 9 名成员，理想团队规模 12 至 14 人；成员此前来自 Dream Games、Rollic、Bigger Games 等公司",
+    "business": "专注 Casual Puzzle 手游研发，首款产品为《Market Match》",
+    "investors": null,
+    "total_funding": "600 万美元种子轮融资",
+    "valuation": null,
+    "industry_id": "AI游戏",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:manus:5caecfd562d1df63:bde0a3958c5f770a": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "水母智能",
+    "product_name": "触手AI",
+    "founded": "2020年11月",
+    "country": "中国",
+    "industry": "AI创作工具/生产力",
+    "team": "创始人苗奘曾创办洛可可伦敦公司并担任洛可可全国UED事业群总经理，洛可可创始人贾伟出任董事长",
+    "business": "面向中小商家的AI智能设计Agent交付平台，以及覆盖漫画、动态漫、竖屏漫短剧全流程的AIGC创作平台触手AI",
+    "investors": "源码资本、红杉种子基金、百度、高瓴创投、微光创投、元璟资本、华策影视全资子公司西溪投资",
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI创作工具/生产力",
+    "company_type_id": "初创公司"
+   },
+   {
+    "company_name": "华策影视",
+    "product_name": null,
+    "founded": null,
+    "country": "中国",
+    "industry": "AI互动内容/娱乐",
+    "team": null,
+    "business": "国内剧集头部公司，拥有IP库、发行渠道和出海网络，布局AI内容生产",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI互动内容/娱乐",
+    "company_type_id": "大厂/已上市"
+   }
+  ],
+  "modelAttempted": true
  }
 }

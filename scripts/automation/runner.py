@@ -14,7 +14,13 @@ from .publish import ALLOWED, publish, recover, save
 from manus_source.window import ten_am_window
 
 STAGES = ("discovery", "content", "feed", "snapshot", "overview", "funding")
-COMBINED_STAGES = ("aihot", "discovery", "content", "news", "snapshot", "overview", "funding")
+COMBINED_STAGES = ("discovery", "content", "news", "snapshot", "overview", "funding")
+
+
+def normalize_source_mode(source_mode):
+    if source_mode not in ('manus-only', 'full'):
+        raise ValueError('AIHOT 已停止采集；生产仅支持 manus-only（full 为兼容别名）')
+    return 'manus-only'
 
 CACHE_FILES = ("data/cache/tag_cache.json", "data/manus/enrichment_cache.json",
                "data/cache/news_relevance.json", "data/cache/news_enrichment.json",
@@ -196,7 +202,8 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
 
 
 def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False, *, ten_am=False,
-         source_mode="full", manus_credit_limit=20, combined=False):
+         source_mode="manus-only", manus_credit_limit=20, combined=False):
+    source_mode = normalize_source_mode(source_mode)
     def script(name, *args):
         return [sys.executable, str(root / "scripts" / name), *map(str, args)]
     def out(rel):
@@ -229,23 +236,18 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
         commands["snapshot"].extend(("--window-date", date, "--api-window", "24h"))
         commands["overview"].extend(("--work-dir", str(root / "work/manus/ten-am")))
         commands["funding"].extend(("--work-dir", str(root / "work/manus/ten-am")))
-    if source_mode == "full" and manus_credit_limit:
+    if manus_credit_limit is not None:
         commands["discovery"].extend(("--credit-limit-per-source", str(manus_credit_limit)))
         if ten_am:
             commands['discovery'].extend(('--incremental-discovery', '--source-seeds'))
-    if source_mode == "aihot-only" and not combined:
-        commands["snapshot"].extend(("--no-tags", "--exclude-wechat"))
-    else:
-        commands['snapshot'].append('--require-tags')
+    commands['snapshot'].append('--require-tags')
     if combined:
         manus_work = Path(os.getenv('MANUS_WORK_DIR', str(root / 'work/manus')))
         if not manus_work.is_absolute():
             manus_work = root / manus_work
         manus_work = manus_work / 'ten-am'
-        commands['aihot'] = script('news_pipeline.py', 'collect', '--date', date, '--workspace', workspace)
         commands['news'] = script('news_pipeline.py', 'process', '--date', date, '--workspace', workspace,
-                                  '--manus-work-dir', manus_work,
-                                  *(['--without-manus'] if source_mode == 'aihot-only' else []))
+                                  '--manus-work-dir', manus_work)
         for stage in ('overview', 'funding'):
             if '--work-dir' in commands[stage]:
                 commands[stage][commands[stage].index('--work-dir') + 1] = str(manus_work)
@@ -255,12 +257,11 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
         commands['overview'].extend(('--known-link-research', '--research-dir',
             str(root / 'work/company-web-research' / workspace.parent.name),
             '--research-budget-dir', str(root / 'work/company-research-budget')))
-        if source_mode == 'full':
-            commands['overview'].append('--discover-company')
+        commands['overview'].append('--discover-company')
     return commands
 
 
-def fingerprint(root: Path, stages, skip_search, ten_am=False, source_mode="full",
+def fingerprint(root: Path, stages, skip_search, ten_am=False, source_mode="manus-only",
                 manus_credit_limit=20):
     digest = hashlib.sha256()
     for folder in ("config", "scripts"):
@@ -277,9 +278,13 @@ def fingerprint(root: Path, stages, skip_search, ten_am=False, source_mode="full
 
 
 def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=False,
-        skip_search=False, execute=None, ten_am=False, source_mode="full",
+        skip_search=False, execute=None, ten_am=False, source_mode="manus-only",
         manus_credit_limit=20, combined=False):
-    execute = execute or (lambda cmd: subprocess.run(cmd, cwd=root).returncode)
+    source_mode = normalize_source_mode(source_mode)
+    if 'aihot' in stages:
+        raise ValueError('AIHOT collection stage is disabled')
+    execute = execute or (lambda cmd: subprocess.run(cmd, cwd=root,
+                         env={**os.environ, 'MANUS_CONTENT_MODE': 'script'}).returncode)
     runs = root / "work" / "runs" / date
     if ten_am:
         runs = runs / "ten-am"
@@ -287,6 +292,8 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
     lock = root / "work" / "pipeline.lock"
     fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
     os.close(fd)
+    previous_content_mode = os.environ.get('MANUS_CONTENT_MODE')
+    os.environ['MANUS_CONTENT_MODE'] = 'script'
     try:
         latest = runs / "latest.json"
         sig = fingerprint(root, stages, skip_search, ten_am, source_mode, manus_credit_limit)
@@ -297,6 +304,8 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
             run_dir = runs / run_id
             recover(root, run_dir)
             state = json.loads((run_dir / "state.json").read_text(encoding="utf-8"))
+            if ten_am and state.get('collectionWindow') != ten_am_window(date):
+                raise ValueError('恢复窗口与原运行不一致，禁止重新解释已采集证据')
             journal = run_dir / "publication.json"
             if journal.exists() and json.loads(journal.read_text(encoding="utf-8"))["status"] == "committed":
                 print("本次运行已经发布，无需重复执行")
@@ -338,9 +347,9 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
                     'seconds': round(time.monotonic() - started, 2)}
 
         if combined:
-            collectors = ['aihot'] + (['discovery'] if source_mode == 'full' else [])
+            collectors = ['discovery']
             pending = [s for s in collectors if state['stages'].get(s, {}).get('status') != 'success']
-            retry_content = source_mode == 'full' and state['stages'].get('content', {}).get('status') != 'success'
+            retry_content = state['stages'].get('content', {}).get('status') != 'success'
             if pending or retry_content:
                 # Collector retries can change the input pool; downstream successes
                 # from an earlier attempt must not hide those new articles.
@@ -358,18 +367,11 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
                     save(run_dir / 'state.json', state)
             # A failed collector can still have validated results for other sources.
             # content/news validate these files; failure never reads the old feed.
-            if source_mode == 'aihot-only':
-                state['stages']['discovery'] = {'status': 'skipped', 'reason': 'not_requested'}
-                state['stages']['content'] = {'status': 'skipped', 'reason': 'not_requested'}
-            elif state['stages'].get('content', {}).get('status') != 'success':
-                if (state['stages']['discovery']['status'] != 'success'
-                        and os.getenv('MANUS_CONTENT_MODE', 'script') != 'script'):
-                    state['stages']['content'] = {'status': 'skipped', 'reason': 'failed_discovery_no_new_paid_tasks'}
-                else:
-                    state['stages']['content'] = execute_timed('content')
+            if state['stages'].get('content', {}).get('status') != 'success':
+                state['stages']['content'] = execute_timed('content')
             save(run_dir / 'state.json', state)
         for stage in stages:
-            if combined and stage in ('aihot', 'discovery', 'content'):
+            if combined and stage in ('discovery', 'content'):
                 continue
             if state["stages"].get(stage, {}).get("status") == "success":
                 print(f"[{stage}] 复用已成功阶段", flush=True)
@@ -409,3 +411,7 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
         return 0
     finally:
         lock.unlink()
+        if previous_content_mode is None:
+            os.environ.pop('MANUS_CONTENT_MODE', None)
+        else:
+            os.environ['MANUS_CONTENT_MODE'] = previous_content_mode

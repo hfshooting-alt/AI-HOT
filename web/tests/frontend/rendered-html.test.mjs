@@ -28,7 +28,7 @@ async function render() {
   );
 }
 
-test("server-renders the AI HOT app shell", async () => {
+test("server-renders the 新闻Daily app shell", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -36,7 +36,8 @@ test("server-renders the AI HOT app shell", async () => {
   const html = await response.text();
   // layout 元信息与 AppShell 客户端挂载前的占位根节点（SSR 阶段 mounted=false）
   assert.match(html, /<html lang="zh-CN"/);
-  assert.match(html, /AI HOT · AI 情报仪表盘/);
+  assert.match(html, /新闻Daily/);
+  assert.doesNotMatch(html, /AI HOT · AI 情报仪表盘/);
   assert.match(html, /min-h-screen bg-page/);
 });
 
@@ -50,7 +51,7 @@ test("page renders the real AppShell without starter skeleton leftovers", async 
   assert.match(page, /<AppShell \/>/);
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview|_sites-preview/);
 
-  assert.match(layout, /title:\s*"AI HOT · AI 情报仪表盘"/);
+  assert.match(layout, /title:\s*"新闻Daily"/);
   assert.doesNotMatch(layout, /SkeletonPreview|codex-preview|_sites-preview/);
 
   await assert.rejects(
@@ -78,6 +79,30 @@ test("navigation defaults to all articles and places Garena selection before com
   assert.match(shell, /panel\("selected", <AllAIView mode="selected" \/>\)/);
   assert.match(provider, /"all", "selected", "company"/);
   assert.doesNotMatch(shell, /FeaturedView|featured/);
+  assert.doesNotMatch(sidebar, /key: "(?:hot|daily)"|热点榜|AI 日报/);
+  assert.doesNotMatch(provider, /"hot"|"daily"/);
+  assert.doesNotMatch(shell, /HotView|DailyReportView/);
+  assert.match(sidebar, /新闻<span className="text-brand">Daily/);
+  assert.match(shell, /新闻<span className="text-brand">Daily/);
+});
+
+test("news and company loaders do not fetch legacy feeds, demos or browser supplements", async () => {
+  const [api, view, card, settings] = await Promise.all([
+    readFile(new URL("../../app/_lib/data/api.ts", import.meta.url), "utf8"),
+    readFile(new URL("../../app/_components/views/AllAIView.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../../app/_components/news/ArticleCard.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../../app/_components/views/SettingsView.tsx", import.meta.url), "utf8"),
+  ]);
+  assert.doesNotMatch(api, /api\/(all|items|hot|daily)|reviewed-news|loadReviewed|loadHot|loadDaily|demo/i);
+  assert.match(api, /publicAsset\("snapshot.json"\)/);
+  assert.match(api, /publicAsset\("company-overview.json"\)/);
+  assert.doesNotMatch(view, /mergeReviewedNews|loadAll|mergePools/);
+  assert.match(view, /newsPoolError/);
+  assert.match(view, /role="alert"/);
+  assert.match(view, /本轮暂无已发布的 Manus 文章/);
+  assert.doesNotMatch(card, /AIHOT|aihotUrl|AI HOT/);
+  assert.doesNotMatch(settings, /AIHOT|aihot\.settings|AI HOT/);
+  assert.match(settings, /hfshooting-alt\/AI-HOT/);
 });
 
 test("company database exposes filterable industry and country fields below its title", async () => {

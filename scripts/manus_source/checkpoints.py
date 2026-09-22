@@ -83,13 +83,15 @@ def checkpoint_articles(response):
                     yield from (a for a in articles if isinstance(a, dict))
             except ValueError:
                 pass
+        prefixes = ('NEWS_ARTICLE ', 'AIHOT_ARTICLE ')
         for line in text.splitlines():
-            if not line.startswith('AIHOT_ARTICLE '):
+            if not line.startswith(prefixes):
                 continue
             # 平台可能合并相邻进度行；逐个解码完整 JSON，不把尾部说明当文章。
             remaining = line
-            while remaining.startswith('AIHOT_ARTICLE '):
-                remaining = remaining[len('AIHOT_ARTICLE '):].lstrip()
+            while remaining.startswith(prefixes):
+                prefix = next(p for p in prefixes if remaining.startswith(p))
+                remaining = remaining[len(prefix):].lstrip()
                 try:
                     value, end = json.JSONDecoder().raw_decode(remaining)
                 except ValueError:

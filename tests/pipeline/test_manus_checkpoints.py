@@ -141,7 +141,7 @@ class CheckpointTest(unittest.TestCase):
                                    source_specs=[SOURCE])
         self.assertEqual(result['articles'][0]['content_text'], 'body')
 
-    def test_jiqizhixin_body_handoff_schema_passes_preflight(self):
+    def test_jiqizhixin_metadata_only_schema_passes_preflight(self):
         source = {'account_name': '机器之心', 'platform': 'Official Jiqizhixin',
                   'home_url': 'https://jigou.jiqizhixin.com/industry'}
         client = Mock()
@@ -154,8 +154,8 @@ class CheckpointTest(unittest.TestCase):
                       source_specs=[source])
         schema = client.create_crawl_task.call_args.kwargs['output_schema']
         validate_output_schema(schema)
-        self.assertIn('content_text', schema['properties']['articles']['items']['required'])
-        self.assertIn('content_title', schema['properties']['articles']['items']['required'])
+        self.assertNotIn('content_text', schema['properties']['articles']['items']['properties'])
+        self.assertNotIn('content_title', schema['properties']['articles']['items']['properties'])
 
     def test_jiqizhixin_accepts_missing_author_but_not_other_publishers(self):
         source = {'account_name': '机器之心', 'platform': 'Official Jiqizhixin',

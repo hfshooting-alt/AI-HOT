@@ -19,8 +19,8 @@ from manus_source import contracts
 from manus_source.config import load_sources
 from manus_source.checkpoints import accept_article, publication_time_conflict
 from manus_source.window import ten_am_window
-from aihot_window import in_window as aihot_in_window
 from news_selection import build_public_article_library
+from manus_source.source_urls import tencent_article_id
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -30,15 +30,7 @@ def read(path):
 
 
 def collect(date, out, api_base='https://aihot.virxact.com'):
-    window = ten_am_window(date)
-    # Seven-day API pagination avoids losing the start of the fixed window when
-    # GitHub schedules start late. Narrow by AIHOT's timeline, not original date.
-    items = snapshot.fetch_items(api_base, snapshot.timestamp(window['start']), '7d')
-    payload = {'collectionWindow': window, 'items': [i for i in items if aihot_in_window(window, i)],
-               'dailyReport': snapshot.fetch_latest_daily(api_base),
-               'hot': snapshot.fetch_hot_topics(api_base)}
-    manus.atomic_write_json(Path(out), payload)
-    return payload
+    raise ValueError('AIHOT collection is disabled; use Manus discovery')
 
 
 def load_manus(date, work_dir, groups, enabled=True):
@@ -152,7 +144,8 @@ def candidates(aihot, manus_articles):
     rows.extend(metadata_only)
     unique, urls, titles = [], {}, {}
     for item in rows:
-        url = snapshot.norm_url(item['url'])
+        tencent_id = tencent_article_id(item['url'])
+        url = 'tencent:' + tencent_id if tencent_id is not None else snapshot.norm_url(item['url'])
         title = str(item.get('title') or '').strip().casefold()
         if not title:
             continue
@@ -188,20 +181,12 @@ def new_model_failure(results, status_field):
 
 
 def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_fn=None):
+    if not enabled:
+        raise ValueError('Manus-only processing requires Manus; AIHOT fallback is disabled')
     workspace = Path(workspace)
     window = ten_am_window(date)
     groups = load_sources(ROOT / 'config/manus_sources.json')
     discoveries, audits, articles = load_manus(date, work_dir, groups, enabled)
-    state = read(workspace.parent / 'state.json')
-    aihot_status = state['stages'].get('aihot', {}).get('status')
-    aihot = {'items': [], 'dailyReport': None, 'hot': {}}
-    if aihot_status == 'success':
-        aihot = read(workspace / 'inputs/aihot.json')
-        if aihot.get('collectionWindow') != window or not isinstance(aihot.get('items'), list):
-            raise ValueError('AIHOT input window/schema mismatch')
-    audits.insert(0, {'name': 'AIHOT', 'collector': 'aihot',
-                     'status': 'complete' if aihot_status == 'success' else 'failed',
-                     'discoveredArticles': len(aihot['items']), 'usableArticles': len(aihot['items'])})
     if not any(a['status'] == 'complete' or
                (a['status'] == 'partial' and (a['usableArticles'] > 0 or a.get('articleLibraryCount', 0) > 0)) for a in audits):
         raise ValueError('All sources unavailable; keep previous publication')
@@ -220,7 +205,7 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
         {k: a.get(k) for k in ('account_name', 'article_url', 'title', 'published_at',
                               'published_date', 'publishedPrecision', 'published_time_text', 'timeEvidence', 'note')}
         for a in articles if a.get('publicationTimeConflict')])
-    pool = candidates(aihot['items'], usable)
+    pool = candidates([], usable)
     from publication_review import review as review_publication
     original_pool_count = len(pool) + len(conflicts)
     pool, time_quarantine = review_publication(pool, window)
@@ -315,7 +300,7 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
     # Fresh, explicitly degraded empty Manus data prevents stale-feed re-injection.
     feed = manus.assemble_feed(date, discoveries,
                               [i for i in processed if i['collector'] == 'manus'], 0, manus.now_bj_iso())
-    feed['degraded'] = any(a['status'] in ('failed', 'partial') for a in audits[1:])
+    feed['degraded'] = any(a['status'] in ('failed', 'partial') for a in audits)
     feed['collectionStatus'] = collection
     contracts.validate_feed(feed, str(ROOT / 'config/taxonomy.json'))
     manus.atomic_write_json(workspace / 'data/manus/current.json', feed)
@@ -324,9 +309,9 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
     manus.atomic_write_json(workspace / 'inputs/company-evidence.json', [
         {'id': i['id'], 'url': i['url'], 'content_text': i['content_text']} for i in selected
         if i['id'] in {p['id'] for p in processed}])
-    payload = {'collectionWindow': window, 'items': processed, 'allArticles': library,
+    payload = {'sourceMode': 'manus-only', 'collectionWindow': window, 'items': processed, 'allArticles': library,
                'articleLibraryCount': len(library), 'selectedArticles': len(processed), 'collectionStatus': collection,
-               'dailyReport': aihot.get('dailyReport'), 'hot': aihot.get('hot') or {}}
+               'dailyReport': None, 'hot': {}}
     manus.atomic_write_json(workspace / 'inputs/processed.json', payload)
     return payload
 

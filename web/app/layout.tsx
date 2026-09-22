@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI HOT · AI 情报仪表盘",
-  description: "全部文章 / Garena投资精选 / 公司与产品全景 / 热点榜 / 日报周报，一站式 AI 情报看板。",
+  title: "新闻Daily",
+  description: "Manus 多信源新闻采集，浏览全部文章、Garena投资精选与公司产品全景。",
   icons: {
     icon: `${assetBase}/favicon.svg`,
     shortcut: `${assetBase}/favicon.svg`,

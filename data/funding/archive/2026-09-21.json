@@ -1,106 +1,24 @@
 {
- "schemaVersion": 1,
- "generatedAt": "2026-09-21T15:30:53+08:00",
- "coverageNote": "覆盖快照日报+周报池与最新 Manus feed 中的融资类新闻（约最近一周）",
- "searchNote": "未配置 TAVILY_API_KEY，缺失字段未补全",
- "stats": {
-  "articlesProcessed": 2,
-  "modelCalls": 2,
-  "modelSuccesses": 2,
-  "modelFailures": 0,
-  "cacheHits": 0,
-  "extractionFailed": 0,
-  "articlesWithoutFundingInfo": 0,
-  "companiesTotal": 3,
-  "companiesSearched": 0
- },
- "companies": [
-  {
-   "id": "fund:556dcd26a54fb752",
-   "company_name": "Anthropic",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": null,
-   "valuation": "约2万亿美元（投资者预期）",
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu9kuya2054drognw90f2hhf",
-     "title": "据报道 Anthropic 将 IPO 从 10 月推迟至 11 月，估值预期约 2 万亿美元",
-     "url": "https://the-decoder.com/following-openai-anthropic-is-also-reportedly-postponing-its-ipo",
-     "publishedAt": "2026-09-20T08:35:25.000Z",
-     "mpName": "The Decoder：AI News（RSS）"
-    }
-   ]
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-21T15:30:53+08:00",
+  "coverageNote": "仅保留有 Manus 报道支持的融资记录。",
+  "searchNote": "未配置 TAVILY_API_KEY，缺失字段未补全",
+  "stats": {
+    "articlesProcessed": 0,
+    "modelCalls": 0,
+    "modelSuccesses": 0,
+    "modelFailures": 0,
+    "cacheHits": 0,
+    "extractionFailed": 0,
+    "articlesWithoutFundingInfo": 0,
+    "companiesTotal": 0,
+    "companiesSearched": 0
   },
-  {
-   "id": "fund:2c6ee24b09816a6f",
-   "company_name": "OpenAI",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu9kuya2054drognw90f2hhf",
-     "title": "据报道 Anthropic 将 IPO 从 10 月推迟至 11 月，估值预期约 2 万亿美元",
-     "url": "https://the-decoder.com/following-openai-anthropic-is-also-reportedly-postponing-its-ipo",
-     "publishedAt": "2026-09-20T08:35:25.000Z",
-     "mpName": "The Decoder：AI News（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:5c1bd36f60878f6e",
-   "company_name": "硅基流动",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": "中国互联网投资基金、国新基金、中国移动链长基金、耀途资本、盛奕资本、国泰创投集团",
-   "total_funding": "2026年度累计股权融资额近29亿元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "其他",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu9dh37f08gtro8iyj3e3v8x",
-     "title": "硅基流动完成 B+ 轮二期与 C 轮融资，2026 年度累计股权融资额近 29 亿元",
-     "url": "https://www.ithome.com/1/004/727.htm",
-     "publishedAt": "2026-09-20T04:30:33.000Z",
-     "mpName": "IT之家（RSS）"
-    }
-   ]
+  "companies": [],
+  "sourceMigration": {
+    "mode": "manus_only",
+    "checkedAt": "2026-09-22T18:08:40+08:00",
+    "newModelCalls": 0,
+    "processingBasis": "retained previous funding records; no extraction"
   }
- ]
 }

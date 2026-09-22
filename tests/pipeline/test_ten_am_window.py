@@ -86,7 +86,7 @@ class TestTenAm(unittest.TestCase):
     def test_daily_cli_defaults_to_nine_thirty_and_complete_company_stage(self):
         output = io.StringIO()
         with patch('sys.stdout', output):
-            self.assertEqual(run_pipeline.main(['run','--dry-run','--date',END_DATE]), 0)
+            self.assertEqual(run_pipeline.main(['run','--dry-run','--date',END_DATE,'--window-mode','ten-am']), 0)
         plan = json.loads(output.getvalue())
         self.assertEqual(plan['collectionWindow']['end'], '2026-09-09T09:30:00+08:00')
         self.assertIn('--require-complete', next(s['command'] for s in plan['stages'] if s['stage']=='overview'))
@@ -190,11 +190,11 @@ class TestTenAm(unittest.TestCase):
              patch.object(build_snapshot, "fetch_hot_topics", return_value={"items": []}), \
              patch.object(build_snapshot, "fetch_latest_daily", return_value=None):
             self.assertEqual(build_snapshot.main(), 0)
-        self.assertEqual(fetch.call_args.args[1], timestamp(WINDOW["start"]))
+        fetch.assert_not_called()
         snapshot = json.loads((self.root / "snapshot.json").read_text(encoding="utf-8"))
-        self.assertEqual(snapshot["daily"]["total"], 209)
+        self.assertEqual(snapshot["daily"]["total"], 3)
         self.assertEqual(snapshot["daily"]["range"]["endAt"], WINDOW["end"])
-        self.assertEqual(len(snapshot["all"]["items"]), 209)
+        self.assertEqual(len(snapshot["all"]["items"]), 3)
         all_ids = [i["id"] for f in (self.root / "archive").glob("*.json")
                    for i in json.loads(f.read_text(encoding="utf-8"))["items"]]
         self.assertNotIn("api-1", all_ids)
@@ -203,14 +203,14 @@ class TestTenAm(unittest.TestCase):
     def test_cli_plan_and_resume_storage_distinguish_legacy_runs(self):
         output = io.StringIO()
         with patch("sys.stdout", output):
-            self.assertEqual(run_pipeline.main(["run", "--dry-run", "--date", END_DATE, '--cutoff-time', '10:00']), 0)
+            self.assertEqual(run_pipeline.main(["run", "--dry-run", "--date", END_DATE, '--cutoff-time', '10:00', '--window-mode', 'ten-am']), 0)
         plan = json.loads(output.getvalue())
         self.assertEqual(plan["collectionWindow"], WINDOW)
         stages = {s['stage']: s['command'] for s in plan['stages']}
         self.assertIn("--ten-am", stages['discovery'])
         self.assertIn("--window-date", stages['snapshot'])
         self.assertIn("--input-json", stages['snapshot'])
-        self.assertEqual(plan['parallelCollectors'], ['aihot', 'discovery'])
+        self.assertEqual(plan['parallelCollectors'], ['discovery'])
         orchestration.run(self.root, END_DATE, ["discovery"], ten_am=True, execute=lambda _: 1)
         latest = self.root / "work/runs" / END_DATE / "ten-am/latest.json"
         self.assertTrue(latest.exists())

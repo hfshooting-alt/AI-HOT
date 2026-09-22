@@ -2,15 +2,13 @@
 "use client";
 
 import { useApp } from "../providers/AppDataProvider";
-import { BrandLogo, DatabaseIcon, FlameIcon, GearIcon, ListIcon, NewsIcon } from "../shared/icons";
+import { BrandLogo, DatabaseIcon, GearIcon, ListIcon, NewsIcon } from "../shared/icons";
 import type { ViewKey } from "../../_lib/domain/types";
 
 const NAV_ITEMS: { key: ViewKey; label: string; icon: (p: { className?: string }) => React.ReactNode }[] = [
   { key: "all", label: "全部文章", icon: ListIcon },
   { key: "selected", label: "Garena投资精选", icon: NewsIcon },
   { key: "company", label: "公司与产品全景", icon: DatabaseIcon },
-  { key: "hot", label: "热点榜", icon: FlameIcon },
-  { key: "daily", label: "AI 日报", icon: NewsIcon },
 ];
 
 export function SidebarContent() {
@@ -22,9 +20,9 @@ export function SidebarContent() {
         <BrandLogo />
         <div className="leading-tight">
           <div className="text-[17px] font-extrabold tracking-wide text-ink">
-            AI<span className="text-brand"> HOT</span>
+            新闻<span className="text-brand">Daily</span>
           </div>
-          <div className="text-[11px] text-mut-2">AI 情报仪表盘</div>
+          <div className="text-[11px] text-mut-2">多信源新闻与投资研究</div>
         </div>
       </div>
 

@@ -2,10 +2,13 @@ import json
 import os
 from pathlib import Path
 import unittest
+import tempfile
+from threading import Barrier, Lock
 from unittest.mock import patch
 
 from manus_source.client import ManusClient, CreatedTask, ManusAPIError
-from manus_source.config import load_sources
+from manus_source.config import load_sources, Settings
+from manus_source import runner
 from manus_source.runner import (run_discovery, render_discovery_prompt, source_seed_prompt,
                                  run_discovery_with_receipt, DiscoveryRunError)
 
@@ -46,13 +49,84 @@ class IncrementalTest(unittest.TestCase):
                     content = sent[0]['message']['content']
                     self.assertEqual([c['type'] for c in content], ['text'])
                     text = content[0]['text']
-                    for required in (source['account_name'], source['home_url'], WINDOW['start'], WINDOW['end'], 'AIHOT_ARTICLE'):
+                    for required in (source['account_name'], source['home_url'], WINDOW['start'], WINDOW['end'], 'NEWS_ARTICLE'):
                         self.assertIn(required, text)
                     self.assertNotIn('{{', text)
                     if source['platform'] != 'Official Jiqizhixin':
                         self.assertNotIn('机器之心', text)
                     props = sent[0]['structured_output_schema']['properties']['articles']['items']
                     self.assertEqual(set(props['required']), set(props['properties']))
+                    self.assertNotIn('content_text', props['properties'])
+                    self.assertIn('不下载、提取或回传正文', text)
+
+    def test_zero_limit_creates_twenty_metadata_tasks_with_no_400_reservation(self):
+        groups = load_sources(ROOT / 'config/manus_sources.json')
+        sources = [(group, source) for group, rows in groups.items() for source in rows]
+        payloads, tasks = [], {}
+        lock, first_three = Lock(), Barrier(3)
+        active = peak = 0
+        owner = self
+
+        def transport(method, path, payload):
+            nonlocal active, peak
+            if path == 'usage.availableCredits':
+                return {'ok': True, 'total_credits': 1, 'refresh_credits': 0}
+            owner.assertEqual((method, path), ('POST', 'task.create'))
+            text = payload['message']['content'][0]['text']
+            group, source = next((group, source) for group, source in sources if source['home_url'] in text)
+            with lock:
+                task_id = f'offline-{len(payloads)}'
+                payloads.append(payload)
+                tasks[task_id] = group, source
+                active += 1
+                peak = max(peak, active)
+            return {'ok': True, 'task_id': task_id, 'task_url': 'https://example.com/' + task_id}
+
+        class FakeClient(ManusClient):
+            def __init__(self, **kwargs):
+                owner.assertEqual(kwargs['create_retries'], 0)
+                kwargs.update(transport=transport, create_interval_seconds=0)
+                super().__init__(**kwargs)
+
+            def wait_for_structured_result(self, task_id, **kwargs):
+                nonlocal active
+                owner.assertIn('observed_credit_limit', kwargs)
+                owner.assertIsNone(kwargs['observed_credit_limit'])
+                if task_id in ('offline-0', 'offline-1', 'offline-2'):
+                    first_three.wait(timeout=5)
+                group, source = tasks[task_id]
+                with lock:
+                    active -= 1
+                return {'source_group': group, 'target_date': '2026-09-22', 'articles': [],
+                    'source_audits': [{'account_name': source['account_name'], 'source_status': 'complete',
+                        'article_count': 0, 'note': 'Offline empty fixture'}]}
+
+            def confirm_task_stopped(self, task_id, **kwargs):
+                return {'confirmed': True, 'remoteStatus': 'stopped'}
+
+        with tempfile.TemporaryDirectory() as directory:
+            settings = Settings(manus_api_key='offline', manus_agent_profile='manus-1.6',
+                poll_seconds=0, timeout_seconds=2, register_grace_seconds=0, content_batch_size=4,
+                content_concurrency=2, content_mode='script', crawl_timeout_seconds=20,
+                crawl_retries=0, crawl_concurrency=1, crawl_request_delay_seconds=0,
+                crawl_user_agent=None, crawl_jina_fallback=False, max_content_chars=20000, min_content_chars=100,
+                sources_path=ROOT / 'config/manus_sources.json',
+                discovery_prompt_path=ROOT / 'scripts/prompts/manus_discovery_incremental.md',
+                content_prompt_path=ROOT / 'scripts/prompts/manus_content.md', work_dir=Path(directory))
+            with patch.object(runner.Settings, 'from_environment', return_value=settings), \
+                 patch.object(runner, 'ManusClient', FakeClient), \
+                 patch('manus_source.diagnostics.capture_task_diagnostics', return_value={'status': 'stopped', 'credits': 1}):
+                self.assertEqual(runner.main(['--date', '2026-09-22', '--ten-am',
+                    '--incremental-discovery', '--credit-limit-per-source', '0']), 0)
+            report = json.loads((Path(directory) / 'ten-am/2026-09-22/cost-report.json').read_text(encoding='utf-8'))
+        self.assertEqual((len(payloads), peak, active), (20, 3, 0))
+        self.assertFalse(report['creditObservationEnabled'])
+        self.assertIsNone(report['maxObservedRunCredits'])
+        self.assertEqual(report['createdSourceCount'], 20)
+        for payload in payloads:
+            props = payload['structured_output_schema']['properties']['articles']['items']['properties']
+            self.assertNotIn('content_text', props)
+            self.assertIn('NEWS_ARTICLE', payload['message']['content'][0]['text'])
 
     def test_seed_prompt_is_bounded_and_not_full_trace(self):
         seed = {'status': 'available', 'hintOnly': True, 'coverageComplete': False,

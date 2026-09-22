@@ -11,7 +11,7 @@ export const SECTIONS = [
   "技巧与观点",
 ] as const;
 
-/** aihot API 英文分类 -> 中文六版块 */
+/** 历史英文分类 -> 中文六版块 */
 export const API_CATEGORY_MAP: Record<string, string> = {
   "ai-models": "模型发布/更新",
   "ai-products": "产品发布/更新",

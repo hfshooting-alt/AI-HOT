@@ -14,7 +14,7 @@
 | `docs/` | guides、architecture、operations、reference、maintenance、history |
 | `.github/` | 自动任务 |
 
-前端内部的组件继续按 layout/providers/views/news/company/funding/reports/shared 划分，工具按 data/domain/display 分层。各目录 README 提供入口与依赖关系。
+前端内部的组件继续按 layout/providers/views/news/company/funding/shared 划分，工具按 data/domain/display 分层。各目录 README 提供入口与依赖关系。
 
 自动运行的编排代码集中在 `scripts/automation/`，命令入口为 `scripts/run_pipeline.py`。运行状态、候选产物和发布前备份位于已忽略的 `work/runs/`；操作说明在 `docs/operations/AUTOMATED_PIPELINE.md`。
 
@@ -38,7 +38,7 @@ python scripts/funding_table.py --selftest
 
 Python CLI 文件路径保持不变，默认输入/输出跟随目录迁移：公开资源 `web/public/`，每日归档 `data/archive/`，分类缓存 `data/cache/tag_cache.json`，提示词/模板 `scripts/prompts/`、`scripts/templates/`，评测集 `tests/evaluation/`。显式填写旧路径的个人命令或环境变量需按迁移表调整。
 
-网站公开 URL 仍为 `/snapshot.json`、`/funding-table.json`、`/history/`、`/weekly/` 等。配置、提示词、模板、新闻数据、缓存和锁文件原样迁移，不重新生成内容。
+新闻Daily 必需公开数据为 `/snapshot.json`、`/company-overview.json`、`/funding-table.json`，并使用 `/favicon.svg`。存在时保留发布收据与流水线状态 JSON。旧 history/weekly HTML 与审阅页由 `retire_legacy_public.py` 在候选中清理；历史研究文档保留在 docs/history。GitHub Pages `/AI-HOT/` 基础路径不变。
 
 ## 历史追踪
 

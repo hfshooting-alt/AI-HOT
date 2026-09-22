@@ -1,440 +1,343 @@
 {
- "schemaVersion": 2,
- "collectionWindow": {
-  "start": "2026-09-16T09:30:00+08:00",
-  "end": "2026-09-17T09:30:00+08:00",
-  "timezone": "Asia/Shanghai"
- },
- "targetDate": "2026-09-17",
- "generatedAt": "2026-09-17T15:57:06+08:00",
- "collector": "manus",
- "ok": true,
- "degraded": true,
- "stats": {
-  "configuredAccounts": 20,
-  "completeAccounts": 1,
-  "failedAccounts": 19,
-  "discoveredArticles": 6,
-  "publishedArticles": 4,
-  "fallbackArticles": 0
- },
- "items": [
-  {
-   "id": "manus:4403227bf5a04996",
-   "title": "After Designing a Chip with AI in Three Days, a Tsinghua PhD Decides to Go \"Open-Book\"",
-   "url": "https://elsewhere.news/en/zhenfund/after-designing-a-chip-with-ai-in-three-days-a-tsinghua-phd-",
-   "source": "官网资讯：elsewhere别处发生",
-   "mpName": "elsewhere别处发生",
-   "sourceType": "media",
-   "sourceChannel": "publisher_site",
-   "sourcePlatform": "Official Elsewhere",
-   "collector": "manus",
-   "publishedAt": "2026-09-16T20:18:06+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "elsewhere别处发生",
-     "url": "https://elsewhere.news/en/zhenfund/after-designing-a-chip-with-ai-in-three-days-a-tsinghua-phd-",
-     "publishedAt": "2026-09-16T20:18:06+08:00"
-    }
-   ],
-   "summary": "清华大学博士、苏黎世联邦理工学院博士后张拓肯用三天时间借助AI设计出一款Attention计算芯片，并将从零到流片的完整过程写成文章发布。他发起“开卷芯片”计划，希望把芯片设计的基础知识、经验和能力整理成公共基础设施，让大模型训练、智能体调用和芯片设计者使用，使人们能从60分甚至80分起步。",
-   "classification": {
-    "category": "interview",
-    "tags": {
-     "industry": "ai_other",
-     "interviewee": "tech"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "c246370238e61ab1f6befc72333b1c13eb6acfe47a4582db0eda7a5dc471f365"
-  },
-  {
-   "id": "manus:de3178cd9de124f7",
-   "title": "DeepMaterial Closes A+ Funding Round: Driving Self-Evolving RSI with Real-World Data | BlueRun Ventures",
-   "url": "https://elsewhere.news/en/lanchi/arsi",
-   "source": "官网资讯：elsewhere别处发生",
-   "mpName": "elsewhere别处发生",
-   "sourceType": "media",
-   "sourceChannel": "publisher_site",
-   "sourcePlatform": "Official Elsewhere",
-   "collector": "manus",
-   "publishedAt": "2026-09-16T19:09:00+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "elsewhere别处发生",
-     "url": "https://elsewhere.news/en/lanchi/arsi",
-     "publishedAt": "2026-09-16T19:09:00+08:00"
-    }
-   ],
-   "summary": "DeepMaterial完成近亿元人民币A+轮融资，蓝驰创投曾参与其Pre-A轮投资。该公司将AI用于金属材料研发，已实现AI驱动材料研发的完整闭环，并发布近20种新型高性能材料，部分已进入量产。新资金将用于核心智能系统M-Loop的持续开发、自动化高通量实验平台M-Lab的复制与扩展、高质量材料数据集M-Data的积累、分布式自驱动实验室网络OPL的建设以及顶尖跨学科人才招聘。",
-   "classification": {
-    "category": "financing",
-    "tags": {
-     "industry": "ai_other",
-     "region": "cn"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "4f9f26e380431c35c51375233fb9ab9fc79c189a69e752467ca77fc78e5bef90"
-  },
-  {
-   "id": "manus:184d025ccb57df8f",
-   "title": "当 Claude Code 支持「多人联机」，大家一起写代码是什么体验？",
-   "url": "https://news.qq.com/rain/a/20260916A0C02F00",
-   "source": "腾讯新闻转载：十字路口Crossing",
-   "mpName": "十字路口Crossing",
-   "sourceType": "media",
-   "sourceChannel": "tencent_syndication",
-   "sourcePlatform": "Tencent News",
-   "collector": "manus",
-   "publishedAt": "2026-09-16T18:43:00+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "十字路口Crossing",
-     "url": "https://news.qq.com/rain/a/20260916A0C02F00",
-     "publishedAt": "2026-09-16T18:43:00+08:00"
-    },
-    {
-     "collector": "aihot",
-     "source": "elsewhere：文章（RSS）",
-     "url": "https://elsewhere.news/zh/crossing/claude-code",
-     "publishedAt": "2026-09-16T10:43:00.000Z"
-    }
-   ],
-   "summary": "AgentGit 是一个通过命令行工具 agit 管理用户与 AI 对话的项目，可将会话像 Git 代码一样版本管理，支持保存、回看、分享和远程控制。十字路口团队在开发 AI 视频分镜工具 Crossing Storyboard 时使用 AgentGit，实现了运营、设计、工程之间的上下文交接，并通过 agit search 检索历史会话避免重复错误。AgentGit 支持 Claude Code、Codex 等多个编码代理。",
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "86cec604f24604cde956c7f467b1c69cc4512af7554cd5ec4bc6ddebeb775619"
-  },
-  {
-   "id": "manus:3c4f386149bdd821",
-   "title": "自进化社媒Agent！浙大x北大：从多模态任务编排到反馈驱动",
-   "url": "https://news.qq.com/rain/a/20260916A07J9U00",
-   "source": "腾讯新闻转载：新智元",
-   "mpName": "新智元",
-   "sourceType": "media",
-   "sourceChannel": "tencent_syndication",
-   "sourcePlatform": "Tencent News",
-   "collector": "manus",
-   "publishedAt": "2026-09-16T12:33:00+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "新智元",
-     "url": "https://news.qq.com/rain/a/20260916A07J9U00",
-     "publishedAt": "2026-09-16T12:33:00+08:00"
-    }
-   ],
-   "summary": "浙江大学REAL Lab与北京大学OpenDCAI Lab联合开源了面向社交媒体内容创作的Agent系统Easel。该系统将账号画像、多模态技能、平台交互与反馈分析连接起来，覆盖发现、策划、制作、发布和复盘的连续工作流。Easel内置112个Skills，支持文字、图像、语音和视频工具的任务编排，并引入账号画像与长期记忆机制，使Agent能够从任务交互和发布后反馈中提炼可复用经验，经用户确认后写入长期上下文。",
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_social",
-     "issuer": "other"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "1b6c601faa9da5e89b826b9e92e7ae295ddd1895dc64f11ce46d850d58d7e9b3"
-  }
- ],
- "collectionStatus": {
+  "schemaVersion": 2,
   "collectionWindow": {
-   "start": "2026-09-16T09:30:00+08:00",
-   "end": "2026-09-17T09:30:00+08:00",
-   "timezone": "Asia/Shanghai"
+    "start": "2026-09-16T09:30:00+08:00",
+    "end": "2026-09-17T09:30:00+08:00",
+    "timezone": "Asia/Shanghai"
   },
+  "targetDate": "2026-09-17",
+  "generatedAt": "2026-09-17T15:57:06+08:00",
+  "collector": "manus",
+  "ok": true,
   "degraded": true,
-  "sources": [
-   {
-    "name": "AIHOT",
-    "collector": "aihot",
-    "status": "complete",
-    "discoveredArticles": 443,
-    "usableArticles": 443
-   },
-   {
-    "name": "游戏葡萄",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "白鲸出海",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "机器之心",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "ZFinance",
-    "collector": "manus",
-    "status": "partial",
-    "reasonCode": "partial",
-    "discoveredArticles": 1,
-    "usableArticles": 1
-   },
-   {
-    "name": "极客公园",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "东西文娱",
-    "collector": "manus",
-    "status": "complete",
-    "reasonCode": "complete",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "娱乐资本论",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "FounderPark",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "瑞恩资本",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "DeepTech深科技",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "ZPotential",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "华尔街见闻",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "量子位",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "智东西",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "十字路口Crossing",
-    "collector": "manus",
-    "status": "partial",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 1,
-    "usableArticles": 1
-   },
-   {
-    "name": "投资界",
-    "collector": "manus",
-    "status": "partial",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 1,
-    "usableArticles": 1
-   },
-   {
-    "name": "赛博禅心",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "elsewhere别处发生",
-    "collector": "manus",
-    "status": "partial",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 2,
-    "usableArticles": 2
-   },
-   {
-    "name": "新智元",
-    "collector": "manus",
-    "status": "partial",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 1,
-    "usableArticles": 1
-   },
-   {
-    "name": "硅星人",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   }
+  "stats": {
+    "configuredAccounts": 20,
+    "completeAccounts": 1,
+    "failedAccounts": 19,
+    "discoveredArticles": 6,
+    "publishedArticles": 4,
+    "fallbackArticles": 0
+  },
+  "items": [
+    {
+      "id": "manus:4403227bf5a04996",
+      "title": "After Designing a Chip with AI in Three Days, a Tsinghua PhD Decides to Go \"Open-Book\"",
+      "url": "https://elsewhere.news/en/zhenfund/after-designing-a-chip-with-ai-in-three-days-a-tsinghua-phd-",
+      "source": "官网资讯：elsewhere别处发生",
+      "mpName": "elsewhere别处发生",
+      "sourceType": "media",
+      "sourceChannel": "publisher_site",
+      "sourcePlatform": "Official Elsewhere",
+      "collector": "manus",
+      "publishedAt": "2026-09-16T20:18:06+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "elsewhere别处发生",
+          "url": "https://elsewhere.news/en/zhenfund/after-designing-a-chip-with-ai-in-three-days-a-tsinghua-phd-",
+          "publishedAt": "2026-09-16T20:18:06+08:00"
+        }
+      ],
+      "summary": "清华大学博士、苏黎世联邦理工学院博士后张拓肯用三天时间借助AI设计出一款Attention计算芯片，并将从零到流片的完整过程写成文章发布。他发起“开卷芯片”计划，希望把芯片设计的基础知识、经验和能力整理成公共基础设施，让大模型训练、智能体调用和芯片设计者使用，使人们能从60分甚至80分起步。",
+      "classification": {
+        "category": "interview",
+        "tags": {
+          "industry": "ai_other",
+          "interviewee": "tech"
+        },
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "c246370238e61ab1f6befc72333b1c13eb6acfe47a4582db0eda7a5dc471f365"
+    },
+    {
+      "id": "manus:de3178cd9de124f7",
+      "title": "DeepMaterial Closes A+ Funding Round: Driving Self-Evolving RSI with Real-World Data | BlueRun Ventures",
+      "url": "https://elsewhere.news/en/lanchi/arsi",
+      "source": "官网资讯：elsewhere别处发生",
+      "mpName": "elsewhere别处发生",
+      "sourceType": "media",
+      "sourceChannel": "publisher_site",
+      "sourcePlatform": "Official Elsewhere",
+      "collector": "manus",
+      "publishedAt": "2026-09-16T19:09:00+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "elsewhere别处发生",
+          "url": "https://elsewhere.news/en/lanchi/arsi",
+          "publishedAt": "2026-09-16T19:09:00+08:00"
+        }
+      ],
+      "summary": "DeepMaterial完成近亿元人民币A+轮融资，蓝驰创投曾参与其Pre-A轮投资。该公司将AI用于金属材料研发，已实现AI驱动材料研发的完整闭环，并发布近20种新型高性能材料，部分已进入量产。新资金将用于核心智能系统M-Loop的持续开发、自动化高通量实验平台M-Lab的复制与扩展、高质量材料数据集M-Data的积累、分布式自驱动实验室网络OPL的建设以及顶尖跨学科人才招聘。",
+      "classification": {
+        "category": "financing",
+        "tags": {
+          "industry": "ai_other",
+          "region": "cn"
+        },
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "4f9f26e380431c35c51375233fb9ab9fc79c189a69e752467ca77fc78e5bef90"
+    },
+    {
+      "id": "manus:184d025ccb57df8f",
+      "title": "当 Claude Code 支持「多人联机」，大家一起写代码是什么体验？",
+      "url": "https://news.qq.com/rain/a/20260916A0C02F00",
+      "source": "腾讯新闻转载：十字路口Crossing",
+      "mpName": "十字路口Crossing",
+      "sourceType": "media",
+      "sourceChannel": "tencent_syndication",
+      "sourcePlatform": "Tencent News",
+      "collector": "manus",
+      "publishedAt": "2026-09-16T18:43:00+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "十字路口Crossing",
+          "url": "https://news.qq.com/rain/a/20260916A0C02F00",
+          "publishedAt": "2026-09-16T18:43:00+08:00"
+        }
+      ],
+      "summary": "AgentGit 是一个通过命令行工具 agit 管理用户与 AI 对话的项目，可将会话像 Git 代码一样版本管理，支持保存、回看、分享和远程控制。十字路口团队在开发 AI 视频分镜工具 Crossing Storyboard 时使用 AgentGit，实现了运营、设计、工程之间的上下文交接，并通过 agit search 检索历史会话避免重复错误。AgentGit 支持 Claude Code、Codex 等多个编码代理。",
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "86cec604f24604cde956c7f467b1c69cc4512af7554cd5ec4bc6ddebeb775619"
+    },
+    {
+      "id": "manus:3c4f386149bdd821",
+      "title": "自进化社媒Agent！浙大x北大：从多模态任务编排到反馈驱动",
+      "url": "https://news.qq.com/rain/a/20260916A07J9U00",
+      "source": "腾讯新闻转载：新智元",
+      "mpName": "新智元",
+      "sourceType": "media",
+      "sourceChannel": "tencent_syndication",
+      "sourcePlatform": "Tencent News",
+      "collector": "manus",
+      "publishedAt": "2026-09-16T12:33:00+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "新智元",
+          "url": "https://news.qq.com/rain/a/20260916A07J9U00",
+          "publishedAt": "2026-09-16T12:33:00+08:00"
+        }
+      ],
+      "summary": "浙江大学REAL Lab与北京大学OpenDCAI Lab联合开源了面向社交媒体内容创作的Agent系统Easel。该系统将账号画像、多模态技能、平台交互与反馈分析连接起来，覆盖发现、策划、制作、发布和复盘的连续工作流。Easel内置112个Skills，支持文字、图像、语音和视频工具的任务编排，并引入账号画像与长期记忆机制，使Agent能够从任务交互和发布后反馈中提炼可复用经验，经用户确认后写入长期上下文。",
+      "classification": {
+        "category": "release",
+        "tags": {
+          "industry": "ai_social",
+          "issuer": "other"
+        },
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "1b6c601faa9da5e89b826b9e92e7ae295ddd1895dc64f11ce46d850d58d7e9b3"
+    }
   ],
-  "candidateArticles": 436,
-  "publishedArticles": 408,
-  "excludedArticles": 15,
-  "quarantinedArticles": 13,
-  "quarantined": [
-   {
-    "id": "aihot:cmu4khclm0u6xro4wnf091hrc",
-    "title": "CHOP 基于 NVIDIA MONAI 构建开源心脏建模平台，儿童心脏3D模型从四小时缩至秒级",
-    "url": "https://x.com/kimmonismus/status/2100320521246413135",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu4hy7bb0rnzro4w73gz6py4",
-    "title": "Grok Build 随使用持续改进",
-    "url": "https://x.com/milichab/status/2100299073949663338",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu4h3hbb0qooro4w3b01v187",
-    "title": "GPT-6 Astra 登顶最新版 BrokenArXiv 与 ArXivMath 基准",
-    "url": "https://x.com/thsottiaux/status/2100297380968997327",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu4h3hbb0qopro4w4b70q1cs",
-    "title": "ChatGPT 是什么",
-    "url": "https://x.com/thsottiaux/status/2100295443620007993",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu4djyuu0jk4ro4w0msccome",
-    "title": "Cohere 加拿大与欧洲合作",
-    "url": "https://x.com/cohere/status/2100271852274811137",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu4nc8sc06u3rodcqkzqxik0",
-    "title": "Sakana Chatをアップデート：最新モデルに刷新、メモリー機能を追加",
-    "url": "https://sakana.ai/chat-fugumax",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu445lri08q7ro4wj5svzj9v",
-    "title": "用 AI 三天设计一颗芯片后，一位清华博士决定「开卷」",
-    "url": "https://elsewhere.news/zh/zhenfund/after-designing-a-chip-with-ai-in-three-days-a-tsinghua-phd-",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu3sg5dq0di1roc1ao3wwn1f",
-    "title": "Imagegen 眼中的 Astra",
-    "url": "https://x.com/thsottiaux/status/2100122479947817059",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu3od0i106ctroc19l6nfocy",
-    "title": "Muse 现在能自己搭配衣服了",
-    "url": "https://x.com/alexandr_wang/status/2100094899987366024",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu46arkw0b17ro4w3mbzt4po",
-    "title": "AI Dating都是衡水中学",
-    "url": "https://elsewhere.news/zh/funeralai/ai-dating",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu4e6iye0k4hro4wddcdzzi8",
-    "title": "Runway 2026 秋季模型合集上线",
-    "url": "https://x.com/runwayml/status/2100275904366944329",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   },
-   {
-    "id": "aihot:cmu4c1cns0hr6ro4whd2oojjj",
-    "title": "Anthropic 将 Claude Cowork 与聊天合并为统一的 Claude",
-    "url": "https://x.com/claudeai/status/2100258490740539730",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   },
-   {
-    "id": "manus:5317ab1c9bb9cc1f",
-    "title": "ZPedia｜视频正在从文件变成界面，Vidu S2 把 AI 视频推向实时交互",
-    "url": "https://www.163.com/dy/article/L701E7650556EX0D.html?spss=dy_author",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   }
-  ]
- }
+  "collectionStatus": {
+    "collectionWindow": {
+      "start": "2026-09-16T09:30:00+08:00",
+      "end": "2026-09-17T09:30:00+08:00",
+      "timezone": "Asia/Shanghai"
+    },
+    "degraded": true,
+    "sources": [
+      {
+        "name": "游戏葡萄",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "白鲸出海",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "机器之心",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "ZFinance",
+        "collector": "manus",
+        "status": "partial",
+        "reasonCode": "partial",
+        "discoveredArticles": 1,
+        "usableArticles": 1
+      },
+      {
+        "name": "极客公园",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "东西文娱",
+        "collector": "manus",
+        "status": "complete",
+        "reasonCode": "complete",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "娱乐资本论",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "FounderPark",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "瑞恩资本",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "DeepTech深科技",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "ZPotential",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "华尔街见闻",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "量子位",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "智东西",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "十字路口Crossing",
+        "collector": "manus",
+        "status": "partial",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 1,
+        "usableArticles": 1
+      },
+      {
+        "name": "投资界",
+        "collector": "manus",
+        "status": "partial",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 1,
+        "usableArticles": 1
+      },
+      {
+        "name": "赛博禅心",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "elsewhere别处发生",
+        "collector": "manus",
+        "status": "partial",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 2,
+        "usableArticles": 2
+      },
+      {
+        "name": "新智元",
+        "collector": "manus",
+        "status": "partial",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 1,
+        "usableArticles": 1
+      },
+      {
+        "name": "硅星人",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      }
+    ],
+    "candidateArticles": 436,
+    "publishedArticles": 408,
+    "excludedArticles": 15,
+    "quarantinedArticles": 13,
+    "quarantined": [
+      {
+        "id": "manus:5317ab1c9bb9cc1f",
+        "title": "ZPedia｜视频正在从文件变成界面，Vidu S2 把 AI 视频推向实时交互",
+        "url": "https://www.163.com/dy/article/L701E7650556EX0D.html?spss=dy_author",
+        "stage": "enrichment",
+        "reason": "摘要或分类未通过校验"
+      }
+    ]
+  }
 }

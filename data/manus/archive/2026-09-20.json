@@ -1,491 +1,399 @@
 {
- "schemaVersion": 2,
- "collectionWindow": {
-  "start": "2026-09-19T09:30:00+08:00",
-  "end": "2026-09-20T09:30:00+08:00",
-  "timezone": "Asia/Shanghai"
- },
- "targetDate": "2026-09-20",
- "generatedAt": "2026-09-20T15:06:38+08:00",
- "collector": "manus",
- "ok": true,
- "degraded": true,
- "stats": {
-  "configuredAccounts": 20,
-  "completeAccounts": 2,
-  "failedAccounts": 18,
-  "discoveredArticles": 6,
-  "publishedArticles": 6,
-  "fallbackArticles": 0
- },
- "items": [
-  {
-   "id": "manus:5f886e0af76708db",
-   "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-   "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-   "source": "腾讯新闻转载：DeepTech深科技",
-   "mpName": "DeepTech深科技",
-   "sourceType": "media",
-   "sourceChannel": "tencent_syndication",
-   "sourcePlatform": "Tencent News",
-   "collector": "manus",
-   "publishedAt": "2026-09-19T22:05:00+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "DeepTech深科技",
-     "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-     "publishedAt": "2026-09-19T22:05:00+08:00"
-    }
-   ],
-   "summary": "Anthropic在旧金山湾区建立了一座生物湿实验室，开始将Claude接入真实生物实验。生命科学负责人Eric Kauderer-Abrams确认公司已自行完成部分实验，同时将另一部分交给外部合作伙伴，并正在探索让Claude直接指挥实验室机器人单元。",
-   "classification": {
-    "category": "bigtech",
-    "tags": {
-     "change_type": "other",
-     "company": "anthropic"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "0dc53ada1f68ab632f2e1d6c0ff67719fdfda932df9e66e263a70f7fe7d4eb09"
-  },
-  {
-   "id": "manus:94df7155197fc930",
-   "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
-   "url": "https://news.qq.com/rain/a/20260919A0AROK00",
-   "source": "腾讯新闻转载：DeepTech深科技",
-   "mpName": "DeepTech深科技",
-   "sourceType": "media",
-   "sourceChannel": "tencent_syndication",
-   "sourcePlatform": "Tencent News",
-   "collector": "manus",
-   "publishedAt": "2026-09-19T22:01:00+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "DeepTech深科技",
-     "url": "https://news.qq.com/rain/a/20260919A0AROK00",
-     "publishedAt": "2026-09-19T22:01:00+08:00"
-    }
-   ],
-   "summary": "9月17日，Insilico Medicine、Liquid AI、巴克衰老研究所、哈佛医学院和布莱根妇女医院等机构的研究人员在Cell发表论文，推出面向衰老研究的大模型体系，包括评测基准LongevityBench、专门针对衰老数据训练的Longevity-LLMs，以及连接衰老分析工具的科研智能体Longevity Claw。",
-   "classification": {
-    "category": "paper",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "a78610aba7922b0236f3345a5d8912a58e9c30a66e321516ba977493104a9d44"
-  },
-  {
-   "id": "manus:6f00ffd05c21da7d",
-   "title": "YC最新投资的236家公司：“几乎所有事情都不一样了”",
-   "url": "https://news.qq.com/rain/a/20260919A03VQ800",
-   "source": "腾讯新闻转载：十字路口Crossing",
-   "mpName": "十字路口Crossing",
-   "sourceType": "media",
-   "sourceChannel": "tencent_syndication",
-   "sourcePlatform": "Tencent News",
-   "collector": "manus",
-   "publishedAt": "2026-09-19T16:58:00+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "十字路口Crossing",
-     "url": "https://news.qq.com/rain/a/20260919A03VQ800",
-     "publishedAt": "2026-09-19T16:58:00+08:00"
-    }
-   ],
-   "summary": "Y Combinator 2026夏季批次共投资236家公司、470位创始人，其中91%与AI相关。与春季批次相比，创业重心从应用层向算力、芯片、训练环境和实体世界下沉，模型以下公司占比从8%升至20%，应用层从55%降至39%。新出现的创业集群包括21家算力建设公司、11家推理成本公司、9家面向前沿实验室的训练数据和训练环境公司，以及7家强化学习环境公司。",
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "458b20b7e513768cbf0e27b864a75bacd61e027cca59fb15bdba895c4c66b22f"
-  },
-  {
-   "id": "manus:1e0729fbc348ed39",
-   "title": "Z Waves｜专访 Panda AI 李昱琦：用 Harness 重构投研，做交易领域的 Claude Code",
-   "url": "https://www.163.com/dy/article/L76J57JI0556EX0D.html?spss=dy_author",
-   "source": "网易号转载：ZFinance",
-   "mpName": "ZFinance",
-   "sourceType": "media",
-   "sourceChannel": "netease_syndication",
-   "sourcePlatform": "NetEase",
-   "collector": "manus",
-   "publishedAt": "2026-09-19T12:28:39+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "ZFinance",
-     "url": "https://www.163.com/dy/article/L76J57JI0556EX0D.html?spss=dy_author",
-     "publishedAt": "2026-09-19T12:28:39+08:00"
-    }
-   ],
-   "summary": "Panda AI创始人李昱琦接受专访，介绍其公司正在开发AI交易基础设施，将AI交易能力划分为L0至L4等级，并认为行业整体处于L1到L2阶段，而Panda AI内部研究已进入L3。公司已上线Qube和EVO两款产品，OS产品处于内测阶段，其中EVO定位为交易领域的Claude Code，面向专业用户提供因子挖掘、策略开发等功能。李昱琦还介绍了与清华大学合作发表的AlphaSchema论文，该论文将因子搜索显式化为结构化语义空间。",
-   "classification": {
-    "category": "interview",
-    "tags": {
-     "industry": "ai_model",
-     "interviewee": "founder_ceo"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "0851944eca81f8f866ae2a3bc90e1f7562a80642fef79008f7d06624768f72d6"
-  },
-  {
-   "id": "manus:d7f8c6a3a46e7e95",
-   "title": "Anthropic之恶",
-   "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-   "source": "网易号转载：硅星人",
-   "mpName": "硅星人",
-   "sourceType": "media",
-   "sourceChannel": "netease_syndication",
-   "sourcePlatform": "NetEase",
-   "collector": "manus",
-   "publishedAt": "2026-09-19T09:35:54+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "硅星人",
-     "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-     "publishedAt": "2026-09-19T09:35:54+08:00"
-    }
-   ],
-   "summary": "Anthropic于9月10日发布威胁情报报告，点名7家中国AI公司，指控其对Claude实施工业规模蒸馏，这是该公司今年第三次公开此类指控。文章指出，蒸馏是2015年由Google Brain团队确立的中性模型训练方法，法律上难以定性。Anthropic今年6月秘密递交IPO申请，7月成为硅谷唯一拒绝签署开源公开信的头部公司，创始人阿莫迪9月12日呼吁行业放慢最强模型迭代速度。",
-   "classification": {
-    "category": "bigtech",
-    "tags": {
-     "change_type": "other",
-     "company": "anthropic"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "86f2cb919051cd18ae0375532e8d38cb50cfb4792203c76bbc44b140137e081e"
-  },
-  {
-   "id": "manus:9f4fd4c8b4b7bfa8",
-   "title": "最后两周！AI大咖、明星Founder与VC齐聚旧金山，免费票限量开放",
-   "url": "https://www.163.com/dy/article/L7698BPQ0511N33R.html?spss=dy_author",
-   "source": "网易号转载：硅星人",
-   "mpName": "硅星人",
-   "sourceType": "media",
-   "sourceChannel": "netease_syndication",
-   "sourcePlatform": "NetEase",
-   "collector": "manus",
-   "publishedAt": "2026-09-19T09:35:36+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "硅星人",
-     "url": "https://www.163.com/dy/article/L7698BPQ0511N33R.html?spss=dy_author",
-     "publishedAt": "2026-09-19T09:35:36+08:00"
-    }
-   ],
-   "summary": "Assembling 2026大会将于10月2日在旧金山Terra Gallery举行，预计有近50位嘉宾和500多名参会者参与，设置三个舞台，内容包括深度对话、Founder Demo、Workshop和产品展示。",
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "cbdb3f1c59510bb07e7834d8753acb5d3595f53932b8f0d6f6605050c47cf464"
-  }
- ],
- "collectionStatus": {
+  "schemaVersion": 2,
   "collectionWindow": {
-   "start": "2026-09-19T09:30:00+08:00",
-   "end": "2026-09-20T09:30:00+08:00",
-   "timezone": "Asia/Shanghai"
+    "start": "2026-09-19T09:30:00+08:00",
+    "end": "2026-09-20T09:30:00+08:00",
+    "timezone": "Asia/Shanghai"
   },
+  "targetDate": "2026-09-20",
+  "generatedAt": "2026-09-20T15:06:38+08:00",
+  "collector": "manus",
+  "ok": true,
   "degraded": true,
-  "sources": [
-   {
-    "name": "AIHOT",
-    "collector": "aihot",
-    "status": "complete",
-    "discoveredArticles": 276,
-    "usableArticles": 276
-   },
-   {
-    "name": "游戏葡萄",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "白鲸出海",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "机器之心",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "ZFinance",
-    "collector": "manus",
-    "status": "partial",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 1,
-    "usableArticles": 1
-   },
-   {
-    "name": "极客公园",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "东西文娱",
-    "collector": "manus",
-    "status": "complete",
-    "reasonCode": "complete",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "娱乐资本论",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "FounderPark",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "瑞恩资本",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "DeepTech深科技",
-    "collector": "manus",
-    "status": "partial",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 2,
-    "usableArticles": 2
-   },
-   {
-    "name": "ZPotential",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "华尔街见闻",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "量子位",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "智东西",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "十字路口Crossing",
-    "collector": "manus",
-    "status": "partial",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 1,
-    "usableArticles": 1
-   },
-   {
-    "name": "投资界",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "赛博禅心",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "elsewhere别处发生",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "新智元",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "硅星人",
-    "collector": "manus",
-    "status": "complete",
-    "reasonCode": "complete",
-    "discoveredArticles": 2,
-    "usableArticles": 2
-   }
+  "stats": {
+    "configuredAccounts": 20,
+    "completeAccounts": 2,
+    "failedAccounts": 18,
+    "discoveredArticles": 6,
+    "publishedArticles": 6,
+    "fallbackArticles": 0
+  },
+  "items": [
+    {
+      "id": "manus:5f886e0af76708db",
+      "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+      "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+      "source": "腾讯新闻转载：DeepTech深科技",
+      "mpName": "DeepTech深科技",
+      "sourceType": "media",
+      "sourceChannel": "tencent_syndication",
+      "sourcePlatform": "Tencent News",
+      "collector": "manus",
+      "publishedAt": "2026-09-19T22:05:00+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "DeepTech深科技",
+          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+          "publishedAt": "2026-09-19T22:05:00+08:00"
+        }
+      ],
+      "summary": "Anthropic在旧金山湾区建立了一座生物湿实验室，开始将Claude接入真实生物实验。生命科学负责人Eric Kauderer-Abrams确认公司已自行完成部分实验，同时将另一部分交给外部合作伙伴，并正在探索让Claude直接指挥实验室机器人单元。",
+      "classification": {
+        "category": "bigtech",
+        "tags": {
+          "change_type": "other",
+          "company": "anthropic"
+        },
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "0dc53ada1f68ab632f2e1d6c0ff67719fdfda932df9e66e263a70f7fe7d4eb09"
+    },
+    {
+      "id": "manus:94df7155197fc930",
+      "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
+      "url": "https://news.qq.com/rain/a/20260919A0AROK00",
+      "source": "腾讯新闻转载：DeepTech深科技",
+      "mpName": "DeepTech深科技",
+      "sourceType": "media",
+      "sourceChannel": "tencent_syndication",
+      "sourcePlatform": "Tencent News",
+      "collector": "manus",
+      "publishedAt": "2026-09-19T22:01:00+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "DeepTech深科技",
+          "url": "https://news.qq.com/rain/a/20260919A0AROK00",
+          "publishedAt": "2026-09-19T22:01:00+08:00"
+        }
+      ],
+      "summary": "9月17日，Insilico Medicine、Liquid AI、巴克衰老研究所、哈佛医学院和布莱根妇女医院等机构的研究人员在Cell发表论文，推出面向衰老研究的大模型体系，包括评测基准LongevityBench、专门针对衰老数据训练的Longevity-LLMs，以及连接衰老分析工具的科研智能体Longevity Claw。",
+      "classification": {
+        "category": "paper",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "a78610aba7922b0236f3345a5d8912a58e9c30a66e321516ba977493104a9d44"
+    },
+    {
+      "id": "manus:6f00ffd05c21da7d",
+      "title": "YC最新投资的236家公司：“几乎所有事情都不一样了”",
+      "url": "https://news.qq.com/rain/a/20260919A03VQ800",
+      "source": "腾讯新闻转载：十字路口Crossing",
+      "mpName": "十字路口Crossing",
+      "sourceType": "media",
+      "sourceChannel": "tencent_syndication",
+      "sourcePlatform": "Tencent News",
+      "collector": "manus",
+      "publishedAt": "2026-09-19T16:58:00+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "十字路口Crossing",
+          "url": "https://news.qq.com/rain/a/20260919A03VQ800",
+          "publishedAt": "2026-09-19T16:58:00+08:00"
+        }
+      ],
+      "summary": "Y Combinator 2026夏季批次共投资236家公司、470位创始人，其中91%与AI相关。与春季批次相比，创业重心从应用层向算力、芯片、训练环境和实体世界下沉，模型以下公司占比从8%升至20%，应用层从55%降至39%。新出现的创业集群包括21家算力建设公司、11家推理成本公司、9家面向前沿实验室的训练数据和训练环境公司，以及7家强化学习环境公司。",
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "458b20b7e513768cbf0e27b864a75bacd61e027cca59fb15bdba895c4c66b22f"
+    },
+    {
+      "id": "manus:1e0729fbc348ed39",
+      "title": "Z Waves｜专访 Panda AI 李昱琦：用 Harness 重构投研，做交易领域的 Claude Code",
+      "url": "https://www.163.com/dy/article/L76J57JI0556EX0D.html?spss=dy_author",
+      "source": "网易号转载：ZFinance",
+      "mpName": "ZFinance",
+      "sourceType": "media",
+      "sourceChannel": "netease_syndication",
+      "sourcePlatform": "NetEase",
+      "collector": "manus",
+      "publishedAt": "2026-09-19T12:28:39+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "ZFinance",
+          "url": "https://www.163.com/dy/article/L76J57JI0556EX0D.html?spss=dy_author",
+          "publishedAt": "2026-09-19T12:28:39+08:00"
+        }
+      ],
+      "summary": "Panda AI创始人李昱琦接受专访，介绍其公司正在开发AI交易基础设施，将AI交易能力划分为L0至L4等级，并认为行业整体处于L1到L2阶段，而Panda AI内部研究已进入L3。公司已上线Qube和EVO两款产品，OS产品处于内测阶段，其中EVO定位为交易领域的Claude Code，面向专业用户提供因子挖掘、策略开发等功能。李昱琦还介绍了与清华大学合作发表的AlphaSchema论文，该论文将因子搜索显式化为结构化语义空间。",
+      "classification": {
+        "category": "interview",
+        "tags": {
+          "industry": "ai_model",
+          "interviewee": "founder_ceo"
+        },
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "0851944eca81f8f866ae2a3bc90e1f7562a80642fef79008f7d06624768f72d6"
+    },
+    {
+      "id": "manus:d7f8c6a3a46e7e95",
+      "title": "Anthropic之恶",
+      "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+      "source": "网易号转载：硅星人",
+      "mpName": "硅星人",
+      "sourceType": "media",
+      "sourceChannel": "netease_syndication",
+      "sourcePlatform": "NetEase",
+      "collector": "manus",
+      "publishedAt": "2026-09-19T09:35:54+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "硅星人",
+          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+          "publishedAt": "2026-09-19T09:35:54+08:00"
+        }
+      ],
+      "summary": "Anthropic于9月10日发布威胁情报报告，点名7家中国AI公司，指控其对Claude实施工业规模蒸馏，这是该公司今年第三次公开此类指控。文章指出，蒸馏是2015年由Google Brain团队确立的中性模型训练方法，法律上难以定性。Anthropic今年6月秘密递交IPO申请，7月成为硅谷唯一拒绝签署开源公开信的头部公司，创始人阿莫迪9月12日呼吁行业放慢最强模型迭代速度。",
+      "classification": {
+        "category": "bigtech",
+        "tags": {
+          "change_type": "other",
+          "company": "anthropic"
+        },
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "86f2cb919051cd18ae0375532e8d38cb50cfb4792203c76bbc44b140137e081e"
+    },
+    {
+      "id": "manus:9f4fd4c8b4b7bfa8",
+      "title": "最后两周！AI大咖、明星Founder与VC齐聚旧金山，免费票限量开放",
+      "url": "https://www.163.com/dy/article/L7698BPQ0511N33R.html?spss=dy_author",
+      "source": "网易号转载：硅星人",
+      "mpName": "硅星人",
+      "sourceType": "media",
+      "sourceChannel": "netease_syndication",
+      "sourcePlatform": "NetEase",
+      "collector": "manus",
+      "publishedAt": "2026-09-19T09:35:36+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "硅星人",
+          "url": "https://www.163.com/dy/article/L7698BPQ0511N33R.html?spss=dy_author",
+          "publishedAt": "2026-09-19T09:35:36+08:00"
+        }
+      ],
+      "summary": "Assembling 2026大会将于10月2日在旧金山Terra Gallery举行，预计有近50位嘉宾和500多名参会者参与，设置三个舞台，内容包括深度对话、Founder Demo、Workshop和产品展示。",
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "cbdb3f1c59510bb07e7834d8753acb5d3595f53932b8f0d6f6605050c47cf464"
+    }
   ],
-  "candidateArticles": 276,
-  "publishedArticles": 238,
-  "excludedArticles": 26,
-  "quarantinedArticles": 12,
-  "quarantined": [
-   {
-    "id": "aihot:cmu8rm7vj04agro5kzertt2y0",
-    "title": "Alexandr Wang 盛赞 muse 体验",
-    "url": "https://x.com/alexandr_wang/status/2101384682822856771",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu8m9cfb1qc8rogrd4itp7t4",
-    "title": "Muse connectors 蕴藏巨大机会",
-    "url": "https://x.com/alexandr_wang/status/2101348069497614664",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu87x2wi184lrogrvdam916n",
-    "title": "未识别主体的推文翻译",
-    "url": "https://x.com/mark_k/status/2101246576408621273",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu862172168xrogrm567itel",
-    "title": "ZHO 谈工作流与 AI 调用",
-    "url": "https://x.com/ZHO_ZHO_ZHO/status/2101234215161590016",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu7ttko80qj0rogr59tgipl1",
-    "title": "新模型能力再进化",
-    "url": "https://x.com/ericzakariasson/status/2101144294304457030",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu7s92qq0oswrogr6elj9x3q",
-    "title": "Muse 可全自动管理个人预算记账",
-    "url": "https://x.com/alexandr_wang/status/2101134054041255978",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu81mxgs11mxrogrp62y7diu",
-    "title": "YC 最新投资的 236 家公司：\"几乎所有事情都不一样了\"",
-    "url": "https://elsewhere.news/zh/crossing/yc-236",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu8oek1304rmro3kgox225vd",
-    "title": "Muse 获赞：大家都说好",
-    "url": "https://x.com/alexandr_wang/status/2101028689475764369",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu7v1vdb0rmrrogre83l4fyf",
-    "title": "Pause AI 组织再出横幅引嘲讽",
-    "url": "https://x.com/mark_k/status/2100505264638071146",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu7v1vdc0rmwrogrzkc236ah",
-    "title": "Grok 4.7 今日正式推送",
-    "url": "https://x.com/mark_k/status/2100478308269863043",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu87tser1817rogr6kjnixu1",
-    "title": "每日AI简报：Grok语音转录2.0与Qwen3.8-Omni-Flash发布",
-    "url": "https://x.com/testingcatalog/status/2101246004255158279",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   },
-   {
-    "id": "aihot:cmu7ue8w40qzjrogrpggs5w59",
-    "title": "Perplexity Computer 支持连接应用",
-    "url": "https://x.com/AravSrinivas/status/2101149706235834829",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   }
-  ]
- }
+  "collectionStatus": {
+    "collectionWindow": {
+      "start": "2026-09-19T09:30:00+08:00",
+      "end": "2026-09-20T09:30:00+08:00",
+      "timezone": "Asia/Shanghai"
+    },
+    "degraded": true,
+    "sources": [
+      {
+        "name": "游戏葡萄",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "白鲸出海",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "机器之心",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "ZFinance",
+        "collector": "manus",
+        "status": "partial",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 1,
+        "usableArticles": 1
+      },
+      {
+        "name": "极客公园",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "东西文娱",
+        "collector": "manus",
+        "status": "complete",
+        "reasonCode": "complete",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "娱乐资本论",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "FounderPark",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "瑞恩资本",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "DeepTech深科技",
+        "collector": "manus",
+        "status": "partial",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 2,
+        "usableArticles": 2
+      },
+      {
+        "name": "ZPotential",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "华尔街见闻",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "量子位",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "智东西",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "十字路口Crossing",
+        "collector": "manus",
+        "status": "partial",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 1,
+        "usableArticles": 1
+      },
+      {
+        "name": "投资界",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "赛博禅心",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "elsewhere别处发生",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "新智元",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "硅星人",
+        "collector": "manus",
+        "status": "complete",
+        "reasonCode": "complete",
+        "discoveredArticles": 2,
+        "usableArticles": 2
+      }
+    ],
+    "candidateArticles": 276,
+    "publishedArticles": 238,
+    "excludedArticles": 26,
+    "quarantinedArticles": 12,
+    "quarantined": []
+  }
 }

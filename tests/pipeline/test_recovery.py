@@ -241,6 +241,51 @@ class RecoveryTest(unittest.TestCase):
         self.assertEqual((budget / 'ledger.json').read_bytes(), original_journal)
         self.assertEqual(json.loads((self.root / 'work/company-research-budget/lease.json').read_text())['owner'], 'live-run:1')
 
+    def rolling_fixture(self, cached=True):
+        self.state['date'] = '2026-09-18'
+        self.state['collectionWindow'] = {'start': '2026-09-17T18:27:36+08:00',
+            'end': '2026-09-18T18:27:36+08:00', 'timezone': 'Asia/Shanghai'}
+        save(self.run / 'state.json', self.state)
+        return self.cached_fixture(cached=cached)
+
+    def test_rebuild_restores_recorded_rolling_window_and_preserves_original_state(self):
+        from manus_source.window import ten_am_window
+        source = self.rolling_fixture()
+        original = (source / 'state.json').read_bytes()
+        def validate(*args):
+            self.assertEqual(ten_am_window('2026-09-18'), self.state['collectionWindow'])
+            return {'news': 1}
+        with patch.dict(os.environ, {}, clear=False):
+            os.environ.pop('NEWS_COLLECTION_END', None)
+            with patch.object(candidate, 'validate', side_effect=validate), \
+                 patch.object(recovery, 'deny_model', side_effect=AssertionError('no requests')) as model:
+                report = recovery.rebuild(self.root, source)
+            self.assertNotIn('NEWS_COLLECTION_END', os.environ)
+        self.assertEqual(report['status'], 'review_ready')
+        self.assertEqual((source / 'state.json').read_bytes(), original)
+        model.assert_not_called()
+
+    def test_rebuild_window_conflict_blocks_before_candidate_copy_or_model(self):
+        source = self.rolling_fixture()
+        end = '2026-09-18T18:27:37+08:00'
+        with patch.dict(os.environ, {'NEWS_COLLECTION_END': end}), \
+             patch('build_company_overview.build') as build:
+            with self.assertRaisesRegex(ValueError, 'NEWS_COLLECTION_END'):
+                recovery.rebuild(self.root, source)
+            self.assertEqual(os.environ['NEWS_COLLECTION_END'], end)
+        build.assert_not_called()
+        self.assertFalse((self.root / 'work/recovery-candidates').exists())
+
+    def test_failed_rebuild_restores_equivalent_original_environment_value(self):
+        source = self.rolling_fixture(cached=False)
+        end = '2026-09-18T10:27:36Z'
+        with patch.dict(os.environ, {'NEWS_COLLECTION_END': end}), \
+             patch('build_company_overview.build') as build:
+            with self.assertRaisesRegex(ValueError, '未缓存'):
+                recovery.rebuild(self.root, source)
+            self.assertEqual(os.environ['NEWS_COLLECTION_END'], end)
+        build.assert_not_called()
+
     def test_missing_cache_blocks_before_build_or_network(self):
         source = self.cached_fixture(cached=False)
         with patch('build_company_overview.build') as build, patch.object(recovery, 'deny_model') as model:

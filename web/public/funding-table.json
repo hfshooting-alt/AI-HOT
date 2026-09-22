@@ -1,157 +1,77 @@
 {
  "schemaVersion": 1,
- "generatedAt": "2026-09-22T11:25:20+08:00",
- "coverageNote": "覆盖快照日报+周报池与最新 Manus feed 中的融资类新闻（约最近一周）",
- "searchNote": "未配置 TAVILY_API_KEY，缺失字段未补全",
+ "generatedAt": "2026-09-22T18:34:16+08:00",
+ "coverageNote": "覆盖 Garena 投资精选中的融资类新闻；已有融资记录按原有合并规则保留",
+ "searchNote": "已跳过搜索补全（--skip-search）",
  "stats": {
-  "articlesProcessed": 5,
-  "modelCalls": 5,
-  "modelSuccesses": 5,
+  "articlesProcessed": 2,
+  "modelCalls": 0,
+  "modelSuccesses": 0,
   "modelFailures": 0,
-  "cacheHits": 0,
+  "cacheHits": 2,
   "extractionFailed": 0,
   "articlesWithoutFundingInfo": 0,
-  "companiesTotal": 6,
+  "companiesTotal": 3,
   "companiesSearched": 0
  },
  "companies": [
   {
-   "id": "fund:f196eaac3b40449b",
-   "company_name": "Tabby",
-   "product_name": "Tabby",
-   "founded": null,
-   "country": null,
-   "industry": "AI 记账/财务工具",
-   "team": "前会计师 Ahad Ali 创立，团队规模 7 人",
-   "business": "通过 Plaid 导入账户数据，利用 AI 生成实时财务仪表盘，并准备推出自然语言界面 Tabby Talk",
+   "id": "fund:4ac9cdc12f71d576",
+   "company_name": "Bold Games",
+   "product_name": "Market Match",
+   "founded": "今年成立",
+   "country": "土耳其",
+   "industry": "手游",
+   "team": "CEO Ulaş Mergen 此前先后在 Dream Games、Rollic 和 Bigger Games 工作；目前 Bold 只有 9 名成员，理想团队规模 12 至 14 人；成员此前来自 Dream Games、Rollic、Bigger Games 等公司",
+   "business": "专注 Casual Puzzle 手游研发，首款产品为《Market Match》",
    "investors": null,
    "total_funding": null,
    "valuation": null,
    "dims": {
-    "所属行业": "AI创作工具/生产力",
+    "所属行业": "AI游戏",
     "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmubhfnfj107groln2m3ve9lz",
-     "title": "前会计师用 AI 打造 Tabby，要让会计师\"消失\"",
-     "url": "https://techcrunch.com/2026/09/21/with-tabby-a-former-accountant-is-using-ai-to-make-accountants-obsolete",
-     "publishedAt": "2026-09-21T16:38:51.000Z",
-     "mpName": "TechCrunch：AI（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:5e6b3e7c4ac796fe",
-   "company_name": "SoftBank",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "大厂/已上市",
     "国家/地区": "其他"
    },
    "filledBySearch": [],
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "aihot:cmubd6etf0vjmrolnrljvp9bl",
-     "title": "SoftBank 拟发行逾 110 亿美元垃圾债券为 OpenAI 股权付款融资",
-     "url": "https://the-decoder.com/softbank-to-borrow-over-11-billion-in-risky-bonds-for-openai-stake",
-     "publishedAt": "2026-09-21T14:35:11.000Z",
-     "mpName": "The Decoder：AI News（RSS）"
+     "id": "manus:66e7f2a7dc7b6784",
+     "title": "1周做原型、7周验证100关，土耳其团队的验证效率有点狠",
+     "url": "https://www.baijing.cn/article/56797",
+     "publishedAt": "2026-09-22T16:02:00+08:00",
+     "mpName": "白鲸出海"
+    }
+   ],
+   "fieldQuarantines": [
+    {
+     "field": "total_funding",
+     "originalValue": "600 万美元种子轮融资",
+     "reasonCode": "single_round_not_total",
+     "reason": "单轮融资金额不能作为累计融资",
+     "articleId": "manus:66e7f2a7dc7b6784",
+     "url": "https://www.baijing.cn/article/56797",
+     "title": "1周做原型、7周验证100关，土耳其团队的验证效率有点狠",
+     "publishedAt": "2026-09-22T16:02:00+08:00",
+     "sourceName": "白鲸出海",
+     "origin": "article"
     }
    ]
   },
   {
-   "id": "fund:2c6ee24b09816a6f",
-   "company_name": "OpenAI",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": "SoftBank",
+   "id": "fund:6890036ae60adfc6",
+   "company_name": "水母智能",
+   "product_name": "触手AI",
+   "founded": "2020年11月",
+   "country": "中国",
+   "industry": "AI创作工具/生产力",
+   "team": "创始人苗奘曾创办洛可可伦敦公司并担任洛可可全国UED事业群总经理，洛可可创始人贾伟出任董事长",
+   "business": "面向中小商家的AI智能设计Agent交付平台，以及覆盖漫画、动态漫、竖屏漫短剧全流程的AIGC创作平台触手AI",
+   "investors": "源码资本、红杉种子基金、百度、高瓴创投、微光创投、元璟资本、华策影视全资子公司西溪投资",
    "total_funding": null,
    "valuation": null,
    "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "其他",
-    "国家/地区": "日韩"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmubd6etf0vjmrolnrljvp9bl",
-     "title": "SoftBank 拟发行逾 110 亿美元垃圾债券为 OpenAI 股权付款融资",
-     "url": "https://the-decoder.com/softbank-to-borrow-over-11-billion-in-risky-bonds-for-openai-stake",
-     "publishedAt": "2026-09-21T14:35:11.000Z",
-     "mpName": "The Decoder：AI News（RSS）"
-    },
-    {
-     "id": "aihot:cmuazcpyr0ctirolnhwtwd1s8",
-     "title": "消息称软银拟发行超 110 亿美元垃圾债，加码对 OpenAI 投资",
-     "url": "https://www.ithome.com/1/005/255.htm",
-     "publishedAt": "2026-09-21T07:35:07.000Z",
-     "mpName": "IT之家（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:1cc31ddab4cfb12a",
-   "company_name": "Nscale",
-   "product_name": null,
-   "founded": null,
-   "country": "英国",
-   "industry": "AI模型/基础设施",
-   "team": null,
-   "business": "AI数据中心",
-   "investors": null,
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "其他",
-    "国家/地区": "欧洲"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmuba2ln00s8frolncv1r5zpl",
-     "title": "Nscale 冲刺 IPO，1030 亿美元订单 85% 依赖微软和 Anthropic",
-     "url": "https://www.ithome.com/1/005/437.htm",
-     "publishedAt": "2026-09-21T13:02:04.000Z",
-     "mpName": "IT之家（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:2a729fb48928e052",
-   "company_name": "宇树科技",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": "顺为",
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "具身智能/机器人",
+    "所属行业": "AI创作工具/生产力",
     "公司类型": "初创公司",
     "国家/地区": "中国"
    },
@@ -159,40 +79,40 @@
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "aihot:cmuba2ln00s8krolncwan08hk",
-     "title": "雷军澄清\"打新宇树科技赚100多亿\"：是顺为投资的，且为早期天使投资",
-     "url": "https://www.ithome.com/1/005/430.htm",
-     "publishedAt": "2026-09-21T12:28:36.000Z",
-     "mpName": "IT之家（RSS）"
+     "id": "manus:5caecfd562d1df63",
+     "title": "华策入股水母智能：从自建AI产能到买Agent门票？",
+     "url": "https://view.inews.qq.com/a/20260922A04QRV00",
+     "publishedAt": "2026-09-22T11:38:00+08:00",
+     "mpName": "娱乐资本论"
     }
    ]
   },
   {
-   "id": "fund:4719f65efcde0242",
-   "company_name": "软银",
+   "id": "fund:61158955583277b9",
+   "company_name": "华策影视",
    "product_name": null,
    "founded": null,
-   "country": null,
-   "industry": null,
+   "country": "中国",
+   "industry": "AI互动内容/娱乐",
    "team": null,
-   "business": null,
+   "business": "国内剧集头部公司，拥有IP库、发行渠道和出海网络，布局AI内容生产",
    "investors": null,
    "total_funding": null,
    "valuation": null,
    "dims": {
-    "所属行业": "其他",
+    "所属行业": "AI互动内容/娱乐",
     "公司类型": "大厂/已上市",
-    "国家/地区": "日韩"
+    "国家/地区": "中国"
    },
    "filledBySearch": [],
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "aihot:cmuazcpyr0ctirolnhwtwd1s8",
-     "title": "消息称软银拟发行超 110 亿美元垃圾债，加码对 OpenAI 投资",
-     "url": "https://www.ithome.com/1/005/255.htm",
-     "publishedAt": "2026-09-21T07:35:07.000Z",
-     "mpName": "IT之家（RSS）"
+     "id": "manus:5caecfd562d1df63",
+     "title": "华策入股水母智能：从自建AI产能到买Agent门票？",
+     "url": "https://view.inews.qq.com/a/20260922A04QRV00",
+     "publishedAt": "2026-09-22T11:38:00+08:00",
+     "mpName": "娱乐资本论"
     }
    ]
   }

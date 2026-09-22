@@ -88641,5 +88641,1903 @@
    }
   ],
   "modelAttempted": true
+ },
+ "bbb47cf8dbd275e59c16cc406f70c08d25d9ceff9c4d99455196c17a8eeb01f5": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "阿里云",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "真武 V900",
+     "真武M890"
+    ],
+    "products": [
+     {
+      "name": "真武 V900",
+      "relationship": "owned",
+      "quote": "大会上亮相的“真武 V900”，宣称性能相比真武M890提升至 3 倍并支持 50 万卡超大集群，预计于 2027 年一季度量产。"
+     },
+     {
+      "name": "真武M890",
+      "relationship": "owned",
+      "quote": "大会上亮相的“真武 V900”，宣称性能相比真武M890提升至 3 倍并支持 50 万卡超大集群，预计于 2027 年一季度量产。"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "云计算与AI数据中心服务，运营全球数据中心，目标到2032年规模突破20GW；当前外部年化收入约1200亿元人民币，单季收入增速45%。",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "瑞银",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "发布对阿里云增长前景的点评，测算到2032年阿里云对外云收入有望达到约1700亿美元，对应约40%的年复合增速。",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "花旗",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "发布对阿里云增长前景的点评，认为20GW可对应约1600亿美元对外云收入，隐含约40%的收入复合增速。",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "c29e0a44971c503601c6580d2034fe473fc167bc032a30bbce057998d21f2e60": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "影眸Hyper3D",
+    "entity_type": "company",
+    "aliases": [
+     "Hyper3D",
+     "Hyper3D by Deemos"
+    ],
+    "product_names": [
+     "Hyper3D",
+     "Hyper3D Rodin",
+     "Agentic Mode",
+     "3D Editing",
+     "BANG递归分件",
+     "MCP",
+     "GPT-6",
+     "Claude Code",
+     "Codex",
+     "Kimi Code"
+    ],
+    "products": [
+     {
+      "name": "Hyper3D",
+      "relationship": "owned",
+      "quote": "他们旗下的AI 3D生成产品Hyper3D"
+     },
+     {
+      "name": "Hyper3D Rodin",
+      "relationship": "owned",
+      "quote": "MCP则让外部Agent可以直接调用Hyper3D Rodin的生成能力"
+     },
+     {
+      "name": "Agentic Mode",
+      "relationship": "owned",
+      "quote": "今天，Hyper3D最新推出了智能交互模式Agentic Mode"
+     },
+     {
+      "name": "3D Editing",
+      "relationship": "owned",
+      "quote": "支持自然语言驱动的3D Editing和BANG递归分件"
+     },
+     {
+      "name": "BANG递归分件",
+      "relationship": "owned",
+      "quote": "支持自然语言驱动的3D Editing和BANG递归分件"
+     },
+     {
+      "name": "MCP",
+      "relationship": "owned",
+      "quote": "目前Hyper3D已经开放了MCP"
+     },
+     {
+      "name": "GPT-6",
+      "relationship": "integrated",
+      "quote": "一位3D艺术家用GPT-6和他们旗下的AI 3D生成产品Hyper3D，一晚上做出了一款3D赛车游戏"
+     },
+     {
+      "name": "Claude Code",
+      "relationship": "integrated",
+      "quote": "Claude Code、Codex、Kimi Code这些AI工作台可以直接调用"
+     },
+     {
+      "name": "Codex",
+      "relationship": "integrated",
+      "quote": "Claude Code、Codex、Kimi Code这些AI工作台可以直接调用"
+     },
+     {
+      "name": "Kimi Code",
+      "relationship": "integrated",
+      "quote": "Claude Code、Codex、Kimi Code这些AI工作台可以直接调用"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "AI 3D生成工具，提供3D生成、自然语言编辑、递归分件、MCP开放及Agentic Mode智能交互模式",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_game_content"
+   },
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "GPT-6"
+    ],
+    "products": [
+     {
+      "name": "GPT-6",
+      "relationship": "owned",
+      "quote": "GPT-6 Astra上线，它能直接操作其他软件的特性"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "d05580fb6ec58153c09715cd777abc276ac88213bcf69c47987439ecb9baccc4": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Bold Games",
+    "entity_type": "company",
+    "aliases": [
+     "Bold"
+    ],
+    "product_names": [
+     "Market Match"
+    ],
+    "products": [
+     {
+      "name": "Market Match",
+      "relationship": "owned",
+      "quote": "这款游戏就是《Market Match》。"
+     }
+    ],
+    "founded": null,
+    "country": "土耳其",
+    "team": "9名成员",
+    "business": "Casual Puzzle 手游研发",
+    "investors": null,
+    "total_funding": "600万美元",
+    "valuation": null,
+    "industry_id": "ai_game_content"
+   },
+   {
+    "company_name": "Dream Games",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "土耳其",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_game_content"
+   },
+   {
+    "company_name": "Rollic",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Color Block Jam"
+    ],
+    "products": [
+     {
+      "name": "Color Block Jam",
+      "relationship": "owned",
+      "quote": "Rollic 的《Color Block Jam》就是一个比较典型的例子。"
+     }
+    ],
+    "founded": null,
+    "country": "土耳其",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_game_content"
+   },
+   {
+    "company_name": "Bigger Games",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "土耳其",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_game_content"
+   },
+   {
+    "company_name": "Grand Games",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "土耳其",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_game_content"
+   },
+   {
+    "company_name": "Mindtail",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "土耳其",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_game_content"
+   },
+   {
+    "company_name": "Surge Games",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "土耳其",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_game_content"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "f8441ca5c281c39c2c628f6a30cdb82ca4c837e2b1cc6ec953ac3a39f6f82520": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "LUSBY",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "AI 眼镜"
+    ],
+    "products": [
+     {
+      "name": "AI 眼镜",
+      "relationship": "owned",
+      "quote": "LUSBY 瞄准的，正是巨头的留下的市场缝隙"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "团队也从最初两三个人扩到二十多人，且成员也大多为 00 后",
+    "business": "AI 眼镜研发与销售，通过 TikTok 内容电商出海",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Meta",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "智能眼镜"
+    ],
+    "products": [
+     {
+      "name": "智能眼镜",
+      "relationship": "owned",
+      "quote": "从 Meta 与 Ray-Ban 合作推出智能眼镜"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Ray-Ban",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "智能眼镜"
+    ],
+    "products": [
+     {
+      "name": "智能眼镜",
+      "relationship": "owned",
+      "quote": "从 Meta 与 Ray-Ban 合作推出智能眼镜"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "华为",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "AI 眼镜产业链上下游企业",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "荣耀",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "AI 眼镜产业链上下游企业",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "雷鸟创新",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "AI 眼镜产业链上下游企业",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "15b6c8c55377b724e64226295ea2dd524cb139a1ef9930c106aabc6f066394cd": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "浙江环动机器人关节科技股份有限公司",
+    "entity_type": "company",
+    "aliases": [
+     "环动机器人"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "机器人关节科技",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "235cf9b17803fa7d9028955d94724846092ec9ed3267cbde5279aeca614a3fed": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Rokid",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Rokid Glasses",
+     "RokidAI眼镜",
+     "豆包",
+     "DeepSeek",
+     "WorkBuddy"
+    ],
+    "products": [
+     {
+      "name": "Rokid Glasses",
+      "relationship": "owned",
+      "quote": "小梦陪男朋友在成都另一个大型商场世豪广场刚刚开始试营业的Rokid专卖店试戴最新产品Rokid Glasses"
+     },
+     {
+      "name": "RokidAI眼镜",
+      "relationship": "owned",
+      "quote": "用户在展区内佩戴RokidAI眼镜，靠近展示内容，无需扫码、无需讲解员，眼镜自动识别并呈现AR导览内容"
+     },
+     {
+      "name": "豆包",
+      "relationship": "integrated",
+      "quote": "产品可兼容豆包、DeepSeek 等多种大模型"
+     },
+     {
+      "name": "DeepSeek",
+      "relationship": "integrated",
+      "quote": "产品可兼容豆包、DeepSeek 等多种大模型"
+     },
+     {
+      "name": "WorkBuddy",
+      "relationship": "integrated",
+      "quote": "近期更是与AI办公“炸子鸡”WorkBuddy达成协作"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "祝铭明",
+    "business": "AI眼镜研发与销售，渠道策略为直销和分销结合，分销占比约70%；与红星眼镜合作打造AI眼镜验配一体门店；在B端深耕工业巡检、博物馆导览，并开发导盲、翻译、提词等垂类产品",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "千问",
+    "entity_type": "company",
+    "aliases": [
+     "千问眼镜"
+    ],
+    "product_names": [
+     "千问眼镜",
+     "高德",
+     "支付宝",
+     "拍立淘"
+    ],
+    "products": [
+     {
+      "name": "千问眼镜",
+      "relationship": "owned",
+      "quote": "阿里的千问眼镜，展示了什么是大厂的饱和式攻击"
+     },
+     {
+      "name": "高德",
+      "relationship": "integrated",
+      "quote": "骑行时，千问眼镜联合高德定制的近眼导航把转向箭头和剩余距离直接叠进视野"
+     },
+     {
+      "name": "支付宝",
+      "relationship": "integrated",
+      "quote": "结账时，支付宝的“看一下支付”用骨传导声纹验证确认使用者身份"
+     },
+     {
+      "name": "拍立淘",
+      "relationship": "integrated",
+      "quote": "逛街时，拍立淘的数据库让镜头“一眼识价”，看到什么都能直通淘宝比价"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "宋刚",
+    "business": "AI眼镜，依托阿里消费服务生态，通过MCP协议直接接入阿里系原生服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "雷鸟",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "iO",
+     "千问",
+     "DeepSeek",
+     "通义大模型",
+     "AI Studio",
+     "AI Store"
+    ],
+    "products": [
+     {
+      "name": "iO",
+      "relationship": "owned",
+      "quote": "新品iO同时内置千问和DeepSeek模型"
+     },
+     {
+      "name": "千问",
+      "relationship": "integrated",
+      "quote": "新品iO同时内置千问和DeepSeek模型"
+     },
+     {
+      "name": "DeepSeek",
+      "relationship": "integrated",
+      "quote": "新品iO同时内置千问和DeepSeek模型"
+     },
+     {
+      "name": "通义大模型",
+      "relationship": "integrated",
+      "quote": "它一边与阿里云战略合作，由通义大模型提供独家定制的全套AI技术支持"
+     },
+     {
+      "name": "AI Studio",
+      "relationship": "owned",
+      "quote": "另一边自建开发者生态，推出AI Studio无代码编辑平台和AI Store"
+     },
+     {
+      "name": "AI Store",
+      "relationship": "owned",
+      "quote": "另一边自建开发者生态，推出AI Studio无代码编辑平台和AI Store"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "李宏伟",
+    "business": "AI眼镜研发与销售，与阿里云战略合作，自建开发者生态，开发全彩MicroLED加刻蚀光波导技术",
+    "investors": null,
+    "total_funding": "融资超10亿元",
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "影目",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Magic AI Glasses"
+    ],
+    "products": [
+     {
+      "name": "Magic AI Glasses",
+      "relationship": "owned",
+      "quote": "6月底，影目与王嘉尔主理的潮流品牌WHL合作推出Magic AI Glasses"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "AI眼镜，与LOHO、亚洲眼镜等品牌合作铺设体验点，计划在上海南京西路开设全球首家品牌旗舰店",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "博士眼镜",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "传统眼镜渠道商，销售智能眼镜，全国首家智能眼镜概念店落地深圳深业上城，已有150家门店以店中柜形式销售智能眼镜，发行3.75亿元可转债计划新增225家门店",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "夸克",
+    "entity_type": "company",
+    "aliases": [
+     "夸克AI眼镜"
+    ],
+    "product_names": [
+     "夸克AI眼镜G1"
+    ],
+    "products": [
+     {
+      "name": "夸克AI眼镜G1",
+      "relationship": "owned",
+      "quote": "早在去年12月夸克AI眼镜G1预售时，官方就宣布全国82个城市的604家线下门店提供体验和配镜服务"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "AI眼镜，线下门店提供体验和配镜服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "XREAL",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "智能眼镜品牌，在博士眼镜智能眼镜概念店陈列销售",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "小米",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "智能眼镜品牌，在博士眼镜智能眼镜概念店陈列销售",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "WorkBuddy",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "WorkBuddy"
+    ],
+    "products": [
+     {
+      "name": "WorkBuddy",
+      "relationship": "owned",
+      "quote": "WorkBuddy开放平台上线时公布了9款联名硬件，除了Rokid，讯飞、魅族MYVU也在其中"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "AI办公产品，开放平台公布9款联名硬件",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "讯飞",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "WorkBuddy开放平台公布的联名硬件厂商之一",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "魅族",
+    "entity_type": "company",
+    "aliases": [
+     "MYVU"
+    ],
+    "product_names": [
+     "MYVU"
+    ],
+    "products": [
+     {
+      "name": "MYVU",
+      "relationship": "owned",
+      "quote": "除了Rokid，讯飞、魅族MYVU也在其中"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "WorkBuddy开放平台公布的联名硬件厂商之一",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "阿里云",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "通义大模型"
+    ],
+    "products": [
+     {
+      "name": "通义大模型",
+      "relationship": "owned",
+      "quote": "它一边与阿里云战略合作，由通义大模型提供独家定制的全套AI技术支持"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "与雷鸟战略合作，由通义大模型提供独家定制的全套AI技术支持",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "字节",
+    "entity_type": "company",
+    "aliases": [
+     "字节跳动"
+    ],
+    "product_names": [
+     "豆包"
+    ],
+    "products": [
+     {
+      "name": "豆包",
+      "relationship": "owned",
+      "quote": "拍下的照片视频直接同步豆包App，剩下的交给已经建好的AI生态"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "将发布眼镜产品，以眼镜作为豆包DAU和Token消耗的引流管道",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "苹果",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Vision Pro"
+    ],
+    "products": [
+     {
+      "name": "Vision Pro",
+      "relationship": "owned",
+      "quote": "就像苹果一度折戟的Vision Pro，试图通过极致工程化来尽可能放大产品对人类社会发展进程的影响"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "将在不远的未来发布眼镜产品",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "高通",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "AR1芯片",
+     "AR系列芯片"
+    ],
+    "products": [
+     {
+      "name": "AR1芯片",
+      "relationship": "owned",
+      "quote": "当高通AR1芯片、索尼IMX681传感器、单绿波导方案成为行业标配"
+     },
+     {
+      "name": "AR系列芯片",
+      "relationship": "owned",
+      "quote": "也许在2027年前，全球厂商都将主要依赖高通AR系列芯片"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "AI眼镜芯片供应商，AR系列芯片被全球厂商主要依赖",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "索尼",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "IMX681传感器"
+    ],
+    "products": [
+     {
+      "name": "IMX681传感器",
+      "relationship": "owned",
+      "quote": "当高通AR1芯片、索尼IMX681传感器、单绿波导方案成为行业标配"
+     }
+    ],
+    "founded": null,
+    "country": "日本",
+    "team": null,
+    "business": "AI眼镜传感器供应商",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "红星眼镜",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "与Rokid携手打造上海首家AI眼镜验配一体门店",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "暴龙眼镜",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "与Rokid成都门店合作提供配镜服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "宝岛眼镜",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "Rokid货铺渠道之一",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "丰泽电器",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国香港",
+    "team": null,
+    "business": "Rokid货铺渠道之一",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "LOHO",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "与影目联手铺设体验点",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "亚洲眼镜",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "与影目联手铺设体验点",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "WHL",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": "王嘉尔",
+    "business": "潮流品牌，与影目合作推出Magic AI Glasses",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "大疆",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "科技品牌，媒体内容多以性能展示出现，代理商曾代理过大疆等科技品牌",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "石头",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "消费硬件公司，海外推广时选择大量海外科技博主进行测评推广",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "华为",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "AI眼镜试戴渠道之一",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "洛图科技",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "发布智能眼镜退货率及市场占比数据",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "2f6723bd62fd05c47334b74d56546e6af9945b37dce7ffa5d1603af8756cd910": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "水母智能",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "触手AI"
+    ],
+    "products": [
+     {
+      "name": "触手AI",
+      "relationship": "owned",
+      "quote": "二是触手AI，一个覆盖漫画、动态漫、竖屏漫短剧全流程的AIGC创作平台"
+     }
+    ],
+    "founded": "2020年11月",
+    "country": "中国",
+    "team": "创始人苗奘，董事长贾伟",
+    "business": "AI智能设计Agent交付平台与AIGC创作平台",
+    "investors": "华策影视全资子公司西溪投资、源码资本、红杉种子基金、百度、高瓴创投、微光创投、元璟资本",
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_game_content"
+   },
+   {
+    "company_name": "华策影视",
+    "entity_type": "company",
+    "aliases": [
+     "华策"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "剧集制作与发行",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "西溪投资",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "投资",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "洛可可创新设计集团",
+    "entity_type": "company",
+    "aliases": [
+     "洛可可"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "设计",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "源码资本",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "投资",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "红杉种子基金",
+    "entity_type": "company",
+    "aliases": [
+     "红杉中国种子基金"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "投资",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "百度",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "高瓴创投",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "投资",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "微光创投",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "投资",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "元璟资本",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "投资",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "腾讯动漫",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "动漫平台",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Bilibili漫画",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "漫画平台",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Piccoma",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "日本",
+    "team": null,
+    "business": "漫画平台",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "3ae2ea32fe0c74158d8ee69ddd625757cf0a1767c5f20a233bc3198c34c76343": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Apple",
+    "entity_type": "company",
+    "aliases": [
+     "苹果",
+     "苹果公司",
+     "AAPL.US"
+    ],
+    "product_names": [
+     "Fitness+",
+     "Health",
+     "Apple Intelligence",
+     "iPhone Duo",
+     "iPhone 18 Pro",
+     "Siri AI",
+     "Private Cloud Compute",
+     "Apple Watch"
+    ],
+    "products": [
+     {
+      "name": "Fitness+",
+      "relationship": "owned",
+      "quote": "美国消费电子巨头苹果公司在重新评估 Fitness+ 健身订阅服务未来的同时，已裁减该部门的一部分员工"
+     },
+     {
+      "name": "Health",
+      "relationship": "owned",
+      "quote": "苹果已经宣布，年内将推出由 Apple Intelligence（即苹果 AI 服务系统）支持的新版本 Health"
+     },
+     {
+      "name": "Apple Intelligence",
+      "relationship": "owned",
+      "quote": "苹果已经宣布，年内将推出由 Apple Intelligence（即苹果 AI 服务系统）支持的新版本 Health"
+     },
+     {
+      "name": "iPhone Duo",
+      "relationship": "owned",
+      "quote": "已经发布的 iPhone Duo 以 1999 美元起售，配备 7.6 英寸内屏，并支持双应用并排操作"
+     },
+     {
+      "name": "iPhone 18 Pro",
+      "relationship": "owned",
+      "quote": "这一期间也包括全新款 iPhone 18 Pro 以及折叠屏 iPhone 产品的重磅发布"
+     },
+     {
+      "name": "Siri AI",
+      "relationship": "owned",
+      "quote": "苹果 AI 超级语音助手 Siri AI 高效率交互"
+     },
+     {
+      "name": "Private Cloud Compute",
+      "relationship": "owned",
+      "quote": "云端私有 AI 云计算（即 Private Cloud Compute，PCC）承接更复杂的模型请求"
+     },
+     {
+      "name": "Apple Watch",
+      "relationship": "owned",
+      "quote": "让 Apple Watch 采集的数据更有效地转化为 iPhone 等苹果端侧设备上的日常服务体验"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "消费电子、智能手机、可穿戴设备、订阅服务与AI服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Peloton",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "基于AI的运动健身平台",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Wedbush",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "投资研究机构，发布苹果目标价分析",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "TD Cowen",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "投资研究机构，发布苹果目标价分析",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "b1817fbb95896c0cd467a795b13bd43d37491e0724c93ce5c4cd2d401f1f1e7d": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "亚马逊",
+    "entity_type": "company",
+    "aliases": [
+     "Amazon",
+     "亚马逊云科技"
+    ],
+    "product_names": [
+     "S3",
+     "EC2",
+     "Lambda",
+     "DynamoDB",
+     "Mechanical Turk"
+    ],
+    "products": [
+     {
+      "name": "S3",
+      "relationship": "owned",
+      "quote": "亚马逊云科技发布 S3"
+     },
+     {
+      "name": "EC2",
+      "relationship": "owned",
+      "quote": "EC2 也让计算资源变成随时可以获得的弹性资源"
+     },
+     {
+      "name": "Lambda",
+      "relationship": "owned",
+      "quote": "这一年，他在台上发布了 Lambda"
+     },
+     {
+      "name": "DynamoDB",
+      "relationship": "owned",
+      "quote": "也成为 DynamoDB 乃至后来的亚马逊云科技的技术前史之一"
+     },
+     {
+      "name": "Mechanical Turk",
+      "relationship": "owned",
+      "quote": "这是亚马逊 2005 年推出的一套众包平台"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "云计算、电子商务、对象存储、计算资源、数据库、众包平台",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Netflix",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "s3mper",
+     "S3",
+     "DynamoDB"
+    ],
+    "products": [
+     {
+      "name": "s3mper",
+      "relationship": "owned",
+      "quote": "Netflix 在 S3 旁边又造了一套系统——s3mper"
+     },
+     {
+      "name": "S3",
+      "relationship": "used",
+      "quote": "Netflix 基于亚马逊云科技，完整重新构建了整套技术系统"
+     },
+     {
+      "name": "DynamoDB",
+      "relationship": "used",
+      "quote": "它用 DynamoDB 维护一份额外的、一致的元数据索引"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "流媒体",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Oracle",
+    "entity_type": "company",
+    "aliases": [
+     "甲骨文"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "企业数据库",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "OpenStreetMap",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "OpenStreetMap"
+    ],
+    "products": [
+     {
+      "name": "OpenStreetMap",
+      "relationship": "unknown",
+      "quote": "他们使用的是 OpenStreetMap，一套由全球社区共同维护的开放地图"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "开放地图",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "fe85f793626838bef66fcbafe795acf89d05ede754e91b1c80e3669c0ec5877c": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "华为",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Mate 90 系列",
+     "智界 RX"
+    ],
+    "products": [
+     {
+      "name": "Mate 90 系列",
+      "relationship": "owned",
+      "quote": "华为 Mate 90 系列手机也将在本月发布"
+     },
+     {
+      "name": "智界 RX",
+      "relationship": "owned",
+      "quote": "智界 RX 及鸿蒙智行新品发布会定档 9 月 28 日 14:30 举行"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "英伟达",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "英伟达 2026 财年员工平均收入达 28.205 万美元，黄仁勋本人的总薪酬为 3630 万美元",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "百度",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "库库 AI",
+     "Kooko",
+     "Oreate AI"
+    ],
+    "products": [
+     {
+      "name": "库库 AI",
+      "relationship": "owned",
+      "quote": "通用智能体「库库 AI」全球 AI 办公月活超 4000 万"
+     },
+     {
+      "name": "Kooko",
+      "relationship": "owned",
+      "quote": "焕新为库库 AI 海外版「Kooko」"
+     },
+     {
+      "name": "Oreate AI",
+      "relationship": "owned",
+      "quote": "百度文库网盘去年推出的海外一站式 AI 办公平台 Oreate AI"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "百度文库网盘宣布加速 AI 办公出海、进行全球品牌升级",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "阿里巴巴",
+    "entity_type": "company",
+    "aliases": [
+     "阿里巴巴集团"
+    ],
+    "product_names": [
+     "Qwen"
+    ],
+    "products": [
+     {
+      "name": "Qwen",
+      "relationship": "owned",
+      "quote": "阿里巴巴集团已任命资深 AI 研究人员刘大一恒担任 Qwen（通义千问）大语言模型项目负责人"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "刘大一恒担任 Qwen 大语言模型项目负责人",
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "亚马逊云科技",
+    "entity_type": "company",
+    "aliases": [
+     "AWS"
+    ],
+    "product_names": [
+     "Amazon Bedrock",
+     "Kimi K3"
+    ],
+    "products": [
+     {
+      "name": "Amazon Bedrock",
+      "relationship": "owned",
+      "quote": "亚马逊云科技（AWS）旗下大模型服务平台 Amazon Bedrock"
+     },
+     {
+      "name": "Kimi K3",
+      "relationship": "integrated",
+      "quote": "Amazon Bedrock 日前宣布接入开源大模型 Kimi K3"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "月之暗面",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Kimi K3"
+    ],
+    "products": [
+     {
+      "name": "Kimi K3",
+      "relationship": "owned",
+      "quote": "月之暗面正与多家海外云厂商推进收入分成合作，云厂商在其平台上架 Kimi 模型"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "月之暗面正与多家海外云厂商推进收入分成合作",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "三星",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "韩国",
+    "team": "新成立名为「AX / PI」的专项团队",
+    "business": "三星组建新团队研发芯片工厂机器人，推进半导体工厂自动化转型",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "闲鱼",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "已成立专项小组",
+    "business": "成立专项小组严打色情引流，2026 年 1 月至今累计冻结色情引流类风险账号 98358 个",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "国际机器人联合会",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "2025 年全球人形机器人销售量约为 7000 台",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "苹果",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "iPhone 18 Pro Max",
+     "macOS 27.2"
+    ],
+    "products": [
+     {
+      "name": "iPhone 18 Pro Max",
+      "relationship": "owned",
+      "quote": "苹果为回应续航需求，在 iPhone 18 Pro Max 上采用硅碳负极电池"
+     },
+     {
+      "name": "macOS 27.2",
+      "relationship": "owned",
+      "quote": "苹果今日向 Mac 电脑用户推送了 macOS 27.2 开发者预览版 Beta 2 更新"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "苹果为 iPhone 18 Pro Max 引入出厂固件限电机制",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "vivo",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Buds Clip"
+    ],
+    "products": [
+     {
+      "name": "Buds Clip",
+      "relationship": "owned",
+      "quote": "vivo 首款耳夹耳机 Buds Clip 发布"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "宇树科技",
+    "entity_type": "company",
+    "aliases": [
+     "Unitree"
+    ],
+    "product_names": [
+     "Dex5-S"
+    ],
+    "products": [
+     {
+      "name": "Dex5-S",
+      "relationship": "owned",
+      "quote": "宇树科技（Unitree）发布了灵巧手产品 Dex5-S"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "美国",
+    "team": "在普林斯顿高等研究院设立独立的「数学与 AI 顾问组」，由 9 名数学家组成",
+    "business": "OpenAI 宣布成立数学与 AI 顾问组，其 8 月 28 日启动训练的神秘模型已攻克 100 多项数学长期开放问题",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "ebb68a46077f55a125cf4e47f7d2f0914a35b48cce17d3aa20e7e8b69fe3a041": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "亚马逊",
+    "entity_type": "company",
+    "aliases": [
+     "Amazon",
+     "AMZN.US"
+    ],
+    "product_names": [
+     "Muse",
+     "Alexa 购物功能",
+     "Buy for Me"
+    ],
+    "products": [
+     {
+      "name": "Muse",
+      "relationship": "integrated",
+      "quote": "亚马逊已封禁了 Meta 新推出的人工智能（AI）智能体 Muse 对其零售网站的访问"
+     },
+     {
+      "name": "Alexa 购物功能",
+      "relationship": "owned",
+      "quote": "该公司曾在 5 月推出 Alexa 购物功能，一款用于调研商品并给出选购建议的 AI 智能体"
+     },
+     {
+      "name": "Buy for Me",
+      "relationship": "owned",
+      "quote": "亚马逊自家的智能代理购物功能 Buy for Me 可以在外部品牌网站帮用户搜寻商品"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "电商零售、云计算、广告、AI 智能体购物工具",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Meta",
+    "entity_type": "company",
+    "aliases": [
+     "META.US"
+    ],
+    "product_names": [
+     "Muse"
+    ],
+    "products": [
+     {
+      "name": "Muse",
+      "relationship": "owned",
+      "quote": "Muse 是 Meta 本月早些时候正式推出的、定位为能够执行多步骤任务的个人 AI 代理"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "社交媒体、AI 智能体、云计算合作",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Perplexity",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Comet"
+    ],
+    "products": [
+     {
+      "name": "Comet",
+      "relationship": "owned",
+      "quote": "该公司曾就 Perplexity 的 Comet 浏览器向对方提起诉讼"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "AI 搜索与浏览器",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
  }
 }

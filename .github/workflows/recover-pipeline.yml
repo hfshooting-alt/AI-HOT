@@ -1,4 +1,4 @@
-name: 从加密缓存恢复数据（不调用模型）
+name: 新闻Daily 从加密缓存恢复数据（不调用模型）
 
 on:
   workflow_dispatch:
@@ -82,7 +82,7 @@ jobs:
           if git diff --cached --quiet; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'chore: 恢复已缓存的 AI HOT 批次'
+          git commit -m 'chore: 恢复已缓存的新闻Daily 批次'
           git pull --rebase origin main
           git push
           gh workflow run deploy-pages.yml --ref main

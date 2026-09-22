@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* AI HOT 浅色主题令牌（对齐官网截图：浅灰白底 + 深青绿强调） */
+/* 新闻Daily 浅色主题令牌（对齐官网截图：浅灰白底 + 深青绿强调） */
 :root {
   --page: #f3f7f7;
   --surface: #ffffff;

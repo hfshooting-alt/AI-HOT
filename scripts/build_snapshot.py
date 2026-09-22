@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""build_snapshot.py — 抓取 aihot 公开 API，生成 AI HOT 仪表盘静态快照（单文件 HTML）。
+"""build_snapshot.py — 从已审核 Manus 候选生成新闻Daily静态快照。
 
 用法:
     python3 scripts/build_snapshot.py [--out web/public/index.html]
@@ -7,16 +7,15 @@
         [--history-template scripts/templates/history.template.html]
         [--history-dir web/public/history]
         [--archive-dir data/archive] [--archive-days 30]
-        [--api-base https://aihot.virxact.com]
         [--manus-json data/manus/current.json]
         [--days 7]
 
 流程:
-    1. 分页抓取 /api/v1/items（扁平条目流，天然去重）
-    2. 合并 Manus 公众号 feed（data/manus/current.json，只读消费；缺失/损坏/过期时降级）
+    1. 读取本批处理结果；独立构建只读 Manus feed，不请求上游 API。
+    2. 两池分别展示全部已核实元数据与精选，保留来源及时间证据。
     3. 历史归档（唯一数据源）：增量并集 upsert 进 data/archive/YYYY-MM-DD.json；
        定稿冻结前天及更早的归档（昨天保留开放，兜住迟到条目）；超 30 天滚动硬删
-    4. AIHOT 成品日报按索引实际日期同步；本站周报继续从归档池推导
+    4. 历史视图从本地归档推导，停止同步 AIHOT 成品日报和热点。
     5. 按六版块分组、全局连续编号、北京时间人话时间
     6. 用模板渲染主快照 + history/YYYY-MM-DD.html 只读归档页（近 N 天可回溯）
 
@@ -42,7 +41,7 @@ def matches_collection_window(window, item):
         return aihot_in_window(window, item)
     return matching_item(window, item)
 
-MANUS_MAX_STALE_DAYS = 3  # feed targetDate 旧于该窗口视为过期，降级为仅 aihot 数据
+MANUS_MAX_STALE_DAYS = 3  # feed targetDate 旧于该窗口视为过期，禁止当作新批次
 
 # 六版块固定顺序（与前端 SECTION_COLORS 对应）
 SECTIONS = ["模型发布/更新", "产品发布/更新", "AI泛娱乐新闻", "行业动态", "论文研究", "技巧与观点"]
@@ -145,7 +144,7 @@ def load_manus_feed(path: str, taxonomy_path: str,
     """
     def degraded(reason: str) -> tuple[list[dict], dict]:
         return [], {"connected": False, "collector": "manus",
-                    "note": f"Manus 核验源不可用（feed {reason}），仅显示 aihot 数据"}
+                    "note": f"Manus 核验源不可用（feed {reason}），保留已有发布"}
 
     try:
         with open(path, "r", encoding="utf-8") as f:
@@ -404,7 +403,7 @@ def build_weekly_journals(all_days: dict[str, dict], weekly_dir: str, weekly_tem
     retained: set[str] = set()
     earliest = min(all_days) if all_days else None
     ws = week_start_of(now_bj.date()) - timedelta(days=7)  # 最近的已完结周
-    while len(retained) < keep:
+    while earliest is not None and len(retained) < keep:
         if earliest and (ws + timedelta(days=6)).isoformat() < earliest:
             break  # 整周完全早于归档覆盖范围才停止（周与归档部分重叠时仍可能有数据）
         items = week_items(all_days, ws)
@@ -883,7 +882,7 @@ def main() -> int:
     parser.add_argument("--api-window", choices=("24h", "7d"), default="7d",
                         help="AIHOT v1 滚动窗口；本地候选预览推荐 24h")
     parser.add_argument("--manus-json", default="data/manus/current.json",
-                        help="Manus 规范化 feed（只读消费；缺失/损坏/过期时降级为仅 aihot 数据）")
+                        help="Manus 规范化 feed（只读消费；缺失/损坏/过期时停止构建）")
     parser.add_argument("--manus-max-stale-days", type=int, default=MANUS_MAX_STALE_DAYS,
                         help=f"Manus feed 允许的最大滞后天数（默认 {MANUS_MAX_STALE_DAYS}）")
     parser.add_argument("--days", type=int, default=7, help="周报窗口天数（默认 7）")
@@ -896,7 +895,7 @@ def main() -> int:
     parser.add_argument('--require-tags', action='store_true', help='完整分类后才生成候选快照')
     parser.add_argument("--exclude-wechat", action="store_true",
                         help="排除 AIHOT 与本地归档中的公众号内容，并跳过 Manus feed")
-    parser.add_argument("--window-date", help="只采集此前一日十点至此日十点的新增新闻；AIHOT 成品日报独立同步")
+    parser.add_argument("--window-date", help="当前 Manus 采集窗口的结束日")
     parser.add_argument('--input-json', help='已统一筛选/分类的候选池；不再联网采集或读取旧Manus feed')
     args = parser.parse_args()
 
@@ -905,6 +904,7 @@ def main() -> int:
     window_start = timestamp(window["start"]) if window else None
     window_end = timestamp(window["end"]) if window else None
     prepared = None
+    local_feed_status = None
     try:
         if args.input_json:
             with open(args.input_json, encoding='utf-8') as f:
@@ -912,8 +912,16 @@ def main() -> int:
             if prepared.get('collectionWindow') != window:
                 raise ValueError('输入窗口不一致')
             items = prepared['items']
+            if any(i.get('collector') != 'manus' and not str(i.get('id', '')).startswith('manus:')
+                   for i in [*items, *prepared.get('allArticles', [])]):
+                raise ValueError('生产快照只接收本批 Manus 新闻，AIHOT 已停用')
         else:
-            items = fetch_items(args.api_base, window_start or now_bj - timedelta(days=args.days + 2), args.api_window)
+            # Standalone rebuilding consumes Manus only; no upstream request or
+            # AIHOT cache fallback remains in the production snapshot entry.
+            items, local_feed_status = load_manus_feed(args.manus_json, args.taxonomy,
+                                                       args.manus_max_stale_days)
+            if not local_feed_status.get('connected'):
+                raise ValueError('Manus feed 不可用，保留已有发布')
     except Exception as exc:  # noqa: BLE001 - 抓取失败给出可读错误
         print(f"抓取失败: {exc}", file=sys.stderr)
         return 1
@@ -952,6 +960,8 @@ def main() -> int:
         wechat_items = []
         mp_status = {"connected": False, "collector": "excluded", "degraded": False,
                      "note": "本次仅使用 AIHOT 非公众号信源；公众号来源已按配置排除"}
+    elif local_feed_status is not None:
+        wechat_items, mp_status = [], local_feed_status
     else:
         wechat_items, mp_status = load_manus_feed(args.manus_json, args.taxonomy,
                                                   args.manus_max_stale_days)
@@ -979,6 +989,9 @@ def main() -> int:
     if window and prepared is None:
         # 分页响应可能越过边界；只入库明确处于固定窗口内的新文章。
         items = [i for i in items if matches_collection_window(window, i)]
+    # Preserve the explicit batch independently from the archive. A historical
+    # AIHOT record must not reappear in today's pool or trigger model retagging.
+    batch_items = items
 
     # A validated reprocessed batch supersedes earlier candidates in its exact
     # window, including newly excluded stories. Other history remains intact.
@@ -1027,25 +1040,11 @@ def main() -> int:
         TAG_TAXONOMY = tx
     except Exception as exc:  # noqa: BLE001 - taxonomy 缺失时静默降级
         print(f"taxonomy 加载失败（跳过分类展示与打标）: {exc}", file=sys.stderr)
-    if tx and not args.no_tags:
-        if args.require_tags:
-            tx['model'].update(max_new_items_per_run=len(items), budget_seconds=7200)
-        try:
-            if os.environ.get(tx["model"]["api_key_env"]):
-                if tag_archive_days(args.archive_dir, all_days, tx, args.tag_cache):
-                    # 分类已写回归档文件，重载使后续视图/历史页/周期刊都带上标签
-                    for date_str in list(all_days):
-                        day = _load_day_file(_day_file_path(args.archive_dir, date_str))
-                        if day:
-                            all_days[date_str] = day
-                    items = load_archive_pool(all_days)
-            else:
-                print(f"AI 打标签跳过：未配置 {tx['model']['api_key_env']}")
-        except Exception as exc:  # noqa: BLE001 - 打标签失败静默降级
-            print(f"AI 打标签失败（不阻断发布）: {exc}", file=sys.stderr)
+    # Classification belongs to the preceding shared news stage. Rendering
+    # never starts new model requests against current or historical articles.
 
     if args.require_tags and any(not i.get('classification') or i['classification'].get('autoFallback')
-                                for i in (prepared['items'] if prepared is not None else items)):
+                                for i in batch_items):
         print('新闻分类尚有失败或待处理条目，禁止发布部分更新', file=sys.stderr)
         return 1
     generated_at = datetime.now(timezone.utc)
@@ -1067,16 +1066,15 @@ def main() -> int:
     weekly_view["vol"] = f"VOL.{this_ws.year} · {week_vol_label(this_ws)}"
     weekly_view["range"]["cnLabel"] = f"{fmt_cn_date(this_ws)} {WEEKDAYS[this_ws.weekday()]} 至今 · 本周进行中"
 
-    daily_view = build_view("daily", items, today_start, 2, generated_at, mp_status,
+    daily_view = build_view("daily", batch_items, today_start, 2, generated_at, mp_status,
                             time_ref=now_bj, end=now_bj)
     daily_view["vol"] = f"VOL.{now_bj.year}-{now_bj.month:02d}-{now_bj.day:02d}"
     daily_view["range"]["cnLabel"] = fmt_cn_date(now_bj.date()) + " " + WEEKDAYS[now_bj.weekday()]
     if window:
-        daily_view = build_view("daily", prepared['items'] if prepared is not None else
-                                [i for i in items if matches_collection_window(window, i)],
+        daily_view = build_view("daily", batch_items,
                                 window_start, 1, generated_at, mp_status, time_ref=now_bj, end=window_end,
                                 preselected=prepared is not None)
-        label = f"{fmt_cn_date(window_start.date())} {window_start:%H:%M} 至 {fmt_cn_date(window_end.date())} {window_end:%H:%M}"
+        label = f"{fmt_cn_date(window_start.date())} {window_start:%H:%M:%S} 至 {fmt_cn_date(window_end.date())} {window_end:%H:%M:%S}"
         daily_view["range"].update(start=window_start.date().isoformat(), end=window_end.date().isoformat(),
                                     label=label, cnLabel=label, startAt=window["start"], endAt=window["end"])
         daily_view["vol"] = f"VOL.{window_end.year}-{window_end.month:02d}-{window_end.day:02d}"
@@ -1084,26 +1082,21 @@ def main() -> int:
     # 新版前端字段：全部 AI 动态 / 热点榜 / 日报周报导航 / 分类标签
     # 定时十点快照应完整展示该 24 小时窗口；非窗口构建沿用旧版 200 条上限，
     # 避免把整个历史归档一次性塞进前端。
-    current_items = (prepared['items'] if prepared is not None else
-                     [i for i in items if matches_collection_window(window, i)] if window else items[:200])
+    current_items = batch_items
     all_pool = format_items(current_items, now_bj)
     category_counts: dict[str, int] = {}
     for it in all_pool:
         category_counts[it["category"]] = category_counts.get(it["category"], 0) + 1
     all_tags = [{"tag": cat, "count": category_counts.get(cat, 0)} for cat in SECTIONS if category_counts.get(cat, 0) > 0]
 
-    # AIHOT 每日约 08:00 产出成品日报；十点流水线只同步，不再把本站新闻窗口冒充日报。
-    daily_reports = load_daily_reports(args.snapshot_json)
-    latest_daily = prepared.get('dailyReport') if prepared is not None else fetch_latest_daily(args.api_base)
-    if latest_daily:
-        daily_reports[latest_daily["date"]] = latest_daily
-    daily_reports = dict(sorted(daily_reports.items(), reverse=True)[:31])
-    daily_history = [daily_report_entry(report) for report in daily_reports.values()]
-    hot_topics = (prepared.get('hot') or {}) if prepared is not None else fetch_hot_topics(args.api_base)
+    # AIHOT collection and its ready-made daily report are retired. Retained
+    # local article archives remain history, never a fallback for today's pool.
+    daily_reports, daily_history, hot_topics = {}, [], {}
     if args.exclude_wechat:
         hot_topics = without_wechat_topics(hot_topics)
 
     data = {
+        'sourceMode': 'manus-only',
         **({'collectionStatus': prepared['collectionStatus']} if prepared is not None else {}),
         **({'publicationMode': 'pipeline'} if window else {}),
         **({"collectionWindow": window} if window else {}),

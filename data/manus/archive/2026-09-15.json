@@ -1,317 +1,197 @@
 {
- "schemaVersion": 2,
- "collectionWindow": {
-  "start": "2026-09-14T09:30:00+08:00",
-  "end": "2026-09-15T09:30:00+08:00",
-  "timezone": "Asia/Shanghai"
- },
- "targetDate": "2026-09-15",
- "generatedAt": "2026-09-15T14:43:41+08:00",
- "collector": "manus",
- "ok": true,
- "degraded": true,
- "stats": {
-  "configuredAccounts": 20,
-  "completeAccounts": 0,
-  "failedAccounts": 20,
-  "discoveredArticles": 0,
-  "publishedArticles": 0,
-  "fallbackArticles": 0
- },
- "items": [],
- "collectionStatus": {
+  "schemaVersion": 2,
   "collectionWindow": {
-   "start": "2026-09-14T09:30:00+08:00",
-   "end": "2026-09-15T09:30:00+08:00",
-   "timezone": "Asia/Shanghai"
+    "start": "2026-09-14T09:30:00+08:00",
+    "end": "2026-09-15T09:30:00+08:00",
+    "timezone": "Asia/Shanghai"
   },
+  "targetDate": "2026-09-15",
+  "generatedAt": "2026-09-15T14:43:41+08:00",
+  "collector": "manus",
+  "ok": true,
   "degraded": true,
-  "sources": [
-   {
-    "name": "AIHOT",
-    "collector": "aihot",
-    "status": "complete",
-    "discoveredArticles": 383,
-    "usableArticles": 383
-   },
-   {
-    "name": "游戏葡萄",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
+  "stats": {
+    "configuredAccounts": 20,
+    "completeAccounts": 0,
+    "failedAccounts": 20,
     "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "白鲸出海",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "机器之心",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "ZFinance",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "极客公园",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "东西文娱",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "娱乐资本论",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "FounderPark",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "瑞恩资本",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "DeepTech深科技",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "ZPotential",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "华尔街见闻",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "量子位",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "智东西",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "十字路口Crossing",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "投资界",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "赛博禅心",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "elsewhere别处发生",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "新智元",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "硅星人",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   }
-  ],
-  "candidateArticles": 375,
-  "publishedArticles": 338,
-  "excludedArticles": 21,
-  "quarantinedArticles": 16,
-  "quarantined": [
-   {
-    "id": "aihot:cmu1zezym03pzro17d168jco7",
-    "title": "研究解释机器学习研究智能体为何不出现过拟合",
-    "url": "https://www.amazon.science/blog/why-dont-machine-learning-research-agents-overfit",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu1qpab503dmroyka44sk0k3",
-    "title": "Alexandr Wang 称 Muse.ai 是第二个 AI 时刻",
-    "url": "https://x.com/alexandr_wang/status/2099601187066769747",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu1nd0fw04klroxjvq7ddsoh",
-    "title": "GPT-6 Astra 开发系列开启",
-    "url": "https://x.com/ZHO_ZHO_ZHO/status/2099582731772641422",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu1oqepo04chrodu6vuke7gf",
-    "title": "How data retention works when using Claude",
-    "url": "https://www.youtube.com/watch?v=PQGxYvkMobQ",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu1lyz7z12pyrocnwn5600ie",
-    "title": "Inside Sakana AI's Product Team",
-    "url": "https://sakana.ai/inside-product-team",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu1mdxy014g7rocnz1b4wz5l",
-    "title": "Lauren Tan 发文预告新想法",
-    "url": "https://x.com/poteto/status/2099570399839478136",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu1hmon70d9krocncljnt5qg",
-    "title": "Ethan Mollick：拭目以待",
-    "url": "https://x.com/emollick/status/2099542407972897028",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu1evw65049xrocnqarx4t5y",
-    "title": "特朗普回应 AI 减速与监管讨论，称谁能赢下 AI 谁就赢",
-    "url": "https://x.com/rohanpaul_ai/status/2099522150701109572",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu19ffy704w9ro7zxm31x3st",
-    "title": "AI测试中称我为碳基主义",
-    "url": "https://x.com/EMostaque/status/2099481294098911743",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu18gdgl03k5ro7zizg40mlb",
-    "title": "Anthropic 毛利率据报超 80%，为潜在 IPO 做铺垫",
-    "url": "https://x.com/kimmonismus/status/2099471633605943520",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu0x7fqf047mro2nah9lnd27",
-    "title": "Z.AI 宣布 50 亿美元股票加可转债配售，年内香港融资约 96 亿美元",
-    "url": "https://x.com/thexpin/status/2099393202516295954",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu0whunx03cgro2nlwca0j3t",
-    "title": "Codex 应移除哪些无用功能",
-    "url": "https://x.com/thsottiaux/status/2099393115241300166",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu29p6rl07earooy5lk7fyzx",
-    "title": "我们正在搭建「新一代 AI 创业者」微信会员群",
-    "url": "https://elsewhere.news/zh/crossing/were-building-a-wechat-member-community-for-the-next-generat",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu1be9o9077tro7zvc2kvc5u",
-    "title": "用一块全球最轻薄的AI随身屏，治好你的Todo焦虑 | Linear Voice",
-    "url": "https://elsewhere.news/zh/linearcapital/aitodo-linear-voice",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu1be9oa077uro7z0vewomei",
-    "title": "前海思鲲鹏总经理、地平线芯片总裁陈鹏创立九万里，蓝驰创投参与其超亿美元融资|蓝驰家族",
-    "url": "https://elsewhere.news/zh/lanchi/former-hisilicon-kunpeng-gm-and-horizon-robotics-chip-presid",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu0v1sby0b0eroucqbor6ytl",
-    "title": "百度秒哒无代码平台升级",
-    "url": "https://x.com/Baidu_Inc/status/2099383077873336696",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   }
-  ]
- }
+    "publishedArticles": 0,
+    "fallbackArticles": 0
+  },
+  "items": [],
+  "collectionStatus": {
+    "collectionWindow": {
+      "start": "2026-09-14T09:30:00+08:00",
+      "end": "2026-09-15T09:30:00+08:00",
+      "timezone": "Asia/Shanghai"
+    },
+    "degraded": true,
+    "sources": [
+      {
+        "name": "游戏葡萄",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "白鲸出海",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "机器之心",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "ZFinance",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "极客公园",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "东西文娱",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "娱乐资本论",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "FounderPark",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "瑞恩资本",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "DeepTech深科技",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "ZPotential",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "华尔街见闻",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "量子位",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "智东西",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "十字路口Crossing",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "投资界",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "赛博禅心",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "elsewhere别处发生",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "新智元",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "硅星人",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      }
+    ],
+    "candidateArticles": 375,
+    "publishedArticles": 338,
+    "excludedArticles": 21,
+    "quarantinedArticles": 16,
+    "quarantined": []
+  }
 }

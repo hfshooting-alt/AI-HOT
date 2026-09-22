@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI HOT · AI 情报仪表盘</title>
+<title>新闻Daily · 新闻情报仪表盘</title>
 <style>
   :root {
     --bg: #f7f8fa;
@@ -430,10 +430,10 @@
 <div class="app">
   <aside class="sidebar">
     <div class="brand">
-      <div class="brand-logo">H</div>
+      <div class="brand-logo">D</div>
       <div class="brand-text">
-        <div class="brand-title">AI<span>HOT</span></div>
-        <div class="brand-sub">AI 情报仪表盘</div>
+        <div class="brand-title">新闻<span>Daily</span></div>
+        <div class="brand-sub">Manus 新闻情报</div>
       </div>
     </div>
     <div class="nav-section">
@@ -441,7 +441,7 @@
       <nav id="nav">
         <button class="nav-item active" data-view="all" aria-current="page">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <span>全部 AI 动态</span>
+          <span>全部文章</span>
         </button>
         <button class="nav-item" data-view="company">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/></svg>
@@ -462,7 +462,7 @@
       </nav>
     </div>
     <div class="sidebar-footer">
-      数据来源：AI HOT 开放 API + 伴生公众号信源
+      新闻Daily · Manus 发现公开媒体文章，点击原文核对来源
     </div>
   </aside>
 
@@ -471,12 +471,12 @@
       <button id="menu-toggle" aria-label="打开导航">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
       </button>
-      <div class="brand-title">AI<span style="color:var(--accent)">HOT</span></div>
+      <div class="brand-title">新闻<span style="color:var(--accent)">Daily</span></div>
     </div>
     <div class="main-header">
       <div class="main-title">
-        <h1 id="page-title">全部 AI 动态</h1>
-        <p id="page-desc">完整 AI 资讯流，支持分类与搜索</p>
+        <h1 id="page-title">全部文章</h1>
+        <p id="page-desc">Manus 采集文章，支持分类与搜索</p>
       </div>
       <div class="search-box">
         <input id="search" type="text" placeholder="搜索标题、摘要…">
@@ -502,8 +502,8 @@ const CATEGORIES = [
 ];
 
 const VIEW_TITLES = {
-  all: { title: '全部 AI 动态', desc: '完整 AI 资讯流，支持分类与搜索' },
-  company: { title: '公司与产品全景', desc: '从全部资讯沉淀的公司与产品情报库' },
+  all: { title: '全部文章', desc: 'Manus 采集文章，支持分类与搜索' },
+  company: { title: '公司与产品全景', desc: '从 Garena投资精选沉淀的公司与产品情报库' },
   hot: { title: '热点榜', desc: '当前 AI 领域热度最高的话题' },
   daily: { title: 'AI 日报 / 周报', desc: '按月份组织的日报与周报入口' },
   fav: { title: '我的收藏', desc: '你收藏的新闻追踪' }

@@ -1,7 +1,7 @@
 """Encrypted CI checkpoints and cache-only recovery; never run collectors."""
 import argparse
 import base64
-from datetime import datetime
+from datetime import datetime, timedelta
 import hashlib
 import io
 import json
@@ -188,6 +188,24 @@ def rebuild(root, source_run):
         raise ValueError('只接受解密到work/recovered的原运行目录')
     safe_tree(source_run)
     state = read(source_run / 'state.json')
+    # Restore the recorded collection boundary, never the recovery clock or the
+    # legacy daily cutoff. Validate before copying or rebuilding any candidate.
+    from manus_source.window import timestamp
+    original_window = state.get('collectionWindow')
+    window_end = None
+    if original_window is not None:
+        if not isinstance(original_window, dict) or original_window.get('timezone') != 'Asia/Shanghai':
+            raise ValueError('原运行采集窗口不合法')
+        try:
+            window_end = timestamp(original_window['end'])
+            if (window_end - timestamp(original_window['start']) != timedelta(days=1)
+                    or (state.get('date') and state['date'] != window_end.date().isoformat())):
+                raise ValueError('原运行采集窗口不合法')
+            existing = os.environ.get('NEWS_COLLECTION_END')
+            if existing and timestamp(existing) != window_end:
+                raise ValueError('恢复窗口与 NEWS_COLLECTION_END 不一致')
+        except (KeyError, TypeError) as exc:
+            raise ValueError('原运行采集窗口不合法') from exc
     from .runner import tree_digest
     for rel in ALLOWED:
         accepted = {state.get('recoveryBaseline', {}).get(rel),
@@ -210,13 +228,15 @@ def rebuild(root, source_run):
     context = state.get('modelContext') or {}
     if not context.get('LLM_MODEL'):
         raise ValueError('原运行缺少模型标识，禁止猜测缓存版本')
-    old_env = {k: os.environ.get(k) for k in ('LLM_MODEL', 'LLM_API_BASE')}
+    old_env = {k: os.environ.get(k) for k in ('LLM_MODEL', 'LLM_API_BASE', 'NEWS_COLLECTION_END')}
     report = {'sourceRun': str(source_run), 'sourceFingerprint': state['fingerprint'],
               'currentCode': code_digest(root), 'paidCalls': 0, 'published': False,
               'optionalResearch': 'skipped_cache_only', 'missing': {}}
     try:
-        for key in old_env:
+        for key in ('LLM_MODEL', 'LLM_API_BASE'):
             os.environ[key] = context.get(key, '')
+        if window_end is not None:
+            os.environ['NEWS_COLLECTION_END'] = original_window['end']
         tx = tag_news.load_taxonomy(str(root / 'config/taxonomy.json'))
         snapshot, feed = workspace / 'web/public/snapshot.json', workspace / 'data/manus/current.json'
         articles = load_articles(snapshot, feed, raw, tx)
@@ -276,12 +296,12 @@ def rebuild(root, source_run):
         report['status'] = 'blocked'
         raise
     finally:
-        save(dest / 'recovery-report.json', report)
         for key, value in old_env.items():
             if value is None:
                 os.environ.pop(key, None)
             else:
                 os.environ[key] = value
+        save(dest / 'recovery-report.json', report)
 
 
 def main(argv=None):

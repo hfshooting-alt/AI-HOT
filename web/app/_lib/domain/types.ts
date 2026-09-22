@@ -1,7 +1,7 @@
-// AI HOT 前端数据类型定义（与 build_snapshot.py / aihot API 对齐）
+// 新闻Daily 发布快照与公司产品库的数据类型。
 
 export type NewsPoolMode = "all" | "selected";
-export type ViewKey = NewsPoolMode | "company" | "hot" | "daily" | "settings";
+export type ViewKey = NewsPoolMode | "company" | "settings";
 
 /** AI 两级分类（tag_news 打标签产物，展示结构；dims 与 to_display 输出对齐） */
 export interface Classification {
@@ -10,7 +10,7 @@ export interface Classification {
   dims?: { label: string; value: string }[];
 }
 
-/** 新闻条目（快照与 aihot API 合并后的统一结构） */
+/** Manus 发布批次中的新闻条目。 */
 export interface NewsItem {
   id: string;
   title: string;
@@ -36,27 +36,10 @@ export interface NewsItem {
   classificationOrigin?: string;
   num?: number;
   timeText?: string;
-  /** AIHOT v1 的站内 canonical 与第三方原文，便于保留来源层级。 */
-  aihotUrl?: string;
+  /** 原文链接。 */
   originalUrl?: string;
   reason?: string | null;
   timeBasis?: "published" | "discovered";
-}
-
-/** AIHOT /api/v1/items 的原始条目。 */
-export interface AIHotV1Item {
-  id: string;
-  title: string;
-  originalTitle: string | null;
-  summary: string | null;
-  source: { name: string };
-  links: { aihot: string; original: string };
-  publishedAt: string | null;
-  discoveredAt: string;
-  category: string | null;
-  score: number | null;
-  selected: boolean;
-  reason: string | null;
 }
 
 export interface DigestSection {
@@ -109,81 +92,18 @@ export interface Snapshot {
     quarantined?: { id: string; title: string; url: string; stage: string; reason: string }[];
   };
   publicationMode?: "pipeline";
-  daily: DigestView;
-  weekly: DigestView;
-  history: HistoryEntry[];
-  /** AIHOT 每日约 08:00 发布的成品日报索引。 */
-  dailyHistory?: HistoryEntry[];
-  weeklyNav: WeeklyNavEntry[];
-  /** 静态托管降级数据；Pages 无服务端 API 时直接读取。 */
-  hot?: Partial<HotTopicsResponse> & { items: HotTopic[] };
+  generatedAt?: string;
+  daily?: DigestView;
+  weekly?: DigestView;
+  history?: HistoryEntry[];
+  weeklyNav?: WeeklyNavEntry[];
   all?: AllFeedResponse;
   /** 两池契约：all 为已采集文章，garenaSelected 为本站筛选结果。 */
   newsSelectionVersion?: 1;
   garenaSelected?: AllFeedResponse;
-  /** 静态站点内嵌的日报正文；键为 YYYY-MM-DD。 */
-  dailyReports?: Record<string, DailyReport>;
 }
 
-/** /api/daily 上游日报条目（无 id/score/分类标签） */
-export interface DailyReportItem {
-  title: string;
-  summary?: string;
-  source?: { name?: string };
-  links?: { aihot?: string; original?: string };
-}
-
-/** /api/daily 上游日报响应（report 包裹层） */
-export interface DailyReport {
-  date: string;
-  generatedAt?: string;
-  lead?: { title?: string; summary?: string } | null;
-  sections: { label: string; items: DailyReportItem[] }[];
-  flashes?: DailyReportItem[];
-  links?: { aihot?: string };
-}
-
-/** public/weekly/{date}.json 周报期刊 */
-export interface WeeklyJournal {
-  weekStart: string;
-  weekEnd: string;
-  volLabel: string;
-  finalized: boolean;
-  aiReport?: unknown | null;
-  items: NewsItem[];
-}
-
-/** /api/v1/hot-topics 单条热点事件（实测结构） */
-export interface HotTopic {
-  rank: number;
-  id: string;
-  title: string;
-  source: { name: string };
-  links: { aihot: string; original: string; story: string };
-  sourceCount: number;
-  signalCount: number;
-  sourceNames: string[];
-  latestAt: string;
-}
-
-export interface HotTopicsResponse {
-  schemaVersion: number;
-  count: number;
-  items: HotTopic[];
-}
-
-/** /api/v1/items 分页响应 */
-export interface ItemsPage {
-  schemaVersion: number;
-  items: AIHotV1Item[];
-  page: {
-    count: number;
-    hasMore: boolean;
-    nextCursor: string | null;
-  };
-}
-
-/** /api/all 聚合响应（条目 + 分类标签统计） */
+/** 发布文章池（条目 + 分类标签统计）。 */
 export interface AllFeedResponse {
   items: NewsItem[];
   tags: { tag: string; count: number }[];

@@ -49,7 +49,7 @@ export const TAXONOMY_LABELS: Record<string, string> = {
   unclassified: "未分类",
 };
 
-/** 旧六版块 -> 新 6 类兜底映射（无 classification 的条目：aihot 实时流 / 未打标条目） */
+/** 旧六版块 -> 新 6 类兜底映射（无 classification 的条目：尚未打标条目） */
 const LEGACY_CATEGORY_MAP: Record<string, string> = {
   "模型发布/更新": "release",
   "产品发布/更新": "release",

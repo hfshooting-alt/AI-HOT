@@ -1,8 +1,7 @@
 # 数据与领域工具
 
-- `data/api.ts`：浏览器读取本站 API、快照、周报和融资数据，并合并数据池。
-- `data/upstream.ts`、`items-pool.ts`：服务端上游请求与公共分页；供 `web/app/api/` 使用。
-- `data/news-normalization.ts`：上游条目 ID、来源、分类转换和排序。
+- `data/api.ts`：浏览器只读取已发布的快照、公司与融资数据，不请求外部新闻接口。
+- `data/news-pools.ts`：独立读取 Manus 全部文章和 Garena投资精选，保留显式空集并识别坏数据；不回填历史或演示条目。
 - `domain/types.ts`：前后端交换的数据结构；`taxonomy.ts`、`fundingTaxonomy.ts`：展示枚举。
 - `display/format.ts`、`source.ts`：日期、配色、来源与关键词匹配。
 

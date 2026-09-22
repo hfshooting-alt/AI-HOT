@@ -1,11 +1,11 @@
-name: AI HOT 每日采集与完整数据更新
+name: 新闻Daily Manus采集与完整数据更新
 
 on:
   # 2026-09-22: user paused automatic collection; keep manual full workflow available.
   workflow_dispatch:
     inputs:
       date:
-        description: "窗口结束日 YYYY-MM-DD；采集前一日09:30至该日09:30，留空取最近已到达的09:30"
+        description: "扫描窗口结束日 YYYY-MM-DD；留空使用扫描开始的北京时间日期"
         type: string
         default: ""
       stage:
@@ -14,10 +14,18 @@ on:
         options: [all, snapshot, overview, funding]
         default: all
       source_mode:
-        description: "full 并行采集；aihot-only 不调用 Manus，仍进行模型筛选和公司库更新"
+        description: "仅 Manus 发现链接元数据，脚本取得正文；AIHOT采集已停止"
         type: choice
-        options: [full, aihot-only]
-        default: full
+        options: [manus-only]
+        default: manus-only
+      window_end:
+        description: "含时区ISO扫描开始时刻，留空取当前北京时间到秒；固定回溯24小时"
+        type: string
+        default: ""
+      manus_credit_limit:
+        description: "每来源观察止损线，默认20；显式0取消观察线（费用非硬上限）"
+        type: number
+        default: 20
       promote:
         description: "所选阶段全部成功后更新正式数据"
         type: boolean
@@ -110,11 +118,11 @@ jobs:
           key: company-discovery-day-${{ steps.research-day.outputs.day }}
       - name: 预留每天一次的公司搜索
         continue-on-error: true
-        if: ${{ github.event_name == 'schedule' || (!inputs.dry_run && inputs.source_mode == 'full' && (inputs.stage == 'all' || inputs.stage == 'overview')) }}
+        if: ${{ !inputs.dry_run && (inputs.stage == 'all' || inputs.stage == 'overview') }}
         run: PYTHONPATH=scripts python -m company_index.discovery --reserve
       - name: 创建任务前持久化配额占位
         continue-on-error: true
-        if: ${{ github.event_name == 'schedule' || (!inputs.dry_run && inputs.source_mode == 'full' && (inputs.stage == 'all' || inputs.stage == 'overview')) }}
+        if: ${{ !inputs.dry_run && (inputs.stage == 'all' || inputs.stage == 'overview') }}
         uses: actions/cache/save@v4
         with:
           path: work/company-discovery/quota.json
@@ -122,14 +130,15 @@ jobs:
       - name: 确认配额已持久化后才允许付费流程
         id: company-quota-confirm
         continue-on-error: true
-        if: ${{ github.event_name == 'schedule' || (!inputs.dry_run && inputs.source_mode == 'full' && (inputs.stage == 'all' || inputs.stage == 'overview')) }}
+        if: ${{ !inputs.dry_run && (inputs.stage == 'all' || inputs.stage == 'overview') }}
         uses: actions/cache/restore@v4
         with:
           path: work/company-discovery/quota.json
           key: company-discovery-day-${{ steps.research-day.outputs.day }}
           fail-on-cache-miss: true
-      - name: 并行采集 → 统一模型处理 → 快照与公司库 → 发布成功来源
+      - name: Manus发现 → 脚本正文 → 统一模型处理 → 发布成功来源
         env:
+          MANUS_CONTENT_MODE: script
           COMPANY_RESEARCH_BUDGET_READY: ${{ steps.company-research-ready.outcome == 'success' && '1' || '0' }}
           COMPANY_DISCOVERY_QUOTA_READY: ${{ steps.company-quota-confirm.outcome == 'success' && '1' || '0' }}
           MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
@@ -140,12 +149,15 @@ jobs:
           INPUT_DATE: ${{ inputs.date }}
           INPUT_STAGE: ${{ inputs.stage }}
           INPUT_SOURCE_MODE: ${{ inputs.source_mode }}
+          INPUT_WINDOW_END: ${{ inputs.window_end }}
+          INPUT_MANUS_CREDIT_LIMIT: ${{ inputs.manus_credit_limit }}
           INPUT_PROMOTE: ${{ inputs.promote }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
           INPUT_SKIP_SEARCH: ${{ inputs.skip_search }}
         shell: bash
         run: |
-          args=(run --window-mode ten-am --cutoff-time 09:30 --stage "${INPUT_STAGE:-all}" --source-mode "${INPUT_SOURCE_MODE:-full}")
+          args=(run --window-mode rolling-24h --stage "${INPUT_STAGE:-all}" --source-mode "${INPUT_SOURCE_MODE:-manus-only}" --manus-credit-limit "${INPUT_MANUS_CREDIT_LIMIT:-20}")
+          if [ -n "$INPUT_WINDOW_END" ]; then args+=(--window-end "$INPUT_WINDOW_END"); fi
           if [ -n "$INPUT_DATE" ]; then args+=(--date "$INPUT_DATE"); fi
           if [ "$INPUT_PROMOTE" = "false" ]; then args+=(--no-promote); fi
           if [ "$INPUT_DRY_RUN" = "true" ]; then args+=(--dry-run); fi
@@ -163,7 +175,7 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: 更新 AI HOT 全链路数据"
+          git commit -m "chore: 更新 新闻Daily 全链路数据"
           git pull --rebase origin main
           git push
           PUSHED_SHA="$(git rev-parse HEAD)"
@@ -212,5 +224,5 @@ jobs:
         env:
           RESULT: ${{ job.status }}
         run: |
-          echo "### AI HOT 数据更新：$RESULT" >> "$GITHUB_STEP_SUMMARY"
+          echo "### 新闻Daily 数据更新：$RESULT" >> "$GITHUB_STEP_SUMMARY"
           PYTHONPATH=scripts python -m automation.run_summary

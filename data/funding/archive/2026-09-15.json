@@ -1,203 +1,24 @@
 {
- "schemaVersion": 1,
- "generatedAt": "2026-09-15T14:56:06+08:00",
- "coverageNote": "覆盖快照日报+周报池与最新 Manus feed 中的融资类新闻（约最近一周）",
- "searchNote": "未配置 TAVILY_API_KEY，缺失字段未补全",
- "stats": {
-  "articlesProcessed": 7,
-  "extractionFailed": 0,
-  "articlesWithoutFundingInfo": 1,
-  "companiesTotal": 6,
-  "companiesSearched": 0
- },
- "companies": [
-  {
-   "id": "fund:2c6ee24b09816a6f",
-   "company_name": "OpenAI",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "大厂/已上市",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu1xiqfu03wvromgvtvbgjie",
-     "title": "曝 OpenAI 收购手机影像初创公司 Glass Imaging，估值超 3 亿美元",
-     "url": "https://www.ithome.com/1/002/359.htm",
-     "publishedAt": "2026-09-14T23:41:04.000Z",
-     "mpName": "IT之家（RSS）"
-    }
-   ]
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-15T14:56:06+08:00",
+  "coverageNote": "仅保留有 Manus 报道支持的融资记录。",
+  "searchNote": "未配置 TAVILY_API_KEY，缺失字段未补全",
+  "stats": {
+    "articlesProcessed": 0,
+    "modelCalls": 0,
+    "modelSuccesses": 0,
+    "modelFailures": 0,
+    "cacheHits": 0,
+    "extractionFailed": 0,
+    "articlesWithoutFundingInfo": 0,
+    "companiesTotal": 0,
+    "companiesSearched": 0
   },
-  {
-   "id": "fund:42afe7a07878792e",
-   "company_name": "Glass Imaging",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": null,
-   "valuation": "超过3亿美元",
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu1xiqfu03wvromgvtvbgjie",
-     "title": "曝 OpenAI 收购手机影像初创公司 Glass Imaging，估值超 3 亿美元",
-     "url": "https://www.ithome.com/1/002/359.htm",
-     "publishedAt": "2026-09-14T23:41:04.000Z",
-     "mpName": "IT之家（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:556dcd26a54fb752",
-   "company_name": "Anthropic",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": null,
-   "valuation": "2 万亿美元",
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu1g31xf07frrocnmjfagq29",
-     "title": "Anthropic 计划登陆纳斯达克，连续第二季度盈利瞄准 2 万亿美元估值",
-     "url": "https://the-decoder.com/anthropic-eyes-nasdaq-listing-as-a-second-profitable-quarter-aims-to-win-over-investors-ahead-of-a-mega-ipo",
-     "publishedAt": "2026-09-14T15:46:45.000Z",
-     "mpName": "The Decoder：AI News（RSS）"
-    },
-    {
-     "id": "aihot:cmu0jgo260r4froryczn18ma5",
-     "title": "IT早报 0914：马斯克、奥尔特曼响应 Anthropic 呼吁放缓前沿 AI 开发；智谱官宣 50 亿美元融资",
-     "url": "https://www.ithome.com/1/001/899.htm",
-     "publishedAt": "2026-09-14T00:03:00.000Z",
-     "mpName": "IT之家（RSS）"
-    },
-    {
-     "id": "aihot:cmu0f6bsx0lw2roryi619fkcf",
-     "title": "曝 Anthropic 选定纳斯达克上市，目标估值约 2 万亿美元",
-     "url": "https://www.ithome.com/1/001/871.htm",
-     "publishedAt": "2026-09-13T22:41:40.000Z",
-     "mpName": "IT之家（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:ef6299c9e7fdae6d",
-   "company_name": "Temporal",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": "Lightspeed、Wellington Management、高盛、Tiger Global",
-   "total_funding": "5.5亿美元",
-   "valuation": "125.5亿美元",
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu1ewtks04a4rocn6l6d6vry",
-     "title": "Temporal 完成 5.5 亿美元 E 轮融资，估值 125.5 亿美元",
-     "url": "https://temporal.io/blog/temporal-raises-usd550m-series-e-at-usd12-55b-valuation-ai",
-     "publishedAt": "2026-09-14T13:16:31.000Z",
-     "mpName": "Hacker News：AI 热帖"
-    }
-   ]
-  },
-  {
-   "id": "fund:f4cf01f0b2c572ef",
-   "company_name": "浙江威邦震电光电技术有限公司",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": "道彤投资、IDG资本、道远资本、峰瑞资本、方正合生、纳通资本、苏高新",
-   "total_funding": "近亿元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu10nf3b08q5ro2nw9q42mmz",
-     "title": "威邦震电完成近亿元B轮融资，道彤投资领投，推进工业检测、临床及AI for Science商业化",
-     "url": "https://elsewhere.news/zh/daltonventure/bai-for-sciencenews",
-     "publishedAt": "2026-09-14T07:16:14.000Z",
-     "mpName": "elsewhere：文章（RSS）"
-    }
-   ]
-  },
-  {
-   "id": "fund:7f567eea1a570c93",
-   "company_name": "智谱",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": "约50亿美元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "aihot:cmu0jgo260r4froryczn18ma5",
-     "title": "IT早报 0914：马斯克、奥尔特曼响应 Anthropic 呼吁放缓前沿 AI 开发；智谱官宣 50 亿美元融资",
-     "url": "https://www.ithome.com/1/001/899.htm",
-     "publishedAt": "2026-09-14T00:03:00.000Z",
-     "mpName": "IT之家（RSS）"
-    }
-   ]
+  "companies": [],
+  "sourceMigration": {
+    "mode": "manus_only",
+    "checkedAt": "2026-09-22T18:08:40+08:00",
+    "newModelCalls": 0,
+    "processingBasis": "retained previous funding records; no extraction"
   }
- ]
 }

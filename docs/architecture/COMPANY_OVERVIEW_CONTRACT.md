@@ -1,10 +1,10 @@
-# 公司与产品 Overview 数据契约
+# 新闻Daily 公司与产品数据契约
 
 生产者为 `scripts/build_company_overview.py`，正式数据写入 `data/company-overview/current.json`，网页副本为 `web/public/company-overview.json`，两者必须完全一致。
 
 ## 范围
 
-输入覆盖快照 daily/weekly 与最新 Manus feed 的全部新闻类别。按 URL 去重；能匹配运行时正文时使用正文，否则使用标题和摘要。历史 `current.json` 作为增量基线，因此公司不会因为当天没有新报道而消失。
+输入仅为本批 `snapshot.garenaSelected` 中的 Manus 精选。显式空精选不回读 all、daily/weekly、旧 feed 或历史；正文按私有 company-evidence.json 的文章 ID/URL 匹配。历史 `current.json` 是合法增量基线，已有独立官网与 Manus 证据保留；来源迁移清除仅由 AIHOT 支撑的旧贡献，并保留独立审阅记录、原缓存版本和费用账本。
 
 ## 公司记录
 

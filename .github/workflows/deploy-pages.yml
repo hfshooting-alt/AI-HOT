@@ -1,4 +1,4 @@
-name: 部署 AI HOT 到 GitHub Pages
+name: 部署新闻Daily 到 GitHub Pages
 
 on:
   push:

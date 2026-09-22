@@ -38,9 +38,8 @@ def inspect(root: Path, stages: list[str], target_date: str | None = None, *, te
     if "discovery" in stages:
         files.append("scripts/prompts/manus_discovery_window.md" if ten_am else "scripts/prompts/manus_discovery.md")
     if "content" in stages:
-        files.append("scripts/prompts/manus_content.md")
         mode = os.getenv("MANUS_CONTENT_MODE", "script")
-        check("正文模式", mode in ("script", "manus"), "script 或 manus")
+        check("正文模式", mode == "script", "生产正文仅由免费脚本提取")
         if mode == "script":
             check("trafilatura", importlib.util.find_spec("trafilatura") is not None,
                   "缺少时执行 python -m pip install -r scripts/requirements.txt")
@@ -51,7 +50,7 @@ def inspect(root: Path, stages: list[str], target_date: str | None = None, *, te
     keys = []
     if any(s in stages for s in ("discovery", "content")):
         keys.append("MANUS_API_KEY")  # 现有正文 CLI 的 Settings 也要求 Manus key。
-    if require_llm and any(s in stages for s in ("feed", "snapshot", "overview", "funding")):
+    if require_llm and any(s in stages for s in ("news", "feed", "snapshot", "overview", "funding")):
         keys.append((tx.get("model") or {}).get("api_key_env", "DEEPSEEK_API_KEY"))
     for key in keys:
         value = os.getenv(key, "").strip()

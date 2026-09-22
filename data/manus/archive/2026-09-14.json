@@ -1,245 +1,230 @@
 {
- "schemaVersion": 2,
- "collectionWindow": {
-  "start": "2026-09-13T09:30:00+08:00",
-  "end": "2026-09-14T09:30:00+08:00",
-  "timezone": "Asia/Shanghai"
- },
- "targetDate": "2026-09-14",
- "generatedAt": "2026-09-14T16:21:49+08:00",
- "collector": "manus",
- "ok": true,
- "degraded": true,
- "stats": {
-  "configuredAccounts": 20,
-  "completeAccounts": 1,
-  "failedAccounts": 19,
-  "discoveredArticles": 1,
-  "publishedArticles": 1,
-  "fallbackArticles": 0
- },
- "items": [
-  {
-   "id": "manus:ca9c16453725ee8b",
-   "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
-   "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
-   "source": "网易号转载：ZFinance",
-   "mpName": "ZFinance",
-   "sourceType": "media",
-   "sourceChannel": "netease_syndication",
-   "sourcePlatform": "NetEase",
-   "collector": "manus",
-   "publishedAt": "2026-09-13T20:16:29+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "ZFinance",
-     "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
-     "publishedAt": "2026-09-13T20:16:29+08:00"
-    }
-   ],
-   "summary": "Genspark本周推出Gen-1 Slides，基于开源的MiniMax M3联合Fireworks做后训练，用于PPT生成。其综合质量接近Claude Opus 5，单份PPT模型成本从约4.16美元降至0.44美元。Genspark将PPT工作流拆成约2000个构建任务进行强化学习，并加入检查与修改目标；在157万次线上任务中，低分比例从原始M3的18.0%降至3.6%，平均评分从3.80星升至4.25星。",
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "994a558219d9cf5b93fd7b0cc83e450fdc5a0d6f7c14c685922581160e5faa7f"
-  }
- ],
- "collectionStatus": {
+  "schemaVersion": 2,
   "collectionWindow": {
-   "start": "2026-09-13T09:30:00+08:00",
-   "end": "2026-09-14T09:30:00+08:00",
-   "timezone": "Asia/Shanghai"
+    "start": "2026-09-13T09:30:00+08:00",
+    "end": "2026-09-14T09:30:00+08:00",
+    "timezone": "Asia/Shanghai"
   },
+  "targetDate": "2026-09-14",
+  "generatedAt": "2026-09-14T16:21:49+08:00",
+  "collector": "manus",
+  "ok": true,
   "degraded": true,
-  "sources": [
-   {
-    "name": "AIHOT",
-    "collector": "aihot",
-    "status": "complete",
-    "discoveredArticles": 203,
-    "usableArticles": 203
-   },
-   {
-    "name": "游戏葡萄",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "白鲸出海",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "机器之心",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "ZFinance",
-    "collector": "manus",
-    "status": "complete",
-    "reasonCode": "complete",
+  "stats": {
+    "configuredAccounts": 20,
+    "completeAccounts": 1,
+    "failedAccounts": 19,
     "discoveredArticles": 1,
-    "usableArticles": 1
-   },
-   {
-    "name": "极客公园",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "东西文娱",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "娱乐资本论",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "FounderPark",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "瑞恩资本",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "DeepTech深科技",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "ZPotential",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "华尔街见闻",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "量子位",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "智东西",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "十字路口Crossing",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "投资界",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "赛博禅心",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "elsewhere别处发生",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "新智元",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "硅星人",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "not_started_budget",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   }
+    "publishedArticles": 1,
+    "fallbackArticles": 0
+  },
+  "items": [
+    {
+      "id": "manus:ca9c16453725ee8b",
+      "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+      "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+      "source": "网易号转载：ZFinance",
+      "mpName": "ZFinance",
+      "sourceType": "media",
+      "sourceChannel": "netease_syndication",
+      "sourcePlatform": "NetEase",
+      "collector": "manus",
+      "publishedAt": "2026-09-13T20:16:29+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "ZFinance",
+          "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+          "publishedAt": "2026-09-13T20:16:29+08:00"
+        }
+      ],
+      "summary": "Genspark本周推出Gen-1 Slides，基于开源的MiniMax M3联合Fireworks做后训练，用于PPT生成。其综合质量接近Claude Opus 5，单份PPT模型成本从约4.16美元降至0.44美元。Genspark将PPT工作流拆成约2000个构建任务进行强化学习，并加入检查与修改目标；在157万次线上任务中，低分比例从原始M3的18.0%降至3.6%，平均评分从3.80星升至4.25星。",
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "994a558219d9cf5b93fd7b0cc83e450fdc5a0d6f7c14c685922581160e5faa7f"
+    }
   ],
-  "candidateArticles": 202,
-  "publishedArticles": 199,
-  "excludedArticles": 2,
-  "quarantinedArticles": 1,
-  "quarantined": [
-   {
-    "id": "aihot:cmu0iow520q4zrorycd8rfy5o",
-    "title": "Elon Musk 转发 waitbutwhy 漫画",
-    "url": "https://x.com/elonmusk/status/2099295901529391177",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   }
-  ]
- }
+  "collectionStatus": {
+    "collectionWindow": {
+      "start": "2026-09-13T09:30:00+08:00",
+      "end": "2026-09-14T09:30:00+08:00",
+      "timezone": "Asia/Shanghai"
+    },
+    "degraded": true,
+    "sources": [
+      {
+        "name": "游戏葡萄",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "白鲸出海",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "机器之心",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "ZFinance",
+        "collector": "manus",
+        "status": "complete",
+        "reasonCode": "complete",
+        "discoveredArticles": 1,
+        "usableArticles": 1
+      },
+      {
+        "name": "极客公园",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "东西文娱",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "娱乐资本论",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "FounderPark",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "瑞恩资本",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "DeepTech深科技",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "ZPotential",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "华尔街见闻",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "量子位",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "智东西",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "十字路口Crossing",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "投资界",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "赛博禅心",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "elsewhere别处发生",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "新智元",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "硅星人",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "not_started_budget",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      }
+    ],
+    "candidateArticles": 202,
+    "publishedArticles": 199,
+    "excludedArticles": 2,
+    "quarantinedArticles": 1,
+    "quarantined": []
+  }
 }

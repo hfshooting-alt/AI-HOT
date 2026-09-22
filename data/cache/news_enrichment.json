@@ -36688,5 +36688,172 @@
   "enrichmentStatus": "complete",
   "modelAttempted": true,
   "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:3e2ab345cec6be43:e480b0983fafc691": {
+  "summary": "影眸Hyper3D于9月12日分享了一个案例，一位3D艺术家用GPT-6和Hyper3D一晚上制作出一款3D赛车游戏。今天，Hyper3D正式推出智能交互模式Agentic Mode，该模式能理解用户意图、处理不完美输入并自动选择建模路径，例如可补全不完整照片中的建筑结构、识别工程图中的多模态信息，并针对不同需求选择精细建模或参数化建模方式。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "release",
+   "tags": {
+    "industry": "ai_model",
+    "issuer": "startup"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:d4014166e1919bed:929c0ff73e110115": {
+  "summary": "AI眼镜线上退货率高达30%至70%，但线下门店退货率极低。Rokid、千问、雷鸟等品牌正通过渠道、代言人和生态建设展开竞争。渠道方面，品牌采用进网点、授权分销和自有门店三种方式，Rokid与红星眼镜合作开设验配一体门店，影目计划在上海开设首家品牌旗舰店。代言方面，Rokid选择科技创作者Tim，雷鸟CEO李宏伟亲自上阵，影目与王嘉尔合作推出联名产品。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:6a3b235845e5ffc3:62ec768c896b4f7a": {
+  "summary": "吴泳铭在云栖大会上提出阿里云到2032年运营全球数据中心规模突破20GW的目标。文章通过行业产值转化模型推算，20GW对应年总产值约2400亿美元，即便七成来自外部也接近1.2万亿元人民币，远超阿里此前定下的1000亿美元外部收入目标。阿里云当前外部年化收入约1200亿元人民币，最新单季收入增速达45%，若保持约48.4%的年均复合增长率，约4.5年即可达到千亿美元门槛。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "bigtech",
+   "tags": {
+    "change_type": "business_line",
+    "company": "alibaba"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:2467491fa353d5de:0edd01cd450d4e4b": {
+  "summary": "深圳宝安的00后创业品牌LUSBY凭借约60美元售价的AI眼镜，在TikTok Shop美区AI眼镜类目登顶。团队早在2018、2019年便开始研发智能眼镜，2025年随着实时翻译、AI识图等功能落地，决定All in AI眼镜。产品砍掉AR大屏、复杂传感等配置，只保留第一视角记录、实时翻译和轻量化佩戴体验。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:d13ea930c6789e0a:e4158c77f632cbb4": {
+  "summary": "土耳其手游团队 Bold Games 今年完成 600 万美元种子轮融资，CEO Ulaş Mergen 曾在 Dream Games、Rollic 和 Bigger Games 工作。团队首款产品《Market Match》结合 Goods Sorting 与《Match Factory》的机制，加入堆叠区和步数限制。Bold 的研发流程是先用一周做核心机制原型，再用约七周验证 100 个可玩关卡、5 种障碍物和可持续的关卡设计机制。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "financing",
+   "tags": {
+    "industry": "ai_game_content",
+    "region": "other"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:b1fa0f2223edc482:c67914a8e5393c28": {
+  "summary": "上海证券交易所网站显示，2026年9月21日，浙江环动机器人关节科技股份有限公司的科创板IPO已终止审核。终止原因是环动机器人及其保荐人撤回发行上市申请，上交所依据《上海证券交易所股票发行上市审核规则》第六十三条有关规定终止其发行上市审核。环动机器人的科创板上市申请于2024年11月25日获受理，2024年12月18日进入问询阶段，保荐机构为广发证券。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:99b97aa484b90184:bde0a3958c5f770a": {
+  "summary": "华策影视全资子公司西溪投资于9月新进持有水母智能5%股权，认缴出资额39.83万元，这是华策系主体首次出现在水母智能股东名单中。水母智能2020年11月成立于杭州余杭，孵化自洛可可创新设计集团，拥有面向中小商家的AI智能设计Agent交付平台和覆盖漫画、动态漫、竖屏漫短剧全流程的触手AI创作平台。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "financing",
+   "tags": {
+    "industry": "ai_game_content",
+    "region": "cn"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:2bd4f195ccad1adc:5c5af444c722e636": {
+  "summary": "苹果公司裁减了Fitness+健身订阅服务的部分音频业务员工，涉及“步行时间”和“跑步时间”等内容，新内容发布频率预计将降低。苹果正考虑将Fitness+更深入地整合进改版后的健康应用，并已宣布年内推出由Apple Intelligence支持的新版本Health，连接健康数据、个性化洞察和健身教育内容。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "bigtech",
+   "tags": {
+    "change_type": "business_line",
+    "company": "other"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:b9cb52a0325851b6:fd8106941c276598": {
+  "summary": "英伟达CEO黄仁勋在CBS采访中表示企业应尽可能多支付员工薪酬，并称其亲自审查全部42000名员工的薪酬方案，英伟达2026财年员工平均收入达28.205万美元。百度在AI Day上宣布库库AI全球AI办公月活超4000万，海外版Kooko用户突破1000万。阿里巴巴任命刘大一恒为Qwen大语言模型项目负责人。亚马逊云科技Bedrock接入开源大模型Kimi K3，中国大模型公司首次以分成模式向全球三大云厂商输出模型能力。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "bigtech",
+   "tags": {
+    "change_type": "other",
+    "company": "openai"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:47414f78dda6e2e4:e4fb393e4d2e2912": {
+  "summary": "亚马逊CTO Werner Vogels在2004年亚马逊数据库宕机事件后推动自研Dynamo，并在此后二十年主导了S3、EC2、Lambda等云计算基础设施的演进。2014年他发布Lambda，将事件驱动计算变成开发者可直接使用的基础能力。2021年，因Netflix等客户反馈，他主导重构S3，将最终一致性改为强一致性。2025年12月，他完成最后一场re:Invent闭幕演讲，不再担任该大会主讲，但仍继续担任亚马逊CTO。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "bigtech",
+   "tags": {
+    "change_type": "personnel",
+    "company": "other"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:b4a82dcc35b0871b:c11deef743182ce1": {
+  "summary": "亚马逊已封禁Meta新推出的AI智能体Muse对其零售网站的访问。自上周日晚间起，用户通过Muse在亚马逊购物时会看到提示，称未经授权的AI代理持续访问违反使用条款。亚马逊表示此前曾要求Meta将亚马逊电商站点排除在Muse服务范围之外，但协商未果。Muse是Meta本月早些时候正式推出的个人AI代理，可连接电子邮件、日历、支付、餐饮和购物等服务，上线一周便超过ChatGPT登顶苹果美国App Store免费应用榜首。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "bigtech",
+   "tags": {
+    "change_type": "other",
+    "company": "other"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
  }
 }

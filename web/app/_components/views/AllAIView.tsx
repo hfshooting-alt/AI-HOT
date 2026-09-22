@@ -4,8 +4,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { NewsItem, NewsPoolMode } from "../../_lib/domain/types";
-import { loadAll, loadSnapshot, loadReviewedNews, mergePools, poolFromSnapshot, shouldLoadLiveNews, shouldMergeReviewedNews } from "../../_lib/data/api";
-import { mergeReviewedNews } from "../../_lib/data/reviewed-news.mjs";
+import { loadSnapshot, poolFromSnapshot, newsPoolError } from "../../_lib/data/api";
 import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/display/format";
 import { categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
 import { matchItem, sourceKindOf } from "../../_lib/display/source";
@@ -29,25 +28,14 @@ export function AllAIView({ mode = "all" }: { mode?: NewsPoolMode }) {
   const [src, setSrc] = useState<SourceFilter>(saved.src);
   const [dimSel, setDimSel] = useState<DimSelection>(saved.dimSel);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     let cancelled = false;
     (async () => {
       const snap = await loadSnapshot();
-      const base = snap ? poolFromSnapshot(snap, mode) : [];
-      const mergeReviewed = shouldMergeReviewedNews(snap);
-      const [all, reviewed] = await Promise.all([
-        shouldLoadLiveNews(snap, mode) ? loadAll() : null,
-        mergeReviewed ? loadReviewedNews() : null,
-      ]);
       if (cancelled) return;
-      let merged: NewsItem[] = base;
-      if (all && all.items.length) {
-        merged = base.length ? mergePools(base, all.items) : all.items;
-      }
-      if (cancelled) return;
-      setItems(mergeReviewed
-        ? mergeReviewedNews(merged, reviewed, snap?.collectionStatus?.collectionWindow.end)
-        : merged);
+      setError(newsPoolError(snap, mode));
+      setItems(snap ? poolFromSnapshot(snap, mode) : []);
       setLoading(false);
     })();
     return () => {
@@ -102,7 +90,7 @@ export function AllAIView({ mode = "all" }: { mode?: NewsPoolMode }) {
       <header className="mb-6 flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="text-[26px] font-extrabold text-ink">{mode === "all" ? "全部文章" : "Garena投资精选"}</h1>
-          <p className="mt-1 text-[13px] text-mut">{mode === "all" ? "已采集文章" : "供投资研究参考的 AI 相关资讯"} · 支持来源、分类与搜索筛选</p>
+          <p className="mt-1 text-[13px] text-mut">{mode === "all" ? "Manus 采集的本轮文章" : "供投资研究参考的 AI 相关资讯"} · 支持来源、分类与搜索筛选</p>
         </div>
         <SearchToolbar
           q={q}
@@ -158,9 +146,13 @@ export function AllAIView({ mode = "all" }: { mode?: NewsPoolMode }) {
             <div key={i} className="ah-card h-[110px] animate-pulse bg-surface-2" />
           ))}
         </div>
+      ) : error ? (
+        <p role="alert" className="ah-card p-8 text-center text-[13px] text-mut">{error}</p>
       ) : groups.length === 0 ? (
         <p className="ah-card p-8 text-center text-[13px] text-mut">
-          无匹配内容，试试切换分类、标签、来源筛选或清空搜索词。
+          {items.length === 0
+            ? mode === "all" ? "本轮暂无已发布的 Manus 文章。" : "本轮暂无 Garena投资精选。"
+            : "无匹配内容，试试切换分类、标签、来源筛选或清空搜索词。"}
         </p>
       ) : (
         groups.map(([dayKey, list]) => (

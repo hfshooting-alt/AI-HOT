@@ -18442,5 +18442,221 @@
   "evidence": "宇树上市后，我们就没上会过具身项目了。",
   "modelAttempted": true,
   "cacheHit": false
+ },
+ "19f4418c07478d2072a6b22e4907ea0b50f90f776c566da18aa39dca27be37c1": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章为国产SOC游戏《山外山》的开发与市场访谈，未涉及具体AI事件。",
+  "evidence": "近几年曝光的一众国产主机大作中，《山外山》绝对称得上是个“异类”。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "b92a47eb94afb2b179ae3b863bde45f373709f722d1eb6e819669b47ea3ea4b4": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是影眸Hyper3D发布AI 3D生成工具的新智能交互模式Agentic Mode，属于AI产品发布。",
+  "evidence": "今天，Hyper3D最新推出了智能交互模式Agentic Mode，这相当于赋予了工具Agent化的能力：能理解意图、处理不完美输入、判断该走哪条建模路径。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "86dfd04c5b56db87b7e40bec44565dc61af6b389ea8899b84c0d386d51775c1c": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章讨论游戏行业长青化趋势，未涉及具体AI事件",
+  "evidence": "游戏行业需要「长青」，却越来越难创造「长青」",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "601ce849558477f2a78e6ab189be7c412bac46d31c88099607d8b2e81fc9adb0": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是阿里云AI数据中心算力扩张与收入爬坡，涉及AI算力、自研AI芯片及AI需求驱动的商业增长。",
+  "evidence": "在当下的 AI 数据中心体系里，行业存在一套成熟的产值转化模型：每 1GW 规模，每年大致撬动 100 亿至 150 亿美元的算力收入。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "78f84eea90b44d8f244c0b93a6a70f165e46a434fe8f5a1d68bfe5560586013f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI眼镜厂商在渠道、代言人和生态上的竞争，属于AI硬件产品的实质行业变化。",
+  "evidence": "AI眼镜退货率最高70%背后：Rokid、千问、雷鸟的一场“非技术PK”",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "be1dafaea1071488ce39b5d5d3041c5b24c05f4b34634c2be79e1c770fde49ec": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是土耳其手游团队 Bold Games 利用 AI 工具将游戏原型与关卡验证周期从 7 周压缩到 4 周，属于 AI 对游戏研发产生直接影响的具体事件。",
+  "evidence": "随着 AI 工具能力持续提升，他们现在开始考虑把这一周期进一步缩短到 4 周。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "fc9d372a73f0df39e73d8d7a7879fcb528b8ed8225650bda0c161431af95b787": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是放置RPG游戏《Idle Cat Gunner》的收入与买量素材分析，仅顺带提到部分广告素材含AI生成内容，无具体AI事件。",
+  "evidence": "当然还少不了部分 AI 生成内容。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "a79a5579f19f0147e5e9b8128cbafb9f1f75e903371363c45fd6d81734419055": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是LUSBY AI眼镜在TikTok Shop美区登顶，涉及AI眼镜产品、功能与销售表现。",
+  "evidence": "LUSBY 仅用 4 个月就将月销售额从 5 万美元拉升到了 100 万美元，更是一举冲上了 TikTok Shop 美区 AI 眼镜类目的榜首。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "95de6aab04f81cdadcb05e9e436a194dc20336b1a6323b6f7132a031482be9da": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章为eBay年终旺季消费趋势报告，未涉及AI模型、产品、公司、融资、研究或算力等具体AI事件。",
+  "evidence": "eBay 近日发布《2026 eBay 卖家旺季行动指南》，从购物时间、支出计划、商品发现路径、购买信心和直播互动等维度，呈现当地市场的最新趋势",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "d92e50294d9a5f8d91dfd5564db84f41415824e879b1b4705c7bf07ed9297643": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章主要讲述小家电品牌EUHOMY的跨境电商发展历程，未涉及AI相关事件",
+  "evidence": "辞掉央企铁饭碗，宁波老板在海外卖小家电，一年干出14亿",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "78b4def1c8e11daa683c85fcf838803043cfd943763a7e54de1baadb9b8391ac": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "环动机器人是一家机器人关节科技公司，其科创板IPO终止属于AI/机器人赛道的重要融资事件。",
+  "evidence": "浙江环动机器人关节科技股份有限公司(下称环动机器人)科创板IPO已经终止审核",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "fd03cdd34d3ad03309f5ad15c15a9018e626cd091dfa3e59fb67a60f6d250ec9": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章内容为黄金公司配股融资及股权变动，未涉及任何AI相关事件。",
+  "evidence": "珠峰黄金(01815.HK)于周二(9月22日)发布公告，将向6名认购人发行合共2.77亿股或占扩大后股本16.38%",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "f797f96bbc27bc52e941f581a316d3c116906509281d08eb3a369e3e7cd8eb98": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是网约车平台TADA的创业与扩张，未涉及具体AI事件。",
+  "evidence": "谁说在东南亚做网约车平台，就一定要成为Grab？",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "75c239bb0550f48a8aa31297d1b9f0779b01a3b945c291233e3ffba37ef73f6a": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是Whatnot直播拍卖电商的佣金费率调整，未涉及具体AI事件。",
+  "evidence": "当地时间 9 月 18 日，直播购物平台 Whatnot 宣布对佣金费率做出重大调整，自 9 月 21 日新规生效后，卖家费率最低可降至 3%。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "a2a78962160fa286b5e5e3023bc8dfac4395cf0d6005f3aee34b7f89c8e6feb5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "华策影视入股AI设计公司水母智能，涉及AI内容生产与AIGC创作平台。",
+  "evidence": "华策影视全资子公司西溪投资，已于9月新进持有水母智能5%股权",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "20b08aedced6eecf1be5109f20faa0a4eb50ddb6df788e19144f8d615b5c97da": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是跨境电商DIY亚克力冰箱贴的销售案例，未涉及AI相关事件。",
+  "evidence": "一块2毛钱的亚克力片，在TikTok卖了186万",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "522256788a1b49dc4b43569f2f3fe2aa0fded885576eab35a7c0eccdae6f7498": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件涉及苹果AI战略、Apple Intelligence支持的新版Health以及AI对折叠屏iPhone换机需求的推动，属于AI产品与AI对消费电子行业产生直接影响的事件。",
+  "evidence": "苹果已经宣布，年内将推出由 Apple Intelligence（即苹果 AI 服务系统）支持的新版本 Health，将健康数据、个性化洞察和个性化健身教育内容",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "658d174ce98295d3371962d5bd07ea24eebbd9d8efd986905eeef6f8cd3cf1ec": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是电子纸阅读器创业访谈，AI仅作为背景性工具被顺带提及，无具体AI事件。",
+  "evidence": "我们不会为了追 AI 潮流，专门做一个看上去很 AI 的产品。AI 更多是一个工具，被应用在产品背后。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "f9a104f5a6139655260886a2e1274baec640b8a00d6b0c373102e10abec53b43": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是美妆博主姜乘澜回归直播带货的选品、信任与行业分析，未涉及AI相关事件。",
+  "evidence": "停更三年后，美妆头部博主“程十安”以新账号姜乘澜在2026年5月13日宣布回归互联网",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "00dbdd3fea908fc3c4bd4bcb19468efde7ffe7890be9ac18950e5d80be473ab1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章包含多个与AI直接相关的实质新闻，如OpenAI新模型、宇树灵巧手、Kimi接入AWS等。",
+  "evidence": "OpenAI 宣布成立数学与 AI 顾问组，神秘新模型 24 天攻破 100+ 世界级难题",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "6256206c9d5c14d95f69ed4626d94b9456993c8fc53f0cbd974a760ca0bc6c44": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章讨论综艺直播制作与叙事变化，仅结尾出现AI作图标注，无具体AI事件。",
+  "evidence": "AI作图 by娱乐资本论",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "0c692f4fb28cd6b212858b30e05a4febae48c4adec83d2d555d62304a0a75a84": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是零跑汽车的技术、成本与产品形态战略，仅顺带提及智驾算法，无具体AI事件。",
+  "evidence": "零跑的智驾团队到今天也才 800 人出头，架构上没有照搬大语言模型堆网络层数，按零跑的说法，同样的模型效果只用了 1/5 的算力。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "c9a62dab530857d1eb4bbcf8dd92ce1782bf6e0cce657debe1127c3a4da2813a": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心讨论《王者万象棋》玩法设计与行业问题，仅一处顺带提及AI二创截图，无具体AI事件。",
+  "evidence": "图为玩家制作的《暗区》主策 117 琵琶曲 AI 二创截图",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "4e2e13a74bf283c068c5581f9f5412de14a68254bf9dbb3ea55f46847d248342": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章仅报道互动影游销量纪录，未涉及任何具体AI事件",
+  "evidence": "真人互动影游《盛世天下》系列累计销量突破600万套",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "ee2d035b7e6db4e6502fa7ecad6d48faf7f014ac6cc467ea33b45e632fb4383f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是亚马逊CTO Werner Vogels与云计算20年，其中包含AI时代开发者如何跟上技术变化等AI相关讨论。",
+  "evidence": "AI 时代，开发者要如何跟上技术的变化？亚马逊 CTO Werner Vogels，用了二十多年的时间来解答这个问题",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "48609888b7b317eb2bd0dde9bb2050aa07d9878eccda070c7c53e271fcfd0f50": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是前OpenAI研究员发布只输出概率判断的AI模型Jev，并引发大量开发者应用，属于AI模型与产品新闻。",
+  "evidence": "直到前 OpenAI 研究员 Diogo Almeida 带着他的新模型 Jev 登场。这个被称为「System One」的模型没有嘴巴，不生成任何文字，只输出",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "ff148dc15e159de147b1681e0114f80a3663e61757c64a77f65d84513bd70709": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "亚马逊封禁Meta旗下AI智能体Muse访问其电商网站，核心事件是AI智能体购物引发的平台冲突。",
+  "evidence": "亚马逊已封禁了 Meta 新推出的人工智能（AI）智能体 Muse 对其零售网站的访问。",
+  "modelAttempted": true,
+  "cacheHit": false
  }
 }

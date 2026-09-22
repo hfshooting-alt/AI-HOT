@@ -313,18 +313,15 @@ class TestEndToEndWithMockedAPI(unittest.TestCase):
         # mpStatus 显示 Manus 已接入
         self.assertTrue(data["daily"]["mpStatus"]["connected"])
         self.assertIn("Manus", data["daily"]["mpStatus"]["note"])
-        self.assertTrue(data["daily"]["total"] > 0 and data["weekly"]["total"] > 0)
-        self.assertEqual(data["dailyHistory"][0]["date"], "2026-08-17")
-        self.assertEqual(data["dailyReports"]["2026-08-17"]["sections"][0]["items"][0]["title"],
-                         "AIHOT 八点日报样本")
+        self.assertEqual(data['dailyHistory'], [])
+        self.assertEqual(data['dailyReports'], {})
+        self.assertTrue(all(str(i['id']).startswith('manus:') for i in data['all']['items']))
+        self.assertNotIn('AIHOT 八点日报样本', json.dumps(data, ensure_ascii=False))
 
-    def test_snapshot_without_feed_still_builds(self):
+    def test_snapshot_without_feed_refuses_aihot_fallback(self):
         rc = self.run_main(os.path.join(self.tmp, "no-such-feed.json"))
-        self.assertEqual(rc, 0)
-        data = self.extract_data()
-        self.assertFalse(data["daily"]["mpStatus"]["connected"])
-        self.assertIn("不可用", data["daily"]["mpStatus"]["note"])
-        self.assertTrue(data["daily"]["total"] > 0)  # 仅 aihot 数据也能发布
+        self.assertEqual(rc, 1)
+        self.assertFalse(os.path.exists(os.path.join(self.tmp, 'snapshot.json')))
 
 
 class TestTagArchiveDays(unittest.TestCase):

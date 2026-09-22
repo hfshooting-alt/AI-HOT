@@ -1,4 +1,4 @@
-name: 流水线离线回归
+name: 新闻Daily 流水线离线回归
 
 on:
   push:

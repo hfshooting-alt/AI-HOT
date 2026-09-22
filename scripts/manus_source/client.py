@@ -80,7 +80,26 @@ DISCOVERY_OUTPUT_SCHEMA = {
 
 
 class ManusAPIError(RuntimeError):
-    pass
+    def __init__(self, message, *, reason_code=None, creation_state=None):
+        super().__init__(message)
+        self.reason_code = reason_code
+        self.creation_state = creation_state
+
+
+def credit_creation_rejection(data, http_status=None):
+    """Only the observed, explicit platform rejection proves no task was made."""
+    if http_status not in (None, 429) or not isinstance(data, dict):
+        return False
+    error = data.get('error')
+    return (data.get('ok') is False and data.get('task_id') in (None, '')
+            and isinstance(error, dict) and error.get('code') == 'resource_exhausted'
+            and isinstance(error.get('message'), str)
+            and error['message'].strip().lower() == 'credit limit exceeded')
+
+
+def credit_rejection_error():
+    return ManusAPIError('account_credits_exhausted: platform rejected creation; task not created',
+                         reason_code='account_credits_exhausted', creation_state='not_created')
 
 
 def observed_at() -> str:
@@ -137,6 +156,12 @@ def default_transport(method: str, path: str, payload: dict[str, Any] | None,
             return json.loads(response.read().decode("utf-8"))
     except HTTPError as error:
         details = error.read().decode("utf-8", errors="replace")
+        try:
+            rejected = credit_creation_rejection(json.loads(details), error.code)
+        except (ValueError, TypeError):
+            rejected = False
+        if method == 'POST' and path == 'task.create' and rejected:
+            raise credit_rejection_error() from error
         raise ManusAPIError(f"Manus HTTP {error.code}: {details}") from error
     except URLError as error:
         raise ManusAPIError(f"Cannot reach Manus API: {error.reason}") from error
@@ -189,6 +214,8 @@ class ManusClient:
         self._create_lock = threading.Lock()
         self._next_create_at = 0.0
         self._creation_blocked = threading.Event()
+        self._creation_block_reason = None
+        self._creation_block_lock = threading.Lock()
         self._task_statuses: dict[str, str] = {}
         self._task_receipts: dict[str, dict] = {}
         self._receipt_callbacks = {}
@@ -251,7 +278,7 @@ class ManusClient:
             if self.require_terminal_confirmation and event.get('type') == 'error_message':
                 if self._is_credit_exhausted(event.get('error_message', {}).get('content')):
                     # Inspect the whole page even when a result precedes the error.
-                    self.block_new_tasks()
+                    self.block_new_tasks('account_credits_exhausted')
             if event.get('type') == 'status_update':
                 self._observe_status(task_id, event.get('status_update', {}).get('agent_status'),
                                      remote_time(event.get('timestamp'), milliseconds=True))
@@ -281,12 +308,12 @@ class ManusClient:
             # 三个采集线程共用客户端；创建节奏与任务执行并发分别控制。
             with self._create_lock:
                 if self._creation_blocked.is_set():
-                    raise ManusAPIError('cost_circuit_open: remote stop unconfirmed; task not created')
+                    raise self.creation_blocked_error()
                 wait = self._next_create_at - time.monotonic()
                 if wait > 0:
                     time.sleep(wait)
                 if self._creation_blocked.is_set():
-                    raise ManusAPIError('cost_circuit_open: remote stop unconfirmed; task not created')
+                    raise self.creation_blocked_error()
                 self._next_create_at = time.monotonic() + self.create_interval_seconds
                 try:
                     if before_create:
@@ -298,10 +325,12 @@ class ManusClient:
                             raise ManusAPIError('Task create response has no usable task ID')
                     return response
                 except Exception as error:
-                    if self.require_terminal_confirmation and self.create_retries == 0:
+                    if getattr(error, 'reason_code', None) == 'account_credits_exhausted':
+                        self.block_new_tasks('account_credits_exhausted')
+                    elif self.require_terminal_confirmation and self.create_retries == 0:
                         # Keep the create lock until queued workers see the circuit.
                         # A lost response can still represent a running paid task.
-                        self.block_new_tasks()
+                        self.block_new_tasks('creation_unknown')
                     if isinstance(error, ManusAPIError) and self.create_interval_seconds > 0 and any(
                             code in str(error) for code in ('HTTP 429', 'rate_limited', 'resource_exhausted')):
                         self._next_create_at = max(self._next_create_at, time.monotonic() + 60)
@@ -316,6 +345,8 @@ class ManusClient:
         data = self.transport(method, path, payload)
         self._last_request_at = time.monotonic()
         if not data.get("ok"):
+            if method == 'POST' and path == 'task.create' and credit_creation_rejection(data):
+                raise credit_rejection_error()
             error = data.get("error", {})
             raise ManusAPIError(f"Manus error {error.get('code')}: {error.get('message')}")
         return data
@@ -354,9 +385,20 @@ class ManusClient:
         self._request("POST", "task.stop", {"task_id": task_id})
         self._update_receipt(task_id, stopAccepted=True, stopAcceptedObservedAt=observed_at())
 
-    def block_new_tasks(self) -> None:
+    def block_new_tasks(self, reason='remote_stop_unconfirmed') -> None:
         """Block queued creations before a worker can start its next source."""
-        self._creation_blocked.set()
+        if reason not in ('remote_stop_unconfirmed', 'creation_unknown', 'account_credits_exhausted'):
+            reason = 'remote_stop_unconfirmed'
+        with self._creation_block_lock:
+            if not self._creation_blocked.is_set():
+                self._creation_block_reason = reason
+            self._creation_blocked.set()
+
+    def creation_blocked_error(self):
+        with self._creation_block_lock:
+            reason = self._creation_block_reason or 'remote_stop_unconfirmed'
+        return ManusAPIError(f'cost_circuit_open: {reason}; task not created',
+                             reason_code=reason, creation_state='not_created')
 
     def confirm_task_stopped(self, task_id: str, max_attempts: int = 3) -> dict:
         """Reuse drained status messages, otherwise make at most three detail reads."""
@@ -479,6 +521,17 @@ class ManusClient:
                     self._emit_receipt(callback, receipt)
                     raise
                 last_error = error
+                if error.creation_state == 'not_created':
+                    if attempt > 0:
+                        # A later explicit refusal cannot disprove a task from
+                        # an earlier lost response in the legacy retry path.
+                        receipt.update(creationState='unknown', notCreatedReason=None)
+                        self._emit_receipt(callback, receipt)
+                        raise ManusAPIError(f'{error.reason_code}: rejected or blocked after an earlier unknown creation',
+                                             reason_code=error.reason_code, creation_state='unknown') from error
+                    receipt.update(creationState='not_created', notCreatedReason=error.reason_code)
+                    self._emit_receipt(callback, receipt)
+                    raise
                 if attempt >= self.create_retries or not self._is_retryable(str(error)):
                     receipt['creationState'] = 'unknown' if receipt['createAttempts'] else 'not_created'
                     self._emit_receipt(callback, receipt)
@@ -514,7 +567,7 @@ class ManusClient:
             elif event_type == "error_message":
                 last_error = event.get("error_message", {}).get("content") or "Task error"
                 if self.require_terminal_confirmation and self._is_credit_exhausted(last_error):
-                    self.block_new_tasks()
+                    self.block_new_tasks('account_credits_exhausted')
                     raise ManusAPIError('Manus credits exhausted')
             elif event_type == "status_update":
                 if agent_status == "error":
@@ -596,7 +649,7 @@ class ManusClient:
             except ManusAPIError as error:
                 error_text = str(error)
                 if self.require_terminal_confirmation and self._is_credit_exhausted(error_text):
-                    self.block_new_tasks()
+                    self.block_new_tasks('account_credits_exhausted')
                     raise
                 require_recent_credit_observation()
                 # task.create 返回的 task_id 可能短暂查不到：注册延迟，不算失败

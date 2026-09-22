@@ -93,7 +93,7 @@ export function CompanyOverviewView() {
     Promise.all([loadFundingTable(), loadSnapshot()]).then(([table, snapshot]) => {
       if (active) {
         setFunding(table);
-        setSnapshotGeneratedAt(snapshot?.daily.generatedAt || "");
+        setSnapshotGeneratedAt(snapshot?.generatedAt || snapshot?.daily?.generatedAt || "");
       }
     });
     return () => { active = false; };

@@ -17,7 +17,6 @@ export function ArticleCard({ item, showSection = true }: { item: NewsItem; show
           <span className="size-1.5 rounded-full bg-ink-2" aria-hidden />
           {item.publishedPrecision === "date" || item.publishedPrecision === "relative"
             ? fmtItemTime(item) : fmtClock(item.publishedAt) || item.timeText}
-          {item.timeBasis === "discovered" && <span className="font-normal text-mut-2">AIHOT 收录</span>}
         </span>
         <span
           className={`max-w-[260px] truncate rounded-full border px-2 py-0.5 text-[11.5px] ${
@@ -25,18 +24,8 @@ export function ArticleCard({ item, showSection = true }: { item: NewsItem; show
           }`}
           title={item.source}
         >
-          {item.source || "AI HOT"}
+          {item.source || "来源未注明"}
         </span>
-        {item.aihotUrl && (
-          <a
-            href={item.aihotUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[11px] font-medium text-brand hover:underline"
-          >
-            AIHOT 收录页
-          </a>
-        )}
         {showSection && <SectionTag label={TAXONOMY_LABELS[catId] || catId} color={color} />}
         <span className="ml-auto flex items-center gap-2">
           <BookmarkIcon className="size-4 text-mut-2" />

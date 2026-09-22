@@ -1,8 +1,10 @@
-# docs/maintenance/AGENTS.MD — AI HOT 项目 Agent 开发守则
+# docs/maintenance/AGENTS.MD — 新闻Daily 项目 Agent 开发守则
+
+2026-09-22 最新用户决定（优先于下方历史记录）：项目品牌改为“新闻Daily”，生产仅保留 Manus 链路，停止 AIHOT 请求并清除其公开新闻及仅由 AIHOT 支撑的公司/产品/融资。共享主体保留 Manus 关联和独立资料证据。首页为全部文章，Garena投资精选独立筛选，公司/产品/融资只从精选抽取；空池不得回退旧数据。Manus 仅发现标题、链接、来源、原始发布时间，正文交由脚本；不再要求机器之心回传正文。北京时间滚动24小时截止时刻由 NEWS_COLLECTION_END 固定，严格保留原始发布时间及已确认“昨天全天”例外。20来源最多并发3个，本次追加全量扫描明确取消费用观察止损（--manus-credit-limit 0），不代表免除余额不足/创建状态不明保护，也不自动改变以后运行的默认额度。定时保持关闭；仓库与 /AI-HOT/ 部署路径兼容保留。删除与发布须在隔离候选中核验后通过 reviewed-candidate 晋升，不改写历史原始轨迹。
 
 2026-09-22 Manus来源修复：完整窗口采用逐来源内联指令与平台短路线，公开列表seed仅作线索、不可直接入库。实际请求与终态verbose轨迹只存私有work，加密恢复；诊断不影响付费任务生命周期。确认stopped后最多15秒迟到回收，仍完整校验。20源验收须分入口、窗口样本、完整覆盖；费用不自动扩大，定时保持关闭。见[来源验收](../operations/MANUS_SOURCE_VERIFICATION.md)。
 
-2026-09-22 新闻阅读分为“全部文章”与“Garena投资精选”。全部文章保留通过既有来源/时间校验的所有去重采集元数据；相关性排除和单条加工失败只影响精选。公司/产品/融资新增严格只读 `snapshot.garenaSelected`，空池不能回退全量、旧 feed 或历史。旧库保留、继续原预算联网补全。`newsSelectionVersion=1` 配合 `all` / `garenaSelected` 两池；独立 garenaSelection 不等于 AIHOT 的 selected。详细契约见统一新闻链路文档。
+2026-09-22 新闻阅读分为“全部文章”与“Garena投资精选”。全部文章保留通过既有来源/时间校验的所有去重 Manus 元数据；相关性排除和单条加工失败只影响精选。公司/产品/融资新增严格只读 `snapshot.garenaSelected`，空池不能回退全量、旧 feed 或历史。旧库仅保留 Manus 关联和独立公开资料，继续原预算联网补全。`newsSelectionVersion=1` 配合 `all` / `garenaSelected` 两池；独立 garenaSelection 不使用旧上游 selected。详细契约见统一新闻链路文档。
 
 2026-09-18用户更正：机器之心网站文章作者缺失可为null，不得作为拒收理由。校验配置入口、同站文章URL与发布时间；明确识别的ScienceAI/新闻资讯等第三方发布者仍沿用原有区分。正文提取对该站增加匿名浏览器回退，不能关闭安全检查、绕过真实登录墙或验证码。
 
@@ -12,9 +14,9 @@
 
 2026-09-14用户更新：允许提高搜索测试预算，优先更强模型，失败路线不继续重复。最近扩大预算试验上限8次，实际1次Baichuan-M3即因来源质量停止。该授权不改变Manus限制，不意味着需要用满额度，也不意味着名称更新的模型自动具有搜索能力。现有GLM-4V和Baichuan-M3暂停生产接入；新证据/通道出现前不再重复失败测试。
 
-Manus只依据文章原始发布／发送时间收录，新增点赞、评论、互动、编辑或转载页面的刷新时间均不能使旧文章重新符合窗口。“昨天”等相对文字必须指文章发布，不得引用评论或互动时间。AIHOT批次不做这层原文时间拦截，先接收再进入相关性、摘要打标与公司更新流程；URL路径日期不作为发布时间判定。已确认的北京时间09:30窗口及“昨天”发布的自然日例外保持。
+Manus只依据文章原始发布／发送时间收录，新增点赞、评论、互动、编辑或转载页面的刷新时间均不能使旧文章重新符合窗口。“昨天”等相对文字必须指文章发布，不得引用评论或互动时间。URL路径日期不作为发布时间判定。默认窗口为扫描启动时冻结的最近24小时，`NEWS_COLLECTION_END` 贯穿所有阶段；原09:30窗口仅保留显式历史复核入口。“昨天”发布的自然日例外保持，不能伪造时分或宣称严格24小时覆盖。
 
-> 本文件面向所有参与本项目的 coding agent，交接必读。最近同步：2026-09-15。
+> 本文件面向所有参与本项目的 coding agent，交接必读。最近同步：2026-09-22。日期明确的旧一次性预算授权不代表当前可重复使用。
 
 用户已确认公司产品库允许基金会／开源组织主体，保留foundation/open_source_organization类型及官网证据；不归给赞助商。非商业主体产品关系在前端显示“维护”。reviewed research通过owner_entity_type与entity_type_evidence恢复审核类型，不能让后续模型抽取将其永久改为公司。
 
@@ -26,7 +28,7 @@ Manus 新闻任务创建至少间隔 7 秒，共享线程锁；失败请求也�
 
 离线测试必须自行提供模型配置，不能依赖开发机 LLM_MODEL 或根目录 .env。统一入口会隔离它们，临时 dotenv 文件测试仍可使用。流水线相关提交由 .github/workflows/test-pipeline.yml 执行无密钥回归；不要给离线检查注入生产 Secrets 来掩盖夹具缺项。
 
-每日 overview 已启用已知网页补全，最多 5 个主体、10 页、5 次 DeepSeek 请求。full 模式另允许每天最多 1 个公司或待归属产品进行 Manus Lite 链接发现，20 credits 观察止损、创建不重试；与新闻媒体配额分开。aihot-only 不创建 Manus 任务。自动字段仅补空白并标暂定，候选归属不合并公司。配额缓存、失败处理及证据口径见[操作说明](../operations/COMPANY_WEB_RESEARCH.md)。历史数字及旧启用状态见[整理前快照](../history/2026-09-15/maintenance-before-organization/AGENTS.MD)。
+overview 的已知网页补全沿原授权：最多 5 个主体、10 页、5 次 DeepSeek 请求。可选公司资料 Manus Lite 链接发现每天最多 1 个公司或待归属产品、20 credits 观察止损、创建不重试，与新闻媒体配额分开；本轮迁移扫描没有扩大或重置该预算。统一入口只使用 `manus-only`，`full` 是兼容别名，`aihot-only` 被拒绝。自动字段仅补空白并标暂定，候选归属不合并公司。配额缓存、失败处理及证据口径见[操作说明](../operations/COMPANY_WEB_RESEARCH.md)。历史数字及旧启用状态见[整理前快照](../history/2026-09-15/maintenance-before-organization/AGENTS.MD)。
 
 ## 1. 目录地图（先看这里，避免迷路）
 
@@ -47,20 +49,18 @@ Manus 新闻任务创建至少间隔 7 秒，共享线程锁；失败请求也�
 
 ## 2. 项目定位与架构
 
-AI 情报日报/周报看板：
+新闻Daily Manus 新闻与投资情报看板：
 
-- **数据链路**：AIHOT 与 Manus discovery 独立并行采集（Manus 为配置的20个媒体入口，继而获取正文）→ `news_pipeline.py` 汇总校验、合并去重 → 统一模型相关性门禁及摘要分类 → 候选快照/归档、公司产品与融资更新 → 统一校验和发布。允许来源部分失败并公开缺失状态；单条新闻或公司抽取失败隔离并披露，不阻断其他合格结果；模型阶段全部失败则保留旧网页。`aihot-only` 只关闭 Manus，仍运行模型和公司更新。详见 `docs/architecture/UNIFIED_NEWS_PIPELINE.md`。feed v2 按真实承载页写入来源类型；媒体名称相同不得视为公众号身份相同。
-- **融资数据链路**：已处理快照与 Manus feed → `scripts/funding_table.py` 抽取融资字段，可选 Tavily 补全 → `data/funding/current.json` / `web/public/funding-table.json` → 前端融资动态表格。
-- **前端双形态**：
-  - 静态历史产物位于 `web/public/history/`、`web/public/weekly/`；根静态页工作流已停用，`update-snapshot.yml` 已删除；
-  - Next.js 16 + React 19 + Tailwind 4 组件化前端（`web/app/` 目录）为当前主形态，`web/app/page.tsx` 直渲染 `AppShell`，侧栏底部含「设置」API Key 配置入口。
-- **数据更新**：2026-09-22 用户要求暂停定时，已取消 `.github/workflows/fetch-manus.yml` 的 schedule 触发器和本地定时跟进，保留手动完整运行。`scripts/run_pipeline.py` 固定采集前一日09:30至所选结束日09:30，完成 feed、快照/归档/历史/周报及融资表后统一更新仓库产物。窗口起点包含、终点排除，运行时间不移动窗口；数据提交成功后显式触发 GitHub Pages 部署。原预算和串行防重保护保持，未经用户指示不恢复定时。
+- **数据链路**：20个既定媒体入口的 Manus 元数据发现 → 来源/原始时间校验与去重 → 全部文章；脚本合格正文 → `news_pipeline.py` 相关性、摘要与分类 → Garena投资精选 → 公司/产品/融资 → 候选校验与统一发布。单条正文或模型失败隔离，不从全部文章删除合规元数据；公司新增只消费精选。所有来源不可用、整体模型不可用或发布校验失败保护旧网页。详见 `docs/architecture/UNIFIED_NEWS_PIPELINE.md`。feed 按真实承载页写来源类型，媒体名称相同不得视为公众号身份相同。
+- **融资数据链路**：`snapshot.garenaSelected` 中的融资条目及对应私有正文 → `scripts/funding_table.py` → `data/funding/current.json` / `web/public/funding-table.json`；显式空精选不得回退全部文章或旧 feed。
+- **前端**：`web/app/page.tsx` 渲染 `AppShell`，保留全部文章、Garena投资精选、公司与产品全景和设置。AIHOT 专属日报/热点/API代理及 demo 回退已退役。旧公开历史/周报/审阅 HTML 和补录 JSON 只在候选中清理；`scripts/templates/` 保留为私有兼容渲染，不再发布旧新闻。
+- **数据更新**：GitHub schedule 和本地定时跟进保持关闭，只保留手动运行。默认 `rolling-24h` 在启动时冻结北京时间结束时刻，`--window-end` 可显式指定，恢复沿原窗口；起点包含、终点排除。各阶段完成后审核、晋升并部署 Pages，网页更新时间记录真实完成时刻。未经用户指示不恢复定时。
 
 ## 3. 关键文件与所有权
 
 | 文件/目录 | 归属 | 说明 |
 |-----------|------|------|
-| `scripts/build_snapshot.py` | 数据/后端 | 快照构建核心：抓取、归档 upsert/finalize/cleanup、自然周引擎、模板渲染 |
+| `scripts/build_snapshot.py` | 数据/后端 | 从已处理 Manus 结果构建 all/garenaSelected；兼容归档与私有模板渲染，不拉 AIHOT |
 | `scripts/manus_source/`（client/config/contracts/pipeline/content_phase/crawler）、`scripts/enrich_news.py`、`scripts/llm_common.py`、`scripts/build_manus_feed.py` | 数据/后端 | Manus 采集与加工流水线（llm_common 自动加载项目根 .env；阶段 B 默认脚本爬虫，依赖 trafilatura） |
 | `scripts/prompts/manus_discovery.md` | 数据/后端 | Manus 发现阶段 Prompt；含来源三元组、日期、顺序审计、计数重算及最终 JSON 自检 |
 | `scripts/funding_table.py`、`data/funding/`、`web/public/funding-table.json` | 数据/前端 | 融资条目抽取、归档与前端表格数据 |
@@ -69,7 +69,7 @@ AI 情报日报/周报看板：
 | `scripts/settings-server.mjs` | 工具 | 本地 API Key 设置服务（127.0.0.1:9731，写项目根 `.env`，供 Next.js 设置页调用） |
 | `scripts/templates/*.template.html` | 数据侧渲染 | 静态快照模板（index/history/weekly） |
 | `web/app/_components/`、`web/app/_lib/`、`web/app/api/` | 前端 | Next.js 组件、数据层、API 路由 |
-| `data/archive/`、`web/public/history/`、`web/public/weekly/` | 构建产物 | 归档统一数据源与历史页 |
+| `data/archive/`、`scripts/retire_legacy_public.py` | 构建/迁移 | 归档来源清理与候选旧公开页面退役，禁止直接改正式 public |
 | `docs/architecture/MANUS_DATA_CONTRACT.md`、`docs/operations/MANUS_SOURCE_RUNBOOK.md` | 契约文档 | 修改流水线前必读 |
 | `tests/`、`web/tests/` | 全员 | Python 离线测试 + Node 前端/渲染/设置服务测试，改动后必须全绿 |
 
@@ -79,21 +79,21 @@ AI 情报日报/周报看板：
 # 统一入口（doctor 不调用外部 API；dry-run 仅打印计划）
 python scripts/run_pipeline.py doctor
 python scripts/run_pipeline.py run --dry-run
-python scripts/run_pipeline.py run --source-mode aihot-only --no-promote
-python scripts/run_pipeline.py run --date 2026-09-07 --no-promote
-python scripts/run_pipeline.py run --date 2026-09-07 --resume
+python scripts/run_pipeline.py run --source-mode manus-only --dry-run
+# 以下真实run可能调用付费服务，须处于已有授权范围
+python scripts/run_pipeline.py run --source-mode manus-only --no-promote
+# 旧09:30窗口仅用于明确复核历史批次
+python scripts/run_pipeline.py run --window-mode ten-am --date 2026-09-22 --cutoff-time 09:30 --dry-run
 
 # 快照构建（幂等，可重复运行）
 python scripts/build_snapshot.py
 
-# Manus 完整生产链路（需要 MANUS_API_KEY；日期示例按需替换）
+# 以下为已冻结窗口的分阶段兼容入口；新批次优先统一run
+# 分阶段须沿用原NEWS_COLLECTION_END和MANUS_WORK_DIR，不能另取当前时间
 python scripts/manus_source/runner.py --date 2026-08-27 --groups group_a group_b group_c
 python scripts/manus_source/content_phase.py --date 2026-08-27
 python scripts/build_manus_feed.py --date 2026-08-27
 python scripts/funding_table.py
-
-# 仅试跑 group_a 的发现阶段；默认 Manus 超时为 3600 秒
-python scripts/manus_source/runner.py --date 2026-08-27 --groups group_a
 
 # 单账号来源校准：先离线审计，再显式允许一个 Lite 任务
 python scripts/audit_manus_sources.py
@@ -138,13 +138,13 @@ node scripts/settings-server.mjs
 - 检查 OpenAI-compatible 模型使用 `llm-smoke --allow-paid`：最多一次请求、输出上限 16 token、每天最多一次、不重试。它不验证新闻业务质量。
 - 首次仅因结构化输出失败且代码已修复时，经用户明确授权可加 `--allow-retry-after-fix` 补一次；只接受同密钥/base/模型，第三次仍拒绝。
 - 所有后续真实测试都先明确调用/任务上限与样本范围，并复用成功结果；认证失败、创建响应不确定或停止失败时先排查，禁止自动扩大范围或重复启动。
-- 统一 full 入口现按来源隔离、并发 3、默认每来源观察止损线 20 credits（可调 10..60）。同窗口失败结果也默认保留，显式重试只重试失败来源；合规成功 canary 可经逐来源入口合并校验后复用。旧按组直连入口仍保留，仅用于明确指定的兼容操作。候选六阶段成功不能代替内容质量验收。
+- 统一 `manus-only` 入口按来源隔离、并发 3，默认每来源观察止损线 20 credits（可调 10..60）；`full` 仅是兼容别名。本次用户授权显式 `--manus-credit-limit 0`，仍走逐来源队列及终态保护，不能变成旧按组直连或取消余额熔断。已尝试的同窗口失败不自动重建。候选阶段成功不能代替内容质量及全窗口覆盖验收。
 - 探针阈值不等于服务端硬性费用上限；生产入口不受探针台账限制，不能把 `--no-promote` 当作成本控制。细节与恢复见 `docs/operations/TESTING_COST_CONTROL.md`。
 - 本地 `.env`、额度、完整响应及测试台账不入 Git；密钥不得出现在回复、CLI 参数、提交或文档中。
 
 - main 分支直推；本地提交前先 `git pull --rebase`，避免与 CI 的 Manus feed 提交冲突。
 - 若 CI 数据提交与本地分叉：优先重新生成受影响的数据产物后再提交，勿强推。
-- 快照类提交使用 `chore: 更新 AI HOT 静态快照 [skip ci]`。
+- 快照类提交使用 `chore: 更新新闻Daily 静态快照 [skip ci]`。
 - 提交粒度参考 `docs/history/2026-08-17-manus-only-source-migration-plan.md` §5 的提交边界划分。
 - 未经用户明确要求不得 push --force / reset --hard。
 
@@ -173,7 +173,7 @@ node scripts/settings-server.mjs
 候选审核入口为run_pipeline.py review-candidate / publish-candidate，操作见运行手册；必须保留审核来源和校验值，禁止修改旧state伪造重跑成功。沿用已确认业务规则，新增业务范围、信源、预算或发布行为须先具体说明并确认。
 
 
-用户于2026-09-14确认：最多并发3个来源，普通单来源费用止损不再取消其他排队来源，全部来源依次获得启动机会。每来源20 credits观察止损和已核实文章checkpoint／停止后只读回收保持。已实际尝试的同窗口失败结果不自动付费重试；明确标记task not created的旧熔断占位不算一次尝试，允许首次启动。余额不足、无法确认远端任务停止等系统性异常仍保留保护，不能保证异常或作业超时情况下全部完成。
+逐来源队列保持最多并发3；普通单来源失败不取消其他排队来源，余额不足、创建未知或远端停止未确认则保护性阻止新建。checkpoint及停止后只读回收仍过完整契约。`task.create` 的明确额度拒绝与未知创建分别记录；计划20源、发出POST数、成功取得taskId数及远端终态数必须分别汇报。不能把未创建来源说成不可达或无更新。2026-09-14的20 credits规则仍是默认观察止损，本次0阈值仅按本轮授权执行。
 
 产品关系规则（2026-09-14确认）：仅开发／运营主体记为自有；集成、使用第三方产品保留为该公司的产品动态，按最新关联报道排序并保留日期、链接。productUpdates逐文章记录owned/integrated/used/unknown及引文，product_names兼容表示所有关联产品，不代表所有权。历史关联证据不足标关系待核实；纯论文、架构和算法方法不进产品库，可实际使用的开源工具保留。抽取提示词版本以 scripts/company_index/config.py 为准，旧缓存不伪装新版本。
 

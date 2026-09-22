@@ -1,24 +1,14 @@
-# AI HOT
+# 新闻Daily
 
-Manus只依据文章原始发布／发送时间收录，新增点赞、评论、互动、编辑或转载页面的刷新时间均不能使旧文章重新符合窗口。“昨天”等相对文字必须指文章发布，不得引用评论或互动时间。AIHOT批次不做这层原文时间拦截，先接收再进入相关性、摘要打标与公司更新流程；URL路径日期不作为发布时间判定。已确认的北京时间09:30窗口及“昨天”发布的自然日例外保持。
+新闻Daily 使用 Manus 采集配置媒体的文章，提供“全部文章”、“Garena投资精选”和“公司与产品全景”。AIHOT 采集、日报、热点、实时接口和演示内容回退已停用。现有仓库名称及 [GitHub Pages 部署路径](https://hfshooting-alt.github.io/AI-HOT/) 保留兼容。
 
-全量测试既有扫描内容：`python scripts/review_all_scanned.py --snapshot <快照> --feed <feed> --previous <已有公司库> --output work/<候选目录> --allow-paid`。逐篇 DeepSeek 重打标并抽取被提及公司，成功结果缓存；公司更新日期表示最新报道时间，旧资料回填不覆盖较新字段。不会触发 Manus 或发布正式数据。
+“全部文章”保留本批通过来源、原始发布时间校验并去重的文章元数据；未入选或单条模型加工失败的文章仍可通过标题、来源、时间和原文链接阅读。“Garena投资精选”沿用实质 AI 相关性、摘要与分类校验。公司、产品及融资新增只消费精选，显式空池不从历史或旧 feed 回填。私有完整正文不进入网页。
 
-最近进展：[公司国家补全与 Manus 来源排障](docs/history/2026-09-10/COUNTRY_AND_MANUS_REVIEW.md)。
-
-中文 AI 情报看板，聚合 AIHOT API 与 Manus 核验的媒体内容，以“全部文章”为首页，另设“Garena投资精选”，并提供公司与产品全景、热点、AIHOT 八点日报、本站周报、融资公司表和本地模型设置。
-
-全部文章保留本批次符合来源及时间要求的所有去重条目，未入选及摘要分类待处理的文章也可通过标题、来源、时间和原文链接阅读。Garena投资精选沿用本站现有 AI 相关性、摘要及分类校验，独立于 AIHOT 上游 selected/score。公司、产品与融资新增只从精选抽取，已有公司库保留并继续按原预算补全。详见[两类新闻池](docs/architecture/UNIFIED_NEWS_PIPELINE.md)。
-
-前端使用 React、Next.js API 与 vinext/Vite；数据流水线使用 Python。现有数据以 JSON 快照与归档保存。
-
-已筛选新闻可用 `scripts/review_cached_news.py` 在 `work/` 中复核摘要和公司库：默认4篇、累计最多8次模型请求，显式 `--allow-paid` 才调用；不抓取信源、不更新正式数据。来源异常定位见 [9月10日复核记录](docs/history/2026-09-10/SOURCE_DIAGNOSIS_20260910.md)。
+默认扫描窗口为启动时冻结的最近 24 小时，使用北京时间，起点包含、终点排除；任务耗时及浏览页面的时间不会移动窗口。`--window-end` 可明确指定有时区的结束时刻，恢复沿用原窗口。原始发布/发送时间是唯一绝对时间依据，编辑、评论及互动不让旧文章重新入窗。既有“昨天”发布例外保留前一自然日精度和原文证据，不补造时分，且不代表严格 24 小时完整覆盖。完整规则见[统一新闻链路](docs/architecture/UNIFIED_NEWS_PIPELINE.md)。
 
 ## 本地启动
 
-公司库按“筛选表格 → 公司详情卡片”展示，零结果保留筛选栏和表头。`config/company_research.json` 保存经审阅的官网归属与补全证据，品牌资料保留在母公司档案下，原始文章仍可追溯。
-
-需要 Node.js >=22.13.0 和 Python >=3.10。Windows、macOS、Linux 使用相同的前端命令：
+需要 Node.js >=22.13.0、Python >=3.10。所有命令从仓库根执行：
 
 ```sh
 npm --prefix web ci
@@ -26,94 +16,63 @@ python -m pip install -r scripts/requirements.txt
 npm --prefix web run dev
 ```
 
-也可使用仓库现有的 pnpm 锁文件：`pnpm --dir web install --frozen-lockfile`。依赖安装遵循本地包管理器的构建审批策略；不要混用包管理器更新锁文件。
+按 `config/env.example` 配置根目录 `.env`；也可运行 `node scripts/settings-server.mjs` 后打开本地设置页。仅查看已发布快照无需付费接口。密钥、完整正文、模型响应及费用账本保存在私有位置，不提交。
 
-按 `config/env.example` 在根目录配置 `.env`，或运行 `node scripts/settings-server.mjs` 后使用设置页。仅查看已有快照无需调用付费采集/模型接口；运行采集需要配置相应密钥。
+## 采集、候选与发布
 
-## 常用命令
+当前定时关闭，仅手动运行。统一入口默认 `manus-only`，旧 `full` 参数兼容映射到该模式；`aihot-only` 已拒绝，不能恢复外部新闻来源。20 个新闻信源来自 `config/manus_sources.json`，最多并发 3 个。正文脚本单篇隔离，合格文章继续处理；单来源失败不等于窗口内没有更新。
 
-数据更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。默认 `full` 模式并行采集 AIHOT 与 Manus，合并去重后统一进行模型筛选、摘要分类、公司库和融资更新。`--source-mode aihot-only` 只关闭 Manus，仍需模型密钥并执行后续加工；它保留 AIHOT 提供的各类来源。部分采集失败允许发布成功来源，页面明确列出缺失来源；模型加工失败则保留上一版。统一入口支持 `--resume`、`--stage` 和 `--no-promote`，详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)和[统一新闻链路](docs/architecture/UNIFIED_NEWS_PIPELINE.md)。
+```sh
+python scripts/run_pipeline.py doctor
+python scripts/run_pipeline.py run --dry-run
+python scripts/test_pipeline.py offline
+npm --prefix web test
+```
 
-2026-09-22 起已按用户要求暂停定时采集，保留 GitHub Actions 手动运行完整流程。采集窗口仍固定为北京时间前一天 09:30（含）至所选结束日 09:30（不含）；全部加工成功后更新仓库中的网页产物，并触发 GitHub Pages 重新部署。`--date` 在默认固定窗口模式下表示窗口结束日，旧自然日流程使用 `--window-mode calendar-day`。
+实际 `run`、公司抽取及搜索可能产生费用，应沿已有授权和预算执行。`--no-promote` 只隔离输出，不禁止付费。每源 credit 阈值是观察止损，不是服务端硬账单上限；停止请求接受与远端终态分别记录。余额按所选 Manus profile 计算，每日 refresh credits 不能作为 Standard 可用额度。已尝试的失败任务不自动重建，未知创建或停止未确认时阻止扩大任务。
 
-公司收录、新闻筛选、资料证据及双日期定义以[投资人验收口径](docs/operations/INVESTOR_ACCEPTANCE.md)为准。新业务口径先在隔离候选批次中验收，再发布。
+来源已核实的 checkpoint 在止损后仍可继续正文和模型加工，但不表示完整覆盖。预读 seed 只作线索，已知未处置候选会阻止来源宣称 complete。获取入口可达、窗口内取得样本、完整窗口覆盖须分别验收。
 
-Manus 支持保留同一来源已核实的部分文章；未扫完整个窗口时标明“部分覆盖”，继续执行时间、正文及模型审核，不因止损删除已验证成果。该机制不保证每次任务都能在预算内取得文章。
+候选生成后统一核对新闻、公司、融资、来源状态及隐私边界；通过 `review-candidate` / `publish-candidate` 发布已有候选不会重新调用模型或创建任务。运行与恢复步骤见[操作说明](docs/operations/AUTOMATED_PIPELINE.md)。Pages 部署读取发布后的整套 JSON，最终是否上线以数据提交和 Pages 结果为准。
 
-当前公开站点使用无后端静态模式，地址为 [https://hfshooting-alt.github.io/AI-HOT/](https://hfshooting-alt.github.io/AI-HOT/)。它读取仓库已有快照，不需要 Manus 或模型 API；在新的采集数据尚未生成时会继续展示现有快照。Manus 条目先经过 AI 相关性门禁，再进行摘要、标签和公司抽取；实际承载页会标记为官网资讯、腾讯新闻转载、网易号转载或已核实公众号。仓库 Pages Source 已设为 **GitHub Actions**。
+为复核旧固定时间批次，可显式使用 `--window-mode ten-am --date YYYY-MM-DD --cutoff-time 09:30`；不把该历史窗口当作默认的新扫描窗口。
+
+## 前端与公开资源
+
+前端读取 `snapshot.json` 的独立 `all` / `garenaSelected` 两池，只展示 `manus:` 条目。空池保持空；快照缺失或坏数据显示错误，不追加旧日报、周报、实时新闻或浏览器补录。公司库与融资表分别读取 `company-overview.json`、`funding-table.json`。
+
+迁移旧公开页面时，只在候选 workspace 中执行：
+
+```sh
+python scripts/retire_legacy_public.py --workspace work/<candidate>/workspace
+python scripts/retire_legacy_public.py --workspace work/<candidate>/workspace --apply
+```
+
+默认先列清单，随后可显式清理；必需 JSON 内容不由该脚本修改。历史/周报 HTML、旧审阅页和浏览器补录会退役，审核清单写在候选根目录。额外公开状态 JSON 需核验后逐项 `--keep path.json`。清理后仍须完成常规候选校验，不直接修改正式 `web/public/`。
 
 | 命令 | 用途 |
 | --- | --- |
-| `npm --prefix web run dev` | 本地开发 |
-| `npm --prefix web run build` / `npm --prefix web start` | 生产构建 / 启动 |
-| `npm --prefix web run build:pages` | 生成 `web/dist/client` 静态站点；不访问付费 API |
-| `npm --prefix web test` | 构建及全部 Node 测试 |
-| `npm --prefix web run test:unit` | 来源、分页和设置服务测试 |
-| `python scripts/test_pipeline.py` | Python 离线回归，禁止真实网络/子进程 |
-| `python scripts/test_pipeline.py manus-auth` | 只读检查 Manus 认证与余额，结果有缓存 |
-| `python scripts/test_pipeline.py llm-smoke --allow-paid` | 单次最多 16 token 的模型 JSON 能力检查，每日最多一次 |
-| `python scripts/run_pipeline.py run --source-mode aihot-only --no-promote` | 不调用 Manus，使用模型生成新闻与公司库候选产物 |
-| `python scripts/audit_manus_sources.py [--check-links]` | 离线审计公众号配置；可选每个主页一次无重试可达性检查 |
-| `python scripts/manus_source/runner.py --date YYYY-MM-DD --ten-am --account "账号名" --allow-paid` | 单账号 Lite 来源校准，结果与生产隔离 |
-| `npm --prefix web run typecheck` / `npm --prefix web run lint` | 静态检查；已有问题见维护导航 |
-| `python scripts/build_company_overview.py --no-promote` | 生成并校验公司与产品库；会调用模型 |
-| `python scripts/funding_table.py --selftest` | 融资流程离线自检 |
+| `npm --prefix web run dev` | 本地网页 |
+| `npm --prefix web run build` | 生产构建 |
+| `npm --prefix web run build:pages` | 生成静态站点，不调用付费 API |
+| `npm --prefix web test` | 构建及 Node 回归 |
+| `npm --prefix web run typecheck` | TypeScript 检查 |
+| `python scripts/test_pipeline.py offline` | 禁止网络及付费请求的 Python 回归 |
+| `python scripts/run_pipeline.py run --dry-run` | 只查看阶段与费用相关参数 |
+| `python scripts/run_pipeline.py review-candidate --candidate work/<candidate>/workspace` | 校验已有隔离候选 |
 
-采集和快照命令会访问外部服务或更新数据，具体参数见运行手册。
+## 公司资料与证据
 
-## 目录
+公司抽取只使用本批精选与其私有正文。产品区分 owned / integrated / used / unknown，通用技术方法不能当产品；国家和法人日期须有来源，单轮融资、市值、历史估值不能混填。原始新闻日期与资料核验日期分别保存。
 
-```text
-AI-HOT/
-├── web/           完整前端工程、配置、锁文件、公开资源和 Node 测试
-├── scripts/       数据流水线、提示词、模板、Python 依赖与本地服务
-├── config/        信源、分类和环境变量示例
-├── data/          Manus/公司与产品/融资数据、每日归档与分类缓存
-├── tests/         Python 流水线测试、固定样本与人工评测集
-├── docs/          使用指南、架构、运维、开发交接与历史记录
-├── .github/       自动任务
-├── README.md      项目首页
-├── AGENTS.MD      简短开发入口
-├── .gitignore     全仓库忽略规则
-└── .editorconfig  全仓库编辑规范
-```
+来源迁移清除仅由 AIHOT 支撑的新闻和字段，不凭空重算成功缓存。经审核的 Manus 和独立官网证据保留，已有费用/研究账本不重置。已知网页补全仍按原授权、预算和逐字段证据规则执行，详见[公司资料操作说明](docs/operations/COMPANY_WEB_RESEARCH.md)和[公司数据契约](docs/architecture/COMPANY_OVERVIEW_CONTRACT.md)。
 
-前端的 `package.json`、两份锁文件及 Vite、Next、TypeScript、ESLint、PostCSS、Drizzle 配置均位于 `web/`。Python 依赖位于 `scripts/requirements.txt`；分类缓存位于 `data/cache/tag_cache.json`；完整交接文档位于 `docs/maintenance/`。
+## 目录与维护
 
-从[完整目录地图](docs/architecture/DIRECTORY_LAYOUT.md)查看详细分工；[文档入口](docs/README.md)提供阅读顺序。
+- `web/`：前端源码、构建配置、公开资源和 Node 测试。
+- `scripts/`：采集、正文、新闻模型、公司融资、候选审核与发布工具。
+- `config/`：生产信源、分类、审核规则和环境样例。
+- `data/`：正式业务产物、归档与成功缓存；`work/`：私有输入、候选、响应和审计。
+- `tests/`：Python 离线回归；`docs/history/`：原始历史记录，不作为当前运行状态。
 
-## 维护文档
-
-- [代码维护导航](./docs/architecture/CODEBASE_GUIDE.md)：数据流、修改位置、兼容约定、验证结果。
-- [Manus 运行手册](./docs/operations/MANUS_SOURCE_RUNBOOK.md)、[数据契约](./docs/architecture/MANUS_DATA_CONTRACT.md)。
-- [部署说明](./docs/operations/DEPLOY_WORKFLOW.md)、[使用说明](./docs/guides/USER_GUIDE.md)。
-- [开发守则](./docs/maintenance/AGENTS.MD)、[当前状态](./docs/maintenance/CONTEXT.MD)、[长期经验](./docs/maintenance/MEMORY.MD)。
-- [Sites 脚手架参考](./docs/reference/SITES_TEMPLATE.md)：保留原始模板的可选数据库、身份与托管说明。
-
-## 每日数据与网页发布
-
-机器之心采集入口已改为官网产业资讯页，只收录机器之心署名文章，按官网渠道展示；配置切换不代表完整采集已验收。ZPotential 的备用入口及覆盖限制见 `docs/history/2026-09-10/SOURCE_DIAGNOSIS_20260910.md`。
-
-手动采集完成并提交正式数据后，工作流显式触发 GitHub Pages 部署；没有数据变化时跳过。候选测试不更新正式网页，部署是否完成以 Pages 工作流结果为准。
-
-
-## 2026-09-14：单条隔离与“昨天”收录口径
-
-用户确认单条失败不得阻断整批。相关新闻缺证据、摘要分类未通过时，写入collectionStatus.quarantined及计数，不进入新闻或公司证据输入；公司抽取失败写入articleFailures，已有资料保留。来源、模型阶段整体不可用和跨产物校验失败仍保护旧网页。前端显示隔离数量、原因与原文链接。
-
-绝对时间维持北京时间前一日09:30至当天09:30的固定窗口。原文或对应卡片标注“昨天”时，按采集记录接收时间（北京时间）的前一自然日全天纳入，这是用户授权的日期精度例外，不宣称严格24小时覆盖。published_at为YYYY-MM-DD，publishedPrecision=date；timeEvidence包含originalText和本地observedAt，不生成虚构钟点。历史补跑不能把今天读到的“昨天”解释为历史目标日。
-
-“N小时前/分钟前”保存原始文字，publishedPrecision=relative；published_at仅用于排序和窗口估算。以接收时间换算，并保守要求估算时刻前后各一个单位均在固定窗口内，边界不确定则隔离。网页明确显示估算。绝对日期但无时刻、无“昨天”证据的记录仍不作为窗口内文章。Manus原始输出用published_time_text，本地生成timeEvidence与精度字段；快照/feed保留这些字段。
-
-本轮后续修正见 docs/history/2026-09-14/QUALITY_CORRECTIONS_20260914.md：新闻分类与产品归属独立，个人产品保留pendingEntities并展示；已核实旧闻逐条隔离，未泛化为全网原文时间已验证。
-
-已有候选可通过`run_pipeline.py review-candidate`校验，再通过`publish-candidate`发布；不重新调用接口。详细步骤见[运行手册](docs/operations/AUTOMATED_PIPELINE.md)。当前交接与历史验证记录已分别归档。
-## 公司资料联网核验
-
-当前优先补主营业务、国家、法人注册日期和团队；单轮最多5主体/10页/5次模型请求，并抵扣已发布状态中的同日用量。失败后另起新运行的配额边界见操作说明。补全记录区分未轮到、无可读页面、模型失败和无合格增量，空白不表示网上没有资料。最近一次[空缺审计与小批量验证](docs/history/2026-09-20-COMPANY_PROFILE_AND_CANARY.md)及[操作说明](docs/operations/COMPANY_WEB_RESEARCH.md)可用于排错。
-
-主体支持商业公司、基金会与开源组织，非商业主体保留类型和官网依据，赞助商不作为产品归属。[官网资料补全记录](docs/history/2026-09-14/OFFICIAL_COMPANY_RESEARCH.md)。
-
-已有新闻关联实体的 GLM-4V 搜索试验入口、DeepSeek 证据核验及发布边界见[操作说明](docs/operations/COMPANY_WEB_RESEARCH.md)。当前处于独立业务样本验证阶段。
-
-每日公司资料补全：已确认网页与新闻链接 → DeepSeek → 暂定字段/引文 → 统一校验发布；详情见[操作说明](docs/operations/COMPANY_WEB_RESEARCH.md)。
+开发前阅读 [AGENTS.MD](AGENTS.MD)、[当前状态](docs/maintenance/CONTEXT.MD)和[维护经验](docs/maintenance/MEMORY.MD)。模块入口见[代码导航](docs/architecture/CODEBASE_GUIDE.md)，来源字段与时间规则见[Manus 数据契约](docs/architecture/MANUS_DATA_CONTRACT.md)，完整文档见[文档入口](docs/README.md)。

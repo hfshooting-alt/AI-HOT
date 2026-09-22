@@ -76,6 +76,8 @@ class SourceReceiptReport:
                 row.update(execution='created', notCreatedReason=None)
             elif row['creationState'] == 'unknown':
                 row.update(execution='creation_unknown', notCreatedReason=None)
+            elif fields.get('creationState') == 'not_created':
+                row['execution'] = 'not_created'
             self._write()
 
     def callback(self, group, name):
@@ -187,16 +189,6 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
         if seed.get('status') != 'unsupported':
             seed_brief = compact_source_seed(seed, max_candidates=2)
             prompt_text += source_seed_prompt(seed, brief=seed_brief)
-    if any(s.get('platform') == 'Official Jiqizhixin' for s in (source_specs or [])):
-        article_schema = schema['properties']['articles']['items']
-        for field in ('content_text', 'content_title'):
-            article_schema['properties'][field] = {'type': ['string', 'null']}
-            article_schema['required'].append(field)
-        prompt_text += ('\n机器之心动态正文交接：本来源例外地将已读取的正文随文章一并回传，'
-            'content_title填写页面实际标题，content_text填写同一文章浏览器可见正文（最多20000字符），'
-            '不写摘要、不推断补写。每篇AIHOT_ARTICLE进度及最终JSON均携带这两个字段；'
-            '读不到时都填null，仍回传已核实元数据，不因正文抓取失败丢弃已发现文章。'
-            '其他来源这两个字段填null。此为同一任务结果复用，不新增任务或扩大费用上限。')
     if window:
         article_schema = schema["properties"]["articles"]["items"]
         article_schema["properties"]["published_at"] = {"type": ["string", "null"]}
@@ -209,7 +201,7 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
         prompt_text=prompt_text,
         source_group=group,
         target_date=target_date,
-        title=f"AI 新闻采集 {target_date} · {group}",
+        title=f"新闻Daily 链接发现 {target_date} · {group}",
         task_brief=(f"只采集 {window['start']}（含）至 {window['end']}（不含）的文章；"
                     "另纳入采集时标注昨天的文章；相对时间保留published_time_text，不编造精确时间。" if window else DISCOVERY_BRIEF),
         output_schema=schema,
@@ -543,7 +535,7 @@ def main(argv: list[str] | None = None) -> int:
                         help="单账号 canary 观察止损线，范围 10-60 credits（默认 20）")
     parser.add_argument("--credit-limit-per-source", "--credit-limit-per-task",
                         dest="credit_limit_per_source", type=int, default=0,
-                        help="生产发现阶段逐来源观察止损线，范围 10-60；0 表示旧版按组直连")
+                        help="逐来源观察止损线，范围 10-60；增量模式设0关闭费用观察止损")
     parser.add_argument("--retry-failed-sources", action="store_true",
                         help="显式重试同窗口已失败来源；默认复用失败审计以避免重复付费")
     args = parser.parse_args(argv)
@@ -562,7 +554,8 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.compact_prompt and not (args.account and args.ten_am):
         parser.error('--compact-prompt 仅用于 --account --ten-am 隔离测试')
-    if args.incremental_discovery and not (args.ten_am and (args.account or args.credit_limit_per_source)):
+    isolated_sources = bool(args.incremental_discovery or args.credit_limit_per_source)
+    if args.incremental_discovery and not args.ten_am:
         parser.error('--incremental-discovery 需要窗口和单来源任务')
     if args.incremental_discovery and args.compact_prompt:
         parser.error('--incremental-discovery 与 --compact-prompt 不能混用')
@@ -609,7 +602,7 @@ def main(argv: list[str] | None = None) -> int:
         poll_seconds=settings.poll_seconds,
         timeout_seconds=settings.timeout_seconds,
         register_grace_seconds=settings.register_grace_seconds,
-        create_retries=0 if canary or args.credit_limit_per_source else 3,
+        create_retries=0 if canary or isolated_sources else 3,
         create_interval_seconds=7,
         inline_prompt=args.compact_prompt or args.incremental_discovery,
         diagnostics_dir=settings.work_dir / args.date / 'task-traces',
@@ -622,7 +615,7 @@ def main(argv: list[str] | None = None) -> int:
     canary_path = raw_dir.parent / "canary-report.json"
     cost_path = raw_dir.parent / "cost-report.json"
     # Preserve the previous attempt before a cache-only run writes zero new usage.
-    if args.credit_limit_per_source and cost_path.exists():
+    if isolated_sources and cost_path.exists():
         history = raw_dir.parent / "cost-history"
         history.mkdir(exist_ok=True)
         stamp = datetime.now(ZoneInfo("Asia/Shanghai")).strftime("%Y%m%dT%H%M%S%f")
@@ -646,7 +639,7 @@ def main(argv: list[str] | None = None) -> int:
             print("无法确认 Manus 余额，canary 未创建任务", file=sys.stderr)
             return 1
         canary_path.write_text(json.dumps(canary, ensure_ascii=False, indent=2), encoding="utf-8")
-    elif args.credit_limit_per_source:
+    elif isolated_sources:
         selected_source_count = sum(len(groups_cfg[group]) for group in args.groups)
         cost_report = {
             "targetDate": args.date,
@@ -655,15 +648,18 @@ def main(argv: list[str] | None = None) -> int:
             "sourceIsolation": True,
             "sourceCount": selected_source_count,
             "collectionWindow": window,
-            "creditLimitPerSource": args.credit_limit_per_source,
-            "maxObservedRunCredits": args.credit_limit_per_source * selected_source_count,
+            "creditObservationEnabled": bool(args.credit_limit_per_source),
+            "creditLimitPerSource": args.credit_limit_per_source or None,
+            "maxObservedRunCredits": (args.credit_limit_per_source * selected_source_count) or None,
             "status": "reserved",
         }
         receipts = SourceReceiptReport(cost_report, cost_path,
                                        {group: groups_cfg[group] for group in args.groups})
         try:
             observed_balance(client, cost_report, 'balanceBefore')
-            if cost_report["balanceBefore"] < cost_report["maxObservedRunCredits"]:
+            if cost_report["balanceBefore"] <= 0 or (
+                    cost_report["maxObservedRunCredits"] is not None
+                    and cost_report["balanceBefore"] < cost_report["maxObservedRunCredits"]):
                 raise RuntimeError("Manus 余额低于本轮发现任务保留线")
         except Exception as exc:  # noqa: BLE001 - 费用不可确认时禁止创建生产任务
             cost_report.update(status="blocked", error=str(exc)[:160])
@@ -679,7 +675,7 @@ def main(argv: list[str] | None = None) -> int:
     results: dict[str, dict] = {}
 
     source_failures: list[str] = []
-    if args.credit_limit_per_source and not canary:
+    if isolated_sources and not canary:
         source_payloads: dict[str, dict[str, dict]] = {group: {} for group in args.groups}
         account_dir = raw_dir / "accounts"
         account_dir.mkdir(parents=True, exist_ok=True)
@@ -708,7 +704,7 @@ def main(argv: list[str] | None = None) -> int:
                     receipts.update(group, source['account_name'], execution='queued',
                                     notCreatedReason='not_dispatched')
                     arguments = (group, args.date, prompt_text,
-                        [source["account_name"]], window, args.credit_limit_per_source,
+                        [source["account_name"]], window, args.credit_limit_per_source or None,
                         [source], account_dir / f"{canary_slug(source['account_name'])}.checkpoints.json")
                     if args.source_seeds:
                         arguments += (True,)
@@ -720,7 +716,9 @@ def main(argv: list[str] | None = None) -> int:
                 name = source["account_name"]
                 try:
                     if fut.cancelled():
-                        raise RuntimeError('cost_circuit_open: remote stop unconfirmed; task not created')
+                        blocked = getattr(client, 'creation_blocked_error', None)
+                        raise (blocked() if callable(blocked) else
+                               RuntimeError('cost_circuit_open: remote stop unconfirmed; task not created'))
                     payload = fut.result()
                     payload['sourceIdentity'] = source_identity(source)
                     source_payloads[group][name] = payload
@@ -765,7 +763,7 @@ def main(argv: list[str] | None = None) -> int:
                                               terminalConfirmed=error.stop_succeeded)
                     elif 'task not created' in reason:
                         receipt_fields.update(execution='not_created', creationState='not_created',
-                                              notCreatedReason='cost_circuit_open')
+                                              notCreatedReason=getattr(error, 'reason_code', None) or 'cost_circuit_open')
                     receipts.update(group, name, **receipt_fields)
                     (account_dir / f"{canary_slug(name)}.json").write_text(
                         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -785,7 +783,7 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"[{group}] 合并完成：{complete} 篇，{failed_count} 个来源失败", flush=True)
             except Exception as error:  # noqa: BLE001 - 组级契约失败必须阻断
                 failures.append(f"{group}: {error}")
-    if not (args.credit_limit_per_source and not canary):
+    if not (isolated_sources and not canary):
         with ThreadPoolExecutor(max_workers=max(1, len(args.groups))) as ex:
             futs = {}
             for group in args.groups:

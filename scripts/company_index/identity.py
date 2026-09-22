@@ -12,6 +12,25 @@ from funding.companies import normalize_company_key, _country_to_region_label
 RULES_PATH = Path(__file__).resolve().parents[2] / 'config' / 'company_research.json'
 
 
+def active_article_fact(fact, records):
+    """Reviewed identities persist; article facts require retained Manus evidence.
+
+    Merely finding the owner by name must not resurrect a retired article from
+    the rule catalog. Official research has independent provenance and remains
+    eligible without a news article. Never rewrite an article ID to make it fit.
+    """
+    article_id = fact.get('articleId')
+    article_origin = fact.get('origin') == 'article' or (
+        isinstance(article_id, str) and not article_id.startswith('research:'))
+    if not article_origin:
+        return True
+    if not isinstance(article_id, str) or not article_id.startswith('manus:'):
+        return False
+    return any(article.get('id') == article_id and article.get('url') == fact.get('url')
+               for record in records if record is not None
+               for article in record.get('sourceArticles', []))
+
+
 def apply_reviewed_research(companies, rules=None):
     if rules is None:
         rules = json.loads(RULES_PATH.read_text(encoding='utf-8')) if RULES_PATH.exists() else {'records': []}
@@ -28,6 +47,8 @@ def apply_reviewed_research(companies, rules=None):
         # second row with the same ID. Do not match product aliases here.
         target = next((c for c in rows if normalize_company_key(c['company_name'])
                        == normalize_company_key(owner)), None) if owner else source
+        facts = [fact for fact in rule.get('facts', [])
+                 if active_article_fact(fact, (source, target))]
         if target is not None and owner and target['company_name'] != owner:
             target['aliases'] = list(dict.fromkeys([*target.get('aliases', []), target['company_name']]))
             target['company_name'] = owner
@@ -43,10 +64,14 @@ def apply_reviewed_research(companies, rules=None):
                     bucket.append(copy.deepcopy(candidate))
         source_articles = copy.deepcopy(source.get('sourceArticles', [])) if source else []
         owned = rule.get('owned_products', [])
-        owner_fact = next((f for f in rule.get('facts', []) if f.get('field') == 'owner_company'
+        owner_fact = next((f for f in facts if f.get('field') == 'owner_company'
                            and f.get('value') == owner and f.get('quote') and f.get('url', '').startswith('https://')), None)
         if owned and not owner_fact:
-            raise ValueError('自有产品补全缺少归属证据')
+            if any(f.get('field') == 'owner_company' and not active_article_fact(f, (source, target))
+                   for f in rule.get('facts', [])):
+                owned = []  # Retired/missing article cannot establish product evidence.
+            else:
+                raise ValueError('自有产品补全缺少归属证据')
         if source is not None and owner and source is not target:
             if target is None:
                 target = copy.deepcopy(source)
@@ -79,7 +104,7 @@ def apply_reviewed_research(companies, rules=None):
             target['entityType'] = kind
             target['entityTypeEvidence'] = copy.deepcopy(evidence)
             target.pop('reviewReason', None)
-        for fact in rule.get('facts', []):
+        for fact in facts:
             field, value = fact['field'], fact['value']
             if field == 'owner_company':
                 field = 'company_name'

@@ -157,6 +157,42 @@ class ReceiptRunnerTests(unittest.TestCase):
             min_content_chars=100, sources_path=self.sources, discovery_prompt_path=self.prompt,
             content_prompt_path=self.prompt, work_dir=self.root / 'work')
 
+    def test_credit_refusal_and_queued_sources_are_not_created_with_account_reason(self):
+        sources = [{'account_name': f'Source{i}', 'platform': 'Tencent News',
+                    'home_url': f'https://example.com/source/{i}'} for i in range(6)]
+        self.sources.write_text(json.dumps({'groups': {'group_a': sources}}), encoding='utf-8')
+        calls = []
+        def transport(method, path, payload):
+            calls.append(path)
+            if path == 'usage.availableCredits':
+                return {'ok': True, 'total_credits': 153, 'refresh_credits': 0}
+            if path == 'task.create':
+                return {'ok': False, 'error': {'code': 'resource_exhausted', 'message': 'credit limit exceeded'}}
+            raise AssertionError('No task exists to read or stop')
+        class FakeClient(ManusClient):
+            def __init__(self, **kwargs):
+                super().__init__(**{**kwargs, 'transport': transport, 'create_interval_seconds': 0})
+        with patch.object(runner.Settings, 'from_environment', return_value=self.settings), \
+             patch.object(runner, 'ManusClient', FakeClient):
+            self.assertEqual(runner.main(['--date', '2026-09-20', '--groups', 'group_a',
+                '--ten-am', '--credit-limit-per-source', '0', '--incremental-discovery']), 0)
+        path = self.settings.work_dir / 'ten-am/2026-09-20/cost-report.json'
+        report = json.loads(path.read_text(encoding='utf-8'))
+        self.assertEqual(report['status'], 'complete_with_source_failures')
+        self.assertEqual(calls.count('task.create'), 1)
+        self.assertEqual(report['attemptedSourceCount'], 1)
+        self.assertEqual(report['notCreatedSourceCount'], 6)
+        self.assertEqual(report['creationUnknownSourceCount'], 0)
+        self.assertEqual(report['createdSourceCount'], 0)
+        for receipt in report['sourceReceipts']:
+            self.assertEqual(receipt['notCreatedReason'], 'account_credits_exhausted')
+            self.assertEqual(receipt['execution'], 'not_created')
+        payloads = list((path.parent / 'raw/accounts').glob('**/*.json'))
+        self.assertEqual(len(payloads), 6)
+        for payload in payloads:
+            self.assertIn('account_credits_exhausted', payload.read_text(encoding='utf-8'))
+            self.assertNotIn('remote stop unconfirmed', payload.read_text(encoding='utf-8'))
+
     def test_success_zero_cache_and_budget_block_have_distinct_receipts(self):
         calls = []
 

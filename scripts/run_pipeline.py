@@ -9,8 +9,8 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from automation.doctor import inspect
-from automation.runner import STAGES, COMBINED_STAGES, plan, run
-from manus_source.window import latest_cutoff_date, ten_am_window
+from automation.runner import STAGES, COMBINED_STAGES, plan, run, normalize_source_mode
+from manus_source.window import latest_cutoff_date, ten_am_window, timestamp
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -30,18 +30,28 @@ def _main(argv=None):
     parser.add_argument('--candidate', type=Path, help='review时传候选workspace；publish时传审核目录')
     parser.add_argument("--date", type=valid_date,
                         help="固定24小时模式为窗口结束日；旧自然日模式为采集日")
-    parser.add_argument("--window-mode", choices=("ten-am", "calendar-day"), default="ten-am")
+    parser.add_argument("--window-mode", choices=("rolling-24h", "ten-am", "calendar-day"), default="rolling-24h")
+    parser.add_argument('--window-end', help='固定扫描开始时刻，含时区的 ISO 时间；默认取当前北京时间到秒')
     parser.add_argument('--cutoff-time', default='09:30', help='北京时间固定24小时窗口结束时刻 HH:MM，默认09:30')
     parser.add_argument("--stage", choices=("all", *STAGES), default="all")
-    parser.add_argument("--source-mode", choices=("full", "aihot-only"), default="full",
-                        help="full 并行采集 AIHOT/Manus；aihot-only 只关闭 Manus，保留模型与公司库更新")
+    parser.add_argument("--source-mode", choices=("manus-only", "full", "aihot-only"), default="manus-only",
+                        help="仅 Manus 采集；full 为兼容别名，aihot-only 已停用")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--no-promote", action="store_true", help="执行接口并生成候选产物，保留正式数据")
     parser.add_argument("--dry-run", action="store_true", help="只显示计划，不调用任何外部接口")
     parser.add_argument("--skip-search", action="store_true", help="跳过可选 Tavily 搜索")
     parser.add_argument("--manus-credit-limit", type=int, default=20,
-                        help="full 模式每个 Manus 来源的观察止损线，范围 10-60（默认 20）")
+                        help="每来源观察止损线 10-60，默认20；显式0取消该观察线（非服务端费用上限）")
     args = parser.parse_args(argv)
+    if args.window_end:
+        try:
+            end = timestamp(args.window_end)
+            existing = os.environ.get('NEWS_COLLECTION_END')
+            if existing and timestamp(existing) != end:
+                raise ValueError('--window-end 与 NEWS_COLLECTION_END 不一致')
+            os.environ['NEWS_COLLECTION_END'] = args.window_end
+        except ValueError as exc:
+            parser.error(str(exc))
     if args.command in ('review-candidate', 'publish-candidate'):
         if not args.candidate or args.dry_run or args.resume:
             parser.error('候选命令要求--candidate，且不接受--dry-run或--resume')
@@ -65,19 +75,45 @@ def _main(argv=None):
         cutoff_time()
     except ValueError:
         parser.error('--cutoff-time 必须为有效 HH:MM')
-    ten_am = args.window_mode == "ten-am"
+    try:
+        args.source_mode = normalize_source_mode(args.source_mode)
+    except ValueError as exc:
+        parser.error(str(exc))
+    ten_am = args.window_mode != 'calendar-day'
+    if args.window_mode == 'rolling-24h':
+        try:
+            if args.resume:
+                # Resume restores the original window before planning any call.
+                day = args.date
+                if not day and os.environ.get('NEWS_COLLECTION_END'):
+                    day = timestamp(os.environ['NEWS_COLLECTION_END']).date().isoformat()
+                if not day:
+                    parser.error('--resume 需要原运行 --date 或 NEWS_COLLECTION_END')
+                runs = ROOT / 'work/runs' / day / 'ten-am'
+                run_id = json.loads((runs / 'latest.json').read_text(encoding='utf-8'))['runId']
+                if not isinstance(run_id, str) or len(run_id) != 32 or any(c not in '0123456789abcdef' for c in run_id):
+                    raise ValueError('原运行标识不合法')
+                saved = json.loads((runs / run_id / 'state.json').read_text(encoding='utf-8'))['collectionWindow']
+                existing = os.environ.get('NEWS_COLLECTION_END')
+                if existing and timestamp(existing) != timestamp(saved['end']):
+                    raise ValueError('恢复窗口与原运行不一致')
+                os.environ['NEWS_COLLECTION_END'] = saved['end']
+            else:
+                os.environ.setdefault('NEWS_COLLECTION_END', datetime.now(ZoneInfo('Asia/Shanghai')).replace(microsecond=0).isoformat())
+            end = timestamp(os.environ['NEWS_COLLECTION_END'])
+            if args.date and args.date != end.date().isoformat():
+                raise ValueError('--date 与扫描窗口结束日不一致；历史固定窗口请显式 --window-mode ten-am')
+            args.date = end.date().isoformat()
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            parser.error(str(exc))
     args.date = args.date or (latest_cutoff_date() if ten_am else
                              (datetime.now(ZoneInfo("Asia/Shanghai")).date() - timedelta(days=1)).isoformat())
-    if args.source_mode == "aihot-only" and args.stage not in ("all", "snapshot"):
-        parser.error("aihot-only 只支持 all（统一模型与公司更新）或旧 snapshot 调试阶段")
-    if not 10 <= args.manus_credit_limit <= 60:
-        parser.error("--manus-credit-limit 必须在 10-60 credits 之间")
+    if args.manus_credit_limit != 0 and not 10 <= args.manus_credit_limit <= 60:
+        parser.error("--manus-credit-limit 必须为0或10-60 credits")
     combined = args.stage == 'all'
     if combined and not ten_am:
         parser.error('统一采集使用固定24小时窗口；自然日仅供旧单阶段调试')
     stages = list(COMBINED_STAGES) if combined else [args.stage]
-    if combined and args.source_mode == 'aihot-only':
-        stages = [s for s in stages if s not in ('discovery', 'content')]
     if args.dry_run:
         run_path = ROOT / "work" / "runs" / args.date
         if ten_am:
@@ -87,20 +123,16 @@ def _main(argv=None):
                         source_mode=args.source_mode, manus_credit_limit=args.manus_credit_limit, combined=combined)
         print(json.dumps({"date": args.date, "publish": not args.no_promote,
                           "sourceMode": args.source_mode,
-                          "parallelCollectors": ['aihot', 'discovery'] if combined and args.source_mode == 'full' else ['aihot'] if combined else [],
+                          "parallelCollectors": ['discovery'] if combined else [],
+                          "contentMode": "script",
                           "collectionWindow": ten_am_window(args.date) if ten_am else None,
                           "stages": [{"stage": s, "command": commands[s]} for s in stages]},
                          ensure_ascii=False, indent=2))
         return 0
-    check_stages = [s for s in stages if s not in ('discovery', 'content')] if combined and args.source_mode == 'aihot-only' else stages
-    checks = inspect(ROOT, check_stages, args.date, ten_am=ten_am,
-                     require_llm=combined or args.source_mode != "aihot-only")
+    checks = inspect(ROOT, stages, args.date, ten_am=ten_am, require_llm=True)
     for result in checks:
         print(f"[{'OK' if result['ok'] else 'MISSING'}] {result['check']}: {result['detail']}")
-    # Missing Manus credentials disable only that collector, not the shared model.
-    branch_checks = {'MANUS_API_KEY', 'trafilatura', '正文模式', 'scripts/prompts/manus_content.md',
-                     'scripts/prompts/manus_discovery_window.md'}
-    if any(not c["ok"] and not (combined and c['check'] in branch_checks) for c in checks):
+    if any(not c["ok"] for c in checks):
         return 1
     if args.command == "doctor":
         return 0
@@ -120,14 +152,16 @@ def _main(argv=None):
 
 
 def main(argv=None):
-    previous = os.environ.get('AIHOT_CUTOFF_TIME')
+    previous = {key: os.environ.get(key) for key in ('AIHOT_CUTOFF_TIME', 'NEWS_COLLECTION_END', 'MANUS_CONTENT_MODE')}
+    os.environ['MANUS_CONTENT_MODE'] = 'script'
     try:
         return _main(argv)
     finally:
-        if previous is None:
-            os.environ.pop('AIHOT_CUTOFF_TIME', None)
-        else:
-            os.environ['AIHOT_CUTOFF_TIME'] = previous
+        for key, value in previous.items():
+            if value is None:
+                os.environ.pop(key, None)
+            else:
+                os.environ[key] = value
 
 
 if __name__ == "__main__":

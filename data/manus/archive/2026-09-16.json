@@ -1,345 +1,197 @@
 {
- "schemaVersion": 2,
- "collectionWindow": {
-  "start": "2026-09-15T09:30:00+08:00",
-  "end": "2026-09-16T09:30:00+08:00",
-  "timezone": "Asia/Shanghai"
- },
- "targetDate": "2026-09-16",
- "generatedAt": "2026-09-16T14:58:33+08:00",
- "collector": "manus",
- "ok": true,
- "degraded": true,
- "stats": {
-  "configuredAccounts": 20,
-  "completeAccounts": 0,
-  "failedAccounts": 20,
-  "discoveredArticles": 0,
-  "publishedArticles": 0,
-  "fallbackArticles": 0
- },
- "items": [],
- "collectionStatus": {
+  "schemaVersion": 2,
   "collectionWindow": {
-   "start": "2026-09-15T09:30:00+08:00",
-   "end": "2026-09-16T09:30:00+08:00",
-   "timezone": "Asia/Shanghai"
+    "start": "2026-09-15T09:30:00+08:00",
+    "end": "2026-09-16T09:30:00+08:00",
+    "timezone": "Asia/Shanghai"
   },
+  "targetDate": "2026-09-16",
+  "generatedAt": "2026-09-16T14:58:33+08:00",
+  "collector": "manus",
+  "ok": true,
   "degraded": true,
-  "sources": [
-   {
-    "name": "AIHOT",
-    "collector": "aihot",
-    "status": "complete",
-    "discoveredArticles": 425,
-    "usableArticles": 425
-   },
-   {
-    "name": "游戏葡萄",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
+  "stats": {
+    "configuredAccounts": 20,
+    "completeAccounts": 0,
+    "failedAccounts": 20,
     "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "白鲸出海",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "机器之心",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "ZFinance",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "极客公园",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "东西文娱",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "娱乐资本论",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "FounderPark",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "瑞恩资本",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "DeepTech深科技",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "ZPotential",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "华尔街见闻",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "量子位",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "智东西",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "十字路口Crossing",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "投资界",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "赛博禅心",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "elsewhere别处发生",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "新智元",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "硅星人",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "unavailable",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   }
-  ],
-  "candidateArticles": 414,
-  "publishedArticles": 377,
-  "excludedArticles": 17,
-  "quarantinedArticles": 20,
-  "quarantined": [
-   {
-    "id": "aihot:cmu3gkol207kirotb96ucd2fn",
-    "title": "10个问答，深入分歧之下的具身机器人|云启伙伴 X 十字路口",
-    "url": "https://elsewhere.news/zh/yunqipartners/10-x",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu3f7qoj0690rotbhd0fp20l",
-    "title": "MiniMax H3 IP版发布，日本IP×全球AI大会落幕",
-    "url": "https://x.com/MiniMax_AI/status/2100026646665568596",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu3c9pwo0j33rosa26axdtql",
-    "title": "可灵 Kling AI 照片合成技巧",
-    "url": "https://x.com/Kling_ai/status/2100011790750863785",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu3cg1m30jcqrosa77rlgd3a",
-    "title": "对齐的核心问题：与谁对齐",
-    "url": "https://x.com/EMostaque/status/2100010790795329733",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu38uvk30flnrosa9vhvk1ya",
-    "title": "PixVerse 提示词：妈妈全知道",
-    "url": "https://x.com/PixVerse/status/2099981654064603260",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu329ce90374roaalf12ts5s",
-    "title": "Frontier Day | Claude for startups",
-    "url": "https://www.youtube.com/watch?v=LQkcGtkSLNQ",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu307kn207w2roc18on01tq1",
-    "title": "MiniMax 发布 H3 IP Edition，携手日本 IP 探索生成式 AI",
-    "url": "https://x.com/MiniMax_AI/status/2099925028691378489",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu2wli5e04vjrowkvt304k8i",
-    "title": "Runway 推出 Solaris 概念",
-    "url": "https://x.com/runwayml/status/2099901919959363600",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu2turvz06tkro3xe4oa7rye",
-    "title": "PixVerse 发布加拿大鹅提示词",
-    "url": "https://x.com/PixVerse/status/2099876194527440912",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu2sz9ky05mmro3x2k8vj9e7",
-    "title": "可灵 Kling AI 发布推文",
-    "url": "https://x.com/Kling_ai/status/2099875898564726929",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu2t2z8y05siro3xfr18hqia",
-    "title": "Sam Altman 预告本周大量发布",
-    "url": "https://x.com/sama/status/2099872600977760451",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu2rmy08049yro3xoq0jrisq",
-    "title": "Tibo 已成文化符号",
-    "url": "https://x.com/jxnlco/status/2099863928738091350",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu2ova6p0e5trovq4a36r8j4",
-    "title": "DeepSeek v4.1 Flash 训练成本仅 1000 万美元",
-    "url": "https://x.com/EMostaque/status/2099847458624823801",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu2qumj3038pro3x14qjklea",
-    "title": "来用Agent重做App",
-    "url": "https://elsewhere.news/zh/funeralai/agentapp",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu2g4phb035uro6mg0ynlpal",
-    "title": "「淬思科技」完成过亿融资，复旦博士要为不同端侧场景定制专属推理芯片|云启伙伴",
-    "url": "https://elsewhere.news/zh/yunqipartners/cuisi-technology-raises-over-100-million-yuan-fudan-phd-buil",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu2nuodz0d38rovqvu75ldj1",
-    "title": "xAI 的 4D-Chess",
-    "url": "https://x.com/elonmusk/status/2099737765260763348",
-    "stage": "relevance",
-    "reason": "内容或原文证据不足，相关性未核实"
-   },
-   {
-    "id": "aihot:cmu2y44bt03dmroc1b7t5jyjg",
-    "title": "Google 发布 AlphaGenome Atlas 等多项 AI 科学成果",
-    "url": "https://x.com/sundarpichai/status/2099911653395685765",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   },
-   {
-    "id": "aihot:cmu2tdrle066fro3xgfc32mh7",
-    "title": "Krea Agent 接入 Pinterest",
-    "url": "https://x.com/krea_ai/status/2099876897106579762",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   },
-   {
-    "id": "aihot:cmu2nmu2b0cusrovql0bh9u0d",
-    "title": "华为云发布 Agentic Hybrid Cloud 战略",
-    "url": "https://x.com/HuaweiCloud1/status/2099834054279352695",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   },
-   {
-    "id": "aihot:cmu2fbkjn03oaropy6pqp0gc7",
-    "title": "Jensen Huang completely destroys Jacob Coxon's （ex-Anthrpic employee） 10% extinction prediction. no …",
-    "url": "https://x.com/rohanpaul_ai/status/2099774738600280151",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   }
-  ]
- }
+    "publishedArticles": 0,
+    "fallbackArticles": 0
+  },
+  "items": [],
+  "collectionStatus": {
+    "collectionWindow": {
+      "start": "2026-09-15T09:30:00+08:00",
+      "end": "2026-09-16T09:30:00+08:00",
+      "timezone": "Asia/Shanghai"
+    },
+    "degraded": true,
+    "sources": [
+      {
+        "name": "游戏葡萄",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "白鲸出海",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "机器之心",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "ZFinance",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "极客公园",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "东西文娱",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "娱乐资本论",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "FounderPark",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "瑞恩资本",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "DeepTech深科技",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "ZPotential",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "华尔街见闻",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "量子位",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "智东西",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "十字路口Crossing",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "投资界",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "赛博禅心",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "elsewhere别处发生",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "新智元",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      },
+      {
+        "name": "硅星人",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "unavailable",
+        "discoveredArticles": 0,
+        "usableArticles": 0
+      }
+    ],
+    "candidateArticles": 414,
+    "publishedArticles": 377,
+    "excludedArticles": 17,
+    "quarantinedArticles": 20,
+    "quarantined": []
+  }
 }
