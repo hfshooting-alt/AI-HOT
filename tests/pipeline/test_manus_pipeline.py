@@ -9,6 +9,7 @@ import re
 import shutil
 import sys
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "scripts"))
 sys.path.insert(0, os.path.dirname(__file__))
@@ -16,6 +17,15 @@ from _tempdir import make_temp_dir  # noqa: E402
 from manus_source import contracts  # noqa: E402
 from manus_source.pipeline import ContentPipeline, ScriptContentProvider, plan_batches  # noqa: E402
 from manus_source.crawler import DEFAULT_USER_AGENT  # noqa: E402
+from _extraction_fake import fixture_extraction
+
+_worker_patch = patch('manus_source.crawler._run_extraction', side_effect=fixture_extraction)
+
+def setUpModule():
+    _worker_patch.start()
+
+def tearDownModule():
+    _worker_patch.stop()
 
 FIXTURE_DIR = os.path.join(os.path.dirname(__file__), "..", "fixtures", "manus")
 CRAWLER_FIXTURE_DIR = os.path.join(os.path.dirname(__file__), "..", "fixtures", "crawler")

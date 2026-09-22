@@ -128,7 +128,7 @@ python scripts/run_pipeline.py run --date 2026-09-07 --resume
 
 ## 2026-09-10 Pages 发布衔接
 
-每日工作流提交正式数据并成功推送 main 后，使用 GitHub CLI 显式触发 `deploy-pages.yml`。工作流需要 `actions: write`；沿用内置令牌，不新增个人令牌。没有数据变化、候选运行或 dry-run 不触发此次发布。触发成功只表示部署已排队，最终结果仍须检查 Pages 工作流。GitHub 内置令牌的 push 不会自行触发另一个 push 工作流。
+采集工作流（当前由手动触发）提交正式数据并成功推送 main 后，使用 GitHub CLI 显式触发 `deploy-pages.yml`。工作流需要 `actions: write`；沿用内置令牌，不新增个人令牌。没有数据变化、候选运行或 dry-run 不触发此次发布。触发成功只表示部署已排队，最终结果仍须检查 Pages 工作流。GitHub 内置令牌的 push 不会自行触发另一个 push 工作流。
 
 
 2026-09-10 更新：统一入口默认 `--cutoff-time 09:30`，通过 `AIHOT_CUTOFF_TIME` 传递到全部子阶段；`ten-am` 参数及目录名保留兼容，不表示实际时刻。旧独立 CLI 默认十点，复现旧窗口使用统一入口 `--cutoff-time 10:00`。窗口改变会改变恢复指纹，旧窗口缓存经契约检查不会作为新窗口采集结果复用。首次提前半小时会与旧批次重叠半小时，按文章标识/链接去重。

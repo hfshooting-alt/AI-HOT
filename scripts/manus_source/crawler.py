@@ -19,8 +19,12 @@ from __future__ import annotations
 
 import time
 import os
+import json
+import subprocess
+import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from html.parser import HTMLParser
+from pathlib import Path
 from typing import Callable
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
@@ -37,19 +41,12 @@ DEFAULT_USER_AGENT = (
 HTML_RISK_MARKERS = ("安全验证", "验证码", "访问人数过多", "环境异常", "请登录",
                      "扫码登录", "滑动验证", "人机验证", "captcha")
 JINA_READER_URL = "https://r.jina.ai/"
+MAX_EXTRACTION_INPUT_BYTES = 8 * 1024 * 1024
+MAX_EXTRACTION_OUTPUT_BYTES = 16 * 1024 * 1024
 
 
 class CrawlError(RuntimeError):
     """抓取/提取失败。消息须可进入 failed 记录的 note。"""
-
-
-def _trafilatura():
-    """惰性导入 trafilatura；未安装时给出明确安装指引。"""
-    try:
-        import trafilatura  # noqa: PLC0415
-        return trafilatura
-    except ImportError as exc:
-        raise RuntimeError("缺少正文提取依赖 trafilatura：请先 `pip install trafilatura`") from exc
 
 
 # ================= 抓取 =================
@@ -145,22 +142,45 @@ def extract_head_title(html_bytes: bytes) -> str | None:
              "".join(parser.title_parts).strip())
     return title or None
 
-def extract_text(html_bytes: bytes) -> tuple[str | None, str | None]:
-    """提取正文；标题优先取 head 标准字段，再回退 trafilatura 元数据。"""
-    tr = _trafilatura()
-    text = None
+def _run_extraction(html_bytes: bytes, timeout_seconds: float, need_metadata: bool):
+    """One fresh native-parser process per article; no shell, URLs or API secrets."""
+    command = [sys.executable, '-I', str(Path(__file__).with_name('extraction_worker.py'))]
+    if need_metadata:
+        command.append('--metadata')
+    allowed_env = {'SYSTEMROOT', 'WINDIR', 'PATH', 'TEMP', 'TMP', 'TMPDIR', 'LANG', 'LC_ALL', 'TZ'}
+    child_env = {key: value for key, value in os.environ.items() if key.upper() in allowed_env}
+    return subprocess.run(command, input=html_bytes, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+                          timeout=timeout_seconds, check=False, env=child_env,
+                          creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
+
+
+def extract_text(html_bytes: bytes, *, timeout_seconds: float = 20) -> tuple[str | None, str | None]:
+    """Isolate native extraction; preserve head-title priority and fail only this article."""
+    if len(html_bytes) > MAX_EXTRACTION_INPUT_BYTES:
+        raise CrawlError('正文提取输入超过大小上限')
+    if not 0 < timeout_seconds <= 120:
+        raise CrawlError('正文提取超时配置必须在0至120秒之间')
     meta_title = extract_head_title(html_bytes)
     try:
-        text = tr.extract(html_bytes, output_format="txt")
-    except Exception:  # noqa: BLE001 - 提取器内部异常按"无法提取"处理
-        text = None
-    if not meta_title:
-        try:
-            meta = tr.extract_metadata(html_bytes)
-            meta_title = meta.title if meta else None
-        except Exception:  # noqa: BLE001
-            meta_title = None
-    return text, meta_title
+        result = _run_extraction(html_bytes, timeout_seconds, not bool(meta_title))
+    except subprocess.TimeoutExpired:
+        raise CrawlError('正文提取子进程超时；该篇已隔离') from None
+    except OSError as error:
+        raise CrawlError(f'正文提取子进程启动失败（{type(error).__name__}）') from None
+    if result.returncode != 0:
+        # Never log stderr: third-party diagnostics can contain article text.
+        raise CrawlError(f'正文提取子进程异常退出（exit={result.returncode}）；该篇已隔离')
+    if len(result.stdout) > MAX_EXTRACTION_OUTPUT_BYTES:
+        raise CrawlError('正文提取子进程输出超过大小上限')
+    try:
+        value = json.loads(result.stdout)
+        if not isinstance(value, dict) or set(value) != {'text', 'title'}:
+            raise ValueError('shape')
+        if any(v is not None and not isinstance(v, str) for v in value.values()):
+            raise ValueError('type')
+    except (ValueError, TypeError, UnicodeDecodeError):
+        raise CrawlError('正文提取子进程返回格式无效') from None
+    return value['text'], meta_title or value['title']
 
 
 def _html_text(html_bytes: bytes) -> str:
@@ -279,7 +299,11 @@ def crawl_one(article: dict, target_date: str, *, max_content_chars: int = 20000
         record["note"] = f"页面跳转漂移：请求 {url} → 落地 {final_url}"
         return record
 
-    text, meta_title = extract_text(html)
+    try:
+        text, meta_title = extract_text(html, timeout_seconds=timeout_seconds)
+    except CrawlError as error:
+        record['note'] = str(error)
+        return record
     if (render_enabled and rendered_page.supported(url) and not _looks_like_risk_page(html, text)
             and (not text or len(text.strip()) < min_content_chars
                  or _title_mismatch(article.get('title') or '', meta_title or ''))):
@@ -287,7 +311,7 @@ def crawl_one(article: dict, target_date: str, *, max_content_chars: int = 20000
             final_url, html = (render_fn or rendered_page.fetch_article)(url, timeout_seconds)
             if _url_drifted(url, final_url):
                 raise CrawlError('渲染页面跳转漂移')
-            text, meta_title = extract_text(html)
+            text, meta_title = extract_text(html, timeout_seconds=timeout_seconds)
         except Exception as error:
             record['note'] = f'浏览器正文回退失败（{type(error).__name__}）；保留发现记录待处理'
             return record

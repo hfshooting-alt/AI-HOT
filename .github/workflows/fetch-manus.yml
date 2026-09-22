@@ -213,4 +213,4 @@ jobs:
           RESULT: ${{ job.status }}
         run: |
           echo "### AI HOT 数据更新：$RESULT" >> "$GITHUB_STEP_SUMMARY"
-          echo "失败阶段见上方日志及 pipeline-status Artifact；失败时保留原正式数据。" >> "$GITHUB_STEP_SUMMARY"
+          PYTHONPATH=scripts python -m automation.run_summary

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T11:23:22+08:00",
+  "generatedAt": "2026-09-22T11:31:24+08:00",
   "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
   "stats": {
     "articlesProcessed": 400,
@@ -15,9 +15,9 @@
       "timeout": 4
     },
     "circuitOpen": false,
-    "companiesTotal": 686,
-    "productsTotal": 1527,
-    "pendingEntities": 208,
+    "companiesTotal": 684,
+    "productsTotal": 1525,
+    "pendingEntities": 209,
     "excludedEntities": 2
   },
   "companies": [
@@ -49198,7 +49198,7 @@
       "country": "以色列",
       "team": null,
       "business": "网络安全公司，举办 capture the flag 测试",
-      "investors": "由有效利他主义末日邪教资助",
+      "investors": null,
       "total_funding": null,
       "valuation": null,
       "dims": {
@@ -49465,7 +49465,19 @@
       "productUpdates": [],
       "updatedAt": "2026-09-21T16:57:26.000Z",
       "latestReportAt": "2026-09-21T16:57:26.000Z",
-      "profileUpdatedAt": "2026-09-22T11:23:22+08:00"
+      "profileUpdatedAt": "2026-09-22T11:31:24+08:00",
+      "fieldValueReviews": [
+        {
+          "company": "Irregular",
+          "field": "investors",
+          "from": "由有效利他主义末日邪教资助",
+          "to": null,
+          "articleId": "aihot:cmu9y2dyf0770rowjwnh6hcxb",
+          "quote": "该公司由有效利他主义末日邪教资助",
+          "reason": "原文是社交账号的评价性指控，没有可识别投资方，不能把贬义归类当 investors 事实；已逐字匹配，可精确清空字段并保留新闻。",
+          "reviewedAt": "2026-09-22"
+        }
+      ]
     },
     {
       "id": "company:41a24366212bb5c1",
@@ -62318,10 +62330,12 @@
       "company_name": "阿里巴巴",
       "aliases": [
         "Alibaba",
-        "阿里"
+        "阿里",
+        "阿里 Qwen 团队"
       ],
       "product_names": [
         "Qoder",
+        "Qwen-Image-2.1",
         "千问 App",
         "Qwen3",
         "Qwen3.5",
@@ -62387,6 +62401,28 @@
             "publishedAt": "2026-09-17T17:17:42.000Z",
             "sourceName": "X：Rohan Paul (@rohanpaul_ai)",
             "origin": "article"
+          },
+          {
+            "value": "阿里巴巴",
+            "articleId": "aihot:cmua0xs340akkrowjz7e8urc3",
+            "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters",
+            "title": "阿里 Qwen 团队发布开源权重图像生成模型 Qwen-Image-2.1，仅 7B 参数",
+            "publishedAt": "2026-09-20T16:10:52.000Z",
+            "sourceName": "报道内容复核",
+            "origin": "article",
+            "quote": "阿里 Qwen 团队发布开源权重图像生成与编辑模型 Qwen-Image-2.1",
+            "checkedAt": "2026-09-22"
+          },
+          {
+            "value": "阿里巴巴",
+            "articleId": "aihot:cmu9xdsw606jirowjx8kxtk9w",
+            "url": "https://x.com/kimmonismus/status/2101679965590769872",
+            "title": "Qwen-Image-2.1 开源：7B 图像生成与编辑模型",
+            "publishedAt": "2026-09-20T14:28:45.000Z",
+            "sourceName": "报道内容复核",
+            "origin": "article",
+            "quote": "阿里 Qwen 团队发布并开源 Qwen-Image-2.1",
+            "checkedAt": "2026-09-22"
           }
         ],
         "product_names": [
@@ -62461,6 +62497,24 @@
             "publishedAt": "2026-09-17T17:17:42.000Z",
             "sourceName": "X：Rohan Paul (@rohanpaul_ai)",
             "origin": "article"
+          },
+          {
+            "value": "Qwen-Image-2.1",
+            "articleId": "aihot:cmua0xs340akkrowjz7e8urc3",
+            "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters",
+            "title": "阿里 Qwen 团队发布开源权重图像生成模型 Qwen-Image-2.1，仅 7B 参数",
+            "publishedAt": "2026-09-20T16:10:52.000Z",
+            "sourceName": "The Decoder：AI News（RSS）",
+            "origin": "article"
+          },
+          {
+            "value": "Qwen-Image-2.1",
+            "articleId": "aihot:cmu9xdsw606jirowjx8kxtk9w",
+            "url": "https://x.com/kimmonismus/status/2101679965590769872",
+            "title": "Qwen-Image-2.1 开源：7B 图像生成与编辑模型",
+            "publishedAt": "2026-09-20T14:28:45.000Z",
+            "sourceName": "X：Kim (@kimmonismus)",
+            "origin": "article"
           }
         ],
         "country": [
@@ -62491,6 +62545,22 @@
           "url": "https://www.ithome.com/1/005/387.htm",
           "publishedAt": "2026-09-21T10:37:20.000Z",
           "sourceName": "IT之家（RSS）",
+          "category": "release"
+        },
+        {
+          "id": "aihot:cmua0xs340akkrowjz7e8urc3",
+          "title": "阿里 Qwen 团队发布开源权重图像生成模型 Qwen-Image-2.1，仅 7B 参数",
+          "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters",
+          "publishedAt": "2026-09-20T16:10:52.000Z",
+          "sourceName": "The Decoder：AI News（RSS）",
+          "category": "release"
+        },
+        {
+          "id": "aihot:cmu9xdsw606jirowjx8kxtk9w",
+          "title": "Qwen-Image-2.1 开源：7B 图像生成与编辑模型",
+          "url": "https://x.com/kimmonismus/status/2101679965590769872",
+          "publishedAt": "2026-09-20T14:28:45.000Z",
+          "sourceName": "X：Kim (@kimmonismus)",
           "category": "release"
         },
         {
@@ -62538,6 +62608,24 @@
           "url": "https://www.ithome.com/1/005/387.htm",
           "title": "阿里 Qoder 登陆鸿蒙 PC 应用市场，成鸿蒙 PC 生态首款 AI 编程智能体工作台",
           "publishedAt": "2026-09-21T10:37:20.000Z"
+        },
+        {
+          "name": "Qwen-Image-2.1",
+          "relationship": "owned",
+          "quote": "阿里 Qwen 团队发布开源权重图像生成与编辑模型 Qwen-Image-2.1",
+          "articleId": "aihot:cmua0xs340akkrowjz7e8urc3",
+          "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters",
+          "title": "阿里 Qwen 团队发布开源权重图像生成模型 Qwen-Image-2.1，仅 7B 参数",
+          "publishedAt": "2026-09-20T16:10:52.000Z"
+        },
+        {
+          "name": "Qwen-Image-2.1",
+          "relationship": "owned",
+          "quote": "阿里 Qwen 团队发布并开源 Qwen-Image-2.1",
+          "articleId": "aihot:cmu9xdsw606jirowjx8kxtk9w",
+          "url": "https://x.com/kimmonismus/status/2101679965590769872",
+          "title": "Qwen-Image-2.1 开源：7B 图像生成与编辑模型",
+          "publishedAt": "2026-09-20T14:28:45.000Z"
         },
         {
           "name": "千问 App",
@@ -62705,7 +62793,114 @@
         }
       },
       "latestReportAt": "2026-09-21T10:37:20.000Z",
-      "profileUpdatedAt": "2026-09-22T11:23:22+08:00"
+      "profileUpdatedAt": "2026-09-22T11:31:24+08:00",
+      "brandProfiles": {
+        "阿里 Qwen 团队": {
+          "id": "company:dc99efb7ac433f8a",
+          "company_name": "阿里 Qwen 团队",
+          "aliases": [],
+          "product_names": [
+            "Qwen-Image-2.1"
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "AI模型",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "阿里 Qwen 团队",
+                "articleId": "aihot:cmua0xs340akkrowjz7e8urc3",
+                "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters",
+                "title": "阿里 Qwen 团队发布开源权重图像生成模型 Qwen-Image-2.1，仅 7B 参数",
+                "publishedAt": "2026-09-20T16:10:52.000Z",
+                "sourceName": "The Decoder：AI News（RSS）",
+                "origin": "article"
+              },
+              {
+                "value": "阿里 Qwen 团队",
+                "articleId": "aihot:cmu9xdsw606jirowjx8kxtk9w",
+                "url": "https://x.com/kimmonismus/status/2101679965590769872",
+                "title": "Qwen-Image-2.1 开源：7B 图像生成与编辑模型",
+                "publishedAt": "2026-09-20T14:28:45.000Z",
+                "sourceName": "X：Kim (@kimmonismus)",
+                "origin": "article"
+              }
+            ],
+            "product_names": [
+              {
+                "value": "Qwen-Image-2.1",
+                "articleId": "aihot:cmua0xs340akkrowjz7e8urc3",
+                "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters",
+                "title": "阿里 Qwen 团队发布开源权重图像生成模型 Qwen-Image-2.1，仅 7B 参数",
+                "publishedAt": "2026-09-20T16:10:52.000Z",
+                "sourceName": "The Decoder：AI News（RSS）",
+                "origin": "article"
+              },
+              {
+                "value": "Qwen-Image-2.1",
+                "articleId": "aihot:cmu9xdsw606jirowjx8kxtk9w",
+                "url": "https://x.com/kimmonismus/status/2101679965590769872",
+                "title": "Qwen-Image-2.1 开源：7B 图像生成与编辑模型",
+                "publishedAt": "2026-09-20T14:28:45.000Z",
+                "sourceName": "X：Kim (@kimmonismus)",
+                "origin": "article"
+              }
+            ]
+          },
+          "sourceArticles": [
+            {
+              "id": "aihot:cmua0xs340akkrowjz7e8urc3",
+              "title": "阿里 Qwen 团队发布开源权重图像生成模型 Qwen-Image-2.1，仅 7B 参数",
+              "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters",
+              "publishedAt": "2026-09-20T16:10:52.000Z",
+              "sourceName": "The Decoder：AI News（RSS）",
+              "category": "release"
+            },
+            {
+              "id": "aihot:cmu9xdsw606jirowjx8kxtk9w",
+              "title": "Qwen-Image-2.1 开源：7B 图像生成与编辑模型",
+              "url": "https://x.com/kimmonismus/status/2101679965590769872",
+              "publishedAt": "2026-09-20T14:28:45.000Z",
+              "sourceName": "X：Kim (@kimmonismus)",
+              "category": "release"
+            }
+          ],
+          "firstSeenAt": "2026-09-20T14:28:45.000Z",
+          "lastSeenAt": "2026-09-20T16:10:52.000Z",
+          "entityType": "company",
+          "productUpdates": [
+            {
+              "name": "Qwen-Image-2.1",
+              "relationship": "owned",
+              "quote": "阿里 Qwen 团队发布开源权重图像生成与编辑模型 Qwen-Image-2.1",
+              "articleId": "aihot:cmua0xs340akkrowjz7e8urc3",
+              "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters",
+              "title": "阿里 Qwen 团队发布开源权重图像生成模型 Qwen-Image-2.1，仅 7B 参数",
+              "publishedAt": "2026-09-20T16:10:52.000Z"
+            },
+            {
+              "name": "Qwen-Image-2.1",
+              "relationship": "owned",
+              "quote": "阿里 Qwen 团队发布并开源 Qwen-Image-2.1",
+              "articleId": "aihot:cmu9xdsw606jirowjx8kxtk9w",
+              "url": "https://x.com/kimmonismus/status/2101679965590769872",
+              "title": "Qwen-Image-2.1 开源：7B 图像生成与编辑模型",
+              "publishedAt": "2026-09-20T14:28:45.000Z"
+            }
+          ],
+          "updatedAt": "2026-09-20T16:10:52.000Z",
+          "latestReportAt": "2026-09-20T16:10:52.000Z",
+          "profileUpdatedAt": "2026-09-21T15:27:21+08:00"
+        }
+      }
     },
     {
       "id": "company:679ac6562ae936f3",
@@ -74880,111 +75075,6 @@
       "profileUpdatedAt": "2026-09-21T15:27:21+08:00"
     },
     {
-      "id": "company:dc99efb7ac433f8a",
-      "company_name": "阿里 Qwen 团队",
-      "aliases": [],
-      "product_names": [
-        "Qwen-Image-2.1"
-      ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "AI模型",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "阿里 Qwen 团队",
-            "articleId": "aihot:cmua0xs340akkrowjz7e8urc3",
-            "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters",
-            "title": "阿里 Qwen 团队发布开源权重图像生成模型 Qwen-Image-2.1，仅 7B 参数",
-            "publishedAt": "2026-09-20T16:10:52.000Z",
-            "sourceName": "The Decoder：AI News（RSS）",
-            "origin": "article"
-          },
-          {
-            "value": "阿里 Qwen 团队",
-            "articleId": "aihot:cmu9xdsw606jirowjx8kxtk9w",
-            "url": "https://x.com/kimmonismus/status/2101679965590769872",
-            "title": "Qwen-Image-2.1 开源：7B 图像生成与编辑模型",
-            "publishedAt": "2026-09-20T14:28:45.000Z",
-            "sourceName": "X：Kim (@kimmonismus)",
-            "origin": "article"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "Qwen-Image-2.1",
-            "articleId": "aihot:cmua0xs340akkrowjz7e8urc3",
-            "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters",
-            "title": "阿里 Qwen 团队发布开源权重图像生成模型 Qwen-Image-2.1，仅 7B 参数",
-            "publishedAt": "2026-09-20T16:10:52.000Z",
-            "sourceName": "The Decoder：AI News（RSS）",
-            "origin": "article"
-          },
-          {
-            "value": "Qwen-Image-2.1",
-            "articleId": "aihot:cmu9xdsw606jirowjx8kxtk9w",
-            "url": "https://x.com/kimmonismus/status/2101679965590769872",
-            "title": "Qwen-Image-2.1 开源：7B 图像生成与编辑模型",
-            "publishedAt": "2026-09-20T14:28:45.000Z",
-            "sourceName": "X：Kim (@kimmonismus)",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "aihot:cmua0xs340akkrowjz7e8urc3",
-          "title": "阿里 Qwen 团队发布开源权重图像生成模型 Qwen-Image-2.1，仅 7B 参数",
-          "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters",
-          "publishedAt": "2026-09-20T16:10:52.000Z",
-          "sourceName": "The Decoder：AI News（RSS）",
-          "category": "release"
-        },
-        {
-          "id": "aihot:cmu9xdsw606jirowjx8kxtk9w",
-          "title": "Qwen-Image-2.1 开源：7B 图像生成与编辑模型",
-          "url": "https://x.com/kimmonismus/status/2101679965590769872",
-          "publishedAt": "2026-09-20T14:28:45.000Z",
-          "sourceName": "X：Kim (@kimmonismus)",
-          "category": "release"
-        }
-      ],
-      "firstSeenAt": "2026-09-20T14:28:45.000Z",
-      "lastSeenAt": "2026-09-20T16:10:52.000Z",
-      "entityType": "company",
-      "productUpdates": [
-        {
-          "name": "Qwen-Image-2.1",
-          "relationship": "owned",
-          "quote": "阿里 Qwen 团队发布开源权重图像生成与编辑模型 Qwen-Image-2.1",
-          "articleId": "aihot:cmua0xs340akkrowjz7e8urc3",
-          "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters",
-          "title": "阿里 Qwen 团队发布开源权重图像生成模型 Qwen-Image-2.1，仅 7B 参数",
-          "publishedAt": "2026-09-20T16:10:52.000Z"
-        },
-        {
-          "name": "Qwen-Image-2.1",
-          "relationship": "owned",
-          "quote": "阿里 Qwen 团队发布并开源 Qwen-Image-2.1",
-          "articleId": "aihot:cmu9xdsw606jirowjx8kxtk9w",
-          "url": "https://x.com/kimmonismus/status/2101679965590769872",
-          "title": "Qwen-Image-2.1 开源：7B 图像生成与编辑模型",
-          "publishedAt": "2026-09-20T14:28:45.000Z"
-        }
-      ],
-      "updatedAt": "2026-09-20T16:10:52.000Z",
-      "latestReportAt": "2026-09-20T16:10:52.000Z",
-      "profileUpdatedAt": "2026-09-21T15:27:21+08:00"
-    },
-    {
       "id": "company:143306bb5a0c3e59",
       "company_name": "ModelScope",
       "aliases": [],
@@ -77814,95 +77904,6 @@
       "profileUpdatedAt": "2026-09-21T15:27:21+08:00"
     },
     {
-      "id": "company:8e507a9451f49d39",
-      "company_name": "稚晖君",
-      "aliases": [],
-      "product_names": [
-        "T1",
-        "T1 pro"
-      ],
-      "founded": null,
-      "country": null,
-      "team": null,
-      "business": null,
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "其他AI应用",
-        "国家/地区": "其他"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "稚晖君",
-            "articleId": "manus:1cab5c6bbf66ffaf",
-            "url": "https://news.qq.com/rain/a/20260920A0ANOL00",
-            "title": "AGI Bar 将迎来首个机器人员工",
-            "publishedAt": "2026-09-20T17:29:00+08:00",
-            "sourceName": "赛博禅心",
-            "origin": "article"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "T1",
-            "articleId": "manus:1cab5c6bbf66ffaf",
-            "url": "https://news.qq.com/rain/a/20260920A0ANOL00",
-            "title": "AGI Bar 将迎来首个机器人员工",
-            "publishedAt": "2026-09-20T17:29:00+08:00",
-            "sourceName": "赛博禅心",
-            "origin": "article"
-          },
-          {
-            "value": "T1 pro",
-            "articleId": "manus:1cab5c6bbf66ffaf",
-            "url": "https://news.qq.com/rain/a/20260920A0ANOL00",
-            "title": "AGI Bar 将迎来首个机器人员工",
-            "publishedAt": "2026-09-20T17:29:00+08:00",
-            "sourceName": "赛博禅心",
-            "origin": "article"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "manus:1cab5c6bbf66ffaf",
-          "title": "AGI Bar 将迎来首个机器人员工",
-          "url": "https://news.qq.com/rain/a/20260920A0ANOL00",
-          "publishedAt": "2026-09-20T17:29:00+08:00",
-          "sourceName": "赛博禅心",
-          "category": "general"
-        }
-      ],
-      "firstSeenAt": "2026-09-20T17:29:00+08:00",
-      "lastSeenAt": "2026-09-20T17:29:00+08:00",
-      "entityType": "company",
-      "productUpdates": [
-        {
-          "name": "T1",
-          "relationship": "owned",
-          "quote": "我之前便预约了个灰色的 T1，并付了 1000 块的定金",
-          "articleId": "manus:1cab5c6bbf66ffaf",
-          "url": "https://news.qq.com/rain/a/20260920A0ANOL00",
-          "title": "AGI Bar 将迎来首个机器人员工",
-          "publishedAt": "2026-09-20T17:29:00+08:00"
-        },
-        {
-          "name": "T1 pro",
-          "relationship": "owned",
-          "quote": "按的灰色款被升级成了 T1 pro，也就是 29999 的那款",
-          "articleId": "manus:1cab5c6bbf66ffaf",
-          "url": "https://news.qq.com/rain/a/20260920A0ANOL00",
-          "title": "AGI Bar 将迎来首个机器人员工",
-          "publishedAt": "2026-09-20T17:29:00+08:00"
-        }
-      ],
-      "updatedAt": "2026-09-20T17:29:00+08:00",
-      "latestReportAt": "2026-09-20T17:29:00+08:00",
-      "profileUpdatedAt": "2026-09-21T15:27:21+08:00"
-    },
-    {
       "id": "company:3dbd9cd5e1fb3e4f",
       "company_name": "Faculty",
       "aliases": [],
@@ -79741,7 +79742,7 @@
       "founded": null,
       "country": null,
       "team": null,
-      "business": "CTO Erik Gafni 是 Invitae 的早期员工",
+      "business": null,
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -79789,7 +79790,19 @@
       "productUpdates": [],
       "updatedAt": "2026-09-20T12:37:18+08:00",
       "latestReportAt": "2026-09-20T12:37:18+08:00",
-      "profileUpdatedAt": "2026-09-21T15:27:21+08:00"
+      "profileUpdatedAt": "2026-09-22T11:31:24+08:00",
+      "fieldValueReviews": [
+        {
+          "company": "Invitae",
+          "field": "business",
+          "from": "CTO Erik Gafni 是 Invitae 的早期员工",
+          "to": null,
+          "articleId": "manus:4ba4270230b988d1",
+          "quote": "也是 Invitae 和 Freenome 的早期员工",
+          "reason": "任职经历没有说明 Invitae/Freenome 公司业务；原文已逐字匹配，唯一 winning source 可按 articleId/from/to=null 清空。",
+          "reviewedAt": "2026-09-22"
+        }
+      ]
     },
     {
       "id": "company:aa0164d1516e120b",
@@ -79799,7 +79812,7 @@
       "founded": null,
       "country": null,
       "team": null,
-      "business": "CTO Erik Gafni 是 Freenome 的早期员工",
+      "business": null,
       "investors": null,
       "total_funding": null,
       "valuation": null,
@@ -79847,7 +79860,19 @@
       "productUpdates": [],
       "updatedAt": "2026-09-20T12:37:18+08:00",
       "latestReportAt": "2026-09-20T12:37:18+08:00",
-      "profileUpdatedAt": "2026-09-21T15:27:21+08:00"
+      "profileUpdatedAt": "2026-09-22T11:31:24+08:00",
+      "fieldValueReviews": [
+        {
+          "company": "Freenome",
+          "field": "business",
+          "from": "CTO Erik Gafni 是 Freenome 的早期员工",
+          "to": null,
+          "articleId": "manus:4ba4270230b988d1",
+          "quote": "也是 Invitae 和 Freenome 的早期员工",
+          "reason": "任职经历没有说明 Invitae/Freenome 公司业务；原文已逐字匹配，唯一 winning source 可按 articleId/from/to=null 清空。",
+          "reviewedAt": "2026-09-22"
+        }
+      ]
     },
     {
       "id": "company:a9ca0659d4d45525",
@@ -143950,6 +143975,98 @@
           "publishedAt": "2026-09-13T10:57:40.000Z"
         }
       ]
+    },
+    {
+      "id": "company:8e507a9451f49d39",
+      "company_name": "稚晖君",
+      "aliases": [],
+      "product_names": [
+        "T1",
+        "T1 pro"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "稚晖君",
+            "articleId": "manus:1cab5c6bbf66ffaf",
+            "url": "https://news.qq.com/rain/a/20260920A0ANOL00",
+            "title": "AGI Bar 将迎来首个机器人员工",
+            "publishedAt": "2026-09-20T17:29:00+08:00",
+            "sourceName": "赛博禅心",
+            "origin": "article"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "T1",
+            "articleId": "manus:1cab5c6bbf66ffaf",
+            "url": "https://news.qq.com/rain/a/20260920A0ANOL00",
+            "title": "AGI Bar 将迎来首个机器人员工",
+            "publishedAt": "2026-09-20T17:29:00+08:00",
+            "sourceName": "赛博禅心",
+            "origin": "article"
+          },
+          {
+            "value": "T1 pro",
+            "articleId": "manus:1cab5c6bbf66ffaf",
+            "url": "https://news.qq.com/rain/a/20260920A0ANOL00",
+            "title": "AGI Bar 将迎来首个机器人员工",
+            "publishedAt": "2026-09-20T17:29:00+08:00",
+            "sourceName": "赛博禅心",
+            "origin": "article"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:1cab5c6bbf66ffaf",
+          "title": "AGI Bar 将迎来首个机器人员工",
+          "url": "https://news.qq.com/rain/a/20260920A0ANOL00",
+          "publishedAt": "2026-09-20T17:29:00+08:00",
+          "sourceName": "赛博禅心",
+          "category": "general"
+        }
+      ],
+      "firstSeenAt": "2026-09-20T17:29:00+08:00",
+      "lastSeenAt": "2026-09-20T17:29:00+08:00",
+      "entityType": "company",
+      "productUpdates": [
+        {
+          "name": "T1",
+          "relationship": "unknown",
+          "quote": "我之前便预约了个灰色的 T1，并付了 1000 块的定金",
+          "articleId": "manus:1cab5c6bbf66ffaf",
+          "url": "https://news.qq.com/rain/a/20260920A0ANOL00",
+          "title": "AGI Bar 将迎来首个机器人员工",
+          "publishedAt": "2026-09-20T17:29:00+08:00",
+          "reviewedAt": "2026-09-22"
+        },
+        {
+          "name": "T1 pro",
+          "relationship": "unknown",
+          "quote": "按的灰色款被升级成了 T1 pro，也就是 29999 的那款",
+          "articleId": "manus:1cab5c6bbf66ffaf",
+          "url": "https://news.qq.com/rain/a/20260920A0ANOL00",
+          "title": "AGI Bar 将迎来首个机器人员工",
+          "publishedAt": "2026-09-20T17:29:00+08:00",
+          "reviewedAt": "2026-09-22"
+        }
+      ],
+      "updatedAt": "2026-09-20T17:29:00+08:00",
+      "latestReportAt": "2026-09-20T17:29:00+08:00",
+      "profileUpdatedAt": "2026-09-22T11:31:24+08:00",
+      "reviewReason": "本篇仅称稚晖君家的机器人，未证实独立公司身份及开发运营法人；保留新闻与具名产品，产品归属待核实。"
     }
   ],
   "excludedEntities": [
@@ -149520,5 +149637,23 @@
     "dailyLimitReached": true,
     "circuitOpen": false,
     "circuitReason": null
-  }
+  },
+  "reviewedCorrections": [
+    {
+      "checkedAt": "2026-09-22T11:31:24+08:00",
+      "kind": "reviewed_company_identity_and_fields",
+      "changedCompanies": [
+        "Irregular",
+        "阿里巴巴",
+        "Invitae",
+        "Freenome",
+        "稚晖君"
+      ],
+      "newModelCalls": 0,
+      "newManusTasks": 0,
+      "proposalSHA256": "1e55576e7b7ea49954e50f0bae9d464f16296bebe75f6015f130641a8e8fdf37",
+      "evidenceSHA256": "d11408ae683f7c13bf05c2a728ffbaa53889baf0f6a3c42171cd2dd011f41ae0",
+      "note": "Article-bound department, identity, product relationship and scalar corrections; original run/model statistics retained."
+    }
+  ]
 }

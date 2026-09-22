@@ -7,7 +7,9 @@
     "阿里": "阿里巴巴",
     "腾讯控股": "腾讯"
   },
-  "pending": {},
+  "pending": {
+    "稚晖君": "本篇仅称稚晖君家的机器人，未证实独立公司身份及开发运营法人；保留新闻与具名产品，产品归属待核实。"
+  },
   "excluded": {
     "NASA": {
       "reason": "美国政府机构，不是公司。",
@@ -198,6 +200,24 @@
       "reason": "相邻两句先明确华为推出一体机产品，再具体介绍Atlas 650E，支持华为产品归属。",
       "reviewedAt": "2026-09-20",
       "origin": "manual-evidence-review"
+    },
+    {
+      "company": "稚晖君",
+      "product": "T1",
+      "articleId": "manus:1cab5c6bbf66ffaf",
+      "relationship": "unknown",
+      "quote": "我之前便预约了个灰色的 T1，并付了 1000 块的定金",
+      "reviewedAt": "2026-09-22",
+      "reason": "预订/升级体验不证明开发或运营归属；保留产品及原文章日期。"
+    },
+    {
+      "company": "稚晖君",
+      "product": "T1 pro",
+      "articleId": "manus:1cab5c6bbf66ffaf",
+      "relationship": "unknown",
+      "quote": "按的灰色款被升级成了 T1 pro，也就是 29999 的那款",
+      "reviewedAt": "2026-09-22",
+      "reason": "预订/升级体验不证明开发或运营归属；保留产品及原文章日期。"
     }
   ],
   "productIdentityReviews": [
@@ -718,6 +738,36 @@
       "reason": "累计部署超过2000万套的原文主语是openEuler，不是鲲鹏；删除错归语句，保留同篇其余原业务描述，并在合并前纠正以免进入字段证据。",
       "reviewedAt": "2026-09-20",
       "origin": "manual-evidence-review"
+    },
+    {
+      "company": "Invitae",
+      "field": "business",
+      "from": "CTO Erik Gafni 是 Invitae 的早期员工",
+      "to": null,
+      "articleId": "manus:4ba4270230b988d1",
+      "quote": "也是 Invitae 和 Freenome 的早期员工",
+      "reason": "任职经历没有说明 Invitae/Freenome 公司业务；原文已逐字匹配，唯一 winning source 可按 articleId/from/to=null 清空。",
+      "reviewedAt": "2026-09-22"
+    },
+    {
+      "company": "Freenome",
+      "field": "business",
+      "from": "CTO Erik Gafni 是 Freenome 的早期员工",
+      "to": null,
+      "articleId": "manus:4ba4270230b988d1",
+      "quote": "也是 Invitae 和 Freenome 的早期员工",
+      "reason": "任职经历没有说明 Invitae/Freenome 公司业务；原文已逐字匹配，唯一 winning source 可按 articleId/from/to=null 清空。",
+      "reviewedAt": "2026-09-22"
+    },
+    {
+      "company": "Irregular",
+      "field": "investors",
+      "from": "由有效利他主义末日邪教资助",
+      "to": null,
+      "articleId": "aihot:cmu9y2dyf0770rowjwnh6hcxb",
+      "quote": "该公司由有效利他主义末日邪教资助",
+      "reason": "原文是社交账号的评价性指控，没有可识别投资方，不能把贬义归类当 investors 事实；已逐字匹配，可精确清空字段并保留新闻。",
+      "reviewedAt": "2026-09-22"
     }
   ]
 }

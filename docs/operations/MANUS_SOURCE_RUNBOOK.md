@@ -5,13 +5,13 @@ Manus只依据文章原始发布／发送时间收录，新增点赞、评论、
 > 2026-09-08 更新。统一入口、候选产物与恢复操作详见 [自动流水线](AUTOMATED_PIPELINE.md)。本页保留 Manus 分阶段排错说明。
 > 架构背景见 `../history/2026-08-17-manus-only-source-migration-plan.md`。
 
-## 1. 日常运行（全自动）
+## 1. 完整流程（手动启动）
 
-- 定时：每天北京时间 09:30（UTC 01:30）开始；固定窗口为前一日09:30至该日09:30，含起点不含终点。`date` 是窗口结束日，实际启动可能因 GitHub 排队延迟。
+- 当前触发：2026-09-22 起取消 GitHub 定时采集及 Codex 定时跟进，保留手动完整运行。固定窗口仍为所选结束日前一日09:30至结束日09:30（北京时间），含起点不含终点；`date` 是窗口结束日，实际启动时间不移动窗口。
 - `fetch-manus.yml` 并行执行 AIHOT/discovery，再运行 content、news、snapshot、overview、funding；部分来源失败允许降级，后续加工与产物校验完成后提交。验收遵循 [投资人验收口径](INVESTOR_ACCEPTANCE.md)。
 - 失败查看 Actions 日志和 `pipeline-status` Artifact；不自动发 Issue 或评论。
 
-2026-09-20起，逐源费用报告的`sourceReceipts`记录成功、零篇、失败和缓存复用路径。`sourceCount`仍为配置数，实际创建数量看`createdSourceCount`，提交结果不明看`creationUnknownSourceCount`。`createRequestedObservedAt`、`terminalObservedAt`是本地观察时间；`remoteCreatedAt`、`terminalEventAt`只在原API明确返回时记录，不能用观察区间直接宣称远端峰值并发。`stopAccepted`只表示停止请求被接受，`terminalConfirmed`单独表示已观察终态。记录复用已有响应，不增加轮询或重试；写盘异常只警告，不影响原采集与停止保护。完整报告可从加密恢复包读取，验收步骤见[真实定时验收](NEXT_SCHEDULED_ACCEPTANCE.md)。
+2026-09-20起，逐源费用报告的`sourceReceipts`记录成功、零篇、失败和缓存复用路径。`sourceCount`仍为配置数，实际创建数量看`createdSourceCount`，提交结果不明看`creationUnknownSourceCount`。`createRequestedObservedAt`、`terminalObservedAt`是本地观察时间；`remoteCreatedAt`、`terminalEventAt`只在原API明确返回时记录，不能用观察区间直接宣称远端峰值并发。`stopAccepted`只表示停止请求被接受，`terminalConfirmed`单独表示已观察终态。记录复用已有响应，不增加轮询或重试；写盘异常只警告，不影响原采集与停止保护。完整报告可从加密恢复包读取，验收步骤见[真实运行与发布验收](NEXT_SCHEDULED_ACCEPTANCE.md)。
 
 ## 2. 手动运行与调试
 

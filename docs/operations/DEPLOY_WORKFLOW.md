@@ -1,6 +1,6 @@
-> 2026-09-09 当前实现：`.github/workflows/deploy-pages.yml` 在 main 每次提交后执行类型检查和 `npm --prefix web run build:pages`，上传 `web/dist/client`（包含 `.nojekyll`）并部署到 `https://hfshooting-alt.github.io/AI-HOT/`。静态模式直接读取 `web/public` 的快照，不请求本站 `/api/*`，因此没有 Manus/模型 API 也能展示现有数据。每日采集成功提交数据后会自然触发该工作流。仓库 Pages Source 已设为 **GitHub Actions**，首次线上构建和四个主要视图验收通过。下文的 WadeLiuAstro/08:00 内容是历史案例，不是当前仓库配置。
+> 2026-09-22 当前状态：GitHub 定时采集及 Codex `ai-hot` 定时跟进已取消。手动采集成功推送正式数据后，采集工作流显式触发 `.github/workflows/deploy-pages.yml`，沿用类型检查和 `npm --prefix web run build:pages`，上传 `web/dist/client`（包含 `.nojekyll`）并部署到 `https://hfshooting-alt.github.io/AI-HOT/`。静态模式直接读取 `web/public` 的快照，不请求本站 `/api/*`，因此没有 Manus/模型 API 也能展示现有数据。GitHub 内置令牌的 push 不会自行触发另一个 push 工作流，需检查显式触发回执及实际 Pages 部署结果。Pages Source 为 **GitHub Actions**；下文定时、WadeLiuAstro/08:00及旧工作流名称均是历史案例，不是当前仓库配置。
 
-# 定时生成静态快照 → 自动部署到 GitHub Pages · 操作手册
+# 历史案例：定时生成静态快照 → 自动部署到 GitHub Pages
 
 > 本文档由「AI HOT 看板」从 CloudBase 迁移到 GitHub Pages 的实战经验沉淀而成。
 > 目标：以后想把任意页面/项目做成「GitHub Actions 定时生成静态快照 → 自动部署到固定网址」的工作流，

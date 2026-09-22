@@ -12,6 +12,16 @@ from unittest import mock
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "scripts"))
 from manus_source import crawler  # noqa: E402
 from manus_source import contracts  # noqa: E402
+sys.path.insert(0, os.path.dirname(__file__))
+from _extraction_fake import fixture_extraction
+
+_worker_patch = mock.patch.object(crawler, '_run_extraction', side_effect=fixture_extraction)
+
+def setUpModule():
+    _worker_patch.start()
+
+def tearDownModule():
+    _worker_patch.stop()
 
 FIXTURE_DIR = os.path.join(os.path.dirname(__file__), "..", "fixtures", "crawler")
 TARGET_DATE = "2026-08-19"

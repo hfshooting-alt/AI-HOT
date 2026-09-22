@@ -6,6 +6,16 @@ from unittest.mock import Mock, patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
 from manus_source.crawler import crawl_one
 from manus_source.rendered_page import supported
+sys.path.insert(0, str(Path(__file__).parent))
+from _extraction_fake import fixture_extraction
+
+_worker_patch = patch('manus_source.crawler._run_extraction', side_effect=fixture_extraction)
+
+def setUpModule():
+    _worker_patch.start()
+
+def tearDownModule():
+    _worker_patch.stop()
 
 
 class RenderedArticleTests(unittest.TestCase):

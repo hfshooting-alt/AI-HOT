@@ -30,7 +30,7 @@ npm --prefix web run dev
 
 ## 常用命令
 
-自动更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。默认 `full` 模式并行采集 AIHOT 与 Manus，合并去重后统一进行模型筛选、摘要分类、公司库和融资更新。`--source-mode aihot-only` 只关闭 Manus，仍需模型密钥并执行后续加工；它保留 AIHOT 提供的各类来源。部分采集失败允许发布成功来源，页面明确列出缺失来源；模型加工失败则保留上一版。统一入口支持 `--resume`、`--stage` 和 `--no-promote`，详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)和[统一新闻链路](docs/architecture/UNIFIED_NEWS_PIPELINE.md)。
+数据更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。默认 `full` 模式并行采集 AIHOT 与 Manus，合并去重后统一进行模型筛选、摘要分类、公司库和融资更新。`--source-mode aihot-only` 只关闭 Manus，仍需模型密钥并执行后续加工；它保留 AIHOT 提供的各类来源。部分采集失败允许发布成功来源，页面明确列出缺失来源；模型加工失败则保留上一版。统一入口支持 `--resume`、`--stage` 和 `--no-promote`，详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)和[统一新闻链路](docs/architecture/UNIFIED_NEWS_PIPELINE.md)。
 
 2026-09-22 起已按用户要求暂停定时采集，保留 GitHub Actions 手动运行完整流程。采集窗口仍固定为北京时间前一天 09:30（含）至所选结束日 09:30（不含）；全部加工成功后更新仓库中的网页产物，并触发 GitHub Pages 重新部署。`--date` 在默认固定窗口模式下表示窗口结束日，旧自然日流程使用 `--window-mode calendar-day`。
 
@@ -92,7 +92,7 @@ AI-HOT/
 
 机器之心采集入口已改为官网产业资讯页，只收录机器之心署名文章，按官网渠道展示；配置切换不代表完整采集已验收。ZPotential 的备用入口及覆盖限制见 `docs/history/2026-09-10/SOURCE_DIAGNOSIS_20260910.md`。
 
-每日采集完成并提交正式数据后，工作流显式触发 GitHub Pages 部署；没有数据变化时跳过。候选测试不更新正式网页，部署是否完成以 Pages 工作流结果为准。
+手动采集完成并提交正式数据后，工作流显式触发 GitHub Pages 部署；没有数据变化时跳过。候选测试不更新正式网页，部署是否完成以 Pages 工作流结果为准。
 
 
 ## 2026-09-14：单条隔离与“昨天”收录口径

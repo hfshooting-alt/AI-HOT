@@ -9,7 +9,7 @@
 | [architecture/COMPANY_OVERVIEW_CONTRACT.md](./architecture/COMPANY_OVERVIEW_CONTRACT.md) | 公司/产品实体、逐字段来源和成本契约 |
 | [operations/MANUS_SOURCE_RUNBOOK.md](./operations/MANUS_SOURCE_RUNBOOK.md) | 执行采集、排查失败 |
 | [operations/AUTOMATED_PIPELINE.md](./operations/AUTOMATED_PIPELINE.md) | 全流程运行、检查、恢复和发布保护 |
-| [operations/NEXT_SCHEDULED_ACCEPTANCE.md](./operations/NEXT_SCHEDULED_ACCEPTANCE.md) | 下一次真实定时采集与线上发布验收 |
+| [operations/NEXT_SCHEDULED_ACCEPTANCE.md](./operations/NEXT_SCHEDULED_ACCEPTANCE.md) | 当前手动批次与线上发布验收，保留原定时计划 |
 | [operations/TESTING_COST_CONTROL.md](./operations/TESTING_COST_CONTROL.md) | 离线回归、只读认证、受限付费问答和消费记录 |
 | [operations/AIHOT_SOURCE.md](./operations/AIHOT_SOURCE.md) | AIHOT v1 接入、本地候选、内部使用口径与加工流程 |
 | [operations/DEPLOY_WORKFLOW.md](./operations/DEPLOY_WORKFLOW.md) | 部署操作 |

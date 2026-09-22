@@ -40,12 +40,12 @@ Manus 返回 URL 线索，DeepSeek 使用实际网页正文；模型搜索回答
 
 成立时间优先法人登记，用 dateBasis=registration 与 legalEntity 说明法人范围；阿拉伯数字日期保留原精度。国家用 countryBasis 区分总部、注册地、公司地址或隐私政策定义。经审阅的 replace=true 规则可更新既有标量并保留旧证据，暂定建议不能借此覆盖。
 
-资料更新时间与新闻时间分开：每日北京时间 09:30 启动，主新闻窗口固定前日 09:30 至当日 09:30；公司背景搜索不受 24 小时限制。补全完成后才随批次发布，不改新闻原日期和排序。
+资料更新时间与新闻时间分开：当前由用户手动启动完整流程，主新闻窗口仍固定为所选结束日前一日 09:30 至结束日 09:30（北京时间）；公司背景搜索不受 24 小时限制，费用仍按实际执行日累计。补全完成后才随批次发布，不改新闻原日期和排序。
 
 ## 验收与历史
 
 离线回归使用 python scripts/test_pipeline.py offline，不调用付费 API。真实全库研究必须明确授权，research.propose(full_review=True) 的一次性额度不改变每日限制。每次人工资料修改仍经候选审核与发布入口。
 
-公开 company-enrichment.html 展示当前字段空缺、最近定向补全及已发布批次的自动记录。定向补全记录位于 company-profile-review.json，明确独立于每日运行；历史审计见 [2026-09-20 公司资料与单源验证](../history/2026-09-20-COMPANY_PROFILE_AND_CANARY.md)。下一次真实定时任务仍需核对来源、窗口、资料增量、费用和部署状态。
+公开 company-enrichment.html 展示当前字段空缺、最近定向补全及已发布批次的自动记录。定向补全记录位于 company-profile-review.json，明确独立于完整采集批次；历史审计见 [2026-09-20 公司资料与单源验证](../history/2026-09-20-COMPANY_PROFILE_AND_CANARY.md)。每次获授权的手动运行仍需核对来源、窗口、资料增量、费用和部署状态。
 
 GLM-4V／Baichuan-M3 原生搜索试验保持停用，不重复失败查询。历史测试及旧未接入状态见[整理前操作记录](../history/2026-09-15/maintenance-before-organization/COMPANY_WEB_RESEARCH.md)；一次性全库结果见[全库复核记录](../history/2026-09-15/COMPANY_FULL_RESEARCH.md)。

@@ -3039,6 +3039,38 @@
           "countryBasis": "headquarters"
         }
       ]
+    },
+    {
+      "record_name": "阿里 Qwen 团队",
+      "owner_company": "阿里巴巴",
+      "source_kind": "division",
+      "reviewed": true,
+      "facts": [
+        {
+          "field": "owner_company",
+          "value": "阿里巴巴",
+          "quote": "阿里 Qwen 团队发布开源权重图像生成与编辑模型 Qwen-Image-2.1",
+          "url": "https://the-decoder.com/alibabas-open-weight-qwen-image-2-1-claims-to-beat-closed-models-in-image-generation-with-just-7-billion-parameters",
+          "title": "阿里 Qwen 团队发布开源权重图像生成模型 Qwen-Image-2.1，仅 7B 参数",
+          "origin": "article",
+          "articleId": "aihot:cmua0xs340akkrowjz7e8urc3",
+          "publishedAt": "2026-09-20T16:10:52.000Z",
+          "sourceName": "报道内容复核",
+          "checkedAt": "2026-09-22"
+        },
+        {
+          "field": "owner_company",
+          "value": "阿里巴巴",
+          "quote": "阿里 Qwen 团队发布并开源 Qwen-Image-2.1",
+          "url": "https://x.com/kimmonismus/status/2101679965590769872",
+          "title": "Qwen-Image-2.1 开源：7B 图像生成与编辑模型",
+          "origin": "article",
+          "articleId": "aihot:cmu9xdsw606jirowjx8kxtk9w",
+          "publishedAt": "2026-09-20T14:28:45.000Z",
+          "sourceName": "报道内容复核",
+          "checkedAt": "2026-09-22"
+        }
+      ]
     }
   ]
 }
