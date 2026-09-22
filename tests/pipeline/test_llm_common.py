@@ -133,5 +133,56 @@ class TestUsageLog(unittest.TestCase):
         self.assertNotIn("untrusted_extra", target.read_text(encoding="utf-8"))
 
 
+class TestFinishReason(unittest.TestCase):
+    TX = {"model": {"api_key_env": "TEST_MODEL_KEY", "api_base_env": "TEST_MODEL_BASE",
+        "default_base": "https://example.test", "model": "offline-model",
+        "max_output_tokens": 1024, "timeout_seconds": 20}}
+
+    def invoke(self, payload, directory):
+        class Response:
+            def __enter__(self): return self
+            def __exit__(self, *args): return False
+            def read(self): return json.dumps(payload).encode('utf-8')
+        self.usage = Path(directory) / 'usage.jsonl'
+        with patch.dict(os.environ, {"TEST_MODEL_KEY": "private-fake-key",
+                "LLM_USAGE_LOG": str(self.usage)}, clear=True), \
+                patch.object(llm_common, '_DOTENV_LOADED', True), \
+                patch.object(llm_common.urllib.request, 'urlopen', return_value=Response()) as request:
+            try:
+                return llm_common.call_llm(self.TX, 'private-system', 'private-input',
+                                           max_tokens=32, operation='company_extraction')
+            finally:
+                self.assertEqual(request.call_count, 1)
+                self.assertEqual(json.loads(request.call_args.args[0].data)['max_tokens'], 32)
+
+    def test_truncated_json_reports_output_limit_and_preserves_only_safe_usage(self):
+        directory = make_temp_dir('output-limit-test-')
+        payload = {'choices': [{'finish_reason': 'length',
+                    'message': {'content': '{"private-response":'}}],
+                   'usage': {'prompt_tokens': 15, 'completion_tokens': 32, 'total_tokens': 47,
+                             'private-field': 'private-usage'}}
+        with self.assertRaisesRegex(llm_common.LLMRequestError, '^output_limit$'):
+            self.invoke(payload, directory)
+        usage = self.usage.read_text(encoding='utf-8')
+        failure = self.usage.with_name('usage-failures.jsonl').read_text(encoding='utf-8')
+        self.assertEqual(len(usage.splitlines()), 1)
+        self.assertEqual(json.loads(usage)['usage']['total_tokens'], 47)
+        self.assertEqual(len(failure.splitlines()), 1)
+        self.assertEqual(json.loads(failure)['error'],
+                         {'category': 'output_limit', 'httpStatus': None, 'systemic': False})
+        self.assertNotIn('private', usage + failure)
+
+    def test_normal_stop_and_absent_finish_reason_remain_compatible(self):
+        for reason in ('stop', None):
+            with self.subTest(reason=reason):
+                choice = {'message': {'content': '{"ok":true}'}}
+                if reason is not None:
+                    choice['finish_reason'] = reason
+                result = self.invoke({'choices': [choice], 'usage': {'total_tokens': 7}},
+                                     make_temp_dir('finish-reason-test-'))
+                self.assertEqual(result, '{"ok":true}')
+                self.assertFalse(self.usage.with_name('usage-failures.jsonl').exists())
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

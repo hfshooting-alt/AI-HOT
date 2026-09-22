@@ -89,6 +89,26 @@ class FailureDiagnosticsTest(unittest.TestCase):
 
 
 class BoundedExtractionTest(unittest.TestCase):
+    def test_article_output_limits_do_not_stop_other_articles_or_retry(self):
+        tx = copy.deepcopy(TX)
+        tx['companyOverview'] = {'concurrency': 1, 'max_new_articles_per_run': 5}
+        calls = []
+        def llm(*args, **kwargs):
+            calls.append(1)
+            if len(calls) < 5:
+                raise LLMRequestError('output_limit')
+            return '{"companies":[]}'
+        with tempfile.TemporaryDirectory() as temp:
+            results, cost = companies.extract_articles(tx, articles(5), Path(temp) / 'cache.json', llm)
+        self.assertEqual(len(calls), 5)
+        self.assertEqual(cost['modelCalls'], 5)
+        self.assertEqual(cost['modelFailures'], 4)
+        self.assertEqual(cost['modelSuccesses'], 1)
+        self.assertEqual(cost['failureCategories'], {'output_limit': 4})
+        self.assertFalse(cost['circuitOpen'])
+        self.assertEqual(cost['articlesDeferred'], 0)
+        self.assertEqual(results['4']['status'], 'complete')
+
     def test_company_authentication_failure_stops_queue_and_saves_reason(self):
         tx = copy.deepcopy(TX)
         tx['companyOverview'] = {'concurrency': 2, 'max_new_articles_per_run': 50}

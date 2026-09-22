@@ -6,6 +6,8 @@
 
 审阅决定保存于 `config/quality_review.json`。分类记录包含新闻链接、理由以及标题和摘要哈希，正文展示内容改变后原决定失效，写入 `staleDecisions` 待重新检查。公司别名仅合并明确同一主体，不按母子公司关系自动合并；冲突字段和原始记录保存在 `reviewMergedRecords`。产品归属未确认时放入 `pendingEntities`，来源文章完整保留。
 
+逐文章完整实体审校使用 `articleExtractionReviews`：每条只含 `articleId`、`title`、`url`、`contentSha256`、`reviewedAt`、`reason`、`companies`。公司数组须为 `normalize_company` 的完整规范结构，产品关系与逐字引文继续验原文；空数组可明确排除该篇全部实体。仅原抽取成功且文章 ID、标题、链接、正文 SHA-256 全部精确匹配时，合并前采用审校副本；失效绑定不应用，匹配规则结构错误则拒绝构建。原缓存、状态和模型统计保持，不将失败升级为成功。该规则仅供公司产品抽取，融资仍只使用原逐字段审校，避免把产品记录混入融资表。
+
 在仓库根目录对模型候选结果执行，无网络、无费用：
 
 ```powershell

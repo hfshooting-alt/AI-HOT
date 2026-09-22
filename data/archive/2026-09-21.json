@@ -5344,6 +5344,38 @@
    "contentSha256": "6c9e6e9554ee72d54360d6a819330f1a8b13d4a6d08ee09b17a7824b14baccea"
   },
   {
+   "id": "manus:fd1d6274bebe6a4d",
+   "title": "深度｜豌豆荚往事：中国互联网最体面的「失败者」，如何成为AI时代的黄埔军校",
+   "url": "https://www.163.com/dy/article/L7CQ8MP30556EX0D.html?spss=dy_author",
+   "source": "网易号转载：ZFinance",
+   "mpName": "ZFinance",
+   "sourceType": "media",
+   "sourceChannel": "netease_syndication",
+   "sourcePlatform": "NetEase",
+   "collector": "manus",
+   "publishedAt": "2026-09-21T22:28:20+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": null,
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "manus",
+     "source": "ZFinance",
+     "url": "https://www.163.com/dy/article/L7CQ8MP30556EX0D.html?spss=dy_author",
+     "publishedAt": "2026-09-21T22:28:20+08:00"
+    }
+   ],
+   "summary": "豌豆荚旧部此后进入豆包、面壁智能、Manus及AI教育等领域。文章回顾这一人才网络：李大海于2023年出任面壁智能CEO，2024年全职投入AI创业；张涛于2024年成为Manus产品合伙人；文中还介绍了2023年上线的Answer.AI。文章将这些后续创业与豌豆荚时期的工程师文化、产品方法联系起来，并回溯公司被收购与团队分拆的历史。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "7eff162a2db56c1b12fda275755e70d27678749cc560d66a7367f6896b9cbfa1"
+  },
+  {
    "id": "aihot:cmubc3ugq0ujjrolnp2laxxh3",
    "title": "布里斯托大学研究团队提出 Learning Ensemble，借鉴药物审批机制系统评估医疗 AI 可靠性",
    "originalTitle": "Bristol researchers say medicine already knows how to handle black boxes and AI could learn from it",
@@ -8143,6 +8175,44 @@
    "contentSha256": "acfe89760806dd1695d6ebc8653c4804db8e2d0e7645681a33d6eb253a1ca863"
   },
   {
+   "id": "manus:b3ad95811c7463ea",
+   "title": "简单讲讲 Agent 的工作原理",
+   "url": "https://news.qq.com/rain/a/20260921A09Z8F00",
+   "source": "腾讯新闻转载：赛博禅心",
+   "mpName": "赛博禅心",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "manus",
+   "publishedAt": "2026-09-21T18:23:00+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": null,
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "manus",
+     "source": "赛博禅心",
+     "url": "https://news.qq.com/rain/a/20260921A09Z8F00",
+     "publishedAt": "2026-09-21T18:23:00+08:00"
+    },
+    {
+     "collector": "manus",
+     "source": "硅星人",
+     "url": "https://www.163.com/dy/article/L7DVT5LF0511N33R.html?spss=dy_author",
+     "publishedAt": "2026-09-22T09:26:08+08:00"
+    }
+   ],
+   "summary": "文章从原理角度解释Agent工具如何通过Harness对上下文进行编排来完成任务。模型每次请求时，系统会组织指令、对话、资料和工具结果构成上下文，模型据此判断是直接输出结果还是调用工具。Agent通过模型提出操作、工具执行、结果返回的循环持续工作。工具和Skill按需加载，Skill提供做事方法，工具提供具体操作能力，外部能力可通过MCP接入，插件用于分发。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "e2fa3bd4568cb763532a9e61c3b18ad36660426e5e6bc84efd5424b376533dd2"
+  },
+  {
    "id": "aihot:cmub4ki9z0ih9rolnxcjvxm16",
    "title": "联合国 AI 科学小组：不能等科学定论再加强 AI 智能体安全保障",
    "originalTitle": "UN says AI safeguards can't wait for certainty",
@@ -9380,6 +9450,38 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "4b687864a2ecfe31ba42fb6dac979fe7e53dd29741a972351dbfd40ce61087ba"
+  },
+  {
+   "id": "manus:5d750df8d9094b20",
+   "title": "投资人建议具身创始人：别纠结估值，赶紧拿钱",
+   "url": "https://news.qq.com/rain/a/20260921A085Z200",
+   "source": "腾讯新闻转载：投资界",
+   "mpName": "投资界",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "manus",
+   "publishedAt": "2026-09-21T16:06:00+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": null,
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "manus",
+     "source": "投资界",
+     "url": "https://news.qq.com/rain/a/20260921A085Z200",
+     "publishedAt": "2026-09-21T16:06:00+08:00"
+    }
+   ],
+   "summary": "宇树科技上市一个月后股价较巅峰跌去一半，具身智能赛道融资氛围明显降温，部分投资机构已暂停推进新的具身项目。梅卡曼德登陆港交所后开盘破发。监管层面，国家发改委官员表示机器人产业须防止盲目跟风，有报道称监管机构已发出非正式窗口指导，将提高人形机器人企业IPO审批门槛，港交所也将在明年上半年就修订18C上市制度展开咨询。智元机器人、银河通用、星海图等多家具身企业仍在港交所排队。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "6da9744d6323e6b76fe1de88ced5b2fcd74b56ddb3a1fa8c91d80367688d65e6"
   },
   {
    "id": "aihot:cmuayslja0c3groln0wbeca3m",
@@ -13314,5 +13416,5 @@
    "contentSha256": "3f9b54bd31a164291a12de32c861365dbb016f7c47a5eb53115e3350cb621634"
   }
  ],
- "updatedAt": "2026-09-22T11:00:12.660711+08:00"
+ "updatedAt": "2026-09-22T12:23:43.475612+08:00"
 }

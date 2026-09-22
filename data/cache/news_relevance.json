@@ -18394,5 +18394,53 @@
   "evidence": "历史即信息动力学：Beren Millidge 论历史保存与计算的权衡",
   "modelAttempted": true,
   "cacheHit": false
+ },
+ "205e258064887c5d5afab25522dbf61b3223aed4788517297779dadda70ce895": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是电子纸阅读器产品与创业访谈，AI仅作为背景工具被顺带提及，无具体AI事件。",
+  "evidence": "我们不会为了追 AI 潮流，专门做一个看上去很 AI 的产品。AI 更多是一个工具，被应用在产品背后。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "5ebc701aaec8fe567c21839805b5ad798536aa2597a4ff906d4bf8ac387b27fe": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是豌豆荚前员工在AI时代成为关键人物，涉及豆包、Manus、面壁智能等AI产品与公司，属于AI人才与AI公司动态。",
+  "evidence": "这些人坐上了中国互联网最关键的牌桌：西瓜视频、飞书、豆包、TiDB、Manus。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "3d8c3a80bedb09f776d0f7b0a09b1d5729b9c9102ef85ea36f4ea994149e0e70": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是韩国游戏厂商转向Steam单机市场的行业分析，AI仅作为人物发言中的辅助手段被顺带提及，无具体AI事件。",
+  "evidence": "他的对策，是让开发者熟练使用 AI，以弥补人数劣势。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "af5c90f9971031c9f73234618e2f9ee8920b8e3d1d64bbac31e454198e8d51c2": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是猫咪题材放置RPG的游戏玩法与变现设计，仅封面图片由AI生成，无具体AI事件。",
+  "evidence": "封面图片由 AI 生成",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "def7a46752d9db7f9e36c1ffee4089a4c2be972c6b0dd0f9bbd520c139b77bb4": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章系统讲解Agent的工作原理，属于AI智能体技术内容。",
+  "evidence": "现在的 Agent 的产品越来越多，有些主打 Coding，有些事做日常办公，也有些用于情感陪伴虽然这些产品的用途不同，背后的工作原理其实都大同小异，便是 Ha",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "288894f2f41f4241939572e75020b8989db24bdfdbf065a76ba1e5da3b0fe7d5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是具身智能/人形机器人赛道融资与IPO环境变化，属于AI机器人领域的实质行业动态。",
+  "evidence": "宇树上市后，我们就没上会过具身项目了。",
+  "modelAttempted": true,
+  "cacheHit": false
  }
 }

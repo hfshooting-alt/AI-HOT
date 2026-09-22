@@ -36649,5 +36649,44 @@
   "enrichmentStatus": "complete",
   "modelAttempted": true,
   "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v3:en:7c62b3dda6dbcbc9:e2fa3bd4568cb763": {
+  "summary": "文章从原理角度解释Agent工具如何通过Harness对上下文进行编排来完成任务。模型每次请求时，系统会组织指令、对话、资料和工具结果构成上下文，模型据此判断是直接输出结果还是调用工具。Agent通过模型提出操作、工具执行、结果返回的循环持续工作。工具和Skill按需加载，Skill提供做事方法，工具提供具体操作能力，外部能力可通过MCP接入，插件用于分发。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v3:en:3ac92b73755a2e46:7eff162a2db56c1b": {
+  "summary": "豌豆荚于2016年并入阿里巴巴移动事业群，2020年2月其PC版停止在线服务。文章回顾了豌豆荚从2009年在创新工场孵化、2014年获软银领投1.2亿美元B轮融资，到拒绝阿里收购后在与腾讯、360、百度及手机厂商的竞争中落败、最终以约2亿美元被阿里收购的历程。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v3:en:e572cd69f1853e8e:6da9744d6323e6b7": {
+  "summary": "宇树科技上市一个月后股价较巅峰跌去一半，具身智能赛道融资氛围明显降温，部分投资机构已暂停推进新的具身项目。梅卡曼德登陆港交所后开盘破发。监管层面，国家发改委官员表示机器人产业须防止盲目跟风，有报道称监管机构已发出非正式窗口指导，将提高人形机器人企业IPO审批门槛，港交所也将在明年上半年就修订18C上市制度展开咨询。智元机器人、银河通用、星海图等多家具身企业仍在港交所排队。",
+  "summaryOrigin": "model",
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
  }
 }

@@ -87215,5 +87215,1431 @@
    }
   ],
   "modelAttempted": true
+ },
+ "99d5e701e9005109e39d40fc7c8bc3e2ba96bf863de27f33f82d6013626fbe06": {
+  "status": "complete",
+  "companies": [],
+  "modelAttempted": true
+ },
+ "86373d1f3ac7454e1267a9f7df4a1194ae6e1051b20100eb21b3f88b5a07eb6e": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "宇树",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "人形机器人",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "梅卡曼德",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "机器人",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "智元机器人",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "具身智能",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "银河通用",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "具身智能",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "星海图",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "具身智能",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "智平方",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "具身智能",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "自变量机器人",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "具身智能",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "逐际动力",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "具身智能",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "跨维智能",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "具身智能",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "祥峰投资",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "投资机构",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "东方嘉富",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "投资机构",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "蔚来资本",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "投资机构",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "达晨",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "投资机构",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "920ac1d60d350e2744f107cb2bc994159b8fbf017ec77b47c458dddca575415a": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "豌豆荚",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "豌豆荚",
+     "豌豆荚PC版"
+    ],
+    "products": [
+     {
+      "name": "豌豆荚",
+      "relationship": "owned",
+      "quote": "豌豆荚宣布并入阿里巴巴移动事业群"
+     },
+     {
+      "name": "豌豆荚PC版",
+      "relationship": "owned",
+      "quote": "PC版将于2月28日停止在线服务"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "王俊煜、冯锋、崔瑾、周利民",
+    "business": "安卓应用分发平台",
+    "investors": "创新工场、软银、DCM、高盛",
+    "total_funding": "1.2亿美元B轮融资",
+    "valuation": "9到10亿美元（2014年）",
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "字节跳动",
+    "entity_type": "company",
+    "aliases": [
+     "字节"
+    ],
+    "product_names": [
+     "西瓜视频",
+     "飞书",
+     "豆包",
+     "抖音",
+     "TikTok",
+     "穿山甲",
+     "剪映"
+    ],
+    "products": [
+     {
+      "name": "西瓜视频",
+      "relationship": "owned",
+      "quote": "他开始负责后来更名为西瓜视频的视频业务"
+     },
+     {
+      "name": "飞书",
+      "relationship": "owned",
+      "quote": "2020年，他转飞书负责人"
+     },
+     {
+      "name": "豆包",
+      "relationship": "owned",
+      "quote": "全面负责豆包"
+     },
+     {
+      "name": "抖音",
+      "relationship": "owned",
+      "quote": "那是抖音从千万日活冲向亿级的年月"
+     },
+     {
+      "name": "TikTok",
+      "relationship": "owned",
+      "quote": "他兼任TikTok增长中台负责人"
+     },
+     {
+      "name": "穿山甲",
+      "relationship": "owned",
+      "quote": "穿山甲广告平台原负责人离职，赵祺临危接手"
+     },
+     {
+      "name": "剪映",
+      "relationship": "owned",
+      "quote": "负责TikTok、抖音和剪映的战略团队"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "张楠、赵祺、吴宁、谢欣、朱骏",
+    "business": "信息分发、短视频、企业协作、AI产品",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "PingCAP",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "TiDB",
+     "Codis"
+    ],
+    "products": [
+     {
+      "name": "TiDB",
+      "relationship": "owned",
+      "quote": "创办PingCAP，产品叫TiDB"
+     },
+     {
+      "name": "Codis",
+      "relationship": "owned",
+      "quote": "黄东旭和刘奇动手写了一个分布式Redis中间件"
+     }
+    ],
+    "founded": "2015年4月",
+    "country": "中国",
+    "team": "刘奇、黄东旭、崔秋",
+    "business": "开源分布式数据库",
+    "investors": null,
+    "total_funding": "2.7亿美元D轮融资",
+    "valuation": "约30亿美元（2020年）",
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "大宇无限",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Snaptube"
+    ],
+    "products": [
+     {
+      "name": "Snaptube",
+      "relationship": "owned",
+      "quote": "他的产品Snaptube做海外视频和音乐服务"
+     }
+    ],
+    "founded": "2016年1月",
+    "country": "中国",
+    "team": "丁吉昌",
+    "business": "海外视频和音乐服务",
+    "investors": "豌豆荚",
+    "total_funding": "数百万人民币天使轮",
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "VUE",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "VUE"
+    ],
+    "products": [
+     {
+      "name": "VUE",
+      "relationship": "owned",
+      "quote": "邝飞创办视频剪辑应用VUE"
+     }
+    ],
+    "founded": "2016年初",
+    "country": "中国",
+    "team": "邝飞、李藻潞、杨涛",
+    "business": "视频剪辑应用",
+    "investors": "真格基金",
+    "total_funding": "40万美元天使轮",
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "轻芒杂志",
+    "entity_type": "company",
+    "aliases": [
+     "轻芒"
+    ],
+    "product_names": [
+     "轻芒杂志"
+    ],
+    "products": [
+     {
+      "name": "轻芒杂志",
+      "relationship": "owned",
+      "quote": "发布轻芒杂志"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "王俊煜、范怀宇、崔瑾",
+    "business": "兴趣推荐阅读",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "面壁智能",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "李大海",
+    "business": "大模型公司",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Answer.AI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Answer.AI"
+    ],
+    "products": [
+     {
+      "name": "Answer.AI",
+      "relationship": "owned",
+      "quote": "2023年上线的Answer.AI"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "周立",
+    "business": "AI教育应用",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Manus",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Manus"
+    ],
+    "products": [
+     {
+      "name": "Manus",
+      "relationship": "owned",
+      "quote": "他成为Manus的产品合伙人，做出了次年刷屏的AI Agent"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "张涛",
+    "business": "AI Agent",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "联翩科技",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "一览",
+     "Snap锁屏"
+    ],
+    "products": [
+     {
+      "name": "一览",
+      "relationship": "owned",
+      "quote": "“一览”和“Snap锁屏”组成联翩科技"
+     },
+     {
+      "name": "Snap锁屏",
+      "relationship": "owned",
+      "quote": "“一览”和“Snap锁屏”组成联翩科技"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "独立应用",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "开眼",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "开眼"
+    ],
+    "products": [
+     {
+      "name": "开眼",
+      "relationship": "owned",
+      "quote": "精品短视频“开眼”独立成公司"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "张强、李智",
+    "business": "精品短视频",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "阅览室",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "阅览室"
+    ],
+    "products": [
+     {
+      "name": "阅览室",
+      "relationship": "owned",
+      "quote": "王俊煜转做“阅览室”"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "王俊煜、崔瑾、范怀宇",
+    "business": "付费长文阅读",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "车来了",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "车来了"
+    ],
+    "products": [
+     {
+      "name": "车来了",
+      "relationship": "owned",
+      "quote": "赵祺去了创业公司“车来了”负责产品"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "公交查询工具",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Kika输入法",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Kika输入法"
+    ],
+    "products": [
+     {
+      "name": "Kika输入法",
+      "relationship": "owned",
+      "quote": "参与创办的Kika输入法有过全球数亿用户"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "周立",
+    "business": "输入法",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "LiveIn",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "LiveIn"
+    ],
+    "products": [
+     {
+      "name": "LiveIn",
+      "relationship": "owned",
+      "quote": "小组件社交产品LiveIn做到过百万日活"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "周立",
+    "business": "小组件社交",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "百炼智能",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "姚从磊",
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "最美应用",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "马力",
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "光涧实验室",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "王俊煜",
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "星起",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "郑焕德",
+    "business": "一级市场平台",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "探月学院",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "崔瑾",
+    "business": "创新教育",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "展翼计划",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "张延",
+    "business": "3D打印机械义肢公益项目",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "91助手",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "91助手"
+    ],
+    "products": [
+     {
+      "name": "91助手",
+      "relationship": "owned",
+      "quote": "91助手全面停止所有服务"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "第三方应用商店",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "PP助手",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "PP助手"
+    ],
+    "products": [
+     {
+      "name": "PP助手",
+      "relationship": "owned",
+      "quote": "PP助手公告产品将于月底下线"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "第三方应用商店",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "安卓市场",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "安卓市场"
+    ],
+    "products": [
+     {
+      "name": "安卓市场",
+      "relationship": "owned",
+      "quote": "91助手和安卓市场的渠道包停止上传与管理"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "第三方应用商店",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "阿里巴巴",
+    "entity_type": "company",
+    "aliases": [
+     "阿里"
+    ],
+    "product_names": [
+     "阿里应用分发",
+     "UC应用商店",
+     "神马搜索",
+     "九游"
+    ],
+    "products": [
+     {
+      "name": "阿里应用分发",
+      "relationship": "owned",
+      "quote": "“阿里应用分发”宣布成立"
+     },
+     {
+      "name": "UC应用商店",
+      "relationship": "owned",
+      "quote": "豌豆荚、PP助手、九游、UC应用商店、神马搜索五合一"
+     },
+     {
+      "name": "神马搜索",
+      "relationship": "owned",
+      "quote": "豌豆荚、PP助手、九游、UC应用商店、神马搜索五合一"
+     },
+     {
+      "name": "九游",
+      "relationship": "owned",
+      "quote": "豌豆荚、PP助手、九游、UC应用商店、神马搜索五合一"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "俞永福、张博、何小鹏",
+    "business": "移动事业群、应用分发",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "腾讯",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "应用宝",
+     "微信",
+     "秒剪"
+    ],
+    "products": [
+     {
+      "name": "应用宝",
+      "relationship": "owned",
+      "quote": "腾讯用微信给应用宝导流"
+     },
+     {
+      "name": "微信",
+      "relationship": "owned",
+      "quote": "微信5.0安卓版放在应用宝首发"
+     },
+     {
+      "name": "秒剪",
+      "relationship": "owned",
+      "quote": "原团队随即被抽调去做官方剪辑工具秒剪"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "互联网综合服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "百度",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "91无线"
+    ],
+    "products": [
+     {
+      "name": "91无线",
+      "relationship": "owned",
+      "quote": "百度宣布19亿美元全资收购91无线"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "互联网服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "360",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "手机助手"
+    ],
+    "products": [
+     {
+      "name": "手机助手",
+      "relationship": "owned",
+      "quote": "360靠PC客户端强推手机助手"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "周鸿祎",
+    "business": "互联网安全与分发",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "华为",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "自有应用商店",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "小米",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "自有应用商店",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "OPPO",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "自有应用商店",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "vivo",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "自有应用商店",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "软银",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "日本",
+    "team": "孙正义",
+    "business": "投资",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "DCM",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "投资",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "创新工场",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "李开复、汪华",
+    "business": "创业投资与孵化",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "高盛",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "投资",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "真格基金",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "投资",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Shein",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": "吴宁",
+    "business": "全球战略",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "知乎",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "李大海",
+    "business": "问答社区",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "豆瓣",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "社区",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "滴滴",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "出行",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "快手",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "短视频",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "陌陌",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "刘亚平",
+    "business": "社交",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Keep",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "彭跃辉",
+    "business": "运动健身",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "老虎证券",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "刘志达",
+    "business": "证券",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "联想神奇工场",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "UC",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "何小鹏",
+    "business": "移动互联网",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Musical.ly",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": "朱骏",
+    "business": "短视频",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "扣子",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "扣子"
+    ],
+    "products": [
+     {
+      "name": "扣子",
+      "relationship": "owned",
+      "quote": "手里还有扣子、即梦这些AI创作工具"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "AI创作工具",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "即梦",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "即梦"
+    ],
+    "products": [
+     {
+      "name": "即梦",
+      "relationship": "owned",
+      "quote": "手里还有扣子、即梦这些AI创作工具"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "AI创作工具",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "3W咖啡",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": "郑焕德",
+    "business": "孵化器",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "AcFun",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "弹幕视频",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "映客",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "直播",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "神策",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "数据分析",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "猪八戒网",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "服务众包",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "烽火国际",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "北京银行",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "银行",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "摩拜",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "共享单车",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "PayPay",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "日本",
+    "team": null,
+    "business": "支付",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Shopee",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "电商",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "作业帮",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "教育",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "字节跳动",
+    "entity_type": "company",
+    "aliases": [
+     "字节"
+    ],
+    "product_names": [
+     "豆包企业版"
+    ],
+    "products": [
+     {
+      "name": "豆包企业版",
+      "relationship": "owned",
+      "quote": "“豆包企业版”已开启内测"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "企业协作",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
  }
 }

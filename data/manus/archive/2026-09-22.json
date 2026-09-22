@@ -1,240 +1,523 @@
 {
- "schemaVersion": 2,
- "collectionWindow": {
-  "start": "2026-09-21T09:30:00+08:00",
-  "end": "2026-09-22T09:30:00+08:00",
-  "timezone": "Asia/Shanghai"
- },
- "targetDate": "2026-09-22",
- "generatedAt": "2026-09-22T11:00:12+08:00",
- "collector": "manus",
- "ok": true,
- "degraded": true,
- "stats": {
-  "configuredAccounts": 20,
-  "completeAccounts": 1,
-  "failedAccounts": 19,
-  "discoveredArticles": 7,
-  "publishedArticles": 0,
-  "fallbackArticles": 0
- },
- "items": [],
- "collectionStatus": {
+  "schemaVersion": 2,
   "collectionWindow": {
-   "start": "2026-09-21T09:30:00+08:00",
-   "end": "2026-09-22T09:30:00+08:00",
-   "timezone": "Asia/Shanghai"
+    "start": "2026-09-21T09:30:00+08:00",
+    "end": "2026-09-22T09:30:00+08:00",
+    "timezone": "Asia/Shanghai"
   },
+  "targetDate": "2026-09-22",
+  "generatedAt": "2026-09-22T12:23:43+08:00",
+  "collector": "manus",
+  "ok": true,
   "degraded": true,
-  "sources": [
-   {
-    "name": "AIHOT",
-    "collector": "aihot",
-    "status": "complete",
-    "discoveredArticles": 459,
-    "usableArticles": 459
-   },
-   {
-    "name": "游戏葡萄",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "白鲸出海",
-    "collector": "manus",
-    "status": "partial",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 3,
-    "usableArticles": 0
-   },
-   {
-    "name": "机器之心",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "ZFinance",
-    "collector": "manus",
-    "status": "partial",
-    "reasonCode": "content_incomplete",
-    "discoveredArticles": 1,
-    "usableArticles": 0
-   },
-   {
-    "name": "极客公园",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "东西文娱",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "娱乐资本论",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "FounderPark",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "瑞恩资本",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "DeepTech深科技",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "ZPotential",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "华尔街见闻",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "量子位",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "智东西",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "十字路口Crossing",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "投资界",
-    "collector": "manus",
-    "status": "partial",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 1,
-    "usableArticles": 0
-   },
-   {
-    "name": "赛博禅心",
-    "collector": "manus",
-    "status": "partial",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 1,
-    "usableArticles": 0
-   },
-   {
-    "name": "elsewhere别处发生",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "新智元",
-    "collector": "manus",
-    "status": "failed",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 0,
-    "usableArticles": 0
-   },
-   {
-    "name": "硅星人",
-    "collector": "manus",
-    "status": "partial",
-    "reasonCode": "budget_stopped",
-    "discoveredArticles": 1,
-    "usableArticles": 0
-   }
+  "stats": {
+    "configuredAccounts": 20,
+    "completeAccounts": 1,
+    "failedAccounts": 19,
+    "discoveredArticles": 7,
+    "publishedArticles": 3,
+    "fallbackArticles": 0
+  },
+  "items": [
+    {
+      "id": "manus:fd1d6274bebe6a4d",
+      "title": "深度｜豌豆荚往事：中国互联网最体面的「失败者」，如何成为AI时代的黄埔军校",
+      "url": "https://www.163.com/dy/article/L7CQ8MP30556EX0D.html?spss=dy_author",
+      "source": "网易号转载：ZFinance",
+      "mpName": "ZFinance",
+      "sourceType": "media",
+      "sourceChannel": "netease_syndication",
+      "sourcePlatform": "NetEase",
+      "collector": "manus",
+      "publishedAt": "2026-09-21T22:28:20+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "ZFinance",
+          "url": "https://www.163.com/dy/article/L7CQ8MP30556EX0D.html?spss=dy_author",
+          "publishedAt": "2026-09-21T22:28:20+08:00"
+        }
+      ],
+      "summary": "豌豆荚旧部此后进入豆包、面壁智能、Manus及AI教育等领域。文章回顾这一人才网络：李大海于2023年出任面壁智能CEO，2024年全职投入AI创业；张涛于2024年成为Manus产品合伙人；文中还介绍了2023年上线的Answer.AI。文章将这些后续创业与豌豆荚时期的工程师文化、产品方法联系起来，并回溯公司被收购与团队分拆的历史。",
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "7eff162a2db56c1b12fda275755e70d27678749cc560d66a7367f6896b9cbfa1"
+    },
+    {
+      "id": "manus:b3ad95811c7463ea",
+      "title": "简单讲讲 Agent 的工作原理",
+      "url": "https://news.qq.com/rain/a/20260921A09Z8F00",
+      "source": "腾讯新闻转载：赛博禅心",
+      "mpName": "赛博禅心",
+      "sourceType": "media",
+      "sourceChannel": "tencent_syndication",
+      "sourcePlatform": "Tencent News",
+      "collector": "manus",
+      "publishedAt": "2026-09-21T18:23:00+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "赛博禅心",
+          "url": "https://news.qq.com/rain/a/20260921A09Z8F00",
+          "publishedAt": "2026-09-21T18:23:00+08:00"
+        },
+        {
+          "collector": "manus",
+          "source": "硅星人",
+          "url": "https://www.163.com/dy/article/L7DVT5LF0511N33R.html?spss=dy_author",
+          "publishedAt": "2026-09-22T09:26:08+08:00"
+        }
+      ],
+      "summary": "文章从原理角度解释Agent工具如何通过Harness对上下文进行编排来完成任务。模型每次请求时，系统会组织指令、对话、资料和工具结果构成上下文，模型据此判断是直接输出结果还是调用工具。Agent通过模型提出操作、工具执行、结果返回的循环持续工作。工具和Skill按需加载，Skill提供做事方法，工具提供具体操作能力，外部能力可通过MCP接入，插件用于分发。",
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "e2fa3bd4568cb763532a9e61c3b18ad36660426e5e6bc84efd5424b376533dd2"
+    },
+    {
+      "id": "manus:5d750df8d9094b20",
+      "title": "投资人建议具身创始人：别纠结估值，赶紧拿钱",
+      "url": "https://news.qq.com/rain/a/20260921A085Z200",
+      "source": "腾讯新闻转载：投资界",
+      "mpName": "投资界",
+      "sourceType": "media",
+      "sourceChannel": "tencent_syndication",
+      "sourcePlatform": "Tencent News",
+      "collector": "manus",
+      "publishedAt": "2026-09-21T16:06:00+08:00",
+      "publishedPrecision": "datetime",
+      "timeEvidence": null,
+      "evidenceKind": "article_body",
+      "sourceRefs": [
+        {
+          "collector": "manus",
+          "source": "投资界",
+          "url": "https://news.qq.com/rain/a/20260921A085Z200",
+          "publishedAt": "2026-09-21T16:06:00+08:00"
+        }
+      ],
+      "summary": "宇树科技上市一个月后股价较巅峰跌去一半，具身智能赛道融资氛围明显降温，部分投资机构已暂停推进新的具身项目。梅卡曼德登陆港交所后开盘破发。监管层面，国家发改委官员表示机器人产业须防止盲目跟风，有报道称监管机构已发出非正式窗口指导，将提高人形机器人企业IPO审批门槛，港交所也将在明年上半年就修订18C上市制度展开咨询。智元机器人、银河通用、星海图等多家具身企业仍在港交所排队。",
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
+      "contentSha256": "6da9744d6323e6b76fe1de88ced5b2fcd74b56ddb3a1fa8c91d80367688d65e6"
+    }
   ],
-  "candidateArticles": 450,
-  "publishedArticles": 400,
-  "excludedArticles": 45,
-  "quarantinedArticles": 5,
-  "quarantined": [
-   {
-    "id": "aihot:cmubxnet8040yro9ik5srf3zu",
-    "title": "IT早报 0922：闲鱼回应色情引流、vivo X500 发布、智谱 ZCode 开源、AMD 市值首破 1 万亿美元",
-    "url": "https://www.ithome.com/1/005/506.htm",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   },
-   {
-    "id": "aihot:cmubtyxtu02xvro99wxjare1j",
-    "title": "NVIDIA Dynamo-Triton 26.07 支持 TensorRT 多 GPU 推理，Cosmos 3 Nano 八卡生成延迟降至 34 秒",
-    "url": "https://developer.nvidia.com/blog/simplifying-model-serving-across-multiple-gpus-with-nvidia-tensorrt-multi-device-integration-in-nvidia-dynamo-triton",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   },
-   {
-    "id": "aihot:cmubrq8ua04vmrociqhel90o2",
-    "title": "小米发布 MiMo-V2.6 Pro 与 Flash 全模态模型，开源权重与训练代码",
-    "url": "https://x.com/dongxi_nlp/status/2102148798151532605",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   },
-   {
-    "id": "aihot:cmubhfj3b1075rolnc5d4qhs3",
-    "title": "阿里通义千问发布 Qwen-Image-2.1：7B 开源权重图像生成与编辑模型",
-    "url": "https://www.marktechpost.com/2026/09/21/alibaba-qwen-releases-qwen-image-2-1",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   },
-   {
-    "id": "aihot:cmubh8m0t101broln6u9iollg",
-    "title": "Perplexity Computer 接入 MiniMax H3 与 Seedance 2.5 生成视频",
-    "url": "https://x.com/perplexity_ai/status/2102071798179434966",
-    "stage": "enrichment",
-    "reason": "摘要或分类未通过校验"
-   }
-  ]
- }
+  "collectionStatus": {
+    "collectionWindow": {
+      "start": "2026-09-21T09:30:00+08:00",
+      "end": "2026-09-22T09:30:00+08:00",
+      "timezone": "Asia/Shanghai"
+    },
+    "degraded": true,
+    "sources": [
+      {
+        "name": "AIHOT",
+        "collector": "aihot",
+        "status": "complete",
+        "discoveredArticles": 459,
+        "usableArticles": 459
+      },
+      {
+        "name": "游戏葡萄",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "白鲸出海",
+        "collector": "manus",
+        "status": "partial",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 3,
+        "usableArticles": 3,
+        "deduplicatedCandidateArticles": 3,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "机器之心",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "ZFinance",
+        "collector": "manus",
+        "status": "complete",
+        "reasonCode": "complete",
+        "discoveredArticles": 1,
+        "usableArticles": 1,
+        "deduplicatedCandidateArticles": 1,
+        "publishedArticles": 1,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "极客公园",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "东西文娱",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "娱乐资本论",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "FounderPark",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "瑞恩资本",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "DeepTech深科技",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "ZPotential",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "华尔街见闻",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "量子位",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "智东西",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "十字路口Crossing",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "投资界",
+        "collector": "manus",
+        "status": "partial",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 1,
+        "usableArticles": 1,
+        "deduplicatedCandidateArticles": 1,
+        "publishedArticles": 1,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "赛博禅心",
+        "collector": "manus",
+        "status": "partial",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 1,
+        "usableArticles": 1,
+        "deduplicatedCandidateArticles": 1,
+        "publishedArticles": 1,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "elsewhere别处发生",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "新智元",
+        "collector": "manus",
+        "status": "failed",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 0,
+        "usableArticles": 0,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      },
+      {
+        "name": "硅星人",
+        "collector": "manus",
+        "status": "partial",
+        "reasonCode": "budget_stopped",
+        "discoveredArticles": 1,
+        "usableArticles": 1,
+        "deduplicatedCandidateArticles": 0,
+        "publishedArticles": 0,
+        "supplement": {
+          "kind": "saved_body_reprocessing",
+          "sourceRunId": "35678966956",
+          "originalContentStage": "failed",
+          "completeWindowVerified": false,
+          "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
+        }
+      }
+    ],
+    "candidateArticles": 456,
+    "publishedArticles": 403,
+    "excludedArticles": 48,
+    "quarantinedArticles": 5,
+    "quarantined": [
+      {
+        "id": "aihot:cmubxnet8040yro9ik5srf3zu",
+        "title": "IT早报 0922：闲鱼回应色情引流、vivo X500 发布、智谱 ZCode 开源、AMD 市值首破 1 万亿美元",
+        "url": "https://www.ithome.com/1/005/506.htm",
+        "stage": "enrichment",
+        "reason": "摘要或分类未通过校验"
+      },
+      {
+        "id": "aihot:cmubtyxtu02xvro99wxjare1j",
+        "title": "NVIDIA Dynamo-Triton 26.07 支持 TensorRT 多 GPU 推理，Cosmos 3 Nano 八卡生成延迟降至 34 秒",
+        "url": "https://developer.nvidia.com/blog/simplifying-model-serving-across-multiple-gpus-with-nvidia-tensorrt-multi-device-integration-in-nvidia-dynamo-triton",
+        "stage": "enrichment",
+        "reason": "摘要或分类未通过校验"
+      },
+      {
+        "id": "aihot:cmubrq8ua04vmrociqhel90o2",
+        "title": "小米发布 MiMo-V2.6 Pro 与 Flash 全模态模型，开源权重与训练代码",
+        "url": "https://x.com/dongxi_nlp/status/2102148798151532605",
+        "stage": "enrichment",
+        "reason": "摘要或分类未通过校验"
+      },
+      {
+        "id": "aihot:cmubhfj3b1075rolnc5d4qhs3",
+        "title": "阿里通义千问发布 Qwen-Image-2.1：7B 开源权重图像生成与编辑模型",
+        "url": "https://www.marktechpost.com/2026/09/21/alibaba-qwen-releases-qwen-image-2-1",
+        "stage": "enrichment",
+        "reason": "摘要或分类未通过校验"
+      },
+      {
+        "id": "aihot:cmubh8m0t101broln6u9iollg",
+        "title": "Perplexity Computer 接入 MiniMax H3 与 Seedance 2.5 生成视频",
+        "url": "https://x.com/perplexity_ai/status/2102071798179434966",
+        "stage": "enrichment",
+        "reason": "摘要或分类未通过校验"
+      }
+    ]
+  }
 }

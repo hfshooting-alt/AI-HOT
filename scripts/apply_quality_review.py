@@ -7,6 +7,7 @@ import copy
 import hashlib
 import json
 import re
+from datetime import datetime
 from pathlib import Path
 
 import tag_news
@@ -14,6 +15,7 @@ from company_index.products import refresh
 from company_index.entities import timestamp
 from company_index.identity import apply_reviewed_research
 from company_index.output import atomic_write, validate
+from company_index.config import SCALAR_FIELDS
 
 
 def fingerprint(item):
@@ -35,7 +37,75 @@ def _record_value_review(row, decision):
         reviews.append(copy.deepcopy(decision))
 
 
-def apply_article_value_reviews(articles, extracts, rules):
+def _article_extraction_review(article, decisions):
+    """Select one exact evidence binding; never infer a match from absent fields."""
+    if not isinstance(decisions, list):
+        raise ValueError('articleExtractionReviews 必须为数组')
+    if not all(isinstance(article.get(k), str) and article[k]
+               for k in ('id', 'title', 'url', 'content_text')):
+        return None
+    body_hash = hashlib.sha256(article['content_text'].encode('utf-8')).hexdigest()
+    matches = [d for d in decisions if isinstance(d, dict)
+        and (d.get('articleId'), d.get('title'), d.get('url'), d.get('contentSha256'))
+        == (article['id'], article['title'], article['url'], body_hash)]
+    if len(matches) > 1:
+        raise ValueError('同一文章证据存在多条完整抽取审校，禁止按顺序覆盖')
+    if not matches:
+        return None
+    decision = matches[0]
+    required = {'articleId', 'title', 'url', 'contentSha256', 'reviewedAt', 'reason', 'companies'}
+    if (set(decision) != required
+            or any(not isinstance(decision.get(k), str) or not decision[k].strip()
+                   for k in required - {'companies'})
+            or not re.fullmatch(r'[0-9a-f]{64}', decision['contentSha256'])
+            or not isinstance(decision['companies'], list)):
+        raise ValueError('完整抽取审校的证据或结构不合法')
+    try:
+        datetime.fromisoformat(decision['reviewedAt'].replace('Z', '+00:00'))
+    except ValueError:
+        raise ValueError('完整抽取审校的审核日期不合法') from None
+    return decision
+
+
+def _reviewed_companies(article, companies):
+    # Import only while replaying a matched review, after extraction modules
+    # have initialized. Read taxonomy directly: this validator needs no keys.
+    from company_index.extraction import normalize_company
+    from company_index.products import normalize as normalize_products
+    from funding.companies import normalize_company_key
+    tx = json.loads((Path(__file__).resolve().parents[1] / 'config/taxonomy.json').read_text(encoding='utf-8'))
+    expected = {'company_name', 'entity_type', 'aliases', 'product_names', 'products', 'industry_id', *SCALAR_FIELDS}
+    seen = set()
+    for company in companies:
+        if (not isinstance(company, dict) or set(company) != expected
+                or not isinstance(company.get('company_name'), str) or not company['company_name'].strip()
+                or company.get('entity_type') not in ('company', 'product')
+                or not isinstance(company.get('industry_id'), str)
+                or any(company.get(k) is not None and not isinstance(company[k], str) for k in SCALAR_FIELDS)
+                or any(not isinstance(company.get(k), list)
+                       or any(not isinstance(v, str) or not v.strip() for v in company[k])
+                       for k in ('aliases', 'product_names'))
+                or not isinstance(company.get('products'), list)):
+            raise ValueError('完整抽取审校的公司结构不合法')
+        for product in company['products']:
+            if (not isinstance(product, dict) or set(product) != {'name', 'relationship', 'quote'}
+                    or not isinstance(product.get('name'), str) or not product['name'].strip()
+                    or product.get('relationship') not in ('owned', 'integrated', 'used', 'unknown')
+                    or not isinstance(product.get('quote'), str)):
+                raise ValueError('完整抽取审校的产品关系结构不合法')
+        # Normalization must be lossless: never turn a malformed reviewed row
+        # into a broader fallback, or silently discard a bad product/quote.
+        if (normalize_company(company, tx) != company
+                or normalize_products(company['products'], article) != company['products']):
+            raise ValueError('完整抽取审校必须已规范化，产品引文必须匹配原文')
+        key = normalize_company_key(company['company_name'])
+        if not key or key in seen:
+            raise ValueError('完整抽取审校包含重复或无效主体')
+        seen.add(key)
+    return copy.deepcopy(companies)
+
+
+def apply_article_value_reviews(articles, extracts, rules, *, extraction_reviews=True):
     """Correct only a reviewed article's extraction before normal temporal merging.
 
     Return a deep copy so successful model caches retain their original values
@@ -47,6 +117,12 @@ def apply_article_value_reviews(articles, extracts, rules):
         extracted = corrected.get(article['id']) or {}
         if extracted.get('status') != 'complete':
             continue
+        if extraction_reviews:
+            decision = _article_extraction_review(article, rules.get('articleExtractionReviews', []))
+            if decision is not None:
+                extracted['companies'] = _reviewed_companies(article, decision['companies'])
+                extracted['articleExtractionReview'] = {
+                    k: copy.deepcopy(v) for k, v in decision.items() if k != 'companies'}
         content = re.sub(r'\s+', '', article.get('content_text') or '')
         for decision in decisions:
             if (article['id'] != decision['articleId']

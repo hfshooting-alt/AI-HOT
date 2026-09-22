@@ -10,7 +10,7 @@ import urllib.error
 _CATEGORIES = frozenset({
     "authentication", "permission", "payment", "rate_limit", "endpoint",
     "request", "server", "http", "timeout", "network", "configuration",
-    "invalid_response", "unknown", "content",
+    "invalid_response", "unknown", "content", "output_limit",
 })
 _IMMEDIATE = frozenset({
     "authentication", "permission", "payment", "rate_limit", "endpoint", "configuration",
@@ -52,7 +52,8 @@ class FailureCircuit:
     """Stop queued work on a systemic failure or consecutive model failures.
 
     observe expects {status: complete|failed, error: safe_error(exc)}.
-    Content/evidence failures are local to an article and do not count.
+    Content/evidence and explicit output-limit failures are local to an article
+    and do not count. They do not authorize retries or larger output budgets.
     """
 
     def __init__(self, failure_limit: int = 3):
@@ -71,7 +72,7 @@ class FailureCircuit:
             return
         error = result.get("error") or {}
         diagnostic = safe_error(LLMRequestError(error.get("category", "unknown"), error.get("httpStatus")))
-        if diagnostic["category"] == "content":
+        if diagnostic["category"] in ("content", "output_limit"):
             return
         self.failure_count += 1
         if diagnostic["systemic"] or self.failure_count >= self.failure_limit:

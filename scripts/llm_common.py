@@ -126,7 +126,14 @@ def call_llm(tx: dict, system: str, user: str, timeout_seconds: int | None = Non
             raise LLMRequestError("invalid_response")
         record_usage(model, d.get("usage"), operation)
         try:
-            content = d["choices"][0]["message"]["content"]
+            choice = d["choices"][0]
+            if not isinstance(choice, dict):
+                raise LLMRequestError("invalid_response")
+            # A completed HTTP response can still contain truncated JSON. Keep
+            # its billed usage, but never pass the partial body to JSON parsing.
+            if choice.get("finish_reason") == "length":
+                raise LLMRequestError("output_limit")
+            content = choice["message"]["content"]
         except (KeyError, IndexError, TypeError):
             raise LLMRequestError("invalid_response") from None
         if not isinstance(content, str) or not content.strip():
