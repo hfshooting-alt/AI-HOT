@@ -157,9 +157,13 @@ class ManusClient:
         page_limit: int = 200,
         create_interval_seconds: float = 0.0,
         inline_prompt: bool = False,
+        diagnostics_dir=None,
+        late_result_grace_seconds: float = 0,
     ) -> None:
         self.api_key = api_key
         self.inline_prompt = inline_prompt
+        self.diagnostics_dir = diagnostics_dir
+        self.late_result_grace_seconds = min(15, max(0, late_result_grace_seconds))
         self.agent_profile = agent_profile
         self.poll_seconds = poll_seconds
         self.timeout_seconds = timeout_seconds
@@ -386,6 +390,9 @@ class ManusClient:
             payload['message']['content'] = [{'type': 'text', 'text':
                 f'source_group: {source_group}\ntarget_date: {target_date}\n'
                 f'{task_brief}\n\n{prompt_text}'}]
+        if self.diagnostics_dir:
+            from manus_source.diagnostics import record_task_request
+            record_task_request(self.diagnostics_dir, payload)
         last_error: ManusAPIError | None = None
         callback = getattr(self._receipt_context, 'callback', None)
         receipt = {'taskId': None, 'creationState': 'not_created', 'createAttempts': 0,
@@ -402,6 +409,8 @@ class ManusClient:
             try:
                 response = self._request("POST", "task.create", payload, before_create=before_create)
                 task_id = response['task_id']
+                if self.diagnostics_dir:
+                    record_task_request(self.diagnostics_dir, payload, task_id=task_id)
                 receipt.update(taskId=task_id, creationState='created',
                                createdResponseObservedAt=observed_at())
                 with self._receipt_lock:

@@ -1,5 +1,7 @@
 # docs/maintenance/AGENTS.MD — AI HOT 项目 Agent 开发守则
 
+2026-09-22 Manus来源修复：完整窗口采用逐来源内联指令与平台短路线，公开列表seed仅作线索、不可直接入库。实际请求与终态verbose轨迹只存私有work，加密恢复；诊断不影响付费任务生命周期。确认stopped后最多15秒迟到回收，仍完整校验。20源验收须分入口、窗口样本、完整覆盖；费用不自动扩大，定时保持关闭。见[来源验收](../operations/MANUS_SOURCE_VERIFICATION.md)。
+
 2026-09-22 新闻阅读分为“全部文章”与“Garena投资精选”。全部文章保留通过既有来源/时间校验的所有去重采集元数据；相关性排除和单条加工失败只影响精选。公司/产品/融资新增严格只读 `snapshot.garenaSelected`，空池不能回退全量、旧 feed 或历史。旧库保留、继续原预算联网补全。`newsSelectionVersion=1` 配合 `all` / `garenaSelected` 两池；独立 garenaSelection 不等于 AIHOT 的 selected。详细契约见统一新闻链路文档。
 
 2026-09-18用户更正：机器之心网站文章作者缺失可为null，不得作为拒收理由。校验配置入口、同站文章URL与发布时间；明确识别的ScienceAI/新闻资讯等第三方发布者仍沿用原有区分。正文提取对该站增加匿名浏览器回退，不能关闭安全检查、绕过真实登录墙或验证码。

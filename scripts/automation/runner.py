@@ -231,6 +231,8 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
         commands["funding"].extend(("--work-dir", str(root / "work/manus/ten-am")))
     if source_mode == "full" and manus_credit_limit:
         commands["discovery"].extend(("--credit-limit-per-source", str(manus_credit_limit)))
+        if ten_am:
+            commands['discovery'].extend(('--incremental-discovery', '--source-seeds'))
     if source_mode == "aihot-only" and not combined:
         commands["snapshot"].extend(("--no-tags", "--exclude-wechat"))
     else:

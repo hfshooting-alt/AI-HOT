@@ -1,0 +1,12 @@
+{
+  "code": 0,
+  "success": true,
+  "msg": "获取成功",
+  "data": {
+    "article_list": [
+      {"id": 56777, "title": "从Heart Machine到Polyarc：2026年海外游戏业裁员与关停仍在继续", "add_time": "1 天前", "sort": 0},
+      {"id": 56765, "title": "韩国畅销榜头部大换血，MMO开始换一种活法？", "add_time": "1 天前", "sort": 0}
+    ],
+    "type": 0
+  }
+}
