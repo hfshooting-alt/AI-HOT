@@ -1,9 +1,7 @@
 name: AI HOT 每日采集与完整数据更新
 
 on:
-  schedule:
-    - cron: "30 9 * * *"
-      timezone: "Asia/Shanghai" # 目标北京时间09:30；GitHub仍可能延迟触发
+  # 2026-09-22: user paused automatic collection; keep manual full workflow available.
   workflow_dispatch:
     inputs:
       date:
@@ -46,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 240
     env:
-      TZ: Asia/Shanghai # 运行环境与上方调度时区一致
+      TZ: Asia/Shanghai # 手动运行和采集窗口均使用北京时间
       PYTHONIOENCODING: utf-8
     steps:
       - uses: actions/checkout@v4

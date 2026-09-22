@@ -118,9 +118,9 @@ python scripts/run_pipeline.py run --date 2026-09-07 --resume
 
 ## 5. GitHub Actions
 
-`.github/workflows/fetch-manus.yml` 目标每天北京时间 09:30 开始全流程（cron 30 9 * * *，timezone: Asia/Shanghai，等价于原 UTC 01:30），测试通过后调用统一入口，成功后将整套正式数据提交到仓库；并非09:30整完成更新。GitHub schedule 可能延迟，不能保证准点。手动输入为 `date`（窗口结束日）、`stage`、`promote`、`dry_run`、`skip_search`；可选阶段为 all/snapshot/overview/funding。独立 content/feed 所需原始正文未存入 Git，所以这两个阶段仅在保留原始文件的本地运行。
+2026-09-22 起按用户要求删除 `.github/workflows/fetch-manus.yml` 的 `schedule` 触发器，暂停定时采集及本地定时验收跟进。保留 `workflow_dispatch`：测试通过后调用统一入口，成功后将整套正式数据提交到仓库并部署 Pages。手动输入为 `date`（北京时间09:30窗口结束日）、`stage`、`source_mode`、`promote`、`dry_run`、`skip_search`；完整运行使用 `stage=all`、`source_mode=full`、`promote=true`、`dry_run=false`，费用边界保持。独立 content/feed 所需原始正文未存入 Git，所以这两个阶段仅在保留原始文件的本地运行。
 
-默认 `full` 模式需要 GitHub Secrets `MANUS_API_KEY`、`DEEPSEEK_API_KEY`；可选 `TAVILY_API_KEY`，模型接口和模型名可用 Variables `LLM_API_BASE`、`LLM_MODEL`。手动任务可选 `source_mode=aihot-only`，仅关闭 Manus，仍读取模型及可选搜索密钥，运行完整下游。定时任务仍默认执行 `full`。如果修改 taxonomy 中 `api_key_env`，同步工作流的密钥注入。
+默认 `full` 模式需要 GitHub Secrets `MANUS_API_KEY` 及 `PARATERA_API_KEY` 或 `DEEPSEEK_API_KEY`；可选 `TAVILY_API_KEY`，模型接口和模型名可用 Variables `LLM_API_BASE`、`LLM_MODEL`，实际优先级以工作流为准。手动任务可选 `source_mode=aihot-only`，仅关闭 Manus，仍读取模型及可选搜索密钥，运行完整下游。如果修改 taxonomy 中 `api_key_env`，同步工作流的密钥注入。
 
 工作流上传不含正文与密钥的 `state.json` 和费用/停止诊断，保留 7 天；另把采集证据、正文、模型缓存和候选产物加密保存为独立恢复包，密钥不进入产物。可在新的 runner 中解密并按原缓存重建，缺缓存时停止，不能用恢复操作自动发起模型请求或修改旧运行结果。具体步骤与边界见[加密恢复说明](PIPELINE_RECOVERY.md)。失败先查看 Actions 日志、状态与加密包，再判断能否无新增付费恢复。
 

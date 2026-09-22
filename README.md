@@ -32,7 +32,7 @@ npm --prefix web run dev
 
 自动更新统一入口：`python scripts/run_pipeline.py doctor` 检查环境；`python scripts/run_pipeline.py run --dry-run` 查看执行计划。默认 `full` 模式并行采集 AIHOT 与 Manus，合并去重后统一进行模型筛选、摘要分类、公司库和融资更新。`--source-mode aihot-only` 只关闭 Manus，仍需模型密钥并执行后续加工；它保留 AIHOT 提供的各类来源。部分采集失败允许发布成功来源，页面明确列出缺失来源；模型加工失败则保留上一版。统一入口支持 `--resume`、`--stage` 和 `--no-promote`，详见[自动流水线操作说明](docs/operations/AUTOMATED_PIPELINE.md)和[统一新闻链路](docs/architecture/UNIFIED_NEWS_PIPELINE.md)。
 
-每日任务按北京时间 **09:30 开始**，固定采集前一天 09:30（含）至当天 09:30（不含）的新闻；全部加工成功后更新仓库中的网页产物，并触发 GitHub Pages 重新部署。GitHub 定时调度可能延迟。`--date` 在默认固定窗口模式下表示窗口结束日，旧自然日流程使用 `--window-mode calendar-day`。
+2026-09-22 起已按用户要求暂停定时采集，保留 GitHub Actions 手动运行完整流程。采集窗口仍固定为北京时间前一天 09:30（含）至所选结束日 09:30（不含）；全部加工成功后更新仓库中的网页产物，并触发 GitHub Pages 重新部署。`--date` 在默认固定窗口模式下表示窗口结束日，旧自然日流程使用 `--window-mode calendar-day`。
 
 公司收录、新闻筛选、资料证据及双日期定义以[投资人验收口径](docs/operations/INVESTOR_ACCEPTANCE.md)为准。新业务口径先在隔离候选批次中验收，再发布。
 

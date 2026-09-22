@@ -50,7 +50,7 @@ AI 情报日报/周报看板：
 - **前端双形态**：
   - 静态历史产物位于 `web/public/history/`、`web/public/weekly/`；根静态页工作流已停用，`update-snapshot.yml` 已删除；
   - Next.js 16 + React 19 + Tailwind 4 组件化前端（`web/app/` 目录）为当前主形态，`web/app/page.tsx` 直渲染 `AppShell`，侧栏底部含「设置」API Key 配置入口。
-- **自动数据更新**：`.github/workflows/fetch-manus.yml` 每日北京时间 09:30 开始调用 `scripts/run_pipeline.py`，固定采集前一日09:30至当天09:30，完成 feed、快照/归档/历史/周报及融资表后统一更新仓库产物。窗口起点包含、终点排除，排队延迟不移动时刻；不保证09:30整完成。操作见 `docs/operations/AUTOMATED_PIPELINE.md`。数据提交成功后显式触发 GitHub Pages 构建及部署。
+- **数据更新**：2026-09-22 用户要求暂停定时，已取消 `.github/workflows/fetch-manus.yml` 的 schedule 触发器和本地定时跟进，保留手动完整运行。`scripts/run_pipeline.py` 固定采集前一日09:30至所选结束日09:30，完成 feed、快照/归档/历史/周报及融资表后统一更新仓库产物。窗口起点包含、终点排除，运行时间不移动窗口；数据提交成功后显式触发 GitHub Pages 部署。原预算和串行防重保护保持，未经用户指示不恢复定时。
 
 ## 3. 关键文件与所有权
 
