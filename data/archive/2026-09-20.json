@@ -1,7 +1,7 @@
 {
  "date": "2026-09-20",
- "finalized": false,
- "finalizedAt": null,
+ "finalized": true,
+ "finalizedAt": "2026-09-22T11:00:12.660711+08:00",
  "items": [
   {
    "id": "aihot:cmu94rbsj04xbroxs0qfsir0e",
@@ -10558,7 +10558,52 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "1e2b2de414d5d19086f7ad8edcd8ff27c0a071649dbcb4bf69080a1a6ff6d635"
+  },
+  {
+   "id": "aihot:cmuawmw4709oprolndv19uodq",
+   "title": "AI 会拖慢科学进步吗？",
+   "originalTitle": null,
+   "summary": "AI 会拖慢科学进步吗？",
+   "source": "elsewhere：文章（RSS）",
+   "links": {
+    "aihot": "https://aihot.news/items/cmuawmw4709oprolndv19uodq",
+    "original": "https://elsewhere.news/zh/crossing/will-ai-slow-down-scientific-progress"
+   },
+   "publishedAt": "2026-09-20T07:29:00.000Z",
+   "discoveredAt": "2026-09-21T07:09:16.066Z",
+   "category": null,
+   "score": 16,
+   "selected": false,
+   "reason": null,
+   "attribution": {
+    "name": "AIHOT",
+    "url": "https://aihot.news/items/cmuawmw4709oprolndv19uodq"
+   },
+   "url": "https://elsewhere.news/zh/crossing/will-ai-slow-down-scientific-progress",
+   "permalink": "https://aihot.news/items/cmuawmw4709oprolndv19uodq",
+   "originalUrl": "https://elsewhere.news/zh/crossing/will-ai-slow-down-scientific-progress",
+   "aihotUrl": "https://aihot.news/items/cmuawmw4709oprolndv19uodq",
+   "timeBasis": "published",
+   "collector": "aihot",
+   "mpName": "elsewhere：文章（RSS）",
+   "evidenceKind": "upstream_title_summary",
+   "sourceRefs": [
+    {
+     "collector": "aihot",
+     "source": "elsewhere：文章（RSS）",
+     "url": "https://elsewhere.news/zh/crossing/will-ai-slow-down-scientific-progress",
+     "publishedAt": "2026-09-20T07:29:00.000Z"
+    }
+   ],
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "84a8c3828ae766ac2994b4969f9f717cac813d07ea0a6675a9b88cd6b27d4665"
   }
  ],
- "updatedAt": "2026-09-21T15:15:42.759295+08:00"
+ "updatedAt": "2026-09-22T11:00:12.660711+08:00"
 }

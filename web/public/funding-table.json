@@ -1,23 +1,52 @@
 {
  "schemaVersion": 1,
- "generatedAt": "2026-09-21T15:30:53+08:00",
+ "generatedAt": "2026-09-22T11:25:20+08:00",
  "coverageNote": "覆盖快照日报+周报池与最新 Manus feed 中的融资类新闻（约最近一周）",
  "searchNote": "未配置 TAVILY_API_KEY，缺失字段未补全",
  "stats": {
-  "articlesProcessed": 2,
-  "modelCalls": 2,
-  "modelSuccesses": 2,
+  "articlesProcessed": 5,
+  "modelCalls": 5,
+  "modelSuccesses": 5,
   "modelFailures": 0,
   "cacheHits": 0,
   "extractionFailed": 0,
   "articlesWithoutFundingInfo": 0,
-  "companiesTotal": 3,
+  "companiesTotal": 6,
   "companiesSearched": 0
  },
  "companies": [
   {
-   "id": "fund:556dcd26a54fb752",
-   "company_name": "Anthropic",
+   "id": "fund:f196eaac3b40449b",
+   "company_name": "Tabby",
+   "product_name": "Tabby",
+   "founded": null,
+   "country": null,
+   "industry": "AI 记账/财务工具",
+   "team": "前会计师 Ahad Ali 创立，团队规模 7 人",
+   "business": "通过 Plaid 导入账户数据，利用 AI 生成实时财务仪表盘，并准备推出自然语言界面 Tabby Talk",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "aihot:cmubhfnfj107groln2m3ve9lz",
+     "title": "前会计师用 AI 打造 Tabby，要让会计师\"消失\"",
+     "url": "https://techcrunch.com/2026/09/21/with-tabby-a-former-accountant-is-using-ai-to-make-accountants-obsolete",
+     "publishedAt": "2026-09-21T16:38:51.000Z",
+     "mpName": "TechCrunch：AI（RSS）"
+    }
+   ]
+  },
+  {
+   "id": "fund:5e6b3e7c4ac796fe",
+   "company_name": "SoftBank",
    "product_name": null,
    "founded": null,
    "country": null,
@@ -26,20 +55,20 @@
    "business": null,
    "investors": null,
    "total_funding": null,
-   "valuation": "约2万亿美元（投资者预期）",
+   "valuation": null,
    "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
+    "所属行业": "其他",
+    "公司类型": "大厂/已上市",
+    "国家/地区": "其他"
    },
    "filledBySearch": [],
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "aihot:cmu9kuya2054drognw90f2hhf",
-     "title": "据报道 Anthropic 将 IPO 从 10 月推迟至 11 月，估值预期约 2 万亿美元",
-     "url": "https://the-decoder.com/following-openai-anthropic-is-also-reportedly-postponing-its-ipo",
-     "publishedAt": "2026-09-20T08:35:25.000Z",
+     "id": "aihot:cmubd6etf0vjmrolnrljvp9bl",
+     "title": "SoftBank 拟发行逾 110 亿美元垃圾债券为 OpenAI 股权付款融资",
+     "url": "https://the-decoder.com/softbank-to-borrow-over-11-billion-in-risky-bonds-for-openai-stake",
+     "publishedAt": "2026-09-21T14:35:11.000Z",
      "mpName": "The Decoder：AI News（RSS）"
     }
    ]
@@ -53,51 +82,116 @@
    "industry": null,
    "team": null,
    "business": null,
-   "investors": null,
+   "investors": "SoftBank",
    "total_funding": null,
    "valuation": null,
    "dims": {
     "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
+    "公司类型": "其他",
+    "国家/地区": "日韩"
    },
    "filledBySearch": [],
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "aihot:cmu9kuya2054drognw90f2hhf",
-     "title": "据报道 Anthropic 将 IPO 从 10 月推迟至 11 月，估值预期约 2 万亿美元",
-     "url": "https://the-decoder.com/following-openai-anthropic-is-also-reportedly-postponing-its-ipo",
-     "publishedAt": "2026-09-20T08:35:25.000Z",
+     "id": "aihot:cmubd6etf0vjmrolnrljvp9bl",
+     "title": "SoftBank 拟发行逾 110 亿美元垃圾债券为 OpenAI 股权付款融资",
+     "url": "https://the-decoder.com/softbank-to-borrow-over-11-billion-in-risky-bonds-for-openai-stake",
+     "publishedAt": "2026-09-21T14:35:11.000Z",
      "mpName": "The Decoder：AI News（RSS）"
+    },
+    {
+     "id": "aihot:cmuazcpyr0ctirolnhwtwd1s8",
+     "title": "消息称软银拟发行超 110 亿美元垃圾债，加码对 OpenAI 投资",
+     "url": "https://www.ithome.com/1/005/255.htm",
+     "publishedAt": "2026-09-21T07:35:07.000Z",
+     "mpName": "IT之家（RSS）"
     }
    ]
   },
   {
-   "id": "fund:5c1bd36f60878f6e",
-   "company_name": "硅基流动",
+   "id": "fund:1cc31ddab4cfb12a",
+   "company_name": "Nscale",
+   "product_name": null,
+   "founded": null,
+   "country": "英国",
+   "industry": "AI模型/基础设施",
+   "team": null,
+   "business": "AI数据中心",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "其他",
+    "国家/地区": "欧洲"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "aihot:cmuba2ln00s8frolncv1r5zpl",
+     "title": "Nscale 冲刺 IPO，1030 亿美元订单 85% 依赖微软和 Anthropic",
+     "url": "https://www.ithome.com/1/005/437.htm",
+     "publishedAt": "2026-09-21T13:02:04.000Z",
+     "mpName": "IT之家（RSS）"
+    }
+   ]
+  },
+  {
+   "id": "fund:2a729fb48928e052",
+   "company_name": "宇树科技",
    "product_name": null,
    "founded": null,
    "country": null,
    "industry": null,
    "team": null,
    "business": null,
-   "investors": "中国互联网投资基金、国新基金、中国移动链长基金、耀途资本、盛奕资本、国泰创投集团",
-   "total_funding": "2026年度累计股权融资额近29亿元",
+   "investors": "顺为",
+   "total_funding": null,
    "valuation": null,
    "dims": {
-    "所属行业": "其他",
-    "公司类型": "其他",
+    "所属行业": "具身智能/机器人",
+    "公司类型": "初创公司",
     "国家/地区": "中国"
    },
    "filledBySearch": [],
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "aihot:cmu9dh37f08gtro8iyj3e3v8x",
-     "title": "硅基流动完成 B+ 轮二期与 C 轮融资，2026 年度累计股权融资额近 29 亿元",
-     "url": "https://www.ithome.com/1/004/727.htm",
-     "publishedAt": "2026-09-20T04:30:33.000Z",
+     "id": "aihot:cmuba2ln00s8krolncwan08hk",
+     "title": "雷军澄清\"打新宇树科技赚100多亿\"：是顺为投资的，且为早期天使投资",
+     "url": "https://www.ithome.com/1/005/430.htm",
+     "publishedAt": "2026-09-21T12:28:36.000Z",
+     "mpName": "IT之家（RSS）"
+    }
+   ]
+  },
+  {
+   "id": "fund:4719f65efcde0242",
+   "company_name": "软银",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": null,
+   "team": null,
+   "business": null,
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "其他",
+    "公司类型": "大厂/已上市",
+    "国家/地区": "日韩"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "aihot:cmuazcpyr0ctirolnhwtwd1s8",
+     "title": "消息称软银拟发行超 110 亿美元垃圾债，加码对 OpenAI 投资",
+     "url": "https://www.ithome.com/1/005/255.htm",
+     "publishedAt": "2026-09-21T07:35:07.000Z",
      "mpName": "IT之家（RSS）"
     }
    ]
