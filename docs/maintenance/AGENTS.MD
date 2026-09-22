@@ -1,5 +1,7 @@
 # docs/maintenance/AGENTS.MD — AI HOT 项目 Agent 开发守则
 
+2026-09-22 新闻阅读分为“全部文章”与“Garena投资精选”。全部文章保留通过既有来源/时间校验的所有去重采集元数据；相关性排除和单条加工失败只影响精选。公司/产品/融资新增严格只读 `snapshot.garenaSelected`，空池不能回退全量、旧 feed 或历史。旧库保留、继续原预算联网补全。`newsSelectionVersion=1` 配合 `all` / `garenaSelected` 两池；独立 garenaSelection 不等于 AIHOT 的 selected。详细契约见统一新闻链路文档。
+
 2026-09-18用户更正：机器之心网站文章作者缺失可为null，不得作为拒收理由。校验配置入口、同站文章URL与发布时间；明确识别的ScienceAI/新闻资讯等第三方发布者仍沿用原有区分。正文提取对该站增加匿名浏览器回退，不能关闭安全检查、绕过真实登录墙或验证码。
 
 2026-09-15：用户授权完成当前全库联网资料复核，本轮73次DeepSeek请求共享台账，失败不自动重试、无Manus调用。该一次性授权不改变每日采集费用边界。`research.propose(full_review=True)`仅供显式全库复核，默认仍最多5次。注册日期证据用dateBasis=registration及legalEntity区分控股法人；countryBasis注明总部/登记/公司地址来源。已审阅fact.replace=true可更新旧值并保留旧证据，未经审阅不直接替换。内部部门source_kind=division合并新闻但不变成产品。

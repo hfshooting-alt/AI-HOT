@@ -8,12 +8,22 @@ from pathlib import Path
 
 import tag_news
 from llm_common import call_llm, parse_output
-from company_index.inputs import load_articles, load_previous
+from company_index.inputs import load_articles, load_previous, selected_snapshot_items
 from company_index.extraction import extract_one, cache_key
 from company_index.entities import merge_entities
 from company_index.identity import apply_reviewed_research
 from company_index.output import atomic_write, assemble, validate
 from company_index.config import now_bj_iso
+
+
+def review_pool_items(snapshot):
+    """Return only selected records and their full-library copies on new snapshots."""
+    selected = selected_snapshot_items(snapshot)
+    library = (snapshot.get('all') or {}).get('items', [])
+    if selected is None:
+        return library
+    ids = {item['id'] for item in selected}
+    return [*selected, *(item for item in library if item['id'] in ids)]
 
 
 def main():
@@ -83,7 +93,7 @@ def main():
     snapshot = json.loads(Path(args.snapshot).read_text(encoding='utf-8'))
     by_url = {a['url']:results[a['id']] for a in articles}
     changes=[]
-    for item in (snapshot.get('all') or {}).get('items',[]):
+    for item in review_pool_items(snapshot):
         r = results.get(item['id']) or results.get('aihot:'+str(item['id'])) or by_url.get(item.get('url')) or {}
         tag = r.get('classification')
         if tag and not tag.get('autoFallback'):

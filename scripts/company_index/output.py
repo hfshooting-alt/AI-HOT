@@ -8,7 +8,7 @@ from .config import ALL_EVIDENCE_FIELDS, SCALAR_FIELDS, SCHEMA_VERSION
 
 def assemble(companies: list[dict], stats: dict, generated_at: str) -> dict:
     return {"schemaVersion": SCHEMA_VERSION, "generatedAt": generated_at,
-            "coverageNote": "覆盖快照日报、周报与最新 Manus feed 的全部新闻类别；历史公司持续保留",
+            "coverageNote": "从 Garena 投资精选的全部新闻类别抽取公司与产品；历史公司保留并继续资料补全",
             "stats": stats, "companies": companies}
 
 

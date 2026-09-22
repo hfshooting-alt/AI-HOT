@@ -69,6 +69,74 @@ def validate_model_stage(stats: dict, name: str) -> None:
             raise ValueError(f'{name}模型新请求全部失败，旧缓存不能代替本轮成功')
 
 
+def validate_news_pools(snapshot: dict, processed: dict, tx: dict | None = None) -> tuple[list, list]:
+    """Validate publication membership separately from company/funding selection."""
+    import tag_news
+
+    def has_body(value):
+        if isinstance(value, dict):
+            return any(key in ('content_text', 'contentText', 'content', 'body', 'article_body', 'rawHtml', 'html')
+                       or has_body(child) for key, child in value.items())
+        return isinstance(value, list) and any(has_body(child) for child in value)
+
+    def indexed(rows, name):
+        if not isinstance(rows, list) or any(not isinstance(a, dict) or not a.get('id') for a in rows):
+            raise ValueError(f'{name}文章集合不合法')
+        by_id = {a['id']: a for a in rows}
+        if len(by_id) != len(rows):
+            raise ValueError(f'{name}文章 ID 重复')
+        return by_id
+
+    def compare(raw_rows, visible_rows, name, *, modern=False):
+        raw, visible = indexed(raw_rows, name), indexed(visible_rows, name)
+        if raw.keys() != visible.keys():
+            raise ValueError(f'{name}候选新闻与网页文章集合不一致')
+        for article_id, article in visible.items():
+            source = raw[article_id]
+            if any(article.get(k) != source.get(k) for k in ('title', 'summary', 'url', 'publishedAt')):
+                raise ValueError(f'{name}候选新闻与网页内容不一致')
+            if modern:
+                if has_body(article):
+                    raise ValueError('公开文章池禁止包含正文')
+                classification = source.get('classification')
+                expected = tag_news.to_display(tx, classification) if classification else None
+                if article.get('classification') != expected:
+                    raise ValueError(f'{name}候选新闻与网页分类不一致')
+                for key in ('garenaSelection', 'summaryOrigin'):
+                    if key in source and article.get(key) != source[key]:
+                        raise ValueError(f'{name}候选新闻与网页{key}不一致')
+        return visible
+
+    selected = processed.get('items')
+    if 'newsSelectionVersion' not in snapshot:
+        if 'allArticles' in processed or 'garenaSelected' in snapshot:
+            raise ValueError('新版文章池缺少 newsSelectionVersion')
+        visible = (snapshot.get('all') or {}).get('items', [])
+        compare(selected, visible, '')
+        return visible, visible
+    if type(snapshot['newsSelectionVersion']) is not int or snapshot['newsSelectionVersion'] != 1:
+        raise ValueError('不支持的 newsSelectionVersion')
+    pools = [snapshot.get(name) for name in ('garenaSelected', 'all')]
+    if any(not isinstance(pool, dict) or not isinstance(pool.get('items'), list) for pool in pools):
+        raise ValueError('新版快照必须包含 Garena 精选与全部文章池')
+    chosen = compare(selected, pools[0]['items'], '精选', modern=True)
+    library = compare(processed.get('allArticles'), pools[1]['items'], '全部', modern=True)
+    if not chosen.keys() <= library.keys():
+        raise ValueError('全部文章必须包含所有精选文章')
+    for article_id, article in chosen.items():
+        if ({k: v for k, v in article.items() if k != 'num'}
+                != {k: v for k, v in library[article_id].items() if k != 'num'}):
+            raise ValueError('两池共用文章的公开内容不一致')
+    marked = {key for key, article in library.items()
+              if isinstance(article.get('garenaSelection'), dict)
+              and article['garenaSelection'].get('status') == 'selected'}
+    if marked != chosen.keys():
+        raise ValueError('全部文章的入选状态与精选池不一致')
+    if (processed.get('collectionStatus') or {}).get('articleLibraryCount') != len(library):
+        raise ValueError('全部文章计数不一致')
+    return pools[0]['items'], pools[1]['items']
+
+
 def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
     import tag_news
     from build_manus_feed import validate_publishable
@@ -94,12 +162,13 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
             if not any(s.get('status') in ('complete', 'partial') for s in status.get('sources', [])):
                 raise ValueError('没有成功来源，禁止发布')
             processed = json.loads((workspace / 'inputs/processed.json').read_text(encoding='utf-8'))
-            approved = processed['items']
-            visible = (snapshot.get('all') or {}).get('items', [])
+            tx = tag_news.load_taxonomy(str(tx_path)) if 'newsSelectionVersion' in snapshot else None
+            try:
+                visible, _ = validate_news_pools(snapshot, processed, tx)
+            except ValueError as exc:
+                raise ValueError(f'已审核新闻与网页批次不一致，禁止发布：{exc}') from exc
             if (snapshot.get('collectionWindow') != processed.get('collectionWindow')
                     or status != processed.get('collectionStatus')
-                    or len(visible) != len(approved)
-                    or {i['id'] for i in visible} != {i['id'] for i in approved}
                     or status.get('publishedArticles') != len(visible)):
                 raise ValueError('已审核新闻与网页批次不一致，禁止发布')
     if "funding" in stages:

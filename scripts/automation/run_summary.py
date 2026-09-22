@@ -43,7 +43,11 @@ def render(root):
                     prefix = str(item.get('id', '')).split(':', 1)[0]
                     if prefix in ('aihot', 'manus'):
                         counts['AIHOT' if prefix == 'aihot' else 'Manus'] += 1
-                lines.append(f'本批新闻：AIHOT {counts["AIHOT"]} 条；Manus {counts["Manus"]} 条。')
+                label = '全部文章' if snapshot.get('newsSelectionVersion') == 1 else '本批新闻'
+                lines.append(f'{label}：AIHOT {counts["AIHOT"]} 条；Manus {counts["Manus"]} 条。')
+                if snapshot.get('newsSelectionVersion') == 1:
+                    selected = (snapshot.get('garenaSelected') or {}).get('items', [])
+                    lines.append(f'Garena投资精选：{len(selected)} 条；公司与产品仅从精选抽取。')
                 if status.get('degraded') is True:
                     lines.append('来源覆盖不完整；不得将本批标为全信源通过。')
         lines.extend(['Git 推送及 Pages 部署请核对发布回执与独立部署作业。', ''])

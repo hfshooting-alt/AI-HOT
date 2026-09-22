@@ -6,7 +6,9 @@ Manus只依据文章原始发布／发送时间收录，新增点赞、评论、
 
 最近进展：[公司国家补全与 Manus 来源排障](docs/history/2026-09-10/COUNTRY_AND_MANUS_REVIEW.md)。
 
-中文 AI 情报看板，聚合 AIHOT API 与 Manus 核验的媒体内容，以全部动态为首页，并提供公司与产品全景、热点、AIHOT 八点日报、本站周报、融资公司表和本地模型设置。
+中文 AI 情报看板，聚合 AIHOT API 与 Manus 核验的媒体内容，以“全部文章”为首页，另设“Garena投资精选”，并提供公司与产品全景、热点、AIHOT 八点日报、本站周报、融资公司表和本地模型设置。
+
+全部文章保留本批次符合来源及时间要求的所有去重条目，未入选及摘要分类待处理的文章也可通过标题、来源、时间和原文链接阅读。Garena投资精选沿用本站现有 AI 相关性、摘要及分类校验，独立于 AIHOT 上游 selected/score。公司、产品与融资新增只从精选抽取，已有公司库保留并继续按原预算补全。详见[两类新闻池](docs/architecture/UNIFIED_NEWS_PIPELINE.md)。
 
 前端使用 React、Next.js API 与 vinext/Vite；数据流水线使用 Python。现有数据以 JSON 快照与归档保存。
 

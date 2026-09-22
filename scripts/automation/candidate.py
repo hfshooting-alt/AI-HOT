@@ -11,7 +11,7 @@ import uuid
 from pathlib import Path
 
 from .publish import ALLOWED, publish, save
-from .runner import tree_digest, validate_candidates
+from .runner import tree_digest, validate_candidates, validate_news_pools
 
 STAGES = ['news', 'snapshot', 'overview', 'funding']
 
@@ -33,13 +33,9 @@ def validate(workspace, root):
         raise ValueError('候选窗口不一致')
     articles = processed['items']
     ids = {a['id'] for a in articles}
-    visible = snapshot['all']['items']
-    if len(ids) != len(articles) or len(visible) != len(ids) or {a['id'] for a in visible} != ids:
-        raise ValueError('候选新闻与网页文章集合不一致')
-    by_id = {a['id']: a for a in articles}
-    for article in visible:
-        if any(article.get(k) != by_id[article['id']].get(k) for k in ('title', 'summary', 'url', 'publishedAt')):
-            raise ValueError('候选新闻与网页内容不一致')
+    import tag_news
+    tx = tag_news.load_taxonomy(str(root / 'config/taxonomy.json')) if 'newsSelectionVersion' in snapshot else None
+    _, library = validate_news_pools(snapshot, processed, tx)
     if status['publishedArticles'] != len(ids) or status['quarantinedArticles'] != len(status['quarantined']):
         raise ValueError('候选新闻计数不一致')
     if status['candidateArticles'] != len(ids) + status['excludedArticles'] + status['quarantinedArticles']:
@@ -54,7 +50,8 @@ def validate(workspace, root):
         current_end = (read(current).get('collectionWindow') or {}).get('end', '')
         if current_end and window['end'] < current_end:
             raise ValueError('禁止较旧批次覆盖较新的正式网页')
-    return {'window': window, 'news': len(ids), 'quarantined': status['quarantinedArticles'],
+    return {'window': window, 'news': len(ids), 'articleLibraryCount': len(library),
+            'quarantined': status['quarantinedArticles'],
             'companies': overview['stats']['companiesTotal']}
 
 

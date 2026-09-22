@@ -1,20 +1,27 @@
 """融资流水线：inputs。"""
 import json
 from pathlib import Path
+from company_index.inputs import selected_snapshot_items
 
 
 # ================= 输入装配 =================
 
-def load_snapshot_pool(snapshot_path: Path | str) -> list[dict]:
-    """snapshot.json daily+weekly sections → 按 id 去重 → 筛 financing 条目。"""
+def _read_snapshot(snapshot_path: Path | str) -> dict:
     snapshot_path = Path(snapshot_path)
     if not snapshot_path.exists():
-        return []
+        return {}
     try:
         with open(snapshot_path, "r", encoding="utf-8") as f:
-            snap = json.load(f)
+            return json.load(f)
     except (OSError, json.JSONDecodeError):
-        return []
+        return {}
+
+
+def _snapshot_pool(snap: dict) -> list[dict]:
+    selected = selected_snapshot_items(snap)
+    if selected is not None:
+        return [it for it in selected
+                if (it.get('classification') or {}).get('cat') == 'financing']
     seen: dict[str, dict] = {}
     for view in (snap.get("daily"), snap.get("weekly")):
         for sec in (view or {}).get("sections") or []:
@@ -24,6 +31,11 @@ def load_snapshot_pool(snapshot_path: Path | str) -> list[dict]:
                     seen[iid] = it
     return [it for it in seen.values()
             if (it.get("classification") or {}).get("cat") == "financing"]
+
+
+def load_snapshot_pool(snapshot_path: Path | str) -> list[dict]:
+    """新版仅精选融资；旧快照保留 daily+weekly 的兼容读取。"""
+    return _snapshot_pool(_read_snapshot(snapshot_path))
 
 
 def load_feed_pool(feed_path: Path | str) -> list[dict]:
@@ -117,10 +129,12 @@ def load_articles(snapshot_path: Path, feed_path: Path, work_dir: Path, tx: dict
     """快照池 + feed 池（按 id 去重，快照优先）→ 统一文章记录列表。"""
     content_index = build_content_index(work_dir)
     merged: dict[str, dict] = {}
-    for it in load_snapshot_pool(snapshot_path):
+    snapshot = _read_snapshot(snapshot_path)
+    for it in _snapshot_pool(snapshot):
         if it.get("id") and it["id"] not in merged:
             merged[it["id"]] = to_article_record(it, tx, content_index, is_feed=False)
-    for it in load_feed_pool(feed_path):
+    feed_items = [] if 'newsSelectionVersion' in snapshot else load_feed_pool(feed_path)
+    for it in feed_items:
         if it.get("id") and it["id"] not in merged:
             merged[it["id"]] = to_article_record(it, tx, content_index, is_feed=True)
     return list(merged.values())

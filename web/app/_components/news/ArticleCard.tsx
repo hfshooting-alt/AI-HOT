@@ -37,7 +37,7 @@ export function ArticleCard({ item, showSection = true }: { item: NewsItem; show
             AIHOT 收录页
           </a>
         )}
-        {showSection && item.category && <SectionTag label={TAXONOMY_LABELS[catId] || catId} color={color} />}
+        {showSection && <SectionTag label={TAXONOMY_LABELS[catId] || catId} color={color} />}
         <span className="ml-auto flex items-center gap-2">
           <BookmarkIcon className="size-4 text-mut-2" />
         </span>

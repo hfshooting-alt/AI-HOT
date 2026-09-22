@@ -135,7 +135,9 @@
         "collector": "aihot",
         "status": "complete",
         "discoveredArticles": 459,
-        "usableArticles": 459
+        "usableArticles": 459,
+        "articleLibraryCount": 450,
+        "selectedArticles": 400
       },
       {
         "name": "游戏葡萄",
@@ -152,7 +154,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "白鲸出海",
@@ -169,7 +173,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 3,
+        "selectedArticles": 0
       },
       {
         "name": "机器之心",
@@ -186,7 +192,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "ZFinance",
@@ -203,7 +211,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 1,
+        "selectedArticles": 1
       },
       {
         "name": "极客公园",
@@ -220,7 +230,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "东西文娱",
@@ -237,7 +249,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "娱乐资本论",
@@ -254,7 +268,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "FounderPark",
@@ -271,7 +287,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "瑞恩资本",
@@ -288,7 +306,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "DeepTech深科技",
@@ -305,7 +325,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "ZPotential",
@@ -322,7 +344,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "华尔街见闻",
@@ -339,7 +363,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "量子位",
@@ -356,7 +382,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "智东西",
@@ -373,7 +401,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "十字路口Crossing",
@@ -390,7 +420,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "投资界",
@@ -407,7 +439,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 1,
+        "selectedArticles": 1
       },
       {
         "name": "赛博禅心",
@@ -424,7 +458,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 1,
+        "selectedArticles": 1
       },
       {
         "name": "elsewhere别处发生",
@@ -441,7 +477,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "新智元",
@@ -458,7 +496,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       },
       {
         "name": "硅星人",
@@ -475,7 +515,9 @@
           "originalContentStage": "failed",
           "completeWindowVerified": false,
           "usableCountBasis": "validated original bodies; distinct candidate and publication counts reported separately"
-        }
+        },
+        "articleLibraryCount": 0,
+        "selectedArticles": 0
       }
     ],
     "candidateArticles": 456,
@@ -518,6 +560,8 @@
         "stage": "enrichment",
         "reason": "摘要或分类未通过校验"
       }
-    ]
+    ],
+    "articleLibraryCount": 456,
+    "selectedArticles": 403
   }
 }

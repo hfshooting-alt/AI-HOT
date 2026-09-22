@@ -7,7 +7,6 @@ import type {
   FundingTable,
   HotTopicsResponse,
   ItemsPage,
-  NewsItem,
   Snapshot,
   WeeklyJournal,
 } from "../domain/types";
@@ -153,26 +152,5 @@ export async function loadCompanyOverview(): Promise<CompanyOverview | null> {
   return companyOverviewCache;
 }
 
-/** 从快照生成全部动态条目池；新版快照优先使用 all，旧快照回退 daily+weekly。 */
-export function poolFromSnapshot(snap: Snapshot): NewsItem[] {
-  if (snap.all?.items?.length) {
-    return [...snap.all.items].sort(
-      (a, b) => new Date(b.publishedAt || 0).getTime() - new Date(a.publishedAt || 0).getTime(),
-    );
-  }
-  const seen = new Set<string>();
-  const pool: NewsItem[] = [];
-  for (const view of [snap.daily, snap.weekly]) {
-    for (const sec of view.sections || []) {
-      for (const it of sec.items || []) {
-        if (seen.has(it.id)) continue;
-        seen.add(it.id);
-        pool.push(it);
-      }
-    }
-  }
-  pool.sort((a, b) => new Date(b.publishedAt || 0).getTime() - new Date(a.publishedAt || 0).getTime());
-  return pool;
-}
-
+export { poolFromSnapshot, shouldLoadLiveNews, shouldMergeReviewedNews } from "./news-pools";
 export { mergePools } from "./merge-pools";

@@ -1,10 +1,10 @@
-// 全部 AI 动态视图：AIHOT 实时流 + 当前快照合并信息流
+// 全部文章与 Garena 投资精选共用的新闻流；数据池与筛选状态分别保存。
 // 支持：新闻分类 Tab（融资移至公司全景） + 维度标签筛选 + 来源筛选（一手信源/资讯/推文/公众号）+ 按来源/标题/摘要搜索
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { NewsItem } from "../../_lib/domain/types";
-import { loadAll, loadSnapshot, loadReviewedNews, mergePools, poolFromSnapshot } from "../../_lib/data/api";
+import type { NewsItem, NewsPoolMode } from "../../_lib/domain/types";
+import { loadAll, loadSnapshot, loadReviewedNews, mergePools, poolFromSnapshot, shouldLoadLiveNews, shouldMergeReviewedNews } from "../../_lib/data/api";
 import { mergeReviewedNews } from "../../_lib/data/reviewed-news.mjs";
 import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/display/format";
 import { categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
@@ -16,41 +16,44 @@ import { SearchToolbar, type SourceFilter } from "../news/SearchToolbar";
 import { TagFilterBar, type DimSelection } from "../news/TagFilterBar";
 
 /** 跨导航切换保留筛选状态（模块级缓存） */
-const persisted: { tag: string; q: string; src: SourceFilter; dimSel: DimSelection } = {
-  tag: "all",
-  q: "",
-  src: "all",
-  dimSel: {},
+const persisted: Record<NewsPoolMode, { tag: string; q: string; src: SourceFilter; dimSel: DimSelection }> = {
+  all: { tag: "all", q: "", src: "all", dimSel: {} },
+  selected: { tag: "all", q: "", src: "all", dimSel: {} },
 };
 
-export function AllAIView() {
+export function AllAIView({ mode = "all" }: { mode?: NewsPoolMode }) {
+  const saved = persisted[mode];
   const [items, setItems] = useState<NewsItem[]>([]);
-  const [tag, setTag] = useState(persisted.tag === "financing" ? "all" : persisted.tag);
-  const [q, setQ] = useState(persisted.q);
-  const [src, setSrc] = useState<SourceFilter>(persisted.src);
-  const [dimSel, setDimSel] = useState<DimSelection>(persisted.dimSel);
+  const [tag, setTag] = useState(saved.tag === "financing" ? "all" : saved.tag);
+  const [q, setQ] = useState(saved.q);
+  const [src, setSrc] = useState<SourceFilter>(saved.src);
+  const [dimSel, setDimSel] = useState<DimSelection>(saved.dimSel);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      // 快照池 + AIHOT 实时流合并
-      const [snap, reviewed] = await Promise.all([loadSnapshot(), loadReviewedNews()]);
-      const base = snap ? poolFromSnapshot(snap) : [];
-      const batch = snap?.publicationMode === "pipeline";
-      const all = batch ? null : await loadAll();
+      const snap = await loadSnapshot();
+      const base = snap ? poolFromSnapshot(snap, mode) : [];
+      const mergeReviewed = shouldMergeReviewedNews(snap);
+      const [all, reviewed] = await Promise.all([
+        shouldLoadLiveNews(snap, mode) ? loadAll() : null,
+        mergeReviewed ? loadReviewedNews() : null,
+      ]);
       if (cancelled) return;
       let merged: NewsItem[] = base;
       if (all && all.items.length) {
         merged = base.length ? mergePools(base, all.items) : all.items;
       }
       if (cancelled) return;
-      setItems(mergeReviewedNews(merged, reviewed, snap?.collectionStatus?.collectionWindow.end));
+      setItems(mergeReviewed
+        ? mergeReviewedNews(merged, reviewed, snap?.collectionStatus?.collectionWindow.end)
+        : merged);
       setLoading(false);
     })();
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [mode]);
 
   /** 分类 Tab：全部 + 新闻分类（固定顺序，计数基于 categoryOf，0 也显示以保证类别齐全） */
   const tabOptions = useMemo<TabOption[]>(() => {
@@ -62,6 +65,9 @@ export function AllAIView() {
     const opts: TabOption[] = [{ key: "all", label: "全部", count: items.length }];
     for (const c of TAXONOMY_CATEGORIES.filter(c => c.id !== "financing")) {
       opts.push({ key: c.id, label: c.label, count: counter.get(c.id) || 0 });
+    }
+    if (counter.has("unclassified")) {
+      opts.push({ key: "unclassified", label: "未分类", count: counter.get("unclassified") || 0 });
     }
     return opts;
   }, [items]);
@@ -95,19 +101,19 @@ export function AllAIView() {
     <div>
       <header className="mb-6 flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="text-[26px] font-extrabold text-ink">全部 AI 动态</h1>
-          <p className="mt-1 text-[13px] text-mut">AI 相关资讯聚合流 · 支持来源、分类与搜索筛选</p>
+          <h1 className="text-[26px] font-extrabold text-ink">{mode === "all" ? "全部文章" : "Garena投资精选"}</h1>
+          <p className="mt-1 text-[13px] text-mut">{mode === "all" ? "已采集文章" : "供投资研究参考的 AI 相关资讯"} · 支持来源、分类与搜索筛选</p>
         </div>
         <SearchToolbar
           q={q}
           onQChange={(v) => {
             setQ(v);
-            persisted.q = v;
+            saved.q = v;
           }}
           src={src}
           onSrcChange={(v) => {
             setSrc(v);
-            persisted.src = v;
+            saved.src = v;
           }}
           showSourceFilter={true}
         />
@@ -124,9 +130,9 @@ export function AllAIView() {
             active={tag}
             onChange={(key) => {
               setTag(key);
-              persisted.tag = key;
+              saved.tag = key;
               setDimSel({});
-              persisted.dimSel = {};
+              saved.dimSel = {};
             }}
           />
         </div>
@@ -140,7 +146,7 @@ export function AllAIView() {
             selection={dimSel}
             onChange={(next) => {
               setDimSel(next);
-              persisted.dimSel = next;
+              saved.dimSel = next;
             }}
           />
         </div>

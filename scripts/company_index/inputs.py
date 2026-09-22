@@ -11,6 +11,19 @@ def _read(path: Path) -> dict:
         return {}
 
 
+def selected_snapshot_items(snapshot: dict) -> list[dict] | None:
+    """None means legacy schema; an empty modern selection remains authoritative."""
+    if 'newsSelectionVersion' not in snapshot:
+        if 'garenaSelected' in snapshot:
+            raise ValueError('新版快照精选池缺少 newsSelectionVersion')
+        return None
+    pool = snapshot.get('garenaSelected')
+    if (type(snapshot['newsSelectionVersion']) is not int or snapshot['newsSelectionVersion'] != 1
+            or not isinstance(pool, dict) or not isinstance(pool.get('items'), list)):
+        raise ValueError('新版快照缺少有效 Garena 精选池')
+    return pool['items']
+
+
 def build_content_index(work_dir: Path | str) -> dict[str, str]:
     index: dict[str, str] = {}
     root = Path(work_dir)
@@ -69,6 +82,13 @@ def load_articles(snapshot_path: Path | str, feed_path: Path | str,
         }
 
     snapshot = _read(Path(snapshot_path))
+    selected = selected_snapshot_items(snapshot)
+    if selected is not None:
+        for item in selected:
+            add(item)
+        # An explicitly empty selection must not spend extraction budget on the
+        # full library, historical views, or the source feed.
+        return sorted(merged.values(), key=lambda article: timestamp(article.get('publishedAt')), reverse=True)
     for item in (snapshot.get('all') or {}).get('items') or []:
         add(item)
     # Unified batches already carry the complete approved current pool. Historical

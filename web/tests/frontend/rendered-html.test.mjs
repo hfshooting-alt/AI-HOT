@@ -58,7 +58,7 @@ test("page renders the real AppShell without starter skeleton leftovers", async 
   );
 });
 
-test("navigation defaults to all news and exposes company overview as the second page", async () => {
+test("navigation defaults to all articles and places Garena selection before company overview", async () => {
   const [provider, sidebar, shell] = await Promise.all([
     readFile(new URL("../../app/_components/providers/AppDataProvider.tsx", import.meta.url), "utf8"),
     readFile(new URL("../../app/_components/layout/Sidebar.tsx", import.meta.url), "utf8"),
@@ -68,11 +68,15 @@ test("navigation defaults to all news and exposes company overview as the second
   assert.match(provider, /return "all"/);
   assert.match(provider, /replaceState\(null, "", normalizedHash\)/);
   assert.doesNotMatch(provider, /featured/);
-  assert.ok(sidebar.indexOf("全部 AI 动态") < sidebar.indexOf("公司与产品全景"));
-  assert.doesNotMatch(sidebar, /精选|京ICP备2026012723号-2/);
+  assert.ok(sidebar.indexOf("全部文章") < sidebar.indexOf("Garena投资精选"));
+  assert.ok(sidebar.indexOf("Garena投资精选") < sidebar.indexOf("公司与产品全景"));
+  assert.doesNotMatch(sidebar, /京ICP备2026012723号-2/);
   assert.match(sidebar, /Garena投资部专用/);
   assert.doesNotMatch(sidebar, /数据来源：AIHOT 开放 API/);
   assert.match(shell, /panel\("company", <CompanyOverviewView \/>\)/);
+  assert.match(shell, /panel\("all", <AllAIView mode="all" \/>\)/);
+  assert.match(shell, /panel\("selected", <AllAIView mode="selected" \/>\)/);
+  assert.match(provider, /"all", "selected", "company"/);
   assert.doesNotMatch(shell, /FeaturedView|featured/);
 });
 

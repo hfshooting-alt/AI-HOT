@@ -40,12 +40,14 @@ export const TAXONOMY_CATEGORY_COLORS: Record<string, string> = {
   paper: "#f43f5e",
   bigtech: "#f59e0b",
   general: "#06b6d4",
+  unclassified: "#94a3b8",
 };
 
 /** 分类 id -> 中文名 */
-export const TAXONOMY_LABELS: Record<string, string> = Object.fromEntries(
-  TAXONOMY_CATEGORIES.map((c) => [c.id, c.label]),
-);
+export const TAXONOMY_LABELS: Record<string, string> = {
+  ...Object.fromEntries(TAXONOMY_CATEGORIES.map((c) => [c.id, c.label])),
+  unclassified: "未分类",
+};
 
 /** 旧六版块 -> 新 6 类兜底映射（无 classification 的条目：aihot 实时流 / 未打标条目） */
 const LEGACY_CATEGORY_MAP: Record<string, string> = {
@@ -61,7 +63,8 @@ const LEGACY_CATEGORY_MAP: Record<string, string> = {
 export function categoryOf(item: NewsItem): string {
   const cat = item.classification?.cat;
   if (cat && TAXONOMY_LABELS[cat]) return cat;
-  return LEGACY_CATEGORY_MAP[item.category || ""] || "general";
+  if (item.categoryUnclassified) return "unclassified";
+  return LEGACY_CATEGORY_MAP[item.category || ""] || "unclassified";
 }
 
 /** 条目所属类别可用的维度标签集：{维度label: 条目值} */

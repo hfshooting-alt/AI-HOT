@@ -4,7 +4,19 @@
 
 2026-09-15更新：已获用户确认，统一每日overview阶段启用已知网页补全（--known-link-research），读取审核资料链接及当前公司相关新闻，最多检查5个主体/10页/5次DeepSeek请求，无新增Manus搜索。自动补空白字段标暂定、保留引文；不覆盖现有字段、不更改归属。按主体、模型和最新报道去重，同输入成功/失败均跳过；失败逐页/逐公司隔离，剩余队列后续轮次处理。新报道可再次触发。无新报道时不会主动轮询官网变化。
 
-# 统一新闻链路（2026-09-14）
+# 统一新闻链路（2026-09-22）
+
+## 全部文章与 Garena 投资精选
+
+2026-09-22 用户确认分为两个阅读入口。`#/all` 为“全部文章”：AIHOT 与 Manus 成功采集的文章经过既有来源、时间核验和去重后全部保留。AI 不相关、缺正文或单条模型加工失败只影响精选资格，不删除已核实的文章标题、来源、时间及原文链接。来源或原始发布时间存在冲突的 Manus 条目仍留在私有核验队列，不以“全部文章”绕过原有收录规则。
+
+`#/selected` 为“Garena投资精选”：沿用现有实质 AI 相关性标准，再完成摘要、分类校验。当前仍是广义 AI 新闻筛选，不额外使用分数、AIHOT 上游 selected、投资回报预测或未确认的赛道限制。公司、产品和融资只从本批精选抽取；未入选的新文章不会自动扩充公司库。旧公司、产品、研究证据保留，既有主体仍可进入原有联网补全队列，配额不因两池迁移重置。
+
+契约：`inputs/processed.json.items` 保持精选输入，`allArticles` 保存全量安全元数据；`snapshot.newsSelectionVersion=1`、`snapshot.all` 与 `snapshot.garenaSelected` 分别表示全部和精选。独立 `garenaSelection.status` 为 selected / not_selected / pending，不借用上游 selected 字段。显式空精选不从全部、旧 feed、历史或前端补录回填；新格式缺精选池须拒绝。两池中同 ID 的正文以外展示字段一致，仅列表序号可不同。
+
+`collectionStatus.articleLibraryCount` 计全部文章，`selectedArticles` 与兼容字段 `publishedArticles` 计精选，`excludedArticles` 表示不入精选，不再表示无法阅读。全量元数据另存 `data/archive/all-articles/<窗口结束日>.json`；原每日/周报归档继续保存精选。私有完整正文、失败模型响应不进入公开文件。旧快照无分流字段时，其 all 池本来已经通过筛选，可兼容视为旧精选。
+
+系统性模型故障仍保留旧版整体发布，避免把服务故障当成“无精选”；新的全量候选在付费加工前保存，供后续恢复。普通单条失败、明确未入选或有效空精选不会丢失全量阅读入口。定时仍关闭，只有手动工作流与代码部署。
 
 主体扩展：用户允许明确具名且有官网证据的基金会／开源组织进入公司产品库，entityType保留非商业类型，产品前端显示“维护”，赞助不作归属依据。类型证据随审核规则保存并在每日合并后恢复；不改变新闻分类或报道排序。
 
@@ -12,7 +24,7 @@
 
 Manus只依据文章原始发布／发送时间收录，新增点赞、评论、互动、编辑或转载页面的刷新时间均不能使旧文章重新符合窗口。“昨天”等相对文字必须指文章发布，不得引用评论或互动时间。AIHOT批次不做这层原文时间拦截，先接收再进入相关性、摘要打标与公司更新流程；URL路径日期不作为发布时间判定。已确认的北京时间09:30窗口及“昨天”发布的自然日例外保持。
 
-日常入口为 `scripts/run_pipeline.py run --stage all`，默认北京时间 09:30 调度，固定覆盖前一日 09:30（含）至当天 09:30（不含）。GitHub 排队可能延迟启动，窗口不会随之移动。
+日常入口为 `scripts/run_pipeline.py run --stage all`，当前仅手动启动，固定覆盖北京时间前一日 09:30（含）至所选结束日 09:30（不含）。窗口不会随实际启动时间移动。
 
 ```mermaid
 flowchart TD
@@ -21,12 +33,15 @@ flowchart TD
     Manus --> Body[正文获取与时间身份校验]
     AIHOT --> Pool[成功文章合并去重]
     Body --> Pool
+    Pool --> All[全部文章与全量归档]
     Pool --> News[统一模型相关性筛选、摘要和分类]
-    News --> Snapshot[候选快照与归档]
-    Snapshot --> Companies[模型抽取公司产品并更新已有实体]
+    News --> Selected[Garena投资精选]
+    Selected --> Companies[模型抽取公司产品并更新已有实体]
     Companies --> Research[已知网页读取与空白字段暂定补全]
     Research --> Funding[融资表]
     Funding --> Gate[产物校验]
+    All --> Gate
+    Selected --> Gate
     Gate --> Publish[统一替换正式产物并部署 Pages]
 ```
 

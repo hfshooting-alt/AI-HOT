@@ -1,6 +1,7 @@
 // AI HOT 前端数据类型定义（与 build_snapshot.py / aihot API 对齐）
 
-export type ViewKey = "all" | "company" | "hot" | "daily" | "settings";
+export type NewsPoolMode = "all" | "selected";
+export type ViewKey = NewsPoolMode | "company" | "hot" | "daily" | "settings";
 
 /** AI 两级分类（tag_news 打标签产物，展示结构；dims 与 to_display 输出对齐） */
 export interface Classification {
@@ -21,12 +22,13 @@ export interface NewsItem {
   sourceChannel?: "wechat_original" | "tencent_syndication" | "netease_syndication" | "publisher_site" | "media_page";
   /** 中文六版块；API 原始英文分类经 API_CATEGORY_MAP 归一化 */
   category?: string;
-  /** 上游没有返回分类时为 true；展示层会暂时归入泛行业新闻并明确提示。 */
+  /** 上游没有返回分类时为 true；未经过本站分类的条目显示未分类。 */
   categoryUnclassified?: boolean;
   publishedAt?: string;
   publishedPrecision?: "datetime" | "date" | "relative";
   timeEvidence?: { originalText: string; observedAt: string } | null;
   discoveredAt?: string;
+  /** 上游字段，不控制 Garena 投资精选的归属。 */
   score?: number | null;
   selected?: boolean;
   mpName?: string | null;
@@ -116,6 +118,9 @@ export interface Snapshot {
   /** 静态托管降级数据；Pages 无服务端 API 时直接读取。 */
   hot?: Partial<HotTopicsResponse> & { items: HotTopic[] };
   all?: AllFeedResponse;
+  /** 两池契约：all 为已采集文章，garenaSelected 为本站筛选结果。 */
+  newsSelectionVersion?: 1;
+  garenaSelected?: AllFeedResponse;
   /** 静态站点内嵌的日报正文；键为 YYYY-MM-DD。 */
   dailyReports?: Record<string, DailyReport>;
 }

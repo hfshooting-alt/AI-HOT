@@ -271,8 +271,9 @@ def apply(overview, snapshot, rules, tx, *, review_field_values=True):
         if item['id'] not in seen:
             audit['classifications'].append({'id': item['id'], 'title': item['title'], 'url': item.get('url'), 'before': before, 'after': item['classification'], 'reason': decision['reason']})
             seen.add(item['id'])
-    for item in snapshot.get('all', {}).get('items', []):
-        review(item)
+    for pool in ('all', 'garenaSelected'):
+        for item in snapshot.get(pool, {}).get('items', []):
+            review(item)
     for view in ('daily', 'weekly'):
         grouped = {}
         for section in snapshot.get(view, {}).get('sections', []):

@@ -12,7 +12,7 @@ def assemble_table(companies: list[dict], stats: dict, generated_at: str,
     return {
         "schemaVersion": TABLE_SCHEMA_VERSION,
         "generatedAt": generated_at,
-        "coverageNote": "覆盖快照日报+周报池与最新 Manus feed 中的融资类新闻（约最近一周）",
+        "coverageNote": "覆盖 Garena 投资精选中的融资类新闻；已有融资记录按原有合并规则保留",
         "searchNote": search_note,
         "stats": stats,
         "companies": companies,

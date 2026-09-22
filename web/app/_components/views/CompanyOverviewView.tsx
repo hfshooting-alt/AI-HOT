@@ -73,7 +73,7 @@ function EmptyCompanyTable({ dimSel, onDimChange }: {
                 </span>
                 <p className="mt-4 text-[14px] font-bold text-ink">公司与产品库等待首次生成</p>
                 <p className="mx-auto mt-1.5 max-w-md text-[12px] leading-relaxed text-mut">
-                  配置模型 API 后运行 overview 阶段，系统会从全部 AI 动态中提取公司、产品、团队、融资与原文来源。
+                  配置模型 API 后运行 overview 阶段，系统会从 Garena投资精选中提取公司、产品、团队、融资与原文来源。
                 </p>
               </td>
             </tr>
@@ -136,7 +136,7 @@ export function CompanyOverviewView() {
           <p className="mb-2 text-[11px] font-bold tracking-[0.16em] text-brand">INTELLIGENCE DATABASE</p>
           <h1 className="text-[26px] font-extrabold text-ink">公司与产品全景</h1>
           <p className="mt-1.5 text-[13px] leading-relaxed text-mut">
-            从全部 AI 动态持续沉淀公司与产品信息，并为关键字段保留可回溯的原文证据。
+            从 Garena投资精选持续沉淀公司与产品信息，保留既有档案，并为关键字段保留可回溯的原文证据。
           </p>
         </div>
         <SearchToolbar
@@ -162,7 +162,7 @@ export function CompanyOverviewView() {
       )}
       {funding && <section className="mt-8" aria-label="融资情报">
         <h2 className="mb-3 text-[20px] font-extrabold text-ink">融资情报</h2>
-        {fundingStale ? <p className="text-[13px] text-mut">融资情报等待更新，相关报道可在全部 AI 动态中阅读。</p> : <>
+        {fundingStale ? <p className="text-[13px] text-mut">融资情报等待更新，相关报道可在全部文章中阅读。</p> : <>
           <div className="ah-card mb-4 p-4"><TagFilterBar dims={FUNDING_DIM_IDS} selection={fundingDims} onChange={setFundingDims} dimsDef={FUNDING_DIMENSIONS} /></div>
           <FundingTableView table={funding} dimSel={fundingDims} q={q} />
         </>}

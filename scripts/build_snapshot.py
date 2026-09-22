@@ -690,6 +690,8 @@ def build_item(raw: dict, num: int, today: datetime) -> dict:
         "mpName": raw.get("mpName") if "mpName" in raw else None,
         "sourceRefs": raw.get('sourceRefs') or [],
         "evidenceKind": raw.get('evidenceKind'),
+        **({'garenaSelection': raw['garenaSelection']} if 'garenaSelection' in raw else {}),
+        **({'summaryOrigin': raw['summaryOrigin']} if 'summaryOrigin' in raw else {}),
         # AI 两级分类结果（id → label 展示结构）；未打标条目为 None，前端自然隐藏徽章
         "classification": (tag_news.to_display(TAG_TAXONOMY, raw["classification"])
                            if TAG_TAXONOMY and raw.get("classification") else None),
@@ -717,6 +719,39 @@ def format_items(items: list[dict], today: datetime, time_ref: datetime | None =
     """将原始条目列表格式化为前端消费的结构（带 timeText / num）。"""
     ref = time_ref or today
     return [build_item(it, idx + 1, ref) for idx, it in enumerate(items)]
+
+
+def article_pool(items: list[dict], today: datetime) -> dict:
+    """Format one authoritative publication pool without implicit history fallback."""
+    rows = format_items(sorted(items, key=lambda i: to_bj(i.get('publishedAt') or ''), reverse=True), today)
+    counts: dict[str, int] = {}
+    for row in rows:
+        category = row['category']
+        counts[category] = counts.get(category, 0) + 1
+    return {'items': rows, 'tags': [{'tag': c, 'count': counts[c]} for c in SECTIONS if counts.get(c)], 'live': True}
+
+
+def apply_article_pools(data: dict, prepared: dict, today: datetime) -> dict:
+    """Keep all collected metadata separate from selected company/news evidence."""
+    if 'allArticles' not in prepared:
+        return data
+    library = prepared['allArticles']
+    if not isinstance(library, list):
+        raise ValueError('全部文章必须是数组')
+    by_id = {row['id']: row for row in library}
+    if len(by_id) != len(library) or not {i['id'] for i in prepared['items']}.issubset(by_id):
+        raise ValueError('全部文章必须完整包含精选且不能有重复ID')
+    selected = []
+    for item in prepared['items']:
+        row = {**by_id[item['id']], **item, 'garenaSelection': {'status': 'selected'}}
+        if (by_id[item['id']].get('garenaSelection') or {}).get('status') != 'selected':
+            raise ValueError('全部文章与精选状态不一致')
+        row['garenaSelection'] = by_id[item['id']]['garenaSelection']
+        selected.append(row)
+        by_id[item['id']] = row
+    data.update(newsSelectionVersion=1, all=article_pool(list(by_id.values()), today),
+                garenaSelected=article_pool(selected, today))
+    return data
 
 
 def build_daily_nav(all_days: dict[str, dict], weekly_nav: list[dict], time_ref: datetime) -> list[dict]:
@@ -1087,6 +1122,19 @@ def main() -> int:
         "dailyNav": build_daily_nav(all_days, weekly_nav, now_bj),
         "categories": ["模型", "产品", "行业", "论文", "教程", "观点"],
     }
+    if prepared is not None:
+        apply_article_pools(data, prepared, now_bj)
+        if 'allArticles' in prepared:
+            # Archive all metadata separately; historical daily/weekly archives
+            # remain selected news and cannot expand company extraction scope.
+            library_dir = Path(args.archive_dir) / 'all-articles'
+            library_dir.mkdir(parents=True, exist_ok=True)
+            library_path = library_dir / f"{window_end.date().isoformat()}.json"
+            library_path.write_text(json.dumps({
+                'schemaVersion': 1, 'collectionWindow': window,
+                'items': prepared['allArticles'], 'selectedIds': [i['id'] for i in prepared['items']],
+                'updatedAt': now_bj.isoformat(),
+            }, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     from apply_quality_review import apply as apply_quality
     rules_path = Path(__file__).resolve().parents[1] / 'config/quality_review.json'
     rules = json.loads(rules_path.read_text(encoding='utf-8'))

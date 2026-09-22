@@ -169,6 +169,11 @@ class CombinedNews(unittest.TestCase):
             return {}, {'irrelevant': 0}
         with self.assertRaisesRegex(ValueError, 'relevance'):
             news.process(DATE, self.workspace, self.raw, screen_fn=failed, enrich_fn=enrich)
+        saved = news.read(self.workspace / 'inputs/article-library.json')
+        self.assertEqual(saved['articleLibraryCount'], 1)
+        self.assertEqual(saved['selectedArticles'], 0)
+        self.assertEqual(saved['allArticles'][0]['garenaSelection']['status'], 'pending')
+        self.assertNotIn('content_text', saved['allArticles'][0])
 
     def two_aihot_candidates(self):
         (self.workspace / 'data/cache').mkdir(parents=True, exist_ok=True)
@@ -216,6 +221,10 @@ class CombinedNews(unittest.TestCase):
         self.assertEqual(len(review), 2)
         self.assertTrue(any(r['result'].get('error', {}).get('category') == 'timeout' for r in review))
         self.assertNotIn('private response', json.dumps(review))
+        library = news.read(self.workspace / 'inputs/article-library.json')
+        self.assertEqual(library['articleLibraryCount'], 2)
+        self.assertEqual(library['selectedArticles'], 1)
+        self.assertEqual([i['garenaSelection']['status'] for i in library['allArticles']], ['selected', 'pending'])
 
     def test_content_only_failure_and_pure_cache_reuse_are_not_service_outages(self):
         pool = self.two_aihot_candidates()
@@ -251,6 +260,8 @@ class CombinedNews(unittest.TestCase):
             self.assertEqual(result['collectionStatus']['quarantined'][0]['stage'], stage)
             evidence = news.read(self.workspace / 'inputs/company-evidence.json')
             self.assertEqual([i['id'] for i in evidence], [i['id'] for i in result['items']])
+            self.assertEqual(len(result['allArticles']), 2)
+            self.assertEqual([i['garenaSelection']['status'] for i in result['allArticles']], ['selected', 'pending'])
 
     def test_wrong_window_cannot_enter_current_batch(self):
         publish.save(self.workspace / 'inputs/aihot.json', {'collectionWindow': {}, 'items': [self.item]})
@@ -286,6 +297,145 @@ class CombinedNews(unittest.TestCase):
         self.assertEqual(result['items'][0]['collector'], 'aihot')
         audit = next(a for a in result['collectionStatus']['sources'] if a['name'] == '游戏葡萄')
         self.assertEqual(audit['status'], 'partial')
+        self.assertEqual(audit['usableArticles'], 0)
+        self.assertEqual(audit['articleLibraryCount'], 1)
+        self.assertEqual(len(result['allArticles']), 1)
+        self.assertEqual(len(result['allArticles'][0]['sourceRefs']), 2)
+        self.assertNotIn('metadataOnly', result['allArticles'][0])
+
+    def test_relevance_exclusion_stays_in_library_with_real_screen_keys(self):
+        pool = self.two_aihot_candidates()
+        def excluding(items, *args, **kwargs):
+            result, stats = screen(items)
+            result[screen_news.item_key(items[0])].update(reason='AI 公司融资')
+            result[screen_news.item_key(items[1])].update(relevant=False, reason='普通游戏新闻')
+            # Conservation derives from decisions, not potentially stale counters.
+            return result, stats
+        result = news.process(DATE, self.workspace, self.raw, enabled=False, screen_fn=excluding, enrich_fn=enrich)
+        self.assertEqual([r['id'] for r in result['allArticles']], [i['id'] for i in pool])
+        self.assertEqual([r['garenaSelection']['status'] for r in result['allArticles']], ['selected', 'not_selected'])
+        self.assertEqual([r['garenaSelection']['reason'] for r in result['allArticles']], ['AI 公司融资', '普通游戏新闻'])
+        self.assertEqual(result['allArticles'][1]['summaryOrigin'], 'upstream')
+        self.assertEqual(result['allArticles'][1]['summary'], self.item['summary'])
+        self.assertNotIn('classification', result['allArticles'][1])
+        stats = result['collectionStatus']
+        self.assertEqual((stats['candidateArticles'], stats['selectedArticles'], stats['excludedArticles'], stats['quarantinedArticles']), (2, 1, 1, 0))
+        self.assertEqual(stats['publishedArticles'], stats['selectedArticles'])
+        self.assertEqual(stats['articleLibraryCount'], 2)
+        self.assertEqual(result['selectedArticles'], 1)
+        self.assertEqual([r['id'] for r in news.read(self.workspace / 'inputs/company-evidence.json')], [pool[0]['id']])
+
+    def test_metadata_only_discovery_survives_without_any_model_request(self):
+        self.manus_sample()
+        (self.raw / DATE / 'raw/content-batch-01.json').unlink()
+        # The sole available source has verified metadata but no usable body.
+        # Empty successful sources must not accidentally make this test pass.
+        for group in self.groups:
+            path = self.raw / DATE / 'raw' / f'discovery-{group}.json'
+            if group != 'group_a':
+                path.unlink()
+            else:
+                data = news.read(path)
+                for audit in data['source_audits'][1:]:
+                    audit.update(source_status='failed', note='unavailable')
+                publish.save(path, data)
+        publish.save(self.workspace.parent / 'state.json', {'stages': {'aihot': {'status': 'failed'}}})
+        with patch.object(news.screen_news, 'screen_items', side_effect=AssertionError('model forbidden')) as scr, \
+             patch.object(news.enrich_news, 'enrich_items', side_effect=AssertionError('model forbidden')) as enr:
+            result = news.process(DATE, self.workspace, self.raw)
+        scr.assert_not_called()
+        enr.assert_not_called()
+        self.assertEqual(result['items'], [])
+        self.assertEqual(len(result['allArticles']), 1)
+        row = result['allArticles'][0]
+        self.assertTrue(row['metadataOnly'])
+        self.assertEqual(row['summary'], '')
+        self.assertEqual(row['garenaSelection']['status'], 'pending')
+        self.assertNotIn('classification', row)
+        self.assertNotIn('content_text', row)
+        self.assertEqual(result['collectionStatus']['quarantinedArticles'], 1)
+        self.assertEqual(result['collectionStatus']['quarantined'][0]['stage'], 'content')
+        self.assertEqual(result['collectionStatus']['candidateArticles'], 1)
+        self.assertEqual(news.read(self.workspace / 'inputs/company-evidence.json'), [])
+        self.assertEqual(news.read(self.workspace / 'data/manus/current.json')['items'], [])
+
+    def test_wrong_body_title_becomes_metadata_only_without_model_request(self):
+        self.manus_sample()
+        path = self.raw / DATE / 'raw/content-batch-01.json'
+        data = news.read(path)
+        data['articles'][0]['title'] = '完全不同的另一篇正文'
+        publish.save(path, data)
+        publish.save(self.workspace.parent / 'state.json', {'stages': {'aihot': {'status': 'failed'}}})
+        def forbidden(*args, **kwargs):
+            self.fail('Unvalidated body reached model')
+        result = news.process(DATE, self.workspace, self.raw, screen_fn=forbidden, enrich_fn=forbidden)
+        self.assertEqual(len(result['allArticles']), 1)
+        self.assertTrue(result['allArticles'][0]['metadataOnly'])
+
+    def test_invalid_discovery_identity_or_time_never_enters_library(self):
+        for update in ({'source_home_url': 'https://unverified.example'}, {'source_platform': 'Unverified'},
+                       {'published_at': '2026-09-08T08:00:00+08:00', 'published_date': '2026-09-08'}):
+            with self.subTest(update=update):
+                self.manus_sample()
+                path = self.raw / DATE / 'raw/discovery-group_a.json'
+                data = news.read(path)
+                data['articles'][0].update(update)
+                publish.save(path, data)
+                publish.save(self.workspace / 'inputs/aihot.json', {'collectionWindow': ten_am_window(DATE), 'items': []})
+                result = self.process()
+                self.assertEqual(result['allArticles'], [])
+                self.assertEqual(result['items'], [])
+
+    def test_conflicting_time_without_body_is_not_a_metadata_library_backdoor(self):
+        self.set_manus_yesterday(conflict=True)
+        (self.raw / DATE / 'raw/content-batch-01.json').unlink()
+        result = self.process()
+        self.assertEqual([r['collector'] for r in result['allArticles']], ['aihot'])
+        self.assertEqual(result['collectionStatus']['quarantinedArticles'], 1)
+        self.assertEqual(result['collectionStatus']['quarantined'][0]['stage'], 'publication_time')
+        self.assertEqual(result['collectionStatus']['candidateArticles'], 2)
+
+    def test_body_only_timestamp_conflict_retains_private_original_evidence(self):
+        self.set_manus_yesterday()
+        path = self.raw / DATE / 'raw/content-batch-01.json'
+        data = news.read(path)
+        data['articles'][0]['note'] = '列表标注昨天；详情页显示2026-09-08 19:04发布，与列表相对时间不一致。'
+        publish.save(path, data)
+        result = self.process()
+        self.assertEqual([r['collector'] for r in result['allArticles']], ['aihot'])
+        evidence = news.read(self.workspace / 'inputs/publication-time-review.json')
+        self.assertIn('2026-09-08 19:04发布', evidence[0]['note'])
+
+    def test_all_excluded_articles_publish_an_unclassified_library(self):
+        def excluded(items, *args, **kwargs):
+            return ({screen_news.item_key(i): {'status': 'complete', 'relevant': False,
+                'reason': '无具体 AI 事件'} for i in items}, {'irrelevant': len(items)})
+        def forbidden(*args, **kwargs):
+            self.fail('Excluded article reached enrichment')
+        result = news.process(DATE, self.workspace, self.raw, enabled=False, screen_fn=excluded, enrich_fn=forbidden)
+        self.assertEqual(result['items'], [])
+        self.assertEqual(result['allArticles'][0]['garenaSelection']['status'], 'not_selected')
+        self.assertNotIn('classification', result['allArticles'][0])
+        self.assertEqual(result['collectionStatus']['excludedArticles'], 1)
+        self.assertEqual(result['collectionStatus']['quarantinedArticles'], 0)
+
+    def test_all_local_content_failures_can_publish_library_without_selections(self):
+        for stage, category in [('relevance', 'content'), ('relevance', 'output_limit'),
+                                ('enrichment', 'content'), ('enrichment', 'output_limit')]:
+            with self.subTest(stage=stage, category=category):
+                def failed_screen(items, *args, **kwargs):
+                    return ({screen_news.item_key(i): {'status': 'failed', 'modelAttempted': True,
+                        'error': {'category': category}} for i in items}, {'irrelevant': 0})
+                def failed_enrich(items, *args):
+                    return {enrich_news.enrich_item_key(i): {'enrichmentStatus': 'failed',
+                        'modelAttempted': True, 'error': {'category': category}} for i in items}
+                result = news.process(DATE, self.workspace, self.raw, enabled=False,
+                    screen_fn=failed_screen if stage == 'relevance' else screen,
+                    enrich_fn=failed_enrich if stage == 'enrichment' else enrich)
+                self.assertEqual(result['items'], [])
+                self.assertEqual(result['articleLibraryCount'], 1)
+                self.assertEqual(result['allArticles'][0]['garenaSelection']['status'], 'pending')
+                self.assertEqual(result['collectionStatus']['quarantinedArticles'], 1)
 
     def test_partial_source_articles_reach_shared_news_pool(self):
         self.manus_sample()

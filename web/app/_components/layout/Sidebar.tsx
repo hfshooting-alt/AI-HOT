@@ -6,7 +6,8 @@ import { BrandLogo, DatabaseIcon, FlameIcon, GearIcon, ListIcon, NewsIcon } from
 import type { ViewKey } from "../../_lib/domain/types";
 
 const NAV_ITEMS: { key: ViewKey; label: string; icon: (p: { className?: string }) => React.ReactNode }[] = [
-  { key: "all", label: "全部 AI 动态", icon: ListIcon },
+  { key: "all", label: "全部文章", icon: ListIcon },
+  { key: "selected", label: "Garena投资精选", icon: NewsIcon },
   { key: "company", label: "公司与产品全景", icon: DatabaseIcon },
   { key: "hot", label: "热点榜", icon: FlameIcon },
   { key: "daily", label: "AI 日报", icon: NewsIcon },
