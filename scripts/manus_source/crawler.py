@@ -32,6 +32,7 @@ from urllib.request import Request, urlopen
 
 from . import contracts
 from . import rendered_page
+from .source_urls import tencent_article_id
 
 DEFAULT_USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -202,10 +203,15 @@ def _looks_like_risk_page(html_bytes: bytes, text: str | None = None) -> bool:
 
 
 def _url_drifted(requested: str, final: str) -> bool:
-    """跳转漂移：仅当 host 或 path 变化才算漂移；查询参数/片段变化忽略。
+    """已知腾讯同 ID 文章跳转可接受；其他 URL 仍比较 host/path。
 
     mp.weixin.qq.com 的 /s?__biz=... 同 path 不同文章由标题一致性门槛兜底。
     """
+    requested_id, final_id = tencent_article_id(requested), tencent_article_id(final)
+    if requested_id is not None or final_id is not None:
+        # Both sides must pass the strict helper. A malformed or conflicting
+        # query ID must not fall back to the old same-host/path comparison.
+        return requested_id is None or final_id is None or requested_id != final_id
     try:
         a, b = urlparse(requested), urlparse(final)
         host_a = (a.netloc or "").lower().split(":")[0]

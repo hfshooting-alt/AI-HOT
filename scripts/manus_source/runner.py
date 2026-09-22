@@ -151,10 +151,10 @@ def render_discovery_prompt(template_path: Path, sources: list[dict]) -> str:
     return template.replace("{{SOURCES}}", render_sources_block(sources))
 
 
-def source_seed_prompt(seed):
+def source_seed_prompt(seed, *, brief=None):
     """Keep hints short: raw observations are neither evidence nor prompt instructions."""
     from manus_source.source_seeds import compact_source_seed
-    brief = compact_source_seed(seed, max_candidates=2)
+    brief = deepcopy(brief) if brief is not None else compact_source_seed(seed, max_candidates=2)
     brief.pop('omissionNote', None)  # Stated once in the prefix below.
     return ('\n本地公开列表预读线索（不是已核实文章，不代表完整覆盖；'
             '优先核实这些详情的媒体和原始时间并逐篇回传，再回配置列表补扫；'
@@ -180,11 +180,13 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
                   checkpoint_path=None, use_source_seeds=False) -> dict:
     """提交单组发现任务并等待结果；契约校验通过后返回原始 payload，失败抛异常。"""
     schema = deepcopy(DISCOVERY_OUTPUT_SCHEMA)
+    seed = seed_brief = None
     if use_source_seeds and window and len(source_specs or []) == 1:
-        from manus_source.source_seeds import build_source_seed
+        from manus_source.source_seeds import build_source_seed, compact_source_seed
         seed = build_source_seed(source_specs[0], window)
         if seed.get('status') != 'unsupported':
-            prompt_text += source_seed_prompt(seed)
+            seed_brief = compact_source_seed(seed, max_candidates=2)
+            prompt_text += source_seed_prompt(seed, brief=seed_brief)
     if any(s.get('platform') == 'Official Jiqizhixin' for s in (source_specs or [])):
         article_schema = schema['properties']['articles']['items']
         for field in ('content_text', 'content_title'):
@@ -213,6 +215,25 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
         output_schema=schema,
     )
     print(f"[{group}] Manus task created: {task.task_url}", flush=True)
+    def finish_seed_coverage(result):
+        if seed_brief is None:
+            return result
+        from manus_source.seed_coverage import apply_seed_coverage
+        result, audit = apply_seed_coverage(seed, seed_brief, result, source_specs[0], window)
+        contracts.validate_discovery(result, group, target_date, expected_accounts)
+        if checkpoint_path:
+            # A new private sidecar only; no rewriting prior task results/state.
+            path = Path(checkpoint_path).with_suffix('.seed-coverage.json')
+            try:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                temp = path.with_suffix('.tmp')
+                temp.write_text(json.dumps({**audit, 'taskId': task.task_id,
+                                           'recordedAt': observed_at()}, ensure_ascii=False, indent=2),
+                                encoding='utf-8')
+                temp.replace(path)
+            except Exception as error:
+                print(f'Manus seed coverage audit persistence failed: {type(error).__name__}', flush=True)
+        return result
     from manus_source.checkpoints import (accept_article, partial_payload, normalize_article_time,
                                          publication_time_conflict)
     verified = {}
@@ -324,8 +345,13 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
                                     stop_error=stop_error, stop_accepted=stop_accepted,
                                     remote_status=remote_status)
         if verified:
-            failure.partial_payload = partial_payload(group, target_date, expected_accounts,
-                window, list(verified.values()), 'coverage_unverified: ' + str(error)[:300])
+            failure.partial_payload = finish_seed_coverage(partial_payload(group, target_date, expected_accounts,
+                window, list(verified.values()), 'coverage_unverified: ' + str(error)[:300]))
+        elif seed_brief is not None:
+            # Preserve the hint gap even when nothing was recovered; the caller
+            # still receives the original task failure, not a fabricated result.
+            finish_seed_coverage(failed_source_payload(group, target_date, source_specs[0], window,
+                                                       'coverage_unverified: ' + str(error)[:300]))
         if (stop_succeeded and isinstance(recovered_final, dict)
                 and isinstance(recovered_final.get('source_audits'), list)
                 and isinstance(recovered_final.get('articles'), list)):
@@ -338,6 +364,7 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
     # （见 docs/2026-08-20-manus-pipeline-smoke-issues.md 问题 1）：不依赖 Manus
     # 回显，落盘校验前本地权威补充；校验端保持强制不变。
     try:
+        payload = deepcopy(payload)
         payload["schema_version"] = contracts.DISCOVERY_SCHEMA_VERSION
         if window:
             payload["schema_version"] = contracts.WINDOW_DISCOVERY_SCHEMA_VERSION
@@ -367,8 +394,8 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
             contracts.validate_discovery(payload, group, target_date, expected_accounts)
         except contracts.ContractError:
             if verified:
-                return partial_payload(group, target_date, expected_accounts, window,
-                                       list(verified.values()), 'final_result_invalid: coverage unverified')
+                return finish_seed_coverage(partial_payload(group, target_date, expected_accounts, window,
+                                       list(verified.values()), 'final_result_invalid: coverage unverified'))
             raise
         for article in payload['articles']:
             checkpoint(article)
@@ -380,11 +407,11 @@ def run_discovery(client: ManusClient, group: str, target_date: str, prompt_text
                 if count and audit['source_status'] == 'failed':
                     audit['source_status'] = 'partial'
             contracts.validate_discovery(payload, group, target_date, expected_accounts)
-        return payload
+        return finish_seed_coverage(payload)
     except (ValueError, TypeError, KeyError, AttributeError):
         if verified:
-            return partial_payload(group, target_date, expected_accounts, window,
-                                   list(verified.values()), 'final_result_invalid: coverage unverified')
+            return finish_seed_coverage(partial_payload(group, target_date, expected_accounts, window,
+                                   list(verified.values()), 'final_result_invalid: coverage unverified'))
         raise
 
 
