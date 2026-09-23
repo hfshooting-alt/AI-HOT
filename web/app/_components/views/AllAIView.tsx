@@ -1,5 +1,5 @@
 // 全部文章与 Garena 投资精选共用的新闻流；数据池与筛选状态分别保存。
-// 支持：新闻分类 Tab（融资移至公司全景） + 维度标签筛选 + 来源筛选（一手信源/资讯/推文/公众号）+ 按来源/标题/摘要搜索
+// 支持：新闻分类 Tab（融资移至公司全景）、维度标签筛选和按来源/标题/摘要搜索。
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -7,17 +7,17 @@ import type { NewsItem, NewsPoolMode } from "../../_lib/domain/types";
 import { loadSnapshot, poolFromSnapshot, newsPoolError } from "../../_lib/data/api";
 import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/display/format";
 import { ARTICLE_STATUS_FILTERS, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
-import { matchItem, sourceKindOf } from "../../_lib/display/source";
+import { matchItem } from "../../_lib/display/source";
 import { ArticleCard } from "../news/ArticleCard";
 import { CategoryTabs, type TabOption } from "../news/CategoryTabs";
 import { DateGroup } from "../news/DateGroup";
-import { SearchToolbar, type SourceFilter } from "../news/SearchToolbar";
+import { SearchToolbar } from "../news/SearchToolbar";
 import { TagFilterBar, type DimSelection } from "../news/TagFilterBar";
 
 /** 跨导航切换保留筛选状态（模块级缓存） */
-const persisted: Record<NewsPoolMode, { tag: string; q: string; src: SourceFilter; dimSel: DimSelection }> = {
-  all: { tag: "all", q: "", src: "all", dimSel: {} },
-  selected: { tag: "all", q: "", src: "all", dimSel: {} },
+const persisted: Record<NewsPoolMode, { tag: string; q: string; dimSel: DimSelection }> = {
+  all: { tag: "all", q: "", dimSel: {} },
+  selected: { tag: "all", q: "", dimSel: {} },
 };
 
 export function AllAIView({ mode = "all" }: { mode?: NewsPoolMode }) {
@@ -25,7 +25,6 @@ export function AllAIView({ mode = "all" }: { mode?: NewsPoolMode }) {
   const [items, setItems] = useState<NewsItem[]>([]);
   const [tag, setTag] = useState(saved.tag === "financing" ? "all" : saved.tag);
   const [q, setQ] = useState(saved.q);
-  const [src, setSrc] = useState<SourceFilter>(saved.src);
   const [dimSel, setDimSel] = useState<DimSelection>(saved.dimSel);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -69,11 +68,10 @@ export function AllAIView({ mode = "all" }: { mode?: NewsPoolMode }) {
       items.filter((it) => {
         if (tag !== "all" && categoryOf(it) !== tag) return false;
         if (!matchDims(it, dimSel)) return false;
-        if (src !== "all" && sourceKindOf(it) !== src) return false;
         if (!matchItem(it, q)) return false;
         return true;
       }),
-    [items, tag, q, src, dimSel],
+    [items, tag, q, dimSel],
   );
 
   const groups = useMemo(() => {
@@ -92,7 +90,7 @@ export function AllAIView({ mode = "all" }: { mode?: NewsPoolMode }) {
       <header className="mb-6 flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="text-[26px] font-extrabold text-ink">{mode === "all" ? "全部文章" : "Garena投资精选"}</h1>
-          <p className="mt-1 text-[13px] text-mut">{mode === "all" ? "本轮已采集文章" : "供投资研究参考的 AI 相关资讯"} · 支持来源、分类与搜索筛选</p>
+          <p className="mt-1 text-[13px] text-mut">{mode === "all" ? "本轮已采集文章" : "供投资研究参考的 AI 相关资讯"} · 支持分类与关键词搜索</p>
         </div>
         <SearchToolbar
           q={q}
@@ -100,12 +98,6 @@ export function AllAIView({ mode = "all" }: { mode?: NewsPoolMode }) {
             setQ(v);
             saved.q = v;
           }}
-          src={src}
-          onSrcChange={(v) => {
-            setSrc(v);
-            saved.src = v;
-          }}
-          showSourceFilter={true}
         />
       </header>
 
@@ -154,7 +146,7 @@ export function AllAIView({ mode = "all" }: { mode?: NewsPoolMode }) {
         <p className="ah-card p-8 text-center text-[13px] text-mut">
           {items.length === 0
             ? mode === "all" ? "本轮暂无已发布文章。" : "本轮暂无 Garena投资精选。"
-            : "无匹配内容，试试切换分类、标签、来源筛选或清空搜索词。"}
+            : "无匹配内容，试试切换分类、标签或清空搜索词。"}
         </p>
       ) : (
         groups.map(([dayKey, list]) => (

@@ -143,9 +143,6 @@ export function CompanyOverviewView() {
           q={q}
           placeholder="搜索公司、产品、业务、团队…"
           onQChange={setQ}
-          src="all"
-          onSrcChange={() => undefined}
-          showSourceFilter={false}
         />
       </header>
 
