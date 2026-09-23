@@ -54,7 +54,8 @@ def inspect(root: Path, stages: list[str], target_date: str | None = None, *, te
     if any(s in stages for s in ("discovery", "content")):
         keys.append("MANUS_API_KEY")  # 现有正文 CLI 的 Settings 也要求 Manus key。
     if require_llm and any(s in stages for s in ("news", "feed", "snapshot", "overview", "funding")):
-        keys.append((tx.get("model") or {}).get("api_key_env", "DEEPSEEK_API_KEY"))
+        from llm_common import resolve_key_env
+        keys.append(resolve_key_env(tx) if tx.get('model') else 'PARATERA_API_KEY')
     for key in keys:
         value = os.getenv(key, "").strip()
         check(key, value and not value.lower().startswith("your-"), "仅检查配置存在，尚未验证额度或接口可用性")

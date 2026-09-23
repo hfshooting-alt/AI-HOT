@@ -34,8 +34,8 @@ def _main(argv=None):
     parser.add_argument('--window-end', help='固定扫描开始时刻，含时区的 ISO 时间；默认取当前北京时间到秒')
     parser.add_argument('--cutoff-time', default='09:30', help='北京时间固定24小时窗口结束时刻 HH:MM，默认09:30')
     parser.add_argument("--stage", choices=("all", *STAGES), default="all")
-    parser.add_argument("--source-mode", choices=("manus-only", "direct-only", "full", "aihot-only"), default="manus-only",
-                        help="Manus 或匿名媒体页面直采；full 为 Manus 兼容别名，AIHOT 已停用")
+    parser.add_argument("--source-mode", choices=("manus-only", "direct-only", "full", "aihot-only"), default="direct-only",
+                        help="默认匿名媒体直采；full 为 direct-only 别名，Manus 暂停、AIHOT 已停用")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--no-promote", action="store_true", help="执行接口并生成候选产物，保留正式数据")
     parser.add_argument("--dry-run", action="store_true", help="只显示计划，不调用任何外部接口")
@@ -77,6 +77,9 @@ def _main(argv=None):
         parser.error('--cutoff-time 必须为有效 HH:MM')
     try:
         args.source_mode = normalize_source_mode(args.source_mode)
+        if args.source_mode == 'manus-only':
+            from service_policy import require
+            require('manus')
     except ValueError as exc:
         parser.error(str(exc))
     ten_am = args.window_mode != 'calendar-day'
@@ -115,6 +118,8 @@ def _main(argv=None):
         parser.error('统一采集使用固定24小时窗口；自然日仅供旧单阶段调试')
     if args.source_mode == 'direct-only' and not combined:
         parser.error('direct-only 使用完整隔离批次 --stage all')
+    if args.source_mode == 'direct-only':
+        args.skip_search = True  # Only the configured model API; no Tavily.
     stages = list(DIRECT_STAGES if args.source_mode == 'direct-only' else COMBINED_STAGES) if combined else [args.stage]
     if args.dry_run:
         run_path = ROOT / "work" / "runs" / args.date

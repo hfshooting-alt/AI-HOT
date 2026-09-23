@@ -39,6 +39,7 @@ def isolated():
         stack.enter_context(patch.object(llm_common, '_DOTENV_LOADED', False))
         # 不提供默认测试模型，以免再次掩盖测试夹具缺少模型配置的问题。
         stack.enter_context(patch.dict(os.environ, {'LLM_MODEL': '', 'LLM_API_BASE': ''}))
+        stack.enter_context(patch.dict(os.environ, {'PARATERA_API_KEY': ''}))
         for target, names in (
             (socket, ("create_connection", "getaddrinfo")),
             (socket.socket, ("connect", "connect_ex", "sendto")),

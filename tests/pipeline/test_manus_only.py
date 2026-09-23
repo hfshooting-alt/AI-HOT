@@ -1,4 +1,4 @@
-"""Production Manus-only boundaries: no retired upstream fallback or paid calls."""
+"""Production direct-only defaults and paused legacy collection boundaries."""
 import contextlib
 import io
 import json
@@ -33,23 +33,35 @@ class ManusOnly(unittest.TestCase):
             self.assertEqual(run_pipeline.main(['run', '--dry-run', *args]), 0)
         return json.loads(output.getvalue())
 
-    def test_default_plan_has_only_manus_and_exact_rolling_window(self):
+    def test_default_plan_has_only_direct_and_exact_rolling_window(self):
         result = self.dry_plan()
-        self.assertEqual(result['sourceMode'], 'manus-only')
-        self.assertEqual(result['parallelCollectors'], ['discovery'])
+        self.assertEqual(result['sourceMode'], 'direct-only')
+        self.assertEqual(result['parallelCollectors'], ['direct'])
         self.assertEqual(result['collectionWindow'], {'start': '2026-09-21T18:27:36+08:00',
             'end': '2026-09-22T18:27:36+08:00', 'timezone': 'Asia/Shanghai'})
         self.assertEqual(result['contentMode'], 'script')
-        self.assertFalse(any('collect' in row['command'] or row['stage'] == 'aihot' for row in result['stages']))
+        self.assertEqual([row['stage'] for row in result['stages']], list(runner.DIRECT_STAGES))
+        self.assertFalse(any(row['stage'] in ('aihot', 'discovery', 'content') for row in result['stages']))
         self.assertFalse((self.root / 'work').exists())
 
-    def test_full_is_alias_and_zero_limit_reaches_discovery(self):
-        result = self.dry_plan('--source-mode', 'full', '--manus-credit-limit', '0')
-        self.assertEqual(result['sourceMode'], 'manus-only')
-        command = next(r['command'] for r in result['stages'] if r['stage'] == 'discovery')
-        self.assertEqual(command[command.index('--credit-limit-per-source') + 1], '0')
-        self.assertIn('--incremental-discovery', command)
-        self.assertIn('--source-seeds', command)
+    def test_full_is_direct_alias_without_any_manus_task_command(self):
+        result = self.dry_plan('--source-mode', 'full')
+        self.assertEqual(result['sourceMode'], 'direct-only')
+        commands = '\n'.join(' '.join(row['command']) for row in result['stages'])
+        self.assertIn('collect_direct_news.py', commands)
+        self.assertNotIn('manus_source/runner.py', commands.replace('\\', '/'))
+        self.assertNotIn('--discover-company', commands)
+        self.assertNotIn('--credit-limit-per-source', commands)
+
+    def test_explicit_manus_is_rejected_before_preflight_or_execution(self):
+        with patch.object(run_pipeline, 'inspect') as inspect, patch.object(run_pipeline, 'run') as execute, \
+             contextlib.redirect_stderr(io.StringIO()):
+            for extra in ([], ['--dry-run']):
+                with self.subTest(extra=extra), self.assertRaises(SystemExit):
+                    run_pipeline.main(['run', '--source-mode', 'manus-only', *extra])
+        inspect.assert_not_called()
+        execute.assert_not_called()
+        self.assertFalse((self.root / 'work').exists())
 
     def test_retired_modes_rejected_before_execution(self):
         with patch.object(run_pipeline, 'run') as execute, contextlib.redirect_stderr(io.StringIO()):
@@ -61,8 +73,8 @@ class ManusOnly(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'AIHOT'):
             runner.run(self.root, '2026-09-22', ['aihot'], execute=lambda _: self.fail('must not run'))
 
-    def test_missing_manus_configuration_blocks_single_collector_pipeline(self):
-        checks = [{'check': 'MANUS_API_KEY', 'ok': False, 'detail': 'not configured'}]
+    def test_missing_model_configuration_blocks_direct_pipeline(self):
+        checks = [{'check': 'DEEPSEEK_API_KEY', 'ok': False, 'detail': 'not configured'}]
         with patch.object(run_pipeline, 'inspect', return_value=checks), patch.object(run_pipeline, 'run') as execute, \
              contextlib.redirect_stdout(io.StringIO()):
             self.assertEqual(run_pipeline.main(['run']), 1)

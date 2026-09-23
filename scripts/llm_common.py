@@ -14,6 +14,7 @@ import threading
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlsplit
 from llm_failures import LLMRequestError, safe_error
 
 # 项目根 = 本文件（scripts/）的上级目录；.env 真实文件已被 .gitignore 忽略。
@@ -50,6 +51,20 @@ def resolve_model(tx: dict) -> str:
     """模型解析：LLM_MODEL 环境变量可覆盖 taxonomy.json 的 model（DeepSeek 之外的其他模型）。"""
     ensure_env_loaded()
     return os.environ.get("LLM_MODEL", "").strip() or tx["model"]["model"]
+
+
+def resolve_key_env(tx: dict) -> str:
+    """Prefer the provider's own key name; the old DeepSeek name is an alias.
+
+    Never forward a Paratera credential to another configured provider.
+    """
+    ensure_env_loaded()
+    model = tx['model']
+    base = os.getenv(model['api_base_env'], '') or model['default_base']
+    if (urlsplit(base).hostname == 'llmapi.paratera.com'
+            and os.getenv('PARATERA_API_KEY', '').strip()):
+        return 'PARATERA_API_KEY'
+    return model['api_key_env']
 
 
 def model_request_options(model: str) -> dict:
@@ -93,7 +108,7 @@ def call_llm(tx: dict, system: str, user: str, timeout_seconds: int | None = Non
     """
     ensure_env_loaded()
     m = tx["model"]
-    api_key = os.environ.get(m["api_key_env"], "")
+    api_key = os.environ.get(resolve_key_env(tx), "")
     if not api_key:
         error = LLMRequestError("configuration")
         record_failure(resolve_model(tx), error, operation)

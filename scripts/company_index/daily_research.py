@@ -101,8 +101,14 @@ def research_error(error, phase):
     return safe_error(error)
 
 
-def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn=propose, rules=None, discovery_fn=None, budget_dir=None, replay_only=False):
-    if not 1 <= max_requests <= 5:
+def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn=propose, rules=None, discovery_fn=None, budget_dir=None, replay_only=False, full_review=False):
+    """Review a finite known-link pool, optionally without the legacy day quota.
+
+    Full review never discovers links or creates Manus tasks. It still reads
+    at most two known pages per input and makes at most one new model attempt;
+    replay, evidence validation and failure circuits remain unchanged.
+    """
+    if not full_review and not 1 <= max_requests <= 5:
         raise ValueError('每日已知链接补全最多5次请求')
     result = copy.deepcopy(data)
     rules = rules if rules is not None else json.loads(RULES_PATH.read_text(encoding='utf8'))
@@ -119,7 +125,7 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
         old = history.get(rec['id'], {})
         known[rec['company_name']] = [*old.get('urls', []), *known.get(rec['company_name'], [])]
     selected = None
-    if discovery_fn and not replay_only:
+    if discovery_fn and not replay_only and not full_review:
         candidates = [r for r in entities if (r['id'] in pending_ids or any(not r.get(f) for f in PROFILE_FIELDS))
                       and r['id'] not in history]
         if discovered.get('last', {}).get('status') == 'stop_unconfirmed':
@@ -138,7 +144,8 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
     state = result.setdefault('knownLinkResearchState', {})
     report = {'mode': 'known_links', 'checkedAt': now_bj_iso(), 'attempted': 0,
               'filled': 0, 'failed': 0, 'skippedUnchanged': 0, 'deferred': 0, 'records': [],
-              'pagesFetched': 0, 'dailyLimits': dict(DAILY_LIMITS), 'notAttempted': []}
+              'pagesFetched': 0, 'dailyLimits': None if full_review else dict(DAILY_LIMITS),
+              'fullReview': full_review, 'notAttempted': []}
     day = checked_day(report['checkedAt'])
     model = resolve_model(tx)
     usage, unknown_dates, legacy = daily_usage(state, day)
@@ -155,7 +162,14 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
     for row in pool:
         queue[research_priority(row, pending_ids)] += 1
     report['queue'] = queue
-    budget = ResearchBudget(budget_dir, clock=now_bj_iso)
+    if full_review:
+        report['batchLimits'] = {'entities': len(pool), 'pages': 2 * len(pool), 'requests': len(pool)}
+        report['maxPagesPerEntity'] = 2
+        report['discoveryDisabled'] = True
+        report['cloudGuard'] = 'same_day_owner_lease'
+    budget = ResearchBudget(budget_dir, clock=now_bj_iso,
+                            **({'limits': None, 'require_cloud_lease': True}
+                               if full_review and not replay_only else {}))
     try:
         journal = budget.snapshot() if replay_only else budget.synchronize(state)
         usage = budget.usage()
@@ -241,7 +255,8 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
             reason = ('cache_missing' if replay_only else
                       'budget_unavailable' if report.get('budgetUnavailable') else
                       'model_circuit' if circuit.stopped else
-                      'run_limit' if report['attempted'] >= max_requests or fetched_entities >= max_requests else None)
+                      'run_limit' if not full_review and (report['attempted'] >= max_requests
+                                                          or fetched_entities >= max_requests) else None)
             if reason is None:
                 try:
                     reason = budget.begin(key, event)
@@ -291,7 +306,8 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
                     # Its durable event also lets failures report actual attempts.
                     try:
                         proposal, attempted, original_time = budget.run_proposal(
-                            key, tx, packet, propose_fn, directory, max_requests=max_requests)
+                            key, tx, packet, propose_fn, directory, max_requests=max_requests,
+                            **({'full_review': True} if full_review else {}))
                     finally:
                         current = budget.lookup(key)
                         event['modelAttempted'] = current['event'].get('modelAttempted', False)
@@ -368,7 +384,7 @@ def enrich(data, tx, directory, *, max_requests=5, read_fn=read_page, propose_fn
     except BudgetUnavailable as error:
         report['budgetUnavailable'] = str(error)
     report['dailyUsageAfter'] = usage
-    report['dailyLimitReached'] = any(usage[k] >= limit for k, limit in DAILY_LIMITS.items())
+    report['dailyLimitReached'] = not full_review and any(usage[k] >= limit for k, limit in DAILY_LIMITS.items())
     report.update(circuitOpen=circuit.stopped, circuitReason=circuit.reason)
     result['knownLinkResearch'] = report
     return result

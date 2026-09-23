@@ -65,10 +65,13 @@ class CompanyDiscoveryTest(unittest.TestCase):
         self.assertEqual(data['companies'][0]['business'],'Existing')
         self.assertEqual(data['companies'][0]['fieldSources']['country'][0]['verificationStatus'],'provisional')
 
-    def test_manus_only_preserves_research_and_rejects_retired_mode(self):
-        for mode in ('full', 'manus-only'):
+    def test_direct_full_disables_discovery_but_legacy_plan_remains_explicit(self):
+        for mode in ('full', 'direct-only'):
             cmd=plan(Path('/root'),Path('/root/work/one/workspace'),'2026-09-15',combined=True,source_mode=mode)['overview']
-            self.assertIn('--discover-company', cmd)
+            self.assertNotIn('--discover-company', cmd)
+            self.assertIn('--research-full-review', cmd)
+        legacy=plan(Path('/root'),Path('/root/work/one/workspace'),'2026-09-15',combined=True,source_mode='manus-only')['overview']
+        self.assertIn('--discover-company', legacy)
         with self.assertRaisesRegex(ValueError, 'AIHOT'):
             plan(Path('/root'),Path('/root/work/one/workspace'),'2026-09-15',combined=True,source_mode='aihot-only')
 

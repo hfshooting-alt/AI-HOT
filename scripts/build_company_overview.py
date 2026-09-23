@@ -121,22 +121,29 @@ def main(argv=None):
     parser.add_argument('--evidence-json', help='本批次审核通过的原始证据，仅保存在隔离工作目录')
     parser.add_argument('--allow-partial', action='store_true', help='隔离单篇公司抽取失败，保留成功更新及旧资料')
     parser.add_argument('--known-link-research', action='store_true', help='读取已确认网页，最多5次模型补全，失败隔离')
+    parser.add_argument('--research-full-review', action='store_true',
+                        help='逐一处理本批缺资料主体，每主体最多2个已知网页/1次模型请求；不搜索新链接或调用Manus')
     parser.add_argument('--discover-company', action='store_true', help='每天最多1个主体的Manus资料搜索，观察止损20credits')
     parser.add_argument('--research-dir', type=Path, default=ROOT / 'work/company-web-research')
     parser.add_argument('--research-budget-dir', type=Path, default=ROOT / 'work/company-research-budget',
                         help='独立于发布产物的资料补全配额与成功结果目录')
     args = parser.parse_args(argv)
+    if args.research_full_review and args.discover_company:
+        parser.error('--research-full-review 不允许 --discover-company；仅使用已知网页')
     tx = tag_news.load_taxonomy(str(ROOT / args.taxonomy))
     try:
         data = build(ROOT / args.snapshot, ROOT / args.feed, ROOT / args.work_dir,
                      ROOT / args.previous, ROOT / args.cache_dir, tx,
                      generated_at=args.generated_at, require_complete=args.require_complete,
                      evidence_path=args.evidence_json, allow_partial=args.allow_partial, replace_product_evidence=args.replace_product_evidence)
-        if args.known_link_research:
+        if args.known_link_research or args.research_full_review:
             from company_index.daily_research import enrich
-            from company_index.discovery import discover
+            discovery_fn = None
+            if args.discover_company:
+                from company_index.discovery import discover
+                discovery_fn = discover
             data = enrich(data, tx, args.research_dir, budget_dir=args.research_budget_dir,
-                          discovery_fn=discover if args.discover_company else None)
+                          discovery_fn=discovery_fn, full_review=args.research_full_review)
             validate(data, tx)
     except ValueError as exc:
         print(f"公司与产品库构建失败，保留上一次产物：{exc}", file=sys.stderr)

@@ -46,12 +46,16 @@ def atomic_json(path, value):
 
 
 class ResearchBudget:
-    def __init__(self, directory=None, *, clock=now_bj_iso):
+    def __init__(self, directory=None, *, clock=now_bj_iso, limits=LIMITS, require_cloud_lease=True):
         self.directory = Path(directory) if directory is not None else DEFAULT_BUDGET_DIR
         self.clock = clock
         self.day = beijing_day(clock())
         self.owner = os.getenv('GITHUB_RUN_ID', '') + ':' + os.getenv('GITHUB_RUN_ATTEMPT', '')
         self.cloud = bool(os.getenv('GITHUB_ACTIONS'))
+        # Explicit full review retains durable input/request reservations while
+        # replacing the legacy daily financial quota with a finite input pool.
+        self.limits = copy.deepcopy(limits)
+        self.require_cloud_lease = require_cloud_lease
         self.path = self.directory / 'ledger.json'
 
     @contextmanager
@@ -88,7 +92,7 @@ class ResearchBudget:
     def permission(self):
         if self.day is None or beijing_day(self.clock()) != self.day:
             return 'day_changed'
-        if self.cloud:
+        if self.cloud and self.require_cloud_lease:
             if os.getenv('COMPANY_RESEARCH_BUDGET_READY') != '1':
                 return 'cloud_budget_not_ready'
             from .cloud_research_lease import check
@@ -176,8 +180,9 @@ class ResearchBudget:
                 return reason
             usage = self._usage(data, self.day)
             count = len(event['urls'])
-            if (usage['entities'] >= LIMITS['entities'] or usage['requests'] >= LIMITS['requests']
-                    or usage['pages'] + count > LIMITS['pages']):
+            if self.limits is not None and (usage['entities'] >= self.limits['entities']
+                    or usage['requests'] >= self.limits['requests']
+                    or usage['pages'] + count > self.limits['pages']):
                 return 'daily_limit'
             data['inputs'][key] = {'day': self.day, 'event': copy.deepcopy(event),
                 'units': {'entities': 1, 'pages': count, 'requests': 0}}
@@ -187,7 +192,9 @@ class ResearchBudget:
         with self.journal() as data:
             data['inputs'][key]['event'] = copy.deepcopy(event)
 
-    def run_proposal(self, key, tx, packet, fn, previous_directory, *, max_requests):
+    def run_proposal(self, key, tx, packet, fn, previous_directory, *, max_requests, full_review=False):
+        if self.limits is None and not full_review:
+            raise BudgetUnavailable('full_review_required')
         request = proposal_key(tx, packet, isolate_invalid=True)
         destination = self.directory / 'model-cache' / self.day
         saved = self.directory / 'results' / f'{request}.json'
@@ -211,7 +218,8 @@ class ResearchBudget:
                 reason = self.permission()
                 if reason:
                     raise BudgetUnavailable(reason)
-                if self._usage(data, self.day)['requests'] >= LIMITS['requests']:
+                if (self.limits is not None
+                        and self._usage(data, self.day)['requests'] >= self.limits['requests']):
                     raise BudgetUnavailable('daily_limit')
                 entry['units']['requests'] += 1
                 entry['event']['modelAttempted'] = True
@@ -220,7 +228,8 @@ class ResearchBudget:
         if cached is None:
             # The reservation is committed before entering arbitrary model code.
             cached = fn(tx, packet, destination, allow_paid=True,
-                        max_requests=LIMITS['requests'], isolate_invalid=True)
+                        max_requests=None if self.limits is None else self.limits['requests'],
+                        isolate_invalid=True, **({'full_review': True} if full_review else {}))
         if not isinstance(cached, dict) or not isinstance(cached.get('facts'), list):
             raise LLMRequestError('invalid_response')
         atomic_json(saved, {'proposal': cached, 'checkedAt': checked_at})

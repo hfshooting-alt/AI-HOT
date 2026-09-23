@@ -1,7 +1,7 @@
 name: 新闻Daily 新闻采集与完整数据更新
 
 on:
-  # 2026-09-22: user paused automatic collection; keep manual full workflow available.
+  # Automatic collection remains paused; only manual direct-site runs are enabled.
   workflow_dispatch:
     inputs:
       date:
@@ -9,33 +9,25 @@ on:
         type: string
         default: ""
       stage:
-        description: "执行阶段；正式每日更新使用 all"
+        description: "完整直采与后续处理；本期仅允许 all"
         type: choice
-        options: [all, snapshot, overview, funding]
+        options: [all]
         default: all
       source_mode:
-        description: "manus-only 或匿名媒体直采 direct-only（直采选 all）；AIHOT已停止"
+        description: "匿名媒体直采 direct-only；本期停用 Manus 与 AIHOT"
         type: choice
-        options: [manus-only, direct-only]
-        default: manus-only
+        options: [direct-only]
+        default: direct-only
       window_end:
         description: "含时区ISO扫描开始时刻，留空取当前北京时间到秒；固定回溯24小时"
         type: string
         default: ""
-      manus_credit_limit:
-        description: "每来源观察止损线，默认20；显式0取消观察线（费用非硬上限）"
-        type: number
-        default: 20
       promote:
         description: "所选阶段全部成功后更新正式数据"
         type: boolean
         default: true
       dry_run:
         description: "仅输出计划，不调用接口、不写数据"
-        type: boolean
-        default: false
-      skip_search:
-        description: "跳过可选 Tavily 搜索补全"
         type: boolean
         default: false
 
@@ -110,58 +102,24 @@ jobs:
         env:
           RESEARCH_DAY: ${{ steps.research-day.outputs.day }}
         run: PYTHONPATH=scripts python -m company_index.research_budget --check --day "$RESEARCH_DAY" --directory work/company-research-budget
-      - name: 读取当天公司搜索占位
-        continue-on-error: true
-        uses: actions/cache/restore@v4
-        with:
-          path: work/company-discovery/quota.json
-          key: company-discovery-day-${{ steps.research-day.outputs.day }}
-      - name: 预留每天一次的公司搜索
-        continue-on-error: true
-        if: ${{ !inputs.dry_run && (inputs.stage == 'all' || inputs.stage == 'overview') }}
-        run: PYTHONPATH=scripts python -m company_index.discovery --reserve
-      - name: 创建任务前持久化配额占位
-        continue-on-error: true
-        if: ${{ !inputs.dry_run && (inputs.stage == 'all' || inputs.stage == 'overview') }}
-        uses: actions/cache/save@v4
-        with:
-          path: work/company-discovery/quota.json
-          key: company-discovery-day-${{ steps.research-day.outputs.day }}
-      - name: 确认配额已持久化后才允许付费流程
-        id: company-quota-confirm
-        continue-on-error: true
-        if: ${{ !inputs.dry_run && (inputs.stage == 'all' || inputs.stage == 'overview') }}
-        uses: actions/cache/restore@v4
-        with:
-          path: work/company-discovery/quota.json
-          key: company-discovery-day-${{ steps.research-day.outputs.day }}
-          fail-on-cache-miss: true
-      - name: Manus发现 → 脚本正文 → 统一模型处理 → 发布成功来源
+      - name: 匿名媒体直采 → 并行科技模型处理 → 发布成功来源
+        id: direct-pipeline
         env:
-          MANUS_CONTENT_MODE: script
           COMPANY_RESEARCH_BUDGET_READY: ${{ steps.company-research-ready.outcome == 'success' && '1' || '0' }}
-          COMPANY_DISCOVERY_QUOTA_READY: ${{ steps.company-quota-confirm.outcome == 'success' && '1' || '0' }}
-          MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
-          DEEPSEEK_API_KEY: ${{ secrets.PARATERA_API_KEY || secrets.DEEPSEEK_API_KEY }}
-          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
-          LLM_API_BASE: ${{ secrets.PARATERA_API_KEY != '' && 'https://llmapi.paratera.com/v1' || vars.LLM_API_BASE || 'https://api.deepseek.com' }}
-          LLM_MODEL: ${{ secrets.PARATERA_API_KEY != '' && 'DeepSeek-V4-Pro' || vars.LLM_MODEL || 'deepseek-v4-flash' }}
+          DEEPSEEK_API_KEY: ${{ secrets.PARATERA_API_KEY }}
+          LLM_API_BASE: https://llmapi.paratera.com/v1
+          LLM_MODEL: DeepSeek-V4-Pro
           INPUT_DATE: ${{ inputs.date }}
-          INPUT_STAGE: ${{ inputs.stage }}
-          INPUT_SOURCE_MODE: ${{ inputs.source_mode }}
           INPUT_WINDOW_END: ${{ inputs.window_end }}
-          INPUT_MANUS_CREDIT_LIMIT: ${{ inputs.manus_credit_limit }}
           INPUT_PROMOTE: ${{ inputs.promote }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
-          INPUT_SKIP_SEARCH: ${{ inputs.skip_search }}
         shell: bash
         run: |
-          args=(run --window-mode rolling-24h --stage "${INPUT_STAGE:-all}" --source-mode "${INPUT_SOURCE_MODE:-manus-only}" --manus-credit-limit "${INPUT_MANUS_CREDIT_LIMIT:-20}")
+          args=(run --window-mode rolling-24h --stage all --source-mode direct-only --skip-search)
           if [ -n "$INPUT_WINDOW_END" ]; then args+=(--window-end "$INPUT_WINDOW_END"); fi
           if [ -n "$INPUT_DATE" ]; then args+=(--date "$INPUT_DATE"); fi
           if [ "$INPUT_PROMOTE" = "false" ]; then args+=(--no-promote); fi
           if [ "$INPUT_DRY_RUN" = "true" ]; then args+=(--dry-run); fi
-          if [ "$INPUT_SKIP_SEARCH" = "true" ]; then args+=(--skip-search); fi
           python scripts/run_pipeline.py "${args[@]}"
       - name: 提交整套已发布数据
         if: ${{ success() && (github.event_name == 'schedule' || (inputs.promote && !inputs.dry_run)) }}

@@ -1,6 +1,6 @@
 # 新闻Daily
 
-新闻Daily 支持 Manus 链接发现和匿名媒体页面直采，提供“全部文章”、“Garena投资精选”和“公司与产品全景”。直采运行及证据边界见[媒体页面直采](docs/operations/DIRECT_NEWS_COLLECTION.md)。AIHOT 采集、日报、热点、实时接口和演示内容回退已停用。现有仓库名称及 [GitHub Pages 部署路径](https://hfshooting-alt.github.io/AI-HOT/) 保留兼容。
+新闻Daily 通过匿名媒体页面直采获取新闻，统一使用并行科技 DeepSeek-V4-Pro 加工，提供“全部文章”、“Garena投资精选”和“公司与产品全景”。Manus 暂停，Tavily 停用，服务开关在 `config/services.json`，旧入口也在HTTP前阻断。直采运行及证据边界见[媒体页面直采](docs/operations/DIRECT_NEWS_COLLECTION.md)。AIHOT 采集、日报、热点、实时接口和演示内容回退已停用。现有仓库名称及 [GitHub Pages 部署路径](https://hfshooting-alt.github.io/AI-HOT/) 保留兼容。
 
 “全部文章”保留本批通过来源、原始发布时间校验并去重的文章元数据。按用户2026-09-23确认的规则，所有合格正文独立生成摘要和分类，不以 AI 相关性通过为前提；非精选文章也可有分类，非 AI 内容不强制填写 AI 维度。缺正文显示“待正文”，不能凭标题分类；单条打标失败明确显示状态，标题、来源、时间和原文链接仍可阅读。“Garena投资精选”继续单独执行实质 AI 相关性、摘要与分类校验。公司、产品及融资新增只消费精选，显式空池不从历史或旧 feed 回填。私有完整正文不进入网页。
 
@@ -22,7 +22,7 @@ npm --prefix web run dev
 
 ## 采集、候选与发布
 
-当前定时关闭，仅手动运行。统一入口默认 `manus-only`，旧 `full` 参数兼容映射到该模式；新增 `--source-mode direct-only --no-promote` 生成直采审核候选，`aihot-only` 仍被拒绝。20 个新闻信源来自 `config/manus_sources.json`，最多并发 3 个。正文脚本单篇隔离，合格文章继续处理；单来源失败不等于窗口内没有更新。
+当前定时关闭，仅手动运行。统一入口默认 `direct-only`，`full` 同样映射到直采；`--no-promote` 生成隔离审核候选。显式 `manus-only` 暂停，`aihot-only` 仍被拒绝。20 个新闻信源来自 `config/manus_sources.json`，最多并发 3 个。合格文章继续处理；单来源失败不等于窗口内没有更新。
 
 ```sh
 python scripts/run_pipeline.py doctor
@@ -31,9 +31,9 @@ python scripts/test_pipeline.py offline
 npm --prefix web test
 ```
 
-实际 `run`、公司抽取及搜索可能产生费用，应沿已有授权和预算执行。`--no-promote` 只隔离输出，不禁止付费。每源 credit 阈值是观察止损，不是服务端硬账单上限；停止请求接受与远端终态分别记录。余额按所选 Manus profile 计算，每日 refresh credits 不能作为 Standard 可用额度。已尝试的失败任务不自动重建，未知创建或停止未确认时阻止扩大任务。
+实际 `run` 的新闻与公司模型处理会产生并行科技 API 费用；`--no-promote` 只隔离输出。用户已授权完整处理本批文章和公司资料队列，直采默认启用 `--research-full-review`，不再被原5主体/10页/5模型的日额度截断。每个资料输入最多2个已知网页、1次新模型请求，成功缓存复用、失败输入不自动重试、系统性异常仍熔断；完整账本保留。此授权没有恢复 Manus。
 
-来源已核实的 checkpoint 在止损后仍可继续正文和模型加工，但不表示完整覆盖。预读 seed 只作线索，已知未处置候选会阻止来源宣称 complete。获取入口可达、窗口内取得样本、完整窗口覆盖须分别验收。
+网页读取和模型加工分别留证。获取入口可达、窗口内取得样本、完整窗口覆盖须分别验收；列表分页和转载延迟造成的覆盖缺口不会因增加模型调用自动解决。
 
 候选生成后统一核对新闻、公司、融资、来源状态及隐私边界；通过 `review-candidate` / `publish-candidate` 发布已有候选不会重新调用模型或创建任务。运行与恢复步骤见[操作说明](docs/operations/AUTOMATED_PIPELINE.md)。Pages 部署读取发布后的整套 JSON，最终是否上线以数据提交和 Pages 结果为准。
 
@@ -41,7 +41,7 @@ npm --prefix web test
 
 ## 前端与公开资源
 
-前端读取 `snapshot.json` 的独立 `all` / `garenaSelected` 两池，只展示 `manus:` 条目。空池保持空；快照缺失或坏数据显示错误，不追加旧日报、周报、实时新闻或浏览器补录。公司库与融资表分别读取 `company-overview.json`、`funding-table.json`。
+前端读取 `snapshot.json` 的独立 `all` / `garenaSelected` 两池，识别 `direct:` 及历史 `manus:` 条目。空池保持空；快照缺失或坏数据显示错误，不追加旧日报、周报、实时新闻或浏览器补录。公司库与融资表分别读取 `company-overview.json`、`funding-table.json`。
 
 迁移旧公开页面时，只在候选 workspace 中执行：
 
@@ -67,7 +67,7 @@ python scripts/retire_legacy_public.py --workspace work/<candidate>/workspace --
 
 公司抽取只使用本批精选与其私有正文。产品区分 owned / integrated / used / unknown，通用技术方法不能当产品；国家和法人日期须有来源，单轮融资、市值、历史估值不能混填。原始新闻日期与资料核验日期分别保存。
 
-来源迁移清除仅由 AIHOT 支撑的新闻和字段，不凭空重算成功缓存。经审核的 Manus 和独立官网证据保留，已有费用/研究账本不重置。已知网页补全仍按原授权、预算和逐字段证据规则执行，详见[公司资料操作说明](docs/operations/COMPANY_WEB_RESEARCH.md)和[公司数据契约](docs/architecture/COMPANY_OVERVIEW_CONTRACT.md)。
+来源迁移清除仅由 AIHOT 支撑的新闻和字段，不凭空重算成功缓存。经审核的历史媒体和独立官网证据保留，已有费用/研究账本不重置。资料补全按待处理队列执行，逐字段证据规则保持；未知官网不会靠模型记忆补造，暂缺字段继续明确缺失。详见[公司资料操作说明](docs/operations/COMPANY_WEB_RESEARCH.md)和[公司数据契约](docs/architecture/COMPANY_OVERVIEW_CONTRACT.md)。
 
 ## 目录与维护
 

@@ -120,9 +120,9 @@ class WorkspaceTest(unittest.TestCase):
                 return 1
             return 0
         with patch.object(runner, "validate_candidates"):
-            self.assertEqual(runner.run(self.root, "2026-09-07", ["feed", "funding"], execute=execute), 1)
+            self.assertEqual(runner.run(self.root, "2026-09-07", ["feed", "funding"], execute=execute, source_mode='manus-only'), 1)
             self.assertEqual((self.root / "data/manus/sentinel.txt").read_text(), "old")
-            self.assertEqual(runner.run(self.root, "2026-09-07", ["feed", "funding"], execute=execute, resume=True), 0)
+            self.assertEqual(runner.run(self.root, "2026-09-07", ["feed", "funding"], execute=execute, resume=True, source_mode='manus-only'), 0)
         self.assertEqual(calls, ["build_manus_feed.py", "funding_table.py", "funding_table.py"])
         self.assertFalse((self.root / "work/pipeline.lock").exists())
 
@@ -133,17 +133,17 @@ class WorkspaceTest(unittest.TestCase):
         self.assertTrue((self.root / "work/runs/2026-09-07" / latest["runId"] / "workspace/web/public").exists())
 
     def test_resume_rejects_changed_configuration(self):
-        runner.run(self.root, "2026-09-07", ["feed"], execute=lambda c: 1)
+        runner.run(self.root, "2026-09-07", ["feed"], execute=lambda c: 1, source_mode='manus-only')
         with (self.root / "config/taxonomy.json").open("a") as f:
             f.write(" ")
         with self.assertRaisesRegex(ValueError, "配置"):
-            runner.run(self.root, "2026-09-07", ["feed"], resume=True, execute=lambda c: 0)
+            runner.run(self.root, "2026-09-07", ["feed"], resume=True, execute=lambda c: 0, source_mode='manus-only')
 
     def test_resume_cannot_overwrite_newer_official_data(self):
-        runner.run(self.root, "2026-09-07", ["feed"], execute=lambda c: 0, no_promote=True)
+        runner.run(self.root, "2026-09-07", ["feed"], execute=lambda c: 0, no_promote=True, source_mode='manus-only')
         (self.root / "data/manus/sentinel.txt").write_text("newer")
         with patch.object(runner, "validate_candidates"), self.assertRaisesRegex(ValueError, "正式数据"):
-            runner.run(self.root, "2026-09-07", ["feed"], resume=True, execute=lambda c: 0)
+            runner.run(self.root, "2026-09-07", ["feed"], resume=True, execute=lambda c: 0, source_mode='manus-only')
         self.assertEqual((self.root / "data/manus/sentinel.txt").read_text(), "newer")
 
     def test_publication_failure_restores_previous_directories(self):
@@ -185,7 +185,7 @@ class WorkspaceTest(unittest.TestCase):
         (self.root / "work").mkdir()
         (self.root / "work/pipeline.lock").write_text("locked")
         with self.assertRaises(FileExistsError):
-            runner.run(self.root, "2026-09-07", ["feed"], execute=lambda c: 0)
+            runner.run(self.root, "2026-09-07", ["feed"], execute=lambda c: 0, source_mode='manus-only')
         self.assertTrue((self.root / "work/pipeline.lock").exists())
 
     def test_discovery_resume_reuses_valid_successful_group(self):
@@ -215,21 +215,21 @@ class WorkspaceTest(unittest.TestCase):
             checks = doctor.inspect(self.root, ["feed"])
         self.assertFalse(next(c for c in checks if c["check"] == "DEEPSEEK_API_KEY")["ok"])
 
-    def test_local_snapshot_preflight_and_manus_only_plan(self):
+    def test_local_snapshot_preflight_and_direct_default_plan(self):
         with patch.dict(os.environ, {}, clear=True):
             checks = doctor.inspect(self.root, ["snapshot"], require_llm=False)
         self.assertFalse(any(c["check"] in ("MANUS_API_KEY", "DEEPSEEK_API_KEY") for c in checks))
         commands = runner.plan(self.root, self.root / "candidate", "2026-09-09",
-                               ten_am=True, source_mode="manus-only")
+                               ten_am=True)
         self.assertNotIn("--exclude-wechat", commands["snapshot"])
         self.assertNotIn('aihot', commands)
         self.assertIn("24h", commands["snapshot"])
         out_path = Path(commands["snapshot"][commands["snapshot"].index("--out") + 1])
         self.assertEqual(out_path, self.root / "candidate/legacy-index.html")
 
-    def test_full_plan_applies_manus_per_task_credit_limit(self):
+    def test_explicit_legacy_manus_plan_retains_per_task_credit_limit(self):
         commands = runner.plan(self.root, self.root / "candidate", "2026-09-10",
-                               ten_am=True, manus_credit_limit=80)
+                               ten_am=True, manus_credit_limit=80, source_mode='manus-only')
         discovery = commands["discovery"]
         self.assertEqual(discovery[discovery.index("--credit-limit-per-source") + 1], "80")
 
@@ -239,7 +239,7 @@ class WorkspaceTest(unittest.TestCase):
                 self.assertEqual(run_pipeline.main(["run", "--dry-run", "--window-mode", "ten-am", "--date", "2026-09-07"]), 0)
         run_mock.assert_not_called()
         self.assertFalse((self.root / "work").exists())
-        self.assertEqual([s["stage"] for s in json.loads(out.getvalue())["stages"]], list(runner.COMBINED_STAGES))
+        self.assertEqual([s["stage"] for s in json.loads(out.getvalue())["stages"]], list(runner.DIRECT_STAGES))
 
     def test_full_alias_dry_run_retains_model_and_company_stages_without_aihot(self):
         with patch.object(run_pipeline, "ROOT", self.root), patch.object(run_pipeline, "run") as run_mock:
@@ -248,11 +248,12 @@ class WorkspaceTest(unittest.TestCase):
                                                     "--source-mode", "full"]), 0)
         run_mock.assert_not_called()
         payload = json.loads(out.getvalue())
-        self.assertEqual(payload["sourceMode"], "manus-only")
-        self.assertEqual([s["stage"] for s in payload["stages"]], ["discovery", "content", "news", "snapshot", "overview", "funding"])
-        self.assertEqual(payload['parallelCollectors'], ['discovery'])
-        self.assertNotIn('--without-manus', payload['stages'][2]['command'])
-        self.assertNotIn('--exclude-wechat', payload['stages'][3]['command'])
+        self.assertEqual(payload["sourceMode"], "direct-only")
+        self.assertEqual([s["stage"] for s in payload["stages"]], list(runner.DIRECT_STAGES))
+        self.assertEqual(payload['parallelCollectors'], ['direct'])
+        stages = {s['stage']: s['command'] for s in payload['stages']}
+        self.assertIn('--direct-input', stages['news'])
+        self.assertNotIn('--exclude-wechat', stages['snapshot'])
 
     def test_invalid_candidate_is_not_published(self):
         with self.assertRaises((FileNotFoundError, ValueError)):
@@ -311,7 +312,7 @@ class WorkspaceTest(unittest.TestCase):
         # snapshot 模板仍读实际仓库，所有输出由计划显式指向临时候选目录。
         old_taxonomy = build_snapshot.TAG_TAXONOMY
         try:
-            self.assertEqual(runner.run(self.root, date, list(runner.STAGES), execute=execute, skip_search=True), 0)
+            self.assertEqual(runner.run(self.root, date, list(runner.STAGES), execute=execute, skip_search=True, source_mode='manus-only'), 0)
         finally:
             build_snapshot.TAG_TAXONOMY = old_taxonomy
         self.assertTrue((self.root / "web/public/snapshot.json").is_file())

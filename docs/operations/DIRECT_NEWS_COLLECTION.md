@@ -1,9 +1,9 @@
 # 媒体页面直采
 
-2026-09-23 用户批准将直采试点推进到完整候选。现有20来源配置与收录、筛选规则保持；新增 `direct-only` 模式使用匿名HTTP获取列表和详情，模型只做正文加工。AIHOT仍停用，定时仍关闭。Manus模式保留为显式可选路线，本模式不会创建Manus任务，包括可选公司链接发现。
+2026-09-23 用户确认暂时完全停用Manus，默认 `direct-only`，`full` 同样指向直采。现有20来源配置与收录、筛选规则保持；匿名HTTP获取列表和详情，模型统一使用并行科技DeepSeek-V4-Pro。AIHOT仍停用，定时仍关闭。`config/services.json` 在真实HTTP前关闭Manus和Tavily，覆盖旧新闻发现、公司链接发现及Manus探针，旧代码/证据保留供追溯。
 
 ```powershell
-python scripts/run_pipeline.py run --source-mode direct-only --skip-search --no-promote
+python scripts/run_pipeline.py run --no-promote
 python scripts/run_pipeline.py review-candidate --candidate work/runs/<日期>/ten-am/<运行ID>/workspace
 python scripts/run_pipeline.py publish-candidate --candidate work/reviewed-candidates/<审核ID>
 ```
@@ -16,7 +16,9 @@ python scripts/run_pipeline.py publish-candidate --candidate work/reviewed-candi
 
 私有HTTP收据、原始页面和逐源诊断放在候选 `inputs/direct/`。公开文章使用 `collector=direct_site`、`direct:` ID；schema3 feed保留在兼容路径 `data/manus/current.json`，名称不表示经过Manus。schema1/2仍严格只接受Manus。原始正文不进入公开JSON，公司和融资正文依据本批精选的ID+URL绑定，禁止错用同名旧正文。
 
-付费调用上界按实际合格正文数计算：每篇一次相关性、一次摘要分类，精选每篇最多一次公司抽取，精选融资每篇最多一次融资抽取；复用匹配提示词/模型/内容版本的成功缓存。公司官网补空沿既有日租约，最多5主体/10页/5次模型，不恢复失败模型原生搜索。请求异常保存候选与已完成缓存；不靠扩大预算或改写旧状态制造成功。
+付费调用按实际合格正文数计算：每篇一次相关性、一次摘要分类，精选每篇最多一次公司抽取，精选融资每篇最多一次融资抽取；复用匹配提示词/模型/内容版本的成功缓存。直采公司资料默认显式 `--research-full-review`：按有限待补全队列执行，每主体最多2个已知网页、每输入最多1次新模型请求，无5主体日额度限制；请求前持久占位，旧额度和结果不清零。默认小样本/历史恢复仍保留原租约语义；全量模式不启动Manus发现，不恢复失败模型原生搜索。新资料必须有实际读取的网页及逐字证据；无可用URL不等于已全面搜索。请求异常保存候选与已完成缓存，不改写旧状态。
+
+本地 `.env` 支持 `PARATERA_API_KEY`，旧 `DEEPSEEK_API_KEY` 可继续承载同一并行科技密钥；前者只在并行科技域名使用并优先选择。GitHub手动工作流仅使用仓库Secret `PARATERA_API_KEY`，固定并行科技地址及DeepSeek-V4-Pro，不回退另一提供商。网页抓取无需模型搜索工具或Manus密钥。
 
 全部阶段完成后，先离线回归与逐项内容审核，再用 reviewed-candidate 校验并晋升。Git提交及Pages部署后核对线上三份JSON与提交文件SHA256，才报告已上线。
 

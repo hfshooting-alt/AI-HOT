@@ -24,7 +24,9 @@ def cached_proposal(directory, key):
 
 
 def propose(tx, packet, directory, *, allow_paid=False, max_requests=5, full_review=False, llm_fn=call_llm, isolate_invalid=False):
-    if not 1 <= max_requests <= (80 if full_review else 5):
+    if max_requests is None and not full_review:
+        raise ValueError('无总次数上限仅供显式full_review有限输入批次')
+    if max_requests is not None and not 1 <= max_requests <= (80 if full_review else 5):
         raise ValueError('资料补全上限：默认5次，显式全库复核80次请求')
     sources = packet.get('sources', [])
     if not sources or any(not s.get('text') or not s.get('url', '').startswith('https://') for s in sources):
@@ -40,7 +42,7 @@ def propose(tx, packet, directory, *, allow_paid=False, max_requests=5, full_rev
         raise ValueError('该输入已尝试但未成功，不自动重试付费请求')
     ledger = root / 'requests.json'
     used = json.loads(ledger.read_text(encoding='utf-8'))['attempts'] if ledger.exists() else 0
-    if not allow_paid or used >= max_requests:
+    if not allow_paid or (max_requests is not None and used >= max_requests):
         raise ValueError('需要显式允许付费且仍有小样本预算')
     # 单进程顺序执行；先占位，超时或错误均不退款到预算，不重试。
     atomic_write(ledger, {'attempts': used + 1, 'limit': max_requests})

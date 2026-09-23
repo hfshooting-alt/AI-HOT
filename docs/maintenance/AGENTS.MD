@@ -1,5 +1,7 @@
 # docs/maintenance/AGENTS.MD — 新闻Daily 项目 Agent 开发守则
 
+2026-09-23最新授权（优先于下方旧默认及预算）：用户确认暂时完全不用Manus，默认与full别名均为direct-only，GitHub手动仅all/direct-only，定时仍关闭。新闻列表/正文由匿名HTTP读取，所有模型处理统一现有并行科技DeepSeek-V4-Pro。config/services.json暂停Manus/Tavily真实HTTP，保留旧实现、密钥和历史证据，不自动恢复。用户允许充分使用此API，直采默认--research-full-review按有限的待补全主体队列执行，取消5主体/10页/5次日上限，每输入最多2页/1次新模型；缓存、账本、失败不重试、认证/支付/系统异常熔断及逐字段网页证据保持。默认小样本和历史恢复保留旧预算语义。此授权不要求重复已完成新闻批次，更不意味着模型凭记忆能当联网结果。
+
 2026-09-23 新增授权：匿名媒体页面直采 `direct-only`，沿既定20来源、北京时间冻结窗口、独立分类与精选后实体抽取规则。`collector=direct_site`、`direct:` ID，feed schema3保留兼容路径。AIHOT与定时继续关闭，此模式不创建Manus任务。运行限制与证据见[媒体页面直采](../operations/DIRECT_NEWS_COLLECTION.md)。此更新优先于下方“仅Manus”历史描述。
 
 2026-09-23最新用户确认（优先于下方旧流程）：所有合格正文独立生成摘要与分类，相关性筛选和摘要分类逻辑解耦，不承诺网络请求并行。非精选也须打标，非AI内容不强制填写AI维度；缺正文显示“待正文”，不得凭标题分类。有正文未处理/失败分别记录pending/failed，不与garenaSelection混用。公司/产品/融资仍仅消费精选。当前27篇正文预计复用11篇旧成功、补处理16篇缺项；Jev若成功可按原规则新增精选及单篇公司处理，不冻结成员数。Opus253修正尚未晋升，所有新结果统一候选审核发布，不提前更新旧发布统计。规则、技术原因及私有逐篇诊断入口见[独立打标调整](../architecture/UNIFIED_NEWS_PIPELINE.md#2026-09-23-独立打标调整)。

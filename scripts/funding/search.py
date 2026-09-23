@@ -16,6 +16,8 @@ from .config import search_cfg, funding_cfg, COMPANY_FIELDS, FIELD_LABELS
 def tavily_search(query: str, api_key: str, max_results: int,
                   timeout_seconds: int = 30) -> list[dict]:
     """Tavily /search：返回 [{title, url, content}]；失败抛异常由上层处理。"""
+    from service_policy import require
+    require('tavily')
     body = {"query": query, "max_results": max_results, "search_depth": "basic"}
     req = urllib.request.Request(
         "https://api.tavily.com/search",

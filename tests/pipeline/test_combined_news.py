@@ -497,7 +497,7 @@ class CombinedNews(unittest.TestCase):
             return 0
         with contextlib.redirect_stdout(io.StringIO()):
             code = runner.run(self.root, DATE, list(runner.COMBINED_STAGES), combined=True,
-                              ten_am=True, no_promote=True, execute=execute)
+                              ten_am=True, no_promote=True, execute=execute, source_mode='manus-only')
         self.assertEqual(code, 0)
         self.assertEqual(calls[:2], ['discovery', 'content_phase'])
         self.assertIn('news', calls)
@@ -544,7 +544,8 @@ class CombinedNews(unittest.TestCase):
         with contextlib.redirect_stdout(io.StringIO()):
             for resume in (False, True):
                 self.assertEqual(runner.run(self.root, DATE, list(runner.COMBINED_STAGES),
-                    combined=True, ten_am=True, no_promote=True, resume=resume, execute=execute), 0)
+                    combined=True, ten_am=True, no_promote=True, resume=resume, execute=execute,
+                    source_mode='manus-only'), 0)
         self.assertEqual(calls.count('aihot'), 0)
         self.assertEqual(calls.count('news'), 2)
         self.assertEqual(calls.count('build_company_overview'), 2)
@@ -557,7 +558,7 @@ class CombinedNews(unittest.TestCase):
             return 1 if cmd[1].endswith('runner.py') else 0
         with patch.dict(os.environ, {'MANUS_CONTENT_MODE': 'manus'}), contextlib.redirect_stdout(io.StringIO()):
             self.assertEqual(runner.run(self.root, DATE, list(runner.COMBINED_STAGES),
-                combined=True, ten_am=True, no_promote=True, execute=execute), 0)
+                combined=True, ten_am=True, no_promote=True, execute=execute, source_mode='manus-only'), 0)
         self.assertIn('content_phase', calls)
 
 

@@ -19,10 +19,10 @@ DIRECT_STAGES = ('direct', 'news', 'snapshot', 'overview', 'funding')
 
 
 def normalize_source_mode(source_mode):
-    if source_mode == 'direct-only':
-        return source_mode
-    if source_mode not in ('manus-only', 'full'):
-        raise ValueError('AIHOT 已停止采集；生产仅支持 manus-only（full 为兼容别名）')
+    if source_mode in ('direct-only', 'full'):
+        return 'direct-only'
+    if source_mode != 'manus-only':
+        raise ValueError('AIHOT 已停止采集；默认 direct-only，Manus 当前暂停')
     return 'manus-only'
 
 CACHE_FILES = ("data/cache/tag_cache.json", "data/manus/enrichment_cache.json",
@@ -213,8 +213,10 @@ def validate_candidates(workspace: Path, root: Path, stages: list[str]) -> None:
 
 
 def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False, *, ten_am=False,
-         source_mode="manus-only", manus_credit_limit=20, combined=False):
+         source_mode="direct-only", manus_credit_limit=20, combined=False):
     source_mode = normalize_source_mode(source_mode)
+    if source_mode == 'direct-only':
+        skip_search = True
     def script(name, *args):
         return [sys.executable, str(root / "scripts" / name), *map(str, args)]
     def out(rel):
@@ -275,10 +277,11 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
             commands['news'].extend(('--direct-input', str(workspace / 'inputs/direct/collection.json')))
             # Direct news must not silently start optional paid Manus discovery.
             commands['overview'].remove('--discover-company')
+            commands['overview'].append('--research-full-review')
     return commands
 
 
-def fingerprint(root: Path, stages, skip_search, ten_am=False, source_mode="manus-only",
+def fingerprint(root: Path, stages, skip_search, ten_am=False, source_mode="direct-only",
                 manus_credit_limit=20):
     digest = hashlib.sha256()
     for folder in ("config", "scripts"):
@@ -295,7 +298,7 @@ def fingerprint(root: Path, stages, skip_search, ten_am=False, source_mode="manu
 
 
 def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=False,
-        skip_search=False, execute=None, ten_am=False, source_mode="manus-only",
+        skip_search=False, execute=None, ten_am=False, source_mode="direct-only",
         manus_credit_limit=20, combined=False):
     source_mode = normalize_source_mode(source_mode)
     if 'aihot' in stages:

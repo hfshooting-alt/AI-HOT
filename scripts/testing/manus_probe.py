@@ -32,6 +32,9 @@ class NoRedirect(HTTPRedirectHandler):
 
 def request(key, method, path, payload=None):
     """单次请求，10 秒 socket 超时，不自动重试，不跟随重定向。"""
+    from service_policy import enabled
+    if not enabled('manus'):
+        raise ProbeError('service_paused')
     body = json.dumps(payload).encode() if payload is not None else None
     req = Request(BASE + path, data=body, method=method,
                   headers={"Content-Type": "application/json", "x-manus-api-key": key})

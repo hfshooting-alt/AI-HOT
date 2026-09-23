@@ -144,6 +144,10 @@ class CreatedTask:
 def default_transport(method: str, path: str, payload: dict[str, Any] | None,
                       api_key: str) -> dict[str, Any]:
     """真实 HTTP transport；返回已解析 JSON。网络/HTTP 错误统一包成 ManusAPIError。"""
+    from service_policy import enabled
+    if not enabled('manus'):
+        raise ManusAPIError('manus service is paused by project policy',
+                            reason_code='service_paused', creation_state='not_created')
     body = json.dumps(payload, ensure_ascii=False).encode("utf-8") if payload is not None else None
     request = Request(
         url=f"{API_BASE_URL}/{path}",
@@ -325,8 +329,8 @@ class ManusClient:
                             raise ManusAPIError('Task create response has no usable task ID')
                     return response
                 except Exception as error:
-                    if getattr(error, 'reason_code', None) == 'account_credits_exhausted':
-                        self.block_new_tasks('account_credits_exhausted')
+                    if getattr(error, 'reason_code', None) in ('account_credits_exhausted', 'service_paused'):
+                        self.block_new_tasks(error.reason_code)
                     elif self.require_terminal_confirmation and self.create_retries == 0:
                         # Keep the create lock until queued workers see the circuit.
                         # A lost response can still represent a running paid task.
@@ -387,7 +391,7 @@ class ManusClient:
 
     def block_new_tasks(self, reason='remote_stop_unconfirmed') -> None:
         """Block queued creations before a worker can start its next source."""
-        if reason not in ('remote_stop_unconfirmed', 'creation_unknown', 'account_credits_exhausted'):
+        if reason not in ('remote_stop_unconfirmed', 'creation_unknown', 'account_credits_exhausted', 'service_paused'):
             reason = 'remote_stop_unconfirmed'
         with self._creation_block_lock:
             if not self._creation_blocked.is_set():

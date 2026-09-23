@@ -207,16 +207,18 @@ class TestTenAm(unittest.TestCase):
         plan = json.loads(output.getvalue())
         self.assertEqual(plan["collectionWindow"], WINDOW)
         stages = {s['stage']: s['command'] for s in plan['stages']}
-        self.assertIn("--ten-am", stages['discovery'])
+        self.assertIn('collect_direct_news.py', stages['direct'][1])
         self.assertIn("--window-date", stages['snapshot'])
         self.assertIn("--input-json", stages['snapshot'])
-        self.assertEqual(plan['parallelCollectors'], ['discovery'])
-        orchestration.run(self.root, END_DATE, ["discovery"], ten_am=True, execute=lambda _: 1)
+        self.assertEqual(plan['parallelCollectors'], ['direct'])
+        orchestration.run(self.root, END_DATE, ["discovery"], ten_am=True, execute=lambda _: 1,
+                          source_mode='manus-only')
         latest = self.root / "work/runs" / END_DATE / "ten-am/latest.json"
         self.assertTrue(latest.exists())
         rid = json.loads(latest.read_text())["runId"]
         state = json.loads((latest.parent / rid / "state.json").read_text())
         self.assertEqual(state["collectionWindow"], WINDOW)
+        self.assertEqual(state['sourceMode'], 'manus-only')
         self.assertFalse((latest.parent.parent / "latest.json").exists())
 
 

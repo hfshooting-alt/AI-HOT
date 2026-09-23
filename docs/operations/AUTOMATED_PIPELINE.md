@@ -1,167 +1,84 @@
-2026-09-23 当前入口补充：`run --source-mode direct-only --skip-search --no-promote` 使用既定20媒体的匿名列表/详情，不调用Manus；后续news、snapshot、overview、funding与reviewed-candidate复用现有阶段。详见[直采说明](DIRECT_NEWS_COLLECTION.md)。定时与AIHOT均保持关闭，以下旧双源/定时/补录段落仅为历史记录。
-
-2026-09-18审核补录：单篇修复通过模型与人工审核后，可独立存于web/public/reviewed-news.json，由新闻与公司视图合并；不改定时批次统计、不覆盖并行采集结果。新闻按ID/URL/标题去重，较新正式窗口自动移出旧补录新闻，公司证据持续保留。操作记录见../history/2026-09-18-REVIEWED_ARTICLE_SUPPLEMENT.md。
-
-2026-09-15新确认：每日最多1个公司或待归属产品使用Manus Lite寻找资料链接，20credits观察止损、创建不重试；与20个新闻媒体采集配额分开。发现链接进入网页读取及DeepSeek验证，暂定标量只补公司空白，产品仅记录candidateOwners不合并。GitHub任务创建前以每日缓存持久化运行所有者占位并读回确认；同日另一轮或重跑不再创建。aihot-only不调用此Manus步骤。
-
-2026-09-15更新：已获用户确认，统一每日overview阶段启用已知网页补全（--known-link-research），读取审核资料链接及当前公司相关新闻，最多检查5个主体/10页/5次DeepSeek请求，无新增Manus搜索。自动补空白字段标暂定、保留引文；不覆盖现有字段、不更改归属。按主体、模型和最新报道去重，同输入成功/失败均跳过；失败逐页/逐公司隔离，剩余队列后续轮次处理。新报道可再次触发。无新报道时不会主动轮询官网变化。
-
 # 自动数据流水线
 
-Manus只依据文章原始发布／发送时间收录，新增点赞、评论、互动、编辑或转载页面的刷新时间均不能使旧文章重新符合窗口。“昨天”等相对文字必须指文章发布，不得引用评论或互动时间。AIHOT批次不做这层原文时间拦截，先接收再进入相关性、摘要打标与公司更新流程；URL路径日期不作为发布时间判定。已确认的北京时间09:30窗口及“昨天”发布的自然日例外保持。
+2026-09-23 当前决定：暂时完全停用 Manus，统一使用既定媒体的网站直采及并行科技 DeepSeek-V4-Pro。`run_pipeline.py` 默认 `direct-only`，`full` 也是直采兼容别名；AIHOT 停用，GitHub 与本地定时保持关闭。`config/services.json` 在真实 HTTP 请求前禁止 Manus 和 Tavily，包括旧新闻发现、公司链接发现和相关探针。历史代码及原始结果保留供追溯。
 
-统一入口为 `scripts/run_pipeline.py`，命令从仓库根目录执行。原有分阶段 CLI 继续可用。日常操作优先使用统一入口，获取运行前检查、候选产物隔离、阶段记录与发布恢复。
+具体来源、匿名读取限制与证据要求见[媒体页面直采](DIRECT_NEWS_COLLECTION.md)，文章两池及失败规则见[统一新闻链路](../architecture/UNIFIED_NEWS_PIPELINE.md)。所有命令从仓库根目录执行。
 
-当前完整链路与失败规则见[统一新闻链路](../architecture/UNIFIED_NEWS_PIPELINE.md)：AIHOT 与 Manus 独立并行采集，合并去重后统一模型加工；允许来源部分失败和单条隔离；完成合格新闻、公司更新及产物一致性校验后发布。
+## 1. 检查与运行
 
-同一来源的已核实文章现在也可部分保留，逐篇checkpoint和止损回收规则见[9月14日验证记录](../history/2026-09-14/MANUS_PARTIAL_REVIEW_20260914.md)。partial不代表完整24小时覆盖，时间窗口保持09:30。
-
-## 1. 先检查，再运行
-
-公司库构建在实体合并后应用 `config/company_research.json` 的已审阅归属规则与缺失字段补全。只允许带核验时间、官网URL和引用的 reviewed 记录；品牌的团队、时间等保留在 brandProfiles，不能搬到母公司字段。外部字段来源 origin=research，与新闻原文 origin=article 区分。
-
-来源费用阈值停止后，查看对应运行目录 `diagnostics/` 的任务ID与停止状态，再读取历史任务消息定位阶段。八个失败来源的对照复核见 [9月10日来源复核](../history/2026-09-10/SOURCE_DIAGNOSIS_20260910.md)。不要把浏览器入口可读等同于完整时间窗口采集成功。
-
-后续测试统一遵循[测试成本控制](TESTING_COST_CONTROL.md)。默认先 `python scripts/test_pipeline.py`；确认 Manus 密钥用 `python scripts/test_pipeline.py manus-auth`。本页 `run` 生产命令会执行真实接口，`--no-promote` 不限制费用。
-
-```sh
-python -m pip install -r scripts/requirements.txt
-python scripts/run_pipeline.py doctor
-python scripts/run_pipeline.py run --dry-run --date 2026-09-07
-```
-
-`doctor` 检查配置、依赖、模板、必要密钥是否存在和输出目录是否可写；只创建随后关闭删除的临时探针，不调用外部接口，不输出密钥。它不能验证余额、密钥有效性和网络可用性。共享模型或公共配置缺项返回非零退出码；完整流程的 Manus 分支缺项仅令该分支不可用，其他来源仍可继续。
-
-`--dry-run` 仅打印阶段及命令，不写数据、不调用接口，也不要求配置密钥。
-
-有模型密钥但暂不使用 Manus 时，可以运行 AIHOT 及完整后续加工：
-
-```sh
-python scripts/run_pipeline.py doctor --source-mode aihot-only
-python scripts/run_pipeline.py run --source-mode aihot-only --no-promote
-```
-
-`aihot-only` 的默认 all 流程依次运行 aihot、news、snapshot、overview、funding，只关闭 Manus。它保留 AIHOT 返回的各类文章，统一使用本站模型筛选和打标，再更新公司库与融资表；因此需要模型密钥，可能产生模型和可选 Tavily 费用（`--skip-search` 可关闭后者）。候选仍写入 `work/runs/`，方便先 review。旧单独 `--stage snapshot` 仍是无模型且排除公众号的调试入口，不代表每日完整流程。省略 `--no-promote` 会更新仓库正式快照。当前项目按公司内部 AI 情报用途使用 AIHOT；若未来改为收费、客户交付、代理接口、公开副本或对外批量再分发，再重新核对授权范围。
-
-按 `config/env.example` 在根目录 `.env` 配置 Manus 与模型密钥。Tavily 搜索为可选。完成配置后：
-
-```sh
-# 实际采集和加工，生成候选产物；会调用外部接口并可能产生费用
-python scripts/run_pipeline.py run --date 2026-09-07 --no-promote
-
-# 检查候选产物后，复用成功阶段并发布
-python scripts/run_pipeline.py run --date 2026-09-07 --resume
-
-# 直接完成整套更新
-python scripts/run_pipeline.py run
-```
-
-默认 `--window-mode ten-am`，`--date` 是窗口结束日。例如 `--date 2026-09-09` 固定覆盖 9 月 8 日 09:30（含）至 9 月 9 日 09:30（不含）。省略日期时取最近已经到达的北京时间09:30：09:30前取前一天，09:30及以后取当天。子阶段复用这个已确定的日期，排队延迟和加工耗时不移动窗口。跨日补跑需显式填写窗口结束日。
-
-统一 full 入口现在逐来源创建发现任务，最多 3 个并发；默认每来源观察止损线 20 credits，可用 --manus-credit-limit 10..60 调整。20 个来源默认保留线合计 400 credits，实际消费可能因上报与停止延迟超出。创建不重试，费用报告保存在 work/manus[/ten-am]/<date>/cost-report.json，旧报告归入 cost-history。同窗口成功和失败结果默认都复用，显式 --retry-failed-sources 仅重试失败来源。已付费完成的模型结果会保存缓存；同窗口新候选继承缓存，不继承未审核新闻。
-
-兼容旧数据的单阶段调试可用 `--window-mode calendar-day --date YYYY-MM-DD --stage snapshot`，含义仍为该自然日。原有 discovery/content/feed CLI 默认保留自然日模式，加 `--ten-am` 启用新窗口。旧三组文件与十点文件分开存储，不能混用。
-
-Manus 固定窗口优先使用详情明确的 `published_at`；“昨天”按北京时间前一自然日全天纳入，保留日期精度和原始文字；其他不确定时间逐条隔离、来源标记覆盖缺口，不能把中午 12 点等虚构时间当作采集证据。AIHOT 按上游 timeline 接收批次，统一加工后完整传递到快照，不再用原文发布时间二次拦截；原文日期继续用于排序、展示和归档。“AI 日报”独立同步 AIHOT 当日上午八点发布的成品日报。周报、历史页、公司与产品库及融资表继续保留各自历史范围，热点榜仍是抓取时的榜单。归档保留与过期规则按实际运行时间执行，历史补跑不回拨网站时钟，窗口外已定稿历史保持不变；当前复核窗口按本次审核结果替换，避免被排除的新闻再次出现。
-
-## 2. 阶段与输入
-
-| 阶段 | 输出/前置要求 |
-| --- | --- |
-| `aihot` | 与 discovery 并行抓取 AIHOT，写入候选 inputs/aihot.json |
-| `discovery` | Manus 发现三组账号的窗口文章，原始结果在 `work/manus/ten-am/<date>/raw/` |
-| `content` | 读取同日三组发现结果，默认脚本提取正文；成功正文可复用 |
-| `news` | 汇总成功来源，统一去重、模型筛选和摘要分类，生成 processed.json 与新 Manus feed |
-| `feed` | 旧独立调试阶段：仅加工 Manus，使用原有严格发布门禁；不在新 all 流程中 |
-| `snapshot` | all 流程只读取 processed.json 生成快照、归档、历史页及周报；旧单阶段命令仍自行采集合并 |
-| `overview` | 扫描全部新闻类别，更新独立公司/产品库及逐字段来源记录 |
-| `funding` | 从候选/既有快照和 feed 抽取融资表，可选搜索补全 |
-
-默认 `--stage all` 并行执行 aihot/discovery，然后执行 content → news → snapshot → overview → funding。采集失败仍进入 news 校验和利用成功来源。`--stage <阶段>` 只运行旧独立阶段，不自动补齐前置阶段；aihot/news 由 all 编排。单独运行 content/feed 时需要同日期完整三组发现文件；overview/funding 至少需要一份有效快照或 feed。
-
-Overview 按内容与版本复用成功抽取缓存。当前统一生产使用 `--require-complete --allow-partial`，覆盖全部输入，失败文章记录在articleFailures，保留已有档案；全部抽取失败才阻止发布。输入长度、并发及预算配置位于 `config/taxonomy.json → companyOverview`。每个公司字段在 `fieldSources` 保存值、原文 URL、文章 ID、来源和发布时间；同一公司按规范名与文章明确给出的别名合并。没有可靠依据的字段保留为空。
-
-统一 news 阶段对本批次去重文章全部进行相关性处理，并对保留文章全部摘要分类，分别使用最多7200秒预算；单条未完成隔离并披露，全部失败才阻止发布，重试可复用缓存。旧单独 snapshot 的增量打标额度不再限制 all 流程。
-
-Overview 收录有实质信息的公司及其产品；投资方、供应商和合作方有具体业务或投资事件也可收录，只有名字列举时不新增。行业按公司自身业务抽取。最新报道日期与资料更新日期分开，默认按报道时间排序。资料补全需要来源和核验时间。完整业务规则见[投资人验收口径](INVESTOR_ACCEPTANCE.md)。
-
-`--skip-search` 跳过可选 Tavily 搜索。单组试采仍用原 CLI `python scripts/manus_source/runner.py --date YYYY-MM-DD --groups group_a`，下游生产契约继续要求三组结果。
-
-## 3. 失败保护与断点恢复
-
-每次新运行把既有产物复制到 `work/runs/<date>/ten-am/<run-id>/workspace/`（旧自然日模式没有 ten-am 层）。所有选定阶段成功后，再校验候选输出并替换对应正式目录：
-
-- feed：`data/manus/`。
-- snapshot：`data/archive/`、`data/cache/`、`web/public/`。
-- overview：`data/company-overview/`、`web/public/`。
-- funding：`data/funding/`、`web/public/`。
-
-采集阶段失败允许继续利用成功来源；news 及其后续阶段失败时停止发布，正式产物保持原样，候选数据和缓存保留。`--no-promote` 运行各阶段自身校验并保留候选；最终跨产物一致性检查在发布时执行。
-
-Overview 失败或待处理文章必须逐条记录articleFailures，计数不一致拒绝发布；历史公司继续保留，新报道补充字段、产品与来源。融资输入存在且全部抽取失败（含未完成任务）时拒绝覆盖旧表。旧独立 feed 的空结果门禁继续保留；新 all 流程允许显式缺失的 Manus feed，前提是至少一条来源完成或部分完成且存在共享加工合格结果。已核实零篇是合法结果，不等于失败。
-
-```sh
-python scripts/run_pipeline.py run --date 2026-09-07 --resume
-```
-
-恢复最近同日期运行时，保持原阶段和 `--skip-search` 选择。已成功阶段直接复用，失败阶段重新执行。发现阶段仅复用契约有效且全部来源成功的组；正文仅复用成功 URL；加工缓存仅复用 `complete`，旧 fallback 会重新尝试。同 URL 的后续成功正文优先于历史失败记录。
-
-代码、业务配置或模型名/接口地址/正文模式发生变化会拒绝恢复，要求新建运行。密钥值不进入签名，可补齐或更换。若正式产物已被其他运行更新，旧候选不得覆盖较新的数据。
-
-发布使用目录备份和日志：异常时回滚；进程被强制终止后，下次同次运行的 `--resume` 恢复未完成发布。多个目录的替换不是面向并发读者的全局原子事务；Git 提交后的整套文件才是同一发布版本。
-
-`work/pipeline.lock` 防止统一入口并发写入。强制终止可能留下锁；先确认没有运行中的流水线，再处理残留锁并恢复原运行。单阶段原 CLI 不受此锁管理，勿与统一入口同时写入正式产物。
-
-## 4. 日志与溯源
-
-`work/runs/<date>/ten-am/latest.json` 指向最近十点运行，旧自然日模式使用 `work/runs/<date>/latest.json`。每次运行的 `state.json` 保存固定 collectionWindow、阶段、状态、退出码、耗时和发布状态；`publication.json` 记录目录替换状态；`backup/` 保留发布前版本。运行目录和原始正文在 Git 忽略范围内，不会自动清理，磁盘维护时确认运行完成后按日期归档或移除。
-
-正式数据失败时保留旧版本，因此应结合运行状态判断更新是否完成，不能只看页面能否打开。运行状态不含密钥或正文；排错时避免分享 `.env` 或原始全文。
-
-## 5. GitHub Actions
-
-2026-09-22 起按用户要求删除 `.github/workflows/fetch-manus.yml` 的 `schedule` 触发器，暂停定时采集及本地定时验收跟进。保留 `workflow_dispatch`：测试通过后调用统一入口，成功后将整套正式数据提交到仓库并部署 Pages。手动输入为 `date`（北京时间09:30窗口结束日）、`stage`、`source_mode`、`promote`、`dry_run`、`skip_search`；完整运行使用 `stage=all`、`source_mode=full`、`promote=true`、`dry_run=false`，费用边界保持。独立 content/feed 所需原始正文未存入 Git，所以这两个阶段仅在保留原始文件的本地运行。
-
-默认 `full` 模式需要 GitHub Secrets `MANUS_API_KEY` 及 `PARATERA_API_KEY` 或 `DEEPSEEK_API_KEY`；可选 `TAVILY_API_KEY`，模型接口和模型名可用 Variables `LLM_API_BASE`、`LLM_MODEL`，实际优先级以工作流为准。手动任务可选 `source_mode=aihot-only`，仅关闭 Manus，仍读取模型及可选搜索密钥，运行完整下游。如果修改 taxonomy 中 `api_key_env`，同步工作流的密钥注入。
-
-工作流上传不含正文与密钥的 `state.json` 和费用/停止诊断，保留 7 天；另把采集证据、正文、模型缓存和候选产物加密保存为独立恢复包，密钥不进入产物。可在新的 runner 中解密并按原缓存重建，缺缓存时停止，不能用恢复操作自动发起模型请求或修改旧运行结果。具体步骤与边界见[加密恢复说明](PIPELINE_RECOVERY.md)。失败先查看 Actions 日志、状态与加密包，再判断能否无新增付费恢复。
-
-这条任务更新仓库数据后触发 Pages 静态发布。离线样本测试证明编排和保护机制；全账号采集与自动发布衔接仍需一次真实 CI 验收。
-
-## 2026-09-10 Pages 发布衔接
-
-采集工作流（当前由手动触发）提交正式数据并成功推送 main 后，使用 GitHub CLI 显式触发 `deploy-pages.yml`。工作流需要 `actions: write`；沿用内置令牌，不新增个人令牌。没有数据变化、候选运行或 dry-run 不触发此次发布。触发成功只表示部署已排队，最终结果仍须检查 Pages 工作流。GitHub 内置令牌的 push 不会自行触发另一个 push 工作流。
-
-
-2026-09-10 更新：统一入口默认 `--cutoff-time 09:30`，通过 `AIHOT_CUTOFF_TIME` 传递到全部子阶段；`ten-am` 参数及目录名保留兼容，不表示实际时刻。旧独立 CLI 默认十点，复现旧窗口使用统一入口 `--cutoff-time 10:00`。窗口改变会改变恢复指纹，旧窗口缓存经契约检查不会作为新窗口采集结果复用。首次提前半小时会与旧批次重叠半小时，按文章标识/链接去重。
-
-完整管线的公司库阶段强制 `--require-complete`，复用成功抽取缓存，处理全部未缓存输入文章（包括 all 池）；单条失败或延后写入隔离清单，合格结果继续；全失败才保留旧网页。公司资料按新文章增量更新，最新提及置顶；没有证据的字段保持空白。审阅过的归属和分类自动应用，产品归属未明时保留 pendingEntities。AIHOT-only 只关闭Manus，仍运行共享模型与公司更新。每日快照写入 publicationMode=pipeline，首页仅展示该完成批次。
-
-完整 full 模式同时要求 `--require-tags`，当轮归档池的未分类或fallback条目必须完成模型分类；失败缓存可重新处理，已成功缓存继续复用。异常时只保留候选目录，不提交网站数据。所有成功表示程序与结构化覆盖检查通过，不等同于所有信源无漏采或模型事实绝对正确。
-
-本轮后续修正见 docs/history/2026-09-14/QUALITY_CORRECTIONS_20260914.md：新闻分类与产品归属独立，个人产品保留pendingEntities并展示；已核实旧闻逐条隔离，未泛化为全网原文时间已验证。
-
-## 审核并发布已有候选（不调用采集或模型）
+本地按 `config/env.example` 配置 `.env`：`PARATERA_API_KEY`、`LLM_API_BASE=https://llmapi.paratera.com/v1`、`LLM_MODEL=DeepSeek-V4-Pro`。并行科技域名优先读取 `PARATERA_API_KEY`；旧 `DEEPSEEK_API_KEY` 可继续作为同一密钥的兼容变量。当前流程不需要 Manus 或 Tavily 密钥，也不回退其他模型服务。
 
 ```powershell
-python scripts/run_pipeline.py review-candidate --candidate work/quality-corrected-20260914/workspace
+python scripts/test_pipeline.py offline
+python scripts/run_pipeline.py doctor
+python scripts/run_pipeline.py run --dry-run
+
+# 实际匿名采集及模型加工，保留独立候选
+python scripts/run_pipeline.py run --no-promote
+```
+
+`doctor` 只检查本地配置、依赖、模型密钥是否存在和目录是否可写，不发外部请求、不输出密钥，不能证明余额或接口可用。`--dry-run` 只输出计划。实际 `run` 会读取媒体页面并调用模型；`--no-promote` 只阻止正式数据晋升，不限制调用。
+
+默认 `rolling-24h` 在启动时冻结北京时间结束时刻，由 `NEWS_COLLECTION_END` 贯穿各阶段；窗口为 `[结束前24小时, 结束时刻)`。可用 `--window-end` 提供含时区 ISO 时间；排队与处理耗时不移动窗口。只接受原始发布时间，“昨天”发布的自然日例外及原始精度保留，不拿评论、更新时间或 URL 日期替代发布证据。旧 `ten-am --cutoff-time 09:30`、`calendar-day` 仅用于显式历史复核。
+
+## 2. 当前阶段与输入
+
+默认 `--stage all` 依次执行 `direct → news → snapshot → overview → funding`，来源采集最多并发 3 个。匿名列表仅提供候选，详情须通过来源身份、标题和原始时间核验。可访问、有合格样本、遍历了列表范围是不同结论，不能把部分成功称为 20 源完整覆盖。
+
+| 阶段 | 当前职责 |
+| --- | --- |
+| `direct` | 按配置入口读取公开列表及详情；收据、原始响应和逐源状态留在私有 `inputs/direct/` |
+| `news` | 全部合规元数据去重；合格正文独立摘要分类，相关性单独决定精选；生成 processed 与证据文件 |
+| `snapshot` | `processed.json.allArticles` 对应全部，`items` 对应精选；不回填旧日报或旧 feed |
+| `overview` | 仅精选文章抽取公司及产品，增量保留已有档案；随后处理已知网页资料补全 |
+| `funding` | 仅精选融资文章及其 ID+URL 绑定的完整正文；当前不调用 Tavily 搜索 |
+
+公开快照 `newsSelectionVersion=1` 下必须同时有 `all` 与 `garenaSelected`，空池合法、缺池错误。缺正文条仍在全部文章中显示“待正文”；有正文但不相关的文章照常生成摘要分类。单条模型失败单独标记，旧成功缓存不能冒充本轮新调用成功。
+
+直采保留真实 `collector=direct_site`、`direct:` ID 和平台来源。schema3 feed 使用兼容路径 `data/manus/current.json`，目录名称不表示调用 Manus；旧 schema1/2 的 Manus 身份规则不放宽。全文只留私有输入，不写入公开 JSON。
+
+公司抽取复用正文、模型及提示词版本匹配的成功缓存，处理本批全部精选；单篇失败写入 `articleFailures`，已有档案保留。产品区分自有、集成、使用和未知；纯方法、未具名集合与自然人不新造公司。人工修正使用独立证据绑定投影，不篡改成功缓存。最新报道时间与资料核验时间分开。
+
+直采 overview 自动传入 `--known-link-research --research-full-review`。全量补全取消默认的每日 5 主体 / 10 页 / 5 请求上限，处理有限的缺资料主体队列；每主体最多 2 个已知网页，每个输入最多 1 次新模型请求。请求前占位、成功缓存复用、失败或不确定请求不自动重试、系统异常熔断均保留，不等于模型联网搜索，也不启动 Manus 寻链。默认小样本和历史恢复仍沿用原预算语义；云端账本无法证明可复用时仍保留同日运行归属和恢复门禁，可选补全延后不阻断主新闻链路。本地共享账本不受云租约约束。详见[公司资料补全](COMPANY_WEB_RESEARCH.md)。
+
+## 3. 候选与失败恢复
+
+每次新运行复制正式基线到 `work/runs/<date>/ten-am/<run-id>/workspace/`；`ten-am` 目录名用于兼容，不改变默认滚动窗口。候选包含 `data/manus/`、`data/archive/`、`data/cache/`、`data/company-overview/`、`data/funding/` 和 `web/public/`，私有输入另存 `inputs/`。
+
+部分来源或正文失败允许其他核实文章继续；全部来源不可用、系统性模型失败、必需阶段或跨产物校验失败时保留正式旧版本。公司及融资新增严格只读精选，空精选不得回读全量或历史。程序成功不等于逐源无漏采或模型事实已全部人工确认。
+
+`state.json` 保存冻结窗口、阶段状态、退出码、耗时和发布状态，`publication.json` 保存替换记录。`--resume` 沿原窗口和成功阶段恢复；代码、业务配置或模型上下文变更需新候选，不能改写旧指纹。同输入失败或不确定的资料补全请求不会因另起 run 自动重试。原始状态、正文和成功缓存保留供审计。
+
+`work/pipeline.lock` 防止统一入口并发写入。强制中断留下的锁需确认原进程已结束后处理；独立旧 CLI 不受该锁管理，不能同时写正式产物。正式数据若被其他运行更新，旧候选不能覆盖新基线。替换使用目录备份及回滚日志，多个目录并非面向并发读者的全局原子事务；统一 Git 提交代表同一发布版本。
+
+## 4. 审核并发布已有候选
+
+以下命令只审核及晋升已有候选，不启动采集或模型：
+
+```powershell
+python scripts/run_pipeline.py review-candidate --candidate work/runs/<日期>/ten-am/<运行ID>/workspace
 python scripts/run_pipeline.py publish-candidate --candidate work/reviewed-candidates/<审核返回的目录ID>
 ```
 
-第一步校验窗口、新闻集合与内容、收录去向计数、公司处理范围和跨文件一致性，复制成独立审核包。review.json记录真实来源workspace、代码校验值、候选文件校验值和正式数据基线，类型为reviewed_import；不改写原采集运行状态。
-第二步重新校验并持有pipeline.lock，候选或代码发生变化需要重新审核；正式数据变化需要重建候选。较旧窗口不能覆盖较新正式窗口。写入采用既有备份与回滚机制，重复发布已完成记录不会再次覆盖。中断记录保留供排错，不能伪造成功状态。
+审核核对窗口、双池内容与包含关系、来源及去向计数、公司输入范围和跨文件一致性，并复制独立审核包。`review.json` 绑定来源 workspace、代码、候选文件及正式基线，类型为 `reviewed_import`，不改写采集状态。
 
-发布只更新本地整套正式产物；之后提交data和web/public到main，Pages工作流构建部署。私有inputs、review.json、正文及日志仍在work，不提交。
+发布重新校验并持有流水线锁；代码或候选变化需重新审核，正式基线变化需重建候选，较旧窗口不得覆盖较新窗口。发布只更新本地正式产物，后续提交及 Pages 部署需另行完成并核对线上 JSON。私有 inputs、正文、模型响应、台账和日志不提交。
 
-信源status保持complete/partial/failed/not_requested契约；公开reasonCode区分not_started_budget（熔断后未创建）、budget_stopped（已启动后止损）、boundary_unverified（未扫完窗口）、content_incomplete（部分正文缺失）等。只输出白名单原因码，不把原始错误或密钥带入网页。缺少证据时显示原因待核实。
+## 5. GitHub 手动工作流与恢复包
 
+`.github/workflows/fetch-manus.yml` 文件名保留兼容，但当前只有 `workflow_dispatch`，没有 `schedule`。页面仅允许 `stage=all`、`source_mode=direct-only`；`window_end` 留空取启动时北京时间，`date` 与窗口沿入口校验，另有 `promote` 和 `dry_run`。当前不提供 Manus、AIHOT 或 Tavily 运行选择。
 
-用户于2026-09-14确认：最多并发3个来源，普通单来源费用止损不再取消其他排队来源，全部来源依次获得启动机会。每来源20 credits观察止损和已核实文章checkpoint／停止后只读回收保持。已实际尝试的同窗口失败结果不自动付费重试；明确标记task not created的旧熔断占位不算一次尝试，允许首次启动。余额不足、无法确认远端任务停止等系统性异常仍保留保护，不能保证异常或作业超时情况下全部完成。
+模型请求只使用仓库 Secret `PARATERA_API_KEY`，地址固定为 `https://llmapi.paratera.com/v1`，模型固定为 `DeepSeek-V4-Pro`；不通过变量或其他提供商密钥回退。恢复包密钥的兼容读取不代表启用对应付费服务。
 
-2026-09-16 调度核查：连续7次 schedule 在下午才创建，随后2–3秒进入Job。平台触发前延迟并非采集耗时，尚未解决准点性。现添加显式时区与只读时间诊断；超过15分钟在运行摘要警示，主流程不阻断。证据见[审计报告](../history/2026-09-16-SCHEDULE_AUDIT.md)。
-# AIHOT 时间窗修复（2026-09-18）
+工作流保存脱敏状态，并将原始页面、正文、模型缓存、研究台账和候选产物放入加密恢复包。恢复在新候选目录使用原缓存，缺失结果需明确处理，不能伪造旧运行成功或自动补付费请求。步骤见[加密恢复说明](PIPELINE_RECOVERY.md)。
 
-每日北京时间09:30边界保持。AIHOT选批使用自身timeline（通常收录时间，超过72小时历史回填按原文时间），不复用Manus原始发布时间门禁。共享模型通过后，快照全部资讯与当批视图必须保留同一条目集合；原文发布时间独立保留用于排序、展示和归档。新增离线样本覆盖慢推信源跨日收录、窗口起止边界、历史回填、已冻结归档及最终网页集合。
-# 2026-09-22 阅读分流更新
+成功提交并推送数据后，工作流以 `actions: write` 显式触发 `deploy-pages.yml`。派发成功只证明进入队列，最终还须核对 Pages 结果及线上 JSON；没有数据变化、未晋升候选或 dry-run 不触发该次部署。
 
-“全部文章”保存本批次经过来源、时间核验的所有去重文章；“Garena投资精选”按已有相关性和摘要分类标准筛选。公司、产品、融资更新仅消费精选，原库保留并沿用原有资料补全预算。全部元数据按窗口另存 `data/archive/all-articles/`；`processed.json.items` 仍为精选，新增 `allArticles`。候选审核同时核验两池包含关系、内容一致和公司输入范围。定时保持关闭，修改页面不会自动启动采集或重置付费台账。
+## 历史流程说明
+
+2026-09-22 前的 AIHOT/Manus 双源、原北京时间 09:30 定时、Manus 逐篇 checkpoint 与 credits 止损、独立 feed/content 调试及公司 Lite 寻链均为历史流程，当前不执行。9月22日曾改为仅 Manus，9月23日再切换为当前网站直采；旧原始结果、收费记录和时间口径不改写，恢复时保持各自 schema 和来源身份。
+
+- [9月14日部分来源验收](../history/2026-09-14/MANUS_PARTIAL_REVIEW_20260914.md)：partial 不等于完整窗口覆盖。
+- [9月16日调度审计](../history/2026-09-16-SCHEDULE_AUDIT.md)：记录当时 schedule 延迟，不表示当前恢复定时。
+- [9月18日审核补录](../history/2026-09-18-REVIEWED_ARTICLE_SUPPLEMENT.md)：记录旧独立补录方式，当前统一候选双池发布。
+- [9月23日直采验收](../history/2026-09-23-DIRECT_NEWS_ACCEPTANCE.md)：直采证据、离线审校及发布状态分别验收。

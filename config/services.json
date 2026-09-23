@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "manus": false,
+  "tavily": false,
+  "note": "2026-09-23用户确认：暂时停用Manus，匿名网站直采；模型统一并行科技DeepSeek-V4-Pro。恢复其他付费服务须先取得新授权。"
+}

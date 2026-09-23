@@ -120,6 +120,21 @@ class TestModelRequestOptions(unittest.TestCase):
         self.assertEqual(captured["body"]["thinking"], {"type": "disabled"})
 
 
+class TestProviderKey(unittest.TestCase):
+    def test_paratera_key_alias_never_crosses_provider_hosts(self):
+        tx = {'model': {'api_key_env': 'DEEPSEEK_API_KEY', 'api_base_env': 'LLM_API_BASE',
+                        'default_base': 'https://llmapi.paratera.com/v1'}}
+        with patch.object(llm_common, '_DOTENV_LOADED', True), patch.dict(os.environ, {
+                'PARATERA_API_KEY': 'provider-key', 'DEEPSEEK_API_KEY': 'legacy-key',
+                'LLM_API_BASE': ''}, clear=True):
+            self.assertEqual(llm_common.resolve_key_env(tx), 'PARATERA_API_KEY')
+            os.environ['LLM_API_BASE'] = 'https://example.com'
+            self.assertEqual(llm_common.resolve_key_env(tx), 'DEEPSEEK_API_KEY')
+            os.environ['LLM_API_BASE'] = ''
+            os.environ['PARATERA_API_KEY'] = ''
+            self.assertEqual(llm_common.resolve_key_env(tx), 'DEEPSEEK_API_KEY')
+
+
 class TestUsageLog(unittest.TestCase):
     def test_records_only_usage_metadata(self):
         target = Path(make_temp_dir("usage-log-test-"), "usage.jsonl")

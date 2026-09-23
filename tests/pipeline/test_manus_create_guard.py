@@ -73,6 +73,7 @@ class ManusCreateGuardTests(unittest.TestCase):
                              else lambda *args: response)
                 client = self.client(transport)
                 with patch('manus_source.client.urlopen', side_effect=error) as http, \
+                     patch('service_policy.enabled', return_value=True), \
                      client.receipt_scope(receipts.append):
                     with self.assertRaisesRegex(ManusAPIError, 'account_credits_exhausted'):
                         self.create(client)
@@ -103,7 +104,8 @@ class ManusCreateGuardTests(unittest.TestCase):
                 error = HTTPError('https://api.manus.ai/v2/task.create', status, 'failure', {},
                                   io.BytesIO(json.dumps(body).encode()))
                 client = self.client(lambda *args: default_transport(*args, 'offline'))
-                with patch('manus_source.client.urlopen', side_effect=error), client.receipt_scope(receipts.append):
+                with patch('manus_source.client.urlopen', side_effect=error), \
+                     patch('service_policy.enabled', return_value=True), client.receipt_scope(receipts.append):
                     with self.assertRaises(ManusAPIError):
                         self.create(client)
                 self.assertEqual(receipts[-1]['creationState'], 'unknown')
