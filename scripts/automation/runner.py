@@ -15,9 +15,12 @@ from manus_source.window import ten_am_window
 
 STAGES = ("discovery", "content", "feed", "snapshot", "overview", "funding")
 COMBINED_STAGES = ("discovery", "content", "news", "snapshot", "overview", "funding")
+DIRECT_STAGES = ('direct', 'news', 'snapshot', 'overview', 'funding')
 
 
 def normalize_source_mode(source_mode):
+    if source_mode == 'direct-only':
+        return source_mode
     if source_mode not in ('manus-only', 'full'):
         raise ValueError('AIHOT 已停止采集；生产仅支持 manus-only（full 为兼容别名）')
     return 'manus-only'
@@ -102,6 +105,9 @@ def validate_news_pools(snapshot: dict, processed: dict, tx: dict | None = None)
             if any(article.get(k) != source.get(k) for k in ('title', 'summary', 'url', 'publishedAt')):
                 raise ValueError(f'{name}候选新闻与网页内容不一致')
             if modern:
+                for key in ('collector', 'sourcePlatform', 'sourceChannel', 'sourceRefs', 'timeEvidence'):
+                    if key in source and article.get(key) != source[key]:
+                        raise ValueError(f'{name}候选新闻与网页来源证据不一致')
                 if has_body(article):
                     raise ValueError('公开文章池禁止包含正文')
                 classification = source.get('classification')
@@ -123,6 +129,10 @@ def validate_news_pools(snapshot: dict, processed: dict, tx: dict | None = None)
         return visible, visible
     if type(snapshot['newsSelectionVersion']) is not int or snapshot['newsSelectionVersion'] != 1:
         raise ValueError('不支持的 newsSelectionVersion')
+    if processed.get('sourceMode') is not None:
+        from build_snapshot import prepared_source_mode
+        if snapshot.get('sourceMode') != prepared_source_mode(processed):
+            raise ValueError('候选新闻与网页采集模式不一致')
     pools = [snapshot.get(name) for name in ('garenaSelected', 'all')]
     if any(not isinstance(pool, dict) or not isinstance(pool.get('items'), list) for pool in pools):
         raise ValueError('新版快照必须包含 Garena 精选与全部文章池')
@@ -210,6 +220,7 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
     def out(rel):
         return workspace / rel
     commands = {
+        'direct': script('collect_direct_news.py', '--date', date, '--out-dir', workspace / 'inputs/direct'),
         "discovery": script("manus_source/runner.py", "--date", date, *(["--resume"] if resume else [])),
         "content": script("manus_source/content_phase.py", "--date", date),
         "feed": script("build_manus_feed.py", "--date", date, "--data-dir", out("data/manus")),
@@ -254,11 +265,16 @@ def plan(root: Path, workspace: Path, date: str, resume=False, skip_search=False
                 commands[stage][commands[stage].index('--work-dir') + 1] = str(manus_work)
         commands['snapshot'].extend(('--input-json', str(workspace / 'inputs/processed.json'), '--no-tags'))
         commands['overview'].extend(('--evidence-json', str(workspace / 'inputs/company-evidence.json')))
+        commands['funding'].extend(('--evidence-json', str(workspace / 'inputs/company-evidence.json')))
         commands['overview'].append('--allow-partial')
         commands['overview'].extend(('--known-link-research', '--research-dir',
             str(root / 'work/company-web-research' / workspace.parent.name),
             '--research-budget-dir', str(root / 'work/company-research-budget')))
         commands['overview'].append('--discover-company')
+        if source_mode == 'direct-only':
+            commands['news'].extend(('--direct-input', str(workspace / 'inputs/direct/collection.json')))
+            # Direct news must not silently start optional paid Manus discovery.
+            commands['overview'].remove('--discover-company')
     return commands
 
 
@@ -331,6 +347,7 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
                              if (root / 'config/taxonomy.json').exists() else '{}').get('model', {}).get('model', ''),
                          "LLM_API_BASE": os.getenv('LLM_API_BASE', '')},
                      "sourceMode": source_mode,
+                     "fundingEvidenceVersion": 1 if combined else None,
                      "collectionWindow": ten_am_window(date) if ten_am else None,
                      "baseline": {rel: tree_digest(root / rel) for rel in ALLOWED}}
             state['recoveryBaseline'] = {rel: tree_digest(root / rel, portable=True) for rel in ALLOWED}
@@ -348,9 +365,9 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
                     'seconds': round(time.monotonic() - started, 2)}
 
         if combined:
-            collectors = ['discovery']
+            collectors = ['direct'] if source_mode == 'direct-only' else ['discovery']
             pending = [s for s in collectors if state['stages'].get(s, {}).get('status') != 'success']
-            retry_content = state['stages'].get('content', {}).get('status') != 'success'
+            retry_content = source_mode != 'direct-only' and state['stages'].get('content', {}).get('status') != 'success'
             if pending or retry_content:
                 # Collector retries can change the input pool; downstream successes
                 # from an earlier attempt must not hide those new articles.
@@ -368,11 +385,11 @@ def run(root: Path, date: str, stages: list[str], *, resume=False, no_promote=Fa
                     save(run_dir / 'state.json', state)
             # A failed collector can still have validated results for other sources.
             # content/news validate these files; failure never reads the old feed.
-            if state['stages'].get('content', {}).get('status') != 'success':
+            if source_mode != 'direct-only' and state['stages'].get('content', {}).get('status') != 'success':
                 state['stages']['content'] = execute_timed('content')
             save(run_dir / 'state.json', state)
         for stage in stages:
-            if combined and stage in ('discovery', 'content'):
+            if combined and stage in ('discovery', 'content', 'direct'):
                 continue
             if state["stages"].get(stage, {}).get("status") == "success":
                 print(f"[{stage}] 复用已成功阶段", flush=True)

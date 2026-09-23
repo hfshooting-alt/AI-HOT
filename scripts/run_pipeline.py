@@ -9,7 +9,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from automation.doctor import inspect
-from automation.runner import STAGES, COMBINED_STAGES, plan, run, normalize_source_mode
+from automation.runner import STAGES, COMBINED_STAGES, DIRECT_STAGES, plan, run, normalize_source_mode
 from manus_source.window import latest_cutoff_date, ten_am_window, timestamp
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,8 +34,8 @@ def _main(argv=None):
     parser.add_argument('--window-end', help='固定扫描开始时刻，含时区的 ISO 时间；默认取当前北京时间到秒')
     parser.add_argument('--cutoff-time', default='09:30', help='北京时间固定24小时窗口结束时刻 HH:MM，默认09:30')
     parser.add_argument("--stage", choices=("all", *STAGES), default="all")
-    parser.add_argument("--source-mode", choices=("manus-only", "full", "aihot-only"), default="manus-only",
-                        help="仅 Manus 采集；full 为兼容别名，aihot-only 已停用")
+    parser.add_argument("--source-mode", choices=("manus-only", "direct-only", "full", "aihot-only"), default="manus-only",
+                        help="Manus 或匿名媒体页面直采；full 为 Manus 兼容别名，AIHOT 已停用")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--no-promote", action="store_true", help="执行接口并生成候选产物，保留正式数据")
     parser.add_argument("--dry-run", action="store_true", help="只显示计划，不调用任何外部接口")
@@ -113,7 +113,9 @@ def _main(argv=None):
     combined = args.stage == 'all'
     if combined and not ten_am:
         parser.error('统一采集使用固定24小时窗口；自然日仅供旧单阶段调试')
-    stages = list(COMBINED_STAGES) if combined else [args.stage]
+    if args.source_mode == 'direct-only' and not combined:
+        parser.error('direct-only 使用完整隔离批次 --stage all')
+    stages = list(DIRECT_STAGES if args.source_mode == 'direct-only' else COMBINED_STAGES) if combined else [args.stage]
     if args.dry_run:
         run_path = ROOT / "work" / "runs" / args.date
         if ten_am:
@@ -123,7 +125,7 @@ def _main(argv=None):
                         source_mode=args.source_mode, manus_credit_limit=args.manus_credit_limit, combined=combined)
         print(json.dumps({"date": args.date, "publish": not args.no_promote,
                           "sourceMode": args.source_mode,
-                          "parallelCollectors": ['discovery'] if combined else [],
+                          "parallelCollectors": ['direct' if args.source_mode == 'direct-only' else 'discovery'] if combined else [],
                           "contentMode": "script",
                           "collectionWindow": ten_am_window(args.date) if ten_am else None,
                           "stages": [{"stage": s, "command": commands[s]} for s in stages]},

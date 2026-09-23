@@ -8,7 +8,7 @@ def review(items, window):
         collectors = {item.get('collector')}
         collectors.update(ref.get('collector') for ref in item.get('sourceRefs', []))
         # Shared articles collected by AIHOT retain AIHOT's admission policy.
-        if 'aihot' in collectors or 'manus' not in collectors or matching_item(window, item):
+        if 'aihot' in collectors or not collectors.intersection({'manus', 'direct_site'}) or matching_item(window, item):
             accepted.append(item)
         else:
             isolated.append({'id': item['id'], 'title': item['title'], 'url': item['url'],

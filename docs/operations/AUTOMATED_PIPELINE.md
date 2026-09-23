@@ -1,3 +1,5 @@
+2026-09-23 当前入口补充：`run --source-mode direct-only --skip-search --no-promote` 使用既定20媒体的匿名列表/详情，不调用Manus；后续news、snapshot、overview、funding与reviewed-candidate复用现有阶段。详见[直采说明](DIRECT_NEWS_COLLECTION.md)。定时与AIHOT均保持关闭，以下旧双源/定时/补录段落仅为历史记录。
+
 2026-09-18审核补录：单篇修复通过模型与人工审核后，可独立存于web/public/reviewed-news.json，由新闻与公司视图合并；不改定时批次统计、不覆盖并行采集结果。新闻按ID/URL/标题去重，较新正式窗口自动移出旧补录新闻，公司证据持续保留。操作记录见../history/2026-09-18-REVIEWED_ARTICLE_SUPPLEMENT.md。
 
 2026-09-15新确认：每日最多1个公司或待归属产品使用Manus Lite寻找资料链接，20credits观察止损、创建不重试；与20个新闻媒体采集配额分开。发现链接进入网页读取及DeepSeek验证，暂定标量只补公司空白，产品仅记录candidateOwners不合并。GitHub任务创建前以每日缓存持久化运行所有者占位并读回确认；同日另一轮或重跑不再创建。aihot-only不调用此Manus步骤。

@@ -15,6 +15,11 @@ def _strings(value, fields):
     return {key: value[key] for key in fields if isinstance(value.get(key), str)}
 
 
+def public_time_evidence(value):
+    """One public projection after admission; full capture proof stays private."""
+    return _strings(value, ('originalText', 'observedAt', 'kind', 'field', 'normalizedAt'))
+
+
 def _reason(value, fallback):
     return ' '.join(value.split())[:180] if isinstance(value, str) and value.strip() else fallback
 
@@ -47,7 +52,7 @@ def _public_metadata(item):
         public['sourceRefs'] = [_strings(ref, ('collector', 'source', 'url', 'publishedAt'))
                                 for ref in item['sourceRefs'] if isinstance(ref, dict)]
     if isinstance(item.get('timeEvidence'), dict):
-        public['timeEvidence'] = _strings(item['timeEvidence'], ('originalText', 'observedAt'))
+        public['timeEvidence'] = public_time_evidence(item['timeEvidence'])
     if item.get('metadataOnly') is True:
         public['metadataOnly'] = True
     return public

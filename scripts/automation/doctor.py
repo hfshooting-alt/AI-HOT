@@ -35,6 +35,9 @@ def inspect(root: Path, stages: list[str], target_date: str | None = None, *, te
         except (OSError, ValueError, KeyError, TypeError, RuntimeError):
             check(rel, False, "文件缺失、不可读或结构不合法")
     files = []
+    if 'direct' in stages:
+        check('lxml', importlib.util.find_spec('lxml') is not None,
+              '匿名媒体HTML解析依赖，随 scripts/requirements.txt 安装')
     if "discovery" in stages:
         files.append("scripts/prompts/manus_discovery_window.md" if ten_am else "scripts/prompts/manus_discovery.md")
     if "content" in stages:

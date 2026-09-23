@@ -47,11 +47,14 @@ def allowed(name):
     research_attempt = bool(re.fullmatch(
         r'(?:work/company-web-research/(?:[^/]+/)*|'
         r'work/company-research-budget/model-cache/\d{4}-\d{2}-\d{2}/)[0-9a-f]{64}\.attempt', name))
+    direct_response = bool(re.fullmatch(
+        r'work/runs/\d{4}-\d{2}-\d{2}/ten-am/[0-9a-f]{32}/workspace/inputs/direct/'
+        r'[0-9a-f]{12}/http/\d{4}\.body', name))
     if '/workspace/web/public/' in name or '/backup/web/public/' in name:
         suffixes += ('.svg', '.css', '.js', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.woff', '.woff2', '.txt', '.webmanifest')
     return (not p.is_absolute() and '\\' not in name and ':' not in name
             and all(v not in ('.', '..') and not v.startswith('.') for v in p.parts)
-            and (p.suffix in suffixes or research_attempt)
+            and (p.suffix in suffixes or research_attempt or direct_response)
             and (name in EXTRA_FILES or any(name.startswith(prefix + '/') for prefix in TREES)))
 
 
@@ -252,7 +255,8 @@ def rebuild(root, source_run):
         caches = read(workspace / 'data/company-overview/extraction_cache.json')
         report['missing']['overview'] = [a['id'] for a in articles
             if caches.get(cache_key(tx, a), {}).get('status') != 'complete']
-        fa = funding.load_articles(snapshot, feed, raw, tx)
+        funding_evidence = evidence_path if state.get('fundingEvidenceVersion') == 1 or state.get('sourceMode') == 'direct-only' else None
+        fa = funding.load_articles(snapshot, feed, raw, tx, evidence_path=funding_evidence)
         fpath = workspace / 'data/funding/extraction_cache.json'
         fc = read(fpath) if fpath.exists() else {}
         report['missing']['funding'] = [a['id'] for a in fa
@@ -286,7 +290,7 @@ def rebuild(root, source_run):
                 for key in ('cacheHits', 'filled', 'failed', 'attempted', 'pagesFetched', 'deferred')}
         promote(data, workspace / 'data/company-overview', workspace / 'web/public')
         table = funding.build_funding_table(snapshot, feed, raw, tx, workspace / 'data/funding',
-                                           llm_fn=deny_model, skip_search=True)
+                                           llm_fn=deny_model, skip_search=True, evidence_path=funding_evidence)
         promote_table(table, workspace / 'data/funding', workspace / 'web/public')
         review_dir, summary = prepare(root, workspace)
         report.update(status='review_ready', reviewDirectory=str(review_dir), summary=summary)

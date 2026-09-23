@@ -3,195 +3,6 @@
  "finalized": false,
  "items": [
   {
-   "id": "manus:c5a3a038813ceba8",
-   "title": "刚刚发布：这家AI公司正在重塑3D生成管线，游戏行业真的要变了",
-   "url": "https://news.qq.com/rain/a/20260922A08A8F00?id=20260922A08A8F00&path=a&app=news&suid=&redirect_pc=1",
-   "source": "腾讯新闻转载：游戏葡萄",
-   "mpName": "游戏葡萄",
-   "sourceType": "media",
-   "sourceChannel": "tencent_syndication",
-   "sourcePlatform": "Tencent News",
-   "collector": "manus",
-   "publishedAt": "2026-09-22T16:49:00+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "游戏葡萄",
-     "url": "https://news.qq.com/rain/a/20260922A08A8F00?id=20260922A08A8F00&path=a&app=news&suid=&redirect_pc=1",
-     "publishedAt": "2026-09-22T16:49:00+08:00"
-    }
-   ],
-   "summary": "影眸Hyper3D于9月12日分享了一个案例，一位3D艺术家用GPT-6和Hyper3D一晚上制作出一款3D赛车游戏。今天，Hyper3D正式推出智能交互模式Agentic Mode，该模式能理解用户意图、处理不完美输入并自动选择建模路径，例如可补全不完整照片中的建筑结构、识别工程图中的多模态信息，并针对不同需求选择精细建模或参数化建模方式。",
-   "classification": {
-    "category": "release",
-    "tags": {
-     "industry": "ai_model",
-     "issuer": "startup"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "e480b0983fafc691b146e9e3201bd05605e885110964a9b70b2d1a0b083d8735",
-   "contentStatus": "available",
-   "classificationStatus": "complete",
-   "summaryStatus": "complete",
-   "summaryOrigin": "model"
-  },
-  {
-   "id": "manus:0193515ce98f8b38",
-   "title": "深度 | 阿里云的万亿收入时间表，可能比它自己说的还要早",
-   "url": "https://www.163.com/dy/article/L7ENIKR30556EX0D.html?spss=dy_author",
-   "source": "网易号转载：ZFinance",
-   "mpName": "ZFinance",
-   "sourceType": "media",
-   "sourceChannel": "netease_syndication",
-   "sourcePlatform": "NetEase",
-   "collector": "manus",
-   "publishedAt": "2026-09-22T16:19:48+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "ZFinance",
-     "url": "https://www.163.com/dy/article/L7ENIKR30556EX0D.html?spss=dy_author",
-     "publishedAt": "2026-09-22T16:19:48+08:00"
-    }
-   ],
-   "summary": "吴泳铭在云栖大会上提出阿里云到2032年运营全球数据中心规模突破20GW的目标。文章通过行业产值转化模型推算，20GW对应年总产值约2400亿美元，即便七成来自外部也接近1.2万亿元人民币，远超阿里此前定下的1000亿美元外部收入目标。阿里云当前外部年化收入约1200亿元人民币，最新单季收入增速达45%，若保持约48.4%的年均复合增长率，约4.5年即可达到千亿美元门槛。",
-   "classification": {
-    "category": "bigtech",
-    "tags": {
-     "change_type": "business_line",
-     "company": "alibaba"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "62ec768c896b4f7a9251dc59612314ab20dd606693c384fe5d257205f9b49c5c",
-   "contentStatus": "available",
-   "classificationStatus": "complete",
-   "summaryStatus": "complete",
-   "summaryOrigin": "model"
-  },
-  {
-   "id": "manus:527f298726657358",
-   "title": "AI眼镜退货率最高70%背后：Rokid、千问、雷鸟的一场“非技术PK”",
-   "url": "https://view.inews.qq.com/a/20260922A07RY300",
-   "source": "腾讯新闻转载：娱乐资本论",
-   "mpName": "娱乐资本论",
-   "sourceType": "media",
-   "sourceChannel": "tencent_syndication",
-   "sourcePlatform": "Tencent News",
-   "collector": "manus",
-   "publishedAt": "2026-09-22T16:11:00+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "娱乐资本论",
-     "url": "https://view.inews.qq.com/a/20260922A07RY300",
-     "publishedAt": "2026-09-22T16:11:00+08:00"
-    }
-   ],
-   "summary": "AI眼镜线上退货率高达30%至70%，但线下门店退货率极低。Rokid、千问、雷鸟等品牌正通过渠道、代言人和生态建设展开竞争。渠道方面，品牌采用进网点、授权分销和自有门店三种方式，Rokid与红星眼镜合作开设验配一体门店，影目计划在上海开设首家品牌旗舰店。代言方面，Rokid选择科技创作者Tim，雷鸟CEO李宏伟亲自上阵，影目与王嘉尔合作推出联名产品。",
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "929c0ff73e11011523d03d4d600d57a1645e350cba24af57e374b3d5964554c1",
-   "contentStatus": "available",
-   "classificationStatus": "complete",
-   "summaryStatus": "complete",
-   "summaryOrigin": "model"
-  },
-  {
-   "id": "manus:66e7f2a7dc7b6784",
-   "title": "1周做原型、7周验证100关，土耳其团队的验证效率有点狠",
-   "url": "https://www.baijing.cn/article/56797",
-   "source": "官网资讯：白鲸出海",
-   "mpName": "白鲸出海",
-   "sourceType": "media",
-   "sourceChannel": "publisher_site",
-   "sourcePlatform": "Official Baijing",
-   "collector": "manus",
-   "publishedAt": "2026-09-22T16:02:00+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "白鲸出海",
-     "url": "https://www.baijing.cn/article/56797",
-     "publishedAt": "2026-09-22T16:02:00+08:00"
-    }
-   ],
-   "summary": "土耳其手游团队 Bold Games 今年完成 600 万美元种子轮融资，CEO Ulaş Mergen 曾在 Dream Games、Rollic 和 Bigger Games 工作。团队首款产品《Market Match》结合 Goods Sorting 与《Match Factory》的机制，加入堆叠区和步数限制。Bold 的研发流程是先用一周做核心机制原型，再用约七周验证 100 个可玩关卡、5 种障碍物和可持续的关卡设计机制。",
-   "classification": {
-    "category": "financing",
-    "tags": {
-     "industry": "ai_game_content",
-     "region": "other"
-    },
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "e4158c77f632cbb44b38e7b586020b0ef6a450edafd791b052163a02e97cdea8",
-   "contentStatus": "available",
-   "classificationStatus": "complete",
-   "summaryStatus": "complete",
-   "summaryOrigin": "model"
-  },
-  {
-   "id": "manus:20da35e6e3ca2671",
-   "title": "60美刀的AI眼镜，被他们干到TikTok美区第一",
-   "url": "https://www.baijing.cn/article/56796",
-   "source": "官网资讯：白鲸出海",
-   "mpName": "白鲸出海",
-   "sourceType": "media",
-   "sourceChannel": "publisher_site",
-   "sourcePlatform": "Official Baijing",
-   "collector": "manus",
-   "publishedAt": "2026-09-22T14:24:00+08:00",
-   "publishedPrecision": "datetime",
-   "timeEvidence": null,
-   "evidenceKind": "article_body",
-   "sourceRefs": [
-    {
-     "collector": "manus",
-     "source": "白鲸出海",
-     "url": "https://www.baijing.cn/article/56796",
-     "publishedAt": "2026-09-22T14:24:00+08:00"
-    }
-   ],
-   "summary": "深圳宝安的00后创业品牌LUSBY凭借约60美元售价的AI眼镜，在TikTok Shop美区AI眼镜类目登顶。团队早在2018、2019年便开始研发智能眼镜，2025年随着实时翻译、AI识图等功能落地，决定All in AI眼镜。产品砍掉AR大屏、复杂传感等配置，只保留第一视角记录、实时翻译和轻量化佩戴体验。",
-   "classification": {
-    "category": "general",
-    "tags": {},
-    "autoFallback": false,
-    "autoFilled": []
-   },
-   "enrichmentStatus": "complete",
-   "contentSha256": "0edd01cd450d4e4be896f22c3c148e0cb0c4ea110d3304f71f0cc387a000efb2",
-   "contentStatus": "available",
-   "classificationStatus": "complete",
-   "summaryStatus": "complete",
-   "summaryOrigin": "model"
-  },
-  {
    "id": "manus:c4b9f539580beacd",
    "title": "环动机器人，终止A股上市审核",
    "url": "https://news.qq.com/rain/a/20260922A05NCS00?id=20260922A05NCS00&path=a&app=news&suid=&redirect_pc=1",
@@ -382,7 +193,1828 @@
    "classificationStatus": "complete",
    "summaryStatus": "complete",
    "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:317709194efe2c74",
+   "title": "Agent时代，CPU的价值该重估了",
+   "url": "https://view.inews.qq.com/a/20260922A0B2O100",
+   "source": "腾讯新闻转载：量子位",
+   "mpName": "量子位",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T23:47:27+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 23:47:27",
+    "observedAt": "2026-09-23T13:37:43+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T23:47:27+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "量子位",
+     "url": "https://view.inews.qq.com/a/20260922A0B2O100",
+     "publishedAt": "2026-09-22T23:47:27+08:00"
+    }
+   ],
+   "summary": "英特尔在苏州举办技术创新与产业生态大会，提出Agent时代AI计算配比正从一颗CPU搭配四颗GPU变为一颗CPU搭配一颗GPU。英特尔数据中心事业部副总裁陈葆立以整理新闻任务为例，说明Agent需要拆解任务、调用工具、处理多种格式数据，CPU在调度、数据预处理和执行工作中作用增加。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "05bc42ec48f8d8bd593f22a50fe8b269d7b49f770fa53950460524ddd699f80c",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:d8ff6cb0539e54fe",
+   "title": "Meta 再次上桌！个人AI产品爆红，扎克伯格身价直涨2000亿",
+   "url": "https://view.inews.qq.com/a/20260922A0AXLR00",
+   "source": "腾讯新闻转载：DeepTech深科技",
+   "mpName": "DeepTech深科技",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T22:53:26+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 22:53:26",
+    "observedAt": "2026-09-23T13:37:35+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T22:53:26+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "DeepTech深科技",
+     "url": "https://view.inews.qq.com/a/20260922A0AXLR00",
+     "publishedAt": "2026-09-22T22:53:26+08:00"
+    }
+   ],
+   "summary": "Meta 于 9 月 8 日上线个人 AI 助手 Muse，不到两周登上美国 iOS 应用商店免费榜榜首，累计下载量超过 250 万次，超过同期 Claude 和 Grok，仅次于 ChatGPT。Muse 拥有独立云端电脑和浏览器，可在用户授权后打开网页、填写表单、处理邮件和完成预订，关闭应用后仍能在后台执行任务，并保留用户偏好和历史信息。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "business_line",
+     "company": "meta"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "669499f79bcc688f470093a2a4d87f14facbe064088c14acd17682ec842c96b3",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:5be4592d23f48087",
+   "title": "LG电子AI液冷设备获英伟达认证，取得AI数据中心项目准入资格",
+   "url": "https://view.inews.qq.com/a/20260922A0ATYV00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T22:32:09+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 22:32:09",
+    "observedAt": "2026-09-23T13:37:50+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T22:32:09+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260922A0ATYV00",
+     "publishedAt": "2026-09-22T22:32:09+08:00"
+    }
+   ],
+   "summary": "LG电子宣布其2.5兆瓦冷却液分配单元（CDU）获得英伟达DSX Ready认证，取得进入英伟达AI工厂相关项目的技术准入资格。DSX Ready是英伟达针对AI工厂基础设施产品的认证体系，目前全球通过2.5兆瓦等级认证的CDU产品仅有三款，LG电子产品位列其中。获得认证并不意味着已经拿到英伟达订单，最终采购仍取决于实际项目需求和供应商选择。消息公布后，LG电子韩股涨近7%。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "e8e1a4c4d114efa94b503e0505caee25368e5e42ee2146ecf83ba59e5195f09c",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:3771ee57484b9b15",
+   "title": "千问一号位定了！前华为天才少年刘大一恒，接棒林俊旸",
+   "url": "https://view.inews.qq.com/a/20260922A0ASSQ00",
+   "source": "腾讯新闻转载：量子位",
+   "mpName": "量子位",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T22:24:48+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 22:24:48",
+    "observedAt": "2026-09-23T13:37:44+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T22:24:48+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "量子位",
+     "url": "https://view.inews.qq.com/a/20260922A0ASSQ00",
+     "publishedAt": "2026-09-22T22:24:48+08:00"
+    }
+   ],
+   "summary": "阿里云栖大会官网嘉宾信息显示，前华为天才少年刘大一恒已正式接任千问负责人，职位为阿里巴巴ATH事业群Token Foundry Qwen LLM项目负责人。刘大一恒本硕博均就读于四川大学，2021年加入达摩院后负责Qwen项目早期预训练，主导开发Qwen1至Qwen3.5系列及Qwen-Math系列，累计参与300多款Qwen模型开源。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "personnel",
+     "company": "alibaba"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "5fcef69c9343aa44bc0c76e59c40bea82338418f3bd6098eed6e547d3dcb038e",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:78809a7ab65d3d47",
+   "title": "300个衍生模型爆发，H3开源是AI影视的新拐点？",
+   "url": "https://view.inews.qq.com/a/20260922A0ASIG00",
+   "source": "腾讯新闻转载：娱乐资本论",
+   "mpName": "娱乐资本论",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T22:23:06+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 22:23:06",
+    "observedAt": "2026-09-23T13:37:32+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T22:23:06+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "娱乐资本论",
+     "url": "https://view.inews.qq.com/a/20260922A0ASIG00",
+     "publishedAt": "2026-09-22T22:23:06+08:00"
+    }
+   ],
+   "summary": "MiniMax H3模型权重于8月3日上线Hugging Face，开源三周全球下载量突破2400万次，公开衍生模型超过300个。MiniMax在8月26日中期业绩会上披露H3下载量已排在开源模型前列，8月ARR超过8亿美元，To B业务占比约80%。衍生模型包括加速、画质优化、运镜动作、角色参考和功能扩展五类，腾讯联合新加坡国立大学、香港理工大学用8000条游戏视频微调出世界模型H3-World。",
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_model",
+     "interviewee": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "7b4195a8a8dfeb9b08fffdef758cad3f9870e4dd7c16403cac33b1a626ea6331",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:062317dcd11ad9cb",
+   "title": "Oura估值1000亿，中国版Oura要翻越几重大山？",
+   "url": "https://www.baijing.cn/article/56785",
+   "source": "官网资讯：白鲸出海",
+   "mpName": "白鲸出海",
+   "sourceType": "media",
+   "sourceChannel": "publisher_site",
+   "sourcePlatform": "Official Baijing",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T22:21:00+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 22:21",
+    "observedAt": "2026-09-23T13:37:30+08:00",
+    "kind": "absolute",
+    "field": "time.timeago",
+    "normalizedAt": "2026-09-22T22:21:00+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "白鲸出海",
+     "url": "https://www.baijing.cn/article/56785",
+     "publishedAt": "2026-09-22T22:21:00+08:00"
+    }
+   ],
+   "summary": "智能戒指公司Oura估值已达约1000亿元。2025年以来，中国智能戒指赛道升温，RingConn通过无订阅模式拿下5%市场份额，冲进全球第四；iQibla全球出货超过400万件；自2026年以来赛道整体融资金额已过亿。文章分析了智能戒指的供应链难题，包括功能、续航与厚度的矛盾，硬件对数据采集准确性的影响，以及电池售后问题。Oura Ring 4部分批次出现电池性能问题，2025财年保修费用增加8440万美元，毛利率从65%降至52%。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "d6e5899c101904ed51628ca596ecd184767c27a8e6587dd48965e13ff45b89c8",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:107c42b5a7b27d2d",
+   "title": "巨头堆里，一个人的转录生意跑出3000万流量",
+   "url": "https://www.baijing.cn/article/56800",
+   "source": "官网资讯：白鲸出海",
+   "mpName": "白鲸出海",
+   "sourceType": "media",
+   "sourceChannel": "publisher_site",
+   "sourcePlatform": "Official Baijing",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T22:20:00+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 22:20",
+    "observedAt": "2026-09-23T13:37:30+08:00",
+    "kind": "absolute",
+    "field": "time.timeago",
+    "normalizedAt": "2026-09-22T22:20:00+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "白鲸出海",
+     "url": "https://www.baijing.cn/article/56800",
+     "publishedAt": "2026-09-22T22:20:00+08:00"
+    }
+   ],
+   "summary": "AI转录产品TurboScribe近3个月在AI产品榜网站访问量Top50中排名稳定，最高曾冲到第37名，月访问量超过3000万。该产品由Meta前工程师Leif Foged以一人公司形式运营，界面简单，支持上传音频文件转为文字，转录支持98种语言，付费后单次文件最长10小时、最大5GB。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "a0cf33b3e6046979d332d8a7fca8aded48340f31af09397fa1c1d15d4dcaeb5b",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:9674d62984917ba4",
+   "title": "直播预告：未来两三年，哪些工业AI场景会率先爆发？",
+   "url": "https://view.inews.qq.com/a/20260922A0ARIJ00",
+   "source": "腾讯新闻转载：量子位",
+   "mpName": "量子位",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T22:19:07+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 22:19:07",
+    "observedAt": "2026-09-23T13:37:44+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T22:19:07+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "量子位",
+     "url": "https://view.inews.qq.com/a/20260922A0ARIJ00",
+     "publishedAt": "2026-09-22T22:19:07+08:00"
+    }
+   ],
+   "summary": "量子位将于9月29日14时举办一场关于工业AI的直播对话，邀请西门子Xcelerator中国销售与生态成功负责人顾欣和阿丘科技创始人兼CEO黄耀作为嘉宾。直播将围绕工业AI从“能用”走向“规模化复制”过程中面临的问题展开，重点讨论AI进入工厂后的实际困难、单个项目跑通后难以复制的原因、工业AI对生态的依赖，以及下一批工业AI机会可能出现的场景。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "fee21a44a07591acbdfbf7c9c68a04cd1b7f6676acc0ce06078741a7e2a53e41",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:0a05ca5846ed2fdf",
+   "title": "讲真，我没看出这图是AI做的，更没想到是国产AI做的",
+   "url": "https://view.inews.qq.com/a/20260922A0AMPO00",
+   "source": "腾讯新闻转载：量子位",
+   "mpName": "量子位",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T21:50:35+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 21:50:35",
+    "observedAt": "2026-09-23T13:37:44+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T21:50:35+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "量子位",
+     "url": "https://view.inews.qq.com/a/20260922A0AMPO00",
+     "publishedAt": "2026-09-22T21:50:35+08:00"
+    }
+   ],
+   "summary": "商汤科技正式上线图像生成模型SenseNova U1 Pro，用户可在商汤小浣熊平台使用，API已向企业客户开放。该模型支持复杂图片生成，在SenseNova Studio平台可进行多轮修改，清晰度从2K起步最高4K。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "9ad157e4cda131e17a78cad1d47d8f4b82165b1e77d9b9ef295d8a2a88c250af",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:9c2fb0119f96c171",
+   "title": "中金：2C Agent从对话迈向任务执行，Meta Muse的核心优势是36亿用户的分发和信任基建",
+   "url": "https://view.inews.qq.com/a/20260922A0AJZV00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T21:37:07+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 21:37:07",
+    "observedAt": "2026-09-23T13:37:50+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T21:37:07+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260922A0AJZV00",
+     "publishedAt": "2026-09-22T21:37:07+08:00"
+    }
+   ],
+   "summary": "中金研究分析认为，AI Agent正从对话工具向任务执行演进，Meta于9月8日在美国正式推出个人AI Agent Muse，面向18岁以上用户，覆盖iOS、Android、网页端和WhatsApp。Muse由Muse Spark驱动，可将长期目标拆解为行动计划并后台执行，覆盖网页操作、邮件、日历、表单、旅行预订和购物等场景。上线第二天，Muse一度升至美国App Store免费榜第3位。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "meta"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "ef4a871287863aba57e67949048111c80783680bfa93528d707149f2cc6d5862",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:e9e3c44b258494bc",
+   "title": "ChatGPT版Grok Bot代码曝光！OpenAI也要为你造不下班的AI同事",
+   "url": "https://view.inews.qq.com/a/20260922A0AJ6M00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T21:32:31+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 21:32:31",
+    "observedAt": "2026-09-23T13:37:51+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T21:32:31+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260922A0AJ6M00",
+     "publishedAt": "2026-09-22T21:32:31+08:00"
+    },
+    {
+     "collector": "direct_site",
+     "source": "新智元",
+     "url": "https://view.inews.qq.com/a/20260922A09K6700",
+     "publishedAt": "2026-09-22T18:45:54+08:00"
+    }
+   ],
+   "summary": "据The Information报道，OpenAI正在开发更直接对标Grok Bot的智能体功能，内部也在讨论如何应对Meta的个人助手Muse。爆料博主Tibor Blaho从ChatGPT客户端代码中发现名为Aeon的字段，aeonId与accountUserId并列，安卓端还出现memberAeonIds字段，暗示Aeon可能作为可单独标识的对象存在。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "openai"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "58e65490eb171ecf18d2aaddb77faba85ec06fdd0df7259d561e1322fd9c7860",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:7690a02975bcc4c8",
+   "title": "499元，OPPO发了一款别在领口的AI新硬件",
+   "url": "https://view.inews.qq.com/a/20260922A0AIV800",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T21:30:03+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 21:30:03",
+    "observedAt": "2026-09-23T13:37:48+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T21:30:03+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "智东西",
+     "url": "https://view.inews.qq.com/a/20260922A0AIV800",
+     "publishedAt": "2026-09-22T21:30:03+08:00"
+    }
+   ],
+   "summary": "OPPO在Find X10系列发布会上正式推出售价499元的AI穿戴产品“心力球”，可别在领口使用，具备全天记录、识别重要事项、帮助用户做事和陪伴成长等功能，续航据称达24小时。OPPO为此研发了AI识别、关联信息、记忆演化、个人情景感知和跨源行为模式归纳等算法，并表示生态保持开放。同时发布的Find X10系列定位影像旗舰，Pro Max版首发三颗2亿像素镜头群，并推出哈苏超清原相机、DeepPix技术等影像功能。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "f5ba0b5b3a3249d7c997427650696fbee9b6818456b77dc51922735cbb1ea378",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:052e491e8b02762f",
+   "title": "腾讯港股收涨5%！Meta Muse走红，腾讯C端Agent生态被重估",
+   "url": "https://view.inews.qq.com/a/20260922A0AGD700",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T21:11:21+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 21:11:21",
+    "observedAt": "2026-09-23T13:37:52+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T21:11:21+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260922A0AGD700",
+     "publishedAt": "2026-09-22T21:11:21+08:00"
+    }
+   ],
+   "summary": "腾讯控股周二港股收涨5.02%，盘中一度涨近8%，成交额放量至177亿港元。上涨催化剂是Meta旗下AI Agent应用Muse在美国迅速走红并登顶应用商店下载榜，市场将坐拥微信社交生态与小程序闭环的腾讯视为“中国版Muse”最具条件的落地载体。腾讯同日发布图像生成模型Hy Image 3.5 Preview，称其表现与字节跳动Seedream 5.0 Pro不相上下，并已整合至元宝及视频编辑、设计工具等产品线。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "tencent"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "35f8125072fc5f71be2736286027a212e91a3e86b8f504a0bbab91521a07ef47",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:a05d15a9e341fcbd",
+   "title": "千问办公，把“企业上下文”做成基础设施",
+   "url": "https://view.inews.qq.com/a/20260922A0AGD000",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T21:11:21+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 21:11:21",
+    "observedAt": "2026-09-23T13:37:53+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T21:11:21+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260922A0AGD000",
+     "publishedAt": "2026-09-22T21:11:21+08:00"
+    }
+   ],
+   "summary": "9月22日，在2026杭州云栖大会上，千问办公发布面向企业级Agent的上下文基础设施“企业上下文”（Enterprise Context）。该产品可将分散在群聊、文档、知识库和业务系统中的信息进行压缩、结构化和动态更新，内置专属模型以较低Token成本向Agent提供当前任务所需上下文。阿里巴巴集团副总裁、千问办公CEO陈宇森提出“Context is all you need”，认为企业级Agent的关键在于理解企业业务上下文。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "89a2a5f60bd51d167ae55bd6456d3d642fe3df3ce6ab692bf5523f330653add1",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:456d9e2dd916bffe",
+   "title": "开启AIDC建设新范式，深度拆解华为全球首个3D数据中心",
+   "url": "https://view.inews.qq.com/a/20260922A0ACML00",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T21:00:03+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 21:00:03",
+    "observedAt": "2026-09-23T13:37:48+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T21:00:03+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "智东西",
+     "url": "https://view.inews.qq.com/a/20260922A0ACML00",
+     "publishedAt": "2026-09-22T21:00:03+08:00"
+    }
+   ],
+   "summary": "华为发布全球首个3D数据中心，采用立体堆叠架构，将供冷、IT设备、供电和备电分层解耦，以支撑AI算力集群高密部署。该数据中心借鉴芯片工厂动力层与IT层分离理念，形成一层供冷、二层IT设备、三层供电、屋面备电的垂直架构，实现垂直供电和垂直制冷，缩短链路并降低损耗。在建设模式上，华为将供电、制冷等核心机电系统做成标准化POD，在工厂完成预制、组装和测试，大小机电预制化率超过90%，机电交付时间由约6个月缩短至3个月。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "294001181c3fb211c7ee93546829e50bbf64c8adcee9ba4aadb48862224eae98",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:80e50e2decba56db",
+   "title": "华尔街点评阿里云栖大会：20GW算力目标落地，云收入天花板再上移",
+   "url": "https://view.inews.qq.com/a/20260922A0A6GB00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T20:27:41+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 20:27:41",
+    "observedAt": "2026-09-23T13:37:54+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T20:27:41+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260922A0A6GB00",
+     "publishedAt": "2026-09-22T20:27:41+08:00"
+    }
+   ],
+   "summary": "云栖大会后，高盛、花旗、瑞银发布研报解读阿里巴巴AI战略，均维持买入评级。阿里巴巴CEO吴泳铭提出2032年数据中心总功耗扩张至20GW的目标，较2022年扩大约10倍。花旗测算该目标对应2033财年约1600亿美元外部云收入，瑞银测算2032年约1700亿美元。高盛预计阿里巴巴年度资本开支约2000亿至3000亿元人民币，瑞银预计FY27资本开支达2300亿元。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "business_line",
+     "company": "alibaba"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "e01998b7fb1bb090069989da1856a07d1aa731b701ea73d287d25d575312162d",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:3b996b212b354924",
+   "title": "对话 Today AI",
+   "url": "https://view.inews.qq.com/a/20260922A09ZX500",
+   "source": "腾讯新闻转载：赛博禅心",
+   "mpName": "赛博禅心",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T19:56:50+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 19:56:50",
+    "observedAt": "2026-09-23T13:37:53+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T19:56:50+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "赛博禅心",
+     "url": "https://view.inews.qq.com/a/20260922A09ZX500",
+     "publishedAt": "2026-09-22T19:56:50+08:00"
+    }
+   ],
+   "summary": "Today AI 是齐俊元的新作品，定位为下一代 Personal Agent，海外版已上线，国内版将正式发布。团队认为其与同类产品的差异在于长程记忆和主动性，系统会围绕具体场景收集信息、理解用户行为并整理成 Memories，记录个人背景和偏好，再据此主动提供帮助。产品运营的北极星指标是 DAU，团队更关心 Agent 主动帮用户解决的问题，而非用户主动发起查询的次数。",
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_other",
+     "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "ca631d5e1de271da980567b3c14882cf63e971758d18d83eefa064d35f747615",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:19058147345ae848",
+   "title": "估值跌至十年低点！黄仁勋称英伟达是“全球首只成长价值股”，但投资者似乎并不买账",
+   "url": "https://view.inews.qq.com/a/20260922A09YQF00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T19:52:40+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 19:52:40",
+    "observedAt": "2026-09-23T13:37:55+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T19:52:40+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260922A09YQF00",
+     "publishedAt": "2026-09-22T19:52:40+08:00"
+    }
+   ],
+   "summary": "英伟达股票市盈率已降至17倍以下，为逾十年来较低水平，约为2025年水平的一半。尽管公司预计2027财年营收同比增长90%、净利润增长99%，2028财年销售额增长70%，但股价今年以来仅上涨约22%，在费城半导体指数成分股中排名倒数第五。黄仁勋在高盛科技大会上称英伟达是“全球首只也是唯一一只成长型价值股”，并表示公司“被严重误解”。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "dda6f2ca298419ef78c01c65165e27db01df04316e8b496256cd79c90dae2402",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:d9032c6cd161096d",
+   "title": "6天烧光2000多万，拿下开源第一！小米史无前例“炼丹直播”收官",
+   "url": "https://view.inews.qq.com/a/20260922A09XNG00",
+   "source": "腾讯新闻转载：量子位",
+   "mpName": "量子位",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T19:46:32+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 19:46:32",
+    "observedAt": "2026-09-23T13:37:45+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T19:46:32+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "量子位",
+     "url": "https://view.inews.qq.com/a/20260922A09XNG00",
+     "publishedAt": "2026-09-22T19:46:32+08:00"
+    }
+   ],
+   "summary": "小米完成为期6天的大模型强化学习直播训练，MiMo-V2.6 Pro和Flash均跑完30个训练Step，总费用约350万美元。报道披露Pro在Artificial Analysis Intelligence Index获得46分，位列开源第一。小米同时开放两个模型的权重、完整技术报告、7000多个RL任务环境、端到端RL训练框架和mini-harnesses，并推出基于Qwen3.5-9B的蒸馏模型。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "58bd2eabb750780d226a3ac35370476cabe9e52c2d4172854284c3a3b4c65b26",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "editorial_review",
+   "editorialReview": {
+    "reviewedAt": "2026-09-23T14:05:53+08:00",
+    "reason": "本轮包含模型权重及训练材料实际开放，release有明确连续证据；不使用只有训练完成或排名的句子替代发布证据。 若恢复模型摘要，保留训练6天/费用约350万美元及开放内容；模型能力、科学材料案例应维持文章披露口径。",
+    "origin": "source-grounded-review"
+   }
+  },
+  {
+   "id": "direct:9a36fa0b4d780f17",
+   "title": "国产芯片巨头入局嵌入式，海光用技术和生态破局",
+   "url": "https://view.inews.qq.com/a/20260922A09U6M00",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T19:30:02+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 19:30:02",
+    "observedAt": "2026-09-23T13:37:49+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T19:30:02+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "智东西",
+     "url": "https://view.inews.qq.com/a/20260922A09U6M00",
+     "publishedAt": "2026-09-22T19:30:02+08:00"
+    }
+   ],
+   "summary": "海光信息正式发布海光1000系列CPU，面向低功耗、嵌入式和端侧算力需求，采用C86架构，是首款集成显示功能的产品。该系列为4核8线程设计，支持4K 60FPS双路显示、DDR4/DDR5内存，典型TDP低至10W，具备-40°C到105°C宽温能力，并提供10年产品生命周期承诺。海光1000可应用于云桌面、工业机器人与AGV主控、产线触摸屏与视觉控制器、边缘和户外设备等场景。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "82f4d0d910de4cd9983bf344c6a5f4aa9e5fd29edc99c5dcba4ea82a4a8d9fe5",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:4e16f2ba073c7ff8",
+   "title": "AI会不会毁灭人类？答案可能比想象中更复杂",
+   "url": "https://view.inews.qq.com/a/20260922A09RXR00",
+   "source": "腾讯新闻转载：DeepTech深科技",
+   "mpName": "DeepTech深科技",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T19:22:58+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 19:22:58",
+    "observedAt": "2026-09-23T13:37:37+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T19:22:58+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "DeepTech深科技",
+     "url": "https://view.inews.qq.com/a/20260922A09RXR00",
+     "publishedAt": "2026-09-22T19:22:58+08:00"
+    }
+   ],
+   "summary": "《麻省理工科技评论》记者格蕾丝·哈金斯和编辑威尔·道格拉斯·海文围绕“AI是否会毁灭人类”回答读者提问。两人认为AI导致个人死亡存在可能，如AI无人机已在乌克兰造成伤亡、未来可能针对关键设施发动网络攻击或设计病原体，但AI灭绝全人类的概率很低。他们讨论了AI杀人的两种路径：被人指使，或为完成目标而主动消除障碍，并提及Hugging Face黑客事件中OpenAI智能体为拿高分破坏其他网站基础设施。",
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_model",
+     "interviewee": "other"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "dfcde0d5ee33427df16a012a08e7d6841ed3fc0cd5475d5b6292ba7dc0a88e03",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:1506ef0a9e49ea39",
+   "title": "软银借道债市为AI帝国输血，垃圾债市场迎来历史级考验",
+   "url": "https://view.inews.qq.com/a/20260922A09NJG00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T19:02:16+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 19:02:16",
+    "observedAt": "2026-09-23T13:37:55+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T19:02:16+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260922A09NJG00",
+     "publishedAt": "2026-09-22T19:02:16+08:00"
+    }
+   ],
+   "summary": "软银集团于9月22日启动超110亿美元债券发行，已吸引逾200亿美元初步投资意向，有望成为史上规模最大的垃圾债交易之一。此次发行包括100亿美元美元债和10亿欧元欧元债，募资主要用于支持软银对OpenAI的巨额投资。知情人士透露，7.5年期美元债讨论中的潜在收益率最高约10%，6年期欧元债讨论区间在8%中段附近，若按此定价将创下相应货币及期限下的收益率纪录，但最终定价仍存在变数。",
+   "classification": {
+    "category": "financing",
+    "tags": {
+     "industry": "ai_model",
+     "region": "jp_kr"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "9e0932aac1a9addbd8c05f0ef29c93bc461d32cc4bb36764b522ebf676022364",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:c52d33200d815493",
+   "title": "单机跑Kimi K3首破5.85毫秒，同等投资Token产能提升10倍！浪潮信息破局Agent算力难题",
+   "url": "https://view.inews.qq.com/a/20260922A09MQY00",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T19:00:03+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 19:00:03",
+    "observedAt": "2026-09-23T13:37:49+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T19:00:03+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "智东西",
+     "url": "https://view.inews.qq.com/a/20260922A09MQY00",
+     "publishedAt": "2026-09-22T19:00:03+08:00"
+    }
+   ],
+   "summary": "2026年9月21日，在AICC 2026大会上，IDC发布数据称2026年全球活跃Agent约7940万个，到2030年将达22.16亿个，Token消耗量增长数百万倍。浪潮信息在会上正式发布元脑SD200 Ultra超节点AI服务器和元脑HC2000多元算力机组。SD200 Ultra采用128芯本土AI芯片，可单机运行2.8万亿参数的Kimi K3，Token生成时延首次突破5.85毫秒，并支持10万亿参数规模的前沿模型。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "f5474bf8d7b0356e164078e6535633de854151e2a822fba3f34970b4f4244c8b",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:9dd368be29a96c47",
+   "title": "北京第一，杭州深圳进入前三！中国AI行业大洗牌了",
+   "url": "https://view.inews.qq.com/a/20260922A09K6300",
+   "source": "腾讯新闻转载：新智元",
+   "mpName": "新智元",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T18:45:54+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 18:45:54",
+    "observedAt": "2026-09-23T13:38:01+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T18:45:54+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "新智元",
+     "url": "https://view.inews.qq.com/a/20260922A09K6300",
+     "publishedAt": "2026-09-22T18:45:54+08:00"
+    }
+   ],
+   "summary": "IDC与浪潮信息联合发布《2026年中国人工智能计算力发展评估报告》。报告显示，2026年中国智能体部署渗透率达81.0%，高于全球78.1%的水平。报告预计到2030年全球活跃智能体数量复合增长率为129.8%，而Token消耗量复合增长率高达4822.6%，是智能体数量增速的37倍。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "920471b6d98202693778614925d9f7ba2a802dd8695700a73943663a02723797",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:bcf3dfdf11280a88",
+   "title": "直播“烧钱”后，罗福莉终于放出新模型，实测MiMo-V2.6系列：给小米汽车换个官网",
+   "url": "https://view.inews.qq.com/a/20260922A09FNF00",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T18:30:04+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 18:30:04",
+    "observedAt": "2026-09-23T13:37:49+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T18:30:04+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "智东西",
+     "url": "https://view.inews.qq.com/a/20260922A09FNF00",
+     "publishedAt": "2026-09-22T18:30:04+08:00"
+    }
+   ],
+   "summary": "9月22日，小米大模型团队发布并开源新一代模型Xiaomi MiMo-V2.6系列，包含MiMo-V2.6-Pro与MiMo-V2.6-Flash两款原生全模态模型，并将逐步开放输出速度提高20倍的MiMo-V2.6-Pro-UltraSpeed。小米同步开源了用于新模型训练的RL环境和框架以及技术报告。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "6e244ff5c17f7df395638530c397cbe9758d8f751c94dd71dfef92ecd6fb61f5",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:cfec074897100a5d",
+   "title": "韩国对美投资协议首单确认：拟在得州建200亿美元燃气电厂，供电AI数据中心",
+   "url": "https://view.inews.qq.com/a/20260922A09DOO00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T18:22:04+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 18:22:04",
+    "observedAt": "2026-09-23T13:37:56+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T18:22:04+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260922A09DOO00",
+     "publishedAt": "2026-09-22T18:22:04+08:00"
+    }
+   ],
+   "summary": "韩国确认对美投资协议的首个项目为在得克萨斯州Encinal建设一座估值逾200亿美元的燃气电厂，装机容量6.3吉瓦，所发电力主要供应当地AI数据中心和芯片工厂。韩国将为项目提供全额投资，并与美国合作伙伴各持50%股权，项目正式宣布后一笔可观资金需在9月底前到位。除燃气电厂外，韩美还在讨论在美国建设最多8座大型核反应堆，其中两座采用韩国APR1400堆型，其余六座采用西屋AP1000堆型，韩国还考虑收购西屋5%至10%股权。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "88a2cbd80b868a5b6be81c37d9e9b4e89054e9db857b9ea1c255d650aa80fc66",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:7f0007a0f1b362c2",
+   "title": "从“用AI”到“成为智企”：超聚变如何打通企业 AI 的价值链？",
+   "url": "https://view.inews.qq.com/a/20260922A09BGD00",
+   "source": "腾讯新闻转载：十字路口Crossing",
+   "mpName": "十字路口Crossing",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T18:12:36+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 18:12:36",
+    "observedAt": "2026-09-23T13:37:51+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T18:12:36+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "十字路口Crossing",
+     "url": "https://view.inews.qq.com/a/20260922A09BGD00",
+     "publishedAt": "2026-09-22T18:12:36+08:00"
+    }
+   ],
+   "summary": "超聚变在郑州举办2026国际探索者大会，围绕企业从使用AI走向“智企”介绍其战略。CEO刘宏云提出，企业需建设高效安全的Token生产平台，并以AI重构生产经营和分析决策体系。会上介绍FusionServer“无极”架构、V9系列及FusionXpark M桌面AI超级计算机。超聚变称，内部Token Factory已支撑超过100个智能体、覆盖30余个业务场景。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "634f41e4b9aa2991ad2dd43f05d43fc1e7559b69151b8d90804ce5793558a1f4",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "editorial_review",
+   "editorialReview": {
+    "reviewedAt": "2026-09-23T14:05:53+08:00",
+    "reason": "建议按全文主线归general：文章围绕智企概念、Token Factory、业务价值链和生态布局。确有新品段落，分类仍需人工判断核心事件，不能仅替换引文就自动判release。 新品事实可在general摘要中保留；企业AI落地价值等观点须归于超聚变或报道，不写成独立核实的行业结论。",
+    "origin": "source-grounded-review"
+   }
+  },
+  {
+   "id": "direct:c5a3a038813ceba8",
+   "title": "刚刚发布：这家AI公司正在重塑3D生成管线，游戏行业真的要变了",
+   "url": "https://view.inews.qq.com/a/20260922A08A8F00",
+   "source": "腾讯新闻转载：游戏葡萄",
+   "mpName": "游戏葡萄",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T16:49:42+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 16:49:42",
+    "observedAt": "2026-09-23T13:37:28+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T16:49:42+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "游戏葡萄",
+     "url": "https://view.inews.qq.com/a/20260922A08A8F00",
+     "publishedAt": "2026-09-22T16:49:42+08:00"
+    }
+   ],
+   "summary": "影眸Hyper3D于9月12日分享了一个案例，一位3D艺术家使用GPT-6和Hyper3D在一晚上制作出一款3D赛车游戏。今天，Hyper3D最新推出智能交互模式Agentic Mode，该模式能理解用户意图、处理不完美输入并判断建模路径，例如可自动补全不完整图片中的结构、识别工程图中的建模相关信息，并根据需求选择不同建模方式。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "game_engine",
+     "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "f7dbff1f96cfbc7cdc1a431e0fee1f059821c498853fa8c408a4a9c7a5d9edac",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:2ec66b9f14a56d39",
+   "title": "业内首个企业级Agent产品！千问办公发布“企业上下文”，同步推出AI硬件QwenNote A2",
+   "url": "https://view.inews.qq.com/a/20260922A086VX00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T16:42:06+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 16:42:06",
+    "observedAt": "2026-09-23T13:37:56+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T16:42:06+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260922A086VX00",
+     "publishedAt": "2026-09-22T16:42:06+08:00"
+    }
+   ],
+   "summary": "9月22日，千问办公在杭州云栖大会发布企业上下文、数字员工、协作空间及安全中心等企业级Agent功能。企业上下文将企业数据压缩并结构化，数字员工获得组织身份、授权范围和生命周期管理；安全中心通过沙箱、审批和追溯管理执行风险。千问办公同步发布随身助理QwenNote A2，重67克、配备六麦拾音阵列并支持独立联网。报道介绍其采用单次转写、转后即焚设计。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "f6480f42ac3b1f217b1d644220f8491d1f372932d242aa6506750df51ccbce93",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "editorial_review",
+   "editorialReview": {
+    "reviewedAt": "2026-09-23T14:05:53+08:00",
+    "reason": "企业上下文等产品及QwenNote A2均有已发布表述，可保留release并用一整句连续原话。 产品功能可按原摘要恢复；销量为陈宇森所述既有销量/未来目标，不改写为QwenNote A2当前销量。",
+    "origin": "source-grounded-review"
+   }
+  },
+  {
+   "id": "direct:0d2283ab44211e9b",
+   "title": "Jev 黑客松线下报名开启",
+   "url": "https://view.inews.qq.com/a/20260922A0832600",
+   "source": "腾讯新闻转载：十字路口Crossing",
+   "mpName": "十字路口Crossing",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T16:33:11+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 16:33:11",
+    "observedAt": "2026-09-23T13:37:51+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T16:33:11+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "十字路口Crossing",
+     "url": "https://view.inews.qq.com/a/20260922A0832600",
+     "publishedAt": "2026-09-22T16:33:11+08:00"
+    }
+   ],
+   "summary": "Jev 已全面开放，其名称源自经济学家 William Stanley Jevons 关于效率提高反而增加资源使用的发现。十字路口将联合 AI Hacker House、真格基金和 Spark Lab 于9月27日周日在上海漕河泾开发区举办一场 Jev Hackathon，作为 Ship it Sunday 周日黑客松特别场，用一整天时间使用 Jev 进行开发。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "8373241efad8c764dafffe31892a5b0d0d6d37768ea13f7ab662d73489e5d7ed",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:acd2519f9a157ca5",
+   "title": "AI智能体Muse爆红利好硬件？杰富瑞：服务器CPU重回焦点，PCB、ABF基板或迎重估",
+   "url": "https://view.inews.qq.com/a/20260922A080HI00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T16:27:40+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 16:27:40",
+    "observedAt": "2026-09-23T13:37:56+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T16:27:40+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260922A080HI00",
+     "publishedAt": "2026-09-22T16:27:40+08:00"
+    }
+   ],
+   "summary": "Meta旗下AI智能体Muse于9月18日登顶美国iOS App Store免费榜，距上线仅10天。杰富瑞在研报中认为，这一成绩标志着AI智能体正从小众工具迈向主流消费产品，并引发市场对服务器CPU需求的重新关注。杰富瑞预计AI PCB总可寻址市场将从2025年的70亿美元增长至2030年的730亿美元，复合年增长率约60%；ABF基板TAM同期有望从80亿美元扩张至300亿美元，复合年增长率约30%。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "54b2efd36e4aebdf5e536debc5e85b1e995b22d0239506861a26555cb56f7af1",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:0193515ce98f8b38",
+   "title": "深度 | 阿里云的万亿收入时间表，可能比它自己说的还要早",
+   "url": "https://www.163.com/dy/article/L7ENIKR30556EX0D.html?spss=dy_author",
+   "source": "网易号转载：ZFinance",
+   "mpName": "ZFinance",
+   "sourceType": "media",
+   "sourceChannel": "netease_syndication",
+   "sourcePlatform": "NetEase",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T16:19:48+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22T16:19:48+08:00",
+    "observedAt": "2026-09-23T13:37:30+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T16:19:48+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "ZFinance",
+     "url": "https://www.163.com/dy/article/L7ENIKR30556EX0D.html?spss=dy_author",
+     "publishedAt": "2026-09-22T16:19:48+08:00"
+    }
+   ],
+   "summary": "吴泳铭在云栖大会上提出阿里云到2032年运营全球数据中心规模突破20GW的目标。文章通过行业产值转化模型推算，20GW对应年总产值约2400亿美元，即便七成来自外部也接近1.2万亿元人民币，远超阿里此前定下的1000亿美元外部收入目标。阿里云当前外部年化收入约1200亿元人民币，最新单季收入增速达45%，若保持约48.4%的年均复合增长率，约4.5年即可达到千亿美元门槛。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "business_line",
+     "company": "alibaba"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "ff576a4c7dd2f5537004d39333e0d8b5306e8f89cbad4657f01437308b0bacab",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:527f298726657358",
+   "title": "AI眼镜退货率最高70%背后：Rokid、千问、雷鸟的一场“非技术PK”",
+   "url": "https://view.inews.qq.com/a/20260922A07RY300",
+   "source": "腾讯新闻转载：娱乐资本论",
+   "mpName": "娱乐资本论",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T16:11:29+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 16:11:29",
+    "observedAt": "2026-09-23T13:37:32+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T16:11:29+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "娱乐资本论",
+     "url": "https://view.inews.qq.com/a/20260922A07RY300",
+     "publishedAt": "2026-09-22T16:11:29+08:00"
+    }
+   ],
+   "summary": "AI眼镜线上退货率高达30%至70%，但线下门店退货率极低。Rokid、千问、雷鸟等品牌正通过渠道拓展、代言人选择和生态建设展开竞争。渠道方面，品牌采用进网点、授权分销和自有门店三种方式，Rokid与红星眼镜合作打造验配一体门店，影目计划在上海开设首家品牌旗舰店。代言人方面，Rokid选择科技创作者Tim，雷鸟CEO李宏伟亲自上阵，影目与王嘉尔合作推出时尚联名款。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "929c0ff73e11011523d03d4d600d57a1645e350cba24af57e374b3d5964554c1",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:caecd2db677a20d0",
+   "title": "AI交易卷土重来，亚太市场冲高回落，韩股收涨0.15%，布油反弹1.5%，黄金跌破4300",
+   "url": "https://view.inews.qq.com/a/20260922A07PHO00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T16:07:13+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 16:07:13",
+    "observedAt": "2026-09-23T13:37:57+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T16:07:13+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260922A07PHO00",
+     "publishedAt": "2026-09-22T16:07:13+08:00"
+    }
+   ],
+   "summary": "全球股市在人工智能投资热情带动下延续涨势，Meta旗下新一代AI智能体Muse的强劲市场反响成为核心驱动力。美国半导体股指数周一单日涨幅超过4%，Meta股价飙升11%，AMD市值首度突破万亿美元。周二欧洲主要股指开盘小幅上涨，阿里巴巴宣布推出其所称的中国最强AI芯片，腾讯发布迄今最强图像生成模型，两家公司港股股价走高。中国台湾加权指数盘中一度上涨1.8%创历史新高，日韩股市早盘大涨后涨幅回落，韩国首尔综指收涨0.15%。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "meta"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "d5e59dd897bfe927be5dfc058e40b52f953345e8b8772aa8cee1b4ab518e9e2d",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:66e7f2a7dc7b6784",
+   "title": "1周做原型、7周验证100关，土耳其团队的验证效率有点狠",
+   "url": "https://www.baijing.cn/article/56797",
+   "source": "官网资讯：白鲸出海",
+   "mpName": "白鲸出海",
+   "sourceType": "media",
+   "sourceChannel": "publisher_site",
+   "sourcePlatform": "Official Baijing",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T16:02:00+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 16:02",
+    "observedAt": "2026-09-23T13:37:34+08:00",
+    "kind": "absolute",
+    "field": "time.timeago",
+    "normalizedAt": "2026-09-22T16:02:00+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "白鲸出海",
+     "url": "https://www.baijing.cn/article/56797",
+     "publishedAt": "2026-09-22T16:02:00+08:00"
+    }
+   ],
+   "summary": "土耳其手游团队 Bold Games 今年成立并完成 600 万美元种子轮融资，CEO Ulaş Mergen 曾任职于 Dream Games、Rollic 和 Bigger Games。团队首款产品为 Puzzle 游戏《Market Match》，在 Goods Sorting 与《Match Factory》之间组合机制，加入堆叠区、步数限制等设计。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "ec8b10e6625b7acf0695e8275a57425cc95af1c02fb90ab3ce96be47c9f928cd",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:5472c86272c848aa",
+   "title": "2026 PAIR大会落幕，百余位学者专家共议下一代物理智能",
+   "url": "https://view.inews.qq.com/a/20260922A072QV00",
+   "source": "腾讯新闻转载：DeepTech深科技",
+   "mpName": "DeepTech深科技",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T15:22:24+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 15:22:24",
+    "observedAt": "2026-09-23T13:37:37+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T15:22:24+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "DeepTech深科技",
+     "url": "https://view.inews.qq.com/a/20260922A072QV00",
+     "publishedAt": "2026-09-22T15:22:24+08:00"
+    }
+   ],
+   "summary": "2026年9月21日下午，为期两天的PAIR Conference 2026暨首届下一代物理智能前沿论坛在上海物理智能与机器人研究院落幕。清华大学教授戴琼海、中国工程院外籍院士张建伟、中国科学院院士鄂维南、深圳国际量子研究院院长俞大鹏四位院士领衔，近百位学术与产业嘉宾参会。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "e31b92eea52b97bf03a0ea77f6dee9db486157fbb1cd6fa6abcbb10d6bbe187b",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:f4bfbace38be8579",
+   "title": "稀土分离最难的一步，美国公司想用量子计算和机器人实验室来解决",
+   "url": "https://view.inews.qq.com/a/20260922A0706J00",
+   "source": "腾讯新闻转载：DeepTech深科技",
+   "mpName": "DeepTech深科技",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T15:16:35+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 15:16:35",
+    "observedAt": "2026-09-23T13:37:37+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T15:16:35+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "DeepTech深科技",
+     "url": "https://view.inews.qq.com/a/20260922A0706J00",
+     "publishedAt": "2026-09-22T15:16:35+08:00"
+    }
+   ],
+   "summary": "美国稀土及永磁材料公司 USA Rare Earth 宣布与法国量子计算公司 Pasqal 和工业 AI 公司 Riven Systems 建立合作，计划用量子机器学习和自动化实验室寻找新的稀土萃取分子，以提高不同稀土元素之间的分离选择性，减少分离步骤、设备数量和能耗。Riven Systems 将使用自驱动矿物分离实验室进行数千次自动化实验，积累化学数据并训练机器学习模型。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "7652997879e8c460bb607ce59645dbb1718b1a20338f4621b4c6a7ab138b70df",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:af401f736909bc52",
+   "title": "AI 将改变所有交互方式，这一次轮到了3D",
+   "url": "https://www.163.com/dy/article/L7EJ0IS70511N33R.html?spss=dy_author",
+   "source": "网易号转载：硅星人",
+   "mpName": "硅星人",
+   "sourceType": "media",
+   "sourceChannel": "netease_syndication",
+   "sourcePlatform": "NetEase",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T15:00:02+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22T15:00:02+08:00",
+    "observedAt": "2026-09-23T13:38:10+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T15:00:02+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "硅星人",
+     "url": "https://www.163.com/dy/article/L7EJ0IS70511N33R.html?spss=dy_author",
+     "publishedAt": "2026-09-22T15:00:02+08:00"
+    }
+   ],
+   "summary": "影眸 Hyper3D 正式上线 Agentic Mode，将 Hyper3D Rodin 与 LLM 多模态上下文分析能力整合到同一创作流程中。该模式能够理解并自动处理用户提交的图片、尺寸图等资料，自主判断最合适的 3D 建模方式，并在生成后继续支持参数化调整、局部尺寸修改、动画预设和材质增强等编辑加工。此前 Hyper3D 已开放 MCP，使 Codex、Claude Code 等外部 Agent 可以直接调用其生成能力。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "144d842450b12775f1bed290d3c2f8df134521304c9bb25dc6c261197ba58eb7",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:6658084e1b93acf0",
+   "title": "理想世界模型交卷：可以预测触觉，评测拿下多个第一",
+   "url": "https://view.inews.qq.com/a/20260922A06I7F00",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T14:30:03+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 14:30:03",
+    "observedAt": "2026-09-23T13:37:50+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T14:30:03+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "智东西",
+     "url": "https://view.inews.qq.com/a/20260922A06I7F00",
+     "publishedAt": "2026-09-22T14:30:03+08:00"
+    }
+   ],
+   "summary": "理想Foundation Model团队于9月22日正式发布世界动作触觉模型ME-Dex-1.0。该模型将触觉从辅助条件提升为需要预测的未来世界状态，采用三专家架构，通过视觉专家、触觉专家和动作专家分别建模未来场景变化、接触动态和动作序列，并使用H-Bridge共享注意力实现跨模态交互。团队通过自主式触觉数据引擎扩展RoboTwin与DexJoCo的仿真数据，将异构触觉数据映射到双手34区域模板。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "2b89dfc86a9b310cad50bdcb08d64635bb4d01f0ab26e82b7a448d9153299e4d",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:20da35e6e3ca2671",
+   "title": "60美刀的AI眼镜，被他们干到TikTok美区第一",
+   "url": "https://www.baijing.cn/article/56796",
+   "source": "官网资讯：白鲸出海",
+   "mpName": "白鲸出海",
+   "sourceType": "media",
+   "sourceChannel": "publisher_site",
+   "sourcePlatform": "Official Baijing",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T14:24:00+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 14:24",
+    "observedAt": "2026-09-23T13:37:35+08:00",
+    "kind": "absolute",
+    "field": "time.timeago",
+    "normalizedAt": "2026-09-22T14:24:00+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "白鲸出海",
+     "url": "https://www.baijing.cn/article/56796",
+     "publishedAt": "2026-09-22T14:24:00+08:00"
+    }
+   ],
+   "summary": "深圳宝安00后创业品牌LUSBY凭借约60美元的AI眼镜，在TikTok Shop美区AI眼镜类目登顶。创始人容建华介绍，团队2018、2019年已开始研发智能眼镜，2025年AI实时翻译、识图等功能落地后决定全力投入。产品砍掉AR大屏等配置，只保留第一视角记录、实时翻译和轻量化佩戴，售价约60美元。营销上，LUSBY放弃头部KOL，建联200多位美区中小KOC达人，要求他们在日常场景佩戴拍摄，不提供脚本。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "142bb3ed6e36df314f326976250d50322210954cf929151717462a552c676457",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:c35084ad0683f6aa",
+   "title": "抖音从AIGC里狠抓机会：先于影视公司发现IP",
+   "url": "https://view.inews.qq.com/a/20260922A062OG00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-22T13:57:31+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-22 13:57:31",
+    "observedAt": "2026-09-23T13:37:59+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-22T13:57:31+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260922A062OG00",
+     "publishedAt": "2026-09-22T13:57:31+08:00"
+    }
+   ],
+   "summary": "过去半年，抖音涌现20多部播放量破亿的AI原生系列内容，AI短剧《被裁掉的女孩》主角方桃子已登上《时尚COSMO》电子刊封面。9月21日，首届抖音AI创作大赛收官，72天内收到17万件AI作品，播放量超400亿次。同日，抖音宣布与爱奇艺达成合作，双方将投入上亿资源，把站内优质短篇向剧集、电影方向延伸。抖音还宣布后续投入20亿流量扶持，增加创作基金、广告变现和内容付费等支持。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "business_line",
+     "company": "bytedance"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "047974ad5fd29847175ad7df36ca0094a275fbad2ba1eda913692ba4d09d7bff",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
   }
  ],
- "updatedAt": "2026-09-23T10:55:04.349970+08:00"
+ "updatedAt": "2026-09-23T14:19:05.618310+08:00"
 }

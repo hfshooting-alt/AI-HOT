@@ -1,118 +1,291 @@
 {
  "schemaVersion": 1,
- "generatedAt": "2026-09-23T10:55:04+08:00",
+ "generatedAt": "2026-09-23T14:13:06+08:00",
  "coverageNote": "覆盖 Garena 投资精选中的融资类新闻；已有融资记录按原有合并规则保留",
  "searchNote": "已跳过搜索补全（--skip-search）",
  "stats": {
-  "articlesProcessed": 2,
+  "articlesProcessed": 5,
   "modelCalls": 0,
   "modelSuccesses": 0,
   "modelFailures": 0,
-  "cacheHits": 2,
+  "cacheHits": 5,
   "extractionFailed": 0,
   "articlesWithoutFundingInfo": 0,
-  "companiesTotal": 3,
+  "companiesTotal": 8,
   "companiesSearched": 0
  },
  "companies": [
   {
-   "id": "fund:4ac9cdc12f71d576",
-   "company_name": "Bold Games",
-   "product_name": "Market Match",
-   "founded": "今年成立",
-   "country": "土耳其",
-   "industry": "手游",
-   "team": "CEO Ulaş Mergen 此前先后在 Dream Games、Rollic 和 Bigger Games 工作；目前 Bold 只有 9 名成员，理想团队规模 12 至 14 人；成员此前来自 Dream Games、Rollic、Bigger Games 等公司",
-   "business": "专注 Casual Puzzle 手游研发，首款产品为《Market Match》",
-   "investors": null,
+   "id": "fund:9f0f0563586c59d3",
+   "company_name": "息壤开物",
+   "product_name": "XIRRA",
+   "founded": null,
+   "country": null,
+   "industry": "具身智能/机器人",
+   "team": "创始人、CEO李寅曾任华为云大模型CTO，拥有万卡级模型训练及产业落地经验；联合创始人、首席科学家张含望是南洋理工大学教授，长期从事因果机器学习与多模态智能研究；核心成员来自华为大模型体系",
+   "business": "从底层研发原生物理基础模型（LPM），构建XR数据平台和XR评测平台，将物理智能能力推广到机器人、自动驾驶等产业场景",
+   "investors": "敦鸿资产、华控基金、三花控股、银杏谷资本、泽然资本、本坚基金、天使基石、标朴投资",
    "total_funding": null,
    "valuation": null,
    "dims": {
-    "所属行业": "AI游戏",
+    "所属行业": "具身智能/机器人",
     "公司类型": "初创公司",
-    "国家/地区": "其他"
+    "国家/地区": "中国"
    },
    "filledBySearch": [],
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "manus:66e7f2a7dc7b6784",
-     "title": "1周做原型、7周验证100关，土耳其团队的验证效率有点狠",
-     "url": "https://www.baijing.cn/article/56797",
-     "publishedAt": "2026-09-22T16:02:00+08:00",
-     "mpName": "白鲸出海"
+     "id": "direct:38672b96f84fb282",
+     "title": "华为大模型双子星联手造物理基模，刚融资数亿元",
+     "url": "https://view.inews.qq.com/a/20260923A06XL900",
+     "publishedAt": "2026-09-23T13:00:03+08:00",
+     "mpName": "智东西"
     }
    ],
    "fieldQuarantines": [
     {
      "field": "total_funding",
-     "originalValue": "600 万美元种子轮融资",
+     "originalValue": "数亿元种子轮及天使轮融资",
      "reasonCode": "single_round_not_total",
      "reason": "单轮融资金额不能作为累计融资",
-     "articleId": "manus:66e7f2a7dc7b6784",
-     "url": "https://www.baijing.cn/article/56797",
-     "title": "1周做原型、7周验证100关，土耳其团队的验证效率有点狠",
-     "publishedAt": "2026-09-22T16:02:00+08:00",
-     "sourceName": "白鲸出海",
+     "articleId": "direct:38672b96f84fb282",
+     "url": "https://view.inews.qq.com/a/20260923A06XL900",
+     "title": "华为大模型双子星联手造物理基模，刚融资数亿元",
+     "publishedAt": "2026-09-23T13:00:03+08:00",
+     "sourceName": "智东西",
      "origin": "article"
     }
    ]
   },
   {
-   "id": "fund:6890036ae60adfc6",
-   "company_name": "水母智能",
-   "product_name": "触手AI",
-   "founded": "2020年11月",
-   "country": "中国",
-   "industry": "AI创作工具/生产力",
-   "team": "创始人苗奘曾创办洛可可伦敦公司并担任洛可可全国UED事业群总经理，洛可可创始人贾伟出任董事长",
-   "business": "面向中小商家的AI智能设计Agent交付平台，以及覆盖漫画、动态漫、竖屏漫短剧全流程的AIGC创作平台触手AI",
-   "investors": "源码资本、红杉种子基金、百度、高瓴创投、微光创投、元璟资本、华策影视全资子公司西溪投资",
-   "total_funding": null,
-   "valuation": null,
+   "id": "fund:2c6ee24b09816a6f",
+   "company_name": "OpenAI",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI模型/基础设施",
+   "team": null,
+   "business": "人工智能公司，开发大模型等AI技术",
+   "investors": "软银",
+   "total_funding": "软银已累计承诺投入近650亿美元",
+   "valuation": "投前估值7300亿美元；3月融资后估值8520亿美元",
    "dims": {
-    "所属行业": "AI创作工具/生产力",
+    "所属行业": "AI模型/基础设施",
     "公司类型": "初创公司",
-    "国家/地区": "中国"
+    "国家/地区": "日韩"
    },
    "filledBySearch": [],
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "manus:5caecfd562d1df63",
-     "title": "华策入股水母智能：从自建AI产能到买Agent门票？",
-     "url": "https://view.inews.qq.com/a/20260922A04QRV00",
-     "publishedAt": "2026-09-22T11:38:00+08:00",
-     "mpName": "娱乐资本论"
+     "id": "direct:f5574feaa0b9a065",
+     "title": "孙正义又去借钱了，百亿美元继续押注OpenAI",
+     "url": "https://www.163.com/dy/article/L7GP0J320511N33R.html?spss=dy_author",
+     "publishedAt": "2026-09-23T11:23:23+08:00",
+     "mpName": "硅星人"
+    },
+    {
+     "id": "direct:1506ef0a9e49ea39",
+     "title": "软银借道债市为AI帝国输血，垃圾债市场迎来历史级考验",
+     "url": "https://view.inews.qq.com/a/20260922A09NJG00",
+     "publishedAt": "2026-09-22T19:02:16+08:00",
+     "mpName": "华尔街见闻"
     }
    ]
   },
   {
-   "id": "fund:61158955583277b9",
-   "company_name": "华策影视",
+   "id": "fund:4719f65efcde0242",
+   "company_name": "软银",
    "product_name": null,
    "founded": null,
-   "country": "中国",
-   "industry": "AI互动内容/娱乐",
+   "country": null,
+   "industry": null,
    "team": null,
-   "business": "国内剧集头部公司，拥有IP库、发行渠道和出海网络，布局AI内容生产",
+   "business": null,
    "investors": null,
    "total_funding": null,
    "valuation": null,
    "dims": {
-    "所属行业": "AI互动内容/娱乐",
+    "所属行业": "其他",
     "公司类型": "大厂/已上市",
-    "国家/地区": "中国"
+    "国家/地区": "日韩"
    },
    "filledBySearch": [],
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "manus:5caecfd562d1df63",
-     "title": "华策入股水母智能：从自建AI产能到买Agent门票？",
-     "url": "https://view.inews.qq.com/a/20260922A04QRV00",
-     "publishedAt": "2026-09-22T11:38:00+08:00",
-     "mpName": "娱乐资本论"
+     "id": "direct:f5574feaa0b9a065",
+     "title": "孙正义又去借钱了，百亿美元继续押注OpenAI",
+     "url": "https://www.163.com/dy/article/L7GP0J320511N33R.html?spss=dy_author",
+     "publishedAt": "2026-09-23T11:23:23+08:00",
+     "mpName": "硅星人"
+    },
+    {
+     "id": "direct:1506ef0a9e49ea39",
+     "title": "软银借道债市为AI帝国输血，垃圾债市场迎来历史级考验",
+     "url": "https://view.inews.qq.com/a/20260922A09NJG00",
+     "publishedAt": "2026-09-22T19:02:16+08:00",
+     "mpName": "华尔街见闻"
+    }
+   ]
+  },
+  {
+   "id": "fund:556dcd26a54fb752",
+   "company_name": "Anthropic",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI模型/基础设施",
+   "team": null,
+   "business": null,
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
+    "国家/地区": "日韩"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:f5574feaa0b9a065",
+     "title": "孙正义又去借钱了，百亿美元继续押注OpenAI",
+     "url": "https://www.163.com/dy/article/L7GP0J320511N33R.html?spss=dy_author",
+     "publishedAt": "2026-09-23T11:23:23+08:00",
+     "mpName": "硅星人"
+    }
+   ]
+  },
+  {
+   "id": "fund:f926b3e222d7afee",
+   "company_name": "Arm",
+   "product_name": null,
+   "founded": null,
+   "country": "英国",
+   "industry": "芯片架构设计",
+   "team": null,
+   "business": "芯片架构设计公司，几乎垄断全球99%的智能手机处理器架构",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "其他",
+    "公司类型": "大厂/已上市",
+    "国家/地区": "日韩"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:f5574feaa0b9a065",
+     "title": "孙正义又去借钱了，百亿美元继续押注OpenAI",
+     "url": "https://www.163.com/dy/article/L7GP0J320511N33R.html?spss=dy_author",
+     "publishedAt": "2026-09-23T11:23:23+08:00",
+     "mpName": "硅星人"
+    }
+   ],
+   "fieldQuarantines": [
+    {
+     "field": "valuation",
+     "originalValue": "市值一度冲破3000亿美元",
+     "reasonCode": "market_cap_not_valuation",
+     "reason": "市值不能作为公司估值",
+     "articleId": "direct:f5574feaa0b9a065",
+     "url": "https://www.163.com/dy/article/L7GP0J320511N33R.html?spss=dy_author",
+     "title": "孙正义又去借钱了，百亿美元继续押注OpenAI",
+     "publishedAt": "2026-09-23T11:23:23+08:00",
+     "sourceName": "硅星人",
+     "origin": "article"
+    }
+   ]
+  },
+  {
+   "id": "fund:43cc9d71fbfae731",
+   "company_name": "Legora",
+   "product_name": null,
+   "founded": "2023年",
+   "country": "瑞典",
+   "industry": "法律科技",
+   "team": null,
+   "business": "向律师事务所和企业法务团队销售AI软件，帮助自动处理合同审查、法律研究等工作",
+   "investors": "Iconiq、General Catalyst、Accel、NVentures",
+   "total_funding": null,
+   "valuation": "投前估值约85亿美元（洽谈中）",
+   "dims": {
+    "所属行业": "其他",
+    "公司类型": "初创公司",
+    "国家/地区": "欧洲"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:5b43e60fc0adf377",
+     "title": "速递｜AI法律创企Legora计划融资3亿美元，估值冲上85亿美元",
+     "url": "https://view.inews.qq.com/a/20260923A05OGL00",
+     "publishedAt": "2026-09-23T11:03:18+08:00",
+     "mpName": "ZPotential"
+    }
+   ]
+  },
+  {
+   "id": "fund:ef7d790d978cbf68",
+   "company_name": "Snorkel AI",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI数据/基础设施",
+   "team": "联合创始人兼CEO Alex Ratner及其团队在斯坦福大学一家AI实验室进行了四年的研究",
+   "business": "帮助人工智能实验室和企业构建训练数据集及模拟环境，提供数据标注自动化软件，并转型为数据即服务",
+   "investors": "Insight Partners、S32、Addition、Lightspeed、Greylock、GV、Wells Fargo",
+   "total_funding": null,
+   "valuation": "35亿美元",
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:cb0039100f77b276",
+     "title": "速递｜AI数据创企Snorkel AI完成3.5亿美元E轮融资，估值达35亿美元",
+     "url": "https://view.inews.qq.com/a/20260923A05OGF00",
+     "publishedAt": "2026-09-23T11:03:18+08:00",
+     "mpName": "ZPotential"
+    }
+   ]
+  },
+  {
+   "id": "fund:052a02b42b479b7f",
+   "company_name": "阿波罗全球管理公司",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": null,
+   "team": null,
+   "business": null,
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "其他",
+    "公司类型": "其他",
+    "国家/地区": "日韩"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:1506ef0a9e49ea39",
+     "title": "软银借道债市为AI帝国输血，垃圾债市场迎来历史级考验",
+     "url": "https://view.inews.qq.com/a/20260922A09NJG00",
+     "publishedAt": "2026-09-22T19:02:16+08:00",
+     "mpName": "华尔街见闻"
     }
    ]
   }

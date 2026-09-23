@@ -52,6 +52,8 @@ test("page renders the real AppShell without starter skeleton leftovers", async 
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview|_sites-preview/);
 
   assert.match(layout, /title:\s*"新闻Daily"/);
+  assert.match(layout, /description:\s*"多信源新闻采集/);
+  assert.doesNotMatch(layout, /Manus 多信源新闻采集/);
   assert.doesNotMatch(layout, /SkeletonPreview|codex-preview|_sites-preview/);
 
   await assert.rejects(
@@ -105,7 +107,9 @@ test("news and company loaders do not fetch legacy feeds, demos or browser suppl
   assert.doesNotMatch(view, /mergeReviewedNews|loadAll|mergePools/);
   assert.match(view, /newsPoolError/);
   assert.match(view, /role="alert"/);
-  assert.match(view, /本轮暂无已发布的 Manus 文章/);
+  assert.match(view, /本轮暂无已发布文章/);
+  assert.match(view, /本轮已采集文章/);
+  assert.doesNotMatch(view, /Manus 采集的本轮文章|已发布的 Manus 文章/);
   assert.doesNotMatch(card, /AIHOT|aihotUrl|AI HOT/);
   assert.doesNotMatch(settings, /AIHOT|aihot\.settings|AI HOT/);
   assert.match(settings, /hfshooting-alt\/AI-HOT/);

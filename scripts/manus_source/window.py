@@ -50,6 +50,12 @@ def matching_item(window: dict, item: dict) -> bool:
     evidence = item.get('timeEvidence') or {}
     if evidence:
         try:
+            if evidence.get('kind') == 'absolute':
+                return (item.get('publishedPrecision') == 'datetime'
+                        and bool(evidence.get('field')) and bool(evidence.get('originalText'))
+                        and evidence.get('normalizedAt') == item.get('publishedAt')
+                        and bool(timestamp(evidence['observedAt']))
+                        and contains(window, item['publishedAt']))
             observed = timestamp(evidence['observedAt'])
             label = evidence['originalText'].strip()
             if label == '昨天':

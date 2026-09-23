@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""build_snapshot.py — 从已审核 Manus 候选生成新闻Daily静态快照。
+"""build_snapshot.py — 从已审核新闻候选生成新闻Daily静态快照。
 
 用法:
     python3 scripts/build_snapshot.py [--out web/public/index.html]
@@ -11,7 +11,7 @@
         [--days 7]
 
 流程:
-    1. 读取本批处理结果；独立构建只读 Manus feed，不请求上游 API。
+    1. 读取本批处理结果；独立构建只读规范化 feed，不请求上游 API。
     2. 两池分别展示全部已核实元数据与精选，保留来源及时间证据。
     3. 历史归档（唯一数据源）：增量并集 upsert 进 data/archive/YYYY-MM-DD.json；
        定稿冻结前天及更早的归档（昨天保留开放，兜住迟到条目）；超 30 天滚动硬删
@@ -137,14 +137,14 @@ def norm_url(url: str) -> str:
 
 def load_manus_feed(path: str, taxonomy_path: str,
                     max_stale_days: int = MANUS_MAX_STALE_DAYS) -> tuple[list[dict], dict]:
-    """只读消费 Manus 规范化 feed（data/manus/current.json）。
+    """只读消费规范化 feed（data/manus/current.json 为兼容路径）。
 
     返回 (Manus 核验条目, mp_status)。缺失/损坏/过期/ok=false 时返回空条目与降级状态，
     坏数据绝不进入归档；展示版块仍由现有关键词规则生成，classification 作为语义标签透传。
     """
     def degraded(reason: str) -> tuple[list[dict], dict]:
-        return [], {"connected": False, "collector": "manus",
-                    "note": f"Manus 核验源不可用（feed {reason}），保留已有发布"}
+        return [], {"connected": False, "collector": "unknown",
+                    "note": f"核验源不可用（feed {reason}），保留已有发布"}
 
     try:
         with open(path, "r", encoding="utf-8") as f:
@@ -168,9 +168,10 @@ def load_manus_feed(path: str, taxonomy_path: str,
         # 展示版块继续用现有规则（标题+新摘要），避免本次迁移重做信息架构
         it["category"] = classify_wechat(it)
         out.append(it)
-    status = {"connected": True, "collector": "manus", "targetDate": feed["targetDate"],
+    label = "网站直采" if feed['collector'] == 'direct_site' else "Manus"
+    status = {"connected": True, "collector": feed['collector'], "targetDate": feed["targetDate"],
               "degraded": bool(feed.get("degraded")),
-              "note": (f"Manus 核验信源已接入（目标日期 {feed['targetDate']}"
+              "note": (f"{label}核验信源已接入（目标日期 {feed['targetDate']}"
                        + ("，本轮存在来源级失败" if feed.get("degraded") else "")
                        + f"，共 {len(out)} 篇核验文章）")}
     return out, status
@@ -193,7 +194,7 @@ def archive_key(item: dict) -> str:
     """
     if item.get("sourceType") == "wechat":
         iid = str(item.get("id") or "")
-        if iid.startswith("manus:"):
+        if iid.startswith(("manus:", "direct:")):
             return "id:" + iid
         return "wx:" + (item.get("source") or "") + "|" + (item.get("title") or "").strip().lower()
     return "id:" + str(item.get("id") or item.get("permalink") or "")
@@ -663,10 +664,11 @@ def build_item(raw: dict, num: int, today: datetime) -> dict:
     source = raw.get("source") or raw.get("attribution", {}).get("source") or "AI HOT"
     # 修复历史 bug：aihot 数据里 source 以「公众号：」开头的条目应标记为 wechat，
     # 否则前端「仅看公众号」筛选（sourceType===wechat）永远为空
-    source_type = raw.get("sourceType") or ("wechat" if str(source).startswith("公众号：") else "aihot")
-    # 稳定 id 直通：旧 wechat:*（早期采集）与新 manus:*（Manus 信源）都不加 aihot: 前缀
+    source_type = raw.get("sourceType") or ("direct" if raw.get('collector') == 'direct_site' else
+                                           "wechat" if str(source).startswith("公众号：") else "aihot")
+    # 已有命名空间直接保留，不把 Manus 或网站直采身份改成旧 AIHOT 来源。
     raw_id = str(raw.get("id") or "")
-    item_id = raw.get("id") if raw_id.startswith(("aihot:", "wechat:", "manus:")) else f"aihot:{raw.get('id')}"
+    item_id = raw.get("id") if raw_id.startswith(("aihot:", "wechat:", "manus:", "direct:")) else f"aihot:{raw.get('id')}"
     return {
         "id": item_id,
         "title": raw.get("title") or "",
@@ -674,6 +676,8 @@ def build_item(raw: dict, num: int, today: datetime) -> dict:
         "url": url,
         "source": source,
         "sourceType": source_type,
+        **{key: raw[key] for key in ('collector', 'sourceChannel', 'sourcePlatform')
+           if isinstance(raw.get(key), str)},
         "category": category,
         "categoryUnclassified": not bool(raw.get("category") or raw.get('classification')),
         "publishedAt": raw.get("publishedAt") or "",
@@ -737,6 +741,33 @@ def article_pool(items: list[dict], today: datetime) -> dict:
         category = row['category']
         counts[category] = counts.get(category, 0) + 1
     return {'items': rows, 'tags': [{'tag': c, 'count': counts[c]} for c in SECTIONS if counts.get(c)], 'live': True}
+
+
+def prepared_source_mode(prepared: dict) -> str:
+    """Bind both current pools to one real collector; retired AIHOT cannot return."""
+    items = prepared.get('items')
+    library = prepared.get('allArticles', [])
+    if not isinstance(items, list) or not isinstance(library, list):
+        raise ValueError('本批精选与全部文章必须是数组')
+    origins = {'manus': ('manus:', 'manus-only'), 'direct_site': ('direct:', 'direct-only')}
+    observed = set()
+    for item in [*items, *library]:
+        if not isinstance(item, dict) or item.get('collector') not in origins:
+            raise ValueError('生产快照只接收已核验 Manus 或网站直采新闻，AIHOT 已停用')
+        prefix, mode = origins[item['collector']]
+        iid = item.get('id')
+        if not isinstance(iid, str) or not iid.startswith(prefix) or iid == prefix:
+            raise ValueError('文章 ID 与真实 collector 不一致')
+        if item['collector'] == 'direct_site':
+            if (not isinstance(item.get('sourcePlatform'), str) or not item['sourcePlatform'].strip()
+                    or item.get('sourceChannel') not in ('wechat_original', 'tencent_syndication',
+                        'netease_syndication', 'publisher_site', 'media_page')):
+                raise ValueError('网站直采缺少真实平台或承载渠道')
+        observed.add(mode)
+    source_mode = prepared.get('sourceMode') or (next(iter(observed)) if len(observed) == 1 else 'manus-only')
+    if source_mode not in ('manus-only', 'direct-only') or observed - {source_mode}:
+        raise ValueError('本批 sourceMode 与文章 collector 不一致')
+    return source_mode
 
 
 def apply_article_pools(data: dict, prepared: dict, today: datetime) -> dict:
@@ -914,6 +945,7 @@ def main() -> int:
     window_end = timestamp(window["end"]) if window else None
     prepared = None
     local_feed_status = None
+    source_mode = 'manus-only'
     try:
         if args.input_json:
             with open(args.input_json, encoding='utf-8') as f:
@@ -921,16 +953,15 @@ def main() -> int:
             if prepared.get('collectionWindow') != window:
                 raise ValueError('输入窗口不一致')
             items = prepared['items']
-            if any(i.get('collector') != 'manus' and not str(i.get('id', '')).startswith('manus:')
-                   for i in [*items, *prepared.get('allArticles', [])]):
-                raise ValueError('生产快照只接收本批 Manus 新闻，AIHOT 已停用')
+            source_mode = prepared_source_mode(prepared)
         else:
-            # Standalone rebuilding consumes Manus only; no upstream request or
+            # Standalone rebuilding consumes a verified feed; no upstream request or
             # AIHOT cache fallback remains in the production snapshot entry.
             items, local_feed_status = load_manus_feed(args.manus_json, args.taxonomy,
                                                        args.manus_max_stale_days)
             if not local_feed_status.get('connected'):
-                raise ValueError('Manus feed 不可用，保留已有发布')
+                raise ValueError('核验 feed 不可用，保留已有发布')
+            source_mode = 'direct-only' if local_feed_status.get('collector') == 'direct_site' else 'manus-only'
     except Exception as exc:  # noqa: BLE001 - 抓取失败给出可读错误
         print(f"抓取失败: {exc}", file=sys.stderr)
         return 1
@@ -962,7 +993,7 @@ def main() -> int:
     if prepared is not None:
         wechat_items = []
         status = prepared['collectionStatus']
-        mp_status = {'connected': any(s['collector'] == 'manus' and s['status'] in ('complete', 'partial')
+        mp_status = {'connected': any(s['collector'] in ('manus', 'direct_site') and s['status'] in ('complete', 'partial')
                                       for s in status['sources']),
                      'degraded': status['degraded'], 'note': '按当前批次来源状态展示'}
     elif args.exclude_wechat:
@@ -986,14 +1017,14 @@ def main() -> int:
             items.append(w)
             merged += 1
         items.sort(key=lambda i: to_bj(i.get("publishedAt") or ""), reverse=True)
-        print(f"Manus 核验源：feed 共 {len(wechat_items)} 条，去重后合并 {merged} 条")
+        print(f"核验信源：feed 共 {len(wechat_items)} 条，去重后合并 {merged} 条")
         mp_status["note"] = (mp_status["note"].rstrip("）")
                              + f"，去重后合并 {merged} 条新文章）")
     elif mp_status.get("connected"):
         # feed 有效但无条目可合并（当天无文章或全部重复）：仍属已接入
-        print("Manus 核验源：feed 有效，本次无新增条目")
+        print("核验信源：feed 有效，本次无新增条目")
     else:
-        print(f"Manus 核验源降级：{mp_status['note']}", file=sys.stderr)
+        print(f"核验信源降级：{mp_status['note']}", file=sys.stderr)
 
     if window and prepared is None:
         # 分页响应可能越过边界；只入库明确处于固定窗口内的新文章。
@@ -1105,7 +1136,7 @@ def main() -> int:
         hot_topics = without_wechat_topics(hot_topics)
 
     data = {
-        'sourceMode': 'manus-only',
+        'sourceMode': source_mode,
         **({'collectionStatus': prepared['collectionStatus']} if prepared is not None else {}),
         **({'publicationMode': 'pipeline'} if window else {}),
         **({"collectionWindow": window} if window else {}),

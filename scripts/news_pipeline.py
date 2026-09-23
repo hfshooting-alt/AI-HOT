@@ -19,7 +19,7 @@ from manus_source import contracts
 from manus_source.config import load_sources
 from manus_source.checkpoints import accept_article, publication_time_conflict
 from manus_source.window import ten_am_window
-from news_selection import build_public_article_library
+from news_selection import build_public_article_library, public_time_evidence
 from manus_source.source_urls import tencent_article_id
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -115,10 +115,14 @@ def candidates(aihot, manus_articles):
     rows, metadata_only = [], []
     for a in manus_articles:
         source_type, channel, label = manus.source_identity(a)
-        item = {'id': contracts.stable_article_id(a['account_name'], a['published_date'], a['title']),
+        collector = a.get('collector', 'manus')
+        item_id = contracts.stable_article_id(a['account_name'], a['published_date'], a['title'])
+        if collector == 'direct_site':
+            item_id = 'direct:' + item_id.removeprefix('manus:')
+        item = {'id': item_id,
                      'title': a['title'], 'url': a['article_url'], 'source': label,
                      'mpName': a['account_name'], 'sourceType': source_type, 'sourceChannel': channel,
-                     'sourcePlatform': a.get('source_platform'), 'collector': 'manus',
+                     'sourcePlatform': a.get('source_platform'), 'collector': collector,
                      'publishedAt': a['published_at'], 'publishedPrecision': a.get('publishedPrecision', 'datetime'),
                      'timeEvidence': a.get('timeEvidence'),
                      'content_text': '' if a.get('metadataOnly') else a['content_text'],
@@ -180,13 +184,17 @@ def new_model_failure(results, status_field):
     return None
 
 
-def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_fn=None):
+def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_fn=None, direct_input=None):
     if not enabled:
         raise ValueError('Manus-only processing requires Manus; AIHOT fallback is disabled')
     workspace = Path(workspace)
     window = ten_am_window(date)
     groups = load_sources(ROOT / 'config/manus_sources.json')
-    discoveries, audits, articles = load_manus(date, work_dir, groups, enabled)
+    if direct_input is not None:
+        from direct_source.collector import load as load_direct
+        discoveries, audits, articles = load_direct(direct_input, date, groups)
+    else:
+        discoveries, audits, articles = load_manus(date, work_dir, groups, enabled)
     if not any(a['status'] == 'complete' or
                (a['status'] == 'partial' and (a['usableArticles'] > 0 or a.get('articleLibraryCount', 0) > 0)) for a in audits):
         raise ValueError('All sources unavailable; keep previous publication')
@@ -276,6 +284,8 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
                                 'stage': 'enrichment', 'reason': '摘要或分类未通过校验'})
             continue
         clean = {k: v for k, v in item.items() if k != 'content_text'}
+        if isinstance(clean.get('timeEvidence'), dict):
+            clean['timeEvidence'] = public_time_evidence(clean['timeEvidence'])
         clean.update(summary=result['summary'], classification=result['classification'],
                      enrichmentStatus='complete', contentSha256=contracts.content_sha256(item['content_text']),
                      contentStatus='available', classificationStatus='complete', summaryStatus='complete')
@@ -324,8 +334,9 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
                   'quarantinedArticles': len(quarantined),
                   'quarantined': quarantined}
     # Fresh, explicitly degraded empty Manus data prevents stale-feed re-injection.
-    feed = manus.assemble_feed(date, discoveries,
-                              [i for i in processed if i['collector'] == 'manus'], 0, manus.now_bj_iso())
+    feed = manus.assemble_feed(date, discoveries, processed, 0, manus.now_bj_iso())
+    if direct_input is not None:
+        feed.update(schemaVersion=3, collector='direct_site')
     feed['degraded'] = any(a['status'] in ('failed', 'partial') for a in audits)
     feed['collectionStatus'] = collection
     contracts.validate_feed(feed, str(ROOT / 'config/taxonomy.json'))
@@ -335,7 +346,7 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
     manus.atomic_write_json(workspace / 'inputs/company-evidence.json', [
         {'id': i['id'], 'url': i['url'], 'content_text': i['content_text']} for i in selected
         if i['id'] in {p['id'] for p in processed}])
-    payload = {'sourceMode': 'manus-only', 'collectionWindow': window, 'items': processed, 'allArticles': library,
+    payload = {'sourceMode': 'direct-only' if direct_input is not None else 'manus-only', 'collectionWindow': window, 'items': processed, 'allArticles': library,
                'articleLibraryCount': len(library), 'selectedArticles': len(processed), 'collectionStatus': collection,
                'dailyReport': None, 'hot': {}}
     manus.atomic_write_json(workspace / 'inputs/processed.json', payload)
@@ -349,12 +360,13 @@ def main():
     p.add_argument('--workspace', type=Path, required=True)
     p.add_argument('--manus-work-dir', type=Path, default=ROOT / 'work/manus/ten-am')
     p.add_argument('--without-manus', action='store_true')
+    p.add_argument('--direct-input', type=Path)
     args = p.parse_args()
     try:
         if args.command == 'collect':
             collect(args.date, args.workspace / 'inputs/aihot.json')
         else:
-            process(args.date, args.workspace, args.manus_work_dir, not args.without_manus)
+            process(args.date, args.workspace, args.manus_work_dir, not args.without_manus, direct_input=args.direct_input)
         return 0
     except (OSError, ValueError, KeyError, TypeError) as exc:
         frames = [{'file': Path(f.filename).name, 'line': f.lineno, 'function': f.name}

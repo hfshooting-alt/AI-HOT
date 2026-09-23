@@ -60,4 +60,11 @@ def apply_summary_review(item, result, rules=None):
                   editorialReview={"reviewedAt": decision["reviewedAt"],
                                    "reason": decision["reason"],
                                    "origin": "source-grounded-review"})
+    category = decision.get('classificationProjection')
+    if category is not None:
+        if category not in {c['id'] for c in taxonomy['categories']}:
+            raise ValueError('Reviewed article category is invalid')
+        import tag_news
+        output['classification'] = tag_news.validate(taxonomy, {
+            'category': category, 'tags': (result.get('classification') or {}).get('tags', {})})
     return output

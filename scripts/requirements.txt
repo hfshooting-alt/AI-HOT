@@ -1,5 +1,6 @@
-# 与现有 fetch-manus 工作流一致；其他流水线模块使用 Python 标准库。
+# 正文提取与匿名媒体页面解析。
 trafilatura
+lxml>=5
 # Authenticate and encrypt recovery artifacts containing private article evidence.
 cryptography>=41
 # Windows 的 zoneinfo 需要 IANA 时区数据库。

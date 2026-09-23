@@ -1,0 +1,1716 @@
+{
+ "date": "2026-09-23",
+ "finalized": false,
+ "finalizedAt": null,
+ "items": [
+  {
+   "id": "direct:513142b4a14fbfe0",
+   "title": "稚晖君把机器人卖到2万元一台，可人可狗可开发！",
+   "url": "https://view.inews.qq.com/a/20260923A072UF00",
+   "source": "腾讯新闻转载：量子位",
+   "mpName": "量子位",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T13:17:24+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 13:17:24",
+    "observedAt": "2026-09-23T13:37:40+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T13:17:24+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "量子位",
+     "url": "https://view.inews.qq.com/a/20260923A072UF00",
+     "publishedAt": "2026-09-23T13:17:24+08:00"
+    }
+   ],
+   "summary": "上纬新材董事长稚晖君（彭志辉）正式开售两款个人机器人Q1和T1，起售价均为19999元。Q1主打可创造，用户可定制外观、动作、性格和音色，探索版开放SDK、HDK及硬件扩展接口；T1支持轮足人形与四足形态切换，面向室内外跟随、家庭互动和拍摄辅助。公司还搭建了PrimeFLOW、PrimeHub和PrimeStore三个平台，分别用于外观设计、技能创作分享和技能商店。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "216b2957cb83705bf808e5942834a4171d17b0e88cc8aed3293d9b59f233cdc5",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:35fc19095d74af5c",
+   "title": "刷视频也能教会机器人干活！1200亿tokens人类动作预训练，误差按幂律下降",
+   "url": "https://view.inews.qq.com/a/20260923A0728000",
+   "source": "腾讯新闻转载：量子位",
+   "mpName": "量子位",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T13:15:26+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 13:15:26",
+    "observedAt": "2026-09-23T13:37:41+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T13:15:26+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "量子位",
+     "url": "https://view.inews.qq.com/a/20260923A0728000",
+     "publishedAt": "2026-09-23T13:15:26+08:00"
+    },
+    {
+     "collector": "direct_site",
+     "source": "量子位",
+     "url": "https://view.inews.qq.com/a/20260923A06QUB00",
+     "publishedAt": "2026-09-23T12:33:19+08:00"
+    }
+   ],
+   "summary": "亮源新创9月21日发布技术博客，披露Light-O1利用互联网人类行为视频预训练，将规模从37.5亿扩至1200亿tokens；经目标域适配后，动作预测与姿态误差呈幂律下降。这是离线迁移指标，不能等同真机任务成功率。报道同时对照Figure的Index预训练实验：30个陌生家庭完整任务成功率由9%升至56%；Dyna另在14项真机任务验证数据规模收益。",
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "6252d9bb43de888b77850dff02f5fc75d5ebb12fb0a319f9d7983d0b1c6048a3",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "editorial_review",
+   "editorialReview": {
+    "reviewedAt": "2026-09-23T14:14:58+08:00",
+    "reason": "原模型长摘要经220字句末裁剪后只剩Figure开场，遗漏标题与全文主线中的亮源新创1200亿tokens研究。依据全文补回该研究，并区分离线迁移误差、Figure真机成功率和Dyna任务表现，不能混为同一缩放曲线。",
+    "origin": "source-grounded-review"
+   }
+  },
+  {
+   "id": "direct:38672b96f84fb282",
+   "title": "华为大模型双子星联手造物理基模，刚融资数亿元",
+   "url": "https://view.inews.qq.com/a/20260923A06XL900",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T13:00:03+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 13:00:03",
+    "observedAt": "2026-09-23T13:37:46+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T13:00:03+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "智东西",
+     "url": "https://view.inews.qq.com/a/20260923A06XL900",
+     "publishedAt": "2026-09-23T13:00:03+08:00"
+    }
+   ],
+   "summary": "物理AI公司息壤开物在两个月内连续完成数亿元种子轮及天使轮融资，由敦鸿资产领投，华控基金、三花控股等机构跟投。公司由华为云大模型前CTO李寅和南洋理工大学教授张含望联合创办，核心成员多来自华为大模型体系。息壤开物选择从底层研发原生物理基础模型LPM，以贝尔曼方程最优性原理为理论基础，将世界模型与策略模型能力统一在同一基础模型中。",
+   "classification": {
+    "category": "financing",
+    "tags": {
+     "industry": "ai_model",
+     "region": "cn"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "5f3bcc3c2c43c6abb12e61fe6b86218e22ecbb95b76e0c83f67de0e755f16a9c",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:78a5241060cca920",
+   "title": "Claude Opus 5.5突袭！68万行代码一天迁完，API价格打8折",
+   "url": "https://view.inews.qq.com/a/20260923A06WRL00",
+   "source": "腾讯新闻转载：量子位",
+   "mpName": "量子位",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T12:56:45+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 12:56:45",
+    "observedAt": "2026-09-23T13:37:41+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T12:56:45+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "量子位",
+     "url": "https://view.inews.qq.com/a/20260923A06WRL00",
+     "publishedAt": "2026-09-23T12:56:45+08:00"
+    }
+   ],
+   "summary": "Anthropic发布Claude Opus 5.5。报道列出的基准测试显示，新模型在代码、知识工作和计算机操作等项目中排名领先，输出速度较Opus 5提高逾30%。API每百万输入、输出Token价格分别为4美元和20美元，较前代下降20%。早期测试者称曾用它一天迁移68万行代码。Anthropic还预告Sonnet 5.5和Haiku 5.5将在未来几周推出。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "104f3b43b725daf1ad9a0322c690b8cd1869fae3f3942328150d5b08066a86bd",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "editorial_review",
+   "editorialReview": {
+    "reviewedAt": "2026-09-23T14:05:53+08:00",
+    "reason": "正文明确报道 Opus 5.5 新旗舰发布；可用文末连续原话替换人工审校投影中的引文。 模型摘要主线与正文发布事件相符；保留测试/跑分由早期测试者和Anthropic披露的归属，不把后续Sonnet/Haiku预告写成已发布。",
+    "origin": "source-grounded-review"
+   }
+  },
+  {
+   "id": "direct:340b662572cb5ba5",
+   "title": "对话高通数据中心业务总经理：从定制CPU到3D堆叠HBC，高通下出端云AI一盘棋",
+   "url": "https://view.inews.qq.com/a/20260923A06QC800",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T12:30:03+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 12:30:03",
+    "observedAt": "2026-09-23T13:37:46+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T12:30:03+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "智东西",
+     "url": "https://view.inews.qq.com/a/20260923A06QC800",
+     "publishedAt": "2026-09-23T12:30:03+08:00"
+    }
+   ],
+   "summary": "在骁龙峰会2026上，高通推出两款2nm旗舰芯片，并宣布将3D堆叠与高带宽计算（HBC）技术从数据中心扩展到终端设备。高通数据中心业务总经理马德嘉在会后交流中表示，高通将自研Oryon CPU带入数据中心市场，认为其性能和能效具有竞争力。高通已完成对AI软件基础设施公司Modular的收购，其Mojo语言将完全开源，AI推理框架MAX大部分也会开源。",
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_model",
+     "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "b558342ce752e8dbec9d0867bfe9c27bb95f499aaa8c3a38a34a0f53c4bdd440",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:46f361827a07c99c",
+   "title": "00后华人天才少女、Bengio高徒，从DeepMind转会OpenAI！",
+   "url": "https://view.inews.qq.com/a/20260923A06Q7P00",
+   "source": "腾讯新闻转载：新智元",
+   "mpName": "新智元",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T12:27:09+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 12:27:09",
+    "observedAt": "2026-09-23T13:38:00+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T12:27:09+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "新智元",
+     "url": "https://view.inews.qq.com/a/20260923A06Q7P00",
+     "publishedAt": "2026-09-23T12:27:09+08:00"
+    }
+   ],
+   "summary": "9月16日，曾在谷歌DeepMind参与Gemini 2.5/3、世界模型Genie 2/3及具身智能体Sima 2研发的研究员Bonnie Li宣布离职并加入OpenAI。她于2019年17岁时在Mila实验室跟随Yoshua Bengio工作，后在麦吉尔大学师从Joelle Pineau，2023年加入DeepMind。她在X上发文称第一次感受到AGI并彻夜难眠，愿为对齐的超级智能工作。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "personnel",
+     "company": "google"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "a877e5ae5cb3d4b572ee26e939f4d86271b9b22031f9d29b56b2120813667ec8",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:df62230f0e98a993",
+   "title": "罗福莉带小米登顶全球开源榜首！大规模RL立功，斩杀Grok 4.7",
+   "url": "https://view.inews.qq.com/a/20260923A06Q7H00",
+   "source": "腾讯新闻转载：新智元",
+   "mpName": "新智元",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T12:27:09+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 12:27:09",
+    "observedAt": "2026-09-23T13:38:00+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T12:27:09+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "新智元",
+     "url": "https://view.inews.qq.com/a/20260923A06Q7H00",
+     "publishedAt": "2026-09-23T12:27:09+08:00"
+    }
+   ],
+   "summary": "9月21日，小米MiMo团队正式发布并全面开源MiMo V2.6系列，包括Pro、Flash、Ultraspeed三款模型。MiMo V2.6 Pro在Artificial Analysis智能指数中取得46分，位列全球开源模型第一，与同日发布的Grok 4.7同分，但单任务成本仅0.13美元，约为Grok 4.7的三十分之一。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "a108d200d79a5b20eee178b576e16f00e7ab7c9dbb91db72c784d8303ef79f0f",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:5fecbf4b73410a2e",
+   "title": "字节在海外推出AI短剧制作平台Dramagic，AI工具加速出海：让外币变成中国AI积分",
+   "url": "https://www.baijing.cn/article/56807",
+   "source": "官网资讯：白鲸出海",
+   "mpName": "白鲸出海",
+   "sourceType": "media",
+   "sourceChannel": "publisher_site",
+   "sourcePlatform": "Official Baijing",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T11:27:00+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 11:27",
+    "observedAt": "2026-09-23T13:37:28+08:00",
+    "kind": "absolute",
+    "field": "time.timeago",
+    "normalizedAt": "2026-09-23T11:27:00+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "白鲸出海",
+     "url": "https://www.baijing.cn/article/56807",
+     "publishedAt": "2026-09-23T11:27:00+08:00"
+    }
+   ],
+   "summary": "9月21日，字节跳动旗下海外业务品牌BytePlus推出AI短剧制作平台Dramagic，目前处于Beta阶段。该平台面向短剧及影视制作的企业级用户，将剧本分析、资产设置、分镜和视频预览四个环节整合到统一工作流中，强调角色与场景一致性、编辑级控制和团队协作。字节此前已通过即梦海外版Dreamina面向个人创作者提供AI图片、视频生成等能力，Dramagic则偏向企业和专业内容团队。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "6b7d205bcdc0aa75b69ef9b49a12359fb077c6c056838955c0e4417a3d050879",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:846997bed3ca7f17",
+   "title": "当Qwen开始训练Qwen",
+   "url": "https://www.163.com/dy/article/L7GP22360511N33R.html?spss=dy_author",
+   "source": "网易号转载：硅星人",
+   "mpName": "硅星人",
+   "sourceType": "media",
+   "sourceChannel": "netease_syndication",
+   "sourcePlatform": "NetEase",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T11:24:11+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23T11:24:11+08:00",
+    "observedAt": "2026-09-23T13:38:04+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T11:24:11+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "硅星人",
+     "url": "https://www.163.com/dy/article/L7GP22360511N33R.html?spss=dy_author",
+     "publishedAt": "2026-09-23T11:24:11+08:00"
+    }
+   ],
+   "summary": "9月22日，阿里巴巴在云栖大会上公布大模型进展：基于新一代架构的Qwen4已在训练中，未来Qwen4.5、Qwen5等版本将扩展至5—10T参数；视频生成、语音、图像、世界、音乐和全模态等模型也在当天或近期推出新版本。阿里披露递归自我改进（RSI）已初步进入模型训练、推理和芯模协同等环节。Qwen3.8-Max相比Qwen3.7，两个月内来自真实用户的收入增长8.5倍，Token消耗量增长12倍。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "alibaba"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "434b52baed11abcc0f733be852c81311686f8517dc8301bbd8761315cb98b666",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:70399b26c19c4a1e",
+   "title": "一夜三连发，Claude Opus 5.5、GPT-6 Sol和Luna全部都来了。",
+   "url": "https://www.163.com/dy/article/L7GP1M9S0511N33R.html?spss=dy_author",
+   "source": "网易号转载：硅星人",
+   "mpName": "硅星人",
+   "sourceType": "media",
+   "sourceChannel": "netease_syndication",
+   "sourcePlatform": "NetEase",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T11:23:59+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23T11:23:59+08:00",
+    "observedAt": "2026-09-23T13:38:05+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T11:23:59+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "硅星人",
+     "url": "https://www.163.com/dy/article/L7GP1M9S0511N33R.html?spss=dy_author",
+     "publishedAt": "2026-09-23T11:23:59+08:00"
+    }
+   ],
+   "summary": "OpenAI与Anthropic在同一天分别发布新模型。Anthropic推出Claude Opus 5.5，作为Claude 5.5系列首个模型，上下文1M Token，最大输出128K Token，输入价格4美元/百万Token，输出价格20美元/百万Token，相比上一代Opus 5工作成本下降40%，输出速度提升30%以上，在Coding任务上达到SOTA水平，并在Terminal-Bench 4.0上刷新最高分66.4%。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "1ba4d9d3fec2e8df0ec4a31d2c7d212593ac188e05b8eefc58e4aa1a767ed525",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:f5574feaa0b9a065",
+   "title": "孙正义又去借钱了，百亿美元继续押注OpenAI",
+   "url": "https://www.163.com/dy/article/L7GP0J320511N33R.html?spss=dy_author",
+   "source": "网易号转载：硅星人",
+   "mpName": "硅星人",
+   "sourceType": "media",
+   "sourceChannel": "netease_syndication",
+   "sourcePlatform": "NetEase",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T11:23:23+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23T11:23:23+08:00",
+    "observedAt": "2026-09-23T13:38:06+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T11:23:23+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "硅星人",
+     "url": "https://www.163.com/dy/article/L7GP0J320511N33R.html?spss=dy_author",
+     "publishedAt": "2026-09-23T11:23:23+08:00"
+    }
+   ],
+   "summary": "软银于9月21日启动发债，计划募集100亿美元和10亿欧元，用于支付10月1日到期的对OpenAI第三期投资款。软银与OpenAI在2月27日签署总计300亿美元的追加投资协议，分三期各100亿美元交付，完成后软银对OpenAI累计投资将达646亿美元，对应约13%股权。为筹措资金，软银3月27日签下400亿美元无抵押过桥贷款，已支取300亿美元，并在9月提前偿还259亿美元。",
+   "classification": {
+    "category": "financing",
+    "tags": {
+     "industry": "ai_model",
+     "region": "jp_kr"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "a10b747249df3da75bde5abcaf3b2fa782fc3829decd1b4f1b0ee327b3619595",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:dec19eebff023763",
+   "title": "办公Agent不再比谁会做PPT，开始争夺“谁最懂这家公司”",
+   "url": "https://view.inews.qq.com/a/20260923A05UK800",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T11:17:46+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 11:17:46",
+    "observedAt": "2026-09-23T13:37:40+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T11:17:46+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260923A05UK800",
+     "publishedAt": "2026-09-23T11:17:46+08:00"
+    }
+   ],
+   "summary": "9月22日云栖大会上，千问办公发布六项企业能力，包括可被停用、执行记录可追溯的“数字员工”，并强调“企业上下文”能力，即连接群聊、文档、知识库和业务系统，识别人、项目、流程和规则，按任务调取相关信息。文章指出办公Agent竞争正从比拼做PPT、整理表格等单次任务，转向比拼谁更懂公司内部历史、口径和权责关系。一次横评中，三款产品对同一份销售流水算出的季度总额最高相差57.7%，差异主要来自对可疑订单的不同处理方式。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "06fac43d7c6ff0a8931d05260a4939c14b14d4f7b965d7c42c2f1f96bf3e21e7",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:a095e7550b04d539",
+   "title": "高盛认为“美国通胀被高估”，主因“暂时性的关税”和“AI统计偏差”",
+   "url": "https://view.inews.qq.com/a/20260923A05UK500",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T11:17:46+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 11:17:46",
+    "observedAt": "2026-09-23T13:37:41+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T11:17:46+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260923A05UK500",
+     "publishedAt": "2026-09-23T11:17:46+08:00"
+    }
+   ],
+   "summary": "高盛在9月22日发布的全球经济分析报告中指出，美国核心商品通胀高于其他经济体的部分可完全由两项暂时性因素解释：关税推升核心PCE商品通胀同比约2.4个百分点，该效应预计明年下半年基本消退；AI驱动的内存价格上涨因PCE统计口径问题被过度放大，目前对核心商品通胀贡献约1个百分点，预计2027年逐步消退。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "ba7293eb919f099ecf7c5ed57f67daa603f8838fa7adf5c33b4c7b95d5839054",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:a8db707596c72241",
+   "title": "大空头Burry加码做空美光、Nebius，逻辑是“内存供应激增，价格将面临下行压力”",
+   "url": "https://view.inews.qq.com/a/20260923A05UK400",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T11:17:46+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 11:17:46",
+    "observedAt": "2026-09-23T13:37:41+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T11:17:46+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260923A05UK400",
+     "publishedAt": "2026-09-23T11:17:46+08:00"
+    }
+   ],
+   "summary": "Michael Burry在Substack发文披露，已进一步加码做空美光科技、AI基础设施公司Nebius、iShares半导体ETF以及Palantir，并称此次操作规模相当大。其直接导火索是宏碁CEO陈俊圣公开警告内存库存正在积累，新增供应将逐步冲击市场，预计价格压力于2027年底前后显现。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "fdccc7b30f1222a3b06367a4537cf4a78bcc415de80618cc967c19fdf9b47bcc",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:dceae04b4bdbcd15",
+   "title": "当AI开始“自己教自己”：Opus 5.5是首个RSI训练出的大模型？",
+   "url": "https://view.inews.qq.com/a/20260923A05PLK00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T11:07:29+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 11:07:29",
+    "observedAt": "2026-09-23T13:37:42+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T11:07:29+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260923A05PLK00",
+     "publishedAt": "2026-09-23T11:07:29+08:00"
+    }
+   ],
+   "summary": "Anthropic发布Claude Opus 5.5，性能在多数任务上与Claude Fable 5.1持平，运行成本较Opus 5下降40%，输出速度提升逾30%，输入输出token价格下降20%，缓存读取价格下降60%。谷歌工程师Patrick C Toulme推测该模型可能由内部更强的教师模型Model 2蒸馏而来，并可能是首个体现递归自我改进路径的产品模型，但Anthropic未公开证实这一训练方式。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "anthropic"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "cc3bb3a852277d670c6781f3af7a50f18e6b60dec9c4d8e24df75f2f05be4095",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:5b43e60fc0adf377",
+   "title": "速递｜AI法律创企Legora计划融资3亿美元，估值冲上85亿美元",
+   "url": "https://view.inews.qq.com/a/20260923A05OGL00",
+   "source": "腾讯新闻转载：ZPotential",
+   "mpName": "ZPotential",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T11:03:18+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 11:03:18",
+    "observedAt": "2026-09-23T13:37:38+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T11:03:18+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "ZPotential",
+     "url": "https://view.inews.qq.com/a/20260923A05OGL00",
+     "publishedAt": "2026-09-23T11:03:18+08:00"
+    }
+   ],
+   "summary": "法律科技初创公司Legora正洽谈新一轮融资，计划筹集至少3亿美元，投前估值约85亿美元。五个月前，该公司刚完成6亿美元D轮融资，当时估值为56亿美元。Legora向律师事务所和企业法务团队销售AI软件，用于合同审查、法律研究等工作的自动化处理。其投资方包括Iconiq、General Catalyst、Accel以及英伟达旗下风险投资部门NVentures。竞争对手Harvey本月早些时候完成新一轮融资，估值达到156亿美元。",
+   "classification": {
+    "category": "financing",
+    "tags": {
+     "industry": "ai_other",
+     "region": "eu"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "a947d176be7d4f43ff392787c42d7d10f9cbdcf72db72ac49fb806ce427a1835",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:cb0039100f77b276",
+   "title": "速递｜AI数据创企Snorkel AI完成3.5亿美元E轮融资，估值达35亿美元",
+   "url": "https://view.inews.qq.com/a/20260923A05OGF00",
+   "source": "腾讯新闻转载：ZPotential",
+   "mpName": "ZPotential",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T11:03:18+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 11:03:18",
+    "observedAt": "2026-09-23T13:37:38+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T11:03:18+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "ZPotential",
+     "url": "https://view.inews.qq.com/a/20260923A05OGF00",
+     "publishedAt": "2026-09-23T11:03:18+08:00"
+    }
+   ],
+   "summary": "AI数据初创公司Snorkel AI完成3.5亿美元E轮融资，估值达35亿美元，约为17个月前D轮融资时13亿美元估值的三倍。本轮由Insight Partners和S32领投，Addition、Lightspeed、Greylock、GV和Wells Fargo等现有投资者参与。Snorkel最初提供数据标注自动化软件，去年转型为向客户提供完整数据集，即数据即服务模式，采用软件、模型与领域专家协同合成生成数据。",
+   "classification": {
+    "category": "financing",
+    "tags": {
+     "industry": "ai_other",
+     "region": "us"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "8cc989575fa84cbe3056bd5105426c6f70874bb25d8910ed4e6d719299cc1b68",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:01eb04367f515ce1",
+   "title": "Z Potentials｜专访Efflora，蒸馏收归内部、合成数据失效，安全极客去真实世界最深处为AI“探矿”",
+   "url": "https://view.inews.qq.com/a/20260923A05OG700",
+   "source": "腾讯新闻转载：ZPotential",
+   "mpName": "ZPotential",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T11:03:18+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 11:03:18",
+    "observedAt": "2026-09-23T13:37:39+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T11:03:18+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "ZPotential",
+     "url": "https://view.inews.qq.com/a/20260923A05OG700",
+     "publishedAt": "2026-09-23T11:03:18+08:00"
+    }
+   ],
+   "summary": "Efflora（平等智能）是一家由安全极客创立的AI数据公司，2026年初完成超千万元种子轮融资，由Lollapalooza Capital领投、蔚来资本跟投。团队不到十人，定位为“真实世界的采样器”，专注采集真实应用环境与任务，为模型公司提供强化学习所需的数据、环境和验证机制。创始人王泉在访谈中指出，蒸馏和合成数据正收归模型公司内部，外部数商的真正窗口在于产出周期长、场景定义困难的非标真实数据。",
+   "classification": {
+    "category": "interview",
+    "tags": {
+     "industry": "ai_other",
+     "interviewee": "founder_ceo"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "3bce002696534c381d81369ad06c23b6ee96f1372277776b5965fc3bb12d7f06",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:634a4d983f15fd9e",
+   "title": "Omdia：2026年上半年AI眼镜出货量同比增长超一倍，创下420万台历史新高",
+   "url": "https://www.baijing.cn/article/56806",
+   "source": "官网资讯：白鲸出海",
+   "mpName": "白鲸出海",
+   "sourceType": "media",
+   "sourceChannel": "publisher_site",
+   "sourcePlatform": "Official Baijing",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T10:59:00+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 10:59",
+    "observedAt": "2026-09-23T13:37:29+08:00",
+    "kind": "absolute",
+    "field": "time.timeago",
+    "normalizedAt": "2026-09-23T10:59:00+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "白鲸出海",
+     "url": "https://www.baijing.cn/article/56806",
+     "publishedAt": "2026-09-23T10:59:00+08:00"
+    }
+   ],
+   "summary": "Omdia数据显示，2026年上半年全球AI眼镜出货量达420万台，同比增长127%。Meta以340万台出货量占据81.3%市场份额，保持绝对领先。Even Realities受G2系列在北美和西欧需求增长推动，排名升至第二，出货量10.2万台，市场份额2.4%，其产品舍弃摄像头和扬声器，聚焦纤薄设计、小型单色显示屏和实时转写等生产力功能。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "2447c1cd6de664df2fe683c6bcd3e401d55611067876086e686fccd5bf161a52",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:39a9b6d17fee4096",
+   "title": "Muse登顶苹果应用商店免费应用榜，华尔街看好Meta AI变现前景",
+   "url": "https://www.baijing.cn/article/56805",
+   "source": "官网资讯：白鲸出海",
+   "mpName": "白鲸出海",
+   "sourceType": "media",
+   "sourceChannel": "publisher_site",
+   "sourcePlatform": "Official Baijing",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T10:15:00+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 10:15",
+    "observedAt": "2026-09-23T13:37:29+08:00",
+    "kind": "absolute",
+    "field": "time.timeago",
+    "normalizedAt": "2026-09-23T10:15:00+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "白鲸出海",
+     "url": "https://www.baijing.cn/article/56805",
+     "publishedAt": "2026-09-23T10:15:00+08:00"
+    }
+   ],
+   "summary": "Meta推出的AI智能体Muse于9月8日正式上线后，登顶美国App Store免费应用下载榜，并在超过2.5万条用户评价中保持4.9星评分。摩根大通认为Muse的快速传播叠加Meta的用户分发能力，使其有望成为ChatGPT之后使用最广泛的消费级AI应用之一，并重申对Meta的增持评级及820美元目标价。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "meta"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "169c920b39ed8349f54fcaa8070bc626004ea48cccc521130ca91ee6058ed8ba",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:228bde7f718fd366",
+   "title": "斯坦福团队做了一家“AI药企”，3.7万个智能体一起做药",
+   "url": "https://view.inews.qq.com/a/20260923A04NSA00",
+   "source": "腾讯新闻转载：DeepTech深科技",
+   "mpName": "DeepTech深科技",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T09:54:21+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 09:54:21",
+    "observedAt": "2026-09-23T13:37:34+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T09:54:21+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "DeepTech深科技",
+     "url": "https://view.inews.qq.com/a/20260923A04NSA00",
+     "publishedAt": "2026-09-23T09:54:21+08:00"
+    }
+   ],
+   "summary": "斯坦福大学James Zou团队在Science发表研究，公布多智能体AI系统Virtual Biotech。该系统模拟生物技术公司组织方式，设置虚拟首席科学官和四个研发部门、11个核心智能体，可调用多个数据库和分析工具。团队用37500个临时智能体并行整理37075项临床试验数据，约6小时完成。系统在时间边界设定为2025年1月前信息的情况下，独立提出针对B7-H3的抗体药物偶联物治疗肺癌策略，分析耗时不到一天，API费用约46美元。",
+   "classification": {
+    "category": "paper",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "17e565f57ff16ca3e900aba19ae3eaa99e961f5abaac22154542d92ed0c5b634",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:7bae4b6aebf78702",
+   "title": "Anthropic、OpenAI同夜上新：Opus 5.5多项性能超过Astra，GPT-6 Sol赢在价格",
+   "url": "https://view.inews.qq.com/a/20260923A04L5M00",
+   "source": "腾讯新闻转载：DeepTech深科技",
+   "mpName": "DeepTech深科技",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T09:48:25+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 09:48:25",
+    "observedAt": "2026-09-23T13:37:35+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T09:48:25+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "DeepTech深科技",
+     "url": "https://view.inews.qq.com/a/20260923A04L5M00",
+     "publishedAt": "2026-09-23T09:48:25+08:00"
+    }
+   ],
+   "summary": "北京时间9月23日凌晨，Anthropic发布Claude Opus 5.5，约90分钟后OpenAI发布GPT-6 Sol和GPT-6 Luna。GPT-6 Sol面向复杂编码和智能体工作流，Luna面向明确、高频、大规模任务，两者均支持约105万token上下文窗口和12.8万token最大输出。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "fa426f4efad4d74aa60a63714c0929606d5b59571f64c9fcaf82c02c2089f6a8",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:e733ddcfa377da79",
+   "title": "当算力成为“电网”：AI云时代，谁在做中国算力的“黑土地”",
+   "url": "https://view.inews.qq.com/a/20260923A04JZ300",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T09:45:40+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 09:45:40",
+    "observedAt": "2026-09-23T13:37:42+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T09:45:40+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260923A04JZ300",
+     "publishedAt": "2026-09-23T09:45:40+08:00"
+    }
+   ],
+   "summary": "在2026年云栖大会上，阿里巴巴集团CEO吴泳铭表示当前客户AI需求强劲，中长期需求远超供给能力，AI数据中心供应链全球性紧缺限制算力增长。阿里宣布与合作伙伴全力投入AI基础设施建设，目标到2032年阿里云运营的全球数据中心规模超过20GW。吴泳铭提出算力正像电力一样被生产、输送和消费，芯片负责生产Token，云负责输送Token，Token成为新的电量计量单位。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "business_line",
+     "company": "alibaba"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "85206da4e03bbe83761e791298be9ca1eee634e334214ca7395aea8db343f03b",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:0b8768305ea642e1",
+   "title": "Anthropic抢滩IPO前推出高性价比Opus 5.5，大模型“降本战”升温",
+   "url": "https://www.baijing.cn/article/56804",
+   "source": "官网资讯：白鲸出海",
+   "mpName": "白鲸出海",
+   "sourceType": "media",
+   "sourceChannel": "publisher_site",
+   "sourcePlatform": "Official Baijing",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T09:44:00+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 09:44",
+    "observedAt": "2026-09-23T13:37:30+08:00",
+    "kind": "absolute",
+    "field": "time.timeago",
+    "normalizedAt": "2026-09-23T09:44:00+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "白鲸出海",
+     "url": "https://www.baijing.cn/article/56804",
+     "publishedAt": "2026-09-23T09:44:00+08:00"
+    }
+   ],
+   "summary": "Anthropic于周二正式发布Claude Opus 5.5模型，公司称该模型在大多数工作任务上的表现与能力更强的Fable 5.1相当，但使用成本较此前的Opus 5版本显著下降，生成输出速度更快且行文更清晰。Anthropic计划在未来几周推出Claude Sonnet和Haiku新版本，以扩充5.5系列模型家族。该公司预计最早于今年秋季启动IPO，而竞争对手OpenAI则要等到明年。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "61ab98a1c6f0b532d8eb05644854ac54faff4053bc3e64b145548e59be2bc01d",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:86993d7b48abeba8",
+   "title": "千问办公把“企业上下文”做成了产品",
+   "url": "https://www.163.com/dy/article/L7GJ7VLL0511N33R.html?spss=dy_author",
+   "source": "网易号转载：硅星人",
+   "mpName": "硅星人",
+   "sourceType": "media",
+   "sourceChannel": "netease_syndication",
+   "sourcePlatform": "NetEase",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T09:42:48+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23T09:42:48+08:00",
+    "observedAt": "2026-09-23T13:38:07+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T09:42:48+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "硅星人",
+     "url": "https://www.163.com/dy/article/L7GJ7VLL0511N33R.html?spss=dy_author",
+     "publishedAt": "2026-09-23T09:42:48+08:00"
+    }
+   ],
+   "summary": "9月22日，千问办公发布企业上下文、数字员工、协作、应用、安全中心和QwenNote等企业级能力与产品。其中企业上下文负责将分散在企业内部的数据整理成Agent可持续使用的业务信息，支持接入钉钉、飞书、Salesforce、SAP等系统数据，并进行压缩、结构化处理和周期性刷新。富立卡塑业已使用三个数字员工分别承担查询、报价和合同工作，通过企业上下文共享业务信息。古茗将运营标准整理成门店运营知识空间，供店员咨询使用。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "5dd35acd095d7fd9cfc21be074c6931cb8d1497cdbb24d3c4d965c4d0dce2c00",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:e957073ca7aac88a",
+   "title": "Anthropic深夜放大招：Claude Opus 5.5上线，任务成本大降40%",
+   "url": "https://view.inews.qq.com/a/20260923A0492P00",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T09:30:02+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 09:30:02",
+    "observedAt": "2026-09-23T13:37:47+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T09:30:02+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "智东西",
+     "url": "https://view.inews.qq.com/a/20260923A0492P00",
+     "publishedAt": "2026-09-23T09:30:02+08:00"
+    }
+   ],
+   "summary": "Anthropic于9月23日凌晨发布Claude Opus 5.5，这是Claude 5.5系列的首款模型。官方称其在多数任务上的表现与Claude Fable 5.1相当，默认设置下典型任务成本较上一代Opus 5降低40%，输出速度提升超过30%。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "7a16034288a78b6900322eb309245ceb69a947220b3fcb73e824ac9eb4971095",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:f95bf6c5a736f19f",
+   "title": "Agent“重塑”服务业！Muse重燃“恐慌”，金融股“躺枪”",
+   "url": "https://view.inews.qq.com/a/20260923A03Y4W00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T09:07:13+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 09:07:13",
+    "observedAt": "2026-09-23T13:37:43+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T09:07:13+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260923A03Y4W00",
+     "publishedAt": "2026-09-23T09:07:13+08:00"
+    }
+   ],
+   "summary": "Meta消费级AI代理Muse于9月8日上线，六天内下载量超90.2万次，登顶苹果美国区iOS及谷歌Play免费应用榜首。9月22日美股金融板块重挫，标普500金融板块下跌约2%，嘉信理财、LPL Financial、摩根大通、富国银行、美国银行、花旗等均明显下跌。市场担忧Muse这类AI智能体大规模普及后，将替代用户自动完成比价、切换服务和管理账单，侵蚀依赖消费者惯性的财富管理、经纪服务和保险定价等传统商业模式。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "meta"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "82c5f8a8495b8fee079c4795c151920e3a40a90d5c561a589558c9823cb0a8aa",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:3b1807dac01bf124",
+   "title": "OpenAI 发布 GPT-6 Sol 和 Luna；传字节跳动豆包收缩对话团队；千问发布 AI 手机全栈解决方案 | 极客早知道",
+   "url": "https://view.inews.qq.com/a/20260923A03JXO00",
+   "source": "腾讯新闻转载：极客公园",
+   "mpName": "极客公园",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T08:39:17+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 08:39:17",
+    "observedAt": "2026-09-23T13:37:30+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T08:39:17+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "极客公园",
+     "url": "https://view.inews.qq.com/a/20260923A03JXO00",
+     "publishedAt": "2026-09-23T08:39:17+08:00"
+    }
+   ],
+   "summary": "该期晨报汇总多项科技动态：OpenAI发布GPT-6 Sol和Luna，API价格较GPT-5.6促销价降低50%。阿里公布Qwen4已投入训练，后继Qwen4.5、Qwen5等版本参数目标为5到10万亿；千问发布AI手机全栈方案Qwen Intelligence。另据《晚点LatePost》报道，豆包通用Session团队预计缩减约一半，部分人员转岗或裁撤。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "32146173d869f0448f15b3f69cdd4596d1f7858e92207cd1f7f108ed1dd6a5e7",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "editorial_review",
+   "editorialReview": {
+    "reviewedAt": "2026-09-23T14:16:54+08:00",
+    "reason": "综合晨报按多事件概括；明确5到10万亿参数是Qwen4.5、Qwen5等后继版本目标，而非已投入训练的Qwen4当前规模，并保留豆包人员调整来自《晚点LatePost》报道的归属和预计语气。分类general由现有roundup边界处理。",
+    "origin": "source-grounded-review"
+   }
+  },
+  {
+   "id": "direct:8e6ae5e9d60d1edc",
+   "title": "AI交易回归，纳指创出新高，存储全线领涨",
+   "url": "https://view.inews.qq.com/a/20260923A03J2D00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T08:37:14+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 08:37:14",
+    "observedAt": "2026-09-23T13:37:43+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T08:37:14+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260923A03J2D00",
+     "publishedAt": "2026-09-23T08:37:14+08:00"
+    }
+   ],
+   "summary": "纳斯达克100指数周二收于历史新高，存储芯片板块领涨。Meta旗下Muse AI模型上线后登顶苹果应用商店免费榜首，点燃市场对AI需求的乐观预期。Sandisk单日大涨6.8%，Seagate Technology涨4.8%，Western Digital涨3.7%。巴克莱策略师Emmanuel Cau表示AI错失恐惧情绪正强劲卷土重来，油价下跌和美中AI谈判报道为科技股提供上行动力。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "2b96994760899e5053200eecf969788f4e34b55524a3f8548efd73dbd2329839",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:7bb1b80b8cb2b9ab",
+   "title": "同日推出“廉价模型”，OpenAI和Anthropic开打“价格战”",
+   "url": "https://view.inews.qq.com/a/20260923A038HI00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T08:07:10+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 08:07:10",
+    "observedAt": "2026-09-23T13:37:44+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T08:07:10+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260923A038HI00",
+     "publishedAt": "2026-09-23T08:07:10+08:00"
+    }
+   ],
+   "summary": "Anthropic与OpenAI同日推出低价模型。Claude Opus 5.5每百万输入、输出Token分别收费4美元和20美元，报道估计使用成本较前代降低约40%。OpenAI推出ChatGPT-6 Sol和Luna，定价较ChatGPT-5.6系列降低50%；Sol输入、输出分别为2美元和10美元，Luna为0.10美元和0.50美元。报道将降价与争取企业客户及开放权重模型竞争联系起来。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "58aad3ee5c41f3a200f367a62077ff4c042a67dc07d31b2890ca9e7792a844dc",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "editorial_review",
+   "editorialReview": {
+    "reviewedAt": "2026-09-23T14:05:53+08:00",
+    "reason": "核心是两家正式推出低价模型，可保留release；一条连续发布摘录已足够，不需要将两家公司句段拼接。 原模型长摘要将“争取企业客户/应对中国模型竞争”的媒体分析归为“两家公司均表示”；如采用相关句须改为报道分析或删去该归因。",
+    "origin": "source-grounded-review"
+   }
+  },
+  {
+   "id": "direct:ccd995f32ec61e20",
+   "title": "刚刚，高通2nm双旗舰来了，为智能体AI重造架构，手机能跑300亿参数大模型",
+   "url": "https://view.inews.qq.com/a/20260923A0369400",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T08:00:11+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 08:00:11",
+    "observedAt": "2026-09-23T13:37:47+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T08:00:11+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "智东西",
+     "url": "https://view.inews.qq.com/a/20260923A0369400",
+     "publishedAt": "2026-09-23T08:00:11+08:00"
+    }
+   ],
+   "summary": "高通在骁龙峰会2026上发布第六代骁龙8超级至尊版和第六代骁龙8至尊版两款2nm制程旗舰芯片，这是骁龙平台首次采用2nm制程。超级至尊版围绕智能体重新设计架构，CPU主频最高达5GHz，GPU首次引入AI专用核心Matrix Cores，NPU支持端侧运行300亿参数级MoE模型，并配备Element Accelerator改善Transformer工作负载。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "df9a93cc312b9c7c78bc60dc5acd02f5775d02b662385f252a9e9c00a3660b2f",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:14f6a29d895c50e0",
+   "title": "OpenAI新举措：允许第三方机构在模型训练、开发阶段进行安全评估",
+   "url": "https://view.inews.qq.com/a/20260923A035KJ00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T07:57:26+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 07:57:26",
+    "observedAt": "2026-09-23T13:37:45+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T07:57:26+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260923A035KJ00",
+     "publishedAt": "2026-09-23T07:57:26+08:00"
+    }
+   ],
+   "summary": "OpenAI于周二发布文章，宣布将允许第三方机构在模型训练、评估及部署的全流程中开展技术安全评估，而不再仅限于发布前的例行审查。OpenAI负责外部安全评审工作的Lama Ahmad表示，此前公司通常仅在模型发布前引入外部机构进行安全评估和能力测试，新安排将把第三方审查覆盖至更上游的训练和评估环节。对于涉及最敏感内容的评估工作，OpenAI可能邀请外部评估人员进入其办公室开展工作。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "openai"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "f1b70c5dc5370e83eceb0a973c5885b8c7ee1d0ae546e5a59f3861f8c0fa36a4",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:8f26d8f551e8f681",
+   "title": "华尔街见闻早餐FM-Radio | 2026年9月23日",
+   "url": "https://view.inews.qq.com/a/20260923A02YJR00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T07:27:03+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 07:27:03",
+    "observedAt": "2026-09-23T13:37:45+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T07:27:03+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260923A02YJR00",
+     "publishedAt": "2026-09-23T07:27:03+08:00"
+    }
+   ],
+   "summary": "该期晨报汇总宏观市场及科技等多项动态。AI相关内容包括阿里云公布到2032年全球运营数据中心超过20GW的目标，千问办公推出企业上下文及QwenNote A2；Anthropic发布Claude Opus 5.5，OpenAI推出GPT-6 Sol和Luna低价模型。报道还提及韩国拟在得州建设燃气电厂，为AI数据中心供电。各项事件发生时间不同，属于晨报汇编。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "3300b9d7a62797020d970c57bc7ee05e8c72e5ad82d100f203423b9c4da53984",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "editorial_review",
+   "editorialReview": {
+    "reviewedAt": "2026-09-23T14:05:53+08:00",
+    "reason": "全篇是包含宏观、市场、能源、科技等多事件的综合晨报，不是单一新品发布；按主事件建议general并清空release_evidence。 精选摘要可依既有prompt概括其中AI事件，但应标明“该期晨报汇总”或保持汇编语义，不把全部事件日期改写为9月23日当天发生。",
+    "origin": "source-grounded-review"
+   }
+  },
+  {
+   "id": "direct:6db025f81a439789",
+   "title": "GPT-6 Sol斩杀5.6全系！升级打5折，Luna比梁文谷还便宜，周二Codex重置",
+   "url": "https://view.inews.qq.com/a/20260923A02XSP00",
+   "source": "腾讯新闻转载：量子位",
+   "mpName": "量子位",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T07:23:14+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 07:23:14",
+    "observedAt": "2026-09-23T13:37:42+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T07:23:14+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "量子位",
+     "url": "https://view.inews.qq.com/a/20260923A02XSP00",
+     "publishedAt": "2026-09-23T07:23:14+08:00"
+    }
+   ],
+   "summary": "OpenAI上线GPT-6 Sol和Luna两款模型，API价格较5.6系列降低50%，其中Luna输入价格低于DeepSeek-V4.1 Flash的梁文谷价格。两款模型采用Astra改进的训练方法，继承其在计算机使用等方面的提升。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "2e198fe6974590a6c8766495e1e797746be81331f4cc4c2bb07e0fe5ccbab0c6",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:ffd8b63f1211b5ca",
+   "title": "OpenAI再推两款GPT-6模型：Sol、Luna定价降50%，Astra能力加速下沉",
+   "url": "https://view.inews.qq.com/a/20260923A01UYP00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T04:12:06+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 04:12:06",
+    "observedAt": "2026-09-23T13:37:47+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T04:12:06+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260923A01UYP00",
+     "publishedAt": "2026-09-23T04:12:06+08:00"
+    }
+   ],
+   "summary": "美东时间9月22日，OpenAI宣布推出GPT-6 Sol和GPT-6 Luna两款新模型，距离9月3日发布旗舰模型GPT-6 Astra不到三周。两款模型建立在Astra的技术进展之上，针对缓存和推理效率进行优化，API价格较GPT-5.6促销定价下调50%。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "321aefaf5a205909e981b137813cdb494973b47cf951629afb8b45962e1aabb0",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:f644294df9c60ac8",
+   "title": "特朗普联大讲话：中选后有望与伊朗达成协议、油价或大跌，对AI“只鼓励、不限制”",
+   "url": "https://view.inews.qq.com/a/20260923A00NF800",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T01:17:07+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 01:17:07",
+    "observedAt": "2026-09-23T13:37:49+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T01:17:07+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260923A00NF800",
+     "publishedAt": "2026-09-23T01:17:07+08:00"
+    }
+   ],
+   "summary": "美国总统特朗普在联合国大会发表讲话，涉及伊朗、能源和人工智能等议题。在伊朗问题上，他预计美国中期选举后可能与伊朗达成协议，但保留进一步军事行动的选项，并呼吁对伊朗实施完全经济孤立。在能源方面，他表示若伊朗冲突结束，油价将大幅下跌，甚至可能跌至冲突前水平以下。在人工智能方面，特朗普明确表示美国将只鼓励超级智能，而不是限制其发展，并称美国司法部将密切关注AI发展。他还提出，今后美国政府文件将考虑用“超级智能”取代“人工智能”这一称呼。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "f08b849e67818739e90c13043bb50c15132f99e637297a52d83fd0e46e980675",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:8eefe58da34b9c73",
+   "title": "大摩详解“AI时代的广告业”：从注意力争夺到交易闭环",
+   "url": "https://view.inews.qq.com/a/20260923A00JK300",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T00:57:16+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 00:57:16",
+    "observedAt": "2026-09-23T13:37:49+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T00:57:16+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260923A00JK300",
+     "publishedAt": "2026-09-23T00:57:16+08:00"
+    }
+   ],
+   "summary": "摩根士丹利亚洲团队9月发布的中国互联网行业深度研究显示，AI正在重塑中国互联网广告的预算流向，但至少在2030年前更像存量市场的重新分配。调研显示，72%的广告主表示总广告预算没有变化，74%认为跨平台广告支出进一步集中。2025年，74%的受访广告主使用AI进行内容生成，62%用于广告活动管理，而商品Feed/目录优化、生成式引擎优化的渗透率分别仅为9%和5%。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "310003743e42d8cb4265cf690887c3be2efd285da3c6e1521e2cb3661894df82",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:5261a6747cfa0b07",
+   "title": "陆川手搓历史现场，王珞丹熬夜抽卡，阿里全模态开始兜底生产",
+   "url": "https://view.inews.qq.com/a/20260923A001E600",
+   "source": "腾讯新闻转载：量子位",
+   "mpName": "量子位",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-23T00:06:21+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-23 00:06:21",
+    "observedAt": "2026-09-23T13:37:43+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-23T00:06:21+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "量子位",
+     "url": "https://view.inews.qq.com/a/20260923A001E600",
+     "publishedAt": "2026-09-23T00:06:21+08:00"
+    }
+   ],
+   "summary": "9月22日云栖大会上，阿里云集中展示了多模态模型更新，包括Qwen3.8系列、Qwen-Image-3.1、Happy Shrimp 1.1、HappyOyster 2.0 Preview、Qwen-Audio-3.1等，并预告下一代视频生成模型将于11月发布。导演陆川团队使用阿里视频生成模型，用5天时间复原了400年前明代天启大爆炸历史现场，团队称模型对烟尘、碎片等复杂画面的还原准确度达到预期95%以上。",
+   "classification": {
+    "category": "bigtech",
+    "tags": {
+     "change_type": "other",
+     "company": "alibaba"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "714f49aee55e6aae91433499f13a96621c15b8ebbb5940a629dd3a373c441972",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  }
+ ],
+ "updatedAt": "2026-09-23T14:19:05.618310+08:00"
+}

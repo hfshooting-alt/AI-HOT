@@ -16,7 +16,8 @@ from .window import ten_am_window, contains, timestamp
 DISCOVERY_SCHEMA_VERSION = 2
 WINDOW_DISCOVERY_SCHEMA_VERSION = 3
 FEED_SCHEMA_VERSION = 2
-SUPPORTED_FEED_SCHEMA_VERSIONS = (1, 2)
+DIRECT_FEED_SCHEMA_VERSION = 3
+SUPPORTED_FEED_SCHEMA_VERSIONS = (1, 2, 3)
 MIN_CONTENT_CHARS = 100          # 正文最小长度门槛（可被上层配置覆盖）
 CONTENT_SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 # 风控/验证页特征：正文过短且命中特征词时判为风控页而非普通短文
@@ -259,8 +260,11 @@ def validate_feed(feed: dict, taxonomy_path: str) -> None:
             raise ContractError(f"feed 缺少必填字段：{field}")
     if feed["schemaVersion"] not in SUPPORTED_FEED_SCHEMA_VERSIONS:
         raise ContractError(f"feed schemaVersion 不受支持：{feed['schemaVersion']!r}")
-    if feed["collector"] != "manus":
-        raise ContractError(f"feed collector 应为 manus，实际 {feed['collector']!r}")
+    allowed_collectors = ("manus", "direct_site") if feed["schemaVersion"] == 3 else ("manus",)
+    collector = feed["collector"]
+    if collector not in allowed_collectors:
+        raise ContractError(f"feed collector 与 schemaVersion 不兼容：{collector!r}")
+    id_prefix = "direct:" if collector == "direct_site" else "manus:"
     if not isinstance(feed["ok"], bool) or not isinstance(feed["degraded"], bool):
         raise ContractError("feed ok/degraded 必须为布尔值")
     try:
@@ -293,8 +297,8 @@ def validate_feed(feed: dict, taxonomy_path: str) -> None:
         if "content_text" in it:
             raise ContractError(f"{ctx} 携带全文 content_text：全文不得进入 feed")
         iid = it["id"]
-        if not isinstance(iid, str) or not iid.startswith("manus:"):
-            raise ContractError(f"{ctx} id 必须以 manus: 开头：{iid!r}")
+        if not isinstance(iid, str) or not iid.startswith(id_prefix) or iid == id_prefix:
+            raise ContractError(f"{ctx} id 必须以 {id_prefix} 开头且非空：{iid!r}")
         if iid in seen_ids:
             raise ContractError(f"{ctx} id 重复：{iid}")
         seen_ids.add(iid)
@@ -308,8 +312,11 @@ def validate_feed(feed: dict, taxonomy_path: str) -> None:
                 "wechat_original", "tencent_syndication", "netease_syndication",
                 "publisher_site", "media_page"):
             raise ContractError(f"{ctx} sourceChannel 非法：{it.get('sourceChannel')!r}")
-        if it["collector"] != "manus":
-            raise ContractError(f"{ctx} collector 应为 manus，实际 {it['collector']!r}")
+        if it["collector"] != collector:
+            raise ContractError(f"{ctx} collector 必须与 feed 一致，实际 {it['collector']!r}")
+        if collector == "direct_site" and not (
+                isinstance(it.get("sourcePlatform"), str) and it["sourcePlatform"].strip()):
+            raise ContractError(f"{ctx} direct_site 缺少真实 sourcePlatform")
         if it["publishedPrecision"] not in ("date", "datetime", "relative"):
             raise ContractError(f"{ctx} publishedPrecision 非法")
         try:

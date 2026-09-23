@@ -1,4 +1,4 @@
-name: 新闻Daily Manus采集与完整数据更新
+name: 新闻Daily 新闻采集与完整数据更新
 
 on:
   # 2026-09-22: user paused automatic collection; keep manual full workflow available.
@@ -14,9 +14,9 @@ on:
         options: [all, snapshot, overview, funding]
         default: all
       source_mode:
-        description: "仅 Manus 发现链接元数据，脚本取得正文；AIHOT采集已停止"
+        description: "manus-only 或匿名媒体直采 direct-only（直采选 all）；AIHOT已停止"
         type: choice
-        options: [manus-only]
+        options: [manus-only, direct-only]
         default: manus-only
       window_end:
         description: "含时区ISO扫描开始时刻，留空取当前北京时间到秒；固定回溯24小时"

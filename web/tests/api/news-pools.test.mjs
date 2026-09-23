@@ -74,3 +74,26 @@ test("date and relative publication precision are preserved without moving the f
   assert.deepEqual(result[1].timeEvidence, yesterday.timeEvidence);
   assert.equal(result[1].publishedPrecision, "date");
 });
+
+test("direct-site articles retain real provenance in both pools without selection fallback", () => {
+  const direct = { ...raw, id: "direct:verified", collector: "direct_site", source: "媒体官网",
+    sourceChannel: "publisher_site", sourcePlatform: "Official Site" };
+  const snapshot = { sourceMode: "direct-only", all: { items: [direct, raw] }, garenaSelected: { items: [direct] } };
+  const before = structuredClone(snapshot);
+  assert.deepEqual(poolFromSnapshot(snapshot), [direct, raw]);
+  assert.deepEqual(poolFromSnapshot(snapshot, "selected"), [direct]);
+  assert.deepEqual(snapshot, before);
+  assert.deepEqual(poolFromSnapshot({ ...snapshot, garenaSelected: { items: [] } }, "selected"), []);
+});
+
+test("collector ID pairs reject forged identities while preserving legacy Manus without collector", () => {
+  const items = [raw, { ...curated, collector: "manus" },
+    { ...raw, collector: "direct_site" }, { ...raw, collector: "aihot" },
+    { ...raw, collector: null }, { ...old, collector: "direct_site" },
+    ...[undefined, "manus", "aihot", null].map(collector => ({ ...raw, id: "direct:unverified", collector })),
+    { ...raw, id: "direct:", collector: "direct_site" }, { ...raw, id: "manus:", collector: "manus" }];
+  for (const mode of ["all", "selected"]) {
+    assert.deepEqual(poolFromSnapshot({ all: { items }, garenaSelected: { items } }, mode),
+      [raw, { ...curated, collector: "manus" }]);
+  }
+});

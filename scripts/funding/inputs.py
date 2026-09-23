@@ -125,7 +125,7 @@ def to_article_record(item: dict, tx: dict, content_index: dict[str, dict],
     }
 
 
-def load_articles(snapshot_path: Path, feed_path: Path, work_dir: Path, tx: dict) -> list[dict]:
+def load_articles(snapshot_path: Path, feed_path: Path, work_dir: Path, tx: dict, evidence_path=None) -> list[dict]:
     """快照池 + feed 池（按 id 去重，快照优先）→ 统一文章记录列表。"""
     content_index = build_content_index(work_dir)
     merged: dict[str, dict] = {}
@@ -137,4 +137,15 @@ def load_articles(snapshot_path: Path, feed_path: Path, work_dir: Path, tx: dict
     for it in feed_items:
         if it.get("id") and it["id"] not in merged:
             merged[it["id"]] = to_article_record(it, tx, content_index, is_feed=True)
+    if evidence_path is not None:
+        evidence = json.loads(Path(evidence_path).read_text(encoding='utf-8'))
+        by_id = {row['id']: row for row in evidence}
+        if len(by_id) != len(evidence):
+            raise ValueError('Duplicate funding evidence IDs')
+        for article in merged.values():
+            row = by_id.get(article['id'])
+            if not row or row.get('url') != article['url'] or not isinstance(row.get('content_text'), str) or len(row['content_text'].strip()) < 100:
+                raise ValueError('Funding evidence must match selected article ID and URL')
+            article['content_text'] = row['content_text']
+            article['evidenceKind'] = 'article_body'
     return list(merged.values())

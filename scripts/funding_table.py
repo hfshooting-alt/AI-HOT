@@ -92,9 +92,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 def build_funding_table(snapshot_path: Path, feed_path: Path, work_dir: Path, tx: dict,
                         cache_dir: Path, llm_fn=call_llm, search_fn=None,
-                        skip_search: bool = False, generated_at: str | None = None) -> dict:
+                        skip_search: bool = False, generated_at: str | None = None, evidence_path=None) -> dict:
     """从数据池生成融资表格；schema 违规抛 ValueError。search_fn=None 且未跳过时自动探测。"""
-    articles = load_articles(snapshot_path, feed_path, work_dir, tx)
+    articles = load_articles(snapshot_path, feed_path, work_dir, tx, evidence_path=evidence_path)
     cache_dir = Path(cache_dir)
     cache_dir.mkdir(parents=True, exist_ok=True)
     extracts = extract_articles(tx, articles, cache_dir / "extraction_cache.json", llm_fn)
@@ -210,6 +210,7 @@ def selftest(tx: dict) -> int:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="生成融资动态公司表格（funding-table.json）")
     parser.add_argument("--snapshot", default="web/public/snapshot.json")
+    parser.add_argument('--evidence-json', type=Path, help='已核实精选正文；按 ID 与 URL 双重绑定')
     parser.add_argument("--feed", default="data/manus/current.json")
     parser.add_argument("--work-dir", default="work/manus")
     parser.add_argument("--cache-dir", default="data/funding")
@@ -228,7 +229,7 @@ def main(argv: list[str] | None = None) -> int:
         table = build_funding_table(
             PROJECT_ROOT / args.snapshot, PROJECT_ROOT / args.feed,
             PROJECT_ROOT / args.work_dir, tx, PROJECT_ROOT / args.cache_dir,
-            skip_search=args.skip_search, generated_at=args.generated_at)
+            skip_search=args.skip_search, generated_at=args.generated_at, evidence_path=args.evidence_json)
     except ValueError as exc:
         print(f"融资表格构建失败，保留上一次产物：{exc}", file=sys.stderr)
         return 1

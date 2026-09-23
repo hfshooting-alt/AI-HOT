@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """enrich_news.py — 正文加工 harness：一次模型调用同时产出 摘要 + 分类 + 标签。
 
-精选复用 tag_news 的 taxonomy 校验和 v4 缓存；全部文章使用独立通用分类提示词。
+精选复用 tag_news 的 taxonomy 校验和版本化缓存；全部文章使用独立通用分类提示词。
 与 tag_news.py 的边界：
   - tag_news：保留 taxonomy 加载、展示与历史轻量分类兼容工具
   - enrich_news：正文上限 enrich.content_input_chars（默认 16,000 字符）的重调用
@@ -39,8 +39,8 @@ ENRICH_DEFAULTS = {
     "max_new_items_per_run": 20,
     "max_attempts": 1,
 }
-ENRICH_PROMPT_VERSION = 4
-LIBRARY_PROMPT_VERSION = 1
+ENRICH_PROMPT_VERSION = 5
+LIBRARY_PROMPT_VERSION = 2
 # 摘要中不允许出现的模型自述/Markdown 痕迹
 SELF_REF_MARKERS = ("作为AI", "作为 AI", "作为语言模型", "我无法", "我不能")
 
@@ -52,6 +52,13 @@ def is_preview(title):
 def event_boundary_reason(category, title):
     if category != 'release':
         return None
+    # Only observed roundup column labels, not arbitrary titles containing 早.
+    # A genuine launch inside a multi-event bulletin does not classify the
+    # whole bulletin as a release. Apply this projection to fresh and cached
+    # results alike, while retaining the original model/cache response.
+    if (re.search(r'[|｜]\s*极客早知道\s*$', title)
+            or re.fullmatch(r'\s*华尔街见闻早餐FM(?:-Radio)?(?:\s*[|｜]\s*\d{4}年\d{1,2}月\d{1,2}日)?\s*', title)):
+        return 'roundup_not_release'
     if is_preview(title):
         return 'preview_not_release'
     # A sales record alone reports an existing product's performance. Keep
@@ -65,7 +72,7 @@ def event_boundary_reason(category, title):
 
 
 def enforce_event_boundary(raw, title):
-    """Explicit previews and sales-only milestones are not new releases."""
+    """Explicit roundups, previews and sales-only milestones are not releases."""
     if event_boundary_reason(raw.get('category'), title):
         return {**raw, 'category': 'general', 'tags': {}, 'release_evidence': None}
     return raw
@@ -135,6 +142,7 @@ def build_enrich_prompt(tx: dict, title: str, mp_name: str, content: str) -> tup
         "- 先识别文章主事件，再套类别优先级。发布图片/视频/创意作品、活动/挑战赛、产品使用体验、推荐、预告不等于发布AI产品。",
         "- GPT Images创意作品、Tripo建模演示→general；Meta发起muse money challenge→bigtech；OpenAI使用模型修复漏洞→bigtech；论文/数学成果→paper；正式开源新AI模型或上线新AI应用→release。",
         "- release必须输出release_evidence：从输入逐字摘取明确的新应用/新模型/重大版本已经推出的证据，不能引用作品发布、已有工具的使用或未来预告。其他类别该字段为null。证据不足不得归release。",
+        "- release_evidence只复制正文中的一段连续原话。一句即可；不能改写、拼接不同句段、删去中间文字或替换标点。不用概括句充当引文。综合晨报按general；企业战略或转型分析不因顺带提及新品而归release。",
         "- 短文只保留已有事实，可写短摘要，严禁为了字数补充输入没有的技术细节、讨论议题或背景。讽刺、玩笑、转述和作者判断须保持其语气与归属，不写成已证实事实。",
         "- category 与 tags 的取值只能来自上述枚举 id，禁止生成清单外内容",
         "- 没有适用取值时也必须从该维度枚举中选一个最接近的",
@@ -166,6 +174,7 @@ def build_library_prompt(tx: dict, title: str, mp_name: str, content: str) -> tu
         'general：其余新闻、行业分析、评论、使用体验及综合回顾。',
         '本步骤不判 AI 行业维度，tags 必须是空对象 {}，不得自动填“其他AI应用”。',
         'release 必须提供 release_evidence，从输入正文逐字摘取至少4字的已正式推出证据；其他类别该字段为 null。证据不足不得归 release。',
+        '引文只需一段连续原话，不能拼接、改写、省略中间文字或替换标点。综合晨报按general，战略分析不因顺带提及新品而归release。',
         '只输出 JSON 对象：{"summary":"中文事实摘要","category":"六类之一","tags":{},"release_evidence":null}',
     ])
     return system, f"标题：{title}\n媒体：{mp_name}\n\n正文：\n{content[:cfg['content_input_chars']]}"

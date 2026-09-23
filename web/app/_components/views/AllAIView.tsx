@@ -92,7 +92,7 @@ export function AllAIView({ mode = "all" }: { mode?: NewsPoolMode }) {
       <header className="mb-6 flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="text-[26px] font-extrabold text-ink">{mode === "all" ? "全部文章" : "Garena投资精选"}</h1>
-          <p className="mt-1 text-[13px] text-mut">{mode === "all" ? "Manus 采集的本轮文章" : "供投资研究参考的 AI 相关资讯"} · 支持来源、分类与搜索筛选</p>
+          <p className="mt-1 text-[13px] text-mut">{mode === "all" ? "本轮已采集文章" : "供投资研究参考的 AI 相关资讯"} · 支持来源、分类与搜索筛选</p>
         </div>
         <SearchToolbar
           q={q}
@@ -153,7 +153,7 @@ export function AllAIView({ mode = "all" }: { mode?: NewsPoolMode }) {
       ) : groups.length === 0 ? (
         <p className="ah-card p-8 text-center text-[13px] text-mut">
           {items.length === 0
-            ? mode === "all" ? "本轮暂无已发布的 Manus 文章。" : "本轮暂无 Garena投资精选。"
+            ? mode === "all" ? "本轮暂无已发布文章。" : "本轮暂无 Garena投资精选。"
             : "无匹配内容，试试切换分类、标签、来源筛选或清空搜索词。"}
         </p>
       ) : (

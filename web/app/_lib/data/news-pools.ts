@@ -16,9 +16,12 @@ export function newsPoolError(snap: Snapshot | null, mode: NewsPoolMode = "all")
   return null;
 }
 
-/** Only the explicitly published Manus pool is readable; no historical fallback. */
+/** Read only the published pool and retain each collector's own identity. */
 export function poolFromSnapshot(snap: Snapshot, mode: NewsPoolMode = "all"): NewsItem[] {
   if (newsPoolError(snap, mode)) return [];
-  return requestedPool(snap, mode)!.items.filter(item => item.id.startsWith("manus:"))
+  return requestedPool(snap, mode)!.items.filter(item =>
+    (item.id.startsWith("manus:") && item.id.length > 6
+      && (item.collector === undefined || item.collector === "manus"))
+    || (item.id.startsWith("direct:") && item.id.length > 7 && item.collector === "direct_site"))
     .sort((a, b) => (Date.parse(b.publishedAt || "") || 0) - (Date.parse(a.publishedAt || "") || 0));
 }

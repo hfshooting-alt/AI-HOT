@@ -13,7 +13,7 @@ RULES_PATH = Path(__file__).resolve().parents[2] / 'config' / 'company_research.
 
 
 def active_article_fact(fact, records):
-    """Reviewed identities persist; article facts require retained Manus evidence.
+    """Reviewed identities persist; article facts require retained source evidence.
 
     Merely finding the owner by name must not resurrect a retired article from
     the rule catalog. Official research has independent provenance and remains
@@ -24,7 +24,7 @@ def active_article_fact(fact, records):
         isinstance(article_id, str) and not article_id.startswith('research:'))
     if not article_origin:
         return True
-    if not isinstance(article_id, str) or not article_id.startswith('manus:'):
+    if not isinstance(article_id, str) or not article_id.startswith(('manus:', 'direct:')):
         return False
     return any(article.get('id') == article_id and article.get('url') == fact.get('url')
                for record in records if record is not None

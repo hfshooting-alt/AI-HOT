@@ -11,7 +11,7 @@ export interface Classification {
   dims?: { label: string; value: string }[];
 }
 
-/** Manus 发布批次中的新闻条目。 */
+/** 已核验发布批次中的新闻条目；采集器与实际承载平台分别记录。 */
 export interface NewsItem {
   id: string;
   title: string;
@@ -20,6 +20,8 @@ export interface NewsItem {
   permalink?: string;
   source?: string;
   sourceType?: "aihot" | "wechat" | "media" | "direct";
+  collector?: "manus" | "direct_site" | "aihot";
+  sourcePlatform?: string;
   sourceChannel?: "wechat_original" | "tencent_syndication" | "netease_syndication" | "publisher_site" | "media_page";
   /** 中文六版块；API 原始英文分类经 API_CATEGORY_MAP 归一化 */
   category?: string;

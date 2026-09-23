@@ -7,7 +7,7 @@ from .runner import tree_digest
 
 
 def render(root):
-    lines = ['### AI HOT：运行与发布结果', '',
+    lines = ['### 新闻Daily：运行与发布结果', '',
              '作业完成不等于所有信源或处理阶段成功。', '']
     states = sorted((root / 'work/runs').glob('*/ten-am/*/state.json'))
     if not states:
@@ -23,7 +23,7 @@ def render(root):
         lines.append('存在失败阶段，成功来源可按既定规则发布。' if failures
                      else '阶段记录未记载失败；unknown 不代表通过，来源覆盖仍需单独核验。')
         lines.extend(['', '| 阶段 | 状态 | 退出码 |', '| --- | --- | --- |'])
-        for name in ('aihot', 'discovery', 'content', 'news', 'snapshot', 'overview', 'funding'):
+        for name in ('aihot', 'direct', 'discovery', 'content', 'news', 'snapshot', 'overview', 'funding'):
             row = stages.get(name)
             row = row if isinstance(row, dict) else {}
             status = row.get('status')
@@ -38,13 +38,21 @@ def render(root):
             snapshot = json.loads(snapshot_path.read_text(encoding='utf-8'))
             if state.get('collectionWindow') and snapshot.get('collectionWindow') == state['collectionWindow']:
                 status = snapshot.get('collectionStatus', {})
-                counts = {name: 0 for name in ('AIHOT', 'Manus')}
+                counts = {name: 0 for name in ('AIHOT', 'Manus', '网站直采', '来源未确认')}
                 for item in snapshot.get('all', {}).get('items', []):
-                    prefix = str(item.get('id', '')).split(':', 1)[0]
-                    if prefix in ('aihot', 'manus'):
-                        counts['AIHOT' if prefix == 'aihot' else 'Manus'] += 1
+                    item = item if isinstance(item, dict) else {}
+                    prefix, separator, suffix = str(item.get('id', '')).partition(':')
+                    collector = item.get('collector')
+                    if separator and suffix and prefix == 'direct' and collector == 'direct_site':
+                        name = '网站直采'
+                    elif separator and suffix and prefix in ('aihot', 'manus') and collector in (None, prefix):
+                        name = 'AIHOT' if prefix == 'aihot' else 'Manus'
+                    else:
+                        name = '来源未确认'
+                    counts[name] += 1
                 label = '全部文章' if snapshot.get('newsSelectionVersion') == 1 else '本批新闻'
-                lines.append(f'{label}：AIHOT {counts["AIHOT"]} 条；Manus {counts["Manus"]} 条。')
+                lines.append(f'{label}：AIHOT {counts["AIHOT"]} 条；Manus {counts["Manus"]} 条；'
+                             f'网站直采 {counts["网站直采"]} 条；来源未确认 {counts["来源未确认"]} 条。')
                 if snapshot.get('newsSelectionVersion') == 1:
                     selected = (snapshot.get('garenaSelected') or {}).get('items', [])
                     lines.append(f'Garena投资精选：{len(selected)} 条；公司与产品仅从精选抽取。')

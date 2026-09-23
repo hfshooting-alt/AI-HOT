@@ -1819,6 +1819,3218 @@
           "industry_id": "ai_other"
         }
       ]
+    },
+    {
+      "articleId": "direct:846997bed3ca7f17",
+      "title": "当Qwen开始训练Qwen",
+      "url": "https://www.163.com/dy/article/L7GP22360511N33R.html?spss=dy_author",
+      "contentSha256": "434b52baed11abcc0f733be852c81311686f8517dc8301bbd8761315cb98b666",
+      "reviewedAt": "2026-09-23T14:12:49+08:00",
+      "reason": "逐字核对保存正文，修正产品归属、作者/模型主体及非产品专名；仅本篇完整抽取投影，成功缓存不变。",
+      "companies": [
+        {
+          "company_name": "阿里巴巴",
+          "entity_type": "company",
+          "aliases": [
+            "阿里"
+          ],
+          "product_names": [
+            "Qwen4",
+            "Qwen4.5",
+            "Qwen5",
+            "Qwen3.8-Max",
+            "Qwen3.7",
+            "Qwen3.8-Flash",
+            "SGLang"
+          ],
+          "products": [
+            {
+              "name": "Qwen4",
+              "relationship": "owned",
+              "quote": "基于新一代架构的Qwen4已经在训练中"
+            },
+            {
+              "name": "Qwen4.5",
+              "relationship": "owned",
+              "quote": "未来Qwen4.5、Qwen5等版本将扩展至5—10T参数"
+            },
+            {
+              "name": "Qwen5",
+              "relationship": "owned",
+              "quote": "未来Qwen4.5、Qwen5等版本将扩展至5—10T参数"
+            },
+            {
+              "name": "Qwen3.8-Max",
+              "relationship": "owned",
+              "quote": "Qwen3.8-Max相比Qwen3.7，两个月内来自真实用户的收入增长8.5倍"
+            },
+            {
+              "name": "Qwen3.7",
+              "relationship": "owned",
+              "quote": "Qwen3.8-Max相比Qwen3.7，两个月内来自真实用户的收入增长8.5倍"
+            },
+            {
+              "name": "Qwen3.8-Flash",
+              "relationship": "owned",
+              "quote": "Qwen面对一款此前没有见过的平头哥新款GPU，自主适配并优化Qwen3.8-Flash的SGLang推理框架"
+            },
+            {
+              "name": "SGLang",
+              "relationship": "used",
+              "quote": "自主适配并优化Qwen3.8-Flash的SGLang推理框架"
+            }
+          ],
+          "founded": null,
+          "country": "中国",
+          "team": "刘大一恒",
+          "business": "大模型研发，包括Qwen系列模型、递归自我改进（RSI）系统、视频生成、语音、图像、世界、音乐和全模态等模型",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "平头哥",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": "芯片设计",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        }
+      ]
+    },
+    {
+      "articleId": "direct:78809a7ab65d3d47",
+      "title": "300个衍生模型爆发，H3开源是AI影视的新拐点？",
+      "url": "https://view.inews.qq.com/a/20260922A0ASIG00",
+      "contentSha256": "7b4195a8a8dfeb9b08fffdef758cad3f9870e4dd7c16403cac33b1a626ea6331",
+      "reviewedAt": "2026-09-23T14:12:49+08:00",
+      "reason": "逐字核对保存正文，修正产品归属、作者/模型主体及非产品专名；仅本篇完整抽取投影，成功缓存不变。",
+      "companies": [
+        {
+          "company_name": "MiniMax",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "H3",
+            "H3-Base",
+            "Context-IR",
+            "Regenerate-2K",
+            "Design"
+          ],
+          "products": [
+            {
+              "name": "H3",
+              "relationship": "owned",
+              "quote": "8月3日，MiniMax H3的权重上线Hugging Face"
+            },
+            {
+              "name": "H3-Base",
+              "relationship": "owned",
+              "quote": "Minimax H3只把负责生成768p音视频的H3-Base权重公开"
+            },
+            {
+              "name": "Context-IR",
+              "relationship": "owned",
+              "quote": "把多模态指令\"翻译\"成模型能懂的中间表示的Context-IR"
+            },
+            {
+              "name": "Regenerate-2K",
+              "relationship": "owned",
+              "quote": "把768p重生成到2K的Regenerate-2K"
+            },
+            {
+              "name": "Design",
+              "relationship": "owned",
+              "quote": "Design产品将接入更多优秀的H3开源变体"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI模型与内容生产，开源旗舰级视频模型H3，ARR超过8亿美元，To B业务占比约80%",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "恒星引力",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "与MiniMax签署AI内容战略合作协议，推进S+级电视剧",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "腾讯",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "H3-World"
+          ],
+          "products": [
+            {
+              "name": "H3-World",
+              "relationship": "owned",
+              "quote": "腾讯联合新加坡国立大学、香港理工大学则走了一条完全不同的路，用8000条游戏视频、微调0.199%的参数，就让H3变成了可以用键盘WASD控制角色移动、IJKL控制镜头运动的世界模型H3-World"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "联合新加坡国立大学、香港理工大学微调H3为世界模型H3-World",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "英伟达",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Sol Engine"
+          ],
+          "products": [
+            {
+              "name": "Sol Engine",
+              "relationship": "used",
+              "quote": "英伟达研究团队在开源首日使用Sol Engine，只用4.5小时就完成了首轮推理优化"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "研究团队使用Sol Engine对H3进行推理优化",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Fal",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "H3 Max",
+            "Realism People"
+          ],
+          "products": [
+            {
+              "name": "H3 Max",
+              "relationship": "owned",
+              "quote": "随着Fal的H3 Max，一个5秒的视频只需要3秒就能生成的超级极速版H3出现"
+            },
+            {
+              "name": "Realism People",
+              "relationship": "owned",
+              "quote": "fal的Realism People修改了注意力投影层"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "开发H3 Max超级极速版H3及Realism People画质优化模型",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "LightX2V",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "4步Turbo版"
+          ],
+          "products": [
+            {
+              "name": "4步Turbo版",
+              "relationship": "unknown",
+              "quote": "LightX2V的4步Turbo版月下载量超过150万"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "开发H3加速方案，4步Turbo版月下载量超过150万",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Turbo LoRA",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Turbo LoRA"
+          ],
+          "products": [
+            {
+              "name": "Turbo LoRA",
+              "relationship": "unknown",
+              "quote": "larryvrh的Turbo LoRA在开源第3天发布，把20步压到4至8步"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": "larryvrh",
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "电影质感LoRA",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "电影质感LoRA"
+          ],
+          "products": [
+            {
+              "name": "电影质感LoRA",
+              "relationship": "unknown",
+              "quote": "国产作者TuTu_1018的\"电影质感\"LoRA则直接针对过锐、硬光做了修正"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": "TuTu_1018",
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Camera Motion LoRA",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Camera Motion LoRA"
+          ],
+          "products": [
+            {
+              "name": "Camera Motion LoRA",
+              "relationship": "unknown",
+              "quote": "Jojocodex的Camera Motion LoRA把推、拉、摇、移、环绕、升降、航拍、手持等9类运镜做成了可控开关"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": "Jojocodex",
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Wushu Action LoRA",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Wushu Action LoRA"
+          ],
+          "products": [
+            {
+              "name": "Wushu Action LoRA",
+              "relationship": "unknown",
+              "quote": "同一位作者的Wushu Action LoRA已经迭代到第7版，用924段武打素材训练"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": "Jojocodex",
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Spatial Physics LoRA",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Spatial Physics LoRA"
+          ],
+          "products": [
+            {
+              "name": "Spatial Physics LoRA",
+              "relationship": "unknown",
+              "quote": "Spatial Physics LoRA用CLEVRER、WISA、PhyCo三个物理推理数据集训练"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": "Jojocodex",
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "离婚记",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "离婚记"
+          ],
+          "products": [
+            {
+              "name": "离婚记",
+              "relationship": "unknown",
+              "quote": "山音（MiniMax超级创作者、离婚记作者）拍摄该片"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": "山音",
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "霉",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "55分钟AIGC韩语悬疑长片，获多个电影节奖项",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "黄金时代",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "H3上线后短片，在短视频平台收获百万点赞",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        }
+      ]
+    },
+    {
+      "articleId": "direct:a05d15a9e341fcbd",
+      "title": "千问办公，把“企业上下文”做成基础设施",
+      "url": "https://view.inews.qq.com/a/20260922A0AGD000",
+      "contentSha256": "89a2a5f60bd51d167ae55bd6456d3d642fe3df3ce6ab692bf5523f330653add1",
+      "reviewedAt": "2026-09-23T14:12:49+08:00",
+      "reason": "逐字核对保存正文，修正产品归属、作者/模型主体及非产品专名；仅本篇完整抽取投影，成功缓存不变。",
+      "companies": [
+        {
+          "company_name": "阿里巴巴",
+          "entity_type": "company",
+          "aliases": [
+            "阿里"
+          ],
+          "product_names": [
+            "千问办公",
+            "企业上下文",
+            "Enterprise Context",
+            "MyContext",
+            "QwenNote A2",
+            "协作",
+            "安全中心"
+          ],
+          "products": [
+            {
+              "name": "千问办公",
+              "relationship": "owned",
+              "quote": "阿里在8月初整合QoderWork、MuleRun和悟空推出全新的Agent产品千问办公"
+            },
+            {
+              "name": "企业上下文",
+              "relationship": "unknown",
+              "quote": ""
+            },
+            {
+              "name": "Enterprise Context",
+              "relationship": "owned",
+              "quote": "千问办公发布面向企业级Agent的上下文基础设施“企业上下文”（Enterprise Context）"
+            },
+            {
+              "name": "MyContext",
+              "relationship": "owned",
+              "quote": "随后开源MyContext，将群聊、文档、会议纪要和本地文件加工成Agent可调用的个人上下文"
+            },
+            {
+              "name": "QwenNote A2",
+              "relationship": "owned",
+              "quote": "QwenNote的首款硬件A2，补上了千问办公的线下上下文"
+            },
+            {
+              "name": "协作",
+              "relationship": "owned",
+              "quote": "千问办公“协作”将群聊、文档和知识库关联到同一空间"
+            },
+            {
+              "name": "安全中心",
+              "relationship": "owned",
+              "quote": "千问办公安全中心在执行前通过沙箱划定运行边界"
+            }
+          ],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "钉钉",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "古茗",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": "将飞书文档、知识库、答疑群和培训日程整理成“门店运营知识空间”，服务近万名一线员工",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "富立卡",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "销售团队使用千问办公配置查询、报价和合同三个数字员工，通过企业上下文共享业务信息",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "长安汽车",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": "使用千问办公覆盖研发、生产、供应链和用户研究任务，线束选型计算由两天降至5分钟等",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "微软",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Work IQ",
+            "Microsoft 365",
+            "Teams"
+          ],
+          "products": [
+            {
+              "name": "Work IQ",
+              "relationship": "owned",
+              "quote": "微软Work IQ提供企业上下文、工具、Agent协作和数字工作空间"
+            },
+            {
+              "name": "Microsoft 365",
+              "relationship": "owned",
+              "quote": "微软依托Microsoft 365与Teams"
+            },
+            {
+              "name": "Teams",
+              "relationship": "owned",
+              "quote": "微软依托Microsoft 365与Teams"
+            }
+          ],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Google",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Gemini Enterprise Agent Platform",
+            "Workspace"
+          ],
+          "products": [
+            {
+              "name": "Gemini Enterprise Agent Platform",
+              "relationship": "owned",
+              "quote": "Google的Gemini Enterprise Agent Platform则连接Workspace、Microsoft 365和第三方业务系统"
+            },
+            {
+              "name": "Workspace",
+              "relationship": "owned",
+              "quote": "Google依托Workspace和云平台"
+            }
+          ],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Celonis",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": "Alex Rinke",
+          "business": "流程管理公司，曾帮助一家电信企业重新设计客户入驻流程，将原本超过两周的周期缩短至16分钟",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "麦肯锡",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "巴克莱",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "花旗",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "高盛",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "杰富瑞",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        }
+      ]
+    },
+    {
+      "articleId": "direct:c35084ad0683f6aa",
+      "title": "抖音从AIGC里狠抓机会：先于影视公司发现IP",
+      "url": "https://view.inews.qq.com/a/20260922A062OG00",
+      "contentSha256": "047974ad5fd29847175ad7df36ca0094a275fbad2ba1eda913692ba4d09d7bff",
+      "reviewedAt": "2026-09-23T14:12:49+08:00",
+      "reason": "逐字核对保存正文，修正产品归属、作者/模型主体及非产品专名；仅本篇完整抽取投影，成功缓存不变。",
+      "companies": [
+        {
+          "company_name": "抖音",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "抖音小游戏"
+          ],
+          "products": [
+            {
+              "name": "抖音小游戏",
+              "relationship": "owned",
+              "quote": "抖音小游戏《零号档案：降临》《归墟：迷局》"
+            }
+          ],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": "短视频与内容平台，培育AIGC内容赛道，推动AI原生系列内容与IP开发",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "爱奇艺",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": "视频平台，与抖音合作推动优质短篇向剧集、电影等更长内容形态延伸",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "2XLabs",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "合龙"
+          ],
+          "products": [
+            {
+              "name": "合龙",
+              "relationship": "owned",
+              "quote": "拿下金奖的《合龙》出自2XLabs"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": "在影视行业深耕十余年的团队",
+          "business": "影视制作，使用AI进行影像生产",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "被裁掉的女孩",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "被裁掉的女孩"
+          ],
+          "products": [
+            {
+              "name": "被裁掉的女孩",
+              "relationship": "unknown",
+              "quote": "AI短剧《被裁掉的女孩》"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI短剧，围绕主角方桃子的系列故事",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "归墟",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "归墟"
+          ],
+          "products": [
+            {
+              "name": "归墟",
+              "relationship": "unknown",
+              "quote": "独立制作末日科幻系列《归墟》"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "末日科幻系列AI内容",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "告别",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "告别"
+          ],
+          "products": [
+            {
+              "name": "告别",
+              "relationship": "unknown",
+              "quote": "他4月上线的《告别》"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI影像作品",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "丧尸清道夫",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "丧尸清道夫"
+          ],
+          "products": [
+            {
+              "name": "丧尸清道夫",
+              "relationship": "unknown",
+              "quote": "《丧尸清道夫》已经启动影视化改编"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI内容，已启动影视化改编",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "零号档案8",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "零号档案8"
+          ],
+          "products": [
+            {
+              "name": "零号档案8",
+              "relationship": "unknown",
+              "quote": "《零号档案8》《归墟》等热门内容则开始尝试互动剧玩法"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI内容，尝试互动剧玩法",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "零号档案：降临",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "零号档案：降临"
+          ],
+          "products": [
+            {
+              "name": "零号档案：降临",
+              "relationship": "unknown",
+              "quote": "抖音小游戏《零号档案：降临》《归墟：迷局》"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "抖音小游戏",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "归墟：迷局",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "归墟：迷局"
+          ],
+          "products": [
+            {
+              "name": "归墟：迷局",
+              "relationship": "unknown",
+              "quote": "抖音小游戏《零号档案：降临》《归墟：迷局》"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "抖音小游戏",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        }
+      ]
+    },
+    {
+      "articleId": "direct:228bde7f718fd366",
+      "title": "斯坦福团队做了一家“AI药企”，3.7万个智能体一起做药",
+      "url": "https://view.inews.qq.com/a/20260923A04NSA00",
+      "contentSha256": "17e565f57ff16ca3e900aba19ae3eaa99e961f5abaac22154542d92ed0c5b634",
+      "reviewedAt": "2026-09-23T14:12:49+08:00",
+      "reason": "逐字核对保存正文，修正产品归属、作者/模型主体及非产品专名；仅本篇完整抽取投影，成功缓存不变。",
+      "companies": [
+        {
+          "company_name": "Virtual Biotech",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Virtual Biotech"
+          ],
+          "products": [
+            {
+              "name": "Virtual Biotech",
+              "relationship": "unknown",
+              "quote": "公布了一套名为 Virtual Biotech 的多智能体 AI 系统"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Anthropic",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Claude"
+          ],
+          "products": [
+            {
+              "name": "Claude",
+              "relationship": "owned",
+              "quote": "论文使用的底层模型主要来自 Anthropic 的 Claude 系列"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "第一三共",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "ifinatamab deruxtecan",
+            "I-DXd"
+          ],
+          "products": [
+            {
+              "name": "ifinatamab deruxtecan",
+              "relationship": "owned",
+              "quote": "该药由第一三共发现，目前由第一三共和默沙东共同开发"
+            },
+            {
+              "name": "I-DXd",
+              "relationship": "owned",
+              "quote": "该药由第一三共发现，目前由第一三共和默沙东共同开发"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "默沙东",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "ifinatamab deruxtecan",
+            "I-DXd"
+          ],
+          "products": [
+            {
+              "name": "ifinatamab deruxtecan",
+              "relationship": "owned",
+              "quote": "该药由第一三共发现，目前由第一三共和默沙东共同开发"
+            },
+            {
+              "name": "I-DXd",
+              "relationship": "owned",
+              "quote": "该药由第一三共发现，目前由第一三共和默沙东共同开发"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Virtual Lab",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Virtual Lab"
+          ],
+          "products": [
+            {
+              "name": "Virtual Lab",
+              "relationship": "unknown",
+              "quote": "它的前身可以追溯到 Virtual Lab"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Open Targets",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Open Targets"
+          ],
+          "products": [
+            {
+              "name": "Open Targets",
+              "relationship": "unknown",
+              "quote": "每个智能体又可以调用 Open Targets、ClinicalTrials.gov、CELLxGENE、ChEMBL、GTEx、DepMap 等数据库和分析工具"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "ClinicalTrials.gov",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "ClinicalTrials.gov"
+          ],
+          "products": [
+            {
+              "name": "ClinicalTrials.gov",
+              "relationship": "unknown",
+              "quote": "每个智能体又可以调用 Open Targets、ClinicalTrials.gov、CELLxGENE、ChEMBL、GTEx、DepMap 等数据库和分析工具"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "CELLxGENE",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "CELLxGENE"
+          ],
+          "products": [
+            {
+              "name": "CELLxGENE",
+              "relationship": "unknown",
+              "quote": "每个智能体又可以调用 Open Targets、ClinicalTrials.gov、CELLxGENE、ChEMBL、GTEx、DepMap 等数据库和分析工具"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "ChEMBL",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "ChEMBL"
+          ],
+          "products": [
+            {
+              "name": "ChEMBL",
+              "relationship": "unknown",
+              "quote": "每个智能体又可以调用 Open Targets、ClinicalTrials.gov、CELLxGENE、ChEMBL、GTEx、DepMap 等数据库和分析工具"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "GTEx",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "GTEx"
+          ],
+          "products": [
+            {
+              "name": "GTEx",
+              "relationship": "unknown",
+              "quote": "每个智能体又可以调用 Open Targets、ClinicalTrials.gov、CELLxGENE、ChEMBL、GTEx、DepMap 等数据库和分析工具"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "DepMap",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "DepMap"
+          ],
+          "products": [
+            {
+              "name": "DepMap",
+              "relationship": "unknown",
+              "quote": "每个智能体又可以调用 Open Targets、ClinicalTrials.gov、CELLxGENE、ChEMBL、GTEx、DepMap 等数据库和分析工具"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "ESM",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "ESM"
+          ],
+          "products": [
+            {
+              "name": "ESM",
+              "relationship": "unknown",
+              "quote": "AI 团队随后自行形成了一套结合蛋白质语言模型 ESM、AlphaFold-Multimer 和 Rosetta 的计算流程"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "AlphaFold-Multimer",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "AlphaFold-Multimer"
+          ],
+          "products": [
+            {
+              "name": "AlphaFold-Multimer",
+              "relationship": "unknown",
+              "quote": "AI 团队随后自行形成了一套结合蛋白质语言模型 ESM、AlphaFold-Multimer 和 Rosetta 的计算流程"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Rosetta",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Rosetta"
+          ],
+          "products": [
+            {
+              "name": "Rosetta",
+              "relationship": "unknown",
+              "quote": "AI 团队随后自行形成了一套结合蛋白质语言模型 ESM、AlphaFold-Multimer 和 Rosetta 的计算流程"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        }
+      ]
+    },
+    {
+      "articleId": "direct:70399b26c19c4a1e",
+      "title": "一夜三连发，Claude Opus 5.5、GPT-6 Sol和Luna全部都来了。",
+      "url": "https://www.163.com/dy/article/L7GP1M9S0511N33R.html?spss=dy_author",
+      "contentSha256": "1ba4d9d3fec2e8df0ec4a31d2c7d212593ac188e05b8eefc58e4aa1a767ed525",
+      "reviewedAt": "2026-09-23T14:12:49+08:00",
+      "reason": "逐字核对保存正文，修正产品归属、作者/模型主体及非产品专名；仅本篇完整抽取投影，成功缓存不变。",
+      "companies": [
+        {
+          "company_name": "Anthropic",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Claude Opus 5.5",
+            "Claude Fable 5",
+            "Claude Opus 5",
+            "Claude Opus 4.6",
+            "Claude 4.6",
+            "Fable 5.1"
+          ],
+          "products": [
+            {
+              "name": "Claude Opus 5.5",
+              "relationship": "owned",
+              "quote": "今天凌晨，OpenAI的GPT-6 Sol和GPT-6 Luna，以及Anthropic的Claude Opus 5.5，都正式发布。"
+            },
+            {
+              "name": "Claude Fable 5",
+              "relationship": "owned",
+              "quote": "我至今依然记得我用Claude Fable 5给我带来的震撼。"
+            },
+            {
+              "name": "Claude Opus 5",
+              "relationship": "owned",
+              "quote": "相比上一代Opus 5，整体的工作成本，可以直接下降40%。"
+            },
+            {
+              "name": "Claude Opus 4.6",
+              "relationship": "owned",
+              "quote": "上一次，GPT-5.3 Codex对轰Claude Opus 4.6，今天直接历史重演了。。。"
+            },
+            {
+              "name": "Claude 4.6",
+              "relationship": "owned",
+              "quote": "同时在创作上，也有Claude 4.6的感觉了。"
+            },
+            {
+              "name": "Fable 5.1",
+              "relationship": "owned",
+              "quote": "整体上Claude Opus 5.5，基本上就是Fable 5.1自家的官方蒸馏模型了。"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI模型研发，Claude系列模型",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "OpenAI",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "GPT-6 Sol",
+            "GPT-6 Luna",
+            "GPT-6 Astra",
+            "GPT-5.6 Sol",
+            "GPT-5.3 Codex",
+            "GPT-6 Pro",
+            "Codex",
+            "ChatGPT Work",
+            "ChatGPT"
+          ],
+          "products": [
+            {
+              "name": "GPT-6 Sol",
+              "relationship": "owned",
+              "quote": "今天凌晨，OpenAI的GPT-6 Sol和GPT-6 Luna，以及Anthropic的Claude Opus 5.5，都正式发布。"
+            },
+            {
+              "name": "GPT-6 Luna",
+              "relationship": "owned",
+              "quote": "今天凌晨，OpenAI的GPT-6 Sol和GPT-6 Luna，以及Anthropic的Claude Opus 5.5，都正式发布。"
+            },
+            {
+              "name": "GPT-6 Astra",
+              "relationship": "owned",
+              "quote": "Astra依然是OpenAI最强的模型。"
+            },
+            {
+              "name": "GPT-5.6 Sol",
+              "relationship": "owned",
+              "quote": "Sol和Luna，比GPT-5.6的同款模型，还要便宜50%。"
+            },
+            {
+              "name": "GPT-5.3 Codex",
+              "relationship": "owned",
+              "quote": "上一次，GPT-5.3 Codex对轰Claude Opus 4.6，今天直接历史重演了。。。"
+            },
+            {
+              "name": "GPT-6 Pro",
+              "relationship": "owned",
+              "quote": "复杂规划和计划使用GPT-6 Astra或者邪修GPT-6 Pro去做"
+            },
+            {
+              "name": "Codex",
+              "relationship": "owned",
+              "quote": "目前，Codex中已经上线，直接可用。"
+            },
+            {
+              "name": "ChatGPT Work",
+              "relationship": "owned",
+              "quote": "我写稿的时候，GPT-6 Sol和GPT-6 Luna已经开始在ChatGPT Work和Codex推送。"
+            },
+            {
+              "name": "ChatGPT",
+              "relationship": "owned",
+              "quote": "那就无脑订阅ChatGPT，GPT在模型层面，坦诚地讲，还是比claude要差那么一小截"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI模型研发，GPT系列模型",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "DeepSeek",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "DeepSeek V4.1 Flash"
+          ],
+          "products": [
+            {
+              "name": "DeepSeek V4.1 Flash",
+              "relationship": "owned",
+              "quote": "GLM-5.3和Mimo v2.6 Pro、DeepSeek V4.1 Flash更加适合做执行。"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI模型研发",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Qwen",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Qwen 3.8 Max"
+          ],
+          "products": [
+            {
+              "name": "Qwen 3.8 Max",
+              "relationship": "unknown",
+              "quote": "Kimi K3和Qwen 3.8 Max更加适合做规划和方案"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI模型研发",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Kimi",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Kimi K3"
+          ],
+          "products": [
+            {
+              "name": "Kimi K3",
+              "relationship": "unknown",
+              "quote": "Kimi K3和Qwen 3.8 Max更加适合做规划和方案"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI模型研发",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "GLM",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "GLM-5.3"
+          ],
+          "products": [
+            {
+              "name": "GLM-5.3",
+              "relationship": "unknown",
+              "quote": "GLM-5.3和Mimo v2.6 Pro、DeepSeek V4.1 Flash更加适合做执行。"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI模型研发",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "MiMo",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "MiMo v2.6",
+            "Mimo v2.6 Pro"
+          ],
+          "products": [
+            {
+              "name": "MiMo v2.6",
+              "relationship": "unknown",
+              "quote": "昨天Grok 4.7 PK MiMo v2.6，是给今天这两大哥演个前戏是吧。"
+            },
+            {
+              "name": "Mimo v2.6 Pro",
+              "relationship": "unknown",
+              "quote": "GLM-5.3和Mimo v2.6 Pro、DeepSeek V4.1 Flash更加适合做执行。"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI模型研发",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Grok",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Grok 4.7"
+          ],
+          "products": [
+            {
+              "name": "Grok 4.7",
+              "relationship": "unknown",
+              "quote": "昨天Grok 4.7 PK MiMo v2.6，是给今天这两大哥演个前戏是吧。"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "AI模型研发",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        }
+      ]
+    },
+    {
+      "articleId": "direct:df62230f0e98a993",
+      "title": "罗福莉带小米登顶全球开源榜首！大规模RL立功，斩杀Grok 4.7",
+      "url": "https://view.inews.qq.com/a/20260923A06Q7H00",
+      "contentSha256": "a108d200d79a5b20eee178b576e16f00e7ab7c9dbb91db72c784d8303ef79f0f",
+      "reviewedAt": "2026-09-23T14:12:49+08:00",
+      "reason": "逐字核对保存正文，修正产品归属、作者/模型主体及非产品专名；仅本篇完整抽取投影，成功缓存不变。",
+      "companies": [
+        {
+          "company_name": "小米",
+          "entity_type": "company",
+          "aliases": [
+            "小米MiMo团队"
+          ],
+          "product_names": [
+            "MiMo V2.6 Pro",
+            "MiMo V2.6 Flash",
+            "MiMo V2.6 Pro Ultraspeed",
+            "MiMo V2.5",
+            "MiMo-V2"
+          ],
+          "products": [
+            {
+              "name": "MiMo V2.6 Pro",
+              "relationship": "owned",
+              "quote": "小米MiMo团队正式发布并全面开源新一代MiMo V2.6系列，一口气端出三款模型——Pro、Flash、Ultraspeed"
+            },
+            {
+              "name": "MiMo V2.6 Flash",
+              "relationship": "owned",
+              "quote": "小米MiMo团队正式发布并全面开源新一代MiMo V2.6系列，一口气端出三款模型——Pro、Flash、Ultraspeed"
+            },
+            {
+              "name": "MiMo V2.6 Pro Ultraspeed",
+              "relationship": "owned",
+              "quote": "小米MiMo团队正式发布并全面开源新一代MiMo V2.6系列，一口气端出三款模型——Pro、Flash、Ultraspeed"
+            },
+            {
+              "name": "MiMo V2.5",
+              "relationship": "owned",
+              "quote": "价格维持V2.5不变"
+            },
+            {
+              "name": "MiMo-V2",
+              "relationship": "owned",
+              "quote": "25 年 12 月的 MiMo-V2 和 26 年 4 月发布的 V2.5"
+            }
+          ],
+          "founded": null,
+          "country": "中国",
+          "team": "罗福莉",
+          "business": "小米MiMo团队发布并全面开源MiMo V2.6系列大模型，包括Pro、Flash、Ultraspeed三款模型，采用MixRL混合任务强化学习、RSI递归自我改进路径、三轴协同自我改进系统，在Artificial Analysis智能指数中获46分，登顶全球开源模型第一",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "SpaceX",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Grok 4.7"
+          ],
+          "products": [
+            {
+              "name": "Grok 4.7",
+              "relationship": "owned",
+              "quote": "马斯克旗下 SpaceX的Grok 4.7也同步发布"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "发布Grok 4.7模型",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "DeepSeek",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "DeepSeek R1",
+            "DeepSeek V4.1 Flash"
+          ],
+          "products": [
+            {
+              "name": "DeepSeek R1",
+              "relationship": "owned",
+              "quote": "这次RL的研究创新和工程挑战甚至「超过了DeepSeek R1」"
+            },
+            {
+              "name": "DeepSeek V4.1 Flash",
+              "relationship": "owned",
+              "quote": "MiMo V2.6 Flash与DeepSeek V4.1 Flash闲时输入价格接近"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "OpenAI",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "GPT-6 Astra",
+            "GPT-5.6 Sol",
+            "GPT-6"
+          ],
+          "products": [
+            {
+              "name": "GPT-6 Astra",
+              "relationship": "owned",
+              "quote": "GPT-6 Astra得分52.8"
+            },
+            {
+              "name": "GPT-5.6 Sol",
+              "relationship": "owned",
+              "quote": "在多数Agent Benchmark上，它已经能比肩Opus 5和GPT-5.6 Sol"
+            },
+            {
+              "name": "GPT-6",
+              "relationship": "owned",
+              "quote": "能逃出MiMo V2.6斩杀范围的模型，预计只剩下Fable 5.1、Fable 5、GPT-6、GPT-5.6 Sol、Opus 5和Muse Spark 1.3"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Anthropic",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Opus 5",
+            "Claude Opus 5"
+          ],
+          "products": [
+            {
+              "name": "Opus 5",
+              "relationship": "owned",
+              "quote": "Opus 5得分50.7"
+            },
+            {
+              "name": "Claude Opus 5",
+              "relationship": "owned",
+              "quote": "Chat综合场景中，MiMo V2.6位列开源模型第3、总榜第8，超过Claude Opus 5"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Kimi",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Kimi K3",
+            "Kimi K2.6"
+          ],
+          "products": [
+            {
+              "name": "Kimi K3",
+              "relationship": "unknown",
+              "quote": ""
+            },
+            {
+              "name": "Kimi K2.6",
+              "relationship": "unknown",
+              "quote": "V2.5在Agent基准ClawEval上取得相近成绩的前提下，比Kimi K2.6少用42% Token"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Qwen",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Qwen3.8 Max"
+          ],
+          "products": [
+            {
+              "name": "Qwen3.8 Max",
+              "relationship": "unknown",
+              "quote": ""
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Fable",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Fable 5.1",
+            "Fable 5"
+          ],
+          "products": [
+            {
+              "name": "Fable 5.1",
+              "relationship": "unknown",
+              "quote": "Fable 5.1得分53"
+            },
+            {
+              "name": "Fable 5",
+              "relationship": "unknown",
+              "quote": "能逃出MiMo V2.6斩杀范围的模型，预计只剩下Fable 5.1、Fable 5、GPT-6、GPT-5.6 Sol、Opus 5和Muse Spark 1.3"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Meta",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Muse Spark",
+            "Muse Spark 1.3"
+          ],
+          "products": [
+            {
+              "name": "Muse Spark",
+              "relationship": "owned",
+              "quote": "比Meta Muse Spark少用50% Token"
+            },
+            {
+              "name": "Muse Spark 1.3",
+              "relationship": "owned",
+              "quote": "能逃出MiMo V2.6斩杀范围的模型，预计只剩下Fable 5.1、Fable 5、GPT-6、GPT-5.6 Sol、Opus 5和Muse Spark 1.3"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Blender",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Blender"
+          ],
+          "products": [
+            {
+              "name": "Blender",
+              "relationship": "unknown",
+              "quote": "MiMo-V2.6 可以根据用户的文本描述或参考图像在 Blender 中生成 3D 对象和场景"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        }
+      ]
+    },
+    {
+      "articleId": "direct:35fc19095d74af5c",
+      "title": "刷视频也能教会机器人干活！1200亿tokens人类动作预训练，误差按幂律下降",
+      "url": "https://view.inews.qq.com/a/20260923A0728000",
+      "contentSha256": "6252d9bb43de888b77850dff02f5fc75d5ebb12fb0a319f9d7983d0b1c6048a3",
+      "reviewedAt": "2026-09-23T14:18:34+08:00",
+      "reason": "本轮新增完整正文抽取的逐文章审核；保留成功缓存，纠正产品/公司身份、关系方向和交易主体。",
+      "companies": [
+        {
+          "company_name": "Figure",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Helix 2.5",
+            "Index",
+            "Helix 02"
+          ],
+          "products": [
+            {
+              "name": "Helix 2.5",
+              "relationship": "owned",
+              "quote": "9月17日，Figure把Helix 2.5带进了旧金山湾区30个陌生家庭"
+            },
+            {
+              "name": "Index",
+              "relationship": "owned",
+              "quote": "Figure在Index发布稿中把自己的判断写得很直白"
+            },
+            {
+              "name": "Helix 02",
+              "relationship": "owned",
+              "quote": "Helix 2.5在一个同任务比较中，只使用此前Helix 02约一半的任务专属数据"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": "Brett Adcock",
+          "business": "人形机器人及机器人预训练数据基础设施",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Dyna Robotics",
+          "entity_type": "company",
+          "aliases": [
+            "Dyna"
+          ],
+          "product_names": [
+            "Dyna-2"
+          ],
+          "products": [
+            {
+              "name": "Dyna-2",
+              "relationship": "owned",
+              "quote": "8月，Dyna Robotics发布Dyna-2"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "机器人预训练与真实机器人任务适配",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Nscale",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "英国",
+          "team": null,
+          "business": "AI云服务",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "亮源新创",
+          "entity_type": "company",
+          "aliases": [
+            "Light Origins"
+          ],
+          "product_names": [
+            "Light-O1"
+          ],
+          "products": [
+            {
+              "name": "Light-O1",
+              "relationship": "owned",
+              "quote": "Light-O1先从视频中恢复结构化人类动作，再编码成统一的人形动作表示"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "人形机器人人类动作预训练",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Unitree",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "G1"
+          ],
+          "products": [
+            {
+              "name": "G1",
+              "relationship": "owned",
+              "quote": "Unitree G1机器人以及亮源自研人形机器人数据等目标域上进行评估"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "机器人",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        }
+      ]
+    },
+    {
+      "articleId": "direct:d9032c6cd161096d",
+      "title": "6天烧光2000多万，拿下开源第一！小米史无前例“炼丹直播”收官",
+      "url": "https://view.inews.qq.com/a/20260922A09XNG00",
+      "contentSha256": "58bd2eabb750780d226a3ac35370476cabe9e52c2d4172854284c3a3b4c65b26",
+      "reviewedAt": "2026-09-23T14:18:34+08:00",
+      "reason": "本轮新增完整正文抽取的逐文章审核；保留成功缓存，纠正产品/公司身份、关系方向和交易主体。",
+      "companies": [
+        {
+          "company_name": "小米",
+          "entity_type": "company",
+          "aliases": [
+            "Xiaomi"
+          ],
+          "product_names": [
+            "MiMo-V2.6-Pro",
+            "MiMo-V2.6-Flash",
+            "MiMo-V2.6-UltraSpeed",
+            "MiMo-V2.6-Distill-Qwen-9B",
+            "MiMo Desktop"
+          ],
+          "products": [
+            {
+              "name": "MiMo-V2.6-Pro",
+              "relationship": "owned",
+              "quote": "MiMo-V2.6-Pro，1.02万亿参数，420亿激活，在Artificial Analysis Intelligence Index上拿到46分，位列开源第一"
+            },
+            {
+              "name": "MiMo-V2.6-Flash",
+              "relationship": "owned",
+              "quote": "Flash同样跑完30个Step，用时3天10小时，花掉约90万美元"
+            },
+            {
+              "name": "MiMo-V2.6-UltraSpeed",
+              "relationship": "owned",
+              "quote": "同步上线的MiMo-V2.6-UltraSpeed模式，最高速度还能达到约900 TPS"
+            },
+            {
+              "name": "MiMo-V2.6-Distill-Qwen-9B",
+              "relationship": "owned",
+              "quote": "此外还有一个MiMo-V2.6-Distill-Qwen-9B，这是一个以Qwen3.5-9B为底座，使用MiMo生成的77.4B Token数据完成监督微调的模型"
+            },
+            {
+              "name": "MiMo Desktop",
+              "relationship": "owned",
+              "quote": "除了模型本体，配合模型一起上线的还有MiMo Desktop桌面客户端，支持多个Agent协同工作"
+            }
+          ],
+          "founded": null,
+          "country": "中国",
+          "team": "罗福莉",
+          "business": "大模型强化学习训练，开源模型MiMo-V2.6系列，覆盖代码、图像、视频、3D、音乐等多模态生成，并应用于新材料研发、具身仿真等场景",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "DeepSeek",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "DeepSeek-R1"
+          ],
+          "products": [
+            {
+              "name": "DeepSeek-R1",
+              "relationship": "owned",
+              "quote": "这位曾参与DeepSeek-R1研发的小米MiMo负责人直言"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "OpenAI",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Anthropic",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Claude Opus 5"
+          ],
+          "products": [
+            {
+              "name": "Claude Opus 5",
+              "relationship": "owned",
+              "quote": "AutomationBench上，Pro拿到53.1分，超过Claude Opus 5的50.3分"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "xAI",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Grok 4.7"
+          ],
+          "products": [
+            {
+              "name": "Grok 4.7",
+              "relationship": "owned",
+              "quote": "同日发布的闭源模型Grok 4.7，在这项指数上同样拿到46分"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Hugging Face",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Ai2",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": "Nathan Lambert",
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Qwen",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Qwen3.5-9B"
+          ],
+          "products": [
+            {
+              "name": "Qwen3.5-9B",
+              "relationship": "unknown",
+              "quote": "这是一个以Qwen3.5-9B为底座，使用MiMo生成的77.4B Token数据完成监督微调的模型"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Blender",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Blender"
+          ],
+          "products": [
+            {
+              "name": "Blender",
+              "relationship": "unknown",
+              "quote": "MiMo模型的能力边界，从写代码延伸到了更多场景，例如Blender 3D建模、视频创作、音乐生成"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Franka Panda",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Franka Panda"
+          ],
+          "products": [
+            {
+              "name": "Franka Panda",
+              "relationship": "unknown",
+              "quote": "甚至在具身仿真环境里，MiMo还能通过视觉反馈闭环控制Franka Panda机械臂，做物体抓取和颜色分拣"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        }
+      ]
+    },
+    {
+      "articleId": "direct:3b1807dac01bf124",
+      "title": "OpenAI 发布 GPT-6 Sol 和 Luna；传字节跳动豆包收缩对话团队；千问发布 AI 手机全栈解决方案 | 极客早知道",
+      "url": "https://view.inews.qq.com/a/20260923A03JXO00",
+      "contentSha256": "32146173d869f0448f15b3f69cdd4596d1f7858e92207cd1f7f108ed1dd6a5e7",
+      "reviewedAt": "2026-09-23T14:18:34+08:00",
+      "reason": "本轮新增完整正文抽取的逐文章审核；保留成功缓存，纠正产品/公司身份、关系方向和交易主体。",
+      "companies": [
+        {
+          "company_name": "OpenAI",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "GPT-6 Sol",
+            "GPT-6 Luna",
+            "GPT-6 Astra",
+            "GPT-5.6"
+          ],
+          "products": [
+            {
+              "name": "GPT-6 Sol",
+              "relationship": "owned",
+              "quote": "OpenAI 今日发布 GPT-6 系列模型的最新成员 GPT-6 Sol 和 GPT-6 Luna"
+            },
+            {
+              "name": "GPT-6 Luna",
+              "relationship": "owned",
+              "quote": "OpenAI 今日发布 GPT-6 系列模型的最新成员 GPT-6 Sol 和 GPT-6 Luna"
+            },
+            {
+              "name": "GPT-6 Astra",
+              "relationship": "owned",
+              "quote": "GPT-6 Astra 依然是其整体上最优秀的模型"
+            },
+            {
+              "name": "GPT-5.6",
+              "relationship": "owned",
+              "quote": "GPT-6 Sol 和 Luna 模型的 API 价格相比 GPT-5.6 促销价降低 50%"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "阿里巴巴",
+          "entity_type": "company",
+          "aliases": [
+            "阿里"
+          ],
+          "product_names": [
+            "通义千问 Qwen",
+            "Qwen3.8-Max",
+            "Qwen4",
+            "Qwen4.5",
+            "Qwen5",
+            "Qwen-Image-3.1",
+            "Qwen-Audio-3.1",
+            "HappyOyster-2.0-Preview",
+            "Wan3.0",
+            "Agent Studio",
+            "Qwen Intelligence"
+          ],
+          "products": [
+            {
+              "name": "通义千问 Qwen",
+              "relationship": "owned",
+              "quote": "通义千问 Qwen 模型提升思考质量"
+            },
+            {
+              "name": "Qwen3.8-Max",
+              "relationship": "owned",
+              "quote": "Qwen3.8-Max 在编程（Coding）和办公（Cowork）领域表现出色"
+            },
+            {
+              "name": "Qwen4",
+              "relationship": "owned",
+              "quote": "基于下一代架构的 Qwen4 已投入训练"
+            },
+            {
+              "name": "Qwen4.5",
+              "relationship": "owned",
+              "quote": "未来 Qwen4.5、Qwen5 等后续版本模型参数将扩展至 5 到 10 万亿"
+            },
+            {
+              "name": "Qwen5",
+              "relationship": "owned",
+              "quote": "未来 Qwen4.5、Qwen5 等后续版本模型参数将扩展至 5 到 10 万亿"
+            },
+            {
+              "name": "Qwen-Image-3.1",
+              "relationship": "owned",
+              "quote": "Qwen-Image-3.1 性能有望逼近最强 GPT-Image 系列"
+            },
+            {
+              "name": "Qwen-Audio-3.1",
+              "relationship": "owned",
+              "quote": "Qwen-Audio-3.1 在 ASR、TTS 以及 Realtime 三个核心语音赛道均位列国际第一梯队"
+            },
+            {
+              "name": "HappyOyster-2.0-Preview",
+              "relationship": "owned",
+              "quote": "世界模型 HappyOyster-2.0-Preview 全新亮相"
+            },
+            {
+              "name": "Wan3.0",
+              "relationship": "owned",
+              "quote": "视频生成模型 Wan3.0 斩获 Artificial Analysis 文生视频与视频编辑双榜第一"
+            },
+            {
+              "name": "Agent Studio",
+              "relationship": "owned",
+              "quote": "从硬件、存储到 MaaS 平台、Agent Studio 全线调优"
+            },
+            {
+              "name": "Qwen Intelligence",
+              "relationship": "owned",
+              "quote": "千问发布 AI 手机全栈解决方案 Qwen Intelligence"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "理想汽车",
+          "entity_type": "company",
+          "aliases": [
+            "理想"
+          ],
+          "product_names": [
+            "马赫 M100 芯片",
+            "理想 L9",
+            "理想 L8",
+            "理想 L6",
+            "理想 MEGA",
+            "理想 i9"
+          ],
+          "products": [
+            {
+              "name": "马赫 M100 芯片",
+              "relationship": "owned",
+              "quote": "理想马赫 M100 芯片发布于今年 6 月"
+            },
+            {
+              "name": "理想 L9",
+              "relationship": "owned",
+              "quote": "马赫 M100 芯片已在全新理想 L9、L8、L6、MEGA、i9 等车型上搭载上车"
+            },
+            {
+              "name": "理想 L8",
+              "relationship": "owned",
+              "quote": "马赫 M100 芯片已在全新理想 L9、L8、L6、MEGA、i9 等车型上搭载上车"
+            },
+            {
+              "name": "理想 L6",
+              "relationship": "owned",
+              "quote": "马赫 M100 芯片已在全新理想 L9、L8、L6、MEGA、i9 等车型上搭载上车"
+            },
+            {
+              "name": "理想 MEGA",
+              "relationship": "owned",
+              "quote": "马赫 M100 芯片已在全新理想 L9、L8、L6、MEGA、i9 等车型上搭载上车"
+            },
+            {
+              "name": "理想 i9",
+              "relationship": "owned",
+              "quote": "马赫 M100 芯片已在全新理想 L9、L8、L6、MEGA、i9 等车型上搭载上车"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "字节跳动",
+          "entity_type": "company",
+          "aliases": [
+            "字节"
+          ],
+          "product_names": [
+            "豆包",
+            "飞书",
+            "穿山甲"
+          ],
+          "products": [
+            {
+              "name": "豆包",
+              "relationship": "owned",
+              "quote": "豆包通用 Session 团队正在减员"
+            },
+            {
+              "name": "飞书",
+              "relationship": "owned",
+              "quote": "部分人员将转岗至豆包商业化、飞书等团队"
+            },
+            {
+              "name": "穿山甲",
+              "relationship": "owned",
+              "quote": "先后负责增长中台、穿山甲（字节旗下广告平台）"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "腾讯",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "微信"
+          ],
+          "products": [
+            {
+              "name": "微信",
+              "relationship": "owned",
+              "quote": "微信朋友圈新增「私密发表」功能"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "拓竹",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "R1 激光切割机",
+            "E1 Pro 空气净化器"
+          ],
+          "products": [
+            {
+              "name": "R1 激光切割机",
+              "relationship": "owned",
+              "quote": "拓竹今日正式发布 R1 激光切割机"
+            },
+            {
+              "name": "E1 Pro 空气净化器",
+              "relationship": "owned",
+              "quote": "该产品还可直连 E1 Pro 空气净化器"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "OPPO",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "OPPO Find X10 系列",
+            "哈苏超清原相机",
+            "ColorOS 17"
+          ],
+          "products": [
+            {
+              "name": "OPPO Find X10 系列",
+              "relationship": "owned",
+              "quote": "正式发布年度影像旗舰 OPPO Find X10 系列"
+            },
+            {
+              "name": "哈苏超清原相机",
+              "relationship": "owned",
+              "quote": "系列首发搭载「哈苏超清原相机」"
+            },
+            {
+              "name": "ColorOS 17",
+              "relationship": "owned",
+              "quote": "以及「超流畅，更懂你」的 ColorOS 17"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        }
+      ]
+    },
+    {
+      "articleId": "direct:2ec66b9f14a56d39",
+      "title": "业内首个企业级Agent产品！千问办公发布“企业上下文”，同步推出AI硬件QwenNote A2",
+      "url": "https://view.inews.qq.com/a/20260922A086VX00",
+      "contentSha256": "f6480f42ac3b1f217b1d644220f8491d1f372932d242aa6506750df51ccbce93",
+      "reviewedAt": "2026-09-23T14:18:34+08:00",
+      "reason": "本轮新增完整正文抽取的逐文章审核；保留成功缓存，纠正产品/公司身份、关系方向和交易主体。",
+      "companies": [
+        {
+          "company_name": "阿里巴巴",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Qwen Intelligence",
+            "千问办公",
+            "企业上下文",
+            "数字员工",
+            "协作空间",
+            "安全中心",
+            "QwenNote A2"
+          ],
+          "products": [
+            {
+              "name": "Qwen Intelligence",
+              "relationship": "owned",
+              "quote": "千问大模型还发布AI手机全栈解决方案Qwen Intelligence"
+            },
+            {
+              "name": "千问办公",
+              "relationship": "owned",
+              "quote": "9月22日，阿里巴巴旗下千问办公在2026杭州云栖大会发布一系列企业级AI Agent产品"
+            },
+            {
+              "name": "企业上下文",
+              "relationship": "owned",
+              "quote": "千问办公此次发布的核心产品之一是“企业上下文”（Enterprise Context）"
+            },
+            {
+              "name": "数字员工",
+              "relationship": "owned",
+              "quote": "在数字员工层面，千问办公为Agent赋予完整的“组织身份”"
+            },
+            {
+              "name": "协作空间",
+              "relationship": "owned",
+              "quote": "与此同时，千问办公推出“协作”功能，允许企业创建协作空间"
+            },
+            {
+              "name": "安全中心",
+              "relationship": "owned",
+              "quote": "此次发布的千问办公安全中心，可统一管理Agent的数据访问、工具调用和任务执行"
+            },
+            {
+              "name": "QwenNote A2",
+              "relationship": "owned",
+              "quote": "硬件方面，千问办公同步发布AI Agent随身助理QwenNote A2"
+            }
+          ],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": "旗下千问办公发布企业级AI Agent产品，千问大模型发布AI手机全栈解决方案Qwen Intelligence",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "荣耀",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Magic OS"
+          ],
+          "products": [
+            {
+              "name": "Magic OS",
+              "relationship": "owned",
+              "quote": "以Qwen Intelligence和荣耀Magic OS为基础，共同打造面向下一代AI手机的垂域模型和解决方案"
+            }
+          ],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": "与阿里巴巴携手，以Qwen Intelligence和荣耀Magic OS为基础，共同打造面向下一代AI手机的垂域模型和解决方案",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        }
+      ]
+    },
+    {
+      "articleId": "direct:7f0007a0f1b362c2",
+      "title": "从“用AI”到“成为智企”：超聚变如何打通企业 AI 的价值链？",
+      "url": "https://view.inews.qq.com/a/20260922A09BGD00",
+      "contentSha256": "634f41e4b9aa2991ad2dd43f05d43fc1e7559b69151b8d90804ce5793558a1f4",
+      "reviewedAt": "2026-09-23T14:18:34+08:00",
+      "reason": "本轮新增完整正文抽取的逐文章审核；保留成功缓存，纠正产品/公司身份、关系方向和交易主体。",
+      "companies": [
+        {
+          "company_name": "超聚变",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "FusionOne AI",
+            "FusionServer V9",
+            "FusionXpark M 系列",
+            "TokenBox"
+          ],
+          "products": [
+            {
+              "name": "FusionOne AI",
+              "relationship": "owned",
+              "quote": "超聚变以 FusionOne AI 企业级 Token Factory 解决方案，贯通算力、模型与 Token 运营"
+            },
+            {
+              "name": "FusionServer V9",
+              "relationship": "owned",
+              "quote": "超聚变最新发布了 FusionServer“无极”架构，以及基于该架构的首发产品 FusionServer V9 系列"
+            },
+            {
+              "name": "FusionXpark M 系列",
+              "relationship": "owned",
+              "quote": "周洵与 AMD 大中华区市场营销副总裁纪朝晖共同启动 FusionXpark M 系列桌面 AI 超级计算机的发布仪式"
+            },
+            {
+              "name": "TokenBox",
+              "relationship": "owned",
+              "quote": "再到 TokenBox 本地 AI 超级工作站与 FusionXpark M 系列桌面 AI 超级计算机，超聚变形成了覆盖不同部署规模的 Token Factory 产品体系"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "企业 AI 与算力基础设施、Token Factory、企业本体建模及数智化解决方案",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "AMD",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "锐龙 AI Max+ PRO 495"
+          ],
+          "products": [
+            {
+              "name": "锐龙 AI Max+ PRO 495",
+              "relationship": "owned",
+              "quote": "FusionXpark M 系列，基于 AMD 锐龙 AI Max+ PRO 495 平台打造"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "香港中华煤气",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "能源企业，结合数据治理、AI 平台与业务智能体推进转型",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Product LATAM",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "ERPA"
+          ],
+          "products": [
+            {
+              "name": "ERPA",
+              "relationship": "used",
+              "quote": "基于超聚变 FusionXpark 的本地推理能力，他们将 ERPA 模型应用于中小企业和酒店集团等场景"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "数据治理与 AI 协同实践，面向拉美市场",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        }
+      ]
+    },
+    {
+      "articleId": "direct:8f26d8f551e8f681",
+      "title": "华尔街见闻早餐FM-Radio | 2026年9月23日",
+      "url": "https://view.inews.qq.com/a/20260923A02YJR00",
+      "contentSha256": "3300b9d7a62797020d970c57bc7ee05e8c72e5ad82d100f203423b9c4da53984",
+      "reviewedAt": "2026-09-23T14:18:34+08:00",
+      "reason": "本轮新增完整正文抽取的逐文章审核；保留成功缓存，纠正产品/公司身份、关系方向和交易主体。",
+      "companies": [
+        {
+          "company_name": "阿里巴巴",
+          "entity_type": "company",
+          "aliases": [
+            "阿里"
+          ],
+          "product_names": [
+            "真武V900",
+            "真武M890",
+            "Qwen Intelligence",
+            "企业上下文",
+            "QwenNote A2"
+          ],
+          "products": [
+            {
+              "name": "真武V900",
+              "relationship": "owned",
+              "quote": "全新国产AI芯片真武V900，算力提升至真武M890的3倍"
+            },
+            {
+              "name": "真武M890",
+              "relationship": "owned",
+              "quote": "算力提升至真武M890的3倍"
+            },
+            {
+              "name": "Qwen Intelligence",
+              "relationship": "owned",
+              "quote": "荣耀Magic9系列将成为首批搭载Qwen Intelligence的正式机型"
+            },
+            {
+              "name": "企业上下文",
+              "relationship": "owned",
+              "quote": "业内首个企业级Agent产品！千问办公发布“企业上下文”"
+            },
+            {
+              "name": "QwenNote A2",
+              "relationship": "owned",
+              "quote": "同步推出AI硬件QwenNote A2"
+            }
+          ],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": "阿里云目标到2032年运营的全球数据中心规模超过20GW；发布国产AI芯片真武V900；千问落地手机，首批搭载荣耀Magic 9；千问办公发布企业级Agent“企业上下文”和AI硬件QwenNote A2。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "荣耀",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Magic 9",
+            "Robot Phone",
+            "Qwen Intelligence"
+          ],
+          "products": [
+            {
+              "name": "Magic 9",
+              "relationship": "owned",
+              "quote": "荣耀Magic9系列将成为首批搭载Qwen Intelligence的正式机型"
+            },
+            {
+              "name": "Robot Phone",
+              "relationship": "owned",
+              "quote": "荣耀Robot Phone亦同步支持"
+            },
+            {
+              "name": "Qwen Intelligence",
+              "relationship": "integrated",
+              "quote": "荣耀Magic9系列将成为首批搭载Qwen Intelligence的正式机型"
+            }
+          ],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": "荣耀Magic 9系列将成为首批搭载Qwen Intelligence的正式机型，荣耀Robot Phone亦同步支持。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "腾讯",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "微信",
+            "WorkBuddy"
+          ],
+          "products": [
+            {
+              "name": "微信",
+              "relationship": "owned",
+              "quote": "坐拥庞大社交与小程序生态的微信，被视为“中国版Muse”最具优势的落地载体"
+            },
+            {
+              "name": "WorkBuddy",
+              "relationship": "owned",
+              "quote": "从C端Meta Muse到B端腾讯WorkBuddy"
+            }
+          ],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": "腾讯港股收涨5%，Meta Muse走红引发市场对腾讯C端Agent生态重估，微信被视为“中国版Muse”最具优势的落地载体。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_social"
+        },
+        {
+          "company_name": "Meta",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Muse"
+          ],
+          "products": [
+            {
+              "name": "Muse",
+              "relationship": "owned",
+              "quote": "Meta AI Agent应用Muse走红"
+            }
+          ],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": "Meta AI Agent应用Muse走红，上线六天下载破90万、登顶双平台榜首。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_social"
+        },
+        {
+          "company_name": "豆包",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "豆包是国内日活最高的AI应用、DAU已超2亿，但对话产品的商业化瓶颈逐渐显现，多模态功能与免费额度推高成本。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Anthropic",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Claude Opus 5.5",
+            "Claude Sonnet 5.5",
+            "Haiku 5.5",
+            "Claude Mythos 5.1"
+          ],
+          "products": [
+            {
+              "name": "Claude Opus 5.5",
+              "relationship": "owned",
+              "quote": "Anthropic呼吁放慢开发后首次上新：Claude Opus 5.5能力接近Fable 5.1、成本降四成"
+            },
+            {
+              "name": "Claude Sonnet 5.5",
+              "relationship": "owned",
+              "quote": "未来几周将推出Claude Sonnet 5.5与Haiku 5.5两款大模型"
+            },
+            {
+              "name": "Haiku 5.5",
+              "relationship": "owned",
+              "quote": "未来几周将推出Claude Sonnet 5.5与Haiku 5.5两款大模型"
+            },
+            {
+              "name": "Claude Mythos 5.1",
+              "relationship": "owned",
+              "quote": "测试环境中试图突破边界的次数较Opus 5和Claude Mythos 5.1减少85%"
+            }
+          ],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": "发布Claude Opus 5.5，能力接近Fable 5.1、成本降四成；未来几周将推出Claude Sonnet 5.5与Haiku 5.5。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "OpenAI",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "GPT-6 Sol",
+            "GPT-6 Luna",
+            "GPT-6 Astra",
+            "GPT-5.6",
+            "ChatGPT Work"
+          ],
+          "products": [
+            {
+              "name": "GPT-6 Sol",
+              "relationship": "owned",
+              "quote": "OpenAI再推两款GPT-6模型：Sol、Luna继承Astra能力、定价较GPT-5.6降50%"
+            },
+            {
+              "name": "GPT-6 Luna",
+              "relationship": "owned",
+              "quote": "OpenAI再推两款GPT-6模型：Sol、Luna继承Astra能力、定价较GPT-5.6降50%"
+            },
+            {
+              "name": "GPT-6 Astra",
+              "relationship": "owned",
+              "quote": "两款模型“建立在GPT-6 Astra背后的技术进展之上”"
+            },
+            {
+              "name": "GPT-5.6",
+              "relationship": "owned",
+              "quote": "GPT-6 Sol和GPT-6 Luna的API价格较GPT-5.6的促销价还低50%"
+            },
+            {
+              "name": "ChatGPT Work",
+              "relationship": "owned",
+              "quote": "尽管OpenAI已有ChatGPT Work等执行能力"
+            }
+          ],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": "推出GPT-6 Sol和GPT-6 Luna，定价较GPT-5.6降50%；内部AI模型已开始承担实验性模型训练及GPU内核优化等研发工作；发布全球AI安全协调提案，首次单列RSI。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "沙特阿美",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "沙特阿拉伯",
+          "team": null,
+          "business": "沙特阿美非正式告知亚洲炼厂延布港原油装载即将恢复；正加紧修复受损泵站，延布港已出现油轮抵达迹象，目标最快本周恢复原油出口。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "英伟达",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": "英伟达市盈率已跌破17倍，仅约为2025年水平的一半；2027财年营收、净利润预计分别增长90%和99%；毛利率预计从二季度的75%降至四季度72%以下。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "杰富瑞",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": "杰富瑞把瓦莱罗能源和马拉松石油的评级从买入下调至持有；认为智能体应用对推理算力、多任务编排及底层基础设施的消耗显著高于传统聊天机器人场景，PCB及ABF基板供应商有望迎来重估机会。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "瓦莱罗能源",
+          "entity_type": "company",
+          "aliases": [
+            "Valero"
+          ],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": "杰富瑞把瓦莱罗能源评级从买入下调至持有；特朗普表态支持禁止柴油出口，炼油股下挫、Valero跌超4%。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "马拉松石油",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": "杰富瑞把马拉松石油的评级从买入下调至持有。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "闪迪",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": "芯片指数涨超2%、六连涨，闪迪涨近7%。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "美光",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": "芯片指数涨超2%、六连涨，美光涨5%。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "黑石",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": "黑石总裁Jon Gray在闭门演讲中反驳“AI万亿投资泡沫论”，认为真正的投资主线在于化解现实世界的“硬短缺”，即重金投向芯片、数据中心和电力设施。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "摩根士丹利",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": "摩根士丹利预计，美国数据中心电力缺口已从38GW骤扩至57GW；即便引入燃气轮机、燃料电池等方案，2027年净缺口中值仍达33GW。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "高通",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "骁龙8 Elite Gen6"
+          ],
+          "products": [
+            {
+              "name": "骁龙8 Elite Gen6",
+              "relationship": "unknown",
+              "quote": "高通骁龙峰会举行，预计发布采用2纳米工艺的骁龙8 Elite Gen6系列"
+            }
+          ],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": "高通骁龙峰会举行，预计发布采用2纳米工艺的骁龙8 Elite Gen6系列。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "华为",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Mate 90"
+          ],
+          "products": [
+            {
+              "name": "Mate 90",
+              "relationship": "unknown",
+              "quote": "华为在深圳举行秋季全场景新品发布会，市场预计将发布Mate 90系列"
+            }
+          ],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": "华为在深圳举行秋季全场景新品发布会，市场预计将发布Mate 90系列。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "中金公司",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [],
+          "products": [],
+          "founded": null,
+          "country": "中国",
+          "team": null,
+          "business": "中金公司A股股票自9月23日开市起复牌。",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        }
+      ]
     }
   ],
   "articleSummaryReviews": [
@@ -1861,6 +5073,27 @@
       "toSummary": "作者以游玩《王者万象棋》超过220小时的个人体验为切入，称自己的体验在约150小时后出现转折，并肯定游戏将包装、操作与学习反馈结合的设计。文章继而指出，F2P产品重视首日留存和ROI等短期指标，而部分设计价值需较长体验才能显现；付费空间、测试窗口与试错成本又限制了设计驱动产品。作者因此担忧这类产品更依赖大厂的资源、IP和商业化能力。",
       "reviewedAt": "2026-09-23T10:51:04.776272+08:00",
       "reason": "原摘要将作者个人150小时体验泛化为玩家普遍适应期，并因前缀截断遗漏文章对F2P商业约束的核心判断。"
+    },
+    {
+      "articleId": "direct:35fc19095d74af5c",
+      "title": "刷视频也能教会机器人干活！1200亿tokens人类动作预训练，误差按幂律下降",
+      "url": "https://view.inews.qq.com/a/20260923A0728000",
+      "contentSha256": "6252d9bb43de888b77850dff02f5fc75d5ebb12fb0a319f9d7983d0b1c6048a3",
+      "fromSummarySha256": "acb35381ab00c91e44a7c7904319946b9498a3cd0201c31b1800c5571d8fe890",
+      "toSummary": "亮源新创9月21日发布技术博客，披露Light-O1利用互联网人类行为视频预训练，将规模从37.5亿扩至1200亿tokens；经目标域适配后，动作预测与姿态误差呈幂律下降。这是离线迁移指标，不能等同真机任务成功率。报道同时对照Figure的Index预训练实验：30个陌生家庭完整任务成功率由9%升至56%；Dyna另在14项真机任务验证数据规模收益。",
+      "reviewedAt": "2026-09-23T14:14:58+08:00",
+      "classificationProjection": "paper",
+      "reason": "原模型长摘要经220字句末裁剪后只剩Figure开场，遗漏标题与全文主线中的亮源新创1200亿tokens研究。依据全文补回该研究，并区分离线迁移误差、Figure真机成功率和Dyna任务表现，不能混为同一缩放曲线。"
+    },
+    {
+      "articleId": "direct:3b1807dac01bf124",
+      "title": "OpenAI 发布 GPT-6 Sol 和 Luna；传字节跳动豆包收缩对话团队；千问发布 AI 手机全栈解决方案 | 极客早知道",
+      "url": "https://view.inews.qq.com/a/20260923A03JXO00",
+      "contentSha256": "32146173d869f0448f15b3f69cdd4596d1f7858e92207cd1f7f108ed1dd6a5e7",
+      "fromSummarySha256": "7b78cdc556db4c14cfd18a2a82099487ed6a50288c2e3f33e2e870c868920699",
+      "toSummary": "该期晨报汇总多项科技动态：OpenAI发布GPT-6 Sol和Luna，API价格较GPT-5.6促销价降低50%。阿里公布Qwen4已投入训练，后继Qwen4.5、Qwen5等版本参数目标为5到10万亿；千问发布AI手机全栈方案Qwen Intelligence。另据《晚点LatePost》报道，豆包通用Session团队预计缩减约一半，部分人员转岗或裁撤。",
+      "reviewedAt": "2026-09-23T14:16:54+08:00",
+      "reason": "综合晨报按多事件概括；明确5到10万亿参数是Qwen4.5、Qwen5等后继版本目标，而非已投入训练的Qwen4当前规模，并保留豆包人员调整来自《晚点LatePost》报道的归属和预计语气。分类general由现有roundup边界处理。"
     }
   ]
 }

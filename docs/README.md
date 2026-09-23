@@ -1,5 +1,7 @@
 # 文档入口
 
+- [匿名媒体直采及审核发布](operations/DIRECT_NEWS_COLLECTION.md)：20个既定入口、免费链接与正文采集、现有模型加工及两池展示。
+
 | 目录 | 阅读场景 |
 | --- | --- |
 | [guides/USER_GUIDE.md](./guides/USER_GUIDE.md) | 使用看板与本地启动 |

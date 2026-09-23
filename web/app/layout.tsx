@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "新闻Daily",
-  description: "Manus 多信源新闻采集，浏览全部文章、Garena投资精选与公司产品全景。",
+  description: "多信源新闻采集，浏览全部文章、Garena投资精选与公司产品全景。",
   icons: {
     icon: `${assetBase}/favicon.svg`,
     shortcut: `${assetBase}/favicon.svg`,

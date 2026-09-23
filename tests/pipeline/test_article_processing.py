@@ -44,14 +44,14 @@ class ArticleProcessing(unittest.TestCase):
         selected_system, _ = enrich.build_enrich_prompt(self.tx, 'title', 'source', 'body')
         self.assertIn('围绕有正文依据的 AI 主线', selected_system)
 
-    def test_legacy_success_is_reused_at_its_real_key_without_creating_new_version(self):
+    def test_selected_success_is_reused_at_its_real_key_for_library(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'cache.json'
             legacy = {'summary': self.raw['summary'], 'classification': tag_news.validate(self.tx, self.raw),
                       'enrichmentStatus': 'complete'}
             key = enrich.enrich_cache_key(self.tx, self.item)
             sha = hashlib.sha256(self.item['content_text'].encode()).hexdigest()[:16]
-            self.assertEqual(key, f'{tag_news.cache_prefix(self.tx)}:enrich-v4:{enrich.enrich_item_key(self.item)}:{sha}')
+            self.assertEqual(key, f'{tag_news.cache_prefix(self.tx)}:enrich-v{enrich.ENRICH_PROMPT_VERSION}:{enrich.enrich_item_key(self.item)}:{sha}')
             tag_news.save_cache(path, {key: legacy})
             before = path.read_bytes()
             with patch.object(enrich, 'call_llm', side_effect=AssertionError('No new request')):
@@ -59,7 +59,7 @@ class ArticleProcessing(unittest.TestCase):
             row = results[enrich.enrich_item_key(self.item)]
             self.assertTrue(row['cacheHit'])
             self.assertEqual(row['processingCacheKey'], key)
-            self.assertEqual(row['processingPrompt'], 'selected-v4')
+            self.assertEqual(row['processingPrompt'], f'selected-v{enrich.ENRICH_PROMPT_VERSION}')
             self.assertEqual(path.read_bytes(), before)
             public = build_public_article_library([self.item], [], {self.item['id']: {
                 'status': 'complete', 'relevant': False}}, {self.item['id']: row})[0]
@@ -78,6 +78,21 @@ class ArticleProcessing(unittest.TestCase):
             public = build_public_article_library([self.item], [], enrichments={self.item['id']: result})[0]
             self.assertNotIn('PRIVATE_RAW_VALUE', json.dumps(public))
             self.assertNotIn('processingCacheKey', public)
+
+    def test_reviewed_category_requires_the_same_body_and_summary_binding(self):
+        result = {'summary': self.raw['summary'], 'classification': tag_news.validate(self.tx, self.raw)}
+        digest = lambda text: hashlib.sha256(text.encode('utf-8')).hexdigest()
+        rule = {'articleId': self.item['id'], 'title': self.item['title'], 'url': self.item['url'],
+                'contentSha256': digest(self.item['content_text']), 'fromSummarySha256': digest(result['summary']),
+                'toSummary': result['summary'], 'classificationProjection': 'paper',
+                'reviewedAt': '2026-09-23', 'reason': 'Research, not a product launch'}
+        projected = editorial.apply_summary_review(self.item, result, [rule])
+        self.assertEqual(projected['classification']['category'], 'paper')
+        self.assertEqual(result['classification']['category'], 'financing')
+        changed = {**self.item, 'content_text': self.item['content_text'] + 'changed evidence'}
+        self.assertEqual(editorial.apply_summary_review(changed, result, [rule]), result)
+        with self.assertRaises(ValueError):
+            editorial.apply_summary_review(self.item, result, [{**rule, 'classificationProjection': 'invented'}])
 
     def test_reviewed_summary_projection_runs_after_cache_save_on_fresh_and_cached_results(self):
         reviewed = '经原文核对，该家电公司介绍了生产线建设安排和产品销售情况，披露本轮融资计划。报道区分了既有业务与此次新增进展，没有将历史数字写成今天的新事实。'
