@@ -1,5 +1,5 @@
 {
-  "_comment": "公众号追踪清单。fetch_wechat.py 逐个抓取；增删只需改本文件。name 为搜狗可搜到的公众号名称。",
+  "_comment": "信源扩容候选池，不参与生产采集。账号身份、实际承载入口和原始发布时间核验通过后，才迁入 manus_sources.json 及对应适配器。旧搜狗/WeRead采集已停用。",
   "accounts": [
     { "name": "卡尔的AI沃茨", "note": "个人 IP · 模型/产品测评" },
     { "name": "数字生命卡兹克", "note": "个人 IP · 行业评论" },
@@ -20,7 +20,7 @@
     { "name": "扣子Coze", "note": "AI 产品 · Agent 编排平台" },
     { "name": "少数派", "note": "AI 产品 · 效率工具测评" },
     { "name": "LangGPT", "note": "AI 产品 · Prompt/Agent 方法论" },
-    { "name": "APPSO", "note": "AI 产品 · 应用推荐与测评" },
+    { "name": "APPSO", "note": "AI 产品 · 应用推荐与测评；2026-09-23腾讯搜索样本跳转微信，当前直采适配器不支持此路径；正文、发布者及原始发布时间尚待核验，未启用" },
     { "name": "可灵AI", "note": "AI 泛娱乐 · 视频生成" },
     { "name": "海螺AI", "note": "AI 泛娱乐 · 视频生成" },
     { "name": "即梦AI", "note": "AI 泛娱乐 · 视频/图像生成" },
