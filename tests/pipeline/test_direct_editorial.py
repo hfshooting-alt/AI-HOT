@@ -74,11 +74,13 @@ class DirectEditorialEvidenceTests(unittest.TestCase):
                     self.assertEqual(result['error']['category'], 'content')
                     self.assertFalse(result['error']['systemic'])
 
-    def test_known_roundup_labels_project_fresh_and_cached_without_cache_write(self):
-        titles = ('甲公司发布模型 | 极客早知道', '华尔街见闻早餐FM-Radio | 2026年9月23日')
+    def test_known_boundaries_project_fresh_and_cached_without_cache_write(self):
+        cases = (('甲公司发布模型 | 极客早知道', 'roundup_not_release'),
+                 ('华尔街见闻早餐FM-Radio | 2026年9月23日', 'roundup_not_release'),
+                 ('报道：苹果开发新型健身追踪器原型机，目标直指Whoop', 'prototype_not_release'))
         for library in (False, True):
             tx = self.tax(library)
-            for title in titles:
+            for title, reason in cases:
                 with self.subTest(library=library, title=title):
                     item = {'id': 'direct:offline-roundup', 'title': title,
                             'mpName': '离线来源', 'content_text': CONTENT}
@@ -91,7 +93,7 @@ class DirectEditorialEvidenceTests(unittest.TestCase):
                     self.assertEqual(fresh['classification']['category'], 'general')
                     self.assertEqual(fresh['classification']['tags'], {})
                     self.assertEqual(fresh['privateReview']['modelResponse'], raw)
-                    self.assertEqual(fresh['privateReview']['classificationBoundary']['reason'], 'roundup_not_release')
+                    self.assertEqual(fresh['privateReview']['classificationBoundary']['reason'], reason)
                     # A saved successful response remains a release in storage;
                     # only the returned publication projection is corrected.
                     saved = {**fresh, 'classification': {'category': 'release',
@@ -109,7 +111,20 @@ class DirectEditorialEvidenceTests(unittest.TestCase):
                     self.assertFalse(result['modelAttempted'])
                     self.assertTrue(result['cacheHit'])
                     self.assertEqual(result['classification']['category'], 'general')
-                    self.assertEqual(result['privateReview']['classificationBoundary']['reason'], 'roundup_not_release')
+                    self.assertEqual(result['privateReview']['classificationBoundary']['reason'], reason)
+
+    def test_prototype_development_boundary_preserves_releases_and_other_categories(self):
+        for title in ('公司正式发布自主研发的机器人原型', '公司研发的原型机现已上线',
+                      '公司已发布新研发的追踪器原型机', '公司发布自主研发的机器人原型机',
+                      '公司正在研发的新型原型机现已开售',
+                      '公司研发的原型机取得测试进展'):
+            self.assertIsNone(enrich_news.event_boundary_reason('release', title))
+        # Mixed/future launch titles need source-body evidence; do not decide
+        # them with a broad title regex that can override genuine releases.
+        self.assertIsNone(enrich_news.event_boundary_reason('release', '公司正在研发原型机，计划2028年正式推出'))
+        self.assertEqual(enrich_news.event_boundary_reason('release', '公司正在研发追踪器原型机'),
+                         'prototype_not_release')
+        self.assertIsNone(enrich_news.event_boundary_reason('paper', '公司正在开发原型机'))
 
     def test_roundup_boundary_does_not_match_generic_morning_or_similar_names(self):
         for title in ('公司今早发布新模型', '早餐机器人正式发布', '极客早知道模型正式发布',

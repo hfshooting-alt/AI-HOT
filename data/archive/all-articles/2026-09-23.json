@@ -363,7 +363,7 @@
       "contentStatus": "available",
       "classificationStatus": "complete",
       "summaryStatus": "complete",
-      "summary": "湖南长沙A股上市公司军信股份于9月22日发布公告，公司正在进行申请发行H股并在香港联交所主板挂牌上市的相关工作。鉴于目前市场环境等情况，为保护投资者利益，经与联席保荐人及联席全球协调人商议，公司决定将根据市场变化情况再行确定H股发行上市相关事宜，该决定不影响当前经营业务正常开展。军信股份于2026年9月13日通过港交所聆讯，中金公司、中信证券联席保荐，拟发行不超过221,434,400万股境外上市普通股。",
+      "summary": "军信股份9月22日公告称，正在推进发行H股并在港交所主板上市的相关工作。鉴于市场环境变化，经与联席保荐人及联席全球协调人商议，公司决定根据市场情况再行确定发行上市事宜，并表示该决定不影响现有业务正常开展。公司此前于9月13日通过港交所聆讯，中金公司、中信证券担任联席保荐人。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章仅涉及军信股份港股上市安排调整，未提及任何AI相关事件。"
@@ -374,7 +374,12 @@
         "autoFallback": false,
         "autoFilled": []
       },
-      "summaryOrigin": "model"
+      "summaryOrigin": "editorial_review",
+      "editorialReview": {
+        "reviewedAt": "2026-09-23T14:30:08+08:00",
+        "reason": "上游详情原文也写有221,434,400万股，模型照录；该数字与单位疑似上游笔误，尚未核实正确值。本次仅省略疑似错误发行数量，保留上市阶段、市场条件及联席保荐事实，不推算或改造股数。",
+        "origin": "source-grounded-review"
+      }
     },
     {
       "id": "direct:b60b1be56cc6d2c8",
@@ -2505,12 +2510,17 @@
         "reason": "核心事件是苹果开发无屏健身追踪器原型机，未涉及具体AI事件，仅顺带提及AI吊坠项目。"
       },
       "classification": {
-        "category": "release",
+        "category": "general",
         "tags": {},
         "autoFallback": false,
         "autoFilled": []
       },
-      "summaryOrigin": "model"
+      "summaryOrigin": "model",
+      "editorialReview": {
+        "reviewedAt": "2026-09-23",
+        "reason": "原文是研发中的原型机，明确尚未决定发布，不作为产品发布。",
+        "origin": "source-grounded-review"
+      }
     },
     {
       "id": "direct:ffd8b63f1211b5ca",
@@ -5649,5 +5659,5 @@
     "direct:20da35e6e3ca2671",
     "direct:c35084ad0683f6aa"
   ],
-  "updatedAt": "2026-09-23T14:19:05.618310+08:00"
+  "updatedAt": "2026-09-23T14:34:06.023148+08:00"
 }

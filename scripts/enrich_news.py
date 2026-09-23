@@ -61,6 +61,12 @@ def event_boundary_reason(category, title):
         return 'roundup_not_release'
     if is_preview(title):
         return 'preview_not_release'
+    # Narrow to explicit ongoing/new development. A launch verb makes a title
+    # ambiguous (including a possible future launch); leave it to body-grounded
+    # classification rather than overriding genuine released prototypes.
+    if (re.search(r'(?:(?:正在|正|计划|拟)(?:开发|研发|研制)|(?:开发|研发|研制)(?:新型|新款|一款|新)).{0,40}原型(?:机|产品)?', title)
+            and not re.search(r'发布|上市|上线|发售|推出|开售|开放', title)):
+        return 'prototype_not_release'
     # A sales record alone reports an existing product's performance. Keep
     # titles that also indicate an actual new product/version launch untouched.
     launch = re.search(r'新作|新品|新游|新产品|新版本|重大版本|发布|上线|发售|推出', title)
@@ -72,7 +78,7 @@ def event_boundary_reason(category, title):
 
 
 def enforce_event_boundary(raw, title):
-    """Explicit roundups, previews and sales-only milestones are not releases."""
+    """Project explicit non-release events without changing original evidence."""
     if event_boundary_reason(raw.get('category'), title):
         return {**raw, 'category': 'general', 'tags': {}, 'release_evidence': None}
     return raw
