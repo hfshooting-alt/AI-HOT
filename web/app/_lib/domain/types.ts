@@ -1,7 +1,7 @@
 // 新闻Daily 发布快照与公司产品库的数据类型。
 
 export type NewsPoolMode = "all" | "selected";
-export type ViewKey = NewsPoolMode | "company" | "settings";
+export type ViewKey = NewsPoolMode | "company";
 export type ArticleProcessingStatus = "complete" | "pending" | "failed";
 
 /** AI 两级分类（tag_news 打标签产物，展示结构；dims 与 to_display 输出对齐） */

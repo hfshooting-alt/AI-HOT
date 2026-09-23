@@ -1,4 +1,4 @@
-"""The manual production workflow cannot start Manus or select another provider."""
+"""Scheduled and manual production runs use the same direct-only provider route."""
 from pathlib import Path
 import re
 import unittest
@@ -20,17 +20,22 @@ class DirectWorkflowTests(unittest.TestCase):
         self.assertIsNotNone(match, name)
         return match.group(1)
 
-    def test_only_manual_full_direct_route_is_exposed_and_executed(self):
+    def test_schedule_and_manual_full_direct_route_is_exposed_and_executed(self):
         triggers = self.workflow.split('\npermissions:', 1)[0]
         self.assertIn('\n  workflow_dispatch:', triggers)
-        self.assertNotRegex(triggers, r'(?m)^  (?:schedule|push|pull_request|workflow_run):')
-        self.assertNotRegex(triggers, r'(?m)^\s*-?\s*cron:')
+        self.assertNotRegex(triggers, r'(?m)^  (?:push|pull_request|workflow_run):')
+        self.assertIn("\n  schedule:\n    - cron: '30 1 * * *'", triggers)
+        self.assertNotIn('timezone:', triggers)  # cron is already converted from Beijing to UTC.
         for name, value in (('stage', 'all'), ('source_mode', 'direct-only')):
             block = self.input_block(name)
             self.assertIn(f'options: [{value}]', block)
             self.assertIn(f'default: {value}', block)
-        self.assertIn('args=(run --window-mode rolling-24h --stage all --source-mode direct-only --skip-search)',
+        self.assertIn('args=(run --stage all --source-mode direct-only --skip-search)',
                       self.pipeline)
+        self.assertIn('if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then', self.pipeline)
+        self.assertIn('--window-mode ten-am --cutoff-time 09:30 --date "$SCHEDULE_DATE" --window-end "$SCHEDULE_WINDOW_END"', self.pipeline)
+        self.assertIn('args+=(--window-mode rolling-24h)', self.pipeline)
+        self.assertIn('PYTHONPATH=scripts python -m automation.collection_window', self.workflow)
         self.assertIn('python scripts/run_pipeline.py "${args[@]}"', self.pipeline)
         self.assertNotIn('INPUT_STAGE', self.pipeline)
         self.assertNotIn('INPUT_SOURCE_MODE', self.pipeline)

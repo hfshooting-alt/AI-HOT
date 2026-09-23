@@ -10,8 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import type { ViewKey } from "../../_lib/domain/types";
-
-const VALID_VIEWS: ViewKey[] = ["all", "selected", "company", "settings"];
+import { viewFromHash } from "../../_lib/domain/navigation";
 
 interface AppState {
   view: ViewKey;
@@ -22,26 +21,25 @@ interface AppState {
 
 const AppContext = createContext<AppState | null>(null);
 
-function viewFromHash(): ViewKey {
-  if (typeof window === "undefined") return "all";
-  const h = window.location.hash.replace(/^#\/?/, "") as ViewKey;
-  return VALID_VIEWS.includes(h) ? h : "all";
-}
-
 export function AppDataProvider({ children }: { children: ReactNode }) {
   // 初始视图惰性读取 hash（客户端渲染阶段执行；SSR 走默认 all）
   const [view, setViewRaw] = useState<ViewKey>(() =>
-    typeof window === "undefined" ? "all" : viewFromHash(),
+    typeof window === "undefined" ? "all" : viewFromHash(window.location.hash),
   );
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // 监听浏览器前进/后退
   useEffect(() => {
-    const normalizedHash = `#/${viewFromHash()}`;
-    if (window.location.hash !== normalizedHash) {
-      window.history.replaceState(null, "", normalizedHash);
-    }
-    const onHashChange = () => setViewRaw(viewFromHash());
+    const normalizeHash = () => {
+      const next = viewFromHash(window.location.hash);
+      const normalizedHash = `#/${next}`;
+      if (window.location.hash !== normalizedHash) {
+        window.history.replaceState(null, "", normalizedHash);
+      }
+      return next;
+    };
+    normalizeHash();
+    const onHashChange = () => setViewRaw(normalizeHash());
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);

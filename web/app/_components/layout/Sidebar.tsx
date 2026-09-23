@@ -2,7 +2,7 @@
 "use client";
 
 import { useApp } from "../providers/AppDataProvider";
-import { BrandLogo, DatabaseIcon, GearIcon, ListIcon, NewsIcon } from "../shared/icons";
+import { BrandLogo, DatabaseIcon, ListIcon, NewsIcon } from "../shared/icons";
 import type { ViewKey } from "../../_lib/domain/types";
 
 const NAV_ITEMS: { key: ViewKey; label: string; icon: (p: { className?: string }) => React.ReactNode }[] = [
@@ -51,27 +51,6 @@ export function SidebarContent() {
               </button>
             );
           })}
-        </nav>
-      </div>
-
-      {/* 系统导航 */}
-      <div className="px-3">
-        <div className="px-2 pb-2 text-[11px] font-bold tracking-[0.18em] text-mut-2">系统</div>
-        <nav className="flex flex-col gap-1" aria-label="系统导航">
-          <button
-            type="button"
-            onClick={() => setView("settings")}
-            aria-current={view === "settings" ? "page" : undefined}
-            className={`relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-left text-[14px] transition-all ${
-              view === "settings"
-                ? "bg-brand-soft font-semibold text-brand-strong shadow-[inset_0_0_0_1px_rgb(18_129_120/0.08)]"
-                : "text-ink-2 hover:bg-surface-2 hover:text-ink"
-            }`}
-          >
-            {view === "settings" && <span className="absolute inset-y-2 left-0 w-0.5 rounded-full bg-brand" aria-hidden />}
-            <GearIcon className={`size-4.5 ${view === "settings" ? "text-brand" : "text-mut"}`} />
-            设置
-          </button>
         </nav>
       </div>
 

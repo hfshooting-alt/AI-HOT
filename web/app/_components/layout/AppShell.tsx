@@ -8,7 +8,6 @@ import { Sidebar, SidebarContent } from "./Sidebar";
 import { BrandLogo, CloseIcon, MenuIcon } from "../shared/icons";
 import { AllAIView } from "../views/AllAIView";
 import { CompanyOverviewView } from "../views/CompanyOverviewView";
-import { SettingsView } from "../views/SettingsView";
 
 function ShellBody() {
   const { view, sidebarOpen, setSidebarOpen } = useApp();
@@ -88,7 +87,6 @@ function ShellBody() {
           {visited.has("all") && panel("all", <AllAIView mode="all" />)}
           {visited.has("selected") && panel("selected", <AllAIView mode="selected" />)}
           {visited.has("company") && panel("company", <CompanyOverviewView />)}
-          {visited.has("settings") && panel("settings", <SettingsView />)}
         </main>
       </div>
     </div>

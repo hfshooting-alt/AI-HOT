@@ -6,7 +6,7 @@
 
 独立打标修复与旧批次补处理已完成，历史诊断见[技术记录](docs/architecture/UNIFIED_NEWS_PIPELINE.md#2026-09-23-独立打标调整)。当前批次结果以公开JSON及维护上下文为准。
 
-默认扫描窗口为启动时冻结的最近 24 小时，使用北京时间，起点包含、终点排除；任务耗时及浏览页面的时间不会移动窗口。`--window-end` 可明确指定有时区的结束时刻，恢复沿用原窗口。原始发布/发送时间是唯一绝对时间依据，编辑、评论及互动不让旧文章重新入窗。既有“昨天”发布例外保留前一自然日精度和原文证据，不补造时分，且不代表严格 24 小时完整覆盖。完整规则见[统一新闻链路](docs/architecture/UNIFIED_NEWS_PIPELINE.md)。
+GitHub 定时使用 UTC cron `30 1 * * *`（北京时间每天 09:30）。核对本次 run 的审计状态、event、run ID、attempt 与 head SHA 后，以 `created_at` 转北京时间最近已到达的 09:30 冻结截止时刻：09:30 前创建取前一天 09:30，之后取当天 09:30；窗口为此前 24 小时 `[start, end)`。`NEWS_COLLECTION_END` 贯穿各阶段，排队跨午夜或重跑不滑窗；创建时间无法可靠取得时，在采集与模型付费前停止。手动运行仍在启动时冻结 `rolling-24h`，可用含时区的 `--window-end` 显式指定；恢复沿原窗口。原始发布/发送时间是唯一绝对时间依据，编辑、评论及互动不让旧文章重新入窗。既有“昨天”发布例外保留前一自然日精度和原文证据，不补造时分，且不代表严格 24 小时完整覆盖。完整规则见[统一新闻链路](docs/architecture/UNIFIED_NEWS_PIPELINE.md)。
 
 ## 本地启动
 
@@ -18,11 +18,11 @@ python -m pip install -r scripts/requirements.txt
 npm --prefix web run dev
 ```
 
-按 `config/env.example` 配置根目录 `.env`；也可运行 `node scripts/settings-server.mjs` 后打开本地设置页。仅查看已发布快照无需付费接口。密钥、完整正文、模型响应及费用账本保存在私有位置，不提交。
+前端设置页已删除；按 `config/env.example` 手动配置根目录 `.env`，GitHub 使用仓库 Secrets。独立 `scripts/settings-server.mjs`、后台设置接口与 CLI 保留兼容，不提供设置页。仅查看已发布快照无需付费接口。密钥、完整正文、模型响应及费用账本保存在私有位置，不提交。
 
 ## 采集、候选与发布
 
-当前定时关闭，仅手动运行。统一入口默认 `direct-only`，`full` 同样映射到直采；`--no-promote` 生成隔离审核候选。显式 `manus-only` 暂停，`aihot-only` 仍被拒绝。20 个新闻信源来自 `config/manus_sources.json`，最多并发 3 个。合格文章继续处理；单来源失败不等于窗口内没有更新。
+已恢复 GitHub 每天北京时间 09:30 的定时入口，并保留手动运行；未恢复 Codex 或本地定时跟进。实际触发及发布仍需[真实定时验收](docs/operations/NEXT_SCHEDULED_ACCEPTANCE.md)。统一入口默认 `direct-only`，`full` 同样映射到直采；`--no-promote` 生成隔离审核候选。显式 `manus-only` 暂停，`aihot-only` 仍被拒绝。20 个新闻信源来自 `config/manus_sources.json`，最多并发 3 个。合格文章继续处理；单来源失败不等于窗口内没有更新。
 
 ```sh
 python scripts/run_pipeline.py doctor
@@ -37,7 +37,7 @@ npm --prefix web test
 
 候选生成后统一核对新闻、公司、融资、来源状态及隐私边界；通过 `review-candidate` / `publish-candidate` 发布已有候选不会重新调用模型或创建任务。运行与恢复步骤见[操作说明](docs/operations/AUTOMATED_PIPELINE.md)。Pages 部署读取发布后的整套 JSON，最终是否上线以数据提交和 Pages 结果为准。
 
-为复核旧固定时间批次，可显式使用 `--window-mode ten-am --date YYYY-MM-DD --cutoff-time 09:30`；不把该历史窗口当作默认的新扫描窗口。
+手动复核固定时间批次可显式使用 `--window-mode ten-am --date YYYY-MM-DD --cutoff-time 09:30`；日常手动运行仍默认滚动 24 小时。GitHub 定时截止点由本次 run 创建时间冻结，不取 runner 开始工作的日期。
 
 ## 前端与公开资源
 

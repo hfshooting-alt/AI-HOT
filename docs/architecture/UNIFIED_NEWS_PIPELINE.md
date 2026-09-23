@@ -1,6 +1,6 @@
 # 新闻Daily 统一新闻链路
 
-2026-09-23 当前决定：暂时完全停用 Manus，默认 `direct-only`，`full` 同样指向网站直采。按配置媒体列表及详情匿名读取，通过来源、原始时间校验后进入本文两池逻辑。标记 `collector=direct_site` 和 `direct:` ID，不伪装为 Manus；模型统一为并行科技 DeepSeek-V4-Pro。`config/services.json` 在真实 HTTP 前关闭 Manus 与 Tavily，定时保持关闭。公司、产品与融资仍仅消费精选。见[媒体页面直采](../operations/DIRECT_NEWS_COLLECTION.md)。
+2026-09-23 当前决定：暂时完全停用 Manus，默认 `direct-only`，`full` 同样指向网站直采。按配置媒体列表及详情匿名读取，通过来源、原始时间校验后进入本文两池逻辑。标记 `collector=direct_site` 和 `direct:` ID，不伪装为 Manus；模型统一为并行科技 DeepSeek-V4-Pro。`config/services.json` 在真实 HTTP 前关闭 Manus 与 Tavily；GitHub 已恢复北京时间每天09:30定时（默认UTC `30 1 * * *`），手动入口保留，Codex定时跟进未恢复。公司、产品与融资仍仅消费精选。见[媒体页面直采](../operations/DIRECT_NEWS_COLLECTION.md)。
 
 历史沿革：2026-09-22 曾切换为仅 Manus，现已由网站直采替代；已验证的旧 Manus 档案与来源身份保留。AIHOT 采集、日报与热点、旧上游接口回退均退役；仓库名与 `/AI-HOT/` 部署路径保留。历史双源及 Manus 运行的证据见 `docs/history/`，不能用旧结果证明新链路已验收。
 
@@ -21,7 +21,7 @@
 
 ## 窗口、身份与正文
 
-默认 `rolling-24h` 在扫描开始时冻结北京时间结束时刻，起点为此前 24 小时，采用 `[start, end)`。`--window-end` 或保存的恢复状态可显式确定结束时刻；耗时和后续模型处理不会移动窗口。旧固定窗口可显式使用 `ten-am` 与 09:30，旧自然日兼容模式与当前窗口分开。
+GitHub 定时使用 UTC cron `30 1 * * *`（北京时间每天 09:30）。核对本次 run 的审计状态、event、run ID、attempt 与 head SHA 后，以 `created_at` 转北京时间最近已到达的 09:30 冻结截止时刻：09:30 前创建取前一天 09:30，之后取当天 09:30；窗口为此前 24 小时 `[start, end)`。`NEWS_COLLECTION_END` 贯穿各阶段，排队跨午夜或重跑不滑窗；创建时间无法可靠取得时，在采集与模型付费前停止。手动运行仍在启动时冻结 `rolling-24h`，可用含时区的 `--window-end` 显式指定；恢复沿原窗口。
 
 只接受文章原始发布/发送时间。评论、点赞、推荐、编辑时间及 URL 路径日期都不能让旧内容续期。中国媒体缺时区的绝对时间按已确认平台规则解释为 Asia/Shanghai；有偏移时间按同一时刻转换。
 
@@ -33,7 +33,7 @@
 
 ```mermaid
 flowchart TD
-    Start[冻结最近24小时窗口] --> Direct[配置媒体网站匿名直采]
+    Start[冻结定时或手动24小时窗口] --> Direct[配置媒体网站匿名直采]
     Direct --> Gate[来源与原发时间校验及去重]
     Gate --> All[全部文章元数据]
     Gate --> Body[逐篇正文获取]
@@ -58,7 +58,7 @@ flowchart TD
 
 合格正文进入并行科技 DeepSeek-V4-Pro 的相关性及独立摘要分类，精选再进入公司和融资抽取。成功缓存绑定输入、模型和提示词版本；系统性模型异常停止扩大请求并保留已完成结果。扩充模型用量授权不改变证据、缓存、失败隔离及候选发布门禁。
 
-本地 `PARATERA_API_KEY` 在并行科技域名优先，旧 `DEEPSEEK_API_KEY` 可为兼容别名；GitHub 仅使用 `PARATERA_API_KEY`，固定并行科技地址与模型，无其他提供商回退。网页抓取与模型文本加工分开，模型不会自行获得联网搜索能力。原始响应、完整正文与模型诊断只保存在私有 work/ 并按恢复流程加密。
+前端设置页已删除，配置使用 `.env` / 仓库 Secrets；独立后台设置服务、测试接口与 CLI 保留兼容，无设置 UI。本地 `PARATERA_API_KEY` 在并行科技域名优先，旧 `DEEPSEEK_API_KEY` 可为兼容别名；GitHub 仅使用 `PARATERA_API_KEY`，固定并行科技地址与模型，无其他提供商回退。网页抓取与模型文本加工分开，模型不会自行获得联网搜索能力。原始响应、完整正文与模型诊断只保存在私有 work/ 并按恢复流程加密。
 
 历史 Manus 的逐篇 checkpoint、seed 未处置审计、credits 观察止损、终态及迟到回收记录继续保留，当前不创建或恢复 Manus 任务。观察费用从来不等于服务端硬上限；旧 complete/partial 或可获取样本也不能证明本次直采全窗口无遗漏。
 
@@ -86,7 +86,7 @@ flowchart TD
 
 公开快照包含窗口、逐源状态和文章去向统计；前端保持新闻阅读布局，诊断不冒充已覆盖。新闻、feed、公司、融资在同一个审核候选中校验后统一晋升，不能用当前旧 feed 为新批次补成功数。
 
-`run_pipeline.py` 默认 `direct-only`；`full` 是直采兼容别名，当前 Manus 与 AIHOT 入口均停用。GitHub 手动工作流只允许 all/direct-only，定时关闭。`--no-promote` 仍会调用模型，完全离线检查使用 `test_pipeline.py offline`。`--resume` 恢复原窗口与成功缓存；已完成发布的运行不重复发布。
+`run_pipeline.py` 默认 `direct-only`；`full` 是直采兼容别名，当前 Manus 与 AIHOT 入口均停用。GitHub 定时与手动工作流均只允许 all/direct-only；真实调度、逐源覆盖及发布按[当前验收清单](../operations/NEXT_SCHEDULED_ACCEPTANCE.md)另验。`--no-promote` 仍会调用模型，完全离线检查使用 `test_pipeline.py offline`。`--resume` 恢复原窗口与成功缓存；已完成发布的运行不重复发布。
 
 ## 2026-09-23 独立打标调整
 

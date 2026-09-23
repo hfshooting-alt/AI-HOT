@@ -68,7 +68,7 @@ test("navigation defaults to all articles and places Garena selection before com
     readFile(new URL("../../app/_components/layout/AppShell.tsx", import.meta.url), "utf8"),
   ]);
 
-  assert.match(provider, /return "all"/);
+  assert.match(provider, /viewFromHash\(window.location.hash\)/);
   assert.match(provider, /replaceState\(null, "", normalizedHash\)/);
   assert.doesNotMatch(provider, /featured/);
   assert.ok(sidebar.indexOf("全部文章") < sidebar.indexOf("Garena投资精选"));
@@ -79,12 +79,11 @@ test("navigation defaults to all articles and places Garena selection before com
   assert.match(shell, /panel\("company", <CompanyOverviewView \/>\)/);
   assert.match(shell, /panel\("all", <AllAIView mode="all" \/>\)/);
   assert.match(shell, /panel\("selected", <AllAIView mode="selected" \/>\)/);
-  assert.match(provider, /"all", "selected", "company"/);
   assert.doesNotMatch(shell, /FeaturedView|featured/);
-  assert.doesNotMatch(sidebar, /key: "(?:hot|daily)"|热点榜|AI 日报/);
-  assert.doesNotMatch(provider, /"hot"|"daily"/);
-  assert.doesNotMatch(shell, /HotView|DailyReportView/);
-  for (const retired of ["HotView", "DailyReportView"]) {
+  assert.doesNotMatch(sidebar, /key: "(?:hot|daily)"|热点榜|AI 日报|设置|settings|GearIcon/);
+  assert.doesNotMatch(provider, /"hot"|"daily"|"settings"/);
+  assert.doesNotMatch(shell, /HotView|DailyReportView|SettingsView|"settings"/);
+  for (const retired of ["HotView", "DailyReportView", "SettingsView"]) {
     await assert.rejects(
       access(new URL(`../../app/_components/views/${retired}.tsx`, import.meta.url)),
       { code: "ENOENT" },
@@ -95,11 +94,10 @@ test("navigation defaults to all articles and places Garena selection before com
 });
 
 test("news and company loaders do not fetch legacy feeds, demos or browser supplements", async () => {
-  const [api, view, card, settings] = await Promise.all([
+  const [api, view, card] = await Promise.all([
     readFile(new URL("../../app/_lib/data/api.ts", import.meta.url), "utf8"),
     readFile(new URL("../../app/_components/views/AllAIView.tsx", import.meta.url), "utf8"),
     readFile(new URL("../../app/_components/news/ArticleCard.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../../app/_components/views/SettingsView.tsx", import.meta.url), "utf8"),
   ]);
   assert.doesNotMatch(api, /api\/(all|items|hot|daily)|reviewed-news|loadReviewed|loadHot|loadDaily|demo/i);
   assert.match(api, /publicAsset\("snapshot.json"\)/);
@@ -111,8 +109,6 @@ test("news and company loaders do not fetch legacy feeds, demos or browser suppl
   assert.match(view, /本轮已采集文章/);
   assert.doesNotMatch(view, /Manus 采集的本轮文章|已发布的 Manus 文章/);
   assert.doesNotMatch(card, /AIHOT|aihotUrl|AI HOT/);
-  assert.doesNotMatch(settings, /AIHOT|aihot\.settings|AI HOT/);
-  assert.match(settings, /hfshooting-alt\/AI-HOT/);
 });
 
 test("company database exposes filterable industry and country fields below its title", async () => {

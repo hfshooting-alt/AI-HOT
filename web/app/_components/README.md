@@ -6,9 +6,9 @@
 | --- | --- |
 | `layout/` | 侧栏、页面切换与整体布局 |
 | `providers/` | 应用级数据上下文 |
-| `views/` | 全部文章、Garena投资精选、公司与产品全景及设置；持有独立页面状态 |
+| `views/` | 全部文章、Garena投资精选、公司与产品全景；持有独立页面状态 |
 | `news/` | 新闻卡片、日期分组、搜索和标签筛选 |
 | `funding/` | 融资公司表及字段展示 |
 | `shared/` | 跨功能共用的图标 |
 
-组件通过 `web/app/_lib/data/` 获取数据，类型和枚举来自 `domain/`，格式与来源工具来自 `display/`。页面样式仍在 `web/app/globals.css`；网站路由入口仍在 `web/app/page.tsx` 和 `web/app/api/`。
+组件通过 `web/app/_lib/data/` 获取数据，类型和枚举来自 `domain/`，格式与来源工具来自 `display/`。前端设置页已删除，配置通过根目录 `.env` / GitHub Secrets 管理；后台设置接口、本地独立设置服务和CLI保留兼容，无设置UI。页面样式仍在 `web/app/globals.css`；网站路由入口仍在 `web/app/page.tsx` 和 `web/app/api/`。

@@ -40,17 +40,6 @@ export function SearchIcon({ className = "size-4" }: IconProps) {
   );
 }
 
-/** 设置（sliders 线性风格，与导航图标一致） */
-export function GearIcon({ className = "size-4.5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden>
-      <path d="M4 7h9M19 7h1M4 17h5M14 17h6" />
-      <circle cx="15.5" cy="7" r="2.2" />
-      <circle cx="11.5" cy="17" r="2.2" />
-    </svg>
-  );
-}
-
 export function BookmarkIcon({ className = "size-4", filled = false }: IconProps & { filled?: boolean }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
