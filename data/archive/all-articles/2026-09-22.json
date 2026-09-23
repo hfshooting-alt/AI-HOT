@@ -27,11 +27,21 @@
           "publishedAt": "2026-09-22T17:12:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "《山外山》是一款由初创团队青庖网络开发的国产SOC游戏，题材取材于《山海经》，构建东方神话与诸夏先民世界。制作人曹潇文表示，选择SOC赛道是因为该品类可挖掘内容多、理论上限高。游戏核心玩法围绕远古人类文明演化，包含制作工具、驯养巨兽、挑战诸神等，并引入动态天气、昼夜系统及天灾机制。设计上强调物理规则交互，如温度、火焰、冰等元素组合，采用有限式涌现设计。开发面临优化和多人模式两大难题，未来版本将支持10人组队，并考虑加入PvP。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章为国产SOC游戏《山外山》的开发与市场访谈，未涉及具体AI事件。"
-      }
+      },
+      "classification": {
+        "category": "interview",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "model"
     },
     {
       "id": "manus:e2af3497e6d0f79c",
@@ -55,6 +65,9 @@
         }
       ],
       "metadataOnly": true,
+      "contentStatus": "awaiting_body",
+      "classificationStatus": "pending",
+      "summaryStatus": "pending",
       "summary": "",
       "garenaSelection": {
         "status": "pending",
@@ -82,6 +95,9 @@
           "publishedAt": "2026-09-22T16:49:00+08:00"
         }
       ],
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
       "contentSha256": "e480b0983fafc691b146e9e3201bd05605e885110964a9b70b2d1a0b083d8735",
       "summary": "影眸Hyper3D于9月12日分享了一个案例，一位3D艺术家用GPT-6和Hyper3D一晚上制作出一款3D赛车游戏。今天，Hyper3D正式推出智能交互模式Agentic Mode，该模式能理解用户意图、处理不完美输入并自动选择建模路径，例如可补全不完整照片中的建筑结构、识别工程图中的多模态信息，并针对不同需求选择精细建模或参数化建模方式。",
       "summaryOrigin": "model",
@@ -121,10 +137,25 @@
           "publishedAt": "2026-09-22T16:40:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "文章分析游戏行业为何追求“长青”，却难以培育新长青产品：研发与买量成本上升，使厂商更依赖成熟IP和持续运营收入；头部产品又占据玩家时间、社区与内容资产，抬高新品门槛。文中援引数据称，2026上半年Steam新游戏仅贡献21%收入，并以网易、Take-Two等为例，指出对确定性的偏好可能进一步压缩创新空间。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章讨论游戏行业长青化趋势，未涉及具体AI事件"
+      },
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "editorial_review",
+      "editorialReview": {
+        "reviewedAt": "2026-09-23T10:51:04.776272+08:00",
+        "reason": "原模型长摘要被前缀截取后只剩定义与成本，遗漏标题主论点。原文同年/半年度指标也不宜一概改为同期。",
+        "origin": "source-grounded-review"
       }
     },
     {
@@ -148,6 +179,9 @@
           "publishedAt": "2026-09-22T16:19:48+08:00"
         }
       ],
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
       "contentSha256": "62ec768c896b4f7a9251dc59612314ab20dd606693c384fe5d257205f9b49c5c",
       "summary": "吴泳铭在云栖大会上提出阿里云到2032年运营全球数据中心规模突破20GW的目标。文章通过行业产值转化模型推算，20GW对应年总产值约2400亿美元，即便七成来自外部也接近1.2万亿元人民币，远超阿里此前定下的1000亿美元外部收入目标。阿里云当前外部年化收入约1200亿元人民币，最新单季收入增速达45%，若保持约48.4%的年均复合增长率，约4.5年即可达到千亿美元门槛。",
       "summaryOrigin": "model",
@@ -187,6 +221,9 @@
           "publishedAt": "2026-09-22T16:11:00+08:00"
         }
       ],
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
       "contentSha256": "929c0ff73e11011523d03d4d600d57a1645e350cba24af57e374b3d5964554c1",
       "summary": "AI眼镜线上退货率高达30%至70%，但线下门店退货率极低。Rokid、千问、雷鸟等品牌正通过渠道、代言人和生态建设展开竞争。渠道方面，品牌采用进网点、授权分销和自有门店三种方式，Rokid与红星眼镜合作开设验配一体门店，影目计划在上海开设首家品牌旗舰店。代言方面，Rokid选择科技创作者Tim，雷鸟CEO李宏伟亲自上阵，影目与王嘉尔合作推出联名产品。",
       "summaryOrigin": "model",
@@ -223,6 +260,9 @@
           "publishedAt": "2026-09-22T16:02:00+08:00"
         }
       ],
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
       "contentSha256": "e4158c77f632cbb44b38e7b586020b0ef6a450edafd791b052163a02e97cdea8",
       "summary": "土耳其手游团队 Bold Games 今年完成 600 万美元种子轮融资，CEO Ulaş Mergen 曾在 Dream Games、Rollic 和 Bigger Games 工作。团队首款产品《Market Match》结合 Goods Sorting 与《Match Factory》的机制，加入堆叠区和步数限制。Bold 的研发流程是先用一周做核心机制原型，再用约七周验证 100 个可玩关卡、5 种障碍物和可持续的关卡设计机制。",
       "summaryOrigin": "model",
@@ -262,11 +302,21 @@
           "publishedAt": "2026-09-22T15:09:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "韩国厂商TREEPLLA推出的放置RPG《Idle Cat Gunner: Shooter RPG》今年4月上线，前期收入平平，8月起收入和下载量明显增长，日收入峰值突破14万美元，目前日收入稳定在10万美元以上，累计收入约486万美元（约合3257万元人民币）。韩国、美国、日本是前三大收入市场，合计贡献71.4%收入；苹果商店收入占比58%，谷歌商店占比42%。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章核心是放置RPG游戏《Idle Cat Gunner》的收入与买量素材分析，仅顺带提到部分广告素材含AI生成内容，无具体AI事件。"
-      }
+      },
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "model"
     },
     {
       "id": "manus:1628216ee327b577",
@@ -290,6 +340,9 @@
         }
       ],
       "metadataOnly": true,
+      "contentStatus": "awaiting_body",
+      "classificationStatus": "pending",
+      "summaryStatus": "pending",
       "summary": "",
       "garenaSelection": {
         "status": "pending",
@@ -317,11 +370,21 @@
           "publishedAt": "2026-09-22T14:41:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "eBay发布《2026 eBay卖家旺季行动指南》，调研显示57%的美国消费者计划在10月或更早开始年终购物，时尚、玩具及游戏、消费电子购买意愿靠前。26%的美国买家计划增加旺季支出，千禧一代平均支出达870美元；55%的买家下单前跨平台比价。54%的消费者通过浏览寻找礼物灵感，零售商网站及App、搜索引擎、电商平台和社交媒体是主要灵感来源。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章为eBay年终旺季消费趋势报告，未涉及AI模型、产品、公司、融资、研究或算力等具体AI事件。"
-      }
+      },
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "model"
     },
     {
       "id": "manus:20da35e6e3ca2671",
@@ -344,6 +407,9 @@
           "publishedAt": "2026-09-22T14:24:00+08:00"
         }
       ],
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
       "contentSha256": "0edd01cd450d4e4be896f22c3c148e0cb0c4ea110d3304f71f0cc387a000efb2",
       "summary": "深圳宝安的00后创业品牌LUSBY凭借约60美元售价的AI眼镜，在TikTok Shop美区AI眼镜类目登顶。团队早在2018、2019年便开始研发智能眼镜，2025年随着实时翻译、AI识图等功能落地，决定All in AI眼镜。产品砍掉AR大屏、复杂传感等配置，只保留第一视角记录、实时翻译和轻量化佩戴体验。",
       "summaryOrigin": "model",
@@ -380,11 +446,21 @@
           "publishedAt": "2026-09-22T13:42:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "宁波品牌EUHOMY创始人沈先生2016年从央企离职进入跨境电商，早期以铺货模式经营，2020年销售额达10亿元。因铺货模式风险上升，2020年孵化EUHOMY品牌，2022年带领20人团队独立拆分，聚焦美国家用便携制冰机赛道。品牌优化压缩机减震与风道结构，实现6-8分钟出冰，并推出月牙冰款式，后拓展车载便携冰箱、家用冷饮站等产品。截至2025年，员工增至270多人，年销售额达14亿元，以北美为核心市场并向欧洲、拉美、中东、日本扩张。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章主要讲述小家电品牌EUHOMY的跨境电商发展历程，未涉及AI相关事件"
-      }
+      },
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "model"
     },
     {
       "id": "manus:683c9c51f3bd3fe7",
@@ -408,6 +484,9 @@
         }
       ],
       "metadataOnly": true,
+      "contentStatus": "awaiting_body",
+      "classificationStatus": "pending",
+      "summaryStatus": "pending",
       "summary": "",
       "garenaSelection": {
         "status": "pending",
@@ -436,6 +515,9 @@
         }
       ],
       "metadataOnly": true,
+      "contentStatus": "awaiting_body",
+      "classificationStatus": "pending",
+      "summaryStatus": "pending",
       "summary": "",
       "garenaSelection": {
         "status": "pending",
@@ -464,6 +546,9 @@
         }
       ],
       "metadataOnly": true,
+      "contentStatus": "awaiting_body",
+      "classificationStatus": "pending",
+      "summaryStatus": "pending",
       "summary": "",
       "garenaSelection": {
         "status": "pending",
@@ -491,6 +576,9 @@
           "publishedAt": "2026-09-22T13:09:00+08:00"
         }
       ],
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
       "contentSha256": "c67914a8e5393c28d92a095870f9c7d7300db6ede904dc3a63c9ec85844f2893",
       "summary": "上海证券交易所网站显示，2026年9月21日，浙江环动机器人关节科技股份有限公司的科创板IPO已终止审核。终止原因是环动机器人及其保荐人撤回发行上市申请，上交所依据《上海证券交易所股票发行上市审核规则》第六十三条有关规定终止其发行上市审核。环动机器人的科创板上市申请于2024年11月25日获受理，2024年12月18日进入问询阶段，保荐机构为广发证券。",
       "summaryOrigin": "model",
@@ -527,11 +615,21 @@
           "publishedAt": "2026-09-22T13:09:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "港股上市公司珠峰黄金于9月22日公告，向6名认购人发行合共2.77亿股，占扩大后股本16.38%，每股配售价1.60港元，较9月21日收市价1.95港元折让17.95%，募资总额约4.432亿港元。完成后，中国白银在珠峰黄金的权益将由约35.37%摊薄至约29.57%，不再为控股股东，但仍为单一最大股东，其不竞争承诺将按条款终止。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章内容为黄金公司配股融资及股权变动，未涉及任何AI相关事件。"
-      }
+      },
+      "classification": {
+        "category": "financing",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "model"
     },
     {
       "id": "manus:1b75cf9c037cd8f0",
@@ -554,10 +652,25 @@
           "publishedAt": "2026-09-22T12:08:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "TADA以司机零佣金和较低乘客价格切入新加坡市场，随后采取轻资产方式扩张：2024年进入香港，2025年以SaaS形式向丹佛司机合作社提供系统，2026年以Throo品牌在纽约软启动。文章回顾其融资与电动嘟嘟车业务，认为TADA未复制Grab路径，而是寻找大平台覆盖不足、司机仍有选择空间的市场；这一策略能否持续仍待观察。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章核心是网约车平台TADA的创业与扩张，未涉及具体AI事件。"
+      },
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "editorial_review",
+      "editorialReview": {
+        "reviewedAt": "2026-09-23T10:51:04.776272+08:00",
+        "reason": "公开摘要被截为2018—2021年背景，遗漏当前扩张及差异化经营主线；此后销量不应暗示都发生于2021年。",
+        "origin": "source-grounded-review"
       }
     },
     {
@@ -581,6 +694,9 @@
           "publishedAt": "2026-09-22T11:38:00+08:00"
         }
       ],
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
       "contentSha256": "bde0a3958c5f770a680baebef9f7da8350f666a188491fe9d0b0b02b46275e17",
       "summary": "华策影视全资子公司西溪投资于9月新进持有水母智能5%股权，认缴出资额39.83万元，这是华策系主体首次出现在水母智能股东名单中。水母智能2020年11月成立于杭州余杭，孵化自洛可可创新设计集团，拥有面向中小商家的AI智能设计Agent交付平台和覆盖漫画、动态漫、竖屏漫短剧全流程的触手AI创作平台。",
       "summaryOrigin": "model",
@@ -620,11 +736,21 @@
           "publishedAt": "2026-09-22T11:29:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "当地时间9月18日，直播购物平台Whatnot宣布调整佣金政策，自9月21日起，卖家佣金从固定费率改为按四周滚动销售额定级、按品类定费率的动态模式，生效站点包括澳大利亚、美国、加拿大、法国等。四周内销售额达到15000美元及以上的卖家可解锁1档费率，销售额越高层级越高、佣金越低，官方特别定制费率下最低可至3%。佣金按GMV计费，不含买家支付的运费与税费。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章核心是Whatnot直播拍卖电商的佣金费率调整，未涉及具体AI事件。"
-      }
+      },
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "model"
     },
     {
       "id": "manus:2547aadf85e458bb",
@@ -648,6 +774,9 @@
         }
       ],
       "metadataOnly": true,
+      "contentStatus": "awaiting_body",
+      "classificationStatus": "pending",
+      "summaryStatus": "pending",
       "summary": "",
       "garenaSelection": {
         "status": "pending",
@@ -676,6 +805,9 @@
         }
       ],
       "metadataOnly": true,
+      "contentStatus": "awaiting_body",
+      "classificationStatus": "pending",
+      "summaryStatus": "pending",
       "summary": "",
       "garenaSelection": {
         "status": "pending",
@@ -703,11 +835,21 @@
           "publishedAt": "2026-09-22T10:56:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "一款主打个性化DIY定制的亚克力冰箱贴套装在TikTok美区热销。该产品来自SilkiTouch Shop店铺，于今年3月底上线，售价9-29美元，已累计售出2.67万单，总GMV超过27.79万美元，折合人民币约186.10万元。同款产品在国内1688上10个装最低批发价仅约2元。产品由透明亚克力板、双面胶和磁吸背板组成，用户可自行放入照片或图案制作专属冰箱贴。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章核心是跨境电商DIY亚克力冰箱贴的销售案例，未涉及AI相关事件。"
-      }
+      },
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "model"
     },
     {
       "id": "manus:31458d95b4466c4b",
@@ -731,6 +873,9 @@
         }
       ],
       "metadataOnly": true,
+      "contentStatus": "awaiting_body",
+      "classificationStatus": "pending",
+      "summaryStatus": "pending",
       "summary": "",
       "garenaSelection": {
         "status": "pending",
@@ -759,6 +904,9 @@
         }
       ],
       "metadataOnly": true,
+      "contentStatus": "awaiting_body",
+      "classificationStatus": "pending",
+      "summaryStatus": "pending",
       "summary": "",
       "garenaSelection": {
         "status": "pending",
@@ -787,6 +935,9 @@
         }
       ],
       "metadataOnly": true,
+      "contentStatus": "awaiting_body",
+      "classificationStatus": "pending",
+      "summaryStatus": "pending",
       "summary": "",
       "garenaSelection": {
         "status": "pending",
@@ -814,6 +965,9 @@
           "publishedAt": "2026-09-22T10:17:00+08:00"
         }
       ],
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
       "contentSha256": "5c5af444c722e63692d4193fd161ff9fac0eb99e208c6c52fd274c8cda684e07",
       "summary": "苹果公司裁减了Fitness+健身订阅服务的部分音频业务员工，涉及“步行时间”和“跑步时间”等内容，新内容发布频率预计将降低。苹果正考虑将Fitness+更深入地整合进改版后的健康应用，并已宣布年内推出由Apple Intelligence支持的新版本Health，连接健康数据、个性化洞察和健身教育内容。",
       "summaryOrigin": "model",
@@ -853,6 +1007,9 @@
           "publishedAt": "2026-09-22T09:46:00+08:00"
         }
       ],
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
       "contentSha256": "c11deef743182ce140a46f5a6a9d137120f4654d4814b9ad9ea9f88929307a7e",
       "summary": "亚马逊已封禁Meta新推出的AI智能体Muse对其零售网站的访问。自上周日晚间起，用户通过Muse在亚马逊购物时会看到提示，称未经授权的AI代理持续访问违反使用条款。亚马逊表示此前曾要求Meta将亚马逊电商站点排除在Muse服务范围之外，但协商未果。Muse是Meta本月早些时候正式推出的个人AI代理，可连接电子邮件、日历、支付、餐饮和购物等服务，上线一周便超过ChatGPT登顶苹果美国App Store免费应用榜首。",
       "summaryOrigin": "model",
@@ -892,10 +1049,25 @@
           "publishedAt": "2026-09-22T09:11:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "阅星曈创始人胡宇沸在接受访谈时介绍，其超便携电子纸产品从2月在小红书发帖验证需求，到3月众筹，首晚卖出3000多台，目前年营收数亿元，出货量数十万台，国内外销售约各占一半。胡宇沸曾任饿了么众包事业部总经理及Uber中国三城总经理，因出差常丢Kindle和书，产生把阅读器贴在手机背后的想法。产品定位为只保留阅读功能、强调便携，不堆参数，技术选择根据场景需求倒推。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章核心是电子纸阅读器创业访谈，AI仅作为背景性工具被顺带提及，无具体AI事件。"
+      },
+      "classification": {
+        "category": "interview",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "editorial_review",
+      "editorialReview": {
+        "reviewedAt": "2026-09-23T10:51:04.776272+08:00",
+        "reason": "模型无依据补出2024年；正文只有去年2月份及2月14日/3月13日，不把转载语境推算为该年份。",
+        "origin": "source-grounded-review"
       }
     },
     {
@@ -919,6 +1091,9 @@
           "publishedAt": "2026-09-22T08:44:00+08:00"
         }
       ],
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
       "contentSha256": "fd8106941c27659826402cfbae7fd85c317ba4667559719c2d5489142f036a33",
       "summary": "英伟达CEO黄仁勋在CBS采访中表示企业应尽可能多支付员工薪酬，并称其亲自审查全部42000名员工的薪酬方案，英伟达2026财年员工平均收入达28.205万美元。百度在AI Day上宣布库库AI全球AI办公月活超4000万，海外版Kooko用户突破1000万。阿里巴巴任命刘大一恒为Qwen大语言模型项目负责人。亚马逊云科技Bedrock接入开源大模型Kimi K3，中国大模型公司首次以分成模式向全球三大云厂商输出模型能力。",
       "summaryOrigin": "model",
@@ -958,11 +1133,21 @@
           "publishedAt": "2026-09-21T23:50:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "停更三年的美妆博主程十安以新账号姜乘澜于2026年5月13日宣布回归，9月15日在抖音开启回归后首场带货直播，观看人次超1068万，GMV超1400万，小红书直播拿下买手榜第一。首播前其与前司官司败诉，涉案执行金额1119万余元。其主推品“将将好上手套组”原价880元、直播价286元，多次上架后售罄。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章核心是美妆博主姜乘澜回归直播带货的选品、信任与行业分析，未涉及AI相关事件。"
-      }
+      },
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "model"
     },
     {
       "id": "manus:f25d66e53aafa0cb",
@@ -985,11 +1170,21 @@
           "publishedAt": "2026-09-21T23:44:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "9月12日，《说唱巅峰对决2026》总决赛以6小时直播收官，被说唱圈称为“哈圈春晚”。直播后一周，Yamy、弹壳的名人堂感言、TopBarry嘴瓢及杜海涛救场等细节仍在社交平台发酵。文章指出，2026年成为综艺直播大年，S+音综普遍策划直播，观众从被动接受剪辑叙事转向关注现场意外与艺人真实反应。总导演左近表示，总决赛选择直播是为检验rapper未经修音的现场能力，并向行业释放说唱歌手具备大型音乐直播能力的信号。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章讨论综艺直播制作与叙事变化，仅结尾出现AI作图标注，无具体AI事件。"
-      }
+      },
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "model"
     },
     {
       "id": "manus:cbb7d43590cc0541",
@@ -1012,11 +1207,21 @@
           "publishedAt": "2026-09-21T23:14:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "零跑汽车在2026技术日上宣布调整目标，从新势力销量第一转向争取国内新能源品牌前三、全球前四。创始人朱江明表示，零跑将争取成为汽车行业的苹果。零跑今年1至8月累计交付超56万台，其中13万台销往海外，8月国内新能源零售榜位列比亚迪、吉利之后。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章核心是零跑汽车的技术、成本与产品形态战略，仅顺带提及智驾算法，无具体AI事件。"
-      }
+      },
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "model"
     },
     {
       "id": "manus:de42a4bd471ad8c3",
@@ -1039,11 +1244,21 @@
           "publishedAt": "2026-09-21T21:36:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "9月21日，《盛世天下》制作人demi_ggg发文宣布，真人互动影游《盛世天下》系列累计销量突破600万套。此前在《盛世天下》女帝篇上线21天后，该系列销量已突破500万套，创下真人实拍互动影视作品的全球销量纪录，如今这一纪录再度刷新。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章仅报道互动影游销量纪录，未涉及任何具体AI事件"
-      }
+      },
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "model"
     },
     {
       "id": "manus:037d9112c72b254f",
@@ -1066,10 +1281,25 @@
           "publishedAt": "2026-09-21T21:36:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "summary": "作者以游玩《王者万象棋》超过220小时的个人体验为切入，称自己的体验在约150小时后出现转折，并肯定游戏将包装、操作与学习反馈结合的设计。文章继而指出，F2P产品重视首日留存和ROI等短期指标，而部分设计价值需较长体验才能显现；付费空间、测试窗口与试错成本又限制了设计驱动产品。作者因此担忧这类产品更依赖大厂的资源、IP和商业化能力。",
       "garenaSelection": {
         "status": "not_selected",
         "reason": "文章核心讨论《王者万象棋》玩法设计与行业问题，仅一处顺带提及AI二创截图，无具体AI事件。"
+      },
+      "classification": {
+        "category": "general",
+        "tags": {},
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "summaryOrigin": "editorial_review",
+      "editorialReview": {
+        "reviewedAt": "2026-09-23T10:51:04.776272+08:00",
+        "reason": "原摘要将作者个人150小时体验泛化为玩家普遍适应期，并因前缀截断遗漏文章对F2P商业约束的核心判断。",
+        "origin": "source-grounded-review"
       }
     },
     {
@@ -1093,6 +1323,9 @@
           "publishedAt": "2026-09-21T19:04:00+08:00"
         }
       ],
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
       "contentSha256": "e4fb393e4d2e2912799e04973ae439e9ce97d2f6545331fe0c58ca7952082e00",
       "summary": "亚马逊CTO Werner Vogels在2004年亚马逊数据库宕机事件后推动自研Dynamo，并在此后二十年主导了S3、EC2、Lambda等云计算基础设施的演进。2014年他发布Lambda，将事件驱动计算变成开发者可直接使用的基础能力。2021年，因Netflix等客户反馈，他主导重构S3，将最终一致性改为强一致性。2025年12月，他完成最后一场re:Invent闭幕演讲，不再担任该大会主讲，但仍继续担任亚马逊CTO。",
       "summaryOrigin": "model",
@@ -1132,10 +1365,25 @@
           "publishedAt": "2026-09-21T19:04:00+08:00"
         }
       ],
-      "summary": "",
+      "contentStatus": "available",
+      "classificationStatus": "complete",
+      "summaryStatus": "complete",
+      "contentSha256": "3ca7093cd0624456628cc035a2bf574b0f3da0667b17e55c97e6f085442b25c2",
+      "summary": "前OpenAI研究员Diogo Almeida推出名为Jev的模型，该模型不生成文字，只输出概率判断，被称为System One。上线数天后，全球开发者围绕它创建了近五百个开源项目。",
+      "summaryOrigin": "model",
+      "classification": {
+        "category": "release",
+        "tags": {
+          "industry": "ai_model",
+          "issuer": "startup"
+        },
+        "autoFallback": false,
+        "autoFilled": []
+      },
+      "enrichmentStatus": "complete",
       "garenaSelection": {
-        "status": "pending",
-        "reason": "相关性已通过，摘要或分类尚未通过校验"
+        "status": "selected",
+        "reason": "文章核心事件是前OpenAI研究员发布只输出概率判断的AI模型Jev，并引发大量开发者应用，属于AI模型与产品新闻。"
       }
     }
   ],
@@ -1150,7 +1398,8 @@
     "manus:35bfbe3cef5e9148",
     "manus:ac29b8a47f1c9675",
     "manus:ac4b5a5645c8e472",
-    "manus:1c253b292121c27d"
+    "manus:1c253b292121c27d",
+    "manus:5b57ba973c441488"
   ],
-  "updatedAt": "2026-09-22T18:34:02.321639+08:00"
+  "updatedAt": "2026-09-23T10:55:04.349970+08:00"
 }

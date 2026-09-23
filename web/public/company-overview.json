@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T18:34:13+08:00",
+  "generatedAt": "2026-09-23T10:55:04+08:00",
   "coverageNote": "从 Garena 投资精选的全部新闻类别抽取公司与产品；历史公司保留并继续资料补全 公司主体与分类已进行抽查；待核实主体单独保留，未计入公司表。",
   "stats": {
-    "articlesProcessed": 11,
-    "articlesComplete": 11,
+    "articlesProcessed": 12,
+    "articlesComplete": 12,
     "articlesFailed": 0,
     "articlesDeferred": 0,
-    "modelCalls": 1,
-    "cacheHits": 10,
-    "modelSuccesses": 1,
+    "modelCalls": 0,
+    "cacheHits": 12,
+    "modelSuccesses": 0,
     "modelFailures": 0,
     "failureCategories": {},
     "circuitOpen": false,
-    "companiesTotal": 222,
-    "productsTotal": 254,
-    "pendingEntities": 39,
+    "companiesTotal": 225,
+    "productsTotal": 257,
+    "pendingEntities": 42,
     "excludedEntities": 0
   },
   "companies": [
@@ -30,7 +30,6 @@
         "Dictation",
         "ChatGPT",
         "GPT-6 Astra",
-        "Opus 5",
         "InstructGPT",
         "GPT-3",
         "Codex",
@@ -219,15 +218,6 @@
           },
           {
             "value": "GPT-6 Astra",
-            "articleId": "manus:0efa86ea4ce276bb",
-            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-            "publishedAt": "2026-09-20T12:38:47+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Opus 5",
             "articleId": "manus:0efa86ea4ce276bb",
             "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
             "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
@@ -555,15 +545,6 @@
           "name": "GPT-6 Astra",
           "relationship": "owned",
           "quote": "GPT-6 Astra直接扔出了一只「大猫咪」",
-          "articleId": "manus:0efa86ea4ce276bb",
-          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-          "publishedAt": "2026-09-20T12:38:47+08:00"
-        },
-        {
-          "name": "Opus 5",
-          "relationship": "owned",
-          "quote": "同一个提示，4 Pro手搓3D龙的效果，毫不逊色Opus 5",
           "articleId": "manus:0efa86ea4ce276bb",
           "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
           "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
@@ -11220,6 +11201,1508 @@
       "profileUpdatedAt": "2026-09-22T18:34:13+08:00"
     },
     {
+      "id": "company:bbdefa2950f49882",
+      "company_name": "Google",
+      "aliases": [
+        "谷歌"
+      ],
+      "product_names": [
+        "DiffusionGemma",
+        "Gemini 4 Pro",
+        "Gemini 3.5",
+        "Gemini 3.8",
+        "gemini-3.8-flash",
+        "Gemini 2.5 Flash Lite",
+        "Gemini 3.1 Pro Preview",
+        "Gemini 3.1 Pro",
+        "Gemini",
+        "Gemini Nano",
+        "Pixel 8 Pro",
+        "Learn Your Way"
+      ],
+      "founded": "1998-09",
+      "country": "美国",
+      "team": null,
+      "business": "提供搜索、广告、Android及其他互联网软件与平台。",
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "AI模型",
+        "国家/地区": "美国"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "Google",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          },
+          {
+            "value": "谷歌",
+            "articleId": "manus:0efa86ea4ce276bb",
+            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+            "publishedAt": "2026-09-20T12:38:47+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Google",
+            "articleId": "manus:4ba4270230b988d1",
+            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+            "publishedAt": "2026-09-20T12:37:18+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Google",
+            "articleId": "manus:94df7155197fc930",
+            "url": "https://news.qq.com/rain/a/20260919A0AROK00",
+            "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
+            "publishedAt": "2026-09-19T22:01:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "谷歌",
+            "articleId": "manus:d7f8c6a3a46e7e95",
+            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+            "title": "Anthropic之恶",
+            "publishedAt": "2026-09-19T09:35:54+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Google",
+            "articleId": "manus:d7f8c6a3a46e7e95",
+            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+            "title": "Anthropic之恶",
+            "publishedAt": "2026-09-19T09:35:54+08:00",
+            "sourceName": "报道内容复核",
+            "origin": "article",
+            "quote": "Google Brain团队",
+            "checkedAt": "2026-09-20"
+          },
+          {
+            "value": "谷歌",
+            "articleId": "manus:2a753ac847e0d485",
+            "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
+            "title": "把苹果AI搞黄了的男人",
+            "publishedAt": "2026-09-17T13:24:56+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Google",
+            "articleId": "manus:b5005d409d5db29c",
+            "url": "https://www.163.com/dy/article/L71HIJDH0511N33R.html?spss=dy_author",
+            "title": "教育最奢侈的“一人一解法”，即将变成日常",
+            "publishedAt": "2026-09-17T13:24:48+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Google",
+            "articleId": "research:dcfb4a57913ed5e9",
+            "url": "https://workspace.google.com/products/forms/",
+            "title": "Google Forms",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "Google Forms",
+            "checkedAt": "2026-09-10"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "DiffusionGemma",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          },
+          {
+            "value": "Gemini 4 Pro",
+            "articleId": "manus:0efa86ea4ce276bb",
+            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+            "publishedAt": "2026-09-20T12:38:47+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Gemini 3.5",
+            "articleId": "manus:0efa86ea4ce276bb",
+            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+            "publishedAt": "2026-09-20T12:38:47+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Gemini 3.8",
+            "articleId": "manus:0efa86ea4ce276bb",
+            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+            "publishedAt": "2026-09-20T12:38:47+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "gemini-3.8-flash",
+            "articleId": "manus:0efa86ea4ce276bb",
+            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+            "publishedAt": "2026-09-20T12:38:47+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Gemini 2.5 Flash Lite",
+            "articleId": "manus:4ba4270230b988d1",
+            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+            "publishedAt": "2026-09-20T12:37:18+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Gemini 3.1 Pro Preview",
+            "articleId": "manus:4ba4270230b988d1",
+            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+            "publishedAt": "2026-09-20T12:37:18+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Gemini 3.1 Pro",
+            "articleId": "manus:94df7155197fc930",
+            "url": "https://news.qq.com/rain/a/20260919A0AROK00",
+            "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
+            "publishedAt": "2026-09-19T22:01:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "Gemini",
+            "articleId": "manus:2a753ac847e0d485",
+            "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
+            "title": "把苹果AI搞黄了的男人",
+            "publishedAt": "2026-09-17T13:24:56+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Gemini Nano",
+            "articleId": "manus:2a753ac847e0d485",
+            "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
+            "title": "把苹果AI搞黄了的男人",
+            "publishedAt": "2026-09-17T13:24:56+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Pixel 8 Pro",
+            "articleId": "manus:2a753ac847e0d485",
+            "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
+            "title": "把苹果AI搞黄了的男人",
+            "publishedAt": "2026-09-17T13:24:56+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Learn Your Way",
+            "articleId": "manus:b5005d409d5db29c",
+            "url": "https://www.163.com/dy/article/L71HIJDH0511N33R.html?spss=dy_author",
+            "title": "教育最奢侈的“一人一解法”，即将变成日常",
+            "publishedAt": "2026-09-17T13:24:48+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "manus:0efa86ea4ce276bb",
+            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+            "publishedAt": "2026-09-20T12:38:47+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "美国",
+            "articleId": "research:71a225fdf937c6ec",
+            "url": "https://policies.google.com/terms/embedded?hl=en-US",
+            "title": "Google Terms of Service",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "organized under the laws of the State of Delaware, USA",
+            "checkedAt": "2026-09-10"
+          }
+        ],
+        "founded": [
+          {
+            "value": "1998-09",
+            "articleId": "research:1a6417888348e802",
+            "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526336798/d32286d424b5.htm",
+            "title": "Google · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Google was incorporated in California in September 1998",
+            "checkedAt": "2026-09-15",
+            "dateBasis": "registration"
+          }
+        ],
+        "business": [
+          {
+            "value": "人工智能模型研发",
+            "articleId": "manus:0efa86ea4ce276bb",
+            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+            "publishedAt": "2026-09-20T12:38:47+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "开发 AI 模型与产品",
+            "articleId": "manus:4ba4270230b988d1",
+            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+            "publishedAt": "2026-09-20T12:37:18+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "提供搜索、广告、Android及其他互联网软件与平台。",
+            "articleId": "research:1a6417888348e802",
+            "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526336798/d32286d424b5.htm",
+            "title": "Google · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "core products and platforms include ads, Android, Chrome",
+            "checkedAt": "2026-09-15"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:5b57ba973c441488",
+          "title": "Jev，让全球程序员玩疯了",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "publishedAt": "2026-09-21T19:04:00+08:00",
+          "sourceName": "极客公园",
+          "category": "release"
+        },
+        {
+          "id": "manus:0efa86ea4ce276bb",
+          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+          "publishedAt": "2026-09-20T12:38:47+08:00",
+          "sourceName": "硅星人",
+          "category": "bigtech"
+        },
+        {
+          "id": "manus:4ba4270230b988d1",
+          "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+          "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+          "publishedAt": "2026-09-20T12:37:18+08:00",
+          "sourceName": "硅星人",
+          "category": "release"
+        },
+        {
+          "id": "manus:94df7155197fc930",
+          "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
+          "url": "https://news.qq.com/rain/a/20260919A0AROK00",
+          "publishedAt": "2026-09-19T22:01:00+08:00",
+          "sourceName": "DeepTech深科技",
+          "category": "paper"
+        },
+        {
+          "id": "manus:d7f8c6a3a46e7e95",
+          "title": "Anthropic之恶",
+          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+          "publishedAt": "2026-09-19T09:35:54+08:00",
+          "sourceName": "硅星人",
+          "category": "bigtech"
+        },
+        {
+          "id": "manus:2a753ac847e0d485",
+          "title": "把苹果AI搞黄了的男人",
+          "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
+          "publishedAt": "2026-09-17T13:24:56+08:00",
+          "sourceName": "硅星人",
+          "category": "bigtech"
+        },
+        {
+          "id": "manus:b5005d409d5db29c",
+          "title": "教育最奢侈的“一人一解法”，即将变成日常",
+          "url": "https://www.163.com/dy/article/L71HIJDH0511N33R.html?spss=dy_author",
+          "publishedAt": "2026-09-17T13:24:48+08:00",
+          "sourceName": "硅星人",
+          "category": "general"
+        }
+      ],
+      "firstSeenAt": "2026-09-17T13:24:48+08:00",
+      "lastSeenAt": "2026-09-21T19:04:00+08:00",
+      "entityType": "company",
+      "updatedAt": "2026-09-21T19:04:00+08:00",
+      "latestReportAt": "2026-09-21T19:04:00+08:00",
+      "profileUpdatedAt": "2026-09-23T10:55:04+08:00",
+      "productUpdates": [
+        {
+          "name": "DiffusionGemma",
+          "relationship": "owned",
+          "quote": "Google 的 DiffusionGemma",
+          "articleId": "manus:5b57ba973c441488",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "title": "Jev，让全球程序员玩疯了",
+          "publishedAt": "2026-09-21T19:04:00+08:00"
+        },
+        {
+          "name": "Gemini 4 Pro",
+          "relationship": "owned",
+          "quote": "谷歌内部模型，可能是Gemini 4 Pro",
+          "articleId": "manus:0efa86ea4ce276bb",
+          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+          "publishedAt": "2026-09-20T12:38:47+08:00"
+        },
+        {
+          "name": "Gemini 3.5",
+          "relationship": "owned",
+          "quote": "从Gemini 3.5到3.8，迭代周期只有短短三到四周",
+          "articleId": "manus:0efa86ea4ce276bb",
+          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+          "publishedAt": "2026-09-20T12:38:47+08:00"
+        },
+        {
+          "name": "Gemini 3.8",
+          "relationship": "owned",
+          "quote": "从Gemini 3.5到3.8，迭代周期只有短短三到四周",
+          "articleId": "manus:0efa86ea4ce276bb",
+          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+          "publishedAt": "2026-09-20T12:38:47+08:00"
+        },
+        {
+          "name": "gemini-3.8-flash",
+          "relationship": "owned",
+          "quote": "一个披着「gemini-3.8-flash」马甲的神秘模型",
+          "articleId": "manus:0efa86ea4ce276bb",
+          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+          "publishedAt": "2026-09-20T12:38:47+08:00"
+        },
+        {
+          "name": "Gemini 2.5 Flash Lite",
+          "relationship": "owned",
+          "quote": "第一组是便宜的小模型，包括 DeepSeek V4 Flash、GPT-5 nano 和 Gemini 2.5 Flash Lite",
+          "articleId": "manus:4ba4270230b988d1",
+          "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+          "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+          "publishedAt": "2026-09-20T12:37:18+08:00"
+        },
+        {
+          "name": "Gemini 3.1 Pro Preview",
+          "relationship": "owned",
+          "quote": "第三组则是 GPT-5.5、Claude Opus 5、Claude Sonnet 5 和 Gemini 3.1 Pro Preview。",
+          "articleId": "manus:4ba4270230b988d1",
+          "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+          "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+          "publishedAt": "2026-09-20T12:37:18+08:00"
+        },
+        {
+          "name": "Gemini 3.1 Pro",
+          "relationship": "owned",
+          "quote": "Gemini 3.1 Pro 和 Claude Opus 4.6 分列第四和第五",
+          "articleId": "manus:94df7155197fc930",
+          "url": "https://news.qq.com/rain/a/20260919A0AROK00",
+          "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
+          "publishedAt": "2026-09-19T22:01:00+08:00"
+        },
+        {
+          "name": "Gemini",
+          "relationship": "owned",
+          "quote": "三星在新一代Galaxy折叠屏上演示了与谷歌Gemini深度整合的AI助手",
+          "articleId": "manus:2a753ac847e0d485",
+          "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
+          "title": "把苹果AI搞黄了的男人",
+          "publishedAt": "2026-09-17T13:24:56+08:00"
+        },
+        {
+          "name": "Gemini Nano",
+          "relationship": "owned",
+          "quote": "谷歌把Gemini Nano塞进Pixel 8 Pro",
+          "articleId": "manus:2a753ac847e0d485",
+          "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
+          "title": "把苹果AI搞黄了的男人",
+          "publishedAt": "2026-09-17T13:24:56+08:00"
+        },
+        {
+          "name": "Pixel 8 Pro",
+          "relationship": "owned",
+          "quote": "谷歌把Gemini Nano塞进Pixel 8 Pro",
+          "articleId": "manus:2a753ac847e0d485",
+          "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
+          "title": "把苹果AI搞黄了的男人",
+          "publishedAt": "2026-09-17T13:24:56+08:00"
+        },
+        {
+          "name": "Learn Your Way",
+          "relationship": "owned",
+          "quote": "Google 推出的 Learn Your Way",
+          "articleId": "manus:b5005d409d5db29c",
+          "url": "https://www.163.com/dy/article/L71HIJDH0511N33R.html?spss=dy_author",
+          "title": "教育最奢侈的“一人一解法”，即将变成日常",
+          "publishedAt": "2026-09-17T13:24:48+08:00"
+        }
+      ],
+      "brandProfiles": {
+        "Google Brain": {
+          "id": "company:d618543fcc56856a",
+          "company_name": "Google Brain",
+          "aliases": [],
+          "product_names": [],
+          "founded": null,
+          "country": "美国",
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "AI模型",
+            "国家/地区": "美国"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "Google Brain",
+                "articleId": "manus:d7f8c6a3a46e7e95",
+                "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+                "title": "Anthropic之恶",
+                "publishedAt": "2026-09-19T09:35:54+08:00",
+                "sourceName": "硅星人",
+                "origin": "article"
+              }
+            ],
+            "country": [
+              {
+                "value": "美国",
+                "articleId": "manus:d7f8c6a3a46e7e95",
+                "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+                "title": "Anthropic之恶",
+                "publishedAt": "2026-09-19T09:35:54+08:00",
+                "sourceName": "硅星人",
+                "origin": "article"
+              }
+            ],
+            "product_names": []
+          },
+          "sourceArticles": [
+            {
+              "id": "manus:d7f8c6a3a46e7e95",
+              "title": "Anthropic之恶",
+              "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+              "publishedAt": "2026-09-19T09:35:54+08:00",
+              "sourceName": "硅星人",
+              "category": "bigtech"
+            }
+          ],
+          "firstSeenAt": "2026-09-19T09:35:54+08:00",
+          "lastSeenAt": "2026-09-19T09:35:54+08:00",
+          "entityType": "company",
+          "productUpdates": [],
+          "updatedAt": "2026-09-19T09:35:54+08:00",
+          "latestReportAt": "2026-09-19T09:35:54+08:00",
+          "profileUpdatedAt": "2026-09-22T18:33:42+08:00"
+        }
+      }
+    },
+    {
+      "id": "company:6afcf4c1cbb7e4e3",
+      "company_name": "TypeSafe AI",
+      "aliases": [],
+      "product_names": [
+        "Jev"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": "开发只输出概率判断的模型 Jev",
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "AI模型",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "TypeSafe AI",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "Jev",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ],
+        "business": [
+          {
+            "value": "开发只输出概率判断的模型 Jev",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:5b57ba973c441488",
+          "title": "Jev，让全球程序员玩疯了",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "publishedAt": "2026-09-21T19:04:00+08:00",
+          "sourceName": "极客公园",
+          "category": "release"
+        }
+      ],
+      "firstSeenAt": "2026-09-21T19:04:00+08:00",
+      "lastSeenAt": "2026-09-21T19:04:00+08:00",
+      "entityType": "company",
+      "productUpdates": [
+        {
+          "name": "Jev",
+          "relationship": "owned",
+          "quote": "TypeSafe AI 给 Jev 定下的价格是每百万输入 token 仅需 0.042 美元，输出免费。",
+          "articleId": "manus:5b57ba973c441488",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "title": "Jev，让全球程序员玩疯了",
+          "publishedAt": "2026-09-21T19:04:00+08:00"
+        }
+      ],
+      "updatedAt": "2026-09-21T19:04:00+08:00",
+      "latestReportAt": "2026-09-21T19:04:00+08:00",
+      "profileUpdatedAt": "2026-09-23T10:55:04+08:00"
+    },
+    {
+      "id": "company:6fb7fd69baaecf19",
+      "company_name": "Droidrun",
+      "aliases": [],
+      "product_names": [
+        "mobile-jev"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": "开发手机操作代理",
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "Droidrun",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "mobile-jev",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ],
+        "business": [
+          {
+            "value": "开发手机操作代理",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:5b57ba973c441488",
+          "title": "Jev，让全球程序员玩疯了",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "publishedAt": "2026-09-21T19:04:00+08:00",
+          "sourceName": "极客公园",
+          "category": "release"
+        }
+      ],
+      "firstSeenAt": "2026-09-21T19:04:00+08:00",
+      "lastSeenAt": "2026-09-21T19:04:00+08:00",
+      "entityType": "company",
+      "productUpdates": [
+        {
+          "name": "mobile-jev",
+          "relationship": "owned",
+          "quote": "Droidrun 团队做了一个名为 mobile-jev 的手机操作代理",
+          "articleId": "manus:5b57ba973c441488",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "title": "Jev，让全球程序员玩疯了",
+          "publishedAt": "2026-09-21T19:04:00+08:00"
+        }
+      ],
+      "updatedAt": "2026-09-21T19:04:00+08:00",
+      "latestReportAt": "2026-09-21T19:04:00+08:00",
+      "profileUpdatedAt": "2026-09-23T10:55:04+08:00"
+    },
+    {
+      "id": "company:de1b4ab2ba1922cf",
+      "company_name": "Distribb",
+      "aliases": [],
+      "product_names": [
+        "Jev"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "Distribb",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "Jev",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:5b57ba973c441488",
+          "title": "Jev，让全球程序员玩疯了",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "publishedAt": "2026-09-21T19:04:00+08:00",
+          "sourceName": "极客公园",
+          "category": "release"
+        }
+      ],
+      "firstSeenAt": "2026-09-21T19:04:00+08:00",
+      "lastSeenAt": "2026-09-21T19:04:00+08:00",
+      "entityType": "company",
+      "productUpdates": [
+        {
+          "name": "Jev",
+          "relationship": "used",
+          "quote": "Distribb 的创始人拿 Jev 扫描了近六百个网页",
+          "articleId": "manus:5b57ba973c441488",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "title": "Jev，让全球程序员玩疯了",
+          "publishedAt": "2026-09-21T19:04:00+08:00"
+        }
+      ],
+      "updatedAt": "2026-09-21T19:04:00+08:00",
+      "latestReportAt": "2026-09-21T19:04:00+08:00",
+      "profileUpdatedAt": "2026-09-23T10:55:04+08:00"
+    },
+    {
+      "id": "company:c70eca6b0f88f44d",
+      "company_name": "Anthropic",
+      "aliases": [
+        "Fable",
+        "Claude Code"
+      ],
+      "product_names": [
+        "Claude Code",
+        "Fable 5.1",
+        "Fable 5.1 Max",
+        "Fable 5",
+        "Claude Opus 5",
+        "Claude Sonnet 5",
+        "Claude",
+        "Claude Opus 4.8",
+        "Mythos Preview",
+        "Model Hardware Standard",
+        "MHS",
+        "Claude Opus 4.6",
+        "Claude Free",
+        "Claude Pro",
+        "Claude Max",
+        "Claude Design",
+        "Claude Science"
+      ],
+      "founded": null,
+      "country": "美国",
+      "team": "Eric Kauderer-Abrams",
+      "business": "提供Claude人工智能模型，用于企业运营及个人工作。",
+      "investors": "Capital Group、Coatue、D1 Capital Partners等（部分核实）",
+      "total_funding": null,
+      "valuation": "9650亿美元（2026-05-28，Series H投后）",
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "美国"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "Fable",
+            "articleId": "manus:0efa86ea4ce276bb",
+            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+            "publishedAt": "2026-09-20T12:38:47+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Anthropic",
+            "articleId": "manus:4ba4270230b988d1",
+            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+            "publishedAt": "2026-09-20T12:37:18+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Anthropic",
+            "articleId": "manus:5f886e0af76708db",
+            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+            "publishedAt": "2026-09-19T22:05:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "Anthropic",
+            "articleId": "manus:94df7155197fc930",
+            "url": "https://news.qq.com/rain/a/20260919A0AROK00",
+            "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
+            "publishedAt": "2026-09-19T22:01:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "Anthropic",
+            "articleId": "manus:d7f8c6a3a46e7e95",
+            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+            "title": "Anthropic之恶",
+            "publishedAt": "2026-09-19T09:35:54+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Anthropic",
+            "articleId": "manus:de3178cd9de124f7",
+            "url": "https://elsewhere.news/en/lanchi/arsi",
+            "title": "DeepMaterial Closes A+ Funding Round: Driving Self-Evolving RSI with Real-World Data | BlueRun Ventures",
+            "publishedAt": "2026-09-16T19:09:00+08:00",
+            "sourceName": "elsewhere别处发生",
+            "origin": "article"
+          },
+          {
+            "value": "Anthropic",
+            "articleId": "research:c23f3e7cbb0eb40f",
+            "url": "https://code.claude.com/docs/en/overview",
+            "title": "Claude Code overview",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "Anthropic.ClaudeCode",
+            "checkedAt": "2026-09-10"
+          },
+          {
+            "value": "Anthropic",
+            "articleId": "research:e0f1ebb59adf2f6c",
+            "url": "https://www.anthropic.com/claude/fable",
+            "title": "Claude Fable - Anthropic",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "Claude Fable \\ Anthropic",
+            "checkedAt": "2026-09-14"
+          },
+          {
+            "value": "Anthropic",
+            "articleId": "research:2f9466008c6e13a1",
+            "url": "https://www.anthropic.com/claude/opus",
+            "title": "Claude Opus - Anthropic",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "Claude Opus \\ Anthropic",
+            "checkedAt": "2026-09-14"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "Fable 5.1",
+            "articleId": "manus:0efa86ea4ce276bb",
+            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+            "publishedAt": "2026-09-20T12:38:47+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Fable 5.1 Max",
+            "articleId": "manus:0efa86ea4ce276bb",
+            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+            "publishedAt": "2026-09-20T12:38:47+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Fable 5",
+            "articleId": "manus:0efa86ea4ce276bb",
+            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+            "publishedAt": "2026-09-20T12:38:47+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Claude Opus 5",
+            "articleId": "manus:4ba4270230b988d1",
+            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+            "publishedAt": "2026-09-20T12:37:18+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Claude Sonnet 5",
+            "articleId": "manus:4ba4270230b988d1",
+            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+            "publishedAt": "2026-09-20T12:37:18+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Claude",
+            "articleId": "manus:5f886e0af76708db",
+            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+            "publishedAt": "2026-09-19T22:05:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "Claude Opus 4.8",
+            "articleId": "manus:5f886e0af76708db",
+            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+            "publishedAt": "2026-09-19T22:05:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "Mythos Preview",
+            "articleId": "manus:5f886e0af76708db",
+            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+            "publishedAt": "2026-09-19T22:05:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "Model Hardware Standard",
+            "articleId": "manus:5f886e0af76708db",
+            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+            "publishedAt": "2026-09-19T22:05:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "MHS",
+            "articleId": "manus:5f886e0af76708db",
+            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+            "publishedAt": "2026-09-19T22:05:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "Claude Code",
+            "articleId": "manus:5f886e0af76708db",
+            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+            "publishedAt": "2026-09-19T22:05:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "Claude Opus 4.6",
+            "articleId": "manus:94df7155197fc930",
+            "url": "https://news.qq.com/rain/a/20260919A0AROK00",
+            "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
+            "publishedAt": "2026-09-19T22:01:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "Claude",
+            "articleId": "manus:d7f8c6a3a46e7e95",
+            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+            "title": "Anthropic之恶",
+            "publishedAt": "2026-09-19T09:35:54+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Claude Free",
+            "articleId": "manus:d7f8c6a3a46e7e95",
+            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+            "title": "Anthropic之恶",
+            "publishedAt": "2026-09-19T09:35:54+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Claude Pro",
+            "articleId": "manus:d7f8c6a3a46e7e95",
+            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+            "title": "Anthropic之恶",
+            "publishedAt": "2026-09-19T09:35:54+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Claude Max",
+            "articleId": "manus:d7f8c6a3a46e7e95",
+            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+            "title": "Anthropic之恶",
+            "publishedAt": "2026-09-19T09:35:54+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Claude Code",
+            "articleId": "manus:d7f8c6a3a46e7e95",
+            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+            "title": "Anthropic之恶",
+            "publishedAt": "2026-09-19T09:35:54+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Claude Design",
+            "articleId": "manus:d7f8c6a3a46e7e95",
+            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+            "title": "Anthropic之恶",
+            "publishedAt": "2026-09-19T09:35:54+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "Claude Science",
+            "articleId": "manus:de3178cd9de124f7",
+            "url": "https://elsewhere.news/en/lanchi/arsi",
+            "title": "DeepMaterial Closes A+ Funding Round: Driving Self-Evolving RSI with Real-World Data | BlueRun Ventures",
+            "publishedAt": "2026-09-16T19:09:00+08:00",
+            "sourceName": "elsewhere别处发生",
+            "origin": "article"
+          },
+          {
+            "value": "Claude Code",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ],
+        "valuation": [
+          {
+            "value": "9650亿美元（2026-05-28，Series H投后）",
+            "articleId": "research:b5e22ae086a6b353",
+            "url": "https://www.anthropic.com/news/series-h",
+            "title": "Anthropic · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "at $965B post-money valuation",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "country": [
+          {
+            "value": "美国",
+            "articleId": "manus:5f886e0af76708db",
+            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+            "publishedAt": "2026-09-19T22:05:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "美国",
+            "articleId": "research:e08d15a68acb7191",
+            "url": "https://www.anthropic.com/news/the-long-term-benefit-trust?subjects=alignment",
+            "title": "Anthropic: The Long-Term Benefit Trust",
+            "publishedAt": "",
+            "sourceName": "官网资料核验",
+            "origin": "research",
+            "quote": "Anthropic is incorporated in Delaware",
+            "checkedAt": "2026-09-10"
+          }
+        ],
+        "business": [
+          {
+            "value": "人工智能模型研发",
+            "articleId": "manus:0efa86ea4ce276bb",
+            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+            "publishedAt": "2026-09-20T12:38:47+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "开发 AI 模型",
+            "articleId": "manus:4ba4270230b988d1",
+            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+            "publishedAt": "2026-09-20T12:37:18+08:00",
+            "sourceName": "硅星人",
+            "origin": "article"
+          },
+          {
+            "value": "AI 模型与 AI for Science，自建生物湿实验室，推进 AI 药物研发全链条",
+            "articleId": "manus:5f886e0af76708db",
+            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+            "publishedAt": "2026-09-19T22:05:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "提供Claude人工智能模型，用于企业运营及个人工作。",
+            "articleId": "research:b5e22ae086a6b353",
+            "url": "https://www.anthropic.com/news/series-h",
+            "title": "Anthropic · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "enterprises across industries are deploying Claude",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "team": [
+          {
+            "value": "Eric Kauderer-Abrams",
+            "articleId": "manus:5f886e0af76708db",
+            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+            "publishedAt": "2026-09-19T22:05:00+08:00",
+            "sourceName": "DeepTech深科技",
+            "origin": "article"
+          },
+          {
+            "value": "Dario Amodei（联合创始人兼CEO）",
+            "articleId": "research:c0f94a4efaca7a84",
+            "url": "https://www.anthropic.com/company/leadership",
+            "title": "Anthropic · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "Co-Founder and Chief Executive Officer Dario Amodei",
+            "checkedAt": "2026-09-15"
+          }
+        ],
+        "investors": [
+          {
+            "value": "Capital Group、Coatue、D1 Capital Partners等（部分核实）",
+            "articleId": "research:b5e22ae086a6b353",
+            "url": "https://www.anthropic.com/news/series-h",
+            "title": "Anthropic · 公开资料核验",
+            "publishedAt": "",
+            "sourceName": "公开资料核验",
+            "origin": "research",
+            "quote": "co-led by Capital Group, Coatue, D1 Capital Partners",
+            "checkedAt": "2026-09-15"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:5b57ba973c441488",
+          "title": "Jev，让全球程序员玩疯了",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "publishedAt": "2026-09-21T19:04:00+08:00",
+          "sourceName": "极客公园",
+          "category": "release"
+        },
+        {
+          "id": "manus:0efa86ea4ce276bb",
+          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+          "publishedAt": "2026-09-20T12:38:47+08:00",
+          "sourceName": "硅星人",
+          "category": "bigtech"
+        },
+        {
+          "id": "manus:4ba4270230b988d1",
+          "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+          "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+          "publishedAt": "2026-09-20T12:37:18+08:00",
+          "sourceName": "硅星人",
+          "category": "release"
+        },
+        {
+          "id": "manus:5f886e0af76708db",
+          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+          "publishedAt": "2026-09-19T22:05:00+08:00",
+          "sourceName": "DeepTech深科技",
+          "category": "bigtech"
+        },
+        {
+          "id": "manus:94df7155197fc930",
+          "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
+          "url": "https://news.qq.com/rain/a/20260919A0AROK00",
+          "publishedAt": "2026-09-19T22:01:00+08:00",
+          "sourceName": "DeepTech深科技",
+          "category": "paper"
+        },
+        {
+          "id": "manus:d7f8c6a3a46e7e95",
+          "title": "Anthropic之恶",
+          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+          "publishedAt": "2026-09-19T09:35:54+08:00",
+          "sourceName": "硅星人",
+          "category": "bigtech"
+        },
+        {
+          "id": "manus:de3178cd9de124f7",
+          "title": "DeepMaterial Closes A+ Funding Round: Driving Self-Evolving RSI with Real-World Data | BlueRun Ventures",
+          "url": "https://elsewhere.news/en/lanchi/arsi",
+          "publishedAt": "2026-09-16T19:09:00+08:00",
+          "sourceName": "elsewhere别处发生",
+          "category": "financing"
+        }
+      ],
+      "firstSeenAt": "2026-09-16T19:09:00+08:00",
+      "lastSeenAt": "2026-09-21T19:04:00+08:00",
+      "entityType": "company",
+      "updatedAt": "2026-09-21T19:04:00+08:00",
+      "brandProfiles": {
+        "Claude Code": {
+          "id": "company:b5cf43ae07a7364e",
+          "company_name": "Claude Code",
+          "aliases": [],
+          "product_names": [
+            "Claude Code"
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "dims": {
+            "行业": "其他AI应用",
+            "国家/地区": "其他"
+          },
+          "fieldSources": {
+            "company_name": [
+              {
+                "value": "Claude Code",
+                "articleId": "manus:5b57ba973c441488",
+                "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+                "title": "Jev，让全球程序员玩疯了",
+                "publishedAt": "2026-09-21T19:04:00+08:00",
+                "sourceName": "极客公园",
+                "origin": "article"
+              }
+            ],
+            "product_names": [
+              {
+                "value": "Claude Code",
+                "articleId": "manus:5b57ba973c441488",
+                "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+                "title": "Jev，让全球程序员玩疯了",
+                "publishedAt": "2026-09-21T19:04:00+08:00",
+                "sourceName": "极客公园",
+                "origin": "article"
+              }
+            ]
+          },
+          "sourceArticles": [
+            {
+              "id": "manus:5b57ba973c441488",
+              "title": "Jev，让全球程序员玩疯了",
+              "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+              "publishedAt": "2026-09-21T19:04:00+08:00",
+              "sourceName": "极客公园",
+              "category": "release"
+            }
+          ],
+          "firstSeenAt": "2026-09-21T19:04:00+08:00",
+          "lastSeenAt": "2026-09-21T19:04:00+08:00",
+          "entityType": "product",
+          "productUpdates": [
+            {
+              "name": "Claude Code",
+              "relationship": "unknown",
+              "quote": "写了一个 Jev 插件用来压缩 Claude Code 的上下文",
+              "articleId": "manus:5b57ba973c441488",
+              "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+              "title": "Jev，让全球程序员玩疯了",
+              "publishedAt": "2026-09-21T19:04:00+08:00"
+            }
+          ],
+          "updatedAt": "2026-09-21T19:04:00+08:00"
+        }
+      },
+      "latestReportAt": "2026-09-21T19:04:00+08:00",
+      "profileUpdatedAt": "2026-09-23T10:55:04+08:00",
+      "productUpdates": [
+        {
+          "name": "Claude Code",
+          "relationship": "unknown",
+          "quote": "写了一个 Jev 插件用来压缩 Claude Code 的上下文",
+          "articleId": "manus:5b57ba973c441488",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "title": "Jev，让全球程序员玩疯了",
+          "publishedAt": "2026-09-21T19:04:00+08:00"
+        },
+        {
+          "name": "Fable 5.1",
+          "relationship": "owned",
+          "quote": "Gemini 4 Pro和Fable 5.1两者都展现出了极高的水准",
+          "articleId": "manus:0efa86ea4ce276bb",
+          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+          "publishedAt": "2026-09-20T12:38:47+08:00"
+        },
+        {
+          "name": "Fable 5.1 Max",
+          "relationship": "owned",
+          "quote": "相较于Fable 5.1 Max，套着马甲暗中测试的Gemini 4 Pro",
+          "articleId": "manus:0efa86ea4ce276bb",
+          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+          "publishedAt": "2026-09-20T12:38:47+08:00"
+        },
+        {
+          "name": "Fable 5",
+          "relationship": "owned",
+          "quote": "Gemini 4 Pro、Fable 5、GPT-6 Astra同时用Three.js开发一个3D手表模型",
+          "articleId": "manus:0efa86ea4ce276bb",
+          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+          "publishedAt": "2026-09-20T12:38:47+08:00"
+        },
+        {
+          "name": "Claude Opus 5",
+          "relationship": "owned",
+          "quote": "第三组则是 GPT-5.5、Claude Opus 5、Claude Sonnet 5 和 Gemini 3.1 Pro Preview。",
+          "articleId": "manus:4ba4270230b988d1",
+          "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+          "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+          "publishedAt": "2026-09-20T12:37:18+08:00"
+        },
+        {
+          "name": "Claude Sonnet 5",
+          "relationship": "owned",
+          "quote": "第三组则是 GPT-5.5、Claude Opus 5、Claude Sonnet 5 和 Gemini 3.1 Pro Preview。",
+          "articleId": "manus:4ba4270230b988d1",
+          "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
+          "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
+          "publishedAt": "2026-09-20T12:37:18+08:00"
+        },
+        {
+          "name": "Claude",
+          "relationship": "owned",
+          "quote": "开始把 Claude 接入真实的生物实验",
+          "articleId": "manus:5f886e0af76708db",
+          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+          "publishedAt": "2026-09-19T22:05:00+08:00"
+        },
+        {
+          "name": "Claude Opus 4.8",
+          "relationship": "owned",
+          "quote": "Claude Opus 4.8 和 Mythos Preview 针对 15 个靶点设计蛋白结合剂",
+          "articleId": "manus:5f886e0af76708db",
+          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+          "publishedAt": "2026-09-19T22:05:00+08:00"
+        },
+        {
+          "name": "Mythos Preview",
+          "relationship": "owned",
+          "quote": "Claude Opus 4.8 和 Mythos Preview 针对 15 个靶点设计蛋白结合剂",
+          "articleId": "manus:5f886e0af76708db",
+          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+          "publishedAt": "2026-09-19T22:05:00+08:00"
+        },
+        {
+          "name": "Model Hardware Standard",
+          "relationship": "owned",
+          "quote": "Anthropic 今年 8 月发布的 Model Hardware Standard，也就是 MHS",
+          "articleId": "manus:5f886e0af76708db",
+          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+          "publishedAt": "2026-09-19T22:05:00+08:00"
+        },
+        {
+          "name": "MHS",
+          "relationship": "owned",
+          "quote": "Anthropic 今年 8 月发布的 Model Hardware Standard，也就是 MHS",
+          "articleId": "manus:5f886e0af76708db",
+          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+          "publishedAt": "2026-09-19T22:05:00+08:00"
+        },
+        {
+          "name": "Claude Code",
+          "relationship": "owned",
+          "quote": "让 Claude Code 实时读取 qPCR 曲线",
+          "articleId": "manus:5f886e0af76708db",
+          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
+          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
+          "publishedAt": "2026-09-19T22:05:00+08:00"
+        },
+        {
+          "name": "Claude Opus 4.6",
+          "relationship": "owned",
+          "quote": "Gemini 3.1 Pro 和 Claude Opus 4.6 分列第四和第五",
+          "articleId": "manus:94df7155197fc930",
+          "url": "https://news.qq.com/rain/a/20260919A0AROK00",
+          "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
+          "publishedAt": "2026-09-19T22:01:00+08:00"
+        },
+        {
+          "name": "Claude",
+          "relationship": "owned",
+          "quote": "指控它们对Claude实施了“工业规模蒸馏”",
+          "articleId": "manus:d7f8c6a3a46e7e95",
+          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+          "title": "Anthropic之恶",
+          "publishedAt": "2026-09-19T09:35:54+08:00"
+        },
+        {
+          "name": "Claude Free",
+          "relationship": "owned",
+          "quote": "使用Claude Free、Pro、Max的个人用户不享受零数据保留（ZDR）协议",
+          "articleId": "manus:d7f8c6a3a46e7e95",
+          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+          "title": "Anthropic之恶",
+          "publishedAt": "2026-09-19T09:35:54+08:00"
+        },
+        {
+          "name": "Claude Pro",
+          "relationship": "owned",
+          "quote": "使用Claude Free、Pro、Max的个人用户不享受零数据保留（ZDR）协议",
+          "articleId": "manus:d7f8c6a3a46e7e95",
+          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+          "title": "Anthropic之恶",
+          "publishedAt": "2026-09-19T09:35:54+08:00"
+        },
+        {
+          "name": "Claude Max",
+          "relationship": "owned",
+          "quote": "使用Claude Free、Pro、Max的个人用户不享受零数据保留（ZDR）协议",
+          "articleId": "manus:d7f8c6a3a46e7e95",
+          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+          "title": "Anthropic之恶",
+          "publishedAt": "2026-09-19T09:35:54+08:00"
+        },
+        {
+          "name": "Claude Code",
+          "relationship": "owned",
+          "quote": "ZDR仅作为专门安排，提供给部分API客户和经批准的Claude Code企业客户",
+          "articleId": "manus:d7f8c6a3a46e7e95",
+          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+          "title": "Anthropic之恶",
+          "publishedAt": "2026-09-19T09:35:54+08:00"
+        },
+        {
+          "name": "Claude Design",
+          "relationship": "owned",
+          "quote": "导火索之一是4月发布的Claude Design，一款被认为直接对标其合作伙伴、设计软件公司Figma的产品",
+          "articleId": "manus:d7f8c6a3a46e7e95",
+          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
+          "title": "Anthropic之恶",
+          "publishedAt": "2026-09-19T09:35:54+08:00"
+        },
+        {
+          "name": "Claude Science",
+          "relationship": "owned",
+          "quote": "Anthropic has launched Claude Science for research scenarios",
+          "articleId": "manus:de3178cd9de124f7",
+          "url": "https://elsewhere.news/en/lanchi/arsi",
+          "title": "DeepMaterial Closes A+ Funding Round: Driving Self-Evolving RSI with Real-World Data | BlueRun Ventures",
+          "publishedAt": "2026-09-16T19:09:00+08:00"
+        }
+      ]
+    },
+    {
       "id": "company:cc7c0a9448646f60",
       "company_name": "宇树",
       "aliases": [],
@@ -12237,1144 +13720,6 @@
       "updatedAt": "2026-09-20T20:44:13+08:00",
       "latestReportAt": "2026-09-20T20:44:13+08:00",
       "profileUpdatedAt": "2026-09-21T15:27:21+08:00"
-    },
-    {
-      "id": "company:c70eca6b0f88f44d",
-      "company_name": "Anthropic",
-      "aliases": [
-        "Fable"
-      ],
-      "product_names": [
-        "Fable 5.1",
-        "Fable 5.1 Max",
-        "Fable 5",
-        "Claude Opus 5",
-        "Claude Sonnet 5",
-        "Claude",
-        "Claude Opus 4.8",
-        "Mythos Preview",
-        "Model Hardware Standard",
-        "MHS",
-        "Claude Code",
-        "Claude Opus 4.6",
-        "Claude Free",
-        "Claude Pro",
-        "Claude Max",
-        "Claude Design",
-        "Claude Science"
-      ],
-      "founded": null,
-      "country": "美国",
-      "team": "Eric Kauderer-Abrams",
-      "business": "提供Claude人工智能模型，用于企业运营及个人工作。",
-      "investors": "Capital Group、Coatue、D1 Capital Partners等（部分核实）",
-      "total_funding": null,
-      "valuation": "9650亿美元（2026-05-28，Series H投后）",
-      "dims": {
-        "行业": "其他AI应用",
-        "国家/地区": "美国"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "Fable",
-            "articleId": "manus:0efa86ea4ce276bb",
-            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-            "publishedAt": "2026-09-20T12:38:47+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Anthropic",
-            "articleId": "manus:4ba4270230b988d1",
-            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-            "publishedAt": "2026-09-20T12:37:18+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Anthropic",
-            "articleId": "manus:5f886e0af76708db",
-            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-            "publishedAt": "2026-09-19T22:05:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "Anthropic",
-            "articleId": "manus:94df7155197fc930",
-            "url": "https://news.qq.com/rain/a/20260919A0AROK00",
-            "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
-            "publishedAt": "2026-09-19T22:01:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "Anthropic",
-            "articleId": "manus:d7f8c6a3a46e7e95",
-            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-            "title": "Anthropic之恶",
-            "publishedAt": "2026-09-19T09:35:54+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Anthropic",
-            "articleId": "manus:de3178cd9de124f7",
-            "url": "https://elsewhere.news/en/lanchi/arsi",
-            "title": "DeepMaterial Closes A+ Funding Round: Driving Self-Evolving RSI with Real-World Data | BlueRun Ventures",
-            "publishedAt": "2026-09-16T19:09:00+08:00",
-            "sourceName": "elsewhere别处发生",
-            "origin": "article"
-          },
-          {
-            "value": "Anthropic",
-            "articleId": "research:c23f3e7cbb0eb40f",
-            "url": "https://code.claude.com/docs/en/overview",
-            "title": "Claude Code overview",
-            "publishedAt": "",
-            "sourceName": "官网资料核验",
-            "origin": "research",
-            "quote": "Anthropic.ClaudeCode",
-            "checkedAt": "2026-09-10"
-          },
-          {
-            "value": "Anthropic",
-            "articleId": "research:e0f1ebb59adf2f6c",
-            "url": "https://www.anthropic.com/claude/fable",
-            "title": "Claude Fable - Anthropic",
-            "publishedAt": "",
-            "sourceName": "官网资料核验",
-            "origin": "research",
-            "quote": "Claude Fable \\ Anthropic",
-            "checkedAt": "2026-09-14"
-          },
-          {
-            "value": "Anthropic",
-            "articleId": "research:2f9466008c6e13a1",
-            "url": "https://www.anthropic.com/claude/opus",
-            "title": "Claude Opus - Anthropic",
-            "publishedAt": "",
-            "sourceName": "官网资料核验",
-            "origin": "research",
-            "quote": "Claude Opus \\ Anthropic",
-            "checkedAt": "2026-09-14"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "Fable 5.1",
-            "articleId": "manus:0efa86ea4ce276bb",
-            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-            "publishedAt": "2026-09-20T12:38:47+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Fable 5.1 Max",
-            "articleId": "manus:0efa86ea4ce276bb",
-            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-            "publishedAt": "2026-09-20T12:38:47+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Fable 5",
-            "articleId": "manus:0efa86ea4ce276bb",
-            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-            "publishedAt": "2026-09-20T12:38:47+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Claude Opus 5",
-            "articleId": "manus:4ba4270230b988d1",
-            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-            "publishedAt": "2026-09-20T12:37:18+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Claude Sonnet 5",
-            "articleId": "manus:4ba4270230b988d1",
-            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-            "publishedAt": "2026-09-20T12:37:18+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Claude",
-            "articleId": "manus:5f886e0af76708db",
-            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-            "publishedAt": "2026-09-19T22:05:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "Claude Opus 4.8",
-            "articleId": "manus:5f886e0af76708db",
-            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-            "publishedAt": "2026-09-19T22:05:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "Mythos Preview",
-            "articleId": "manus:5f886e0af76708db",
-            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-            "publishedAt": "2026-09-19T22:05:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "Model Hardware Standard",
-            "articleId": "manus:5f886e0af76708db",
-            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-            "publishedAt": "2026-09-19T22:05:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "MHS",
-            "articleId": "manus:5f886e0af76708db",
-            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-            "publishedAt": "2026-09-19T22:05:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "Claude Code",
-            "articleId": "manus:5f886e0af76708db",
-            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-            "publishedAt": "2026-09-19T22:05:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "Claude Opus 4.6",
-            "articleId": "manus:94df7155197fc930",
-            "url": "https://news.qq.com/rain/a/20260919A0AROK00",
-            "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
-            "publishedAt": "2026-09-19T22:01:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "Claude",
-            "articleId": "manus:d7f8c6a3a46e7e95",
-            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-            "title": "Anthropic之恶",
-            "publishedAt": "2026-09-19T09:35:54+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Claude Free",
-            "articleId": "manus:d7f8c6a3a46e7e95",
-            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-            "title": "Anthropic之恶",
-            "publishedAt": "2026-09-19T09:35:54+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Claude Pro",
-            "articleId": "manus:d7f8c6a3a46e7e95",
-            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-            "title": "Anthropic之恶",
-            "publishedAt": "2026-09-19T09:35:54+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Claude Max",
-            "articleId": "manus:d7f8c6a3a46e7e95",
-            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-            "title": "Anthropic之恶",
-            "publishedAt": "2026-09-19T09:35:54+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Claude Code",
-            "articleId": "manus:d7f8c6a3a46e7e95",
-            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-            "title": "Anthropic之恶",
-            "publishedAt": "2026-09-19T09:35:54+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Claude Design",
-            "articleId": "manus:d7f8c6a3a46e7e95",
-            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-            "title": "Anthropic之恶",
-            "publishedAt": "2026-09-19T09:35:54+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Claude Science",
-            "articleId": "manus:de3178cd9de124f7",
-            "url": "https://elsewhere.news/en/lanchi/arsi",
-            "title": "DeepMaterial Closes A+ Funding Round: Driving Self-Evolving RSI with Real-World Data | BlueRun Ventures",
-            "publishedAt": "2026-09-16T19:09:00+08:00",
-            "sourceName": "elsewhere别处发生",
-            "origin": "article"
-          }
-        ],
-        "valuation": [
-          {
-            "value": "9650亿美元（2026-05-28，Series H投后）",
-            "articleId": "research:b5e22ae086a6b353",
-            "url": "https://www.anthropic.com/news/series-h",
-            "title": "Anthropic · 公开资料核验",
-            "publishedAt": "",
-            "sourceName": "公开资料核验",
-            "origin": "research",
-            "quote": "at $965B post-money valuation",
-            "checkedAt": "2026-09-15"
-          }
-        ],
-        "country": [
-          {
-            "value": "美国",
-            "articleId": "manus:5f886e0af76708db",
-            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-            "publishedAt": "2026-09-19T22:05:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "美国",
-            "articleId": "research:e08d15a68acb7191",
-            "url": "https://www.anthropic.com/news/the-long-term-benefit-trust?subjects=alignment",
-            "title": "Anthropic: The Long-Term Benefit Trust",
-            "publishedAt": "",
-            "sourceName": "官网资料核验",
-            "origin": "research",
-            "quote": "Anthropic is incorporated in Delaware",
-            "checkedAt": "2026-09-10"
-          }
-        ],
-        "business": [
-          {
-            "value": "人工智能模型研发",
-            "articleId": "manus:0efa86ea4ce276bb",
-            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-            "publishedAt": "2026-09-20T12:38:47+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "开发 AI 模型",
-            "articleId": "manus:4ba4270230b988d1",
-            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-            "publishedAt": "2026-09-20T12:37:18+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "AI 模型与 AI for Science，自建生物湿实验室，推进 AI 药物研发全链条",
-            "articleId": "manus:5f886e0af76708db",
-            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-            "publishedAt": "2026-09-19T22:05:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "提供Claude人工智能模型，用于企业运营及个人工作。",
-            "articleId": "research:b5e22ae086a6b353",
-            "url": "https://www.anthropic.com/news/series-h",
-            "title": "Anthropic · 公开资料核验",
-            "publishedAt": "",
-            "sourceName": "公开资料核验",
-            "origin": "research",
-            "quote": "enterprises across industries are deploying Claude",
-            "checkedAt": "2026-09-15"
-          }
-        ],
-        "team": [
-          {
-            "value": "Eric Kauderer-Abrams",
-            "articleId": "manus:5f886e0af76708db",
-            "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-            "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-            "publishedAt": "2026-09-19T22:05:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "Dario Amodei（联合创始人兼CEO）",
-            "articleId": "research:c0f94a4efaca7a84",
-            "url": "https://www.anthropic.com/company/leadership",
-            "title": "Anthropic · 公开资料核验",
-            "publishedAt": "",
-            "sourceName": "公开资料核验",
-            "origin": "research",
-            "quote": "Co-Founder and Chief Executive Officer Dario Amodei",
-            "checkedAt": "2026-09-15"
-          }
-        ],
-        "investors": [
-          {
-            "value": "Capital Group、Coatue、D1 Capital Partners等（部分核实）",
-            "articleId": "research:b5e22ae086a6b353",
-            "url": "https://www.anthropic.com/news/series-h",
-            "title": "Anthropic · 公开资料核验",
-            "publishedAt": "",
-            "sourceName": "公开资料核验",
-            "origin": "research",
-            "quote": "co-led by Capital Group, Coatue, D1 Capital Partners",
-            "checkedAt": "2026-09-15"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "manus:0efa86ea4ce276bb",
-          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-          "publishedAt": "2026-09-20T12:38:47+08:00",
-          "sourceName": "硅星人",
-          "category": "bigtech"
-        },
-        {
-          "id": "manus:4ba4270230b988d1",
-          "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-          "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-          "publishedAt": "2026-09-20T12:37:18+08:00",
-          "sourceName": "硅星人",
-          "category": "release"
-        },
-        {
-          "id": "manus:5f886e0af76708db",
-          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-          "publishedAt": "2026-09-19T22:05:00+08:00",
-          "sourceName": "DeepTech深科技",
-          "category": "bigtech"
-        },
-        {
-          "id": "manus:94df7155197fc930",
-          "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
-          "url": "https://news.qq.com/rain/a/20260919A0AROK00",
-          "publishedAt": "2026-09-19T22:01:00+08:00",
-          "sourceName": "DeepTech深科技",
-          "category": "paper"
-        },
-        {
-          "id": "manus:d7f8c6a3a46e7e95",
-          "title": "Anthropic之恶",
-          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-          "publishedAt": "2026-09-19T09:35:54+08:00",
-          "sourceName": "硅星人",
-          "category": "bigtech"
-        },
-        {
-          "id": "manus:de3178cd9de124f7",
-          "title": "DeepMaterial Closes A+ Funding Round: Driving Self-Evolving RSI with Real-World Data | BlueRun Ventures",
-          "url": "https://elsewhere.news/en/lanchi/arsi",
-          "publishedAt": "2026-09-16T19:09:00+08:00",
-          "sourceName": "elsewhere别处发生",
-          "category": "financing"
-        }
-      ],
-      "firstSeenAt": "2026-09-16T19:09:00+08:00",
-      "lastSeenAt": "2026-09-20T12:38:47+08:00",
-      "entityType": "company",
-      "updatedAt": "2026-09-20T12:38:47+08:00",
-      "brandProfiles": {},
-      "latestReportAt": "2026-09-20T12:38:47+08:00",
-      "profileUpdatedAt": "2026-09-22T18:34:13+08:00",
-      "productUpdates": [
-        {
-          "name": "Fable 5.1",
-          "relationship": "owned",
-          "quote": "Gemini 4 Pro和Fable 5.1两者都展现出了极高的水准",
-          "articleId": "manus:0efa86ea4ce276bb",
-          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-          "publishedAt": "2026-09-20T12:38:47+08:00"
-        },
-        {
-          "name": "Fable 5.1 Max",
-          "relationship": "owned",
-          "quote": "相较于Fable 5.1 Max，套着马甲暗中测试的Gemini 4 Pro",
-          "articleId": "manus:0efa86ea4ce276bb",
-          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-          "publishedAt": "2026-09-20T12:38:47+08:00"
-        },
-        {
-          "name": "Fable 5",
-          "relationship": "owned",
-          "quote": "Gemini 4 Pro、Fable 5、GPT-6 Astra同时用Three.js开发一个3D手表模型",
-          "articleId": "manus:0efa86ea4ce276bb",
-          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-          "publishedAt": "2026-09-20T12:38:47+08:00"
-        },
-        {
-          "name": "Claude Opus 5",
-          "relationship": "owned",
-          "quote": "第三组则是 GPT-5.5、Claude Opus 5、Claude Sonnet 5 和 Gemini 3.1 Pro Preview。",
-          "articleId": "manus:4ba4270230b988d1",
-          "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-          "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-          "publishedAt": "2026-09-20T12:37:18+08:00"
-        },
-        {
-          "name": "Claude Sonnet 5",
-          "relationship": "owned",
-          "quote": "第三组则是 GPT-5.5、Claude Opus 5、Claude Sonnet 5 和 Gemini 3.1 Pro Preview。",
-          "articleId": "manus:4ba4270230b988d1",
-          "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-          "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-          "publishedAt": "2026-09-20T12:37:18+08:00"
-        },
-        {
-          "name": "Claude",
-          "relationship": "owned",
-          "quote": "开始把 Claude 接入真实的生物实验",
-          "articleId": "manus:5f886e0af76708db",
-          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-          "publishedAt": "2026-09-19T22:05:00+08:00"
-        },
-        {
-          "name": "Claude Opus 4.8",
-          "relationship": "owned",
-          "quote": "Claude Opus 4.8 和 Mythos Preview 针对 15 个靶点设计蛋白结合剂",
-          "articleId": "manus:5f886e0af76708db",
-          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-          "publishedAt": "2026-09-19T22:05:00+08:00"
-        },
-        {
-          "name": "Mythos Preview",
-          "relationship": "owned",
-          "quote": "Claude Opus 4.8 和 Mythos Preview 针对 15 个靶点设计蛋白结合剂",
-          "articleId": "manus:5f886e0af76708db",
-          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-          "publishedAt": "2026-09-19T22:05:00+08:00"
-        },
-        {
-          "name": "Model Hardware Standard",
-          "relationship": "owned",
-          "quote": "Anthropic 今年 8 月发布的 Model Hardware Standard，也就是 MHS",
-          "articleId": "manus:5f886e0af76708db",
-          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-          "publishedAt": "2026-09-19T22:05:00+08:00"
-        },
-        {
-          "name": "MHS",
-          "relationship": "owned",
-          "quote": "Anthropic 今年 8 月发布的 Model Hardware Standard，也就是 MHS",
-          "articleId": "manus:5f886e0af76708db",
-          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-          "publishedAt": "2026-09-19T22:05:00+08:00"
-        },
-        {
-          "name": "Claude Code",
-          "relationship": "owned",
-          "quote": "让 Claude Code 实时读取 qPCR 曲线",
-          "articleId": "manus:5f886e0af76708db",
-          "url": "https://news.qq.com/rain/a/20260919A0ASE300",
-          "title": "Anthropic秘密建立湿实验室，野心指向药物研发全链条",
-          "publishedAt": "2026-09-19T22:05:00+08:00"
-        },
-        {
-          "name": "Claude Opus 4.6",
-          "relationship": "owned",
-          "quote": "Gemini 3.1 Pro 和 Claude Opus 4.6 分列第四和第五",
-          "articleId": "manus:94df7155197fc930",
-          "url": "https://news.qq.com/rain/a/20260919A0AROK00",
-          "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
-          "publishedAt": "2026-09-19T22:01:00+08:00"
-        },
-        {
-          "name": "Claude",
-          "relationship": "owned",
-          "quote": "指控它们对Claude实施了“工业规模蒸馏”",
-          "articleId": "manus:d7f8c6a3a46e7e95",
-          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-          "title": "Anthropic之恶",
-          "publishedAt": "2026-09-19T09:35:54+08:00"
-        },
-        {
-          "name": "Claude Free",
-          "relationship": "owned",
-          "quote": "使用Claude Free、Pro、Max的个人用户不享受零数据保留（ZDR）协议",
-          "articleId": "manus:d7f8c6a3a46e7e95",
-          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-          "title": "Anthropic之恶",
-          "publishedAt": "2026-09-19T09:35:54+08:00"
-        },
-        {
-          "name": "Claude Pro",
-          "relationship": "owned",
-          "quote": "使用Claude Free、Pro、Max的个人用户不享受零数据保留（ZDR）协议",
-          "articleId": "manus:d7f8c6a3a46e7e95",
-          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-          "title": "Anthropic之恶",
-          "publishedAt": "2026-09-19T09:35:54+08:00"
-        },
-        {
-          "name": "Claude Max",
-          "relationship": "owned",
-          "quote": "使用Claude Free、Pro、Max的个人用户不享受零数据保留（ZDR）协议",
-          "articleId": "manus:d7f8c6a3a46e7e95",
-          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-          "title": "Anthropic之恶",
-          "publishedAt": "2026-09-19T09:35:54+08:00"
-        },
-        {
-          "name": "Claude Code",
-          "relationship": "owned",
-          "quote": "ZDR仅作为专门安排，提供给部分API客户和经批准的Claude Code企业客户",
-          "articleId": "manus:d7f8c6a3a46e7e95",
-          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-          "title": "Anthropic之恶",
-          "publishedAt": "2026-09-19T09:35:54+08:00"
-        },
-        {
-          "name": "Claude Design",
-          "relationship": "owned",
-          "quote": "导火索之一是4月发布的Claude Design，一款被认为直接对标其合作伙伴、设计软件公司Figma的产品",
-          "articleId": "manus:d7f8c6a3a46e7e95",
-          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-          "title": "Anthropic之恶",
-          "publishedAt": "2026-09-19T09:35:54+08:00"
-        },
-        {
-          "name": "Claude Science",
-          "relationship": "owned",
-          "quote": "Anthropic has launched Claude Science for research scenarios",
-          "articleId": "manus:de3178cd9de124f7",
-          "url": "https://elsewhere.news/en/lanchi/arsi",
-          "title": "DeepMaterial Closes A+ Funding Round: Driving Self-Evolving RSI with Real-World Data | BlueRun Ventures",
-          "publishedAt": "2026-09-16T19:09:00+08:00"
-        }
-      ]
-    },
-    {
-      "id": "company:bbdefa2950f49882",
-      "company_name": "Google",
-      "aliases": [
-        "谷歌"
-      ],
-      "product_names": [
-        "Gemini 4 Pro",
-        "Gemini 3.5",
-        "Gemini 3.8",
-        "gemini-3.8-flash",
-        "Gemini 2.5 Flash Lite",
-        "Gemini 3.1 Pro Preview",
-        "Gemini 3.1 Pro",
-        "Gemini",
-        "Gemini Nano",
-        "Pixel 8 Pro",
-        "Learn Your Way"
-      ],
-      "founded": "1998-09",
-      "country": "美国",
-      "team": null,
-      "business": "提供搜索、广告、Android及其他互联网软件与平台。",
-      "investors": null,
-      "total_funding": null,
-      "valuation": null,
-      "dims": {
-        "行业": "其他AI应用",
-        "国家/地区": "美国"
-      },
-      "fieldSources": {
-        "company_name": [
-          {
-            "value": "谷歌",
-            "articleId": "manus:0efa86ea4ce276bb",
-            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-            "publishedAt": "2026-09-20T12:38:47+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Google",
-            "articleId": "manus:4ba4270230b988d1",
-            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-            "publishedAt": "2026-09-20T12:37:18+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Google",
-            "articleId": "manus:94df7155197fc930",
-            "url": "https://news.qq.com/rain/a/20260919A0AROK00",
-            "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
-            "publishedAt": "2026-09-19T22:01:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "谷歌",
-            "articleId": "manus:d7f8c6a3a46e7e95",
-            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-            "title": "Anthropic之恶",
-            "publishedAt": "2026-09-19T09:35:54+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Google",
-            "articleId": "manus:d7f8c6a3a46e7e95",
-            "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-            "title": "Anthropic之恶",
-            "publishedAt": "2026-09-19T09:35:54+08:00",
-            "sourceName": "报道内容复核",
-            "origin": "article",
-            "quote": "Google Brain团队",
-            "checkedAt": "2026-09-20"
-          },
-          {
-            "value": "谷歌",
-            "articleId": "manus:2a753ac847e0d485",
-            "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
-            "title": "把苹果AI搞黄了的男人",
-            "publishedAt": "2026-09-17T13:24:56+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Google",
-            "articleId": "manus:b5005d409d5db29c",
-            "url": "https://www.163.com/dy/article/L71HIJDH0511N33R.html?spss=dy_author",
-            "title": "教育最奢侈的“一人一解法”，即将变成日常",
-            "publishedAt": "2026-09-17T13:24:48+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Google",
-            "articleId": "research:dcfb4a57913ed5e9",
-            "url": "https://workspace.google.com/products/forms/",
-            "title": "Google Forms",
-            "publishedAt": "",
-            "sourceName": "官网资料核验",
-            "origin": "research",
-            "quote": "Google Forms",
-            "checkedAt": "2026-09-10"
-          }
-        ],
-        "product_names": [
-          {
-            "value": "Gemini 4 Pro",
-            "articleId": "manus:0efa86ea4ce276bb",
-            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-            "publishedAt": "2026-09-20T12:38:47+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Gemini 3.5",
-            "articleId": "manus:0efa86ea4ce276bb",
-            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-            "publishedAt": "2026-09-20T12:38:47+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Gemini 3.8",
-            "articleId": "manus:0efa86ea4ce276bb",
-            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-            "publishedAt": "2026-09-20T12:38:47+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "gemini-3.8-flash",
-            "articleId": "manus:0efa86ea4ce276bb",
-            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-            "publishedAt": "2026-09-20T12:38:47+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Gemini 2.5 Flash Lite",
-            "articleId": "manus:4ba4270230b988d1",
-            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-            "publishedAt": "2026-09-20T12:37:18+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Gemini 3.1 Pro Preview",
-            "articleId": "manus:4ba4270230b988d1",
-            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-            "publishedAt": "2026-09-20T12:37:18+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Gemini 3.1 Pro",
-            "articleId": "manus:94df7155197fc930",
-            "url": "https://news.qq.com/rain/a/20260919A0AROK00",
-            "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
-            "publishedAt": "2026-09-19T22:01:00+08:00",
-            "sourceName": "DeepTech深科技",
-            "origin": "article"
-          },
-          {
-            "value": "Gemini",
-            "articleId": "manus:2a753ac847e0d485",
-            "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
-            "title": "把苹果AI搞黄了的男人",
-            "publishedAt": "2026-09-17T13:24:56+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Gemini Nano",
-            "articleId": "manus:2a753ac847e0d485",
-            "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
-            "title": "把苹果AI搞黄了的男人",
-            "publishedAt": "2026-09-17T13:24:56+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Pixel 8 Pro",
-            "articleId": "manus:2a753ac847e0d485",
-            "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
-            "title": "把苹果AI搞黄了的男人",
-            "publishedAt": "2026-09-17T13:24:56+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "Learn Your Way",
-            "articleId": "manus:b5005d409d5db29c",
-            "url": "https://www.163.com/dy/article/L71HIJDH0511N33R.html?spss=dy_author",
-            "title": "教育最奢侈的“一人一解法”，即将变成日常",
-            "publishedAt": "2026-09-17T13:24:48+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          }
-        ],
-        "country": [
-          {
-            "value": "美国",
-            "articleId": "manus:0efa86ea4ce276bb",
-            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-            "publishedAt": "2026-09-20T12:38:47+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "美国",
-            "articleId": "research:71a225fdf937c6ec",
-            "url": "https://policies.google.com/terms/embedded?hl=en-US",
-            "title": "Google Terms of Service",
-            "publishedAt": "",
-            "sourceName": "官网资料核验",
-            "origin": "research",
-            "quote": "organized under the laws of the State of Delaware, USA",
-            "checkedAt": "2026-09-10"
-          }
-        ],
-        "founded": [
-          {
-            "value": "1998-09",
-            "articleId": "research:1a6417888348e802",
-            "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526336798/d32286d424b5.htm",
-            "title": "Google · 公开资料核验",
-            "publishedAt": "",
-            "sourceName": "公开资料核验",
-            "origin": "research",
-            "quote": "Google was incorporated in California in September 1998",
-            "checkedAt": "2026-09-15",
-            "dateBasis": "registration"
-          }
-        ],
-        "business": [
-          {
-            "value": "人工智能模型研发",
-            "articleId": "manus:0efa86ea4ce276bb",
-            "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-            "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-            "publishedAt": "2026-09-20T12:38:47+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "开发 AI 模型与产品",
-            "articleId": "manus:4ba4270230b988d1",
-            "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-            "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-            "publishedAt": "2026-09-20T12:37:18+08:00",
-            "sourceName": "硅星人",
-            "origin": "article"
-          },
-          {
-            "value": "提供搜索、广告、Android及其他互联网软件与平台。",
-            "articleId": "research:1a6417888348e802",
-            "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526336798/d32286d424b5.htm",
-            "title": "Google · 公开资料核验",
-            "publishedAt": "",
-            "sourceName": "公开资料核验",
-            "origin": "research",
-            "quote": "core products and platforms include ads, Android, Chrome",
-            "checkedAt": "2026-09-15"
-          }
-        ]
-      },
-      "sourceArticles": [
-        {
-          "id": "manus:0efa86ea4ce276bb",
-          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-          "publishedAt": "2026-09-20T12:38:47+08:00",
-          "sourceName": "硅星人",
-          "category": "bigtech"
-        },
-        {
-          "id": "manus:4ba4270230b988d1",
-          "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-          "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-          "publishedAt": "2026-09-20T12:37:18+08:00",
-          "sourceName": "硅星人",
-          "category": "release"
-        },
-        {
-          "id": "manus:94df7155197fc930",
-          "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
-          "url": "https://news.qq.com/rain/a/20260919A0AROK00",
-          "publishedAt": "2026-09-19T22:01:00+08:00",
-          "sourceName": "DeepTech深科技",
-          "category": "paper"
-        },
-        {
-          "id": "manus:d7f8c6a3a46e7e95",
-          "title": "Anthropic之恶",
-          "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-          "publishedAt": "2026-09-19T09:35:54+08:00",
-          "sourceName": "硅星人",
-          "category": "bigtech"
-        },
-        {
-          "id": "manus:2a753ac847e0d485",
-          "title": "把苹果AI搞黄了的男人",
-          "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
-          "publishedAt": "2026-09-17T13:24:56+08:00",
-          "sourceName": "硅星人",
-          "category": "bigtech"
-        },
-        {
-          "id": "manus:b5005d409d5db29c",
-          "title": "教育最奢侈的“一人一解法”，即将变成日常",
-          "url": "https://www.163.com/dy/article/L71HIJDH0511N33R.html?spss=dy_author",
-          "publishedAt": "2026-09-17T13:24:48+08:00",
-          "sourceName": "硅星人",
-          "category": "general"
-        }
-      ],
-      "firstSeenAt": "2026-09-17T13:24:48+08:00",
-      "lastSeenAt": "2026-09-20T12:38:47+08:00",
-      "entityType": "company",
-      "updatedAt": "2026-09-20T12:38:47+08:00",
-      "latestReportAt": "2026-09-20T12:38:47+08:00",
-      "profileUpdatedAt": "2026-09-22T18:34:13+08:00",
-      "productUpdates": [
-        {
-          "name": "Gemini 4 Pro",
-          "relationship": "owned",
-          "quote": "谷歌内部模型，可能是Gemini 4 Pro",
-          "articleId": "manus:0efa86ea4ce276bb",
-          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-          "publishedAt": "2026-09-20T12:38:47+08:00"
-        },
-        {
-          "name": "Gemini 3.5",
-          "relationship": "owned",
-          "quote": "从Gemini 3.5到3.8，迭代周期只有短短三到四周",
-          "articleId": "manus:0efa86ea4ce276bb",
-          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-          "publishedAt": "2026-09-20T12:38:47+08:00"
-        },
-        {
-          "name": "Gemini 3.8",
-          "relationship": "owned",
-          "quote": "从Gemini 3.5到3.8，迭代周期只有短短三到四周",
-          "articleId": "manus:0efa86ea4ce276bb",
-          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-          "publishedAt": "2026-09-20T12:38:47+08:00"
-        },
-        {
-          "name": "gemini-3.8-flash",
-          "relationship": "owned",
-          "quote": "一个披着「gemini-3.8-flash」马甲的神秘模型",
-          "articleId": "manus:0efa86ea4ce276bb",
-          "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
-          "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
-          "publishedAt": "2026-09-20T12:38:47+08:00"
-        },
-        {
-          "name": "Gemini 2.5 Flash Lite",
-          "relationship": "owned",
-          "quote": "第一组是便宜的小模型，包括 DeepSeek V4 Flash、GPT-5 nano 和 Gemini 2.5 Flash Lite",
-          "articleId": "manus:4ba4270230b988d1",
-          "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-          "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-          "publishedAt": "2026-09-20T12:37:18+08:00"
-        },
-        {
-          "name": "Gemini 3.1 Pro Preview",
-          "relationship": "owned",
-          "quote": "第三组则是 GPT-5.5、Claude Opus 5、Claude Sonnet 5 和 Gemini 3.1 Pro Preview。",
-          "articleId": "manus:4ba4270230b988d1",
-          "url": "https://www.163.com/dy/article/L7961PEQ0511N33R.html?spss=dy_author",
-          "title": "实测Jev：没那么强，但足够给有些乏味的AI圈带来新刺激",
-          "publishedAt": "2026-09-20T12:37:18+08:00"
-        },
-        {
-          "name": "Gemini 3.1 Pro",
-          "relationship": "owned",
-          "quote": "Gemini 3.1 Pro 和 Claude Opus 4.6 分列第四和第五",
-          "articleId": "manus:94df7155197fc930",
-          "url": "https://news.qq.com/rain/a/20260919A0AROK00",
-          "title": "Cell重磅：把血液、基因和蛋白数据交给AI，它开始学会判断衰老",
-          "publishedAt": "2026-09-19T22:01:00+08:00"
-        },
-        {
-          "name": "Gemini",
-          "relationship": "owned",
-          "quote": "三星在新一代Galaxy折叠屏上演示了与谷歌Gemini深度整合的AI助手",
-          "articleId": "manus:2a753ac847e0d485",
-          "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
-          "title": "把苹果AI搞黄了的男人",
-          "publishedAt": "2026-09-17T13:24:56+08:00"
-        },
-        {
-          "name": "Gemini Nano",
-          "relationship": "owned",
-          "quote": "谷歌把Gemini Nano塞进Pixel 8 Pro",
-          "articleId": "manus:2a753ac847e0d485",
-          "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
-          "title": "把苹果AI搞黄了的男人",
-          "publishedAt": "2026-09-17T13:24:56+08:00"
-        },
-        {
-          "name": "Pixel 8 Pro",
-          "relationship": "owned",
-          "quote": "谷歌把Gemini Nano塞进Pixel 8 Pro",
-          "articleId": "manus:2a753ac847e0d485",
-          "url": "https://www.163.com/dy/article/L71HIRG10511N33R.html?spss=dy_author",
-          "title": "把苹果AI搞黄了的男人",
-          "publishedAt": "2026-09-17T13:24:56+08:00"
-        },
-        {
-          "name": "Learn Your Way",
-          "relationship": "owned",
-          "quote": "Google 推出的 Learn Your Way",
-          "articleId": "manus:b5005d409d5db29c",
-          "url": "https://www.163.com/dy/article/L71HIJDH0511N33R.html?spss=dy_author",
-          "title": "教育最奢侈的“一人一解法”，即将变成日常",
-          "publishedAt": "2026-09-17T13:24:48+08:00"
-        }
-      ],
-      "brandProfiles": {
-        "Google Brain": {
-          "id": "company:d618543fcc56856a",
-          "company_name": "Google Brain",
-          "aliases": [],
-          "product_names": [],
-          "founded": null,
-          "country": "美国",
-          "team": null,
-          "business": null,
-          "investors": null,
-          "total_funding": null,
-          "valuation": null,
-          "dims": {
-            "行业": "AI模型",
-            "国家/地区": "美国"
-          },
-          "fieldSources": {
-            "company_name": [
-              {
-                "value": "Google Brain",
-                "articleId": "manus:d7f8c6a3a46e7e95",
-                "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-                "title": "Anthropic之恶",
-                "publishedAt": "2026-09-19T09:35:54+08:00",
-                "sourceName": "硅星人",
-                "origin": "article"
-              }
-            ],
-            "country": [
-              {
-                "value": "美国",
-                "articleId": "manus:d7f8c6a3a46e7e95",
-                "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-                "title": "Anthropic之恶",
-                "publishedAt": "2026-09-19T09:35:54+08:00",
-                "sourceName": "硅星人",
-                "origin": "article"
-              }
-            ],
-            "product_names": []
-          },
-          "sourceArticles": [
-            {
-              "id": "manus:d7f8c6a3a46e7e95",
-              "title": "Anthropic之恶",
-              "url": "https://www.163.com/dy/article/L7698TRE0511N33R.html?spss=dy_author",
-              "publishedAt": "2026-09-19T09:35:54+08:00",
-              "sourceName": "硅星人",
-              "category": "bigtech"
-            }
-          ],
-          "firstSeenAt": "2026-09-19T09:35:54+08:00",
-          "lastSeenAt": "2026-09-19T09:35:54+08:00",
-          "entityType": "company",
-          "productUpdates": [],
-          "updatedAt": "2026-09-19T09:35:54+08:00",
-          "latestReportAt": "2026-09-19T09:35:54+08:00",
-          "profileUpdatedAt": "2026-09-22T18:33:42+08:00"
-        }
-      }
     },
     {
       "id": "company:55018455fd10b832",
@@ -24046,6 +24391,219 @@
       "profileUpdatedAt": "2026-09-22T18:34:13+08:00"
     },
     {
+      "id": "company:0717665268f25d53",
+      "company_name": "HA-Jev",
+      "aliases": [],
+      "product_names": [
+        "HA-Jev"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "HA-Jev",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "HA-Jev",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:5b57ba973c441488",
+          "title": "Jev，让全球程序员玩疯了",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "publishedAt": "2026-09-21T19:04:00+08:00",
+          "sourceName": "极客公园",
+          "category": "release"
+        }
+      ],
+      "firstSeenAt": "2026-09-21T19:04:00+08:00",
+      "lastSeenAt": "2026-09-21T19:04:00+08:00",
+      "entityType": "product",
+      "productUpdates": [
+        {
+          "name": "HA-Jev",
+          "relationship": "unknown",
+          "quote": "智能家居社区 Home Assistant 最近出现了一个名为 HA-Jev 的插件",
+          "articleId": "manus:5b57ba973c441488",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "title": "Jev，让全球程序员玩疯了",
+          "publishedAt": "2026-09-21T19:04:00+08:00"
+        }
+      ],
+      "updatedAt": "2026-09-21T19:04:00+08:00",
+      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+      "latestReportAt": "2026-09-21T19:04:00+08:00",
+      "profileUpdatedAt": "2026-09-23T10:55:04+08:00"
+    },
+    {
+      "id": "company:d4e45fd295a5dc4f",
+      "company_name": "pg-jev",
+      "aliases": [],
+      "product_names": [
+        "pg-jev"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "pg-jev",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "pg-jev",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:5b57ba973c441488",
+          "title": "Jev，让全球程序员玩疯了",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "publishedAt": "2026-09-21T19:04:00+08:00",
+          "sourceName": "极客公园",
+          "category": "release"
+        }
+      ],
+      "firstSeenAt": "2026-09-21T19:04:00+08:00",
+      "lastSeenAt": "2026-09-21T19:04:00+08:00",
+      "entityType": "product",
+      "productUpdates": [
+        {
+          "name": "pg-jev",
+          "relationship": "unknown",
+          "quote": "GitHub 上很快涌现出 pg-jev 和 duckdb-jev",
+          "articleId": "manus:5b57ba973c441488",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "title": "Jev，让全球程序员玩疯了",
+          "publishedAt": "2026-09-21T19:04:00+08:00"
+        }
+      ],
+      "updatedAt": "2026-09-21T19:04:00+08:00",
+      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+      "latestReportAt": "2026-09-21T19:04:00+08:00",
+      "profileUpdatedAt": "2026-09-23T10:55:04+08:00"
+    },
+    {
+      "id": "company:ea9986f26ae7fcb5",
+      "company_name": "duckdb-jev",
+      "aliases": [],
+      "product_names": [
+        "duckdb-jev"
+      ],
+      "founded": null,
+      "country": null,
+      "team": null,
+      "business": null,
+      "investors": null,
+      "total_funding": null,
+      "valuation": null,
+      "dims": {
+        "行业": "其他AI应用",
+        "国家/地区": "其他"
+      },
+      "fieldSources": {
+        "company_name": [
+          {
+            "value": "duckdb-jev",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ],
+        "product_names": [
+          {
+            "value": "duckdb-jev",
+            "articleId": "manus:5b57ba973c441488",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "title": "Jev，让全球程序员玩疯了",
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "sourceName": "极客公园",
+            "origin": "article"
+          }
+        ]
+      },
+      "sourceArticles": [
+        {
+          "id": "manus:5b57ba973c441488",
+          "title": "Jev，让全球程序员玩疯了",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "publishedAt": "2026-09-21T19:04:00+08:00",
+          "sourceName": "极客公园",
+          "category": "release"
+        }
+      ],
+      "firstSeenAt": "2026-09-21T19:04:00+08:00",
+      "lastSeenAt": "2026-09-21T19:04:00+08:00",
+      "entityType": "product",
+      "productUpdates": [
+        {
+          "name": "duckdb-jev",
+          "relationship": "unknown",
+          "quote": "GitHub 上很快涌现出 pg-jev 和 duckdb-jev",
+          "articleId": "manus:5b57ba973c441488",
+          "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+          "title": "Jev，让全球程序员玩疯了",
+          "publishedAt": "2026-09-21T19:04:00+08:00"
+        }
+      ],
+      "updatedAt": "2026-09-21T19:04:00+08:00",
+      "reviewReason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。",
+      "latestReportAt": "2026-09-21T19:04:00+08:00",
+      "profileUpdatedAt": "2026-09-23T10:55:04+08:00"
+    },
+    {
       "id": "company:8e507a9451f49d39",
       "company_name": "稚晖君",
       "aliases": [],
@@ -26475,6 +27033,18 @@
         "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
       },
       {
+        "name": "HA-Jev",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "pg-jev",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
+        "name": "duckdb-jev",
+        "reason": "产品所属公司尚未由文章证实；保留产品，不改变对应新闻分类。"
+      },
+      {
         "name": "稚晖君",
         "reason": "本篇仅称稚晖君家的机器人，未证实独立公司身份及开发运营法人；保留新闻与具名产品，产品归属待核实。"
       },
@@ -26598,1355 +27168,5 @@
     "excluded": [],
     "classifications": [],
     "staleDecisions": []
-  },
-  "knownLinkResearch": {
-    "mode": "known_links",
-    "checkedAt": "2026-09-22T18:34:13+08:00",
-    "attempted": 0,
-    "filled": 0,
-    "failed": 0,
-    "skippedUnchanged": 0,
-    "deferred": 261,
-    "records": [],
-    "pagesFetched": 0,
-    "dailyLimits": {
-      "entities": 5,
-      "pages": 10,
-      "requests": 5
-    },
-    "notAttempted": [
-      {
-        "id": "company:7d3194f79e645c42",
-        "name": "OpenAI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:36ec3e0667191804",
-        "name": "影眸Hyper3D",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:e16fc821f34228d1",
-        "name": "阿里云",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:0874d2a9a463699b",
-        "name": "瑞银",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:4b36f0120d87009b",
-        "name": "花旗",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:522d3edeb64a7ca4",
-        "name": "小米",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:50537dab76505dfc",
-        "name": "苹果",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:702c213feab1671d",
-        "name": "字节跳动",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:82eaaba81d9dcc54",
-        "name": "华为",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:42a64c68a4a98ad5",
-        "name": "高通",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:4fe71b2b41ec432c",
-        "name": "Rokid",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:db2d53fb1c9cf5fb",
-        "name": "千问",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:0bcfcd9d0631c0f1",
-        "name": "雷鸟",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:4d9d1575a5ad1ee5",
-        "name": "影目",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:d9cd22315bf2833b",
-        "name": "博士眼镜",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:f15b4ec39fd53cc6",
-        "name": "夸克",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:1c1f4c48d20e7f33",
-        "name": "XREAL",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:141de3607294359e",
-        "name": "WorkBuddy",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:8fef46910cb04b6f",
-        "name": "讯飞",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:f38552271335e708",
-        "name": "魅族",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:65d8248237a24b83",
-        "name": "索尼",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:1e2128a465f3a188",
-        "name": "红星眼镜",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:f2ddf095f1052650",
-        "name": "暴龙眼镜",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:3fdf6153541ebb12",
-        "name": "宝岛眼镜",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:9cab9519d935a2c6",
-        "name": "丰泽电器",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:055f40196d251335",
-        "name": "LOHO",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:59b787826e0e71e4",
-        "name": "亚洲眼镜",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:559762a20c68ae81",
-        "name": "WHL",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:85b4fa309422157f",
-        "name": "大疆",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:a1aca9fd68a97328",
-        "name": "石头",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:3cc05fa4fca1c1f9",
-        "name": "洛图科技",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:809d6094c644f009",
-        "name": "Bold Games",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:88cc109720667440",
-        "name": "Dream Games",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:e9b2ec310e5e23d3",
-        "name": "Rollic",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:06a7939758ffb1df",
-        "name": "Bigger Games",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:cc6f50fb8688464f",
-        "name": "Grand Games",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:e9505155f9eb24f8",
-        "name": "Mindtail",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:e6fbf6d231e63240",
-        "name": "Surge Games",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:ea3bd73e2b506e00",
-        "name": "Meta",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:be548deba4a093d7",
-        "name": "荣耀",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:962e877f0edc3c47",
-        "name": "LUSBY",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:0f0dbf99c46034d0",
-        "name": "Ray-Ban",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:86b7b29d698963ef",
-        "name": "雷鸟创新",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:30efc15e4aae18e7",
-        "name": "浙江环动机器人关节科技股份有限公司",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:455ece81de5605d8",
-        "name": "百度",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:c4cd3a1411c35182",
-        "name": "华策影视",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:8fdc34bd9201973c",
-        "name": "西溪投资",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:61c499cb2a6a6824",
-        "name": "洛可可创新设计集团",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:6dbd7931c002a14e",
-        "name": "源码资本",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:3a2ca5e72d495bb3",
-        "name": "红杉种子基金",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:485997473c5fcee9",
-        "name": "高瓴创投",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:78de8df8a3a2c980",
-        "name": "微光创投",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:fb7ceef3367eaf71",
-        "name": "元璟资本",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:4701d311abf1aade",
-        "name": "腾讯动漫",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:0de5a453e5fa2bad",
-        "name": "Bilibili漫画",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:425840187f7a52e3",
-        "name": "Piccoma",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:459090e9ac2fc23c",
-        "name": "Peloton",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:a71fc562a0b2d755",
-        "name": "Wedbush",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:72eef5467b910ea0",
-        "name": "TD Cowen",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:6d37feda49a46792",
-        "name": "亚马逊",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:45d780f82c9247fc",
-        "name": "Perplexity",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:47c1e53c427aafb4",
-        "name": "阿里巴巴",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:481243d2f2a235c1",
-        "name": "月之暗面（Moonshot AI）",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:5fdd673ed1fcff1d",
-        "name": "三星",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:69337578b2468a88",
-        "name": "vivo",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:6586c26399cf2803",
-        "name": "闲鱼",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:ce715794357c0c39",
-        "name": "国际机器人联合会",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:35826112ed957325",
-        "name": "宇树科技",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:3309b3b14807f39a",
-        "name": "面壁智能",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:53874092e000069b",
-        "name": "腾讯",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:595eb6d5fdc3fc26",
-        "name": "软银",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:a9823db154a2d56e",
-        "name": "真格基金",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:7cdbc9084feb6ac0",
-        "name": "Manus",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:838f461c2fa673ce",
-        "name": "360 集团",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:fb1fa0498288a5eb",
-        "name": "豌豆荚",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:2871823be240f8ec",
-        "name": "PingCAP",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:016c5969e8bfe899",
-        "name": "大宇无限",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:4da24ebae5d4e92e",
-        "name": "联翩科技",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:95fdf9f6d8b77954",
-        "name": "开眼",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:6b756a96b586dc71",
-        "name": "车来了",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:355521816b3689f4",
-        "name": "DCM",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:d36022ff1cb9f6bf",
-        "name": "创新工场",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:334c869e24a471c0",
-        "name": "高盛",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:d442cd087c0f307c",
-        "name": "豆瓣",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:dbdbc8ce6333f81b",
-        "name": "UC",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:e62d592a2d4de700",
-        "name": "轻芒杂志",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:4e92bcf663f43d15",
-        "name": "Answer.AI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:87b254cd73c19b07",
-        "name": "阅览室",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:b97714a0fafcc89c",
-        "name": "Kika输入法",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:12efaa65cac11420",
-        "name": "LiveIn",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:9314249b7acd8cf4",
-        "name": "91助手",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:a7b664a8cb2f6abd",
-        "name": "安卓市场",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:2e5735c41419964a",
-        "name": "Codis",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:13ed070478ef62c3",
-        "name": "Netflix",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:9202af6ce925b26a",
-        "name": "Oracle",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:91ae68a817b9bc2b",
-        "name": "OpenStreetMap",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:cc7c0a9448646f60",
-        "name": "宇树",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:8dc72a4672894e0f",
-        "name": "自变量机器人",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:a48c258bf2e67c66",
-        "name": "梅卡曼德",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:ed71c3420dbf50a9",
-        "name": "智元机器人",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:c5456c9421743002",
-        "name": "银河通用",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:a6e5382c05dd0d16",
-        "name": "星海图",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:ce22f929f4a17467",
-        "name": "智平方",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:6420f768dc429c7c",
-        "name": "逐际动力",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:7a06b30608343952",
-        "name": "跨维智能",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:ae679821f0649c15",
-        "name": "Runway",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:f3eddf25f1b531cd",
-        "name": "形界智能",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:5ffdc8c7e252fc28",
-        "name": "HeyGen",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:803175b1a561d81b",
-        "name": "Vivix",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:b74bad9470642dd9",
-        "name": "中国科学技术大学",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:8e507a9451f49d39",
-        "name": "稚晖君",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:c70eca6b0f88f44d",
-        "name": "Anthropic",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:bbdefa2950f49882",
-        "name": "Google",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:55018455fd10b832",
-        "name": "Irregular",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:e1517be14d06cdb7",
-        "name": "MiniMax",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:6f7ac1823da81d2e",
-        "name": "DeepSeek",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:8bcef51236d613cd",
-        "name": "智谱",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:9d3508a8484ee252",
-        "name": "Vercel",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:712d5ab83727e568",
-        "name": "Invitae",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:aa0164d1516e120b",
-        "name": "Freenome",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:67f2d22514622d1b",
-        "name": "Qwen",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:bc74d4c225d5b7d9",
-        "name": "TypeSafe",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:fe38d12b2b7f7666",
-        "name": "GPT-5 nano",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:ffc50c70661c227e",
-        "name": "GPT-5.5",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:cf95e5356c4e9fcf",
-        "name": "Adaptyv Bio",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:2ce0ce673389b1f1",
-        "name": "Twist Bioscience",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:c31187dd4e46d120",
-        "name": "Genetech.Inc",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:6fcba5d96a4fadfd",
-        "name": "xAI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:e4be74b69f36e809",
-        "name": "Moonshot AI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:8137ad85efdb6687",
-        "name": "Insilico Medicine",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:0b4454ce2db8d3f7",
-        "name": "Liquid AI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:4efb5762d30dc98b",
-        "name": "Atomarine",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:95175e23c3cbf2c2",
-        "name": "Ethos",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:7b989fe5889d6645",
-        "name": "Pacific",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:35cab4db8905c6d3",
-        "name": "Computable",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:d7636f263b7a8893",
-        "name": "Stoa",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:4f14e2d30bc50993",
-        "name": "Touchmark",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:c7bb4b298b0cab0c",
-        "name": "Applied Electrodynamics",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:ff2a9d9ea064d93c",
-        "name": "Illume Labs",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:89f90c12cc1c8fae",
-        "name": "Agency Tool Company",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:7004b9865b23bdc2",
-        "name": "Drapr",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:c3ca789f94f73369",
-        "name": "Lilac Labs",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:cfd90af8403941bf",
-        "name": "Sable",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:7ca2b7da6e0f8654",
-        "name": "科大讯飞",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:62f8e1ec095e1857",
-        "name": "OpenCode",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:59bc772979c50f3f",
-        "name": "DeepSeek Harness",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:3b9e1cdd9e593b5c",
-        "name": "openJiuwen",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:6411d31f2aefa743",
-        "name": "Panda AI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:ffba58c8a113b959",
-        "name": "倍漾量化",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:524eab06aa26f35d",
-        "name": "半鞅私募",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:056bc4c79790db9d",
-        "name": "Alpha Arena",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:5cc47f80b8f803e7",
-        "name": "CogAlpha",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:12b0c8b376b8375e",
-        "name": "微软",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:240389f4b730bad4",
-        "name": "AMD",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:75ff43757192fcf4",
-        "name": "SemiAnalysis",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:c21b962e71f1969d",
-        "name": "Palantir",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:dd731337075c06e7",
-        "name": "Booz Allen Hamilton",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:574131f30999cec4",
-        "name": "Forge Global",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:5b79d0d574eedd09",
-        "name": "Figma",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:b55e1037cf055af8",
-        "name": "AT&T",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:375eca5944bc3c25",
-        "name": "VAST",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:4bdb253e5b4cdd68",
-        "name": "Fish Audio",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:b7af1798bc40989f",
-        "name": "Inferact",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:b4c80bff0e52bae7",
-        "name": "Character.AI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:46b52e5d021692a9",
-        "name": "TinyFish Inc.",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:d58fc8daf00e9bc3",
-        "name": "1Password",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:d3a053245104ec44",
-        "name": "Mercor",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:59719e65a648bd46",
-        "name": "Nebius",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:37b5fecebce720fd",
-        "name": "Micron",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:50a7fb23b67c1700",
-        "name": "Stardust AI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:a8d68980dc51c4de",
-        "name": "Octen AI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:c2bd097dd2aee147",
-        "name": "Phoenix AI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:26ec47a10270e809",
-        "name": "Yotta Labs",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:71cf0e12f723f5d8",
-        "name": "Simular AI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:f5cf54db6908c919",
-        "name": "Brix",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:67c744eb81bd3f73",
-        "name": "Kylon",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:904ca3911f5be4ff",
-        "name": "Puffo AI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:3816ea4268563c58",
-        "name": "Walnut AI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:855bb0b5866aae58",
-        "name": "IDitor",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:69cc94edb3eb8662",
-        "name": "PLAUD AI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:2dffec5fc91e8267",
-        "name": "ZooWork",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:098705a93d1aeb59",
-        "name": "Gensmo",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:426bd089d92ad0b1",
-        "name": "Ditto",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:9d0fbf9349f646f1",
-        "name": "Dex",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:7d1779c4fb057c41",
-        "name": "Visko",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:a8274014a4c678f4",
-        "name": "M12",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:08b9968f3aeb7b8c",
-        "name": "Striker Venture Partners",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:afdfb04d4cd1a4ca",
-        "name": "Leonis Capital",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:8cf297c8b0b35776",
-        "name": "Arcanum Capital",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:f724f49e6aa19e02",
-        "name": "Acorn Pacific Ventures",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:28168e3e4fdbc6b1",
-        "name": "Lexicon Branding",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:d8aa831d0a10600f",
-        "name": "Ora-Orb",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:26e59d6a3c92de80",
-        "name": "Instinct",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:aa2fc71224b8249e",
-        "name": "Today AI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:07f1ddc2ae00ab7b",
-        "name": "中信建投",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:9b58e68145a79ca0",
-        "name": "Wind",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:99da41b4a60e34d3",
-        "name": "同花顺",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:9b632338ff201419",
-        "name": "东方财富",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:800ba6f5a80b7e78",
-        "name": "恒生电子",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:82e8df4b8ce40dbd",
-        "name": "标普",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:213c5450340bc288",
-        "name": "财联社",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:5df3c4440e1b60f5",
-        "name": "财新",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:961a46b10d474f59",
-        "name": "中金公司",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:3d7372c4ddb8c99a",
-        "name": "易方达",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:0d6030b311785a79",
-        "name": "红杉资本",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:e7e901fd1d79de18",
-        "name": "工商银行",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:b800f08ce3e9d46d",
-        "name": "汇添富",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:2abf8289b2f2113f",
-        "name": "蚂蚁数科",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:0fb9765e58d296e5",
-        "name": "Bloomberg",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:7cccf4963a5a4fa8",
-        "name": "国寿股权",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:943554fd41b11461",
-        "name": "人保资本",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:cbec38b2a84e91d3",
-        "name": "新华财经",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:a00973e736085258",
-        "name": "天眼查",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:64d949731cc8b84f",
-        "name": "元典法律",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:43215b26e86d6bff",
-        "name": "腾讯文档",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:27389885c97c4ab1",
-        "name": "钉钉",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:f3943a7b368154d1",
-        "name": "企业微信",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:5cc3f82838ba7260",
-        "name": "Office",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:29bfc880e3d6ff83",
-        "name": "WPS",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:536bc8fc40cad38c",
-        "name": "联想",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:cdbeb987b4043111",
-        "name": "深圳本惟无界科技有限公司",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:04e61ad2f4cefc5f",
-        "name": "联想创投",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:6e44f8b27c30f4b1",
-        "name": "中金保时捷",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:7f951a166512d5d6",
-        "name": "蓝驰创投",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:c23888e0fd282e36",
-        "name": "元生资本",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:2cbde498153a59d1",
-        "name": "启赋资本",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:6db3cfa7a8329ecb",
-        "name": "清科控股",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:4cbf38ae7e757b61",
-        "name": "向阳资本",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:245f1e177c5169cb",
-        "name": "Hark",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:84cf0413e1d314bc",
-        "name": "中科紫东太初（北京）科技有限公司",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:6ef7552b4631e789",
-        "name": "努比亚",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:8147e6fed86d42c1",
-        "name": "OPPO",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:3bc9f78028bc2dba",
-        "name": "CuspAI",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:4cfb159352e76593",
-        "name": "CodexRadar",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:54fc72f17aa6be98",
-        "name": "豆包爱学",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:84308bea454057aa",
-        "name": "LinkedIn",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:334fae0bf2c88515",
-        "name": "Articuler.ai",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:8bdd9fe2717e1d3d",
-        "name": "麟阁创投",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:21c5a9691d332d8f",
-        "name": "拙朴投资",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:36d546fcbb9aa855",
-        "name": "王川家族办公室",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:b52f9fb7dc32bc88",
-        "name": "奇绩创坛",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:3deeed6ec8da7018",
-        "name": "Boardy",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:4f9c2d632136e270",
-        "name": "Happenstance",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:9cda38ea3a2bd78c",
-        "name": "Series",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:03fa5d2196731301",
-        "name": "Shapr",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:d81097e0c5dcb0b9",
-        "name": "Polywork",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:36ad547b55d193d3",
-        "name": "ZhenFund",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:f5137324ca488df7",
-        "name": "Analog Canvas",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:197db6d3d142de15",
-        "name": "Virtuoso-Bridge-lite",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:5fdb9e611ff60307",
-        "name": "DeepMaterial",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:0476764c9cd00a65",
-        "name": "BlueRun Ventures",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:8ab3535295586094",
-        "name": "Easel",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:0caee180da9d0f3f",
-        "name": "Fireworks",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:862b6627b54a53bf",
-        "name": "Genspark",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:f9417102043b313c",
-        "name": "Anysphere, Inc.",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:c9fd53f3265ef997",
-        "name": "Harvey",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:9ba8bec5d58fb025",
-        "name": "Glean",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:0bc5a70994c9ffe5",
-        "name": "水母智能",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:60094bcf5292c490",
-        "name": "英伟达",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:916a98f0fa2a39af",
-        "name": "IBM",
-        "reason": "daily_limit"
-      },
-      {
-        "id": "company:8d4321d936320802",
-        "name": "NVIDIA",
-        "reason": "daily_limit"
-      }
-    ],
-    "unknownDateReservations": 0,
-    "queue": {
-      "total": 261,
-      "basicProfile": 218,
-      "pendingOwnership": 39,
-      "financialOnly": 4,
-      "processed": 0,
-      "deferred": 261,
-      "skippedUnchanged": 0,
-      "legacyStateEntries": 21,
-      "discoverySelectedId": null
-    },
-    "dailyUsageBefore": {
-      "entities": 5,
-      "pages": 8,
-      "requests": 5
-    },
-    "cacheHits": 0,
-    "replayOnly": false,
-    "dailyUsageAfter": {
-      "entities": 5,
-      "pages": 8,
-      "requests": 5
-    },
-    "dailyLimitReached": true,
-    "circuitOpen": false,
-    "circuitReason": null
   }
 }

@@ -108,7 +108,8 @@ def validate_news_pools(snapshot: dict, processed: dict, tx: dict | None = None)
                 expected = tag_news.to_display(tx, classification) if classification else None
                 if article.get('classification') != expected:
                     raise ValueError(f'{name}候选新闻与网页分类不一致')
-                for key in ('garenaSelection', 'summaryOrigin'):
+                for key in ('garenaSelection', 'summaryOrigin', 'contentStatus',
+                            'classificationStatus', 'summaryStatus'):
                     if key in source and article.get(key) != source[key]:
                         raise ValueError(f'{name}候选新闻与网页{key}不一致')
         return visible

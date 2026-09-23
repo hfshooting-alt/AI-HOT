@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """enrich_news.py — 正文加工 harness：一次模型调用同时产出 摘要 + 分类 + 标签。
 
-复用 tag_news 的 taxonomy 加载、validate() 校验链与缓存思想；分类/标签不另起规则。
+精选复用 tag_news 的 taxonomy 校验和 v4 缓存；全部文章使用独立通用分类提示词。
 与 tag_news.py 的边界：
-  - tag_news：标题+摘要各 800 字符的轻调用（AI HOT API 条目定稿后补标）
+  - tag_news：保留 taxonomy 加载、展示与历史轻量分类兼容工具
   - enrich_news：正文上限 enrich.content_input_chars（默认 16,000 字符）的重调用
-    （Manus 公众号正文），预算/并发/超时全部走 taxonomy.json 的 enrich 配置块
+    （经脚本验证的 Manus 正文），预算/并发/超时走 taxonomy.json 的 enrich 配置块
+  - 分类独立于精选；缺正文不凭标题打标，非精选不强制生成 AI 行业维度
 
 用法:
     # 离线自检（不发请求）
@@ -39,6 +40,7 @@ ENRICH_DEFAULTS = {
     "max_attempts": 1,
 }
 ENRICH_PROMPT_VERSION = 4
+LIBRARY_PROMPT_VERSION = 1
 # 摘要中不允许出现的模型自述/Markdown 痕迹
 SELF_REF_MARKERS = ("作为AI", "作为 AI", "作为语言模型", "我无法", "我不能")
 
@@ -47,11 +49,44 @@ def is_preview(title):
     return bool(re.search(r'预告|前瞻(?!性)|预热', title) and not re.search(r'已正式发布|现已上线', title))
 
 
+def event_boundary_reason(category, title):
+    if category != 'release':
+        return None
+    if is_preview(title):
+        return 'preview_not_release'
+    # A sales record alone reports an existing product's performance. Keep
+    # titles that also indicate an actual new product/version launch untouched.
+    launch = re.search(r'新作|新品|新游|新产品|新版本|重大版本|发布|上线|发售|推出', title)
+    milestone = re.search(r'(?:销量|售出|卖出)\s*(?:已|累计|正式|首次|再度|再|已累计)*\s*'
+                          r'(?:突破|达到|超过|超越|超|破)\s*[0-9０-９一二三四五六七八九十百千万亿两]+', title)
+    if milestone and not launch:
+        return 'sales_milestone_not_release'
+    return None
+
+
 def enforce_event_boundary(raw, title):
-    """An explicit preview is not an actual release under the approved taxonomy."""
-    if raw.get('category') == 'release' and is_preview(title):
+    """Explicit previews and sales-only milestones are not new releases."""
+    if event_boundary_reason(raw.get('category'), title):
         return {**raw, 'category': 'general', 'tags': {}, 'release_evidence': None}
     return raw
+
+
+def release_evidence_match(quote: str, content: str) -> str | None:
+    """Match one contiguous excerpt, allowing Unicode whitespace differences only.
+
+    Punctuation, words, character order and intervening non-whitespace text
+    remain significant. This never joins separated excerpts across omitted text.
+    """
+    quote = quote.strip()
+    if not quote:
+        return None
+    if quote in content:
+        return 'exact'
+    compact_quote = ''.join(character for character in quote if not character.isspace())
+    compact_content = ''.join(character for character in content if not character.isspace())
+    if compact_quote and compact_quote in compact_content:
+        return 'whitespace_normalized'
+    return None
 
 
 def enrich_cfg(tx: dict) -> dict:
@@ -111,6 +146,29 @@ def build_enrich_prompt(tx: dict, title: str, mp_name: str, content: str) -> tup
     system = "\n".join(lines)
     user = f"标题：{title}\n媒体：{mp_name}\n\n正文：\n{content[:cfg['content_input_chars']]}"
     return system, user
+
+
+def build_library_prompt(tx: dict, title: str, mp_name: str, content: str) -> tuple[str, str]:
+    """Independent, topic-neutral classification; the selected v4 prompt stays unchanged."""
+    cfg = enrich_cfg(tx)
+    system = '\n'.join([
+        '你是新闻加工引擎，根据所给正文写中文事实摘要，并给文章分类。是否进入投资精选由另一独立步骤决定。',
+        f"摘要通常为 {cfg['summary_min_chars']}—{cfg['summary_max_chars']} 字，以完整句子结束；短文只保留已有事实，不为字数补充背景。",
+        '忠实概括文章主事件或回顾主线，保留时间、观点归属与不确定性。汇编需概括主要内容，不只摘开头。',
+        '文章可涉及任何行业，不强行寻找或编造 AI 主线。不得把黄金、家电、电商等普通内容改写为 AI 新闻。',
+        '不得使用 Markdown、链接、列表或模型自述；不重复标题、作者和版权声明。',
+        '按文章主事件依次判定六个互斥类别：',
+        'financing：本轮新增融资、并购或上市事件；只讨论资本市场、行业趋势或回顾旧融资不算新增融资。',
+        'release：新产品、新模型或重大版本已经正式推出。使用体验、对比、推荐、修复漏洞、作品、活动或未来预告不算新品发布。',
+        'bigtech：大型科技企业本轮战略、组织、经营等动态，且主事件不属于前述类别。',
+        'paper：研究论文或科研成果。',
+        'interview：以采访、人物访谈或人物回顾为主。',
+        'general：其余新闻、行业分析、评论、使用体验及综合回顾。',
+        '本步骤不判 AI 行业维度，tags 必须是空对象 {}，不得自动填“其他AI应用”。',
+        'release 必须提供 release_evidence，从输入正文逐字摘取至少4字的已正式推出证据；其他类别该字段为 null。证据不足不得归 release。',
+        '只输出 JSON 对象：{"summary":"中文事实摘要","category":"六类之一","tags":{},"release_evidence":null}',
+    ])
+    return system, f"标题：{title}\n媒体：{mp_name}\n\n正文：\n{content[:cfg['content_input_chars']]}"
 
 
 # ================= 摘要校验与确定性 fallback =================
@@ -184,7 +242,7 @@ def fallback_enrichment(tx: dict, content: str, title: str = "") -> dict:
     }
 
 
-# ================= 单条加工（含重试与兜底） =================
+# ================= 单条加工（一次请求与确定性兜底） =================
 
 def enrich_one(tx: dict, item: dict) -> dict:
     """item 需含 title / mpName / content_text。恒返回合法结构。
@@ -203,61 +261,104 @@ def enrich_one(tx: dict, item: dict) -> dict:
         return {"summary": "", "classification": tag_news.fallback_result(tx),
                 "enrichmentStatus": "failed", "modelAttempted": False, "cacheHit": False,
                 "error": {'category': 'content', 'httpStatus': None, 'systemic': False}}
-    system, user = build_enrich_prompt(tx, title, item.get("mpName") or "", content)
+    library = cfg.get('article_scope') == 'all_articles'
+    prompt = build_library_prompt if library else build_enrich_prompt
+    system, user = prompt(tx, title, item.get("mpName") or "", content)
+    diagnostic = {}
     last_error = {'category': 'invalid_response', 'httpStatus': None, 'systemic': False}
-    for attempt in range(max(1, min(2, int(cfg["max_attempts"])))):
-        try:
-            text = call_llm(tx, system, user + ("\n注意：只输出 JSON 对象。" if attempt else ""),
-                            timeout_seconds=cfg["timeout_seconds"], operation="news_enrichment")
-            raw = parse_output(text)
-            # A valid summary cannot turn an invalid classification into a
-            # successful model call. Keep existing per-dimension normalization.
-            if isinstance(raw, dict):
-                raw = enforce_event_boundary(raw, title)
-                if raw.get('category') == 'release' and (not isinstance(raw.get('release_evidence'), str)
-                        or len(raw['release_evidence'].strip()) < 4
-                        or raw['release_evidence'].strip() not in content):
-                    last_error = {'category': 'content', 'httpStatus': None, 'systemic': False}
-                    continue
-                raw["summary"] = fit_model_summary(tx, raw.get("summary"))
-                valid_categories = {c["id"] for c in tx["categories"]}
-                classification_structured = (
-                    raw.get("category") in valid_categories and isinstance(raw.get("tags"), dict)
-                )
-                if not classification_structured:
-                    last_error = {'category': 'invalid_response', 'httpStatus': None, 'systemic': False}
-                    break
-                classification = tag_news.validate(tx, raw)
+
+    def finish(result, reason=None):
+        if reason:
+            diagnostic['validationReason'] = reason
+        return {**result, 'modelAttempted': True, 'cacheHit': False,
+                'privateReview': copy.deepcopy(diagnostic)}
+
+    # One request only. Explicit recovery, rather than an internal retry, owns
+    # any later attempt at a failed article.
+    try:
+        text = call_llm(tx, system, user, timeout_seconds=cfg["timeout_seconds"], operation="news_enrichment")
+        diagnostic['modelResponse'] = text
+        raw = parse_output(text)
+        if not isinstance(raw, dict):
+            diagnostic['validationReason'] = 'response_invalid_json_object'
+        else:
+            boundary_reason = event_boundary_reason(raw.get('category'), title)
+            if boundary_reason:
+                diagnostic['classificationBoundary'] = {'reason': boundary_reason, 'from': 'release', 'to': 'general'}
+            raw = enforce_event_boundary(raw, title)
+            release_reason = None
+            if raw.get('category') == 'release':
+                quote = raw.get('release_evidence')
+                if quote is None:
+                    release_reason = 'release_evidence_missing'
+                elif not isinstance(quote, str):
+                    release_reason = 'release_evidence_not_string'
+                elif len(quote.strip()) < 4:
+                    release_reason = 'release_evidence_too_short'
+                else:
+                    match = release_evidence_match(quote, content)
+                    diagnostic['evidenceMatch'] = match or 'not_found'
+                    if match is None:
+                        release_reason = 'release_evidence_not_in_source'
+            if release_reason:
+                last_error = {'category': 'content', 'httpStatus': None, 'systemic': False}
+                diagnostic['validationReason'] = release_reason
+            elif (raw.get('category') not in {c['id'] for c in tx['categories']}
+                    or not isinstance(raw.get('tags'), dict)):
+                diagnostic['validationReason'] = 'classification_structure_invalid'
+            else:
+                # Library-only classification must not invent an AI industry.
+                # Selected articles retain the existing full taxonomy validator.
+                classification = ({'category': raw['category'], 'tags': {},
+                                   'autoFallback': False, 'autoFilled': []}
+                                  if library else tag_news.validate(tx, raw))
+                raw_summary = fit_model_summary(tx, raw.get('summary'))
+                base = {'classification': classification, 'classificationStatus': 'complete'}
                 if brief:
-                    return {'summary': source_text(item), 'summaryOrigin': 'upstream_brief',
-                            'classification': classification, 'enrichmentStatus': 'complete',
-                            'modelAttempted': True, 'cacheHit': False}
-                if validate_summary(tx, raw.get("summary")):
-                    return {"summary": raw["summary"].strip(),
-                            "summaryOrigin": "model",
-                            "classification": classification,
-                            "enrichmentStatus": "complete", "modelAttempted": True, "cacheHit": False}
+                    return finish({**base, 'summary': source_text(item), 'summaryOrigin': 'upstream_brief',
+                                   'summaryStatus': 'complete', 'enrichmentStatus': 'complete'})
+                if validate_summary(tx, raw_summary):
+                    return finish({**base, 'summary': raw_summary.strip(), 'summaryOrigin': 'model',
+                                   'summaryStatus': 'complete', 'enrichmentStatus': 'complete'})
                 source_summary = deterministic_summary(tx, content, title)
-                if classification_structured and source_summary:
-                    return {"summary": source_summary,
-                            "rejectedModelSummary": raw.get("summary"),
-                            "summaryOrigin": "source_extract",
-                            "classification": classification,
-                            "enrichmentStatus": "complete", "modelAttempted": True, "cacheHit": False}
-        except Exception as exc:  # Transport errors never trigger blind paid retries.
-            last_error = safe_error(exc)
-            break
-    return {**fallback_enrichment(tx, content, title), 'error': last_error,
-            'modelAttempted': True, 'cacheHit': False}
+                if source_summary:
+                    return finish({**base, 'summary': source_summary, 'summaryOrigin': 'source_extract',
+                                   'summaryStatus': 'complete', 'enrichmentStatus': 'complete',
+                                   'rejectedModelSummary': raw.get('summary')}, 'summary_replaced_with_source_excerpt')
+                return finish({**base, 'summary': '', 'summaryStatus': 'failed', 'enrichmentStatus': 'partial',
+                               'error': {'category': 'content', 'httpStatus': None, 'systemic': False}},
+                              'summary_invalid_no_source_excerpt')
+    except Exception as exc:
+        last_error = safe_error(exc)
+        diagnostic['validationReason'] = ('response_invalid_json' if isinstance(exc, json.JSONDecodeError)
+                                          else 'request_or_response_error')
+    fallback = fallback_enrichment(tx, content, title)
+    return finish({**fallback, 'classificationStatus': 'failed',
+                   'summaryStatus': 'complete' if fallback['summary'] else 'failed', 'error': last_error})
+
+
+def valid_classification(tx: dict, result: dict) -> bool:
+    classification = result.get('classification')
+    return (isinstance(classification, dict) and classification.get('autoFallback') is False
+            and classification.get('category') in {c['id'] for c in tx['categories']}
+            and isinstance(classification.get('tags'), dict))
+
+
+def cacheable_enrichment(tx: dict, result: dict) -> bool:
+    return (valid_enrichment(tx, result) or (result.get('enrichmentStatus') == 'partial'
+            and result.get('summaryStatus') == 'failed' and valid_classification(tx, result)))
+
+
+def cache_result(result: dict) -> dict:
+    # Raw responses/quotes belong only in the private inputs review, never in
+    # the published data/cache tree or article-library projection.
+    return {k: copy.deepcopy(v) for k, v in result.items()
+            if k not in ('privateReview', 'rejectedModelSummary', 'processingCacheKey', 'processingPrompt')}
 
 
 def valid_enrichment(tx: dict, result: dict) -> bool:
-    classification = result.get('classification') or {}
     return (result.get('enrichmentStatus') == 'complete' and bool(result.get('summary'))
-            and isinstance(classification, dict)
-            and classification.get('autoFallback') is False
-            and classification.get('category') in {c['id'] for c in tx['categories']}
-            and isinstance(classification.get('tags'), dict))
+            and valid_classification(tx, result))
 
 
 # ================= 缓存与批量 =================
@@ -277,6 +378,8 @@ def enrich_cache_key(tx: dict, item: dict) -> str:
     """
     content_sha = hashlib.sha256((item.get("content_text") or "").encode("utf-8")).hexdigest()[:16]
     suffix = ':brief-v1' if is_brief(item) else ''
+    if enrich_cfg(tx).get('article_scope') == 'all_articles':
+        suffix += f':library-v{LIBRARY_PROMPT_VERSION}'
     return f"{tag_news.cache_prefix(tx)}:enrich-v{ENRICH_PROMPT_VERSION}:{enrich_item_key(item)}:{content_sha}{suffix}"
 
 
@@ -291,11 +394,23 @@ def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict
     todo = []
     for it in items:
         k = enrich_cache_key(tx, it)
-        if isinstance(cache.get(k), dict) and valid_enrichment(tx, cache[k]):
-            cached = cache[k]
-            if (cached.get('classification') or {}).get('category') == 'release' and is_preview(it.get('title', '')):
-                cached = {**cached, 'classification': tag_news.validate(tx, {'category': 'general', 'tags': {}})}
-            results[enrich_item_key(it)] = {**cached, 'modelAttempted': False, 'cacheHit': True}
+        if cfg.get('article_scope') == 'all_articles':
+            legacy_tx = copy.deepcopy(tx)
+            legacy_tx.setdefault('enrich', {}).pop('article_scope', None)
+            legacy_key = enrich_cache_key(legacy_tx, it)
+            if isinstance(cache.get(legacy_key), dict) and valid_enrichment(legacy_tx, cache[legacy_key]):
+                k = legacy_key
+        if isinstance(cache.get(k), dict) and cacheable_enrichment(tx, cache[k]):
+            cached = cache_result(cache[k])
+            boundary_reason = event_boundary_reason((cached.get('classification') or {}).get('category'), it.get('title', ''))
+            if boundary_reason:
+                classification = ({'category': 'general', 'tags': {}, 'autoFallback': False, 'autoFilled': []}
+                    if cfg.get('article_scope') == 'all_articles' else tag_news.validate(tx, {'category': 'general', 'tags': {}}))
+                cached = {**cached, 'classification': classification, 'privateReview': {
+                    'classificationBoundary': {'reason': boundary_reason, 'from': 'release', 'to': 'general'}}}
+            results[enrich_item_key(it)] = {**cached, 'modelAttempted': False, 'cacheHit': True,
+                'processingCacheKey': k, 'processingPrompt': (f'library-v{LIBRARY_PROMPT_VERSION}'
+                    if k.endswith(f':library-v{LIBRARY_PROMPT_VERSION}') else f'selected-v{ENRICH_PROMPT_VERSION}')}
         else:
             todo.append(it)
     if todo:
@@ -329,11 +444,13 @@ def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict
                     circuit.observe({'status': 'complete' if valid_enrichment(tx, r) else 'failed',
                                      'error': r.get('error')})
                     key = enrich_cache_key(tx, it)
-                    if valid_enrichment(tx, r):
-                        cache[key] = r
+                    if cacheable_enrichment(tx, r):
+                        cache[key] = cache_result(r)
                     else:
                         cache.pop(key, None)  # 清除旧降级缓存，下次运行可恢复。
-                    results[enrich_item_key(it)] = r
+                    results[enrich_item_key(it)] = {**r, 'processingCacheKey': key,
+                        'processingPrompt': (f'library-v{LIBRARY_PROMPT_VERSION}'
+                            if cfg.get('article_scope') == 'all_articles' else f'selected-v{ENRICH_PROMPT_VERSION}')}
                     done += 1
                     tag_news.save_cache(cache_path, cache)
                     submit_next()
@@ -343,6 +460,13 @@ def enrich_items(items: list[dict], tx: dict, cache_path: str) -> dict[str, dict
         if circuit.stopped:
             results = {key: {**value, 'batchStopped': True, 'circuitReason': circuit.reason}
                        for key, value in results.items()}
+    # Reviewed summaries are a publication projection, applied only after all
+    # model cache writes. Never relabel the original cached model response.
+    from news_editorial_reviews import apply_summary_review
+    for item in items:
+        key = enrich_item_key(item)
+        if key in results:
+            results[key] = apply_summary_review(item, results[key])
     return results
 
 

@@ -190,19 +190,12 @@
       }
     ],
     "candidateArticles": 37,
-    "publishedArticles": 11,
+    "publishedArticles": 12,
     "articleLibraryCount": 37,
-    "selectedArticles": 11,
+    "selectedArticles": 12,
     "excludedArticles": 15,
-    "quarantinedArticles": 11,
+    "quarantinedArticles": 10,
     "quarantined": [
-      {
-        "id": "manus:5b57ba973c441488",
-        "title": "Jev，让全球程序员玩疯了",
-        "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
-        "stage": "enrichment",
-        "reason": "摘要或分类未通过校验"
-      },
       {
         "id": "manus:e2af3497e6d0f79c",
         "title": "扫描全能王亮相2026云栖大会，一句话让“糊图”变高质量报告",
@@ -291,12 +284,12 @@
       "startAt": "2026-09-21T18:02:50+08:00",
       "endAt": "2026-09-22T18:02:50+08:00"
     },
-    "total": 11,
+    "total": 12,
     "lead": null,
     "sections": [
       {
         "label": "产品和模型发布",
-        "count": 1,
+        "count": 2,
         "items": [
           {
             "id": "manus:c5a3a038813ceba8",
@@ -328,6 +321,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "release",
               "catLabel": "产品和模型发布",
@@ -344,7 +340,58 @@
               "autoFallback": false
             },
             "num": 1,
-            "timeText": "今天 16:49"
+            "timeText": "昨天 16:49"
+          },
+          {
+            "id": "manus:5b57ba973c441488",
+            "title": "Jev，让全球程序员玩疯了",
+            "summary": "前OpenAI研究员Diogo Almeida推出名为Jev的模型，该模型不生成文字，只输出概率判断，被称为System One。上线数天后，全球开发者围绕它创建了近五百个开源项目。",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "source": "腾讯新闻转载：极客公园",
+            "sourceType": "media",
+            "category": "行业动态",
+            "categoryUnclassified": false,
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "publishedPrecision": "datetime",
+            "timeEvidence": null,
+            "discoveredAt": "",
+            "timeBasis": "published",
+            "score": null,
+            "selected": null,
+            "aihotUrl": "",
+            "originalUrl": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "reason": null,
+            "mpName": "极客公园",
+            "sourceRefs": [
+              {
+                "collector": "manus",
+                "source": "极客公园",
+                "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+                "publishedAt": "2026-09-21T19:04:00+08:00"
+              }
+            ],
+            "evidenceKind": "article_body",
+            "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
+            "classification": {
+              "cat": "release",
+              "catLabel": "产品和模型发布",
+              "dims": [
+                {
+                  "label": "行业",
+                  "value": "AI模型"
+                },
+                {
+                  "label": "发布主体",
+                  "value": "创业公司"
+                }
+              ],
+              "autoFallback": false
+            },
+            "num": 12,
+            "timeText": "9/21 19:04"
           }
         ]
       },
@@ -382,6 +429,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "bigtech",
               "catLabel": "大厂动态",
@@ -398,7 +448,7 @@
               "autoFallback": false
             },
             "num": 2,
-            "timeText": "今天 16:19"
+            "timeText": "昨天 16:19"
           },
           {
             "id": "manus:35bfbe3cef5e9148",
@@ -430,6 +480,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "bigtech",
               "catLabel": "大厂动态",
@@ -446,7 +499,7 @@
               "autoFallback": false
             },
             "num": 8,
-            "timeText": "今天 10:17"
+            "timeText": "昨天 10:17"
           },
           {
             "id": "manus:ac29b8a47f1c9675",
@@ -478,6 +531,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "bigtech",
               "catLabel": "大厂动态",
@@ -494,7 +550,7 @@
               "autoFallback": false
             },
             "num": 9,
-            "timeText": "今天 09:46"
+            "timeText": "昨天 09:46"
           },
           {
             "id": "manus:ac4b5a5645c8e472",
@@ -526,6 +582,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "bigtech",
               "catLabel": "大厂动态",
@@ -542,7 +601,7 @@
               "autoFallback": false
             },
             "num": 10,
-            "timeText": "今天 08:44"
+            "timeText": "昨天 08:44"
           },
           {
             "id": "manus:1c253b292121c27d",
@@ -574,6 +633,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "bigtech",
               "catLabel": "大厂动态",
@@ -590,7 +652,7 @@
               "autoFallback": false
             },
             "num": 11,
-            "timeText": "昨天 19:04"
+            "timeText": "9/21 19:04"
           }
         ]
       },
@@ -628,6 +690,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "general",
               "catLabel": "泛行业新闻",
@@ -635,7 +700,7 @@
               "autoFallback": false
             },
             "num": 3,
-            "timeText": "今天 16:11"
+            "timeText": "昨天 16:11"
           },
           {
             "id": "manus:20da35e6e3ca2671",
@@ -667,6 +732,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "general",
               "catLabel": "泛行业新闻",
@@ -674,7 +742,7 @@
               "autoFallback": false
             },
             "num": 5,
-            "timeText": "今天 14:24"
+            "timeText": "昨天 14:24"
           },
           {
             "id": "manus:c4b9f539580beacd",
@@ -706,6 +774,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "general",
               "catLabel": "泛行业新闻",
@@ -713,7 +784,7 @@
               "autoFallback": false
             },
             "num": 6,
-            "timeText": "今天 13:09"
+            "timeText": "昨天 13:09"
           }
         ]
       },
@@ -751,6 +822,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "financing",
               "catLabel": "融资动态",
@@ -767,7 +841,7 @@
               "autoFallback": false
             },
             "num": 4,
-            "timeText": "今天 16:02"
+            "timeText": "昨天 16:02"
           },
           {
             "id": "manus:5caecfd562d1df63",
@@ -799,6 +873,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "financing",
               "catLabel": "融资动态",
@@ -815,7 +892,7 @@
               "autoFallback": false
             },
             "num": 7,
-            "timeText": "今天 11:38"
+            "timeText": "昨天 11:38"
           }
         ]
       }
@@ -835,7 +912,7 @@
       },
       {
         "label": "行业动态",
-        "count": 11
+        "count": 12
       },
       {
         "label": "论文研究",
@@ -851,7 +928,7 @@
       "degraded": true,
       "note": "按当前批次来源状态展示"
     },
-    "generatedAt": "2026-09-22T10:34:02Z",
+    "generatedAt": "2026-09-23T02:55:04Z",
     "vol": "VOL.2026-09-22"
   },
   "weekly": {
@@ -862,12 +939,12 @@
       "label": "2026年9月21日 星期一 至今",
       "cnLabel": "二〇二六年九月二十一日 星期一 至今 · 本周进行中"
     },
-    "total": 12,
+    "total": 13,
     "lead": null,
     "sections": [
       {
         "label": "产品和模型发布",
-        "count": 1,
+        "count": 2,
         "items": [
           {
             "id": "manus:c5a3a038813ceba8",
@@ -899,6 +976,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "release",
               "catLabel": "产品和模型发布",
@@ -915,7 +995,58 @@
               "autoFallback": false
             },
             "num": 1,
-            "timeText": "今天 16:49"
+            "timeText": "昨天 16:49"
+          },
+          {
+            "id": "manus:5b57ba973c441488",
+            "title": "Jev，让全球程序员玩疯了",
+            "summary": "前OpenAI研究员Diogo Almeida推出名为Jev的模型，该模型不生成文字，只输出概率判断，被称为System One。上线数天后，全球开发者围绕它创建了近五百个开源项目。",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "source": "腾讯新闻转载：极客公园",
+            "sourceType": "media",
+            "category": "行业动态",
+            "categoryUnclassified": false,
+            "publishedAt": "2026-09-21T19:04:00+08:00",
+            "publishedPrecision": "datetime",
+            "timeEvidence": null,
+            "discoveredAt": "",
+            "timeBasis": "published",
+            "score": null,
+            "selected": null,
+            "aihotUrl": "",
+            "originalUrl": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "reason": null,
+            "mpName": "极客公园",
+            "sourceRefs": [
+              {
+                "collector": "manus",
+                "source": "极客公园",
+                "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+                "publishedAt": "2026-09-21T19:04:00+08:00"
+              }
+            ],
+            "evidenceKind": "article_body",
+            "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
+            "classification": {
+              "cat": "release",
+              "catLabel": "产品和模型发布",
+              "dims": [
+                {
+                  "label": "行业",
+                  "value": "AI模型"
+                },
+                {
+                  "label": "发布主体",
+                  "value": "创业公司"
+                }
+              ],
+              "autoFallback": false
+            },
+            "num": 12,
+            "timeText": "9/21 19:04"
           }
         ]
       },
@@ -953,6 +1084,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "bigtech",
               "catLabel": "大厂动态",
@@ -969,7 +1103,7 @@
               "autoFallback": false
             },
             "num": 2,
-            "timeText": "今天 16:19"
+            "timeText": "昨天 16:19"
           },
           {
             "id": "manus:35bfbe3cef5e9148",
@@ -1001,6 +1135,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "bigtech",
               "catLabel": "大厂动态",
@@ -1017,7 +1154,7 @@
               "autoFallback": false
             },
             "num": 8,
-            "timeText": "今天 10:17"
+            "timeText": "昨天 10:17"
           },
           {
             "id": "manus:ac29b8a47f1c9675",
@@ -1049,6 +1186,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "bigtech",
               "catLabel": "大厂动态",
@@ -1065,7 +1205,7 @@
               "autoFallback": false
             },
             "num": 9,
-            "timeText": "今天 09:46"
+            "timeText": "昨天 09:46"
           },
           {
             "id": "manus:ac4b5a5645c8e472",
@@ -1097,6 +1237,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "bigtech",
               "catLabel": "大厂动态",
@@ -1113,7 +1256,7 @@
               "autoFallback": false
             },
             "num": 10,
-            "timeText": "今天 08:44"
+            "timeText": "昨天 08:44"
           },
           {
             "id": "manus:1c253b292121c27d",
@@ -1145,6 +1288,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "bigtech",
               "catLabel": "大厂动态",
@@ -1161,7 +1307,7 @@
               "autoFallback": false
             },
             "num": 11,
-            "timeText": "昨天 19:04"
+            "timeText": "9/21 19:04"
           }
         ]
       },
@@ -1199,6 +1345,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "general",
               "catLabel": "泛行业新闻",
@@ -1206,7 +1355,7 @@
               "autoFallback": false
             },
             "num": 3,
-            "timeText": "今天 16:11"
+            "timeText": "昨天 16:11"
           },
           {
             "id": "manus:20da35e6e3ca2671",
@@ -1238,6 +1387,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "general",
               "catLabel": "泛行业新闻",
@@ -1245,7 +1397,7 @@
               "autoFallback": false
             },
             "num": 5,
-            "timeText": "今天 14:24"
+            "timeText": "昨天 14:24"
           },
           {
             "id": "manus:c4b9f539580beacd",
@@ -1277,6 +1429,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "general",
               "catLabel": "泛行业新闻",
@@ -1284,7 +1439,7 @@
               "autoFallback": false
             },
             "num": 6,
-            "timeText": "今天 13:09"
+            "timeText": "昨天 13:09"
           },
           {
             "id": "manus:5d750df8d9094b20",
@@ -1321,8 +1476,8 @@
               "dims": [],
               "autoFallback": false
             },
-            "num": 12,
-            "timeText": "昨天 16:06"
+            "num": 13,
+            "timeText": "9/21 16:06"
           }
         ]
       },
@@ -1360,6 +1515,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "financing",
               "catLabel": "融资动态",
@@ -1376,7 +1534,7 @@
               "autoFallback": false
             },
             "num": 4,
-            "timeText": "今天 16:02"
+            "timeText": "昨天 16:02"
           },
           {
             "id": "manus:5caecfd562d1df63",
@@ -1408,6 +1566,9 @@
             ],
             "evidenceKind": "article_body",
             "summaryOrigin": "model",
+            "contentStatus": "available",
+            "classificationStatus": "complete",
+            "summaryStatus": "complete",
             "classification": {
               "cat": "financing",
               "catLabel": "融资动态",
@@ -1424,7 +1585,7 @@
               "autoFallback": false
             },
             "num": 7,
-            "timeText": "今天 11:38"
+            "timeText": "昨天 11:38"
           }
         ]
       }
@@ -1444,7 +1605,7 @@
       },
       {
         "label": "行业动态",
-        "count": 12
+        "count": 13
       },
       {
         "label": "论文研究",
@@ -1460,7 +1621,7 @@
       "degraded": true,
       "note": "按当前批次来源状态展示"
     },
-    "generatedAt": "2026-09-22T10:34:02Z",
+    "generatedAt": "2026-09-23T02:55:04Z",
     "vol": "VOL.2026 · 九月第3周"
   },
   "history": [],
@@ -1473,12 +1634,12 @@
       {
         "id": "manus:dcf1e7c27d2ef5d4",
         "title": "9成愿望单来自海外，死磕国内没人碰的赛道：对话最“叛逆”国产大作",
-        "summary": "",
+        "summary": "《山外山》是一款由初创团队青庖网络开发的国产SOC游戏，题材取材于《山海经》，构建东方神话与诸夏先民世界。制作人曹潇文表示，选择SOC赛道是因为该品类可挖掘内容多、理论上限高。游戏核心玩法围绕远古人类文明演化，包含制作工具、驯养巨兽、挑战诸神等，并引入动态天气、昼夜系统及天灾机制。设计上强调物理规则交互，如温度、火焰、冰等元素组合，采用有限式涌现设计。开发面临优化和多人模式两大难题，未来版本将支持10人组队，并考虑加入PvP。",
         "url": "https://www.baijing.cn/article/56801",
         "source": "官网资讯：白鲸出海",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-22T17:12:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -1503,9 +1664,18 @@
           "status": "not_selected",
           "reason": "文章为国产SOC游戏《山外山》的开发与市场访谈，未涉及具体AI事件。"
         },
-        "classification": null,
+        "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "interview",
+          "catLabel": "深度访谈",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 1,
-        "timeText": "今天 17:12"
+        "timeText": "昨天 17:12"
       },
       {
         "id": "manus:e2af3497e6d0f79c",
@@ -1540,9 +1710,12 @@
           "status": "pending",
           "reason": "已核实文章来源与发布时间，正文尚未取得，未进行投资筛选"
         },
+        "contentStatus": "awaiting_body",
+        "classificationStatus": "pending",
+        "summaryStatus": "pending",
         "classification": null,
         "num": 2,
-        "timeText": "今天 17:11"
+        "timeText": "昨天 17:11"
       },
       {
         "id": "manus:c5a3a038813ceba8",
@@ -1578,6 +1751,9 @@
           "reason": "文章核心事件是影眸Hyper3D发布AI 3D生成工具的新智能交互模式Agentic Mode，属于AI产品发布。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "release",
           "catLabel": "产品和模型发布",
@@ -1594,17 +1770,17 @@
           "autoFallback": false
         },
         "num": 3,
-        "timeText": "今天 16:49"
+        "timeText": "昨天 16:49"
       },
       {
         "id": "manus:4e8829c835a3ab94",
         "title": "游戏行业需要「长青」，却越来越难创造「长青」",
-        "summary": "",
+        "summary": "文章分析游戏行业为何追求“长青”，却难以培育新长青产品：研发与买量成本上升，使厂商更依赖成熟IP和持续运营收入；头部产品又占据玩家时间、社区与内容资产，抬高新品门槛。文中援引数据称，2026上半年Steam新游戏仅贡献21%收入，并以网易、Take-Two等为例，指出对确定性的偏好可能进一步压缩创新空间。",
         "url": "https://www.baijing.cn/article/56799",
         "source": "官网资讯：白鲸出海",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-22T16:40:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -1629,9 +1805,23 @@
           "status": "not_selected",
           "reason": "文章讨论游戏行业长青化趋势，未涉及具体AI事件"
         },
-        "classification": null,
+        "summaryOrigin": "editorial_review",
+        "editorialReview": {
+          "reviewedAt": "2026-09-23T10:51:04.776272+08:00",
+          "reason": "原模型长摘要被前缀截取后只剩定义与成本，遗漏标题主论点。原文同年/半年度指标也不宜一概改为同期。",
+          "origin": "source-grounded-review"
+        },
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "general",
+          "catLabel": "泛行业新闻",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 4,
-        "timeText": "今天 16:40"
+        "timeText": "昨天 16:40"
       },
       {
         "id": "manus:0193515ce98f8b38",
@@ -1667,6 +1857,9 @@
           "reason": "文章核心事件是阿里云AI数据中心算力扩张与收入爬坡，涉及AI算力、自研AI芯片及AI需求驱动的商业增长。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "bigtech",
           "catLabel": "大厂动态",
@@ -1683,7 +1876,7 @@
           "autoFallback": false
         },
         "num": 5,
-        "timeText": "今天 16:19"
+        "timeText": "昨天 16:19"
       },
       {
         "id": "manus:527f298726657358",
@@ -1719,6 +1912,9 @@
           "reason": "文章核心事件是AI眼镜厂商在渠道、代言人和生态上的竞争，属于AI硬件产品的实质行业变化。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "general",
           "catLabel": "泛行业新闻",
@@ -1726,7 +1922,7 @@
           "autoFallback": false
         },
         "num": 6,
-        "timeText": "今天 16:11"
+        "timeText": "昨天 16:11"
       },
       {
         "id": "manus:66e7f2a7dc7b6784",
@@ -1762,6 +1958,9 @@
           "reason": "文章核心事件是土耳其手游团队 Bold Games 利用 AI 工具将游戏原型与关卡验证周期从 7 周压缩到 4 周，属于 AI 对游戏研发产生直接影响的具体事件。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "financing",
           "catLabel": "融资动态",
@@ -1778,17 +1977,17 @@
           "autoFallback": false
         },
         "num": 7,
-        "timeText": "今天 16:02"
+        "timeText": "昨天 16:02"
       },
       {
         "id": "manus:241f98f95d842d54",
         "title": "“小猫射大树”放置RPG收入支线拉升，已破3200万元，又奶萌又抽象的动漫素材立功？",
-        "summary": "",
+        "summary": "韩国厂商TREEPLLA推出的放置RPG《Idle Cat Gunner: Shooter RPG》今年4月上线，前期收入平平，8月起收入和下载量明显增长，日收入峰值突破14万美元，目前日收入稳定在10万美元以上，累计收入约486万美元（约合3257万元人民币）。韩国、美国、日本是前三大收入市场，合计贡献71.4%收入；苹果商店收入占比58%，谷歌商店占比42%。",
         "url": "https://www.baijing.cn/article/56798",
         "source": "官网资讯：白鲸出海",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-22T15:09:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -1813,9 +2012,18 @@
           "status": "not_selected",
           "reason": "文章核心是放置RPG游戏《Idle Cat Gunner》的收入与买量素材分析，仅顺带提到部分广告素材含AI生成内容，无具体AI事件。"
         },
-        "classification": null,
+        "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "general",
+          "catLabel": "泛行业新闻",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 8,
-        "timeText": "今天 15:09"
+        "timeText": "昨天 15:09"
       },
       {
         "id": "manus:1628216ee327b577",
@@ -1850,19 +2058,22 @@
           "status": "pending",
           "reason": "已核实文章来源与发布时间，正文尚未取得，未进行投资筛选"
         },
+        "contentStatus": "awaiting_body",
+        "classificationStatus": "pending",
+        "summaryStatus": "pending",
         "classification": null,
         "num": 9,
-        "timeText": "今天 15:04"
+        "timeText": "昨天 15:04"
       },
       {
         "id": "manus:ef1285f7c72ec85e",
         "title": "近六成美国消费者10月或更早开购，eBay发布2026年终旺季消费洞察",
-        "summary": "",
+        "summary": "eBay发布《2026 eBay卖家旺季行动指南》，调研显示57%的美国消费者计划在10月或更早开始年终购物，时尚、玩具及游戏、消费电子购买意愿靠前。26%的美国买家计划增加旺季支出，千禧一代平均支出达870美元；55%的买家下单前跨平台比价。54%的消费者通过浏览寻找礼物灵感，零售商网站及App、搜索引擎、电商平台和社交媒体是主要灵感来源。",
         "url": "https://www.baijing.cn/article/56795",
         "source": "官网资讯：白鲸出海",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-22T14:41:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -1887,9 +2098,18 @@
           "status": "not_selected",
           "reason": "文章为eBay年终旺季消费趋势报告，未涉及AI模型、产品、公司、融资、研究或算力等具体AI事件。"
         },
-        "classification": null,
+        "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "general",
+          "catLabel": "泛行业新闻",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 10,
-        "timeText": "今天 14:41"
+        "timeText": "昨天 14:41"
       },
       {
         "id": "manus:20da35e6e3ca2671",
@@ -1925,6 +2145,9 @@
           "reason": "文章核心事件是LUSBY AI眼镜在TikTok Shop美区登顶，涉及AI眼镜产品、功能与销售表现。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "general",
           "catLabel": "泛行业新闻",
@@ -1932,17 +2155,17 @@
           "autoFallback": false
         },
         "num": 11,
-        "timeText": "今天 14:24"
+        "timeText": "昨天 14:24"
       },
       {
         "id": "manus:d4fa7f1cb7d870e8",
         "title": "辞掉央企铁饭碗，宁波老板在海外卖小家电，一年干出14亿",
-        "summary": "",
+        "summary": "宁波品牌EUHOMY创始人沈先生2016年从央企离职进入跨境电商，早期以铺货模式经营，2020年销售额达10亿元。因铺货模式风险上升，2020年孵化EUHOMY品牌，2022年带领20人团队独立拆分，聚焦美国家用便携制冰机赛道。品牌优化压缩机减震与风道结构，实现6-8分钟出冰，并推出月牙冰款式，后拓展车载便携冰箱、家用冷饮站等产品。截至2025年，员工增至270多人，年销售额达14亿元，以北美为核心市场并向欧洲、拉美、中东、日本扩张。",
         "url": "https://www.baijing.cn/article/56794",
         "source": "官网资讯：白鲸出海",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-22T13:42:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -1967,9 +2190,18 @@
           "status": "not_selected",
           "reason": "文章主要讲述小家电品牌EUHOMY的跨境电商发展历程，未涉及AI相关事件"
         },
-        "classification": null,
+        "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "general",
+          "catLabel": "泛行业新闻",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 12,
-        "timeText": "今天 13:42"
+        "timeText": "昨天 13:42"
       },
       {
         "id": "manus:683c9c51f3bd3fe7",
@@ -2004,9 +2236,12 @@
           "status": "pending",
           "reason": "已核实文章来源与发布时间，正文尚未取得，未进行投资筛选"
         },
+        "contentStatus": "awaiting_body",
+        "classificationStatus": "pending",
+        "summaryStatus": "pending",
         "classification": null,
         "num": 13,
-        "timeText": "今天 13:26"
+        "timeText": "昨天 13:26"
       },
       {
         "id": "manus:706553bef3e39bcd",
@@ -2041,9 +2276,12 @@
           "status": "pending",
           "reason": "已核实文章来源与发布时间，正文尚未取得，未进行投资筛选"
         },
+        "contentStatus": "awaiting_body",
+        "classificationStatus": "pending",
+        "summaryStatus": "pending",
         "classification": null,
         "num": 14,
-        "timeText": "今天 13:24"
+        "timeText": "昨天 13:24"
       },
       {
         "id": "manus:263057279babd107",
@@ -2078,9 +2316,12 @@
           "status": "pending",
           "reason": "已核实文章来源与发布时间，正文尚未取得，未进行投资筛选"
         },
+        "contentStatus": "awaiting_body",
+        "classificationStatus": "pending",
+        "summaryStatus": "pending",
         "classification": null,
         "num": 15,
-        "timeText": "今天 13:17"
+        "timeText": "昨天 13:17"
       },
       {
         "id": "manus:c4b9f539580beacd",
@@ -2116,6 +2357,9 @@
           "reason": "环动机器人是一家机器人关节科技公司，其科创板IPO终止属于AI/机器人赛道的重要融资事件。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "general",
           "catLabel": "泛行业新闻",
@@ -2123,17 +2367,17 @@
           "autoFallback": false
         },
         "num": 16,
-        "timeText": "今天 13:09"
+        "timeText": "昨天 13:09"
       },
       {
         "id": "manus:f63b50995dfc0ca3",
         "title": "珠峰黄金，拟配股融资4.4亿，中国白银不再是控股股东",
-        "summary": "",
+        "summary": "港股上市公司珠峰黄金于9月22日公告，向6名认购人发行合共2.77亿股，占扩大后股本16.38%，每股配售价1.60港元，较9月21日收市价1.95港元折让17.95%，募资总额约4.432亿港元。完成后，中国白银在珠峰黄金的权益将由约35.37%摊薄至约29.57%，不再为控股股东，但仍为单一最大股东，其不竞争承诺将按条款终止。",
         "url": "https://news.qq.com/rain/a/20260922A05NCN00?id=20260922A05NCN00&path=a&app=news&suid=&redirect_pc=1",
         "source": "腾讯新闻转载：瑞恩资本",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-22T13:09:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -2158,19 +2402,28 @@
           "status": "not_selected",
           "reason": "文章内容为黄金公司配股融资及股权变动，未涉及任何AI相关事件。"
         },
-        "classification": null,
+        "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "financing",
+          "catLabel": "融资动态",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 17,
-        "timeText": "今天 13:09"
+        "timeText": "昨天 13:09"
       },
       {
         "id": "manus:1b75cf9c037cd8f0",
         "title": "谁说在东南亚做网约车平台，就一定要成为Grab？",
-        "summary": "",
+        "summary": "TADA以司机零佣金和较低乘客价格切入新加坡市场，随后采取轻资产方式扩张：2024年进入香港，2025年以SaaS形式向丹佛司机合作社提供系统，2026年以Throo品牌在纽约软启动。文章回顾其融资与电动嘟嘟车业务，认为TADA未复制Grab路径，而是寻找大平台覆盖不足、司机仍有选择空间的市场；这一策略能否持续仍待观察。",
         "url": "https://www.baijing.cn/article/56793",
         "source": "官网资讯：白鲸出海",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-22T12:08:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -2195,9 +2448,23 @@
           "status": "not_selected",
           "reason": "文章核心是网约车平台TADA的创业与扩张，未涉及具体AI事件。"
         },
-        "classification": null,
+        "summaryOrigin": "editorial_review",
+        "editorialReview": {
+          "reviewedAt": "2026-09-23T10:51:04.776272+08:00",
+          "reason": "公开摘要被截为2018—2021年背景，遗漏当前扩张及差异化经营主线；此后销量不应暗示都发生于2021年。",
+          "origin": "source-grounded-review"
+        },
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "general",
+          "catLabel": "泛行业新闻",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 18,
-        "timeText": "今天 12:08"
+        "timeText": "昨天 12:08"
       },
       {
         "id": "manus:5caecfd562d1df63",
@@ -2233,6 +2500,9 @@
           "reason": "华策影视入股AI设计公司水母智能，涉及AI内容生产与AIGC创作平台。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "financing",
           "catLabel": "融资动态",
@@ -2249,17 +2519,17 @@
           "autoFallback": false
         },
         "num": 19,
-        "timeText": "今天 11:38"
+        "timeText": "昨天 11:38"
       },
       {
         "id": "manus:ac4f0f4b0199ab07",
         "title": "最低3%佣金费率，Whatnot给直播拍卖电商“上强度”",
-        "summary": "",
+        "summary": "当地时间9月18日，直播购物平台Whatnot宣布调整佣金政策，自9月21日起，卖家佣金从固定费率改为按四周滚动销售额定级、按品类定费率的动态模式，生效站点包括澳大利亚、美国、加拿大、法国等。四周内销售额达到15000美元及以上的卖家可解锁1档费率，销售额越高层级越高、佣金越低，官方特别定制费率下最低可至3%。佣金按GMV计费，不含买家支付的运费与税费。",
         "url": "https://www.baijing.cn/article/56792",
         "source": "官网资讯：白鲸出海",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-22T11:29:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -2284,9 +2554,18 @@
           "status": "not_selected",
           "reason": "文章核心是Whatnot直播拍卖电商的佣金费率调整，未涉及具体AI事件。"
         },
-        "classification": null,
+        "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "general",
+          "catLabel": "泛行业新闻",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 20,
-        "timeText": "今天 11:29"
+        "timeText": "昨天 11:29"
       },
       {
         "id": "manus:2547aadf85e458bb",
@@ -2321,9 +2600,12 @@
           "status": "pending",
           "reason": "已核实文章来源与发布时间，正文尚未取得，未进行投资筛选"
         },
+        "contentStatus": "awaiting_body",
+        "classificationStatus": "pending",
+        "summaryStatus": "pending",
         "classification": null,
         "num": 21,
-        "timeText": "今天 11:19"
+        "timeText": "昨天 11:19"
       },
       {
         "id": "manus:695cafd82afbe5b7",
@@ -2358,19 +2640,22 @@
           "status": "pending",
           "reason": "已核实文章来源与发布时间，正文尚未取得，未进行投资筛选"
         },
+        "contentStatus": "awaiting_body",
+        "classificationStatus": "pending",
+        "summaryStatus": "pending",
         "classification": null,
         "num": 22,
-        "timeText": "今天 11:16"
+        "timeText": "昨天 11:16"
       },
       {
         "id": "manus:3a28fa9fdd5f3ea9",
         "title": "一块2毛钱的亚克力片，在TikTok卖了186万",
-        "summary": "",
+        "summary": "一款主打个性化DIY定制的亚克力冰箱贴套装在TikTok美区热销。该产品来自SilkiTouch Shop店铺，于今年3月底上线，售价9-29美元，已累计售出2.67万单，总GMV超过27.79万美元，折合人民币约186.10万元。同款产品在国内1688上10个装最低批发价仅约2元。产品由透明亚克力板、双面胶和磁吸背板组成，用户可自行放入照片或图案制作专属冰箱贴。",
         "url": "https://www.baijing.cn/article/56791",
         "source": "官网资讯：白鲸出海",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-22T10:56:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -2395,9 +2680,18 @@
           "status": "not_selected",
           "reason": "文章核心是跨境电商DIY亚克力冰箱贴的销售案例，未涉及AI相关事件。"
         },
-        "classification": null,
+        "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "general",
+          "catLabel": "泛行业新闻",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 23,
-        "timeText": "今天 10:56"
+        "timeText": "昨天 10:56"
       },
       {
         "id": "manus:31458d95b4466c4b",
@@ -2432,9 +2726,12 @@
           "status": "pending",
           "reason": "已核实文章来源与发布时间，正文尚未取得，未进行投资筛选"
         },
+        "contentStatus": "awaiting_body",
+        "classificationStatus": "pending",
+        "summaryStatus": "pending",
         "classification": null,
         "num": 24,
-        "timeText": "今天 10:47"
+        "timeText": "昨天 10:47"
       },
       {
         "id": "manus:60711667d7181e96",
@@ -2469,9 +2766,12 @@
           "status": "pending",
           "reason": "已核实文章来源与发布时间，正文尚未取得，未进行投资筛选"
         },
+        "contentStatus": "awaiting_body",
+        "classificationStatus": "pending",
+        "summaryStatus": "pending",
         "classification": null,
         "num": 25,
-        "timeText": "今天 10:29"
+        "timeText": "昨天 10:29"
       },
       {
         "id": "manus:659a425fa4e401a5",
@@ -2506,9 +2806,12 @@
           "status": "pending",
           "reason": "已核实文章来源与发布时间，正文尚未取得，未进行投资筛选"
         },
+        "contentStatus": "awaiting_body",
+        "classificationStatus": "pending",
+        "summaryStatus": "pending",
         "classification": null,
         "num": 26,
-        "timeText": "今天 10:19"
+        "timeText": "昨天 10:19"
       },
       {
         "id": "manus:35bfbe3cef5e9148",
@@ -2544,6 +2847,9 @@
           "reason": "文章核心事件涉及苹果AI战略、Apple Intelligence支持的新版Health以及AI对折叠屏iPhone换机需求的推动，属于AI产品与AI对消费电子行业产生直接影响的事件。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "bigtech",
           "catLabel": "大厂动态",
@@ -2560,7 +2866,7 @@
           "autoFallback": false
         },
         "num": 27,
-        "timeText": "今天 10:17"
+        "timeText": "昨天 10:17"
       },
       {
         "id": "manus:ac29b8a47f1c9675",
@@ -2596,6 +2902,9 @@
           "reason": "亚马逊封禁Meta旗下AI智能体Muse访问其电商网站，核心事件是AI智能体购物引发的平台冲突。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "bigtech",
           "catLabel": "大厂动态",
@@ -2612,17 +2921,17 @@
           "autoFallback": false
         },
         "num": 28,
-        "timeText": "今天 09:46"
+        "timeText": "昨天 09:46"
       },
       {
         "id": "manus:65b85539143cb577",
         "title": "年销数亿的超便携电子纸操盘人，想做超便携的Everything｜对话创始人",
-        "summary": "",
+        "summary": "阅星曈创始人胡宇沸在接受访谈时介绍，其超便携电子纸产品从2月在小红书发帖验证需求，到3月众筹，首晚卖出3000多台，目前年营收数亿元，出货量数十万台，国内外销售约各占一半。胡宇沸曾任饿了么众包事业部总经理及Uber中国三城总经理，因出差常丢Kindle和书，产生把阅读器贴在手机背后的想法。产品定位为只保留阅读功能、强调便携，不堆参数，技术选择根据场景需求倒推。",
         "url": "https://www.baijing.cn/article/56786",
         "source": "官网资讯：白鲸出海",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-22T09:11:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -2647,9 +2956,23 @@
           "status": "not_selected",
           "reason": "文章核心是电子纸阅读器创业访谈，AI仅作为背景性工具被顺带提及，无具体AI事件。"
         },
-        "classification": null,
+        "summaryOrigin": "editorial_review",
+        "editorialReview": {
+          "reviewedAt": "2026-09-23T10:51:04.776272+08:00",
+          "reason": "模型无依据补出2024年；正文只有去年2月份及2月14日/3月13日，不把转载语境推算为该年份。",
+          "origin": "source-grounded-review"
+        },
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "interview",
+          "catLabel": "深度访谈",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 29,
-        "timeText": "今天 09:11"
+        "timeText": "昨天 09:11"
       },
       {
         "id": "manus:ac4b5a5645c8e472",
@@ -2685,6 +3008,9 @@
           "reason": "文章包含多个与AI直接相关的实质新闻，如OpenAI新模型、宇树灵巧手、Kimi接入AWS等。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "bigtech",
           "catLabel": "大厂动态",
@@ -2701,17 +3027,17 @@
           "autoFallback": false
         },
         "num": 30,
-        "timeText": "今天 08:44"
+        "timeText": "昨天 08:44"
       },
       {
         "id": "manus:99471040ee51bded",
         "title": "为什么姜乘澜能超过董宇辉，登顶抖音带货榜第一？",
-        "summary": "",
+        "summary": "停更三年的美妆博主程十安以新账号姜乘澜于2026年5月13日宣布回归，9月15日在抖音开启回归后首场带货直播，观看人次超1068万，GMV超1400万，小红书直播拿下买手榜第一。首播前其与前司官司败诉，涉案执行金额1119万余元。其主推品“将将好上手套组”原价880元、直播价286元，多次上架后售罄。",
         "url": "https://news.qq.com/rain/a/20260921A0CFR300",
         "source": "腾讯新闻转载：娱乐资本论",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-21T23:50:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -2736,19 +3062,28 @@
           "status": "not_selected",
           "reason": "文章核心是美妆博主姜乘澜回归直播带货的选品、信任与行业分析，未涉及AI相关事件。"
         },
-        "classification": null,
+        "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "general",
+          "catLabel": "泛行业新闻",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 31,
-        "timeText": "昨天 23:50"
+        "timeText": "9/21 23:50"
       },
       {
         "id": "manus:f25d66e53aafa0cb",
         "title": "“哈圈春晚”直播启示录：当综艺把叙事交给意外与现场",
-        "summary": "",
+        "summary": "9月12日，《说唱巅峰对决2026》总决赛以6小时直播收官，被说唱圈称为“哈圈春晚”。直播后一周，Yamy、弹壳的名人堂感言、TopBarry嘴瓢及杜海涛救场等细节仍在社交平台发酵。文章指出，2026年成为综艺直播大年，S+音综普遍策划直播，观众从被动接受剪辑叙事转向关注现场意外与艺人真实反应。总导演左近表示，总决赛选择直播是为检验rapper未经修音的现场能力，并向行业释放说唱歌手具备大型音乐直播能力的信号。",
         "url": "https://news.qq.com/rain/a/20260921A0CF4M00",
         "source": "腾讯新闻转载：娱乐资本论",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-21T23:44:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -2773,19 +3108,28 @@
           "status": "not_selected",
           "reason": "文章讨论综艺直播制作与叙事变化，仅结尾出现AI作图标注，无具体AI事件。"
         },
-        "classification": null,
+        "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "general",
+          "catLabel": "泛行业新闻",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 32,
-        "timeText": "昨天 23:44"
+        "timeText": "9/21 23:44"
       },
       {
         "id": "manus:cbb7d43590cc0541",
         "title": "零跑的新目标：从「小米」成为「苹果」",
-        "summary": "",
+        "summary": "零跑汽车在2026技术日上宣布调整目标，从新势力销量第一转向争取国内新能源品牌前三、全球前四。创始人朱江明表示，零跑将争取成为汽车行业的苹果。零跑今年1至8月累计交付超56万台，其中13万台销往海外，8月国内新能源零售榜位列比亚迪、吉利之后。",
         "url": "https://news.qq.com/rain/a/20260921A0CBS000?id=20260921A0CBS000&path=a&app=news&suid=&redirect_pc=1",
         "source": "腾讯新闻转载：极客公园",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-21T23:14:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -2810,19 +3154,28 @@
           "status": "not_selected",
           "reason": "文章核心是零跑汽车的技术、成本与产品形态战略，仅顺带提及智驾算法，无具体AI事件。"
         },
-        "classification": null,
+        "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "general",
+          "catLabel": "泛行业新闻",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 33,
-        "timeText": "昨天 23:14"
+        "timeText": "9/21 23:14"
       },
       {
         "id": "manus:de42a4bd471ad8c3",
         "title": "《盛世天下》系列官宣销量突破600万套，再次刷新全球纪录",
-        "summary": "",
+        "summary": "9月21日，《盛世天下》制作人demi_ggg发文宣布，真人互动影游《盛世天下》系列累计销量突破600万套。此前在《盛世天下》女帝篇上线21天后，该系列销量已突破500万套，创下真人实拍互动影视作品的全球销量纪录，如今这一纪录再度刷新。",
         "url": "https://news.qq.com/rain/a/20260921A0BRU200?id=20260921A0BRU200&path=a&app=news&suid=&redirect_pc=1",
         "source": "腾讯新闻转载：游戏葡萄",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-21T21:36:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -2847,19 +3200,28 @@
           "status": "not_selected",
           "reason": "文章仅报道互动影游销量纪录，未涉及任何具体AI事件"
         },
-        "classification": null,
+        "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "general",
+          "catLabel": "泛行业新闻",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 34,
-        "timeText": "昨天 21:36"
+        "timeText": "9/21 21:36"
       },
       {
         "id": "manus:037d9112c72b254f",
         "title": "玩了200小时天美今年最大爆款，我对行业越来越没信心",
-        "summary": "",
+        "summary": "作者以游玩《王者万象棋》超过220小时的个人体验为切入，称自己的体验在约150小时后出现转折，并肯定游戏将包装、操作与学习反馈结合的设计。文章继而指出，F2P产品重视首日留存和ROI等短期指标，而部分设计价值需较长体验才能显现；付费空间、测试窗口与试错成本又限制了设计驱动产品。作者因此担忧这类产品更依赖大厂的资源、IP和商业化能力。",
         "url": "https://news.qq.com/rain/a/20260921A0BRTW00",
         "source": "腾讯新闻转载：游戏葡萄",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-21T21:36:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -2884,9 +3246,23 @@
           "status": "not_selected",
           "reason": "文章核心讨论《王者万象棋》玩法设计与行业问题，仅一处顺带提及AI二创截图，无具体AI事件。"
         },
-        "classification": null,
+        "summaryOrigin": "editorial_review",
+        "editorialReview": {
+          "reviewedAt": "2026-09-23T10:51:04.776272+08:00",
+          "reason": "原摘要将作者个人150小时体验泛化为玩家普遍适应期，并因前缀截断遗漏文章对F2P商业约束的核心判断。",
+          "origin": "source-grounded-review"
+        },
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "general",
+          "catLabel": "泛行业新闻",
+          "dims": [],
+          "autoFallback": false
+        },
         "num": 35,
-        "timeText": "昨天 21:36"
+        "timeText": "9/21 21:36"
       },
       {
         "id": "manus:1c253b292121c27d",
@@ -2922,6 +3298,9 @@
           "reason": "文章核心事件是亚马逊CTO Werner Vogels与云计算20年，其中包含AI时代开发者如何跟上技术变化等AI相关讨论。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "bigtech",
           "catLabel": "大厂动态",
@@ -2938,17 +3317,17 @@
           "autoFallback": false
         },
         "num": 36,
-        "timeText": "昨天 19:04"
+        "timeText": "9/21 19:04"
       },
       {
         "id": "manus:5b57ba973c441488",
         "title": "Jev，让全球程序员玩疯了",
-        "summary": "",
+        "summary": "前OpenAI研究员Diogo Almeida推出名为Jev的模型，该模型不生成文字，只输出概率判断，被称为System One。上线数天后，全球开发者围绕它创建了近五百个开源项目。",
         "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
         "source": "腾讯新闻转载：极客公园",
         "sourceType": "media",
         "category": "行业动态",
-        "categoryUnclassified": true,
+        "categoryUnclassified": false,
         "publishedAt": "2026-09-21T19:04:00+08:00",
         "publishedPrecision": "datetime",
         "timeEvidence": null,
@@ -2970,12 +3349,30 @@
         ],
         "evidenceKind": "article_body",
         "garenaSelection": {
-          "status": "pending",
-          "reason": "相关性已通过，摘要或分类尚未通过校验"
+          "status": "selected",
+          "reason": "文章核心事件是前OpenAI研究员发布只输出概率判断的AI模型Jev，并引发大量开发者应用，属于AI模型与产品新闻。"
         },
-        "classification": null,
+        "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "release",
+          "catLabel": "产品和模型发布",
+          "dims": [
+            {
+              "label": "行业",
+              "value": "AI模型"
+            },
+            {
+              "label": "发布主体",
+              "value": "创业公司"
+            }
+          ],
+          "autoFallback": false
+        },
         "num": 37,
-        "timeText": "昨天 19:04"
+        "timeText": "9/21 19:04"
       }
     ],
     "tags": [
@@ -3029,6 +3426,9 @@
               ],
               "evidenceKind": "article_body",
               "summaryOrigin": "model",
+              "contentStatus": "available",
+              "classificationStatus": "complete",
+              "summaryStatus": "complete",
               "classification": {
                 "cat": "release",
                 "catLabel": "产品和模型发布",
@@ -3045,7 +3445,7 @@
                 "autoFallback": false
               },
               "num": 1,
-              "timeText": "今天 16:49"
+              "timeText": "昨天 16:49"
             },
             {
               "id": "manus:0193515ce98f8b38",
@@ -3077,6 +3477,9 @@
               ],
               "evidenceKind": "article_body",
               "summaryOrigin": "model",
+              "contentStatus": "available",
+              "classificationStatus": "complete",
+              "summaryStatus": "complete",
               "classification": {
                 "cat": "bigtech",
                 "catLabel": "大厂动态",
@@ -3093,7 +3496,7 @@
                 "autoFallback": false
               },
               "num": 2,
-              "timeText": "今天 16:19"
+              "timeText": "昨天 16:19"
             },
             {
               "id": "manus:527f298726657358",
@@ -3125,6 +3528,9 @@
               ],
               "evidenceKind": "article_body",
               "summaryOrigin": "model",
+              "contentStatus": "available",
+              "classificationStatus": "complete",
+              "summaryStatus": "complete",
               "classification": {
                 "cat": "general",
                 "catLabel": "泛行业新闻",
@@ -3132,7 +3538,7 @@
                 "autoFallback": false
               },
               "num": 3,
-              "timeText": "今天 16:11"
+              "timeText": "昨天 16:11"
             },
             {
               "id": "manus:66e7f2a7dc7b6784",
@@ -3164,6 +3570,9 @@
               ],
               "evidenceKind": "article_body",
               "summaryOrigin": "model",
+              "contentStatus": "available",
+              "classificationStatus": "complete",
+              "summaryStatus": "complete",
               "classification": {
                 "cat": "financing",
                 "catLabel": "融资动态",
@@ -3180,7 +3589,7 @@
                 "autoFallback": false
               },
               "num": 4,
-              "timeText": "今天 16:02"
+              "timeText": "昨天 16:02"
             },
             {
               "id": "manus:20da35e6e3ca2671",
@@ -3212,6 +3621,9 @@
               ],
               "evidenceKind": "article_body",
               "summaryOrigin": "model",
+              "contentStatus": "available",
+              "classificationStatus": "complete",
+              "summaryStatus": "complete",
               "classification": {
                 "cat": "general",
                 "catLabel": "泛行业新闻",
@@ -3219,7 +3631,7 @@
                 "autoFallback": false
               },
               "num": 5,
-              "timeText": "今天 14:24"
+              "timeText": "昨天 14:24"
             },
             {
               "id": "manus:c4b9f539580beacd",
@@ -3251,6 +3663,9 @@
               ],
               "evidenceKind": "article_body",
               "summaryOrigin": "model",
+              "contentStatus": "available",
+              "classificationStatus": "complete",
+              "summaryStatus": "complete",
               "classification": {
                 "cat": "general",
                 "catLabel": "泛行业新闻",
@@ -3258,7 +3673,7 @@
                 "autoFallback": false
               },
               "num": 6,
-              "timeText": "今天 13:09"
+              "timeText": "昨天 13:09"
             },
             {
               "id": "manus:5caecfd562d1df63",
@@ -3290,6 +3705,9 @@
               ],
               "evidenceKind": "article_body",
               "summaryOrigin": "model",
+              "contentStatus": "available",
+              "classificationStatus": "complete",
+              "summaryStatus": "complete",
               "classification": {
                 "cat": "financing",
                 "catLabel": "融资动态",
@@ -3306,7 +3724,7 @@
                 "autoFallback": false
               },
               "num": 7,
-              "timeText": "今天 11:38"
+              "timeText": "昨天 11:38"
             },
             {
               "id": "manus:35bfbe3cef5e9148",
@@ -3338,6 +3756,9 @@
               ],
               "evidenceKind": "article_body",
               "summaryOrigin": "model",
+              "contentStatus": "available",
+              "classificationStatus": "complete",
+              "summaryStatus": "complete",
               "classification": {
                 "cat": "bigtech",
                 "catLabel": "大厂动态",
@@ -3354,7 +3775,7 @@
                 "autoFallback": false
               },
               "num": 8,
-              "timeText": "今天 10:17"
+              "timeText": "昨天 10:17"
             },
             {
               "id": "manus:ac29b8a47f1c9675",
@@ -3386,6 +3807,9 @@
               ],
               "evidenceKind": "article_body",
               "summaryOrigin": "model",
+              "contentStatus": "available",
+              "classificationStatus": "complete",
+              "summaryStatus": "complete",
               "classification": {
                 "cat": "bigtech",
                 "catLabel": "大厂动态",
@@ -3402,7 +3826,7 @@
                 "autoFallback": false
               },
               "num": 9,
-              "timeText": "今天 09:46"
+              "timeText": "昨天 09:46"
             },
             {
               "id": "manus:ac4b5a5645c8e472",
@@ -3434,6 +3858,9 @@
               ],
               "evidenceKind": "article_body",
               "summaryOrigin": "model",
+              "contentStatus": "available",
+              "classificationStatus": "complete",
+              "summaryStatus": "complete",
               "classification": {
                 "cat": "bigtech",
                 "catLabel": "大厂动态",
@@ -3450,7 +3877,7 @@
                 "autoFallback": false
               },
               "num": 10,
-              "timeText": "今天 08:44"
+              "timeText": "昨天 08:44"
             }
           ]
         },
@@ -3458,8 +3885,8 @@
           "date": "2026-09-21",
           "label": "9月21日 星期一",
           "title": "把未来做成基础设施｜亚马逊 CTO Dr.Werner Vogels 与云计算 20 年",
-          "total": 2,
-          "finalized": false,
+          "total": 3,
+          "finalized": true,
           "url": "history/2026-09-21.html",
           "items": [
             {
@@ -3492,6 +3919,9 @@
               ],
               "evidenceKind": "article_body",
               "summaryOrigin": "model",
+              "contentStatus": "available",
+              "classificationStatus": "complete",
+              "summaryStatus": "complete",
               "classification": {
                 "cat": "bigtech",
                 "catLabel": "大厂动态",
@@ -3508,7 +3938,58 @@
                 "autoFallback": false
               },
               "num": 1,
-              "timeText": "昨天 19:04"
+              "timeText": "9/21 19:04"
+            },
+            {
+              "id": "manus:5b57ba973c441488",
+              "title": "Jev，让全球程序员玩疯了",
+              "summary": "前OpenAI研究员Diogo Almeida推出名为Jev的模型，该模型不生成文字，只输出概率判断，被称为System One。上线数天后，全球开发者围绕它创建了近五百个开源项目。",
+              "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+              "source": "腾讯新闻转载：极客公园",
+              "sourceType": "media",
+              "category": "行业动态",
+              "categoryUnclassified": false,
+              "publishedAt": "2026-09-21T19:04:00+08:00",
+              "publishedPrecision": "datetime",
+              "timeEvidence": null,
+              "discoveredAt": "",
+              "timeBasis": "published",
+              "score": null,
+              "selected": null,
+              "aihotUrl": "",
+              "originalUrl": "https://news.qq.com/rain/a/20260921A0ACVU00",
+              "reason": null,
+              "mpName": "极客公园",
+              "sourceRefs": [
+                {
+                  "collector": "manus",
+                  "source": "极客公园",
+                  "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+                  "publishedAt": "2026-09-21T19:04:00+08:00"
+                }
+              ],
+              "evidenceKind": "article_body",
+              "summaryOrigin": "model",
+              "contentStatus": "available",
+              "classificationStatus": "complete",
+              "summaryStatus": "complete",
+              "classification": {
+                "cat": "release",
+                "catLabel": "产品和模型发布",
+                "dims": [
+                  {
+                    "label": "行业",
+                    "value": "AI模型"
+                  },
+                  {
+                    "label": "发布主体",
+                    "value": "创业公司"
+                  }
+                ],
+                "autoFallback": false
+              },
+              "num": 2,
+              "timeText": "9/21 19:04"
             },
             {
               "id": "manus:5d750df8d9094b20",
@@ -3545,8 +4026,8 @@
                 "dims": [],
                 "autoFallback": false
               },
-              "num": 2,
-              "timeText": "昨天 16:06"
+              "num": 3,
+              "timeText": "9/21 16:06"
             }
           ]
         },
@@ -6268,15 +6749,6 @@
           "finalized": true,
           "url": "history/2026-08-24.html",
           "items": []
-        },
-        {
-          "date": "2026-08-23",
-          "label": "8月23日 星期日",
-          "title": "",
-          "total": 0,
-          "finalized": true,
-          "url": "history/2026-08-23.html",
-          "items": []
         }
       ],
       "weekly": [
@@ -6811,6 +7283,9 @@
           "reason": "文章核心事件是影眸Hyper3D发布AI 3D生成工具的新智能交互模式Agentic Mode，属于AI产品发布。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "release",
           "catLabel": "产品和模型发布",
@@ -6827,7 +7302,7 @@
           "autoFallback": false
         },
         "num": 1,
-        "timeText": "今天 16:49"
+        "timeText": "昨天 16:49"
       },
       {
         "id": "manus:0193515ce98f8b38",
@@ -6863,6 +7338,9 @@
           "reason": "文章核心事件是阿里云AI数据中心算力扩张与收入爬坡，涉及AI算力、自研AI芯片及AI需求驱动的商业增长。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "bigtech",
           "catLabel": "大厂动态",
@@ -6879,7 +7357,7 @@
           "autoFallback": false
         },
         "num": 2,
-        "timeText": "今天 16:19"
+        "timeText": "昨天 16:19"
       },
       {
         "id": "manus:527f298726657358",
@@ -6915,6 +7393,9 @@
           "reason": "文章核心事件是AI眼镜厂商在渠道、代言人和生态上的竞争，属于AI硬件产品的实质行业变化。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "general",
           "catLabel": "泛行业新闻",
@@ -6922,7 +7403,7 @@
           "autoFallback": false
         },
         "num": 3,
-        "timeText": "今天 16:11"
+        "timeText": "昨天 16:11"
       },
       {
         "id": "manus:66e7f2a7dc7b6784",
@@ -6958,6 +7439,9 @@
           "reason": "文章核心事件是土耳其手游团队 Bold Games 利用 AI 工具将游戏原型与关卡验证周期从 7 周压缩到 4 周，属于 AI 对游戏研发产生直接影响的具体事件。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "financing",
           "catLabel": "融资动态",
@@ -6974,7 +7458,7 @@
           "autoFallback": false
         },
         "num": 4,
-        "timeText": "今天 16:02"
+        "timeText": "昨天 16:02"
       },
       {
         "id": "manus:20da35e6e3ca2671",
@@ -7010,6 +7494,9 @@
           "reason": "文章核心事件是LUSBY AI眼镜在TikTok Shop美区登顶，涉及AI眼镜产品、功能与销售表现。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "general",
           "catLabel": "泛行业新闻",
@@ -7017,7 +7504,7 @@
           "autoFallback": false
         },
         "num": 5,
-        "timeText": "今天 14:24"
+        "timeText": "昨天 14:24"
       },
       {
         "id": "manus:c4b9f539580beacd",
@@ -7053,6 +7540,9 @@
           "reason": "环动机器人是一家机器人关节科技公司，其科创板IPO终止属于AI/机器人赛道的重要融资事件。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "general",
           "catLabel": "泛行业新闻",
@@ -7060,7 +7550,7 @@
           "autoFallback": false
         },
         "num": 6,
-        "timeText": "今天 13:09"
+        "timeText": "昨天 13:09"
       },
       {
         "id": "manus:5caecfd562d1df63",
@@ -7096,6 +7586,9 @@
           "reason": "华策影视入股AI设计公司水母智能，涉及AI内容生产与AIGC创作平台。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "financing",
           "catLabel": "融资动态",
@@ -7112,7 +7605,7 @@
           "autoFallback": false
         },
         "num": 7,
-        "timeText": "今天 11:38"
+        "timeText": "昨天 11:38"
       },
       {
         "id": "manus:35bfbe3cef5e9148",
@@ -7148,6 +7641,9 @@
           "reason": "文章核心事件涉及苹果AI战略、Apple Intelligence支持的新版Health以及AI对折叠屏iPhone换机需求的推动，属于AI产品与AI对消费电子行业产生直接影响的事件。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "bigtech",
           "catLabel": "大厂动态",
@@ -7164,7 +7660,7 @@
           "autoFallback": false
         },
         "num": 8,
-        "timeText": "今天 10:17"
+        "timeText": "昨天 10:17"
       },
       {
         "id": "manus:ac29b8a47f1c9675",
@@ -7200,6 +7696,9 @@
           "reason": "亚马逊封禁Meta旗下AI智能体Muse访问其电商网站，核心事件是AI智能体购物引发的平台冲突。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "bigtech",
           "catLabel": "大厂动态",
@@ -7216,7 +7715,7 @@
           "autoFallback": false
         },
         "num": 9,
-        "timeText": "今天 09:46"
+        "timeText": "昨天 09:46"
       },
       {
         "id": "manus:ac4b5a5645c8e472",
@@ -7252,6 +7751,9 @@
           "reason": "文章包含多个与AI直接相关的实质新闻，如OpenAI新模型、宇树灵巧手、Kimi接入AWS等。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "bigtech",
           "catLabel": "大厂动态",
@@ -7268,7 +7770,7 @@
           "autoFallback": false
         },
         "num": 10,
-        "timeText": "今天 08:44"
+        "timeText": "昨天 08:44"
       },
       {
         "id": "manus:1c253b292121c27d",
@@ -7304,6 +7806,9 @@
           "reason": "文章核心事件是亚马逊CTO Werner Vogels与云计算20年，其中包含AI时代开发者如何跟上技术变化等AI相关讨论。"
         },
         "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
         "classification": {
           "cat": "bigtech",
           "catLabel": "大厂动态",
@@ -7320,13 +7825,68 @@
           "autoFallback": false
         },
         "num": 11,
-        "timeText": "昨天 19:04"
+        "timeText": "9/21 19:04"
+      },
+      {
+        "id": "manus:5b57ba973c441488",
+        "title": "Jev，让全球程序员玩疯了",
+        "summary": "前OpenAI研究员Diogo Almeida推出名为Jev的模型，该模型不生成文字，只输出概率判断，被称为System One。上线数天后，全球开发者围绕它创建了近五百个开源项目。",
+        "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+        "source": "腾讯新闻转载：极客公园",
+        "sourceType": "media",
+        "category": "行业动态",
+        "categoryUnclassified": false,
+        "publishedAt": "2026-09-21T19:04:00+08:00",
+        "publishedPrecision": "datetime",
+        "timeEvidence": null,
+        "discoveredAt": "",
+        "timeBasis": "published",
+        "score": null,
+        "selected": null,
+        "aihotUrl": "",
+        "originalUrl": "https://news.qq.com/rain/a/20260921A0ACVU00",
+        "reason": null,
+        "mpName": "极客公园",
+        "sourceRefs": [
+          {
+            "collector": "manus",
+            "source": "极客公园",
+            "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+            "publishedAt": "2026-09-21T19:04:00+08:00"
+          }
+        ],
+        "evidenceKind": "article_body",
+        "garenaSelection": {
+          "status": "selected",
+          "reason": "文章核心事件是前OpenAI研究员发布只输出概率判断的AI模型Jev，并引发大量开发者应用，属于AI模型与产品新闻。"
+        },
+        "summaryOrigin": "model",
+        "contentStatus": "available",
+        "classificationStatus": "complete",
+        "summaryStatus": "complete",
+        "classification": {
+          "cat": "release",
+          "catLabel": "产品和模型发布",
+          "dims": [
+            {
+              "label": "行业",
+              "value": "AI模型"
+            },
+            {
+              "label": "发布主体",
+              "value": "创业公司"
+            }
+          ],
+          "autoFallback": false
+        },
+        "num": 12,
+        "timeText": "9/21 19:04"
       }
     ],
     "tags": [
       {
         "tag": "行业动态",
-        "count": 11
+        "count": 12
       }
     ],
     "live": true

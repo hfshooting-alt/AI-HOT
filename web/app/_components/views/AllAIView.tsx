@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { NewsItem, NewsPoolMode } from "../../_lib/domain/types";
 import { loadSnapshot, poolFromSnapshot, newsPoolError } from "../../_lib/data/api";
 import { bjDayKey, fmtMonthDay, fmtWeekday } from "../../_lib/display/format";
-import { categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
+import { ARTICLE_STATUS_FILTERS, categoryOf, matchDims, TAXONOMY_CATEGORIES } from "../../_lib/domain/taxonomy";
 import { matchItem, sourceKindOf } from "../../_lib/display/source";
 import { ArticleCard } from "../news/ArticleCard";
 import { CategoryTabs, type TabOption } from "../news/CategoryTabs";
@@ -54,8 +54,10 @@ export function AllAIView({ mode = "all" }: { mode?: NewsPoolMode }) {
     for (const c of TAXONOMY_CATEGORIES.filter(c => c.id !== "financing")) {
       opts.push({ key: c.id, label: c.label, count: counter.get(c.id) || 0 });
     }
-    if (counter.has("unclassified")) {
-      opts.push({ key: "unclassified", label: "未分类", count: counter.get("unclassified") || 0 });
+    for (const status of ARTICLE_STATUS_FILTERS) {
+      if (counter.has(status.id)) {
+        opts.push({ key: status.id, label: status.label, count: counter.get(status.id) || 0 });
+      }
     }
     return opts;
   }, [items]);

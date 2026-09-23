@@ -36855,5 +36855,248 @@
   "enrichmentStatus": "complete",
   "modelAttempted": true,
   "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:82fa03760d8510a4:65c98557a6f76438:library-v1": {
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "游戏行业正将“长青游戏”作为核心经营目标。腾讯在2023年第四季度财报电话会议中首次定义长青游戏：移动端季度DAU均值达500万或PC端季度DAU均值达200万，且年总收入超过40亿元人民币。市场环境推动企业追求长青：3A游戏开发预算已升至2.5亿至4亿美元，2025上半年国内流水TOP100移动游戏买量成本增长86.6%，而同期市场实际销售收入同比增长7.68%、用户规模同比增长1.35%。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:01332068e4a98e18:65a77595552ea3cd:library-v1": {
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "韩国厂商TREEPLLA推出的放置RPG《Idle Cat Gunner: Shooter RPG》今年4月上线，前期收入平平，8月起收入和下载量明显增长，日收入峰值突破14万美元，目前日收入稳定在10万美元以上，累计收入约486万美元（约合3257万元人民币）。韩国、美国、日本是前三大收入市场，合计贡献71.4%收入；苹果商店收入占比58%，谷歌商店占比42%。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:890760dd992a74f6:5be549d65aa77ebb:library-v1": {
+  "classification": {
+   "category": "interview",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "《山外山》是一款由初创团队青庖网络开发的国产SOC游戏，题材取材于《山海经》，构建东方神话与诸夏先民世界。制作人曹潇文表示，选择SOC赛道是因为该品类可挖掘内容多、理论上限高。游戏核心玩法围绕远古人类文明演化，包含制作工具、驯养巨兽、挑战诸神等，并引入动态天气、昼夜系统及天灾机制。设计上强调物理规则交互，如温度、火焰、冰等元素组合，采用有限式涌现设计。开发面临优化和多人模式两大难题，未来版本将支持10人组队，并考虑加入PvP。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:f4204c21274b3f43:ec6bc59d37d425d9:library-v1": {
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "宁波品牌EUHOMY创始人沈先生2016年从央企离职进入跨境电商，早期以铺货模式经营，2020年销售额达10亿元。因铺货模式风险上升，2020年孵化EUHOMY品牌，2022年带领20人团队独立拆分，聚焦美国家用便携制冰机赛道。品牌优化压缩机减震与风道结构，实现6-8分钟出冰，并推出月牙冰款式，后拓展车载便携冰箱、家用冷饮站等产品。截至2025年，员工增至270多人，年销售额达14亿元，以北美为核心市场并向欧洲、拉美、中东、日本扩张。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:be81d3523d5a1760:649081b4656f7272:library-v1": {
+  "classification": {
+   "category": "financing",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "港股上市公司珠峰黄金于9月22日公告，向6名认购人发行合共2.77亿股，占扩大后股本16.38%，每股配售价1.60港元，较9月21日收市价1.95港元折让17.95%，募资总额约4.432亿港元。完成后，中国白银在珠峰黄金的权益将由约35.37%摊薄至约29.57%，不再为控股股东，但仍为单一最大股东，其不竞争承诺将按条款终止。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:2def1127f95f4c78:a793e6a1a7ce25e5:library-v1": {
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "新加坡网约车平台TADA于2018年7月26日上线，创始人禹景植此前三次创业失败。TADA以司机端零佣金和低于Grab的高峰期定价切入市场，上线不到两周司机注册数从2000多人增至9500多人。2018年底进入柬埔寨，2019年初进入越南。2019年完成500万美元A轮融资，2020年再获500万美元，2021年完成1500万美元B轮融资。2021年旗下ONiON Mobility在柬埔寨开展电动嘟嘟车业务并卖出850辆。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:804cac813ddb74f8:d97ef1fa7996f182:library-v1": {
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "一款主打个性化DIY定制的亚克力冰箱贴套装在TikTok美区热销。该产品来自SilkiTouch Shop店铺，于今年3月底上线，售价9-29美元，已累计售出2.67万单，总GMV超过27.79万美元，折合人民币约186.10万元。同款产品在国内1688上10个装最低批发价仅约2元。产品由透明亚克力板、双面胶和磁吸背板组成，用户可自行放入照片或图案制作专属冰箱贴。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:082fc3743005717d:a4a42fae7e7c0fd0:library-v1": {
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "eBay发布《2026 eBay卖家旺季行动指南》，调研显示57%的美国消费者计划在10月或更早开始年终购物，时尚、玩具及游戏、消费电子购买意愿靠前。26%的美国买家计划增加旺季支出，千禧一代平均支出达870美元；55%的买家下单前跨平台比价。54%的消费者通过浏览寻找礼物灵感，零售商网站及App、搜索引擎、电商平台和社交媒体是主要灵感来源。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:8cb45ba0b1176e1d:a40397a7c18cad5f:library-v1": {
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "当地时间9月18日，直播购物平台Whatnot宣布调整佣金政策，自9月21日起，卖家佣金从固定费率改为按四周滚动销售额定级、按品类定费率的动态模式，生效站点包括澳大利亚、美国、加拿大、法国等。四周内销售额达到15000美元及以上的卖家可解锁1档费率，销售额越高层级越高、佣金越低，官方特别定制费率下最低可至3%。佣金按GMV计费，不含买家支付的运费与税费。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:f0cc7bd09912889e:ea1975197ad06f3a:library-v1": {
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "停更三年的美妆博主程十安以新账号姜乘澜于2026年5月13日宣布回归，9月15日在抖音开启回归后首场带货直播，观看人次超1068万，GMV超1400万，小红书直播拿下买手榜第一。首播前其与前司官司败诉，涉案执行金额1119万余元。其主推品“将将好上手套组”原价880元、直播价286元，多次上架后售罄。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:0225039f61bcf35c:bc79306738a69f64:library-v1": {
+  "classification": {
+   "category": "interview",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "阅星曈创始人胡宇沸在接受访谈时介绍，其超便携电子纸产品从2024年2月小红书发帖验证需求，到3月众筹，首晚卖出3000多台，目前年营收数亿元，出货量数十万台，国内外销售约各占一半。胡宇沸曾任饿了么众包事业部总经理及Uber中国三城总经理，因出差常丢Kindle和书，产生把阅读器贴在手机背后的想法。产品定位为只保留阅读功能、强调便携，不堆参数，技术选择根据场景需求倒推。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:73f3a2a8d78596ad:627e0db7c49cda67:library-v1": {
+  "classification": {
+   "category": "release",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "9月21日，《盛世天下》制作人demi_ggg发文宣布，真人互动影游《盛世天下》系列累计销量突破600万套。此前在《盛世天下》女帝篇上线21天后，该系列销量已突破500万套，创下真人实拍互动影视作品的全球销量纪录，如今这一纪录再度刷新。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:23c62323f8ac9fbc:d546d5e018bcc5cb:library-v1": {
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "零跑汽车在2026技术日上宣布调整目标，从新势力销量第一转向争取国内新能源品牌前三、全球前四。创始人朱江明表示，零跑将争取成为汽车行业的苹果。零跑今年1至8月累计交付超56万台，其中13万台销往海外，8月国内新能源零售榜位列比亚迪、吉利之后。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:3dabf74cd1f4c3c5:c77ae7a67d3158b6:library-v1": {
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "9月12日，《说唱巅峰对决2026》总决赛以6小时直播收官，被说唱圈称为“哈圈春晚”。直播后一周，Yamy、弹壳的名人堂感言、TopBarry嘴瓢及杜海涛救场等细节仍在社交平台发酵。文章指出，2026年成为综艺直播大年，S+音综普遍策划直播，观众从被动接受剪辑叙事转向关注现场意外与艺人真实反应。总导演左近表示，总决赛选择直播是为检验rapper未经修音的现场能力，并向行业释放说唱歌手具备大型音乐直播能力的信号。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:96b97332df65fbe9:21747f4ca2d6ab11:library-v1": {
+  "classification": {
+   "category": "general",
+   "tags": {},
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "作者以玩《王者万象棋》超220小时的体验为切入点，指出该游戏口碑两极分化：部分玩家批评玩法、宣发和新手引导，另一部分玩家则高度沉迷，正式服王者段位玩家数量一周内破十万。作者认为，这种设计驱动的产品在玩家度过约150小时适应期后会呈现完全不同的体验，并以棋手玉环的技能设计为例，说明其将琵琶演奏概念融入玩法，形成从包装到操作、学习、反馈的完整设计闭环。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1:3:DeepSeek-V4-Pro:enrich-v4:en:aaa284133496755b:3ca7093cd0624456": {
+  "classification": {
+   "category": "release",
+   "tags": {
+    "industry": "ai_model",
+    "issuer": "startup"
+   },
+   "autoFallback": false,
+   "autoFilled": []
+  },
+  "classificationStatus": "complete",
+  "summary": "前OpenAI研究员Diogo Almeida推出名为Jev的模型，该模型不生成文字，只输出概率判断，被称为System One。上线数天后，全球开发者围绕它创建了近五百个开源项目。",
+  "summaryOrigin": "model",
+  "summaryStatus": "complete",
+  "enrichmentStatus": "complete",
+  "modelAttempted": true,
+  "cacheHit": false
  }
 }

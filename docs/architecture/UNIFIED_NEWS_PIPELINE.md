@@ -6,11 +6,14 @@
 
 `#/all` 为“全部文章”：本次 Manus 发现中通过来源身份、原始时间和窗口校验的条目，经去重后保留安全元数据。缺正文、明确不相关、单条模型失败均不删除合规的标题、来源、日期与原文链接。来源或时间尚未核清的候选留在私有隔离队列。
 
+2026-09-23用户确认：所有合格正文都独立生成摘要与分类。相关性筛选和摘要分类在逻辑上解耦，相关性为否不能阻止该篇打标；这不表示网络请求并行执行。非精选文章照常展示分类，非 AI 内容不强制填写 AI 维度。没有正文不根据标题猜分类。
+
 `#/selected` 为“Garena投资精选”：正文达到既有证据要求后，完成实质 AI 相关性筛选、摘要和分类。当前是广义 AI 新闻标准，不额外引入投资分数或未经确认的赛道限制。公司、产品与融资新增只消费精选；明确空精选不回退全部、旧 feed 或历史。
 
 - 私有 `inputs/processed.json.items` 是精选输入，`allArticles` 是全量安全元数据。
 - 公开 `snapshot.newsSelectionVersion=1`，`all` 与 `garenaSelected` 独立存在；缺池是错误，空池是合法值。
 - `garenaSelection.status` 为 selected / not_selected / pending。普通元数据不需要先获得分类或摘要才可阅读。
+- `contentStatus` 为 available / awaiting_body；`classificationStatus` 和 `summaryStatus` 各为 complete / pending / failed，与是否精选分别记录。缺正文显示“待正文”，有正文分类未处理或失败分别显示“待打标”或“打标失败”，不能一律解释为“未分类”。
 - 两池共有 ID 的展示字段一致，仅列表序号可以不同。`collectionStatus.articleLibraryCount` 计全部，`selectedArticles` / `publishedArticles` 计精选。
 - 浏览器仅消费本批明确的 Manus 池；不从旧日报、周报、演示条目或旧浏览器补录填充。
 
@@ -32,8 +35,11 @@ flowchart TD
     Manus --> Gate[来源与原发时间校验及去重]
     Gate --> All[全部文章元数据]
     Gate --> Body[逐篇正文获取]
-    Body --> News[AI相关性、摘要和分类]
-    News --> Selected[Garena投资精选]
+    Body --> Relevance[实质AI相关性筛选]
+    Body --> Label[独立摘要和分类]
+    Label --> All
+    Relevance --> Selected[相关性及摘要分类均通过：Garena投资精选]
+    Label --> Selected
     Selected --> Company[公司与产品抽取]
     Company --> Research[原预算下资料补全]
     Selected --> Funding[融资抽取]
@@ -67,6 +73,7 @@ credit 阈值是观察止损，不是服务端硬费用上限。余额按 agent 
 | 部分 Manus 来源失败或覆盖不全 | 处理其余已校验文章，保留真实来源状态 |
 | 有充分证据的窗口内零篇 | 合法空结果，不等于采集失败 |
 | 单篇正文失败 | 全部文章保留合规元数据，该篇不进入需要正文的模型步骤 |
+| 相关性为否但正文合格 | 独立摘要分类，结果进入全部文章；不进入精选或公司融资抽取 |
 | 单篇相关性、摘要分类或公司抽取失败 | 独立记录，不删除其他合格成果 |
 | 所有来源不可用、模型系统性失败或跨产物校验失败 | 保留旧正式产物，不用空结果掩盖故障 |
 | 显式空精选 | 公司/融资不回读全量或旧 feed |
@@ -74,6 +81,14 @@ credit 阈值是观察止损，不是服务端硬费用上限。余额按 agent 
 公开快照包含窗口、逐源状态和文章去向统计；前端保持新闻阅读布局，诊断不冒充已覆盖。新闻、feed、公司、融资在同一个审核候选中校验后统一晋升，不能用当前旧 feed 为新批次补成功数。
 
 `run_pipeline.py` 默认 `manus-only`；`full` 为兼容别名，`aihot-only` 拒绝。`--no-promote` 仍可能付费，完全离线检查使用 `test_pipeline.py offline`。定时当前关闭。`--resume` 恢复原窗口与成功缓存；已完成发布的运行不重复发布。
+
+## 2026-09-23 独立打标调整
+
+当前已发布的9月22日批次仍是37篇全部文章、11篇精选。逐条拼接正文、相关性、加工审核及公开快照后，26篇未分类分为：15篇只做相关性筛选，因结果为否被旧流程跳过摘要分类；10篇机器之心缺正文，未发送模型；1篇Jev相关性通过但分类加工失败。已有11篇分类与摘要在公开快照中完整保留，没有前端漏读。缓存回放中的 `modelAttempted=false` 不能据此否认原轮请求；原轮审核记录需一起读取。私有逐篇诊断：[unclassified-diagnostic-20260923.json](../../work/news-daily-rollout-20260922/unclassified-diagnostic-20260923.json)（仅本地work文件，不随公开站点发布）。
+
+Jev文章 `manus:5b57ba973c441488` 有3499字符正文，原轮记录 `modelAttempted=true` 和非系统性 `content` 错误。结合该次代码路径，可定位到发布类 `release_evidence` 校验门禁：证据需为至少4字符且在正文中逐字出现的字符串。旧轮未保存原始模型JSON，无法进一步证明是缺失、过短、类型错误或原文不匹配，不能把fallback摘要当模型原回答。新的 `modelResponse` / `validationReason` 诊断只留私有inputs，不进入public。
+
+本轮实现和真实补处理已完成：精选处理沿用v4成功缓存，其余合格正文走独立 `library-v1` 分类口径；复用11篇旧成功结果，对16篇缺项补处理。Jev本次响应证明证据仅空白差异，修复连续匹配后离线重放成功，新增精选及单篇公司处理。最终37篇全部文章中27篇已分类、10篇待正文、12篇精选；非精选仍不进入公司或融资抽取。新增请求共16次正文加工及1次公司抽取，未新增Manus请求。销量里程碑边界、4篇摘要审校及公司归属修正一并审核晋升，详情见[本轮记录](../history/2026-09-23-INDEPENDENT_CLASSIFICATION.md)。线上发布必须另核对应提交的Pages和JSON，不用离线测试代替。
 
 ## 公开文件退役
 

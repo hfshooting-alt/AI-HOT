@@ -36,6 +36,9 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "e480b0983fafc691b146e9e3201bd05605e885110964a9b70b2d1a0b083d8735",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
    "summaryOrigin": "model"
   },
   {
@@ -72,6 +75,9 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "62ec768c896b4f7a9251dc59612314ab20dd606693c384fe5d257205f9b49c5c",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
    "summaryOrigin": "model"
   },
   {
@@ -105,6 +111,9 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "929c0ff73e11011523d03d4d600d57a1645e350cba24af57e374b3d5964554c1",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
    "summaryOrigin": "model"
   },
   {
@@ -141,6 +150,9 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "e4158c77f632cbb44b38e7b586020b0ef6a450edafd791b052163a02e97cdea8",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
    "summaryOrigin": "model"
   },
   {
@@ -174,6 +186,9 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "0edd01cd450d4e4be896f22c3c148e0cb0c4ea110d3304f71f0cc387a000efb2",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
    "summaryOrigin": "model"
   },
   {
@@ -207,6 +222,9 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "c67914a8e5393c28d92a095870f9c7d7300db6ede904dc3a63c9ec85844f2893",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
    "summaryOrigin": "model"
   },
   {
@@ -243,6 +261,9 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "bde0a3958c5f770a680baebef9f7da8350f666a188491fe9d0b0b02b46275e17",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
    "summaryOrigin": "model"
   },
   {
@@ -279,6 +300,9 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "5c5af444c722e63692d4193fd161ff9fac0eb99e208c6c52fd274c8cda684e07",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
    "summaryOrigin": "model"
   },
   {
@@ -315,6 +339,9 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "c11deef743182ce140a46f5a6a9d137120f4654d4814b9ad9ea9f88929307a7e",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
    "summaryOrigin": "model"
   },
   {
@@ -351,8 +378,11 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "fd8106941c27659826402cfbae7fd85c317ba4667559719c2d5489142f036a33",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
    "summaryOrigin": "model"
   }
  ],
- "updatedAt": "2026-09-22T18:34:02.321639+08:00"
+ "updatedAt": "2026-09-23T10:55:04.349970+08:00"
 }

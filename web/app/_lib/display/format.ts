@@ -143,20 +143,6 @@ export function fmtFullDay(iso?: string): string {
   return `${d.getUTCFullYear()}年${d.getUTCMonth() + 1}月${d.getUTCDate()}日 ${fmtWeekday(iso)}`;
 }
 
-/** 相对时间："3 小时前 / 2 天前"（热点榜用） */
-export function fmtRelative(iso?: string): string {
-  const d = bjDate(iso);
-  if (!d) return "";
-  const now = Date.now() + 8 * 3600 * 1000;
-  const diffMs = now - d.getTime();
-  const hours = Math.floor(diffMs / 3600000);
-  if (hours < 1) return "1 小时内";
-  if (hours < 24) return `${hours} 小时前`;
-  const days = Math.floor(hours / 24);
-  if (days < 30) return `${days} 天前`;
-  return fmtMonthDay(iso);
-}
-
 /** 条目展示时间：快照带 timeText 时优先，否则按北京时间格式 "8/18 08:01" */
 export function fmtItemTime(item: NewsItem): string {
   if (item.publishedPrecision === "date") return `${item.publishedAt || ""} · ${item.timeEvidence?.originalText === "昨天" ? "原文标注昨天，" : ""}具体时刻未披露`;

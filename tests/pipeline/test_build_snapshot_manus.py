@@ -25,6 +25,22 @@ TAXONOMY = os.path.join(PROJECT_ROOT, "config/taxonomy.json")
 
 
 class TestAIHotV1Normalization(unittest.TestCase):
+    def test_public_processing_states_survive_snapshot_without_private_response(self):
+        raw = {'id': 'manus:awaiting', 'title': '待正文文章', 'source': '测试来源',
+               'publishedAt': '2026-09-22T12:00:00+08:00',
+               'contentStatus': 'awaiting_body', 'classificationStatus': 'pending',
+               'summaryStatus': 'pending', 'privateReview': {'response': 'private model response'},
+               'editorialReview': {'reviewedAt': '2026-09-23', 'reason': '修正观点归属',
+                                   'origin': 'source-grounded-review', 'raw': 'private model response'}}
+        built = build_snapshot.build_item(raw, 1, build_snapshot.datetime.now(build_snapshot.BJ))
+        for key in ('contentStatus', 'classificationStatus', 'summaryStatus'):
+            self.assertEqual(built[key], raw[key])
+        self.assertTrue(built['categoryUnclassified'])
+        self.assertNotIn('privateReview', built)
+        self.assertNotIn('private model response', json.dumps(built))
+        self.assertEqual(built['editorialReview'], {k: raw['editorialReview'][k]
+                         for k in ('reviewedAt', 'reason', 'origin')})
+
     def test_preserves_source_links_and_discovered_time_fallback(self):
         item = build_snapshot.normalize_v1_item({
             "id": "abc",

@@ -36,4 +36,8 @@
 
 最新749项Python离线回归通过；39项Node、TypeScript和Pages静态构建再次通过。Windows构建清理断言由包装器核验全新导出；构建成功仍不代表部署已完成。候选已validate、review并通过reviewed-candidate晋升，审核标识`ea8171c92e864198901363ba5c8ac9a8`；独立审计无阻断，53份当前/归档JSON无AIHOT ID或来源。
 
-**本地已准备就绪，仍待git推送及Pages线上验收。** 本记录此时不宣称已上线。发布后还需核对本批37/11两池、公司/融资、来源状态及公开产物清理结果，不能沿用旧工作流绿色状态。定时保持关闭，不自动重跑未创建来源或失败模型。
+**本批已上线。** 数据及代码提交`64d3d44f3dee245b279eb6d799e24b2c65928ff8`；[Pages运行35717710546](https://github.com/hfshooting-alt/AI-HOT/actions/runs/35717710546)与[离线CI运行35717710531](https://github.com/hfshooting-alt/AI-HOT/actions/runs/35717710531)均在该提交成功。
+
+北京时间18:46:53开始回读线上数据，snapshot、company-overview、funding-table的SHA256逐一与提交中的文件一致，私有记录为`live-verification.json`。浏览器实际看到新闻Daily品牌、全部37篇、精选11篇，以及公司222/产品254的表格，首页无旧AIHOT入口。定时保持关闭，不自动重跑未创建来源或失败模型。
+
+发布验收不等于20源完整覆盖或全部字段的人工质量验收。机器之心10篇仍只有Manus发现元数据、缺独立正文核验；旧库独立资料和Manus历史关联继续保留。兼容周报对象的range.end停留在9月21日，但首页与精选使用独立两池及正确滚动窗口，前端已移除周报入口；该元数据不影响本批展示。

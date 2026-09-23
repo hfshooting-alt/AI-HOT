@@ -1,4 +1,4 @@
-// 新分类标签体系（与 taxonomy.json 对齐）：全部 AI 动态的分类与维度定义。
+// 新闻分类与处理状态；处理状态不冒充 taxonomy 中的新闻类别。
 import type { NewsItem } from "./types";
 
 /** 新 6 类（展示顺序固定；dims 为该类别的并列筛选维度 id；display 对齐 taxonomy.json） */
@@ -40,13 +40,24 @@ export const TAXONOMY_CATEGORY_COLORS: Record<string, string> = {
   paper: "#f43f5e",
   bigtech: "#f59e0b",
   general: "#06b6d4",
+  awaiting_body: "#b45309",
+  classification_pending: "#64748b",
+  classification_failed: "#dc2626",
   unclassified: "#94a3b8",
 };
+
+/** 仅在当前文章池中存在时显示；保持分类、来源与搜索筛选可组合。 */
+export const ARTICLE_STATUS_FILTERS = [
+  { id: "awaiting_body", label: "待正文" },
+  { id: "classification_pending", label: "待打标" },
+  { id: "classification_failed", label: "打标失败" },
+  { id: "unclassified", label: "未分类" },
+] as const;
 
 /** 分类 id -> 中文名 */
 export const TAXONOMY_LABELS: Record<string, string> = {
   ...Object.fromEntries(TAXONOMY_CATEGORIES.map((c) => [c.id, c.label])),
-  unclassified: "未分类",
+  ...Object.fromEntries(ARTICLE_STATUS_FILTERS.map((status) => [status.id, status.label])),
 };
 
 /** 旧六版块 -> 新 6 类兜底映射（无 classification 的条目：尚未打标条目） */
@@ -61,10 +72,21 @@ const LEGACY_CATEGORY_MAP: Record<string, string> = {
 
 /** 条目分类归属：classification.cat 优先，旧六版块 category 兜底映射 */
 export function categoryOf(item: NewsItem): string {
+  if (item.contentStatus === "awaiting_body") return "awaiting_body";
+  if (item.classificationStatus === "failed") return "classification_failed";
+  if (item.classificationStatus === "pending") return "classification_pending";
   const cat = item.classification?.cat;
-  if (cat && TAXONOMY_LABELS[cat]) return cat;
+  if (cat && TAXONOMY_CATEGORIES.some((category) => category.id === cat)) return cat;
   if (item.categoryUnclassified) return "unclassified";
   return LEGACY_CATEGORY_MAP[item.category || ""] || "unclassified";
+}
+
+/** 分类已完成但摘要尚未完成时保留真实类别，并说明摘要状态。 */
+export function summaryStatusLabel(item: NewsItem): string | null {
+  if (item.contentStatus === "awaiting_body" || item.classificationStatus !== "complete") return null;
+  if (item.summaryStatus === "failed") return "摘要失败";
+  if (item.summaryStatus === "pending") return "待摘要";
+  return null;
 }
 
 /** 条目所属类别可用的维度标签集：{维度label: 条目值} */

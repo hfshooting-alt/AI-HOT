@@ -1,6 +1,6 @@
 {
  "date": "2026-09-21",
- "finalized": false,
+ "finalized": true,
  "items": [
   {
    "id": "manus:5d750df8d9094b20",
@@ -68,8 +68,51 @@
    },
    "enrichmentStatus": "complete",
    "contentSha256": "e4fb393e4d2e2912799e04973ae439e9ce97d2f6545331fe0c58ca7952082e00",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "manus:5b57ba973c441488",
+   "title": "Jev，让全球程序员玩疯了",
+   "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+   "source": "腾讯新闻转载：极客公园",
+   "mpName": "极客公园",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "manus",
+   "publishedAt": "2026-09-21T19:04:00+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": null,
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "manus",
+     "source": "极客公园",
+     "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+     "publishedAt": "2026-09-21T19:04:00+08:00"
+    }
+   ],
+   "summary": "前OpenAI研究员Diogo Almeida推出名为Jev的模型，该模型不生成文字，只输出概率判断，被称为System One。上线数天后，全球开发者围绕它创建了近五百个开源项目。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "3ca7093cd0624456628cc035a2bf574b0f3da0667b17e55c97e6f085442b25c2",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
    "summaryOrigin": "model"
   }
  ],
- "updatedAt": "2026-09-22T18:34:02.321639+08:00"
+ "updatedAt": "2026-09-23T10:55:04.349970+08:00",
+ "finalizedAt": "2026-09-23T10:50:41.802330+08:00"
 }

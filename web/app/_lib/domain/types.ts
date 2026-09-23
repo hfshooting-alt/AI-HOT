@@ -2,6 +2,7 @@
 
 export type NewsPoolMode = "all" | "selected";
 export type ViewKey = NewsPoolMode | "company" | "settings";
+export type ArticleProcessingStatus = "complete" | "pending" | "failed";
 
 /** AI 两级分类（tag_news 打标签产物，展示结构；dims 与 to_display 输出对齐） */
 export interface Classification {
@@ -34,6 +35,10 @@ export interface NewsItem {
   mpName?: string | null;
   classification?: Classification | null;
   classificationOrigin?: string;
+  /** 正文与模型处理状态独立于是否进入投资精选；不据标题推断分类。 */
+  contentStatus?: "available" | "awaiting_body";
+  classificationStatus?: ArticleProcessingStatus;
+  summaryStatus?: ArticleProcessingStatus;
   num?: number;
   timeText?: string;
   /** 原文链接。 */

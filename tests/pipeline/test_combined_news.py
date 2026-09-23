@@ -314,8 +314,9 @@ class CombinedNews(unittest.TestCase):
         self.assertEqual([r['id'] for r in result['allArticles']], [i['id'] for i in pool])
         self.assertEqual([r['garenaSelection']['status'] for r in result['allArticles']], ['selected', 'not_selected'])
         self.assertEqual([r['garenaSelection']['reason'] for r in result['allArticles']], ['AI 公司融资', '普通游戏新闻'])
-        self.assertEqual(result['allArticles'][1]['summary'], '')
-        self.assertNotIn('classification', result['allArticles'][1])
+        self.assertTrue(result['allArticles'][1]['summary'])
+        self.assertEqual(result['allArticles'][1]['classificationStatus'], 'complete')
+        self.assertEqual(result['allArticles'][1]['classification']['tags'], {})
         stats = result['collectionStatus']
         self.assertEqual((stats['candidateArticles'], stats['selectedArticles'], stats['excludedArticles'], stats['quarantinedArticles']), (2, 1, 1, 0))
         self.assertEqual(stats['publishedArticles'], stats['selectedArticles'])
@@ -404,18 +405,42 @@ class CombinedNews(unittest.TestCase):
         evidence = news.read(self.workspace / 'inputs/publication-time-review.json')
         self.assertIn('2026-09-08 19:04发布', evidence[0]['note'])
 
-    def test_all_excluded_articles_publish_an_unclassified_library(self):
+    def test_all_excluded_articles_are_classified_without_entering_selection(self):
         def excluded(items, *args, **kwargs):
             return ({screen_news.item_key(i): {'status': 'complete', 'relevant': False,
                 'reason': '无具体 AI 事件'} for i in items}, {'irrelevant': len(items)})
-        def forbidden(*args, **kwargs):
-            self.fail('Excluded article reached enrichment')
-        result = news.process(DATE, self.workspace, self.raw, screen_fn=excluded, enrich_fn=forbidden)
+        calls = []
+        def classify(items, tx, path):
+            calls.append((len(items), tx['enrich'].get('article_scope')))
+            return enrich(items, tx, path)
+        result = news.process(DATE, self.workspace, self.raw, screen_fn=excluded, enrich_fn=classify)
         self.assertEqual(result['items'], [])
         self.assertEqual(result['allArticles'][0]['garenaSelection']['status'], 'not_selected')
-        self.assertNotIn('classification', result['allArticles'][0])
+        self.assertEqual(result['allArticles'][0]['classification']['category'], 'general')
+        self.assertEqual(result['allArticles'][0]['classificationStatus'], 'complete')
+        self.assertEqual(calls, [(1, 'all_articles')])
+        self.assertEqual(news.read(self.workspace / 'inputs/company-evidence.json'), [])
         self.assertEqual(result['collectionStatus']['excludedArticles'], 1)
         self.assertEqual(result['collectionStatus']['quarantinedArticles'], 0)
+
+    def test_nonselected_success_cannot_mask_selected_model_failure(self):
+        self.manus_sample([self.item, {**self.item, 'title': '普通家电行业评论', 'url': 'https://example.com/home'}])
+        def mixed_screen(items, *args, **kwargs):
+            return ({screen_news.item_key(i): {'status': 'complete', 'relevant': 'AI' in i['title']}
+                     for i in items}, {'irrelevant': 1})
+        calls = []
+        def fail_selected(items, tx, path):
+            calls.append(tx['enrich'].get('article_scope', 'selection'))
+            if tx['enrich'].get('article_scope') == 'all_articles':
+                return enrich(items, tx, path)
+            return {enrich_news.enrich_item_key(i): {'enrichmentStatus': 'failed', 'modelAttempted': True,
+                    'error': {'category': 'timeout'}} for i in items}
+        with self.assertRaisesRegex(ValueError, 'no new model success'):
+            news.process(DATE, self.workspace, self.raw, screen_fn=mixed_screen, enrich_fn=fail_selected)
+        self.assertEqual(calls, ['selection'])
+        library = news.read(self.workspace / 'inputs/article-library.json')['allArticles']
+        self.assertEqual(len(library), 2)
+        self.assertFalse((self.workspace / 'inputs/processed.json').exists())
 
     def test_all_local_content_failures_can_publish_library_without_selections(self):
         for stage, category in [('relevance', 'content'), ('relevance', 'output_limit'),

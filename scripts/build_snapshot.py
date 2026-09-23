@@ -691,6 +691,15 @@ def build_item(raw: dict, num: int, today: datetime) -> dict:
         "evidenceKind": raw.get('evidenceKind'),
         **({'garenaSelection': raw['garenaSelection']} if 'garenaSelection' in raw else {}),
         **({'summaryOrigin': raw['summaryOrigin']} if 'summaryOrigin' in raw else {}),
+        **({'editorialReview': {key: raw['editorialReview'][key]
+                               for key in ('reviewedAt', 'reason', 'origin')
+                               if isinstance(raw['editorialReview'].get(key), str)}}
+           if isinstance(raw.get('editorialReview'), dict) else {}),
+        **{key: raw[key] for key, values in (
+            ('contentStatus', ('available', 'awaiting_body')),
+            ('classificationStatus', ('complete', 'pending', 'failed')),
+            ('summaryStatus', ('complete', 'pending', 'failed')),
+        ) if raw.get(key) in values},
         # AI 两级分类结果（id → label 展示结构）；未打标条目为 None，前端自然隐藏徽章
         "classification": (tag_news.to_display(TAG_TAXONOMY, raw["classification"])
                            if TAG_TAXONOMY and raw.get("classification") else None),

@@ -53,14 +53,16 @@ def _public_metadata(item):
     return public
 
 
-def build_public_article_library(pool, processed, results=None):
+def build_public_article_library(pool, processed, results=None, enrichments=None):
     """Keep every verified candidate, annotating our own selected/not_selected/pending.
 
     `processed` is the successfully screened/enriched pool, including any reviewed
     summaries. `results` maps article IDs to relevance
+    results. `enrichments` independently maps article IDs to body processing
     results. Missing results mean pending; upstream `selected` is never used.
     """
     results = results or {}
+    enrichments = enrichments or {}
     approved = {item['id']: item for item in processed}
     pool_ids = {item['id'] for item in pool}
     if len(approved) != len(processed) or len(pool_ids) != len(pool) or not set(approved).issubset(pool_ids):
@@ -68,6 +70,8 @@ def build_public_article_library(pool, processed, results=None):
     library = []
     for item in pool:
         public = _public_metadata(item)
+        public.update(contentStatus='awaiting_body' if item.get('metadataOnly') else 'available',
+                      classificationStatus='pending', summaryStatus='pending')
         selected = approved.get(item['id'])
         relevance = results.get(item['id']) or {}
         if not isinstance(relevance, dict):
@@ -85,9 +89,10 @@ def build_public_article_library(pool, processed, results=None):
                 if isinstance(selected.get('summaryOrigin'), str) and selected['summaryOrigin'] else 'processed')
             public['classification'] = classification
             public['enrichmentStatus'] = 'complete'
+            public.update(classificationStatus='complete', summaryStatus='complete')
             for key in ('editorialReview', 'classificationReview'):
                 if isinstance(selected.get(key), dict):
-                    public[key] = _strings(selected[key], ('at', 'reviewedAt', 'reason'))
+                    public[key] = _strings(selected[key], ('at', 'reviewedAt', 'reason', 'origin'))
             if isinstance(selected.get('classificationOrigin'), str):
                 public['classificationOrigin'] = selected['classificationOrigin']
             decision = selected.get('garenaSelection')
@@ -107,5 +112,28 @@ def build_public_article_library(pool, processed, results=None):
             else:
                 status, reason = 'pending', 'Garena 投资筛选尚未完成'
             public['garenaSelection'] = {'status': status, 'reason': reason}
+            # Classification is independent from the investment decision. Only
+            # allowlisted output fields can cross this private/public boundary.
+            result = enrichments.get(item['id'])
+            if not item.get('metadataOnly') and isinstance(result, dict) and result:
+                classification = _classification(result.get('classification'))
+                if (classification and classification.get('autoFallback') is False
+                        and result.get('enrichmentStatus') in ('complete', 'partial')):
+                    classification['tags'] = {}
+                    if 'dims' in classification:
+                        classification['dims'] = []
+                    classification['autoFilled'] = []
+                    public.update(classification=classification, classificationStatus='complete')
+                elif result.get('modelAttempted') or result.get('enrichmentStatus') in ('failed', 'fallback'):
+                    public['classificationStatus'] = 'failed'
+                summary = result.get('summary')
+                if isinstance(summary, str) and summary.strip() and result.get('summaryStatus') != 'failed':
+                    public.update(summary=summary, summaryStatus='complete')
+                    if isinstance(result.get('summaryOrigin'), str):
+                        public['summaryOrigin'] = result['summaryOrigin']
+                    if isinstance(result.get('editorialReview'), dict):
+                        public['editorialReview'] = _strings(result['editorialReview'], ('reviewedAt', 'reason', 'origin'))
+                elif result.get('modelAttempted') or result.get('enrichmentStatus') in ('failed', 'fallback', 'partial'):
+                    public['summaryStatus'] = 'failed'
         library.append(public)
     return copy.deepcopy(library)

@@ -1,13 +1,14 @@
 // 新闻条目卡片：时间·来源·标签 → 标题 → 摘要。
 import type { NewsItem } from "../../_lib/domain/types";
 import { fmtClock, fmtItemTime, itemUrl } from "../../_lib/display/format";
-import { categoryOf, TAXONOMY_CATEGORY_COLORS, TAXONOMY_LABELS } from "../../_lib/domain/taxonomy";
+import { categoryOf, summaryStatusLabel, TAXONOMY_CATEGORY_COLORS, TAXONOMY_LABELS } from "../../_lib/domain/taxonomy";
 import { SectionTag } from "./ScoreBadge";
 import { BookmarkIcon } from "../shared/icons";
 
 export function ArticleCard({ item, showSection = true }: { item: NewsItem; showSection?: boolean }) {
   const wx = item.sourceType === "wechat" || String(item.source || "").startsWith("公众号：");
   const catId = categoryOf(item);
+  const summaryStatus = summaryStatusLabel(item);
   const color = TAXONOMY_CATEGORY_COLORS[catId] || "#94a3b8";
   return (
     <article className="ah-card ah-card-hover p-5">
@@ -27,6 +28,7 @@ export function ArticleCard({ item, showSection = true }: { item: NewsItem; show
           {item.source || "来源未注明"}
         </span>
         {showSection && <SectionTag label={TAXONOMY_LABELS[catId] || catId} color={color} />}
+        {summaryStatus && <SectionTag label={summaryStatus} color={item.summaryStatus === "failed" ? "#dc2626" : "#64748b"} />}
         <span className="ml-auto flex items-center gap-2">
           <BookmarkIcon className="size-4 text-mut-2" />
         </span>

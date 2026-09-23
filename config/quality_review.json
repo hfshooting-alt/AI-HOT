@@ -248,6 +248,23 @@
   ],
   "excludedProducts": [
     {
+      "company": "OpenAI",
+      "name": "Opus 5",
+      "articleId": "manus:0efa86ea4ce276bb",
+      "url": "https://www.163.com/dy/article/L7964FNO0511N33R.html?spss=dy_author",
+      "title": "Gemini 4 Pro首测夯爆了！谷歌偷偷杀回第一",
+      "quote": "同一个提示，4 Pro手搓3D龙的效果，毫不逊色Opus 5",
+      "reason": "该句只比较模型表现，不能证明OpenAI拥有、集成或使用Opus 5；既有官网核验将Claude Opus归属Anthropic。仅删除本篇在OpenAI下的错误关联，保留Anthropic已有记录，不增加其他关系。",
+      "reviewedAt": "2026-09-22",
+      "ownershipEvidence": {
+        "owner": "Anthropic",
+        "url": "https://www.anthropic.com/claude/opus",
+        "title": "Claude Opus - Anthropic",
+        "quote": "Claude Opus \\ Anthropic",
+        "checkedAt": "2026-09-14"
+      }
+    },
+    {
       "company": "DeepSeek",
       "name": "API",
       "articleId": "aihot:cmu92r7mm05tjrojrjbgb9tc6",
@@ -1608,6 +1625,242 @@
           "industry_id": "ai_other"
         }
       ]
+    },
+    {
+      "articleId": "manus:5b57ba973c441488",
+      "title": "Jev，让全球程序员玩疯了",
+      "url": "https://news.qq.com/rain/a/20260921A0ACVU00",
+      "contentSha256": "3ca7093cd0624456628cc035a2bf574b0f3da0667b17e55c97e6f085442b25c2",
+      "reviewedAt": "2026-09-23",
+      "reason": "逐项回核已保存原文：保留具名开发、运营、实际使用与开源产品事件；Home Assistant只提供社区背景，HA-Jev开发方未明而保留待归属产品；vLLM仅贡献者身份、Pi仅观点引述、OpenAI仅履历、Claude与GPT-5仅对比，均不新增主体。Droidrun按具名开发团队保留mobile-jev归属，不推断注册法人或公司国家；Distribb仅保留创始人使用Jev的原文事件，不推断主营业务。Google的DiffusionGemma具有明确归属及本次开源实现使用事实。原模型结果与缓存不改。",
+      "companies": [
+        {
+          "company_name": "TypeSafe AI",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Jev"
+          ],
+          "products": [
+            {
+              "name": "Jev",
+              "relationship": "owned",
+              "quote": "TypeSafe AI 给 Jev 定下的价格是每百万输入 token 仅需 0.042 美元，输出免费。"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "开发只输出概率判断的模型 Jev",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "Droidrun",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "mobile-jev"
+          ],
+          "products": [
+            {
+              "name": "mobile-jev",
+              "relationship": "owned",
+              "quote": "Droidrun 团队做了一个名为 mobile-jev 的手机操作代理"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": "开发手机操作代理",
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Distribb",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "Jev"
+          ],
+          "products": [
+            {
+              "name": "Jev",
+              "relationship": "used",
+              "quote": "Distribb 的创始人拿 Jev 扫描了近六百个网页"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Google",
+          "entity_type": "company",
+          "aliases": [],
+          "product_names": [
+            "DiffusionGemma"
+          ],
+          "products": [
+            {
+              "name": "DiffusionGemma",
+              "relationship": "owned",
+              "quote": "Google 的 DiffusionGemma"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_model"
+        },
+        {
+          "company_name": "HA-Jev",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "HA-Jev"
+          ],
+          "products": [
+            {
+              "name": "HA-Jev",
+              "relationship": "unknown",
+              "quote": "智能家居社区 Home Assistant 最近出现了一个名为 HA-Jev 的插件"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "Claude Code",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "Claude Code"
+          ],
+          "products": [
+            {
+              "name": "Claude Code",
+              "relationship": "unknown",
+              "quote": "写了一个 Jev 插件用来压缩 Claude Code 的上下文"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "pg-jev",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "pg-jev"
+          ],
+          "products": [
+            {
+              "name": "pg-jev",
+              "relationship": "unknown",
+              "quote": "GitHub 上很快涌现出 pg-jev 和 duckdb-jev"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        },
+        {
+          "company_name": "duckdb-jev",
+          "entity_type": "product",
+          "aliases": [],
+          "product_names": [
+            "duckdb-jev"
+          ],
+          "products": [
+            {
+              "name": "duckdb-jev",
+              "relationship": "unknown",
+              "quote": "GitHub 上很快涌现出 pg-jev 和 duckdb-jev"
+            }
+          ],
+          "founded": null,
+          "country": null,
+          "team": null,
+          "business": null,
+          "investors": null,
+          "total_funding": null,
+          "valuation": null,
+          "industry_id": "ai_other"
+        }
+      ]
+    }
+  ],
+  "articleSummaryReviews": [
+    {
+      "articleId": "manus:4e8829c835a3ab94",
+      "title": "游戏行业需要「长青」，却越来越难创造「长青」",
+      "url": "https://www.baijing.cn/article/56799",
+      "contentSha256": "65c98557a6f76438a8db3831cc2a037f9e5429ef83b60a143ee577bf3657edb9",
+      "fromSummarySha256": "90f3314776435e4d847d328703314e6a2bb8f0c32dfe93c1a0cf1e036f6d5c05",
+      "toSummary": "文章分析游戏行业为何追求“长青”，却难以培育新长青产品：研发与买量成本上升，使厂商更依赖成熟IP和持续运营收入；头部产品又占据玩家时间、社区与内容资产，抬高新品门槛。文中援引数据称，2026上半年Steam新游戏仅贡献21%收入，并以网易、Take-Two等为例，指出对确定性的偏好可能进一步压缩创新空间。",
+      "reviewedAt": "2026-09-23T10:51:04.776272+08:00",
+      "reason": "原模型长摘要被前缀截取后只剩定义与成本，遗漏标题主论点。原文同年/半年度指标也不宜一概改为同期。"
+    },
+    {
+      "articleId": "manus:1b75cf9c037cd8f0",
+      "title": "谁说在东南亚做网约车平台，就一定要成为Grab？",
+      "url": "https://www.baijing.cn/article/56793",
+      "contentSha256": "a793e6a1a7ce25e53cd2d5cdd2dd845fc766de07033e3739510063490242cb5a",
+      "fromSummarySha256": "c630f3f66deb5745f4c90b3b4135b8dbc762530d6939e4d771d3227ed9efda77",
+      "toSummary": "TADA以司机零佣金和较低乘客价格切入新加坡市场，随后采取轻资产方式扩张：2024年进入香港，2025年以SaaS形式向丹佛司机合作社提供系统，2026年以Throo品牌在纽约软启动。文章回顾其融资与电动嘟嘟车业务，认为TADA未复制Grab路径，而是寻找大平台覆盖不足、司机仍有选择空间的市场；这一策略能否持续仍待观察。",
+      "reviewedAt": "2026-09-23T10:51:04.776272+08:00",
+      "reason": "公开摘要被截为2018—2021年背景，遗漏当前扩张及差异化经营主线；此后销量不应暗示都发生于2021年。"
+    },
+    {
+      "articleId": "manus:65b85539143cb577",
+      "title": "年销数亿的超便携电子纸操盘人，想做超便携的Everything｜对话创始人",
+      "url": "https://www.baijing.cn/article/56786",
+      "contentSha256": "bc79306738a69f64468ff86b62913e09195e6e2505468361cb05070c4909fb3a",
+      "fromSummarySha256": "a7714fd441d361d0bee85b60788fcd7212208e69b5b9f659bd0df694ef2383e3",
+      "toSummary": "阅星曈创始人胡宇沸在接受访谈时介绍，其超便携电子纸产品从2月在小红书发帖验证需求，到3月众筹，首晚卖出3000多台，目前年营收数亿元，出货量数十万台，国内外销售约各占一半。胡宇沸曾任饿了么众包事业部总经理及Uber中国三城总经理，因出差常丢Kindle和书，产生把阅读器贴在手机背后的想法。产品定位为只保留阅读功能、强调便携，不堆参数，技术选择根据场景需求倒推。",
+      "reviewedAt": "2026-09-23T10:51:04.776272+08:00",
+      "reason": "模型无依据补出2024年；正文只有去年2月份及2月14日/3月13日，不把转载语境推算为该年份。"
+    },
+    {
+      "articleId": "manus:037d9112c72b254f",
+      "title": "玩了200小时天美今年最大爆款，我对行业越来越没信心",
+      "url": "https://news.qq.com/rain/a/20260921A0BRTW00",
+      "contentSha256": "21747f4ca2d6ab11a5cf83e2236da2532809791b61775ba3002effa37114d23f",
+      "fromSummarySha256": "3af46562df12ce4e27bb0542cb85b5ff8c19a0716c240a87c7044dedb7f37bc9",
+      "toSummary": "作者以游玩《王者万象棋》超过220小时的个人体验为切入，称自己的体验在约150小时后出现转折，并肯定游戏将包装、操作与学习反馈结合的设计。文章继而指出，F2P产品重视首日留存和ROI等短期指标，而部分设计价值需较长体验才能显现；付费空间、测试窗口与试错成本又限制了设计驱动产品。作者因此担忧这类产品更依赖大厂的资源、IP和商业化能力。",
+      "reviewedAt": "2026-09-23T10:51:04.776272+08:00",
+      "reason": "原摘要将作者个人150小时体验泛化为玩家普遍适应期，并因前缀截断遗漏文章对F2P商业约束的核心判断。"
     }
   ]
 }

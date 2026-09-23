@@ -215,9 +215,10 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
                         'reason': '正文未取得，仅保留已核实的文章信息，未进行投资筛选'}
                        for i in pool if i.get('metadataOnly')]
 
-    def save_library(processed=(), results=None):
+    def save_library(processed=(), results=None, enriched=None):
         by_id = {i['id']: (results or {}).get(screen_news.item_key(i), {}) for i in model_pool}
-        library = build_public_article_library(pool, processed, by_id)
+        processing_by_id = {i['id']: (enriched or {}).get(enrich_news.enrich_item_key(i), {}) for i in model_pool}
+        library = build_public_article_library(pool, processed, by_id, processing_by_id)
         manus.atomic_write_json(workspace / 'inputs/article-library.json', {
             'collectionWindow': window, 'allArticles': library,
             'articleLibraryCount': len(library), 'selectedArticles': len(processed)})
@@ -257,9 +258,15 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
             for i in model_pool)):
         raise ValueError('Shared relevance processing unavailable; keep previous publication')
     enriched = enrich_fn(selected, tx, str(cache_dir / 'news_enrichment.json')) if selected else {}
-    manus.atomic_write_json(workspace / 'inputs/enrichment-review.json', [
-        {'id': i['id'], 'title': i['title'], 'url': i['url'],
-         'result': enriched.get(enrich_news.enrich_item_key(i), {})} for i in selected])
+    selected_ids = {i['id'] for i in selected}
+
+    def save_processing_review(items):
+        manus.atomic_write_json(workspace / 'inputs/enrichment-review.json', [
+            {'id': i['id'], 'title': i['title'], 'url': i['url'],
+             'purpose': 'selection' if i['id'] in selected_ids else 'article_library',
+             'result': enriched.get(enrich_news.enrich_item_key(i), {})} for i in items])
+
+    save_processing_review(selected)
     processed = []
     for item in selected:
         result = enriched.get(enrich_news.enrich_item_key(item), {})
@@ -270,11 +277,14 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
             continue
         clean = {k: v for k, v in item.items() if k != 'content_text'}
         clean.update(summary=result['summary'], classification=result['classification'],
-                     enrichmentStatus='complete', contentSha256=contracts.content_sha256(item['content_text']))
+                     enrichmentStatus='complete', contentSha256=contracts.content_sha256(item['content_text']),
+                     contentStatus='available', classificationStatus='complete', summaryStatus='complete')
         if result.get('summaryOrigin'):
             clean['summaryOrigin'] = result['summaryOrigin']
+        if isinstance(result.get('editorialReview'), dict):
+            clean['editorialReview'] = copy.deepcopy(result['editorialReview'])
         processed.append(clean)
-    library = save_library(processed, results)
+    library = save_library(processed, results, enriched)
     stopped = next((r for r in enriched.values() if r.get('batchStopped')), None)
     if stopped:
         manus.atomic_write_json(workspace / 'inputs/model-failure.json', {'stage': 'enrichment', 'error': stopped.get('circuitReason')})
@@ -287,6 +297,22 @@ def process(date, workspace, work_dir, enabled=True, *, screen_fn=None, enrich_f
             (enriched.get(enrich_news.enrich_item_key(i), {}).get('error') or {}).get('category') not in ('content', 'output_limit')
             for i in selected)):
         raise ValueError('No approved news after summary/classification; keep previous publication')
+    # Finish the selected stage's availability gates before other articles can
+    # contribute successes. General-interest classification never grants entry
+    # to the selected pool or its company/funding extraction inputs.
+    remaining = [i for i in model_pool if i['id'] not in selected_ids]
+    library_tx = copy.deepcopy(tx)
+    library_tx.setdefault('enrich', {})['article_scope'] = 'all_articles'
+    additional = enrich_fn(remaining, library_tx, str(cache_dir / 'news_enrichment.json')) if remaining else {}
+    enriched.update(additional)
+    save_processing_review(model_pool)
+    library = save_library(processed, results, enriched)
+    stopped = next((r for r in additional.values() if r.get('batchStopped')), None)
+    failure = new_model_failure(additional, 'enrichmentStatus')
+    if stopped or failure:
+        diagnostic = {'stage': 'article_library', **(failure or {'error': stopped.get('circuitReason')})}
+        manus.atomic_write_json(workspace / 'inputs/model-failure.json', diagnostic)
+        raise ValueError('Article library processing unavailable; preserve completed caches')
     quarantined.extend(body_quarantine)
     quarantined.extend(time_quarantine)
     collection = {'collectionWindow': window,

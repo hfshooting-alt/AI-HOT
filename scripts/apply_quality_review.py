@@ -170,6 +170,31 @@ def apply_field_value_reviews(rows, rules, *, allow_updates=True):
                                   quote=decision['quote'], reviewedAt=decision.get('reviewedAt'))
 
 
+def apply_product_exclusions(row, rules):
+    """Remove only reviewed company/product/article associations, in place.
+
+    This same narrow transform can be applied to an isolated candidate without
+    rerunning extraction or unrelated identity/field reviews. Keep all other
+    article evidence, company fields, and product relationships unchanged.
+    """
+    removed = []
+    for decision in rules.get('excludedProducts', []):
+        if row['company_name'] != decision['company']:
+            continue
+        def matches(value, name_key):
+            return value.get('articleId') == decision['articleId'] and value.get(name_key) == decision['name']
+        if not (any(matches(u, 'name') for u in row.get('productUpdates', []))
+                or any(matches(e, 'value') for e in row.get('fieldSources', {}).get('product_names', []))):
+            continue
+        removed.extend(copy.deepcopy(u) for u in row.get('productUpdates', []) if matches(u, 'name'))
+        row['productUpdates'] = [u for u in row.get('productUpdates', []) if not matches(u, 'name')]
+        row.setdefault('fieldSources', {})['product_names'] = [
+            e for e in row.get('fieldSources', {}).get('product_names', []) if not matches(e, 'value')]
+        row['product_names'] = [p for p in row['product_names'] if p != decision['name']
+                                or any(u['name'] == p for u in row['productUpdates'])]
+    return removed
+
+
 def apply(overview, snapshot, rules, tx, *, review_field_values=True):
     overview, snapshot = copy.deepcopy(overview), copy.deepcopy(snapshot)
     rows = overview['companies'] = apply_reviewed_research(overview['companies'])
@@ -237,12 +262,7 @@ def apply(overview, snapshot, rules, tx, *, review_field_values=True):
                 if evidence.get('articleId') == decision['articleId'] and evidence['value'] == decision['from']:
                     evidence['value'] = decision['to']
             row['product_names'] = [p for p in row['product_names'] if p != decision['from'] or any(u['name'] == p for u in row.get('productUpdates', []))]
-        for decision in rules.get('excludedProducts', []):
-            if row['company_name'] != decision['company']:
-                continue
-            row['productUpdates'] = [u for u in row.get('productUpdates', []) if not (u.get('articleId') == decision['articleId'] and u['name'] == decision['name'])]
-            row['fieldSources']['product_names'] = [e for e in row['fieldSources'].get('product_names', []) if not (e.get('articleId') == decision['articleId'] and e['value'] == decision['name'])]
-            row['product_names'] = [p for p in row['product_names'] if p != decision['name'] or any(u['name'] == p for u in row['productUpdates'])]
+        apply_product_exclusions(row, rules)
         refresh(row)
         for decision in rules.get('productRelationships', []):
             if row['company_name'] != decision['company']:

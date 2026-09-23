@@ -82,6 +82,12 @@ test("navigation defaults to all articles and places Garena selection before com
   assert.doesNotMatch(sidebar, /key: "(?:hot|daily)"|热点榜|AI 日报/);
   assert.doesNotMatch(provider, /"hot"|"daily"/);
   assert.doesNotMatch(shell, /HotView|DailyReportView/);
+  for (const retired of ["HotView", "DailyReportView"]) {
+    await assert.rejects(
+      access(new URL(`../../app/_components/views/${retired}.tsx`, import.meta.url)),
+      { code: "ENOENT" },
+    );
+  }
   assert.match(sidebar, /新闻<span className="text-brand">Daily/);
   assert.match(shell, /新闻<span className="text-brand">Daily/);
 });

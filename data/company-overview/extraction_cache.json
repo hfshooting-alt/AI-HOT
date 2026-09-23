@@ -90539,5 +90539,302 @@
    }
   ],
   "modelAttempted": true
+ },
+ "def9dc6967f5bff29cb6783135fe957a65909be8ed0078bd751532a6d8b570df": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "TypeSafe AI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Jev"
+    ],
+    "products": [
+     {
+      "name": "Jev",
+      "relationship": "owned",
+      "quote": "前 OpenAI 研究员 Diogo Almeida 带着他的新模型 Jev 登场"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "开发只输出概率判断的模型 Jev",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Home Assistant",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "HA-Jev"
+    ],
+    "products": [
+     {
+      "name": "HA-Jev",
+      "relationship": "owned",
+      "quote": "智能家居社区 Home Assistant 最近出现了一个名为 HA-Jev 的插件"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "智能家居社区",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Droidrun",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "mobile-jev"
+    ],
+    "products": [
+     {
+      "name": "mobile-jev",
+      "relationship": "owned",
+      "quote": "Droidrun 团队做了一个名为 mobile-jev 的手机操作代理"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "开发手机操作代理",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Distribb",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Jev"
+    ],
+    "products": [
+     {
+      "name": "Jev",
+      "relationship": "used",
+      "quote": "Distribb 的创始人拿 Jev 扫描了近六百个网页"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "内容分析",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Pi",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "框架",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "vLLM",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "DiffusionGemma"
+    ],
+    "products": [
+     {
+      "name": "DiffusionGemma",
+      "relationship": "used",
+      "quote": "vLLM 贡献者用 Google 的 DiffusionGemma 迅速搞出了开源版本"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "开源社区",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Google",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "DiffusionGemma"
+    ],
+    "products": [
+     {
+      "name": "DiffusionGemma",
+      "relationship": "owned",
+      "quote": "Google 的 DiffusionGemma"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "ChatGPT"
+    ],
+    "products": [
+     {
+      "name": "ChatGPT",
+      "relationship": "owned",
+      "quote": "参与过构建 ChatGPT"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Claude",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Claude"
+    ],
+    "products": [
+     {
+      "name": "Claude",
+      "relationship": "unknown",
+      "quote": "调用 GPT-5 或 Claude 的过程"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "GPT-5",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "GPT-5"
+    ],
+    "products": [
+     {
+      "name": "GPT-5",
+      "relationship": "unknown",
+      "quote": "调用 GPT-5 或 Claude 的过程"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Claude Code",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Claude Code"
+    ],
+    "products": [
+     {
+      "name": "Claude Code",
+      "relationship": "unknown",
+      "quote": "写了一个 Jev 插件用来压缩 Claude Code 的上下文"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "pg-jev",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "pg-jev"
+    ],
+    "products": [
+     {
+      "name": "pg-jev",
+      "relationship": "unknown",
+      "quote": "GitHub 上很快涌现出 pg-jev 和 duckdb-jev"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "duckdb-jev",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "duckdb-jev"
+    ],
+    "products": [
+     {
+      "name": "duckdb-jev",
+      "relationship": "unknown",
+      "quote": "GitHub 上很快涌现出 pg-jev 和 duckdb-jev"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
  }
 }
