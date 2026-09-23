@@ -8,6 +8,25 @@ from automation.runner import tree_digest
 
 
 class RunSummaryTests(unittest.TestCase):
+    def test_direct_diagnostics_match_window_and_exclude_private_body(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            self.fixture(root, published=False)
+            state_path = next((root / 'work/runs').glob('*/ten-am/*/state.json'))
+            state = json.loads(state_path.read_text(encoding='utf-8'))
+            path = state_path.parent / 'workspace/inputs/direct/collection.json'
+            path.parent.mkdir(parents=True)
+            data = {'collector': 'direct_site', 'collectionWindow': state['collectionWindow'],
+                    'sources': [{'source': {'account_name': '测试来源'}, 'status': 'failed',
+                                 'items': [], 'traceback': 'PRIVATE_ERROR'}]}
+            path.write_text(json.dumps(data), encoding='utf-8')
+            result = render(root)
+            self.assertIn('| 测试来源 | 来源失败 | 0 | 0 | 0 |', result)
+            self.assertNotIn('PRIVATE_ERROR', result)
+            data['collectionWindow'] = {}
+            path.write_text(json.dumps(data), encoding='utf-8')
+            self.assertNotIn('直采来源诊断', render(root))
+
     def fixture(self, root, published=True):
         window = {'start': '2026-09-21T09:30:00+08:00', 'end': '2026-09-22T09:30:00+08:00'}
         state = root / 'work/runs/2026-09-22/ten-am/test/state.json'

@@ -9,6 +9,7 @@ from build_manus_feed import atomic_write_json
 from manus_source.config import load_sources
 from manus_source.window import matching_item, ten_am_window
 from .transport import Transport, allowed
+from .health import summarize
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -68,6 +69,7 @@ def collect(window, directory, *, groups=None, fetch_factory=Transport):
             import traceback
             result['traceback'] = traceback.format_exc()
         result.update(group=group, httpRequests=fetch.count)
+        result['health'] = summarize(result)
         atomic_write_json(folder / 'result.json', result)
         print(f"[{source['account_name']}] {result['status']} / {len(result['items'])} verified", flush=True)
         return result
@@ -102,7 +104,8 @@ def load(path, date, groups):
                  'discoveredArticles': len(result['items']),
                  'articleLibraryCount': len(result['items']),
                  'usableArticles': sum(len(i['content_text'].strip()) >= 100 for i in result['items']),
-                 'coverage': result.get('coverage', {})}
+                 'coverage': result.get('coverage', {}),
+                 'health': summarize(result)}
         audits.append(audit)
         discoveries[group]['source_audits'].append({'account_name': source['account_name'],
             'source_status': result['status'], 'article_count': len(result['items'])})

@@ -1,5 +1,7 @@
 # docs/maintenance/AGENTS.MD — 新闻Daily 项目 Agent 开发守则
 
+直采失败恢复入口为 `python -m direct_source.recovery`，仅针对原批明确失败或缺正文的详情URL；列表与成功响应哈希回放，固定原窗口，输出独立新集合，不自动发布。不得覆盖旧state/fingerprint或将补抓标成完整24小时重扫。health区分失败与零样本，模型及发布状态另行核验。详见直采操作说明。
+
 2026-09-23最新授权（优先于下方旧默认及预算）：用户确认暂时完全不用Manus，默认与full别名均为direct-only，GitHub定时与手动仅all/direct-only，恢复默认UTC cron `30 1 * * *`（北京时间每日09:30），不恢复Codex定时跟进。定时以本次run created_at转北京时间最近已到达的09:30冻结前24小时，09:30前创建取前一天；身份/时间审计失败在付费前停止。排队跨午夜与重跑不滑窗，手动仍冻结rolling-24h。前端设置页删除，配置使用.env/Secrets；独立后台设置服务和CLI兼容保留，无设置UI。新闻列表/正文由匿名HTTP读取，所有模型处理统一现有并行科技DeepSeek-V4-Pro。config/services.json暂停Manus/Tavily真实HTTP，保留旧实现、密钥和历史证据，不自动恢复。用户允许充分使用此API，直采默认--research-full-review按有限的待补全主体队列执行，取消5主体/10页/5次日上限，每输入最多2页/1次新模型；缓存、账本、失败不重试、认证/支付/系统异常熔断及逐字段网页证据保持。默认小样本和历史恢复保留旧预算语义。此授权不要求重复已完成新闻批次，更不意味着模型凭记忆能当联网结果。
 
 2026-09-23 新增授权：匿名媒体页面直采 `direct-only`，沿既定20来源、北京时间冻结窗口、独立分类与精选后实体抽取规则。`collector=direct_site`、`direct:` ID，feed schema3保留兼容路径。AIHOT继续关闭，此模式不创建Manus任务；调度按上方最新授权。运行限制与证据见[媒体页面直采](../operations/DIRECT_NEWS_COLLECTION.md)。此更新优先于下方“仅Manus”历史描述。

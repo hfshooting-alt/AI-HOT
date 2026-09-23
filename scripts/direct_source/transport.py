@@ -97,6 +97,7 @@ class Transport:
                             self.blocked = True
                         raise ValueError(f'HTTP {response.code}')
                     charset = response.headers.get_content_charset() or 'utf-8'
+                    receipt['charset'] = charset
                     text = raw.decode(charset, errors='replace')
                     return {'url': url, 'text': text, 'observedAt': observed,
                             'sha256': digest, 'receipt': str(stem.with_suffix('.json'))}

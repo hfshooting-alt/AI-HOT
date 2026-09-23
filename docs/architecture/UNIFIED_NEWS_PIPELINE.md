@@ -1,5 +1,7 @@
 # 新闻Daily 统一新闻链路
 
+直采可靠性：逐源health区分失败、待正文、列表内无窗口文章及未完成覆盖；单篇恢复只重取原批次明确选定的失败详情，其余响应从哈希核验的私有证据回放。新集合保持原窗口，旧状态和成功文章不覆盖，后续加工与发布仍经候选审核。入口及限制见[直采说明](../operations/DIRECT_NEWS_COLLECTION.md)。
+
 2026-09-23 当前决定：暂时完全停用 Manus，默认 `direct-only`，`full` 同样指向网站直采。按配置媒体列表及详情匿名读取，通过来源、原始时间校验后进入本文两池逻辑。标记 `collector=direct_site` 和 `direct:` ID，不伪装为 Manus；模型统一为并行科技 DeepSeek-V4-Pro。`config/services.json` 在真实 HTTP 前关闭 Manus 与 Tavily；GitHub 已恢复北京时间每天09:30定时（默认UTC `30 1 * * *`），手动入口保留，Codex定时跟进未恢复。公司、产品与融资仍仅消费精选。见[媒体页面直采](../operations/DIRECT_NEWS_COLLECTION.md)。
 
 历史沿革：2026-09-22 曾切换为仅 Manus，现已由网站直采替代；已验证的旧 Manus 档案与来源身份保留。AIHOT 采集、日报与热点、旧上游接口回退均退役；仓库名与 `/AI-HOT/` 部署路径保留。历史双源及 Manus 运行的证据见 `docs/history/`，不能用旧结果证明新链路已验收。

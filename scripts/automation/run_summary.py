@@ -31,6 +31,16 @@ def render(root):
             code = row.get('exitCode')
             lines.append(f'| {name} | {status} | {code if type(code) is int else "—"} |')
         lines.extend(['', f'本地数据晋升：{"完成" if state.get("published") is True else "未确认"}。'])
+        direct_path = path.parent / 'workspace/inputs/direct/collection.json'
+        if direct_path.exists():
+            try:
+                from direct_source.health import markdown
+                direct = json.loads(direct_path.read_text(encoding='utf-8'))
+                if (direct.get('collector') == 'direct_site' and state.get('collectionWindow')
+                        and direct.get('collectionWindow') == state['collectionWindow']):
+                    lines.extend(['', markdown(direct['sources'])])
+            except (OSError, ValueError, KeyError, TypeError):
+                lines.append('直采诊断不可读；不能推定零更新，请检查加密采集证据。')
         snapshot_path = root / 'web/public/snapshot.json'
         outputs = state.get('publishedOutputs')
         expected = outputs.get('web/public') if isinstance(outputs, dict) else None
