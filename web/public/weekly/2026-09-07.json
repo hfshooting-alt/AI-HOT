@@ -1,0 +1,42 @@
+{
+ "weekStart": "2026-09-07",
+ "weekEnd": "2026-09-14",
+ "volLabel": "九月第1周",
+ "finalized": true,
+ "generatedAt": "2026-09-24T06:39:28.454659+00:00",
+ "aiReport": null,
+ "items": [
+  {
+   "id": "manus:ca9c16453725ee8b",
+   "title": "深度丨从Cursor到Genspark，AI应用企业为什么开始训练自己的模型？",
+   "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+   "source": "网易号转载：ZFinance",
+   "mpName": "ZFinance",
+   "sourceType": "media",
+   "sourceChannel": "netease_syndication",
+   "sourcePlatform": "NetEase",
+   "collector": "manus",
+   "publishedAt": "2026-09-13T20:16:29+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": null,
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "manus",
+     "source": "ZFinance",
+     "url": "https://www.163.com/dy/article/L6NVHH7G0556EX0D.html?spss=dy_author",
+     "publishedAt": "2026-09-13T20:16:29+08:00"
+    }
+   ],
+   "summary": "Genspark本周推出Gen-1 Slides，基于开源的MiniMax M3联合Fireworks做后训练，用于PPT生成。其综合质量接近Claude Opus 5，单份PPT模型成本从约4.16美元降至0.44美元。Genspark将PPT工作流拆成约2000个构建任务进行强化学习，并加入检查与修改目标；在157万次线上任务中，低分比例从原始M3的18.0%降至3.6%，平均评分从3.80星升至4.25星。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "994a558219d9cf5b93fd7b0cc83e450fdc5a0d6f7c14c685922581160e5faa7f"
+  }
+ ]
+}

@@ -19610,5 +19610,693 @@
   "evidence": "正是我们之前称之为“今年WAIC最惊艳的图”背后的模型，来自商汤科技的SenseNova U1 Pro（下文简称U1 Pro）。",
   "modelAttempted": true,
   "cacheHit": false
+ },
+ "0d3a2a890d98eb27a656f8206861d3b757011c3ac2d4ec5d3d34d57eea69c15b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章具体介绍了腾讯元宝新上线的旅游计划Agent功能及其实际使用体验，属于AI产品功能发布与评测。",
+  "evidence": "最近不少 AI 产品都在扎堆上线假期相关的功能，元宝也赶在节前做了一次更新：切换专家模式帮你规划。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "237a46674a89e4bef0d536f50542284eeaba772f2abd147e01a8c6feb7e9fcf8": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章包含多个与AI直接相关的实质事件，包括AI智能体入侵政府网站、OpenAI CEO谈AI风险、Anthropic发布新模型及成立生命科学团队、腾讯AI助手停运等。",
+  "evidence": "OpenAI 开发的一款 AI 智能体在 6 月未经授权侵入了澳大利亚政府网站",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "13339634fa019bb81f2e56e1fcb54b727b34d8f8d163b90683caf7655d575b07": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章内容为美加贸易谈判与加拿大对外关系，未涉及AI相关事件。",
+  "evidence": "加拿大总理马克·卡尼表示，与美国达成互利贸易协议仍有可能，但加拿大不会以主权换取协议，尤其不会放弃与欧盟及其他经济体自主签署贸易协定的权利。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "35ef7a7cb57c1f47a3297975a888fb2ba68ba2c8025ee8a9f009749b3a5c9285": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Meta发布多款智能眼镜并深度整合AI助手Muse，属于AI硬件与AI助手产品发布事件。",
+  "evidence": "Meta在隔夜的年度Connect大会上全面刷新智能眼镜产品线，并宣布旗下AI助手Muse深度整合至硬件生态",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "9771003437bed7e44d7acfc221ac7056f27b3f5771e9cb7119086c71826c0c75": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心事件为全球债券发行与美债抛售，未涉及AI相关事件。",
+  "evidence": "全球银团债券年内累计发行量于本周二突破6万亿美元",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "49c1b874eb39791bb40b215b962d1d94cb2fd06de2c64f5cf9b98b4d224842da": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "苹果Mac Studio本地运行万亿参数模型，直接涉及AI推理硬件竞争格局。",
+  "evidence": "苹果此前已演示四台Mac Studio联合运行一个万亿参数模型",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "332dc0e464f002883d5cf2e2226c5a267bd080508c66da13c61131d37ddf32ab": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是中科类脑推出算电词元一体化平台，属于AI基础设施与算力调度产品发布，与人工智能有实质关系。",
+  "evidence": "在刚刚结束的世界制造大会上，正式推出算电词元一体化平台。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "3114068cea0d2cef32e52c985777ea444240b729aa7782a00ed6a488428982fc": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是Meta发布AI代理Muse及其上线表现、商业化阻碍和竞争格局，属于AI产品与AI智能体新闻。",
+  "evidence": "Meta的新款个人AI代理Muse上线即爆红，然而亚马逊封堵、隐私争议和竞争威胁正在同步升温",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "77feb8f18fc870d6664b6361c439f9c886690dc7dd494552bd0b4a7712fb6b14": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是穆迪警示美国五大科技巨头因AI基础设施扩张累积2.8万亿美元表外义务，属于AI算力与AI公司信用风险新闻。",
+  "evidence": "五家美国科技巨头为支撑人工智能基础设施扩张，累积了规模庞大的表外负债，其信用风险正受到评级机构的密切关注。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "58654fdde35520ba55d462c576426ebd811ff37610d5be682a4004b935522a58": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心事件为美债市场抛售及加息预期，未涉及AI相关事件。",
+  "evidence": "10年期美债收益率周三单日飙升约14个基点，收于5.113%，创2007年以来新高",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "089cac583c3375668158f318f8e67c9ce1114a4f882deba6bf0f547a44402eb0": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI与Anthropic CEO在联合国安理会呼吁放缓AI开发并推动国际协调，属于AI公司与AI监管的重要行业事件。",
+  "evidence": "OpenAI首席执行官Sam Altman与Anthropic首席执行官Dario Amodei在联合国安理会发表讲话，双双呼吁放缓AI开发节奏，并寻求跨国协调",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "4514ff14336c2725501114e6b29c3f6e96f5326da90e45983425e7a82d93d589": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "DeepSeek发布Agent训练沙盒平台DSec的技术论文，属于AI模型训练基础设施的实质新闻。",
+  "evidence": "DeepSeek创始人梁文锋署名的最新论文公开，首次系统发布了DeepSeek的Agent训练沙盒平台DSec（DeepSeek Elastic Compute",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "f9bfd9d71d7b262afa54d927725a2234e3db9fd80db690ba5c8d7c0e22e8c52a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "台积电涨价的核心驱动是AI数据中心扩建带来的全面性芯片需求扩张，属于AI算力与供应链的实质影响事件。",
+  "evidence": "此轮涨价背后，是AI数据中心扩建带动的全面性芯片需求扩张。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "35823617510c9bb3d202d9083d882fb053293ea7e0ed58c9c0f987b5b2b3ac18": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是国际油价、地缘政治与柴油出口禁令，未涉及AI相关事件。",
+  "evidence": "国际原油期货本周三反弹，扭转此前连续五个交易日的跌势。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "61f798ebbb53113730283da474e5603dfe384e3bb3ade470b85d92fbfb77d064": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "Anthropic CEO 宣布因安全考量放缓 AI 研发进度，属于 AI 公司与 AI 安全政策的实质新闻。",
+  "evidence": "Anthropic首席执行官Dario Amodei在联合国安理会警告，若管理不善，人工智能可能对全人类构成生存风险，并呼吁各国政府携手制定全球层面的AI安全标",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "b10cc2ae0f9dca47f534326124a6c15d7a8cdc41fd34ada4496411e395f93b21": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "谷歌发布两款新的AI文本转语音模型，属于AI模型与产品发布。",
+  "evidence": "谷歌周三推出两款新的文本转语音（TTS）模型Gemini 3.8 Flash TTS和Gemini 3.8 Flash-Lite TTS，进一步拓展Gemini",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "9efdb1e64f20b7ab8d114da267bab4f6f05f0a79f9c3822d04a26a0a6ff0e178": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是微软、谷歌等科技巨头回应数据中心快速扩张引发的争议，数据中心扩张与AI算力需求直接相关，并涉及OpenAI星际之门项目。",
+  "evidence": "该基金是 Crusoe 的早期投资方，后者正于得州阿比林建设 OpenAI 的大型“星际之门”项目。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "8c69f56e0b73eae5b16fefe73593f9ae346a84d8926b8f9a4ffa4f054204b129": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI智能代理加速普及及其对美股和生产率的结构性影响，属于AI对经济与市场的实质分析。",
+  "evidence": "真正值得关注的变量是AI智能代理（Agentic AI）的加速普及",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "527926da24aa1743d1270555098ea74fd7f85e76a6cf99d0fd7f81f487e9c2a7": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心事件为美国柴油出口禁令政策争议，未涉及人工智能相关事件。",
+  "evidence": "特朗普政府正评估禁止柴油出口以压低油价，但政策内部分歧已公开化。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "d1a16a6cb2fe311dd66f7c814f82e7e34f7a05c8404a678ef0a7d29dc6bd6224": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是美债抛售与收益率上行，AI仅作为分析观点顺带提及，无具体AI事件",
+  "evidence": "摩根大通分析师则认为，全球经济结构已经发生变化，AI、医疗和服务业企业的投资扩张对利率的敏感度低于传统行业",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "31a5b2fa007a2092bcae5c5a602e4201125e66e6a530d64ec25a57a4c1a8c7e4": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是美国PMI数据与美债收益率，仅在需求驱动因素中顺带提及人工智能相关投资，无具体AI事件。",
+  "evidence": "消费者支出保持强劲，人工智能相关商业投资持续升温，国防支出亦为企业提供额外支撑。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "d0d49ce26bd9acfa7b93b1778987564b61db4e27aa7ffa10722d6face7e0ea19": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章内容为美国国债回购及财政政策，未涉及任何AI相关事件。",
+  "evidence": "美国财政部表示，周四将购买至多60亿美元的较长期美国国债，以遏制近期借贷成本的上升。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "42bf06413c484e4fbbe7026ec54363d21ce916e9a42e588e1eae495143cae894": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "小米18 Pro系列发布，核心升级包括AI百变背屏，并被称为用AI全面改造智能手机的开始，同时多款家电新品也加入AI能力。",
+  "evidence": "全系加入硬件级防窥屏、AI百变背屏，并进一步升级徕卡影像。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "c5382d69582d92f7ec63d6b668eea07cc33a218d8740390c085619e3de29513e": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是艺人代言与品牌营销争议，AI仅作为行业背景顺带提及，无具体AI事件。",
+  "evidence": "AI广告挤占了真人预算，信息流广告分流品牌预算，很多品牌对于艺人合作费用也“越卡越严”。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "c397cf8fb7bd5bcd18142550ef57916ad364156396b95d0b0c1afe70a80bd705": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是阿里发布面向手机智能的Qwen Intelligence全栈方案，并与荣耀合作落地AI手机Agent，属于AI产品与AI对手机行业产生直接影响的事件。",
+  "evidence": "Qwen Intelligence，简称QI，是阿里昨日最新发布的面向手机智能的全栈解决方案。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "0dc66a2a8066897c7e12ede2de824591872fa9e0796594d0f5a7a1775e5e7caf": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件涉及智能眼镜及AI功能对隐私的实质影响，包括Meta AI眼镜、AI生成内容、AI监控工具等具体AI事件。",
+  "evidence": "Meta 正在开发的一些新型眼镜内部原型已经加入 AI 功能，可以持续对佩戴者周围的环境进行拍照和监听",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "977c78656e0f46f709ef20de64aa8df164f5322a6123ba1c10b680a5d3e7ccb7": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是网文作者个人IP运营与流量变现，仅有一处AI作图标注，无具体AI事件。",
+  "evidence": "AI作图  by娱乐资本论",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "d5b5e8c65d1584920b794337d48b879fec454a51845ed5cc864a1b6c0aa2f4fb": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是岚图梦想家9上市，其关键升级为搭载华为乾崑智驾ADS 5和鸿蒙座舱6，属于AI智能驾驶与智能座舱在汽车产品中的具体应用。",
+  "evidence": "新车搭载华为乾崑智驾ADS 5和鸿蒙座舱6，同时配备三腔空气悬架、双阀减振器和后轮转向。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "5ff93a24eae5e64f5897f56b244161a5c49a8c85ed3a860fa4733ec63f13bc11": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "海信发布的新电视搭载信芯AI画质芯片H7，并以超级小聚为核心智能体提供智能问答等AI功能，属于AI产品具体事实。",
+  "evidence": "海信U7T Pro搭载信芯AI画质芯片H7、4.2.2声道帝瓦雷昂扬音响，原生4K 180Hz。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "a2a964eb307758b246fe5d3d572090f399e57877b36f63cc87c72654cb48ed16": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是原油价格、美伊谈判和沙特管道重启，未涉及任何具体AI事件。",
+  "evidence": "布伦特原油本周大幅回落，美伊外交接触与沙特输油管道部分重启预期同步提振市场情绪，供应紧张局面出现阶段性缓解。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "6756aef8c30d61654ca6a42f7d1763d91545911addc480f9dc67de0616f85e6f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是瑞银看好中国光纤板块，认为需求引擎已切换为全球AI数据中心建设，与AI基础设施建设直接挂钩。",
+  "evidence": "光纤行业的需求引擎已从中国三大运营商的资本开支预算，切换为全球数据中心建设。这一结构性转变意味着需求更贴近实际消费，与AI基础设施建设直接挂钩",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "ab2f447cdf38b5a1637d7d78fae1dbb891f7d133b3b0de3afc378d18ce51dce4": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是德国薪资谈判与欧洲央行货币政策，AI仅作为背景因素顺带提及，无具体AI事件。",
+  "evidence": "与此同时，人工智能在职场中的加速渗透也为本轮谈判增添了新的不确定性",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "86f72a5e567087fb47697b5ad29be17e8fc540f4633884c542f11bf94058dba5": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章讨论美国企业盈利预期、通胀与利率，未涉及任何AI相关事件。",
+  "evidence": "美国企业盈利预期正在经历数月来的首次逆转。通胀压力与利率上升正侵蚀企业利润前景，华尔街分析师的乐观情绪开始退潮。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "aec60d9b5b157177e33c1e97428120f9e0d096ea8919a1c376c30c566fd1b2e5": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "该新闻为手机硬件发布，未涉及具体AI事件",
+  "evidence": "小米于周二晚间举行秋季新品发布会，正式推出Xiaomi 18 Pro系列旗舰产品。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "3041d3597dc22aaf9b86fc290ffb03ebc13f11c6896eab522eae68c7a845ef6f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是软银旗下SB Energy数据中心IPO延期，该数据中心全部租赁给OpenAI，属于AI算力基础设施融资受阻。",
+  "evidence": "软银旗下SB Energy的上市计划遭遇重大挫折，折射出华尔街对AI数据中心热潮的信心正在出现裂痕。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "abded7071594419c9628658c5c80a2c6d855432d7537a820d1c9e787a7459b56": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章讨论楼市与消费复苏关系，未涉及AI相关事件。",
+  "evidence": "为什么这一次楼市将领先于消费复苏？",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "088c6a17c6b9bd7a6eed1e9ec109f35d810987a61e6d2c15913d7b7e3041c3e0": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心事件是SpaceX高管减持和星舰测试，未涉及AI相关具体事件",
+  "evidence": "SpaceX上市后迎来首个高管减持信号，总裁兼首席运营官格温·肖特维尔（Gwynne Shotwell）拟出售逾5200万美元股票",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "d0d58ac31b3ef22386bed2b1217b870e2c53ccc0b074780bbdadbda8db720e11": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是港交所上市机制改革，未涉及AI具体事件",
+  "evidence": "9月21日，联交所发布第二阶段上市机制竞争力检讨咨询文件，聚焦须予公布的交易、关联交易及分拆上市三大范畴。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "e52616fd5dd0b52c80c90554e0b77ca3ef647ad9c0112084ce590ce734dd3c65": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是MIT、谷歌等发布关于AI在科学研究中应用与影响的报告，属于AI研究及其对科研产生实质影响。",
+  "evidence": "Google、Google DeepMind 与 MIT FutureTech 联合研究团队发布 40 页报告《AI 在科学研究中的应用：初步观察》",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "c5f0321d395c4ae4a339dcdd3a95754d8dc8ecb2eb9def37bfabdfa1b4d9dd8a": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章内容为银行中期分红，未涉及任何AI相关事件。",
+  "evidence": "国庆节前的A股，迎来一波密集的分红窗口。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "d0147b04308cc185528aa221a4735c30ed4b9d7b5d606dadda4f3d9c07a27074": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是MIT透明柔性光子芯片的制造与测试，未涉及AI模型、产品、公司、融资、研究或算力等实质AI事件。",
+  "evidence": "美国麻省理工学院（MIT）团队和合作者打造了一块芯片，掰了 3,000 次都没有坏，依然还能正常工作。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "e8757b7f6ad6a22564a1ebc79dc19e32777dc7820270dc9e52a920351aa1ec74": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是宏观经济与货币政策分析，AI仅作为潜在变量被顺带提及，无具体AI事件。",
+  "evidence": "AI产业对利率走势的潜在影响。AI相关融资需求与资本市场波动，可能影响央行对金融条件和利率路径的判断，成为本轮周期有别于历史的新变量。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "b6ef0332f00251d263068d0f74f0141c93d6b89d21e2bf7bde4e7c0d82ef3aa7": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是美联储与特朗普的利率政策对峙，仅顺带提及人工智能投资浪潮，无具体AI事件",
+  "evidence": "人工智能投资浪潮带来的需求扩张、特朗普政府的宽松财政立场、加征关税的供给侧冲击",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "065d48f70e26b06527b47ff0b881b7d314be6a1ca95b895ed43ad5020969eb72": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "畅读科技旗下AI短剧《Came Back Hotter With Lord’s Twins》在美国爆火，直接推动产品收入环比增长63.9%，属于AI内容产品产生实际商业影响的事件。",
+  "evidence": "旗下海外短剧应用《MoboReels》（畅读热剧）上月推出的情感题材 AI 短剧《Came Back Hotter With Lord’s Twins》在美国为",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "2288fb207f5a4aa70f732a1f76d623db562d52b5e250b18852e9be07d6ff9167": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了Mind Lab发布面向企业的模型后训练与推理平台Mint Recursive，属于AI产品发布事件。",
+  "evidence": "马卡龙正式发布了 Mint Recursive：定位面向企业的模型后训练与推理平台，以托管服务的方式提供模型的训练与部署能力",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "09eba49d83d7dfb5acf091cc2275d617839945955815341e508fcacab89eba16": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "DeepSeek二轮融资筛选LP，涉及AI公司融资事件。",
+  "evidence": "近日DeepSeek刷掉了一批资方，当中不乏国资、非上市公司、自然人背景的LP们。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "fcb0a1aa954ea0a0defc00a3dfe57b219fe9624835a4fb88f61834e729ddd2cf": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章为游戏《蓝色星原：旅谣》的玩法与内容分析，未涉及具体AI事件。",
+  "evidence": "全平台预约破2000万的《蓝色星原：旅谣》（后简称《蓝色星原》）似乎已经预定了爆款。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "cb0b158676ae12b14b958fa474895c600a78b5d91926122f08a65a1b17efc6d3": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章讲述中药皂品牌出海，未涉及AI相关事件。",
+  "evidence": "艾草、人参、茯苓、白芷......这些词在国人心中往往关联着中药、养生、奶奶的旧药方。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "9f3da25e43ad7a28084467ff3176d4a0cc02ba8860cccbb28d2c9f6f341dd875": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了汇智智能发布AI智能体服务平台Hellome，涉及AI产品发布与交付模式创新。",
+  "evidence": "近日，南京人工智能企业汇智智能正式发布一站式AI服务平台Hellome——国内首个实现FDE（前沿部署工程师）与企业客户直接对接的应用智能体服务平台。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "abf7a0ec093eb8de3b6b34f2038b5cbd920768244be6abf52ab392b5cd33a3f9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是商汤大装置在AI推理基础设施上的异构混推技术演进与创新实践，属于AI算力与基础设施的实质新闻。",
+  "evidence": "商汤大装置资深技术专家罗伟以《Token工厂：以异构算力构建新一代Al基础设施》为主题发表演讲，深入剖析规模化推理面临的系统挑战，并分享商汤大装置在异构推理架构",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "665728ef5937062c8df880c8c62540bc3956bd154d964f4011e29966a290ad70": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心讨论Meta发布的个人AI Agent产品Muse及其商业模式，属于AI产品与AI对商业入口影响的实质分析。",
+  "evidence": "2026年9月8日，同一家公司发布了个人AI Agent产品Muse。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "d814e529b2bc417bb2c5d74192fbbf3c8e61a63f20331519e6b99dadaa915e52": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "达卯科技完成新一轮融资，其核心业务为算电协同AI能源运营操作系统，属于AI算力与能源协同的实质事件。",
+  "evidence": "算电协同AI能源运营操作系统核心企业达卯科技，近期据悉已完成约2亿元新一轮融资。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "384b72f4762af2872b20664d841d85909a2451a5dfb1e6b15b615d8e33240e77": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是千问宣布打造 Personal Agent，涉及 AI 智能体产品演进与具体功能事实。",
+  "evidence": "在刚刚举办的云栖大会上，千问产品负责人嗣寿宣布了千问的演进目标：沿袭个人AI助理一贯目标，将千问加速打造成能持续理解用户、提供个性化服务的Personal Ag",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "ccd7bba593c32f2ba542794861b16b9b8bf6d9260794756c7c3015ed79f5e394": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是小米发布并开源 MiMo V2.6 系列大模型，聚焦模型效率与单位智能成本竞争，属于 AI 模型与行业变化的实质新闻。",
+  "evidence": "9 月 22 日，小米正式发布并开源 MiMo-V2.6-Pro 和 MiMo-V2.6-Flash，同时提供 V2.6-Pro-Ultraspeed 高速模式",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "216ef9db001d4f094f4462bb137f403f6c91127752471c40f2d70ed440edbbda": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是小米发布并开源MiMo V2.6系列大模型，涉及大规模强化学习训练、模型性能与成本等具体AI事实。",
+  "evidence": "9月21日，小米MiMo团队正式发布并全面开源新一代MiMo V2.6系列，一口气端出三款模型——Pro、Flash、Ultraspeed，直接改写全球开源模型",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "d5e316c89f3cf825891c187421c1c62bb5b1c6c2b1022c82fc37ac710adf3e25": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "核心事件是DeepMind核心AI研究员Bonnie Li转会OpenAI，涉及AI人才流动与AGI研发竞争。",
+  "evidence": "在谷歌 DeepMind 深度参与了 Gemini 2.5/3、世界模型 Genie 2/3 以及具身智能体 Sima 2 研发的核心研究员 Bonnie Li",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1af8cff8aea6653e7d6d52c5982f4361bc859c0f78e0f179d4b0f64469e57c28": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI发布两款新模型并大幅下调API价格，直接与DeepSeek展开价格竞争，属于AI模型与行业竞争的重要事件。",
+  "evidence": "OpenAI正式推出GPT-6 Sol和GPT-6 Luna两款新模型，宣布其API价格较GPT-5.6促销定价再降50%。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "975663c89cd4bdbb5c2d0600fa1a829db78f113604ae4042421b33479c3e4dfe": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是浏览器SLG游戏上线Steam及社区传播，仅结尾顺带提及AI时代，无具体AI事件。",
+  "evidence": "但 AI 时代的到来，在网页设计以及游戏上的优秀表现，让我们看到了另一种游戏的可能性。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "c69c677b70e39161b264cc8e173081b245574f3f2918fa49d7c0d975d5fcb339": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "马斯克在专访中具体谈及人形机器人发展前景及AI时代教育，属于AI相关实质内容。",
+  "evidence": "谈及人形机器人时，他展望未来：每个人都能拥有专属机器人，它们可以照料年迈的父母，看护孩童，还能担任孩子的一对一私教，承担各类工作。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "0efff1a7eeb386951932166e4d916570392e5bec390dd6de181be271fd9e13dd": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心讨论端侧AI在汽车中的量产、商业化与价值验证，属于AI产品与行业应用实质事件。",
+  "evidence": "斑马智能将2026年视为端侧AI商业化元年。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "ed7c9278111f48e9bba957f4421f387eadfd1477568913adbc6fd43923a2f1e8": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心讨论美国财政纪律与利率问题，AI仅作为资本需求因素之一被提及，无具体AI事件。",
+  "evidence": "真正的\"病因\"包括顽固的通胀压力、持续膨胀的政府债务，以及以人工智能基础设施建设为代表的天量资本需求。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "5362caa576e485c0fc63cbb7b2b35c74606a8a4ff1cda3af470e3aa20499ca74": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是小米发布并开源 MiMo-V2.6 大模型，讨论其在智能与成本上的效率突破及对行业的影响。",
+  "evidence": "9 月 22 日，小米发布并开源新一代 MiMo-V2.6 系列。三款模型，智能水平接近前代的两倍，价格不变。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "37312ef104e1545de2f8590089003c5e2674c5d0db00fd1e125c17b76b97da6a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "正文包含Meta新款AI智能体Muse及与Shopify合作等具体AI事件，并提及AI投资热情和AI对金融股的影响。",
+  "evidence": "Meta Platforms旗下新款AI智能体Muse再度引发市场关注。据报道，Meta与Shopify达成合作协议",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "fdb508d3f417d0ff80f99bd18c49df46faeac8fd5c99b9589e119db8b2efd430": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是运动营养品牌迈胜的融资与市场策略，仅顺带提及资金流向AI，无具体AI事件。",
+  "evidence": "在资金加速涌向AI与硬科技，消费一级市场投融资低迷的背景下，迈胜成为了极少数让产业资本“排队上车”的标的。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "41b43a47a05ef9b80e18ab591d7340acc27591b9249a5709caf3d2682160fb0e": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "亚马逊与OpenAI达成广告合作，广告主可通过亚马逊DSP在ChatGPT投放广告，属于AI产品商业化与AI对电商流量影响的实质事件。",
+  "evidence": "近日，亚马逊正式与 OpenAI 达成合作。\n目前，广告主可以通过亚马逊 DSP（Demand-side Platform，需求方平台），将自己的广告投放到 C",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "c6d808ee25b55b97eda8f1b58bca49dc148d131c8871acc8eb8f0afb5a2b2412": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI基础设施中1.6T光模块DSP芯片的供应缺口及技术演进，属于AI算力相关实质新闻。",
+  "evidence": "1.6T光模块数字信号处理器（DSP）正面临结构性供应缺口，且这一缺口至少将持续至2027年下半年。这是野村9月22日组织的AI基础设施服务商专家电话会所揭示的",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "d4ac4f4d979c024e95a3c65d43104d07f78c1101987a4c0d69e71cb207b303b1": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章介绍iQOO手机的电竞芯片、光追、超分超帧等硬件与游戏技术，未涉及AI模型、AI产品或AI公司的具体事件。",
+  "evidence": "iQOO会发布新一代自研电竞芯片Q4，基于三核架构和QNSS渲染引擎，据称是行业唯一支持全场景光线追踪+游戏超分+游戏超帧三项功能的“独显芯片”。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "5b5aadbf0d83fcb7c4e94b882906bf2f05c2e7ca00e1fa5ab706ce121a10a47f": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是Bungie恢复《命运2》内容及《马拉松》规划，未涉及AI具体事件。",
+  "evidence": "团队已开始将存入保险库的《命运 2》战役、目的地和突袭重新带回游戏，并向所有《命运 2》玩家开放。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "bd17a5360cc9f9a8356671d59538c7224e7fb08d0ea0791b7800fc9f9981f016": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "剪映发布AI互动影游创作平台ICG Studio及多项AI创作功能，属于AI产品发布事件。",
+  "evidence": "剪映首次展示了 AI 互动影游创作平台 ICG Studio，希望让创作者从一份剧本出发，做出能够观看、选择和探索的互动故事。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "d8783567b92e5465de51df03c8e7e9c5e9f9431a3ffa67c4dba27d52a24fb02c": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI发布GPT-6系列新模型并大幅降低API价格，属于AI模型与产品发布事件。",
+  "evidence": "今天凌晨，OpenAI发布GPT-6系列两款新模型GPT-6 Sol和GPT-6 Luna，已开放API，并开始向Plus、Pro、Business和Enter",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "a94eb78bba3a719ce1329c436f6bfa4c1fa3f1b2f4a2d56c0ccf480620894e59": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "DeepSeek发布新论文，公开Agent训练基础设施DSec的技术细节，属于AI研究与AI智能体训练基础设施的实质新闻。",
+  "evidence": "梁文锋署名的DeepSeek最新论文，把技术细节公开了。\nDeepSeek做的这个系统叫DSec（DeepSeek Elastic Compute），干的事情就",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "61327e9630b6f751a4e5d42726dec705fc15d391f071db5fe55247615ccf4fc5": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章分析《鸡械绿洲》的玩法融合，未涉及AI相关事件",
+  "evidence": "塔防里塞射击，射击里又藏着肉鸽，开局一只鸡，剩下全靠自己“造”。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "0f74fe08c95694ac4ed9dc6fe596097a58ff6f937da1034267c5937fb33ebb0f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI新模型解决大量数学开放问题并成立数学与AI顾问小组，属于AI模型与研究进展。",
+  "evidence": "OpenAI于8月28日开始训练一个新的内部模型。OpenAI称，除了解决纳维-斯托克斯方程千禧年大奖难题之外，该模型目前还解决了数学领域大多数分支中100多道",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "aa89f3c1c1c0e68fd08d747843aba16f6872d337794e0b59a3bd11b90c2f5177": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是巴克莱发布AI自动化与放大框架，分析AI对劳动力市场的影响，属于AI研究。",
+  "evidence": "巴克莱于9月22日发布报告，推出\"AI自动化与放大框架\"（Barclays 3A Framework），以技能而非职业为核心分析单元，系统评估认知型AI与物理型",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "6acaf30090a7c4e809f30c82c20de38d6c667b4a8c5209c98d207998d57c0655": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "新闻核心事件是阿里千问大模型负责人变动及Qwen 4可能发布，属于AI模型与AI公司的重要动态。",
+  "evidence": "阿里资深AI研究员刘大一恒已担任“阿里巴巴ATH事业群Token Foundry（词元工厂）Qwen LLM（千问大模型）项目负责人”",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "c82f24c074f730564fd271a642476e94ac36505198b9603814d7626cbc4bdd66": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是两款决策AI模型Jev与Decitron的对比，属于AI模型与AI产品实质新闻。",
+  "evidence": "Jev把决策做成一个瞬时判断，Decitron则把决策变成一场对未来的推演。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "15f1e85ce253272ddc4f658ff94e87c5bca33130b73564ad50738c57824d98fc": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是家纺品牌Ettitude的营销与品牌策略，未涉及具体AI事件。",
+  "evidence": "从卖床单升级到卖“理想生活”，Ettitude做对了什么？",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "834833a0f56274062e07b4326093c444401492e9ac82348b47dee73d684475c0": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是OPPO Find X10系列手机发布及产品线布局，AI仅作为配件提及，无具体AI事件。",
+  "evidence": "此前在开发者大会上亮相的AI心力球也在此次发布会上正式启动先行者计划，体验价499元。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "f9fbb1e2ac6d2b75a40340dbbcd89ddcc34106689511f20510b69f4d65454d59": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章报道运动营养品牌融资及股东变化，未涉及AI相关事件。",
+  "evidence": "蒙牛孵化的运动营养品牌迈胜，又引入了一批产业股东。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "c43069539d5e0646e65e1d91cc92d1e71e1351115d09d12f3f80d2a295ab4d3b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是爱诗科技发布实时世界模型 PixVerse R2，属于 AI 模型/产品发布，且涉及游戏、互动娱乐等应用场景。",
+  "evidence": "全新的实时世界模型PixVerse R2，也上线了。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "79dbd213e9b0c20495da2f7d09ae2900bc3af6ccfdb074985a61b38b4e20965d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI算力扩张带动覆铜板与铜箔材料需求增长，属于AI基础设施材料链的实质性行业变化。",
+  "evidence": "AI及数据中心应用将贡献90%的增量增长",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "9c2daa5102226c583c212cfe1315162e6b38bbeec5320fc6d725f77ddfd214b4": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心讨论阿里在AI模型、AI芯片、AI云及Agent落地方面的战略布局与经济学判断，属于AI公司战略与行业变化的实质新闻。",
+  "evidence": "吴泳铭在演讲中提出了机器智能时代的三大基石：AI 模型、AI 芯片和 AI 云。他称之为「机器思考能够规模化供给的前提」。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "5fdfe093f0c1b50a1573cd84b26387044d08484d7e841a966b61839041b41be9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是平头哥发布真武V900 AI训推芯片及算存网全栈产品，属于AI算力与芯片的实质新闻。",
+  "evidence": "平头哥新一代训推一体 AI 芯片真武 V900 仍然是分量最重的产品。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "5beaa95dfb4e1afeb7d929f000c197519e8ea619fa3e246d824121a5457bac28": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章讨论东南亚电商大促表现与卖家经营问题，未涉及AI相关事件。",
+  "evidence": "卖家单量持续缩水？“金九”冷场，“银十”有望吗",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "850eceb7fc6cee33593de3233235d459579c6a4495be7e690131088f68bbc23d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是物理AI公司息壤开物完成数亿元融资，并研发原生物理基础模型，属于AI模型与AI公司融资。",
+  "evidence": "物理AI公司息壤开物（XIRRA）已在两个月内连续完成数亿元种子轮及天使轮融资",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "9b148273dcc05c46dbfbcdcdcba4cc70e8bc0758f4c058718e3beb57b6a94634": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是高通发布2nm旗舰芯片并围绕端云AI、智能体AI、数据中心AI芯片展开，属于AI芯片与AI战略的实质新闻。",
+  "evidence": "在骁龙峰会2026上，高通一口气推出两款2nm旗舰芯片——第六代骁龙8超级至尊版和第六代骁龙8至尊版。",
+  "modelAttempted": true,
+  "cacheHit": false
  }
 }

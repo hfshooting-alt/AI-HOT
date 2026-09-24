@@ -1490,5 +1490,65 @@
    }
   ],
   "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:115022be2cc7ef5b:e0fc5e01bfb6ecd3": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "DeepSeek",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": null,
+    "investors": "石溪资本、中芯聚源、博裕投资、CPE源峰、合肥国资投资平台",
+    "total_funding": null,
+    "valuation": "目标估值5000亿元（二轮融资，谈判中）",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:68aceefbd8d5249f:5855f2147c7978f6": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "达卯科技",
+    "product_name": "算电协同2.0平台・AIDC绿电直连能源运营操作系统",
+    "founded": "2021年",
+    "country": null,
+    "industry": "AI模型/基础设施",
+    "team": null,
+    "business": "依托自研垂类能源大模型与AI智能体集群，打造算电协同平台、AI虚拟电厂平台、智能运维平台等产品矩阵，面向智算中心客户提供从咨询规划、投资测算、智能运营、精细化运维、能源增值交易的全生命周期服务",
+    "investors": "宁德时代、商汤科技、寒武纪、宁德时代旗下溥泉资本",
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:38672b96f84fb282:4a9ac5b3d4b7b245": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "息壤开物",
+    "product_name": "XIRRA",
+    "founded": null,
+    "country": null,
+    "industry": "具身智能/机器人",
+    "team": "创始人、CEO李寅曾任华为云大模型CTO，拥有万卡级模型训练及丰富的产业落地经验；联合创始人、首席科学家张含望是南洋理工大学教授，长期从事因果机器学习与多模态智能研究；核心成员来自华为大模型体系，拥有万卡级训练、视频大模型、多模态研发及复杂行业交付经验",
+    "business": "从底层研发原生物理基础模型（Large Physics Model，LPM），通过通用底座将物理智能能力推广至机器人、自动驾驶等产业场景及科学计算领域",
+    "investors": "敦鸿资产、华控基金、三花控股、银杏谷资本、泽然资本、本坚基金、天使基石、标朴投资",
+    "total_funding": "数亿元",
+    "valuation": null,
+    "industry_id": "具身智能/机器人",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
  }
 }

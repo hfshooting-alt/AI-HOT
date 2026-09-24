@@ -1,20 +1,78 @@
 {
  "schemaVersion": 1,
- "generatedAt": "2026-09-23T14:13:06+08:00",
+ "generatedAt": "2026-09-24T15:18:45+08:00",
  "coverageNote": "覆盖 Garena 投资精选中的融资类新闻；已有融资记录按原有合并规则保留",
  "searchNote": "已跳过搜索补全（--skip-search）",
  "stats": {
-  "articlesProcessed": 5,
-  "modelCalls": 0,
-  "modelSuccesses": 0,
+  "articlesProcessed": 4,
+  "modelCalls": 3,
+  "modelSuccesses": 3,
   "modelFailures": 0,
-  "cacheHits": 5,
+  "cacheHits": 1,
   "extractionFailed": 0,
   "articlesWithoutFundingInfo": 0,
-  "companiesTotal": 8,
+  "companiesTotal": 7,
   "companiesSearched": 0
  },
  "companies": [
+  {
+   "id": "fund:b6db407c448546bf",
+   "company_name": "DeepSeek",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": null,
+   "team": null,
+   "business": null,
+   "investors": "石溪资本、中芯聚源、博裕投资、CPE源峰、合肥国资投资平台",
+   "total_funding": null,
+   "valuation": "目标估值5000亿元（二轮融资，谈判中）",
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:115022be2cc7ef5b",
+     "title": "梁文锋正在筛LP",
+     "url": "https://view.inews.qq.com/a/20260923A0AQL300",
+     "publishedAt": "2026-09-23T18:21:14+08:00",
+     "mpName": "投资界"
+    }
+   ]
+  },
+  {
+   "id": "fund:44a319d1106c10fd",
+   "company_name": "达卯科技",
+   "product_name": "算电协同2.0平台・AIDC绿电直连能源运营操作系统",
+   "founded": "2021年",
+   "country": null,
+   "industry": "AI模型/基础设施",
+   "team": null,
+   "business": "依托自研垂类能源大模型与AI智能体集群，打造算电协同平台、AI虚拟电厂平台、智能运维平台等产品矩阵，面向智算中心客户提供从咨询规划、投资测算、智能运营、精细化运维、能源增值交易的全生命周期服务",
+   "investors": "宁德时代、商汤科技、寒武纪、宁德时代旗下溥泉资本",
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:68aceefbd8d5249f",
+     "title": "达卯科技完成新一轮融资，算电协同核心软件层“稀缺标的”",
+     "url": "https://view.inews.qq.com/a/20260923A0ACRY00",
+     "publishedAt": "2026-09-23T17:41:49+08:00",
+     "mpName": "量子位"
+    }
+   ]
+  },
   {
    "id": "fund:9f0f0563586c59d3",
    "company_name": "息壤开物",
@@ -22,10 +80,10 @@
    "founded": null,
    "country": null,
    "industry": "具身智能/机器人",
-   "team": "创始人、CEO李寅曾任华为云大模型CTO，拥有万卡级模型训练及产业落地经验；联合创始人、首席科学家张含望是南洋理工大学教授，长期从事因果机器学习与多模态智能研究；核心成员来自华为大模型体系",
-   "business": "从底层研发原生物理基础模型（LPM），构建XR数据平台和XR评测平台，将物理智能能力推广到机器人、自动驾驶等产业场景",
+   "team": "创始人、CEO李寅曾任华为云大模型CTO，拥有万卡级模型训练及丰富的产业落地经验；联合创始人、首席科学家张含望是南洋理工大学教授，长期从事因果机器学习与多模态智能研究；核心成员来自华为大模型体系，拥有万卡级训练、视频大模型、多模态研发及复杂行业交付经验",
+   "business": "从底层研发原生物理基础模型（Large Physics Model，LPM），通过通用底座将物理智能能力推广至机器人、自动驾驶等产业场景及科学计算领域",
    "investors": "敦鸿资产、华控基金、三花控股、银杏谷资本、泽然资本、本坚基金、天使基石、标朴投资",
-   "total_funding": null,
+   "total_funding": "数亿元",
    "valuation": null,
    "dims": {
     "所属行业": "具身智能/机器人",
@@ -42,20 +100,6 @@
      "publishedAt": "2026-09-23T13:00:03+08:00",
      "mpName": "智东西"
     }
-   ],
-   "fieldQuarantines": [
-    {
-     "field": "total_funding",
-     "originalValue": "数亿元种子轮及天使轮融资",
-     "reasonCode": "single_round_not_total",
-     "reason": "单轮融资金额不能作为累计融资",
-     "articleId": "direct:38672b96f84fb282",
-     "url": "https://view.inews.qq.com/a/20260923A06XL900",
-     "title": "华为大模型双子星联手造物理基模，刚融资数亿元",
-     "publishedAt": "2026-09-23T13:00:03+08:00",
-     "sourceName": "智东西",
-     "origin": "article"
-    }
    ]
   },
   {
@@ -68,7 +112,7 @@
    "team": null,
    "business": "人工智能公司，开发大模型等AI技术",
    "investors": "软银",
-   "total_funding": "软银已累计承诺投入近650亿美元",
+   "total_funding": null,
    "valuation": "投前估值7300亿美元；3月融资后估值8520亿美元",
    "dims": {
     "所属行业": "AI模型/基础设施",
@@ -84,13 +128,6 @@
      "url": "https://www.163.com/dy/article/L7GP0J320511N33R.html?spss=dy_author",
      "publishedAt": "2026-09-23T11:23:23+08:00",
      "mpName": "硅星人"
-    },
-    {
-     "id": "direct:1506ef0a9e49ea39",
-     "title": "软银借道债市为AI帝国输血，垃圾债市场迎来历史级考验",
-     "url": "https://view.inews.qq.com/a/20260922A09NJG00",
-     "publishedAt": "2026-09-22T19:02:16+08:00",
-     "mpName": "华尔街见闻"
     }
    ]
   },
@@ -120,13 +157,6 @@
      "url": "https://www.163.com/dy/article/L7GP0J320511N33R.html?spss=dy_author",
      "publishedAt": "2026-09-23T11:23:23+08:00",
      "mpName": "硅星人"
-    },
-    {
-     "id": "direct:1506ef0a9e49ea39",
-     "title": "软银借道债市为AI帝国输血，垃圾债市场迎来历史级考验",
-     "url": "https://view.inews.qq.com/a/20260922A09NJG00",
-     "publishedAt": "2026-09-22T19:02:16+08:00",
-     "mpName": "华尔街见闻"
     }
    ]
   },
@@ -199,93 +229,6 @@
      "publishedAt": "2026-09-23T11:23:23+08:00",
      "sourceName": "硅星人",
      "origin": "article"
-    }
-   ]
-  },
-  {
-   "id": "fund:43cc9d71fbfae731",
-   "company_name": "Legora",
-   "product_name": null,
-   "founded": "2023年",
-   "country": "瑞典",
-   "industry": "法律科技",
-   "team": null,
-   "business": "向律师事务所和企业法务团队销售AI软件，帮助自动处理合同审查、法律研究等工作",
-   "investors": "Iconiq、General Catalyst、Accel、NVentures",
-   "total_funding": null,
-   "valuation": "投前估值约85亿美元（洽谈中）",
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "欧洲"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:5b43e60fc0adf377",
-     "title": "速递｜AI法律创企Legora计划融资3亿美元，估值冲上85亿美元",
-     "url": "https://view.inews.qq.com/a/20260923A05OGL00",
-     "publishedAt": "2026-09-23T11:03:18+08:00",
-     "mpName": "ZPotential"
-    }
-   ]
-  },
-  {
-   "id": "fund:ef7d790d978cbf68",
-   "company_name": "Snorkel AI",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": "AI数据/基础设施",
-   "team": "联合创始人兼CEO Alex Ratner及其团队在斯坦福大学一家AI实验室进行了四年的研究",
-   "business": "帮助人工智能实验室和企业构建训练数据集及模拟环境，提供数据标注自动化软件，并转型为数据即服务",
-   "investors": "Insight Partners、S32、Addition、Lightspeed、Greylock、GV、Wells Fargo",
-   "total_funding": null,
-   "valuation": "35亿美元",
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:cb0039100f77b276",
-     "title": "速递｜AI数据创企Snorkel AI完成3.5亿美元E轮融资，估值达35亿美元",
-     "url": "https://view.inews.qq.com/a/20260923A05OGF00",
-     "publishedAt": "2026-09-23T11:03:18+08:00",
-     "mpName": "ZPotential"
-    }
-   ]
-  },
-  {
-   "id": "fund:052a02b42b479b7f",
-   "company_name": "阿波罗全球管理公司",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": null,
-   "team": null,
-   "business": null,
-   "investors": null,
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "其他",
-    "国家/地区": "日韩"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:1506ef0a9e49ea39",
-     "title": "软银借道债市为AI帝国输血，垃圾债市场迎来历史级考验",
-     "url": "https://view.inews.qq.com/a/20260922A09NJG00",
-     "publishedAt": "2026-09-22T19:02:16+08:00",
-     "mpName": "华尔街见闻"
     }
    ]
   }
