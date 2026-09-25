@@ -1,0 +1,359 @@
+{
+ "date": "2026-09-25",
+ "finalized": false,
+ "finalizedAt": null,
+ "items": [
+  {
+   "id": "direct:dae37aae0834fc3f",
+   "title": "「济公」游本昌去世；罗永浩再评小米 18 Fold；Meta 推出手持设备 Muse Charm｜极客早知道",
+   "url": "https://view.inews.qq.com/a/20260925A03FZJ00",
+   "source": "腾讯新闻转载：极客公园",
+   "mpName": "极客公园",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-25T09:19:12+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-25 09:19:12",
+    "observedAt": "2026-09-25T14:23:02+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-25T09:19:12+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "极客公园",
+     "url": "https://view.inews.qq.com/a/20260925A03FZJ00",
+     "publishedAt": "2026-09-25T09:19:12+08:00"
+    }
+   ],
+   "summary": "9月24日，亚马逊宣布投资超1亿美元在美国印第安纳州格林伍德建设机器人制造工厂，预计2028年投入运营，此前还计划在得州奥斯汀建设另一座机器人制造中心。Counterpoint Research数据显示，2026年上半年全球四足机器人出货约3.5万台，其中40%面向垂直工业应用，宇树科技、智元酷拓、智身科技、云深处科技等中国企业占据多数份额。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "f338a1ae37cbd3f6bb7c2962850c488b57747e8ff869bc4d2d20cb3e3d617ed1",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:95b786887606da3a",
+   "title": "广电湘军+AI发力！万兴科技推出全场景AI视频方案，加速万剧出海",
+   "url": "https://view.inews.qq.com/a/20260925A037UJ00",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-25T09:00:03+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-25 09:00:03",
+    "observedAt": "2026-09-25T14:24:13+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-25T09:00:03+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "智东西",
+     "url": "https://view.inews.qq.com/a/20260925A037UJ00",
+     "publishedAt": "2026-09-25T09:00:03+08:00"
+    }
+   ],
+   "summary": "2026年9月24日，在2026岳麓大会上，万兴科技推出全链路全场景AI视频创意解决方案，覆盖AI影视、AI广告视频、AI电商视频、AI音乐视频、AI视频剪辑等多个创作场景。AI影视方面，旗下万兴剧厂覆盖剧本、角色资产、分镜、素材生成、后期剪辑及团队协作等全流程。AI广告视频方面，推出面向TVC与专业视频制作的Filmora.TV。AI电商视频方面，万兴播爆可通过一句话、一张商品图或一条链接快速生成带货视频。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_other",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "36356bded2f08ca6bba8d469181103369adc70165ab16d7e4204f8a945746d2e",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:d025acd5822ebe78",
+   "title": "Anthropic与Akamai签署116亿美元算力协议，创后者史上最大合同",
+   "url": "https://view.inews.qq.com/a/20260925A0374K00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-25T08:57:04+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-25 08:57:04",
+    "observedAt": "2026-09-25T14:23:48+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-25T08:57:04+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260925A0374K00",
+     "publishedAt": "2026-09-25T08:57:04+08:00"
+    }
+   ],
+   "summary": "9月24日，据彭博报道，Anthropic与Akamai签署了一项为期七年、总价值116亿美元的算力合同，创下Akamai公司历史上最大订单纪录。根据协议，Akamai将向Anthropic提供中央处理器算力，以支持其日益增长的人工智能服务需求。作为交易组成部分，Akamai向Anthropic发行认股权证，允许其以每股111.33美元购买可转换为普通股的B轮股份。",
+   "classification": {
+    "category": "financing",
+    "tags": {
+     "industry": "ai_model",
+     "region": "us"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "c0d69f0cbc119cef304911836c873926cdb56b6752f0ce39efeae8e3567b231f",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:47e75b7f64e44765",
+   "title": "实探2026岳麓大会：AI从屏幕走进工厂，长沙给出一个中部范本",
+   "url": "https://view.inews.qq.com/a/20260925A030SU00",
+   "source": "腾讯新闻转载：智东西",
+   "mpName": "智东西",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-25T08:30:04+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-25 08:30:04",
+    "observedAt": "2026-09-25T14:24:15+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-25T08:30:04+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "智东西",
+     "url": "https://view.inews.qq.com/a/20260925A030SU00",
+     "publishedAt": "2026-09-25T08:30:04+08:00"
+    }
+   ],
+   "summary": "2026岳麓大会于9月23日至24日在长沙举办，总规模100亿元的湖南省金芙蓉达晨未来产业基金正式发布并落地湖南湘江新区，首期规模30亿元，重点投向人工智能、生命工程、量子科技、前沿材料四大方向。大会的“AI+创新创业展”汇集68家企业、156件展品，覆盖数据标注、大模型、智能体、国产算力、脑机接口、AI医疗、人形机器人和智能制造等领域。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "f4e6f275791e269ec38abeff6334e5f93f1bb77d14e471683ffe9547c9a37f00",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:f66aac9322182986",
+   "title": "消息称蓝色起源完成100亿美元外部融资，估值约1400亿美元",
+   "url": "https://view.inews.qq.com/a/20260925A02PJ700",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-25T07:32:10+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-25 07:32:10",
+    "observedAt": "2026-09-25T14:23:51+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-25T07:32:10+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260925A02PJ700",
+     "publishedAt": "2026-09-25T07:32:10+08:00"
+    }
+   ],
+   "summary": "9月24日，据《华尔街日报》报道，蓝色起源已完成100亿美元外部融资，公司估值约1400亿美元。贝索斯在本轮融资中额外注资20亿美元，使其自2000年创立公司以来的总投入达到约300亿美元。报道援引知情人士称，最终融资规模可能超过100亿美元的初始目标。公司文件显示，蓝色起源2025年营收约8亿美元，预计今年增至14亿美元，并预测2030年营收突破300亿美元。未来增长引擎将涵盖运载火箭发射服务、卫星通信业务及人工智能卫星网络。",
+   "classification": {
+    "category": "general",
+    "tags": {},
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "fec5fce336ea15fa357a1a9292d27b215730223a8c03b0fca33e2774a7b37b32",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:a11c05e9cd424b5d",
+   "title": "Meta推出AI游戏开发工具，竞争对手股价应声下跌",
+   "url": "https://view.inews.qq.com/a/20260925A0235B00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-25T04:22:07+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-25 04:22:07",
+    "observedAt": "2026-09-25T14:24:10+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-25T04:22:07+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260925A0235B00",
+     "publishedAt": "2026-09-25T04:22:07+08:00"
+    }
+   ],
+   "summary": "Meta在Connect大会上发布Horizon Create和Horizon Studio两款AI游戏创作工具，用户无需编程技能即可通过文字描述生成完整的2D或3D手机游戏，并分发至Facebook、Instagram及Horizon平台。Horizon Create为独立手机应用，Horizon Studio为浏览器端创作环境，两者项目资产可无缝迁移。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "game_engine",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "1d67db5d07e08c810482cc56f5fa251e2162ff2b6e3a9706059c34bf1ea14f2d",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:0be2e2a36b3ea108",
+   "title": "谷歌Gemini 3.8 Live上线“数字人”实时对话，支持多国语言与口型同步",
+   "url": "https://view.inews.qq.com/a/20260925A01DBH00",
+   "source": "腾讯新闻转载：华尔街见闻",
+   "mpName": "华尔街见闻",
+   "sourceType": "media",
+   "sourceChannel": "tencent_syndication",
+   "sourcePlatform": "Tencent News",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-25T02:12:06+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-25 02:12:06",
+    "observedAt": "2026-09-25T14:24:15+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-25T02:12:06+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "华尔街见闻",
+     "url": "https://view.inews.qq.com/a/20260925A01DBH00",
+     "publishedAt": "2026-09-25T02:12:06+08:00"
+    }
+   ],
+   "summary": "谷歌云旗下Gemini 3.8 Live with Live Avatar功能本周正式在Gemini Enterprise中面向企业用户全面开放，将实时视频虚拟形象与多语言语音对话能力整合为一体。该功能支持视频虚拟形象的实时唇形同步、97种语言自动识别与切换，以及后台工具调用与API执行，并提供美国和欧盟双区域端点部署。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "bigcorp"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "ed9be8bd81e25b36c5d830aa254c488d7feb08c2287791b5ec6a486de7e6790b",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  },
+  {
+   "id": "direct:1de4b174ef3f3014",
+   "title": "深度｜基元律动发布 NeoHorse-Jev，开源 Jev 综合评测第一",
+   "url": "https://www.163.com/dy/article/L7KNJ89G0556EX0D.html?spss=dy_author",
+   "source": "网易号转载：ZFinance",
+   "mpName": "ZFinance",
+   "sourceType": "media",
+   "sourceChannel": "netease_syndication",
+   "sourcePlatform": "NetEase",
+   "collector": "direct_site",
+   "publishedAt": "2026-09-25T00:15:35+08:00",
+   "publishedPrecision": "datetime",
+   "timeEvidence": {
+    "originalText": "2026-09-25T00:15:35+08:00",
+    "observedAt": "2026-09-25T14:22:59+08:00",
+    "kind": "absolute",
+    "field": "detail.meta.article:published_time + article header",
+    "normalizedAt": "2026-09-25T00:15:35+08:00"
+   },
+   "evidenceKind": "article_body",
+   "sourceRefs": [
+    {
+     "collector": "direct_site",
+     "source": "ZFinance",
+     "url": "https://www.163.com/dy/article/L7KNJ89G0556EX0D.html?spss=dy_author",
+     "publishedAt": "2026-09-25T00:15:35+08:00"
+    }
+   ],
+   "summary": "创业公司基元律动发布了轻量级模型NeoHorse-Jev-4B，该模型由华为诺亚方舟实验室前主任、盘古大模型负责人王云鹤创办的团队研发，主打毫秒级实时决策。在包含六组评测的基准测试中，NeoHorse-Jev-4B以77.70的综合AVG分数位居成绩完整的开源参评模型第一，超越参数规模更大的Open-Jev-9B。",
+   "classification": {
+    "category": "release",
+    "tags": {
+     "industry": "ai_model",
+     "issuer": "startup"
+    },
+    "autoFallback": false,
+    "autoFilled": []
+   },
+   "enrichmentStatus": "complete",
+   "contentSha256": "dfcde36fd4fc887bb2583848ce2be94638d2a10e5a916e496566ae3627c43302",
+   "contentStatus": "available",
+   "classificationStatus": "complete",
+   "summaryStatus": "complete",
+   "summaryOrigin": "model"
+  }
+ ],
+ "updatedAt": "2026-09-25T14:37:30.265255+08:00"
+}

@@ -1550,5 +1550,357 @@
    }
   ],
   "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:3f6a7016b0527691:70a4990cc5339a9c": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "达卯科技",
+    "product_name": "算电协同平台、AI虚拟电厂平台、智能运维平台",
+    "founded": "2021年",
+    "country": "中国",
+    "industry": "AI基础设施/算电协同",
+    "team": "CEO简煜忞曾任商汤集团碳中和发展研究中心主任",
+    "business": "聚焦算电协同、虚拟电厂和能源智能运维，基于自研能源大模型及AI智能体，为智算中心提供能源规划、调度、电力交易和运维服务",
+    "investors": "商汤科技、涌铧投资、宁德时代旗下溥泉资本、固德威、寒武纪",
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:d025acd5822ebe78:c0d69f0cbc119cef": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Anthropic",
+    "product_name": "Claude",
+    "founded": null,
+    "country": null,
+    "industry": "AI模型/基础设施",
+    "team": null,
+    "business": "人工智能开发商，提供Claude软件以简化编程及其他任务流程",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   },
+   {
+    "company_name": "Akamai",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": "AI模型/基础设施",
+    "team": null,
+    "business": "提供云计算、网络安全和内容分发服务，向Anthropic提供CPU算力",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "大厂/已上市"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:bc2cfdb937a210bf:1ad2c1968ab57982": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Nex",
+    "product_name": "Nex Playground",
+    "founded": "2017年",
+    "country": null,
+    "industry": "AI游戏",
+    "team": "一群苹果老兵在David Lee（李景辉）带领下创立，Lee曾在苹果工作8年，担任iWork云版本高级工程经理",
+    "business": "家庭体感游戏平台，推出无需手柄、穿戴设备的家庭体感主机Nex Playground",
+    "investors": "柏基、BAI Capital、摩根大通、NBA Investments、罗技、雷恩集团",
+    "total_funding": "超过1.5亿美元股权及债务融资",
+    "valuation": null,
+    "industry_id": "AI游戏",
+    "company_type_id": "初创公司"
+   },
+   {
+    "company_name": "飞拓星驰",
+    "product_name": "Fit-OS",
+    "founded": null,
+    "country": null,
+    "industry": "AI互动内容/娱乐",
+    "team": "创始人王佳泽是95后AI博士，曾在华为、亚马逊、商汤工作",
+    "business": "AI空间智能平台，核心产品为Fit-OS空间智能Agent平台，首款硬件预计2027年CES发布",
+    "investors": null,
+    "total_funding": "数百万美元融资",
+    "valuation": null,
+    "industry_id": "AI互动内容/娱乐",
+    "company_type_id": "初创公司"
+   },
+   {
+    "company_name": "创想悦动",
+    "product_name": "Youdoo Box",
+    "founded": null,
+    "country": null,
+    "industry": "AI游戏",
+    "team": "创始人刘丹曾任腾讯天行工作室总经理、《斗战神》制作人",
+    "business": "专用家庭主机，与创维数字联合推出AI体感成长主机Youdoo Box",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI游戏",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:3c426b1d8008e68f:4d079bc34325c0c8": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "中原建业",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": "房地产代建服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "其他",
+    "company_type_id": "大厂/已上市"
+   },
+   {
+    "company_name": "连横科技发展",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": "AI营销及技术服务",
+    "team": null,
+    "business": "提供由AI及大数据技术支持的营销及技术服务，包括AI驱动的客户获取及市场推广服务、客户运营服务及开发特定行业的AI智能体",
+    "investors": "中原建业",
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "其他",
+    "company_type_id": "其他"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:518a564e1b01e9dc:543920580fd8fdba": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "广州文石信息科技股份有限公司",
+    "product_name": "文石BOOX",
+    "founded": "2008年",
+    "country": "中国",
+    "industry": "AI创作工具/生产力",
+    "team": "淡玉婷女士任董事长、总经理；朱增先生任副总经理、首席运营官、首席技术官；翟永泰先生任副总经理；王敬博先生任副总经理；欧阳苏频女士任副总经理；李盛杰先生任副总经理、联席公司秘书；曾真金先生任财务总监",
+    "business": "知识专注型生产力工具行业的全球科技消费电子品牌公司，提供高速阅读器及生产力平板等智能硬件设备，搭载自研开放式操作系统BOOX OS，并开发StarNote等读写应用软件",
+    "investors": "联想集团、川奇光电、太仓景柏、创钰投资、千舟投资",
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI创作工具/生产力",
+    "company_type_id": "其他"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:5ede7abd0f855813:9d9a07f2fae3901d": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "CoreWeave",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": "AI算力基础设施",
+    "team": null,
+    "business": "AI算力基础设施提供商，提供数据中心算力租赁服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   },
+   {
+    "company_name": "Blue Owl Capital",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": "另类资产管理",
+    "team": null,
+    "business": "另类资产管理机构，关联方为数据中心项目发起人",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "其他",
+    "company_type_id": "其他"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:a9cb1f192ef87c5f:4773b9b2c24cc7e6": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "UniPat",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": "AI模型/基础设施",
+    "team": "创始人李宽曾在阿里通义AI实验室从事后训练分析、数据合成和强化学习工作；联合创始人兼CTO陈亮曾在Qwen、Moonshot多模态团队从事研究；尹汇锋为WebSailor项目负责人之一",
+    "business": "为模型提供训练数据和评测服务，包括强化学习后训练数据、Agent数据与强化学习环境",
+    "investors": "阿里（拟领投）、腾讯、红杉中国（传出参与意愿）",
+    "total_funding": null,
+    "valuation": "本轮估值约25亿美元（拟议融资中）",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   },
+   {
+    "company_name": "智能知识",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": "AI模型/基础设施",
+    "team": "创始人兼CEO汪涉洋此前负责字节Seed模型数据工程架构，也做过抖音医疗大模型数据工程；CTO李宽野是前字节跳动基座模型数据工程师，做过强化学习数据合成与环境搭建",
+    "business": "组织专家知识并持续生产高质量专家数据，提供任务生产与质检工具",
+    "investors": "锦秋基金、耀途资本",
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   },
+   {
+    "company_name": "Copula Lab",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": "AI模型/基础设施",
+    "team": "创始人梁丽此前负责MiniMax Agent业务、搭建内部评测；技术联合创始人蔡佳人曾任MiniMax开源负责人及后训练数据算法，参与M2系列模型Coding方向后训练数据构造",
+    "business": "连接产品与模型，提供后训练数据相关服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:a5cfeda57d849e9a:fe3b0d63f2414b68": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "清醒异构",
+    "product_name": "RiverONE",
+    "founded": "2021年",
+    "country": null,
+    "industry": "AI模型/基础设施",
+    "team": "清华大学计算机系校友余腾带队创立",
+    "business": "基于经典异构算力的AI系统，现转向量子启发的下一代AI模型前沿，发布量子启发视觉语言模型RiverONE，产品进入AI及量子计算产业链",
+    "investors": "晶凯资本、安徽高新投、道得投资、励石投资、中咨基金、徐汇资本、森蓝集团、泾东集团创始人等",
+    "total_funding": "近亿元",
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   },
+   {
+    "company_name": "Multiverse Computing",
+    "product_name": "CompactifAI",
+    "founded": null,
+    "country": "西班牙",
+    "industry": "AI模型/基础设施",
+    "team": null,
+    "business": "从量子软件起步，将张量网络方法用于AI模型压缩，提供压缩模型和API，探索手机等设备上的离线运行，并推动与硬件厂商及企业客户的适配",
+    "investors": null,
+    "total_funding": "1.89亿欧元B轮融资",
+    "valuation": null,
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:a6ab385c7ac8b1ca:58c099646376336b": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Mirendil",
+    "product_name": null,
+    "founded": "今年早些时候",
+    "country": null,
+    "industry": "AI模型/基础设施",
+    "team": "由前Anthropic研究人员创立，目前已有20多名员工",
+    "business": "打造能够在几乎不需要人类帮助的情况下自我改进的、广泛可及的模型，推动前沿AI研发民主化",
+    "investors": "Kleiner Perkins、Andreessen Horowitz、Nvidia",
+    "total_funding": null,
+    "valuation": "50亿美元估值（洽谈中）",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:ee2ef35c097234f7:e5700180fc165965": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Ema",
+    "product_name": null,
+    "founded": "2023年",
+    "country": "美国",
+    "industry": "AI企业服务/企业流程自动化",
+    "team": "由前Google和Coinbase高管Surojit Chatterjee与前Okta高管Souvik Sen创立",
+    "business": "利用AI代理团队自动化人力资源、IT和财务等企业流程",
+    "investors": "Creaegis、Accel、Section 32、Prosus",
+    "total_funding": "1.4亿美元",
+    "valuation": "较2024年上一轮融资增长逾四倍",
+    "industry_id": "其他",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:b4f110adad6b31f3:b8c65624ec53fe8b": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "息壤开物",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": "Physical AI/物理基础模型",
+    "team": "创始人、CEO李寅曾任华为云大模型CTO，是华为大模型从0到1的核心成员之一；联合创始人、首席科学家张含望现任华为多模态首席科学家、南洋理工大学AI领域校长讲席教授",
+    "business": "自研物理基础模型（Large Physics Model，LPM），构建能够理解物理规律、预测状态演化、规划长程动作并支撑闭环执行的物理世界基础模型",
+    "investors": "敦鸿资产、华控基金、三花控股、银杏谷资本、泽然资本、本坚基金、天使基石、标朴投资",
+    "total_funding": "数亿元种子轮及天使轮融资",
+    "valuation": "5亿美元",
+    "industry_id": "其他",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:75fb070ad87b78e3:aa86021b02a2f11e": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Flam",
+    "product_name": "Flicks、Airboards、Visual Agents",
+    "founded": null,
+    "country": "美国",
+    "industry": "AI互动内容/娱乐",
+    "team": "由印度创业者创立，总部位于美国，在印度和日本设有团队",
+    "business": "提供企业互动产品，包括互动视频、3D内容及拟人化AI角色",
+    "investors": "QED Investors、沙鲁克·汗",
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "AI互动内容/娱乐",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
  }
 }
