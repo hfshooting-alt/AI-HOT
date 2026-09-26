@@ -1902,5 +1902,85 @@
    }
   ],
   "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:5949b31ba40adfe9:dbe8850fa929bcb9": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Solidigm",
+    "product_name": null,
+    "founded": "2021年",
+    "country": "美国",
+    "industry": "AI模型/基础设施",
+    "team": null,
+    "business": "主营NAND闪存芯片及固态硬盘业务，聚焦面向AI应用的大容量存储产品，在服务器、云基础设施及数据中心领域供应企业级SSD",
+    "investors": null,
+    "total_funding": null,
+    "valuation": "最高达1500亿美元（上市计划评估中）",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "其他"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:5029815842699bfb:f3f39f135eec6dda": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "蓝色起源",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": null,
+    "team": null,
+    "business": "火箭发射服务、卫星通讯业务、计划部署的人工智能卫星群",
+    "investors": "贝索斯、Coatue",
+    "total_funding": "贝索斯累计投入约300亿美元",
+    "valuation": "约1400亿美元",
+    "industry_id": "其他",
+    "company_type_id": "其他"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:7d0e718609fa628f:c07007ada208cc1e": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "息壤开物",
+    "product_name": "LPM（Large Physics Model）",
+    "founded": null,
+    "country": null,
+    "industry": "具身智能/机器人",
+    "team": "创始人、CEO李寅，前华为云大模型CTO，华为大模型0-1阶段核心成员；联合创始人张含望教授，前华为多模态首席科学家，南洋理工大学计算与数据科学学院教授",
+    "business": "研发面向物理世界的大物理模型LPM，为机器人提供跨任务、跨场景、跨本体的物理基础模型能力底座",
+    "investors": "敦鸿资产、华控基金、三花控股、银杏谷资本、泽然资本、本坚基金、天使基石、标朴投资",
+    "total_funding": "数亿元种子轮及天使轮融资",
+    "valuation": "5亿美金",
+    "industry_id": "具身智能/机器人",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:6f08239c319afc1f:e22cf3aee2c877ea": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "TypeSafe AI",
+    "product_name": "Jev",
+    "founded": "2024年",
+    "country": "美国",
+    "industry": "AI模型/基础设施",
+    "team": "创始人 Diogo Almeida 曾在 OpenAI 参与 RLHF 和 InstructGPT 核心工作；联合创始人 Erik Gafni、Sasha Sheng；公司位于旧金山，约二十人",
+    "business": "开发专用判断模型 Jev，只输出选项、评分、是/否及置信度，面向软件和 Agent 提供快速、低成本的判断能力",
+    "investors": "DCVC",
+    "total_funding": "4000万美元种子轮",
+    "valuation": "100亿美元以上（洽谈中）",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
  }
 }

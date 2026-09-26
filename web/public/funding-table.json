@@ -1,409 +1,61 @@
 {
  "schemaVersion": 1,
- "generatedAt": "2026-09-25T14:57:02+08:00",
+ "generatedAt": "2026-09-26T14:45:08+08:00",
  "coverageNote": "覆盖 Garena 投资精选中的融资类新闻；已有融资记录按原有合并规则保留",
  "searchNote": "已跳过搜索补全（--skip-search）",
  "stats": {
-  "articlesProcessed": 12,
-  "modelCalls": 12,
-  "modelSuccesses": 12,
+  "articlesProcessed": 4,
+  "modelCalls": 4,
+  "modelSuccesses": 4,
   "modelFailures": 0,
   "cacheHits": 0,
   "extractionFailed": 0,
   "articlesWithoutFundingInfo": 0,
-  "companiesTotal": 20,
+  "companiesTotal": 4,
   "companiesSearched": 0
  },
  "companies": [
   {
-   "id": "fund:556dcd26a54fb752",
-   "company_name": "Anthropic",
-   "product_name": "Claude",
-   "founded": null,
-   "country": null,
-   "industry": "AI模型/基础设施",
-   "team": null,
-   "business": "人工智能开发商，提供Claude软件以简化编程及其他任务流程",
-   "investors": null,
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:d025acd5822ebe78",
-     "title": "Anthropic与Akamai签署116亿美元算力协议，创后者史上最大合同",
-     "url": "https://view.inews.qq.com/a/20260925A0374K00",
-     "publishedAt": "2026-09-25T08:57:04+08:00",
-     "mpName": "华尔街见闻"
-    }
-   ]
-  },
-  {
-   "id": "fund:717c1cf99905f52a",
-   "company_name": "Akamai",
+   "id": "fund:a2c8f94ca6c32da6",
+   "company_name": "Solidigm",
    "product_name": null,
-   "founded": null,
-   "country": null,
+   "founded": "2021年",
+   "country": "美国",
    "industry": "AI模型/基础设施",
    "team": null,
-   "business": "提供云计算、网络安全和内容分发服务，向Anthropic提供CPU算力",
+   "business": "主营NAND闪存芯片及固态硬盘业务，聚焦面向AI应用的大容量存储产品，在服务器、云基础设施及数据中心领域供应企业级SSD",
    "investors": null,
    "total_funding": null,
-   "valuation": null,
+   "valuation": "最高达1500亿美元（上市计划评估中）",
    "dims": {
     "所属行业": "AI模型/基础设施",
-    "公司类型": "大厂/已上市",
+    "公司类型": "其他",
     "国家/地区": "美国"
    },
    "filledBySearch": [],
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "direct:d025acd5822ebe78",
-     "title": "Anthropic与Akamai签署116亿美元算力协议，创后者史上最大合同",
-     "url": "https://view.inews.qq.com/a/20260925A0374K00",
-     "publishedAt": "2026-09-25T08:57:04+08:00",
+     "id": "direct:5949b31ba40adfe9",
+     "title": "报道：SK海力士旗下Solidigm最快明年在美IPO，估值或高达1500亿美元",
+     "url": "https://view.inews.qq.com/a/20260926A01X6400",
+     "publishedAt": "2026-09-26T03:22:11+08:00",
      "mpName": "华尔街见闻"
     }
    ]
   },
   {
-   "id": "fund:1dd300a7572d1455",
-   "company_name": "Nex",
-   "product_name": "Nex Playground",
-   "founded": "2017年",
-   "country": null,
-   "industry": "AI游戏",
-   "team": "一群苹果老兵在David Lee（李景辉）带领下创立，Lee曾在苹果工作8年，担任iWork云版本高级工程经理",
-   "business": "家庭体感游戏平台，推出无需手柄、穿戴设备的家庭体感主机Nex Playground",
-   "investors": "柏基、BAI Capital、摩根大通、NBA Investments、罗技、雷恩集团",
-   "total_funding": "超过1.5亿美元股权及债务融资",
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI游戏",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:bc2cfdb937a210bf",
-     "title": "AI体感游戏机Nex完成超1.5亿美元融资，北美销量一度超过Xbox",
-     "url": "https://www.baijing.cn/article/56834",
-     "publishedAt": "2026-09-24T18:48:00+08:00",
-     "mpName": "白鲸出海"
-    }
-   ]
-  },
-  {
-   "id": "fund:791fc935df47ad62",
-   "company_name": "飞拓星驰",
-   "product_name": "Fit-OS",
-   "founded": null,
-   "country": null,
-   "industry": "AI互动内容/娱乐",
-   "team": "创始人王佳泽是95后AI博士，曾在华为、亚马逊、商汤工作",
-   "business": "AI空间智能平台，核心产品为Fit-OS空间智能Agent平台，首款硬件预计2027年CES发布",
-   "investors": null,
-   "total_funding": "数百万美元融资",
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI互动内容/娱乐",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:bc2cfdb937a210bf",
-     "title": "AI体感游戏机Nex完成超1.5亿美元融资，北美销量一度超过Xbox",
-     "url": "https://www.baijing.cn/article/56834",
-     "publishedAt": "2026-09-24T18:48:00+08:00",
-     "mpName": "白鲸出海"
-    }
-   ]
-  },
-  {
-   "id": "fund:78eed1c0f3d929eb",
-   "company_name": "创想悦动",
-   "product_name": "Youdoo Box",
-   "founded": null,
-   "country": null,
-   "industry": "AI游戏",
-   "team": "创始人刘丹曾任腾讯天行工作室总经理、《斗战神》制作人",
-   "business": "专用家庭主机，与创维数字联合推出AI体感成长主机Youdoo Box",
-   "investors": null,
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI游戏",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:bc2cfdb937a210bf",
-     "title": "AI体感游戏机Nex完成超1.5亿美元融资，北美销量一度超过Xbox",
-     "url": "https://www.baijing.cn/article/56834",
-     "publishedAt": "2026-09-24T18:48:00+08:00",
-     "mpName": "白鲸出海"
-    }
-   ]
-  },
-  {
-   "id": "fund:44a319d1106c10fd",
-   "company_name": "达卯科技",
-   "product_name": "算电协同平台、AI虚拟电厂平台、智能运维平台",
-   "founded": "2021年",
-   "country": "中国",
-   "industry": "AI基础设施/算电协同",
-   "team": "CEO简煜忞曾任商汤集团碳中和发展研究中心主任",
-   "business": "聚焦算电协同、虚拟电厂和能源智能运维，基于自研能源大模型及AI智能体，为智算中心提供能源规划、调度、电力交易和运维服务",
-   "investors": "商汤科技、涌铧投资、宁德时代旗下溥泉资本、固德威、寒武纪",
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:3f6a7016b0527691",
-     "title": "前商汤骨干AI创业，融资约2亿！",
-     "url": "https://view.inews.qq.com/a/20260924A0CTX300",
-     "publishedAt": "2026-09-24T18:00:03+08:00",
-     "mpName": "智东西"
-    }
-   ]
-  },
-  {
-   "id": "fund:87d01a05f1950e06",
-   "company_name": "广州文石信息科技股份有限公司",
-   "product_name": "文石BOOX",
-   "founded": "2008年",
-   "country": "中国",
-   "industry": "AI创作工具/生产力",
-   "team": "淡玉婷女士任董事长、总经理；朱增先生任副总经理、首席运营官、首席技术官；翟永泰先生任副总经理；王敬博先生任副总经理；欧阳苏频女士任副总经理；李盛杰先生任副总经理、联席公司秘书；曾真金先生任财务总监",
-   "business": "知识专注型生产力工具行业的全球科技消费电子品牌公司，提供高速阅读器及生产力平板等智能硬件设备，搭载自研开放式操作系统BOOX OS，并开发StarNote等读写应用软件",
-   "investors": "联想集团、川奇光电、太仓景柏、创钰投资、千舟投资",
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI创作工具/生产力",
-    "公司类型": "其他",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:518a564e1b01e9dc",
-     "title": "文石BOOX，递交IPO招股书，拟赴香港上市，中信建投国际独家保荐",
-     "url": "https://view.inews.qq.com/a/20260924A08NII00",
-     "publishedAt": "2026-09-24T13:26:55+08:00",
-     "mpName": "瑞恩资本"
-    }
-   ]
-  },
-  {
-   "id": "fund:364caa69142202ac",
-   "company_name": "中原建业",
+   "id": "fund:6bc80fcf214eccb8",
+   "company_name": "蓝色起源",
    "product_name": null,
    "founded": null,
    "country": null,
    "industry": null,
    "team": null,
-   "business": "房地产代建服务",
-   "investors": null,
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "大厂/已上市",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:3c426b1d8008e68f",
-     "title": "中原建业：拟更名为「中源科技管理」，同时斥资1亿收购收购AI营销公司25%股权",
-     "url": "https://view.inews.qq.com/a/20260924A08NIA00",
-     "publishedAt": "2026-09-24T13:26:55+08:00",
-     "mpName": "瑞恩资本"
-    }
-   ]
-  },
-  {
-   "id": "fund:070d429a1cc8617c",
-   "company_name": "连横科技发展",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": "AI营销及技术服务",
-   "team": null,
-   "business": "提供由AI及大数据技术支持的营销及技术服务，包括AI驱动的客户获取及市场推广服务、客户运营服务及开发特定行业的AI智能体",
-   "investors": "中原建业",
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "其他",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:3c426b1d8008e68f",
-     "title": "中原建业：拟更名为「中源科技管理」，同时斥资1亿收购收购AI营销公司25%股权",
-     "url": "https://view.inews.qq.com/a/20260924A08NIA00",
-     "publishedAt": "2026-09-24T13:26:55+08:00",
-     "mpName": "瑞恩资本"
-    }
-   ]
-  },
-  {
-   "id": "fund:992d4680b9cf18c4",
-   "company_name": "UniPat",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": "AI模型/基础设施",
-   "team": "创始人李宽曾在阿里通义AI实验室从事后训练分析、数据合成和强化学习工作；联合创始人兼CTO陈亮曾在Qwen、Moonshot多模态团队从事研究；尹汇锋为WebSailor项目负责人之一",
-   "business": "为模型提供训练数据和评测服务，包括强化学习后训练数据、Agent数据与强化学习环境",
-   "investors": "阿里（拟领投）、腾讯、红杉中国（传出参与意愿）",
-   "total_funding": null,
-   "valuation": "本轮估值约25亿美元（拟议融资中）",
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:a9cb1f192ef87c5f",
-     "title": "AI的热钱与未来，此刻属于中国版Alexandr Wang们",
-     "url": "https://www.163.com/dy/article/L7JI5DP20511N33R.html?spss=dy_author",
-     "publishedAt": "2026-09-24T13:21:25+08:00",
-     "mpName": "硅星人"
-    }
-   ]
-  },
-  {
-   "id": "fund:f9f30f3549ece397",
-   "company_name": "智能知识",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": "AI模型/基础设施",
-   "team": "创始人兼CEO汪涉洋此前负责字节Seed模型数据工程架构，也做过抖音医疗大模型数据工程；CTO李宽野是前字节跳动基座模型数据工程师，做过强化学习数据合成与环境搭建",
-   "business": "组织专家知识并持续生产高质量专家数据，提供任务生产与质检工具",
-   "investors": "锦秋基金、耀途资本",
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:a9cb1f192ef87c5f",
-     "title": "AI的热钱与未来，此刻属于中国版Alexandr Wang们",
-     "url": "https://www.163.com/dy/article/L7JI5DP20511N33R.html?spss=dy_author",
-     "publishedAt": "2026-09-24T13:21:25+08:00",
-     "mpName": "硅星人"
-    }
-   ]
-  },
-  {
-   "id": "fund:9f92134437b57471",
-   "company_name": "Copula Lab",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": "AI模型/基础设施",
-   "team": "创始人梁丽此前负责MiniMax Agent业务、搭建内部评测；技术联合创始人蔡佳人曾任MiniMax开源负责人及后训练数据算法，参与M2系列模型Coding方向后训练数据构造",
-   "business": "连接产品与模型，提供后训练数据相关服务",
-   "investors": null,
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:a9cb1f192ef87c5f",
-     "title": "AI的热钱与未来，此刻属于中国版Alexandr Wang们",
-     "url": "https://www.163.com/dy/article/L7JI5DP20511N33R.html?spss=dy_author",
-     "publishedAt": "2026-09-24T13:21:25+08:00",
-     "mpName": "硅星人"
-    }
-   ]
-  },
-  {
-   "id": "fund:115f2b3f0dc7f35f",
-   "company_name": "CoreWeave",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": "AI算力基础设施",
-   "team": null,
-   "business": "AI算力基础设施提供商，提供数据中心算力租赁服务",
-   "investors": null,
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:5ede7abd0f855813",
-     "title": "AI算力融资正被重新定价：CoreWeave数据中心债券息票9.25%，较同类高2.7个百分点",
-     "url": "https://view.inews.qq.com/a/20260924A07HVE00",
-     "publishedAt": "2026-09-24T12:07:16+08:00",
-     "mpName": "华尔街见闻"
-    }
-   ]
-  },
-  {
-   "id": "fund:01618c2c79888525",
-   "company_name": "Blue Owl Capital",
-   "product_name": null,
-   "founded": null,
-   "country": null,
-   "industry": "另类资产管理",
-   "team": null,
-   "business": "另类资产管理机构，关联方为数据中心项目发起人",
-   "investors": null,
-   "total_funding": null,
-   "valuation": null,
+   "business": "火箭发射服务、卫星通讯业务、计划部署的人工智能卫星群",
+   "investors": "贝索斯、Coatue",
+   "total_funding": "贝索斯累计投入约300亿美元",
+   "valuation": "约1400亿美元",
    "dims": {
     "所属行业": "其他",
     "公司类型": "其他",
@@ -413,158 +65,28 @@
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "direct:5ede7abd0f855813",
-     "title": "AI算力融资正被重新定价：CoreWeave数据中心债券息票9.25%，较同类高2.7个百分点",
-     "url": "https://view.inews.qq.com/a/20260924A07HVE00",
-     "publishedAt": "2026-09-24T12:07:16+08:00",
-     "mpName": "华尔街见闻"
-    }
-   ]
-  },
-  {
-   "id": "fund:7f9b146fbb785b21",
-   "company_name": "清醒异构",
-   "product_name": "RiverONE",
-   "founded": "2021年",
-   "country": null,
-   "industry": "AI模型/基础设施",
-   "team": "清华大学计算机系校友余腾带队创立",
-   "business": "基于经典异构算力的AI系统，现转向量子启发的下一代AI模型前沿，发布量子启发视觉语言模型RiverONE，产品进入AI及量子计算产业链",
-   "investors": "晶凯资本、安徽高新投、道得投资、励石投资、中咨基金、徐汇资本、森蓝集团、泾东集团创始人等",
-   "total_funding": "近亿元",
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:a5cfeda57d849e9a",
-     "title": "首发| 清醒异构完成A+轮融资，三个月两轮融资近亿元",
-     "url": "https://view.inews.qq.com/a/20260924A05YRF00",
-     "publishedAt": "2026-09-24T10:38:20+08:00",
-     "mpName": "投资界"
-    }
-   ]
-  },
-  {
-   "id": "fund:42d24c52125cba1b",
-   "company_name": "Multiverse Computing",
-   "product_name": "CompactifAI",
-   "founded": null,
-   "country": "西班牙",
-   "industry": "AI模型/基础设施",
-   "team": null,
-   "business": "从量子软件起步，将张量网络方法用于AI模型压缩，提供压缩模型和API，探索手机等设备上的离线运行，并推动与硬件厂商及企业客户的适配",
-   "investors": null,
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:a5cfeda57d849e9a",
-     "title": "首发| 清醒异构完成A+轮融资，三个月两轮融资近亿元",
-     "url": "https://view.inews.qq.com/a/20260924A05YRF00",
-     "publishedAt": "2026-09-24T10:38:20+08:00",
-     "mpName": "投资界"
-    }
-   ],
-   "fieldQuarantines": [
-    {
-     "field": "total_funding",
-     "originalValue": "1.89亿欧元B轮融资",
-     "reasonCode": "single_round_not_total",
-     "reason": "单轮融资金额不能作为累计融资",
-     "articleId": "direct:a5cfeda57d849e9a",
-     "url": "https://view.inews.qq.com/a/20260924A05YRF00",
-     "title": "首发| 清醒异构完成A+轮融资，三个月两轮融资近亿元",
-     "publishedAt": "2026-09-24T10:38:20+08:00",
-     "sourceName": "投资界",
-     "origin": "article"
-    }
-   ]
-  },
-  {
-   "id": "fund:a1702b2f623a0501",
-   "company_name": "Mirendil",
-   "product_name": null,
-   "founded": "今年早些时候",
-   "country": null,
-   "industry": "AI模型/基础设施",
-   "team": "由前Anthropic研究人员创立，目前已有20多名员工",
-   "business": "打造能够在几乎不需要人类帮助的情况下自我改进的、广泛可及的模型，推动前沿AI研发民主化",
-   "investors": "Kleiner Perkins、Andreessen Horowitz、Nvidia",
-   "total_funding": null,
-   "valuation": "50亿美元估值（洽谈中）",
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:a6ab385c7ac8b1ca",
-     "title": "速递｜前Anthropic研究员创办，RSI创企Mirendil以50亿美元估值进行新一轮融资",
-     "url": "https://view.inews.qq.com/a/20260924A05EE700",
-     "publishedAt": "2026-09-24T10:03:40+08:00",
-     "mpName": "ZPotential"
-    }
-   ]
-  },
-  {
-   "id": "fund:93bdb73b49e88b5c",
-   "company_name": "Ema",
-   "product_name": null,
-   "founded": "2023年",
-   "country": "美国",
-   "industry": "AI企业服务/企业流程自动化",
-   "team": "由前Google和Coinbase高管Surojit Chatterjee与前Okta高管Souvik Sen创立",
-   "business": "利用AI代理团队自动化人力资源、IT和财务等企业流程",
-   "investors": "Creaegis、Accel、Section 32、Prosus",
-   "total_funding": "1.4亿美元",
-   "valuation": "较2024年上一轮融资增长逾四倍",
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:ee2ef35c097234f7",
-     "title": "速递｜AI企服创企Ema完成7700万美元融资，前Google高管创立",
-     "url": "https://view.inews.qq.com/a/20260924A05EDR00",
-     "publishedAt": "2026-09-24T10:03:40+08:00",
-     "mpName": "ZPotential"
+     "id": "direct:5029815842699bfb",
+     "title": "蓝色起源 Blue Origin，以1400亿美元估值融资100亿美元",
+     "url": "https://view.inews.qq.com/a/20260925A095YI00",
+     "publishedAt": "2026-09-25T19:19:12+08:00",
+     "mpName": "瑞恩资本"
     }
    ]
   },
   {
    "id": "fund:9f0f0563586c59d3",
    "company_name": "息壤开物",
-   "product_name": null,
+   "product_name": "LPM（Large Physics Model）",
    "founded": null,
    "country": null,
-   "industry": "Physical AI/物理基础模型",
-   "team": "创始人、CEO李寅曾任华为云大模型CTO，是华为大模型从0到1的核心成员之一；联合创始人、首席科学家张含望现任华为多模态首席科学家、南洋理工大学AI领域校长讲席教授",
-   "business": "自研物理基础模型（Large Physics Model，LPM），构建能够理解物理规律、预测状态演化、规划长程动作并支撑闭环执行的物理世界基础模型",
+   "industry": "具身智能/机器人",
+   "team": "创始人、CEO李寅，前华为云大模型CTO，华为大模型0-1阶段核心成员；联合创始人张含望教授，前华为多模态首席科学家，南洋理工大学计算与数据科学学院教授",
+   "business": "研发面向物理世界的大物理模型LPM，为机器人提供跨任务、跨场景、跨本体的物理基础模型能力底座",
    "investors": "敦鸿资产、华控基金、三花控股、银杏谷资本、泽然资本、本坚基金、天使基石、标朴投资",
    "total_funding": null,
-   "valuation": "5亿美元",
+   "valuation": "5亿美金",
    "dims": {
-    "所属行业": "其他",
+    "所属行业": "具身智能/机器人",
     "公司类型": "初创公司",
     "国家/地区": "中国"
    },
@@ -572,11 +94,11 @@
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "direct:b4f110adad6b31f3",
-     "title": "深度｜华为大模型“双子星”创业：两个月融资数亿元，要重做Physical AI底座",
-     "url": "https://view.inews.qq.com/a/20260924A05EDE00",
-     "publishedAt": "2026-09-24T10:03:40+08:00",
-     "mpName": "ZPotential"
+     "id": "direct:7d0e718609fa628f",
+     "title": "华为大模型双子星联手创业，要找物理世界的Scaling Law",
+     "url": "https://view.inews.qq.com/a/20260925A05SX700",
+     "publishedAt": "2026-09-25T14:16:19+08:00",
+     "mpName": "量子位"
     }
    ],
    "fieldQuarantines": [
@@ -585,29 +107,29 @@
      "originalValue": "数亿元种子轮及天使轮融资",
      "reasonCode": "single_round_not_total",
      "reason": "单轮融资金额不能作为累计融资",
-     "articleId": "direct:b4f110adad6b31f3",
-     "url": "https://view.inews.qq.com/a/20260924A05EDE00",
-     "title": "深度｜华为大模型“双子星”创业：两个月融资数亿元，要重做Physical AI底座",
-     "publishedAt": "2026-09-24T10:03:40+08:00",
-     "sourceName": "ZPotential",
+     "articleId": "direct:7d0e718609fa628f",
+     "url": "https://view.inews.qq.com/a/20260925A05SX700",
+     "title": "华为大模型双子星联手创业，要找物理世界的Scaling Law",
+     "publishedAt": "2026-09-25T14:16:19+08:00",
+     "sourceName": "量子位",
      "origin": "article"
     }
    ]
   },
   {
-   "id": "fund:2d1c78a165d1f3a5",
-   "company_name": "Flam",
-   "product_name": "Flicks、Airboards、Visual Agents",
-   "founded": null,
+   "id": "fund:f2e8790b6ac0a0ef",
+   "company_name": "TypeSafe AI",
+   "product_name": "Jev",
+   "founded": "2024年",
    "country": "美国",
-   "industry": "AI互动内容/娱乐",
-   "team": "由印度创业者创立，总部位于美国，在印度和日本设有团队",
-   "business": "提供企业互动产品，包括互动视频、3D内容及拟人化AI角色",
-   "investors": "QED Investors、沙鲁克·汗",
+   "industry": "AI模型/基础设施",
+   "team": "创始人 Diogo Almeida 曾在 OpenAI 参与 RLHF 和 InstructGPT 核心工作；联合创始人 Erik Gafni、Sasha Sheng；公司位于旧金山，约二十人",
+   "business": "开发专用判断模型 Jev，只输出选项、评分、是/否及置信度，面向软件和 Agent 提供快速、低成本的判断能力",
+   "investors": "DCVC",
    "total_funding": null,
-   "valuation": null,
+   "valuation": "100亿美元以上（洽谈中）",
    "dims": {
-    "所属行业": "AI互动内容/娱乐",
+    "所属行业": "AI模型/基础设施",
     "公司类型": "初创公司",
     "国家/地区": "美国"
    },
@@ -615,11 +137,25 @@
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "direct:75fb070ad87b78e3",
-     "title": "AI互动内容公司获4000万美元融资，Google也抛出橄榄枝",
-     "url": "https://www.baijing.cn/article/56819",
-     "publishedAt": "2026-09-24T09:47:00+08:00",
-     "mpName": "白鲸出海"
+     "id": "direct:6f08239c319afc1f",
+     "title": "9天暴涨50倍，Jev开发商估值飙到100亿美元",
+     "url": "https://view.inews.qq.com/a/20260925A03PSA00",
+     "publishedAt": "2026-09-25T09:45:07+08:00",
+     "mpName": "新智元"
+    }
+   ],
+   "fieldQuarantines": [
+    {
+     "field": "total_funding",
+     "originalValue": "4000万美元种子轮",
+     "reasonCode": "single_round_not_total",
+     "reason": "单轮融资金额不能作为累计融资",
+     "articleId": "direct:6f08239c319afc1f",
+     "url": "https://view.inews.qq.com/a/20260925A03PSA00",
+     "title": "9天暴涨50倍，Jev开发商估值飙到100亿美元",
+     "publishedAt": "2026-09-25T09:45:07+08:00",
+     "sourceName": "新智元",
+     "origin": "article"
     }
    ]
   }
