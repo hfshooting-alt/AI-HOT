@@ -1982,5 +1982,85 @@
    }
   ],
   "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:0e79bd8753131a07:45e3caa4061454dd": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "星环科技",
+    "product_name": null,
+    "founded": null,
+    "country": null,
+    "industry": "AI基础设施软件",
+    "team": "创始人团队合计持股20%出头，是最大股东集团",
+    "business": "AI基础设施软件",
+    "investors": "浪潮信息、洛阳国资委",
+    "total_funding": "募资近6.3亿港元",
+    "valuation": "市值大概64亿港元",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "大厂/已上市"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:2117bf93ee831334:a56633bc749358c1": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Solidigm",
+    "product_name": null,
+    "founded": null,
+    "country": "美国",
+    "industry": "AI模型/基础设施",
+    "team": null,
+    "business": "专注于企业级SSD产品，服务于服务器、云基础设施及数据中心市场，着力开发面向AI应用的高容量存储产品",
+    "investors": null,
+    "total_funding": null,
+    "valuation": "目标估值高达1500亿美元（IPO筹备中，尚未确认具体计划）",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "其他"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:f725798d05dc3841:3446c340f3528bc9": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "TypeSafe AI",
+    "product_name": "Jev",
+    "founded": null,
+    "country": null,
+    "industry": "AI模型/基础设施",
+    "team": "联合创始人兼CEO迪奥戈·阿尔梅达（Diogo Almeida）",
+    "business": "开发不生成文本、只针对开发者预先定义的选项返回判断结果和概率的模型Jev",
+    "investors": "DCVC",
+    "total_funding": "4000万美元种子轮融资",
+    "valuation": "100亿美元或更高（谈判中，部分投资者提出）",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:ca689068e401901e:defcdbf1690db66e": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Oura",
+    "product_name": "AI戒指",
+    "founded": null,
+    "country": null,
+    "industry": "智能戒指制造商",
+    "team": null,
+    "business": "智能戒指制造",
+    "investors": "Forerunner Ventures、Lifeline Ventures",
+    "total_funding": null,
+    "valuation": "按发行价上限计算，公司市值将达141亿美元，完全稀释后估值约为150亿美元（IPO进行中）",
+    "industry_id": "其他",
+    "company_type_id": "其他"
+   }
+  ],
+  "modelAttempted": true
  }
 }

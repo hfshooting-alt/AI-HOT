@@ -1,6 +1,6 @@
 {
  "schemaVersion": 1,
- "generatedAt": "2026-09-26T14:45:08+08:00",
+ "generatedAt": "2026-09-27T15:07:02+08:00",
  "coverageNote": "覆盖 Garena 投资精选中的融资类新闻；已有融资记录按原有合并规则保留",
  "searchNote": "已跳过搜索补全（--skip-search）",
  "stats": {
@@ -16,46 +16,132 @@
  },
  "companies": [
   {
-   "id": "fund:a2c8f94ca6c32da6",
-   "company_name": "Solidigm",
+   "id": "fund:10186432800bc1f3",
+   "company_name": "星环科技",
    "product_name": null,
-   "founded": "2021年",
-   "country": "美国",
-   "industry": "AI模型/基础设施",
-   "team": null,
-   "business": "主营NAND闪存芯片及固态硬盘业务，聚焦面向AI应用的大容量存储产品，在服务器、云基础设施及数据中心领域供应企业级SSD",
-   "investors": null,
-   "total_funding": null,
-   "valuation": "最高达1500亿美元（上市计划评估中）",
+   "founded": null,
+   "country": null,
+   "industry": "AI基础设施软件",
+   "team": "创始人团队合计持股20%出头，是最大股东集团",
+   "business": "AI基础设施软件",
+   "investors": "浪潮信息、洛阳国资委",
+   "total_funding": "募资近6.3亿港元",
+   "valuation": null,
    "dims": {
     "所属行业": "AI模型/基础设施",
-    "公司类型": "其他",
+    "公司类型": "大厂/已上市",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:0e79bd8753131a07",
+     "title": "星环科技，成功在香港上市",
+     "url": "https://view.inews.qq.com/a/20260926A09QU900",
+     "publishedAt": "2026-09-26T22:39:40+08:00",
+     "mpName": "瑞恩资本"
+    }
+   ],
+   "fieldQuarantines": [
+    {
+     "field": "valuation",
+     "originalValue": "市值大概64亿港元",
+     "reasonCode": "market_cap_not_valuation",
+     "reason": "市值不能作为公司估值",
+     "articleId": "direct:0e79bd8753131a07",
+     "url": "https://view.inews.qq.com/a/20260926A09QU900",
+     "title": "星环科技，成功在香港上市",
+     "publishedAt": "2026-09-26T22:39:40+08:00",
+     "sourceName": "瑞恩资本",
+     "origin": "article"
+    }
+   ]
+  },
+  {
+   "id": "fund:f2e8790b6ac0a0ef",
+   "company_name": "TypeSafe AI",
+   "product_name": "Jev",
+   "founded": null,
+   "country": null,
+   "industry": "AI模型/基础设施",
+   "team": "联合创始人兼CEO迪奥戈·阿尔梅达（Diogo Almeida）",
+   "business": "开发不生成文本、只针对开发者预先定义的选项返回判断结果和概率的模型Jev",
+   "investors": "DCVC",
+   "total_funding": null,
+   "valuation": "100亿美元或更高（谈判中，部分投资者提出）",
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
     "国家/地区": "美国"
    },
    "filledBySearch": [],
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "direct:5949b31ba40adfe9",
-     "title": "报道：SK海力士旗下Solidigm最快明年在美IPO，估值或高达1500亿美元",
-     "url": "https://view.inews.qq.com/a/20260926A01X6400",
-     "publishedAt": "2026-09-26T03:22:11+08:00",
+     "id": "direct:f725798d05dc3841",
+     "title": "发布仅9天的Jev据称估值破百亿美金，硅谷也看好薄利多销？",
+     "url": "https://view.inews.qq.com/a/20260926A08TUX00",
+     "publishedAt": "2026-09-26T19:14:25+08:00",
+     "mpName": "DeepTech深科技"
+    }
+   ],
+   "fieldQuarantines": [
+    {
+     "field": "total_funding",
+     "originalValue": "4000万美元种子轮融资",
+     "reasonCode": "single_round_not_total",
+     "reason": "单轮融资金额不能作为累计融资",
+     "articleId": "direct:f725798d05dc3841",
+     "url": "https://view.inews.qq.com/a/20260926A08TUX00",
+     "title": "发布仅9天的Jev据称估值破百亿美金，硅谷也看好薄利多销？",
+     "publishedAt": "2026-09-26T19:14:25+08:00",
+     "sourceName": "DeepTech深科技",
+     "origin": "article"
+    }
+   ]
+  },
+  {
+   "id": "fund:a2c8f94ca6c32da6",
+   "company_name": "Solidigm",
+   "product_name": null,
+   "founded": null,
+   "country": "美国",
+   "industry": "AI模型/基础设施",
+   "team": null,
+   "business": "专注于企业级SSD产品，服务于服务器、云基础设施及数据中心市场，着力开发面向AI应用的高容量存储产品",
+   "investors": null,
+   "total_funding": null,
+   "valuation": "目标估值高达1500亿美元（IPO筹备中，尚未确认具体计划）",
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "其他",
+    "国家/地区": "其他"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:2117bf93ee831334",
+     "title": "Solidigm冲刺美股史上最大半导体IPO！英特尔曾以90亿美元卖掉，如今估值或达1500亿美元",
+     "url": "https://view.inews.qq.com/a/20260926A04LK800",
+     "publishedAt": "2026-09-26T11:17:06+08:00",
      "mpName": "华尔街见闻"
     }
    ]
   },
   {
-   "id": "fund:6bc80fcf214eccb8",
-   "company_name": "蓝色起源",
-   "product_name": null,
+   "id": "fund:c9096e2a4abd277f",
+   "company_name": "Oura",
+   "product_name": "AI戒指",
    "founded": null,
    "country": null,
-   "industry": null,
+   "industry": "智能戒指制造商",
    "team": null,
-   "business": "火箭发射服务、卫星通讯业务、计划部署的人工智能卫星群",
-   "investors": "贝索斯、Coatue",
-   "total_funding": "贝索斯累计投入约300亿美元",
-   "valuation": "约1400亿美元",
+   "business": "智能戒指制造",
+   "investors": "Forerunner Ventures、Lifeline Ventures",
+   "total_funding": null,
+   "valuation": null,
    "dims": {
     "所属行业": "其他",
     "公司类型": "其他",
@@ -65,96 +151,24 @@
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "direct:5029815842699bfb",
-     "title": "蓝色起源 Blue Origin，以1400亿美元估值融资100亿美元",
-     "url": "https://view.inews.qq.com/a/20260925A095YI00",
-     "publishedAt": "2026-09-25T19:19:12+08:00",
-     "mpName": "瑞恩资本"
-    }
-   ]
-  },
-  {
-   "id": "fund:9f0f0563586c59d3",
-   "company_name": "息壤开物",
-   "product_name": "LPM（Large Physics Model）",
-   "founded": null,
-   "country": null,
-   "industry": "具身智能/机器人",
-   "team": "创始人、CEO李寅，前华为云大模型CTO，华为大模型0-1阶段核心成员；联合创始人张含望教授，前华为多模态首席科学家，南洋理工大学计算与数据科学学院教授",
-   "business": "研发面向物理世界的大物理模型LPM，为机器人提供跨任务、跨场景、跨本体的物理基础模型能力底座",
-   "investors": "敦鸿资产、华控基金、三花控股、银杏谷资本、泽然资本、本坚基金、天使基石、标朴投资",
-   "total_funding": null,
-   "valuation": "5亿美金",
-   "dims": {
-    "所属行业": "具身智能/机器人",
-    "公司类型": "初创公司",
-    "国家/地区": "中国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:7d0e718609fa628f",
-     "title": "华为大模型双子星联手创业，要找物理世界的Scaling Law",
-     "url": "https://view.inews.qq.com/a/20260925A05SX700",
-     "publishedAt": "2026-09-25T14:16:19+08:00",
-     "mpName": "量子位"
+     "id": "direct:ca689068e401901e",
+     "title": "认购倍数高达4倍！“AI戒指”Oura IPO遇热捧",
+     "url": "https://view.inews.qq.com/a/20260926A03SKD00",
+     "publishedAt": "2026-09-26T10:02:12+08:00",
+     "mpName": "华尔街见闻"
     }
    ],
    "fieldQuarantines": [
     {
-     "field": "total_funding",
-     "originalValue": "数亿元种子轮及天使轮融资",
-     "reasonCode": "single_round_not_total",
-     "reason": "单轮融资金额不能作为累计融资",
-     "articleId": "direct:7d0e718609fa628f",
-     "url": "https://view.inews.qq.com/a/20260925A05SX700",
-     "title": "华为大模型双子星联手创业，要找物理世界的Scaling Law",
-     "publishedAt": "2026-09-25T14:16:19+08:00",
-     "sourceName": "量子位",
-     "origin": "article"
-    }
-   ]
-  },
-  {
-   "id": "fund:f2e8790b6ac0a0ef",
-   "company_name": "TypeSafe AI",
-   "product_name": "Jev",
-   "founded": "2024年",
-   "country": "美国",
-   "industry": "AI模型/基础设施",
-   "team": "创始人 Diogo Almeida 曾在 OpenAI 参与 RLHF 和 InstructGPT 核心工作；联合创始人 Erik Gafni、Sasha Sheng；公司位于旧金山，约二十人",
-   "business": "开发专用判断模型 Jev，只输出选项、评分、是/否及置信度，面向软件和 Agent 提供快速、低成本的判断能力",
-   "investors": "DCVC",
-   "total_funding": null,
-   "valuation": "100亿美元以上（洽谈中）",
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:6f08239c319afc1f",
-     "title": "9天暴涨50倍，Jev开发商估值飙到100亿美元",
-     "url": "https://view.inews.qq.com/a/20260925A03PSA00",
-     "publishedAt": "2026-09-25T09:45:07+08:00",
-     "mpName": "新智元"
-    }
-   ],
-   "fieldQuarantines": [
-    {
-     "field": "total_funding",
-     "originalValue": "4000万美元种子轮",
-     "reasonCode": "single_round_not_total",
-     "reason": "单轮融资金额不能作为累计融资",
-     "articleId": "direct:6f08239c319afc1f",
-     "url": "https://view.inews.qq.com/a/20260925A03PSA00",
-     "title": "9天暴涨50倍，Jev开发商估值飙到100亿美元",
-     "publishedAt": "2026-09-25T09:45:07+08:00",
-     "sourceName": "新智元",
+     "field": "valuation",
+     "originalValue": "按发行价上限计算，公司市值将达141亿美元，完全稀释后估值约为150亿美元（IPO进行中）",
+     "reasonCode": "market_cap_not_valuation",
+     "reason": "市值不能作为公司估值",
+     "articleId": "direct:ca689068e401901e",
+     "url": "https://view.inews.qq.com/a/20260926A03SKD00",
+     "title": "认购倍数高达4倍！“AI戒指”Oura IPO遇热捧",
+     "publishedAt": "2026-09-26T10:02:12+08:00",
+     "sourceName": "华尔街见闻",
      "origin": "article"
     }
    ]
