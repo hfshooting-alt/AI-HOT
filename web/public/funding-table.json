@@ -1,175 +1,46 @@
 {
  "schemaVersion": 1,
- "generatedAt": "2026-09-27T15:07:02+08:00",
+ "generatedAt": "2026-09-28T15:33:15+08:00",
  "coverageNote": "覆盖 Garena 投资精选中的融资类新闻；已有融资记录按原有合并规则保留",
  "searchNote": "已跳过搜索补全（--skip-search）",
  "stats": {
-  "articlesProcessed": 4,
-  "modelCalls": 4,
-  "modelSuccesses": 4,
+  "articlesProcessed": 1,
+  "modelCalls": 1,
+  "modelSuccesses": 1,
   "modelFailures": 0,
   "cacheHits": 0,
   "extractionFailed": 0,
   "articlesWithoutFundingInfo": 0,
-  "companiesTotal": 4,
+  "companiesTotal": 1,
   "companiesSearched": 0
  },
  "companies": [
   {
-   "id": "fund:10186432800bc1f3",
-   "company_name": "星环科技",
-   "product_name": null,
+   "id": "fund:742493c0c699ee87",
+   "company_name": "魔芯科技",
+   "product_name": "MoWorld 4D",
    "founded": null,
-   "country": null,
-   "industry": "AI基础设施软件",
-   "team": "创始人团队合计持股20%出头，是最大股东集团",
-   "business": "AI基础设施软件",
-   "investors": "浪潮信息、洛阳国资委",
-   "total_funding": "募资近6.3亿港元",
-   "valuation": null,
+   "country": "中国",
+   "industry": "AI模型/基础设施",
+   "team": "创始人兼CEO陈天润为00后浙大在读博士，导师为中国工程院院士潘云鹤；核心研发班底延续浙大空间智能与三维视觉方向研究脉络，多数成员在国际顶会顶刊有持续发表经验",
+   "business": "4D世界模型研发，提供工业数字孪生、具身智能虚拟训练环境、城乡规划、文旅沉浸式内容生产等应用",
+   "investors": "华为哈勃、中芯聚源、杰华特、矽芯投资、联想、传音、干杯基金、晶科能源相关平台、深创投、浙创投、暾澜、Prosperity7",
+   "total_funding": null,
+   "valuation": "新一轮融资即将落地，整体估值跃升至近100亿元",
    "dims": {
     "所属行业": "AI模型/基础设施",
-    "公司类型": "大厂/已上市",
+    "公司类型": "初创公司",
     "国家/地区": "中国"
    },
    "filledBySearch": [],
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "direct:0e79bd8753131a07",
-     "title": "星环科技，成功在香港上市",
-     "url": "https://view.inews.qq.com/a/20260926A09QU900",
-     "publishedAt": "2026-09-26T22:39:40+08:00",
-     "mpName": "瑞恩资本"
-    }
-   ],
-   "fieldQuarantines": [
-    {
-     "field": "valuation",
-     "originalValue": "市值大概64亿港元",
-     "reasonCode": "market_cap_not_valuation",
-     "reason": "市值不能作为公司估值",
-     "articleId": "direct:0e79bd8753131a07",
-     "url": "https://view.inews.qq.com/a/20260926A09QU900",
-     "title": "星环科技，成功在香港上市",
-     "publishedAt": "2026-09-26T22:39:40+08:00",
-     "sourceName": "瑞恩资本",
-     "origin": "article"
-    }
-   ]
-  },
-  {
-   "id": "fund:f2e8790b6ac0a0ef",
-   "company_name": "TypeSafe AI",
-   "product_name": "Jev",
-   "founded": null,
-   "country": null,
-   "industry": "AI模型/基础设施",
-   "team": "联合创始人兼CEO迪奥戈·阿尔梅达（Diogo Almeida）",
-   "business": "开发不生成文本、只针对开发者预先定义的选项返回判断结果和概率的模型Jev",
-   "investors": "DCVC",
-   "total_funding": null,
-   "valuation": "100亿美元或更高（谈判中，部分投资者提出）",
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "初创公司",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:f725798d05dc3841",
-     "title": "发布仅9天的Jev据称估值破百亿美金，硅谷也看好薄利多销？",
-     "url": "https://view.inews.qq.com/a/20260926A08TUX00",
-     "publishedAt": "2026-09-26T19:14:25+08:00",
-     "mpName": "DeepTech深科技"
-    }
-   ],
-   "fieldQuarantines": [
-    {
-     "field": "total_funding",
-     "originalValue": "4000万美元种子轮融资",
-     "reasonCode": "single_round_not_total",
-     "reason": "单轮融资金额不能作为累计融资",
-     "articleId": "direct:f725798d05dc3841",
-     "url": "https://view.inews.qq.com/a/20260926A08TUX00",
-     "title": "发布仅9天的Jev据称估值破百亿美金，硅谷也看好薄利多销？",
-     "publishedAt": "2026-09-26T19:14:25+08:00",
-     "sourceName": "DeepTech深科技",
-     "origin": "article"
-    }
-   ]
-  },
-  {
-   "id": "fund:a2c8f94ca6c32da6",
-   "company_name": "Solidigm",
-   "product_name": null,
-   "founded": null,
-   "country": "美国",
-   "industry": "AI模型/基础设施",
-   "team": null,
-   "business": "专注于企业级SSD产品，服务于服务器、云基础设施及数据中心市场，着力开发面向AI应用的高容量存储产品",
-   "investors": null,
-   "total_funding": null,
-   "valuation": "目标估值高达1500亿美元（IPO筹备中，尚未确认具体计划）",
-   "dims": {
-    "所属行业": "AI模型/基础设施",
-    "公司类型": "其他",
-    "国家/地区": "其他"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:2117bf93ee831334",
-     "title": "Solidigm冲刺美股史上最大半导体IPO！英特尔曾以90亿美元卖掉，如今估值或达1500亿美元",
-     "url": "https://view.inews.qq.com/a/20260926A04LK800",
-     "publishedAt": "2026-09-26T11:17:06+08:00",
+     "id": "direct:fe284b1c75000e97",
+     "title": "浙大00后在读博士，百亿估值了",
+     "url": "https://view.inews.qq.com/a/20260927A0B4NQ00",
+     "publishedAt": "2026-09-27T18:50:34+08:00",
      "mpName": "华尔街见闻"
-    }
-   ]
-  },
-  {
-   "id": "fund:c9096e2a4abd277f",
-   "company_name": "Oura",
-   "product_name": "AI戒指",
-   "founded": null,
-   "country": null,
-   "industry": "智能戒指制造商",
-   "team": null,
-   "business": "智能戒指制造",
-   "investors": "Forerunner Ventures、Lifeline Ventures",
-   "total_funding": null,
-   "valuation": null,
-   "dims": {
-    "所属行业": "其他",
-    "公司类型": "其他",
-    "国家/地区": "美国"
-   },
-   "filledBySearch": [],
-   "searchSources": [],
-   "sourceArticles": [
-    {
-     "id": "direct:ca689068e401901e",
-     "title": "认购倍数高达4倍！“AI戒指”Oura IPO遇热捧",
-     "url": "https://view.inews.qq.com/a/20260926A03SKD00",
-     "publishedAt": "2026-09-26T10:02:12+08:00",
-     "mpName": "华尔街见闻"
-    }
-   ],
-   "fieldQuarantines": [
-    {
-     "field": "valuation",
-     "originalValue": "按发行价上限计算，公司市值将达141亿美元，完全稀释后估值约为150亿美元（IPO进行中）",
-     "reasonCode": "market_cap_not_valuation",
-     "reason": "市值不能作为公司估值",
-     "articleId": "direct:ca689068e401901e",
-     "url": "https://view.inews.qq.com/a/20260926A03SKD00",
-     "title": "认购倍数高达4倍！“AI戒指”Oura IPO遇热捧",
-     "publishedAt": "2026-09-26T10:02:12+08:00",
-     "sourceName": "华尔街见闻",
-     "origin": "article"
     }
    ]
   }

@@ -128287,5 +128287,4169 @@
    }
   ],
   "modelAttempted": true
+ },
+ "65430d4d341ad3b430202cdc0298cc1c1f78ff20161a1836973e19d9ca17b894": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Presage Technologies",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "声称可以通过普通摄像头测量心率和呼吸频率，入选美国国防部国防创新部门（DIU）欺骗行为识别产品征集并获邀开发原型",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Altec Research",
+    "entity_type": "company",
+    "aliases": [
+     "Altec"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "原本是一家医疗传感器公司，如今涉足非接触式感测技术，入选美国国防部国防创新部门（DIU）欺骗行为识别产品征集并获邀开发原型；原型系统会追踪头部运动、面部皮肤温度和毛孔活动",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "3a2243614ae65d2911bd153150ee472b73283f7d61739fcb117b38bee5926c67": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Meta Platforms",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Muse"
+    ],
+    "products": [
+     {
+      "name": "Muse",
+      "relationship": "owned",
+      "quote": "Meta Platforms旗下新款Muse AI智能体"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "野村证券",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "RBC资本市场",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Ambrus Group",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Oppenheimer & Co.",
+    "entity_type": "company",
+    "aliases": [
+     "Oppenheimer"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "State Street",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "SPDR标普500 ETF"
+    ],
+    "products": [
+     {
+      "name": "SPDR标普500 ETF",
+      "relationship": "owned",
+      "quote": "State Street SPDR标普500 ETF"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "景顺",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "QQQ信托"
+    ],
+    "products": [
+     {
+      "name": "QQQ信托",
+      "relationship": "owned",
+      "quote": "景顺QQQ信托"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Cboe全球市场",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "期权结算公司",
+    "entity_type": "company",
+    "aliases": [
+     "Options Clearing Corp."
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "426a1c1b9eb307e03927e86c226025140a2dfadd0d482ac3d0e614252aac3118": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "o",
+     "ChatGPT Pro Max",
+     "ChatGPT Pro",
+     "Aeon",
+     "GPT-6 Astra",
+     "Cerebras的晶圆级引擎"
+    ],
+    "products": [
+     {
+      "name": "o",
+      "relationship": "owned",
+      "quote": "OpenAI正加速推出一款名为\"o\"的常驻AI助手"
+     },
+     {
+      "name": "ChatGPT Pro Max",
+      "relationship": "owned",
+      "quote": "OpenAI预计同步推出新订阅层级ChatGPT Pro Max"
+     },
+     {
+      "name": "ChatGPT Pro",
+      "relationship": "owned",
+      "quote": "OpenAI已在ChatGPT Pro相关产品文档中加入\"o\"的品牌标识"
+     },
+     {
+      "name": "Aeon",
+      "relationship": "owned",
+      "quote": "据悉\"o\"将基于GPT-6 Astra的特定变体\"Aeon\"驱动"
+     },
+     {
+      "name": "GPT-6 Astra",
+      "relationship": "owned",
+      "quote": "据悉\"o\"将基于GPT-6 Astra的特定变体\"Aeon\"驱动"
+     },
+     {
+      "name": "Cerebras的晶圆级引擎",
+      "relationship": "used",
+      "quote": "据报道该性能将由Cerebras的晶圆级引擎（Wafer-Scale Engine）提供支撑"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "AI智能体与AI助手",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Meta",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Muse"
+    ],
+    "products": [
+     {
+      "name": "Muse",
+      "relationship": "owned",
+      "quote": "Meta Muse的崛起，是此次OpenAI紧急应战的直接导火索"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "个人AI智能体",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Cerebras",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "晶圆级引擎"
+    ],
+    "products": [
+     {
+      "name": "晶圆级引擎",
+      "relationship": "owned",
+      "quote": "据报道该性能将由Cerebras的晶圆级引擎（Wafer-Scale Engine）提供支撑"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "AI芯片与计算",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Grok Bot",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Grok Bot"
+    ],
+    "products": [
+     {
+      "name": "Grok Bot",
+      "relationship": "unknown",
+      "quote": "OpenAI此番入局，同时剑指Grok Bot以及Hermes Agent"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Hermes Agent",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Hermes Agent"
+    ],
+    "products": [
+     {
+      "name": "Hermes Agent",
+      "relationship": "unknown",
+      "quote": "OpenAI此番入局，同时剑指Grok Bot以及Hermes Agent"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "164eb2c4c107f6de8cac57f918900482ccf56619efa3819e72fd55c1635b5179": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Meta",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Muse"
+    ],
+    "products": [
+     {
+      "name": "Muse",
+      "relationship": "owned",
+      "quote": "Meta旗下个人助手Muse的爆发式走红"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Anthropic",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "SpaceX",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "CoreWeave",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Lam Research",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Arm Holdings",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "英特尔",
+    "entity_type": "company",
+    "aliases": [
+     "Intel"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "AMD",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Allstate",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Charter Communications",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Planet Fitness",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "DeepSeek",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "英伟达",
+    "entity_type": "company",
+    "aliases": [
+     "NVIDIA"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "博通",
+    "entity_type": "company",
+    "aliases": [
+     "Broadcom"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "美光科技",
+    "entity_type": "company",
+    "aliases": [
+     "Micron"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "e1bdc49b38c8eacc5f352f89d9269b06bc17be5443056c4b28e417c378f22095": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "O",
+     "Aeon"
+    ],
+    "products": [
+     {
+      "name": "O",
+      "relationship": "owned",
+      "quote": "OpenAI 即将推出一款常驻 AI 助手，其代号为「O」"
+     },
+     {
+      "name": "Aeon",
+      "relationship": "unknown",
+      "quote": "该项目可能与「Aeon」有关。此前已有消息称，Aeon 是 OpenAI 常驻型智能体项目使用的名称"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Anthropic",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "xAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Colossus 1",
+     "Colossus 2"
+    ],
+    "products": [
+     {
+      "name": "Colossus 1",
+      "relationship": "owned",
+      "quote": "一期工程 Colossus 1 已投入运营"
+     },
+     {
+      "name": "Colossus 2",
+      "relationship": "owned",
+      "quote": "二期工程 Colossus 2 同样落地孟菲斯"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "腾讯",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "三角洲行动",
+     "王者荣耀"
+    ],
+    "products": [
+     {
+      "name": "三角洲行动",
+      "relationship": "owned",
+      "quote": "腾讯 FPS 游戏《三角洲行动》官宣联动国产武侠游戏《影之刃零》"
+     },
+     {
+      "name": "王者荣耀",
+      "relationship": "owned",
+      "quote": "登录《王者荣耀》或进行匹配对战时，会出现提示设备环境异常、被强制踢下线的情况"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_game_content"
+   },
+   {
+    "company_name": "灵游坊",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "影之刃零"
+    ],
+    "products": [
+     {
+      "name": "影之刃零",
+      "relationship": "owned",
+      "quote": "灵游坊还提供了限量 20000 套的实体收藏版礼盒"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_game_content"
+   },
+   {
+    "company_name": "谷歌",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "字节跳动",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "豆包手机助手"
+    ],
+    "products": [
+     {
+      "name": "豆包手机助手",
+      "relationship": "owned",
+      "quote": "字节跳动旗下豆包手机助手发布声明称"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "小鹏汇天",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "北京现代",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "艾尼氪 IONIQ V"
+    ],
+    "products": [
+     {
+      "name": "艾尼氪 IONIQ V",
+      "relationship": "owned",
+      "quote": "北京现代旗下全新中型车——艾尼氪 IONIQ V 将于 9 月 29 日完成上市"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "宝马集团",
+    "entity_type": "company",
+    "aliases": [
+     "宝马公司"
+    ],
+    "product_names": [
+     "第八代宝马 3 系"
+    ],
+    "products": [
+     {
+      "name": "第八代宝马 3 系",
+      "relationship": "owned",
+      "quote": "宝马集团官方宣布，第八代宝马 3 系将于 9 月 30 日迎来全球首发"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "华测导航",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "易挖宝"
+    ],
+    "products": [
+     {
+      "name": "易挖宝",
+      "relationship": "owned",
+      "quote": "这类挖掘机智能引导系统目前在国内已有华测导航「易挖宝」"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "中海达",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "3D 引导系统"
+    ],
+    "products": [
+     {
+      "name": "3D 引导系统",
+      "relationship": "owned",
+      "quote": "中海达 3D 引导系统"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "司南导航",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "XE300"
+    ],
+    "products": [
+     {
+      "name": "XE300",
+      "relationship": "owned",
+      "quote": "司南导航 XE300"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "沃尔沃",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Dig Assist"
+    ],
+    "products": [
+     {
+      "name": "Dig Assist",
+      "relationship": "owned",
+      "quote": "沃尔沃、卡特彼勒等国际品牌也推出了类似的 Dig Assist、Grade Assist 辅助系统"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "卡特彼勒",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Grade Assist"
+    ],
+    "products": [
+     {
+      "name": "Grade Assist",
+      "relationship": "owned",
+      "quote": "沃尔沃、卡特彼勒等国际品牌也推出了类似的 Dig Assist、Grade Assist 辅助系统"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "dd6e7569604fb7af8a4d4e4288384892efdc9529da14bb150ad0838ecb00825e": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "费米宇宙",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "FermiQLLM 1.0",
+     "Qwen"
+    ],
+    "products": [
+     {
+      "name": "FermiQLLM 1.0",
+      "relationship": "owned",
+      "quote": "费米宇宙近期推出了全球首个全链路量子增强大模型FermiQLLM 1.0"
+     },
+     {
+      "name": "Qwen",
+      "relationship": "integrated",
+      "quote": "FermiQLLM 1.0是基于Qwen开源基座模型进行量子改造而来"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "创始人兼CEO李伟，近一半员工拥有清华背景",
+    "business": "国内首家专注Q4AI（Quantum for AI）的创业公司，尝试用量子物理、量子计算的方法重新改造AI模型",
+    "investors": null,
+    "total_funding": "累计融资1亿元",
+    "valuation": "投后估值10亿元左右",
+    "industry_id": "ai_model"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "743c39a5f7c3d44c81684adb10de32a1cef1c367d0a919c1e035a200ba188c03": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Pro Max",
+     "Work",
+     "Codex",
+     "GPT-6 Astra"
+    ],
+    "products": [
+     {
+      "name": "Pro Max",
+      "relationship": "unknown",
+      "quote": "OpenAI据报酝酿500美元“Pro Max”套餐：主打最快Work与Codex，或接入Cerebras算力"
+     },
+     {
+      "name": "Work",
+      "relationship": "unknown",
+      "quote": "OpenAI据报酝酿500美元“Pro Max”套餐：主打最快Work与Codex，或接入Cerebras算力"
+     },
+     {
+      "name": "Codex",
+      "relationship": "unknown",
+      "quote": "OpenAI据报酝酿500美元“Pro Max”套餐：主打最快Work与Codex，或接入Cerebras算力"
+     },
+     {
+      "name": "GPT-6 Astra",
+      "relationship": "owned",
+      "quote": "GPT-6 Astra第二把以5分22秒开进锥桶车位，成唯一过关者"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "AI模型与ChatGPT订阅服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Cerebras",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "算力基础设施",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Anthropic",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "AI模型与安全研究",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Stream Data Centers",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "数据中心开发",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Meta",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Muse",
+     "Ray-Ban智能眼镜",
+     "Llama 4"
+    ],
+    "products": [
+     {
+      "name": "Muse",
+      "relationship": "owned",
+      "quote": "Meta旗下AI智能体Muse日活11天增长10倍至约70万"
+     },
+     {
+      "name": "Ray-Ban智能眼镜",
+      "relationship": "owned",
+      "quote": "这款个人AI Agent即将全面接入Ray-Ban智能眼镜"
+     },
+     {
+      "name": "Llama 4",
+      "relationship": "owned",
+      "quote": "他罕见坦承Llama 4失败是“最可怕的时刻”"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "社交媒体、AI智能体、智能眼镜、大模型",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_social"
+   },
+   {
+    "company_name": "特斯拉",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Optimus"
+    ],
+    "products": [
+     {
+      "name": "Optimus",
+      "relationship": "owned",
+      "quote": "特斯拉Optimus机器人产能已提升10倍，目标年底周产千台"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "电动汽车与人形机器人",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "英伟达",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "GB200",
+     "GB300"
+    ],
+    "products": [
+     {
+      "name": "GB200",
+      "relationship": "owned",
+      "quote": "Colossus 2目前已部署11万颗英伟达GB200和44万颗GB300"
+     },
+     {
+      "name": "GB300",
+      "relationship": "owned",
+      "quote": "Colossus 2目前已部署11万颗英伟达GB200和44万颗GB300"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "AI芯片",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "甲骨文",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "数据中心与云服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Project Jupiter",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "数据中心项目开发",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Solidigm",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "NAND闪存及固态硬盘",
+    "investors": null,
+    "total_funding": null,
+    "valuation": "最高1500亿美元（IPO前潜在估值）",
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "SK海力士",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "半导体存储",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "英特尔",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "半导体",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "CoreWeave",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "AI云服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "戴尔",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "IT硬件与解决方案",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "DeepSeek Harness",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "DeepSeek Harness 桌面版"
+    ],
+    "products": [
+     {
+      "name": "DeepSeek Harness 桌面版",
+      "relationship": "owned",
+      "quote": "DeepSeek Harness 推出官方桌面版，支持图形界面、账号登录和 API Key"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "AI工具桌面版",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "DrivingBench",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "DrivingBench"
+    ],
+    "products": [
+     {
+      "name": "DrivingBench",
+      "relationship": "owned",
+      "quote": "三个湾区年轻人搭起DrivingBench，把通用大模型塞进真车"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "自动驾驶评测基准",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Sol",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Sol"
+    ],
+    "products": [
+     {
+      "name": "Sol",
+      "relationship": "unknown",
+      "quote": "Sol、Grok、Fable全栽在看不懂锥桶上"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Grok",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Grok"
+    ],
+    "products": [
+     {
+      "name": "Grok",
+      "relationship": "unknown",
+      "quote": "Sol、Grok、Fable全栽在看不懂锥桶上"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Fable",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Fable"
+    ],
+    "products": [
+     {
+      "name": "Fable",
+      "relationship": "unknown",
+      "quote": "Sol、Grok、Fable全栽在看不懂锥桶上"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "普华永道",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "审计与专业服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "高盛",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "投资银行与证券研究",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "瑞银",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "投资银行与证券研究",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "aeca079d0cb9553c3b56f94475ed140570b0ea7ec9f64bc6f0e26e81fe437fef": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "酉术量子",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "UnitarySpark",
+     "UnitaryLab"
+    ],
+    "products": [
+     {
+      "name": "UnitarySpark",
+      "relationship": "owned",
+      "quote": "当天全球首发了异构计算硬件底座UnitarySpark"
+     },
+     {
+      "name": "UnitaryLab",
+      "relationship": "owned",
+      "quote": "同时上线了UnitaryLab 2.5公测版"
+     }
+    ],
+    "founded": "2025",
+    "country": "中国",
+    "team": "张镭（联合创始人）、胡俊鹏（CTO）",
+    "business": "量子计算硬件底座与量子科学计算平台，提供异构算力统一管理、自然语言驱动的量子计算解决方案",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "国盾量子",
+    "entity_type": "company",
+    "aliases": [
+     "上海国盾量子"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "量子硬件",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "上海玻色元培量子",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "量子硬件",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "上海中器无量量子",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "量子硬件",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "NVIDIA",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "DGX Spark"
+    ],
+    "products": [
+     {
+      "name": "DGX Spark",
+      "relationship": "owned",
+      "quote": "UnitaryLab基于NVIDIA DGX Spark的实践，入选了NVIDIA官网的成功案例"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "GPU与加速计算",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "d61dd14cd22c1c876d8e76e508ac94cae6208c162310a73c05281ec9ec9f4075": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "谷歌",
+    "entity_type": "company",
+    "aliases": [
+     "Google"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Anthropic",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Claude"
+    ],
+    "products": [
+     {
+      "name": "Claude",
+      "relationship": "owned",
+      "quote": "Anthropic最新季度的AI滥用报告显示，已在超过二十个国家发现威胁行为者试图利用其Claude工具从事恶意活动"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "ChatGPT"
+    ],
+    "products": [
+     {
+      "name": "ChatGPT",
+      "relationship": "owned",
+      "quote": "ChatGPT和Claude最高级版本的订阅费用，每位用户每月最高可达200美元"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "0a85b1e8f413a9b8712b5d6b22bba636c3624c31cd0e67e643bc8b00b127d732": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Space Bunny",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Space Bunny"
+    ],
+    "products": [
+     {
+      "name": "Space Bunny",
+      "relationship": "unknown",
+      "quote": "一个没留神，它在短短几天里经历了突然出现->突然热度飙升->突然干到OpenRouter、OpenCode双榜调用日榜第一"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "匿名模型，在OpenRouter、OpenCode双榜调用日榜第一，速度快，擅长coding和多模态任务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Meta",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Muse",
+     "Muse Spark"
+    ],
+    "products": [
+     {
+      "name": "Muse",
+      "relationship": "owned",
+      "quote": "我们Meta也是真的靠Muse重新上桌了"
+     },
+     {
+      "name": "Muse Spark",
+      "relationship": "unknown",
+      "quote": "还有人觉得是Meta接下来会发布的Muse Spark"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "GPT-6"
+    ],
+    "products": [
+     {
+      "name": "GPT-6",
+      "relationship": "owned",
+      "quote": "原来大家都用GPT-6审代码"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Astra",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Astra"
+    ],
+    "products": [
+     {
+      "name": "Astra",
+      "relationship": "unknown",
+      "quote": "最近最火的除了Astra操控Blender"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "DeepSeek Harness",
+    "entity_type": "product",
+    "aliases": [
+     "DSH"
+    ],
+    "product_names": [
+     "DeepSeek Harness"
+    ],
+    "products": [
+     {
+      "name": "DeepSeek Harness",
+      "relationship": "unknown",
+      "quote": "我是从OpenRouter上拿的API，接到了DeepSeek Harness"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "OpenRouter",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "OpenCode",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "OpenCode"
+    ],
+    "products": [
+     {
+      "name": "OpenCode",
+      "relationship": "unknown",
+      "quote": "突然干到OpenRouter、OpenCode双榜调用日榜第一"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Kimi",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Kimi"
+    ],
+    "products": [
+     {
+      "name": "Kimi",
+      "relationship": "unknown",
+      "quote": "猜Kimi的、GLM的、HY的、MiniMax的都有"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "GLM",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "GLM"
+    ],
+    "products": [
+     {
+      "name": "GLM",
+      "relationship": "unknown",
+      "quote": "猜Kimi的、GLM的、HY的、MiniMax的都有"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "HY",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "HY"
+    ],
+    "products": [
+     {
+      "name": "HY",
+      "relationship": "unknown",
+      "quote": "猜Kimi的、GLM的、HY的、MiniMax的都有"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "MiniMax",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Grok",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Grok"
+    ],
+    "products": [
+     {
+      "name": "Grok",
+      "relationship": "unknown",
+      "quote": "说Bunny同学就是Grok的船新版本"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "codex",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "codex"
+    ],
+    "products": [
+     {
+      "name": "codex",
+      "relationship": "unknown",
+      "quote": "我还让codex帮我审了一遍"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "16fcd6422082f39055fbbd97e58c63994b3b2c34e603af11ef5215f593c2f501": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "GPT-6 Cyber"
+    ],
+    "products": [
+     {
+      "name": "GPT-6 Cyber",
+      "relationship": "owned",
+      "quote": "公司将预览网络安全专用模型GPT-6 Cyber及配套企业部署产品"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "特斯拉",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Roadster"
+    ],
+    "products": [
+     {
+      "name": "Roadster",
+      "relationship": "owned",
+      "quote": "特斯拉计划于10月1日正式展示跳票多年的新一代Roadster"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "SpaceX",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Crew-13",
+     "星舰",
+     "Starlink V3"
+    ],
+    "products": [
+     {
+      "name": "Crew-13",
+      "relationship": "owned",
+      "quote": "SpaceX计划于10月1日通过猎鹰9号执行NASA Crew-13载人任务"
+     },
+     {
+      "name": "星舰",
+      "relationship": "owned",
+      "quote": "星舰第14次飞行测试计划最早于当地时间9月28日早晨"
+     },
+     {
+      "name": "Starlink V3",
+      "relationship": "owned",
+      "quote": "并将部署26颗Starlink V3卫星"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "谷歌",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "TPU"
+    ],
+    "products": [
+     {
+      "name": "TPU",
+      "relationship": "owned",
+      "quote": "谷歌将于10月1日通过“拼火箭”把搭载自研TPU的原型卫星送入轨道"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "美光",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "华为",
+    "entity_type": "company",
+    "aliases": [
+     "华为云"
+    ],
+    "product_names": [
+     "昇腾950智算集群",
+     "CMS记忆存储"
+    ],
+    "products": [
+     {
+      "name": "昇腾950智算集群",
+      "relationship": "owned",
+      "quote": "昇腾950智算集群将于9月30日起提供服务"
+     },
+     {
+      "name": "CMS记忆存储",
+      "relationship": "owned",
+      "quote": "华为云将推出全新的智能体记忆系统CMS记忆存储"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "信越化学",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "JSR",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "东京应化",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "台半",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "强茂",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "德微",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "巴克莱",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "SHEIN",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "范达",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "长鑫科技",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "b833ac62f0eb16e27558d100424c3b519a50e610366ca862d34bb16e886cd667": {
+  "status": "complete",
+  "companies": [],
+  "modelAttempted": true
+ },
+ "ec8661d29ec1e13bfd36d19ab6ecef428a0cd2999081ef849669d662423acf7f": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "ChatGPT"
+    ],
+    "products": [
+     {
+      "name": "ChatGPT",
+      "relationship": "owned",
+      "quote": "OpenAI 表示 ChatGPT 和公开 API 服务并未受到影响"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "人工智能研究与开发，旗下模型训练、评估及推理任务因越界事件暂停",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Anthropic",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "人工智能安全与前沿模型研发，主张放缓模型能力迭代节奏并引入第三方安全评估",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "谷歌",
+    "entity_type": "company",
+    "aliases": [
+     "Google"
+    ],
+    "product_names": [
+     "Gemini"
+    ],
+    "products": [
+     {
+      "name": "Gemini",
+      "relationship": "owned",
+      "quote": "谷歌的 Gemini 也在 5 月的一次测试中误打误撞闯入了三家真实企业的系统"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "人工智能模型研发，Gemini 在测试中闯入真实企业系统",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Hugging Face",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "开源社区平台，曾遭 OpenAI 模型入侵",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "英伟达",
+    "entity_type": "company",
+    "aliases": [
+     "NVIDIA"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "芯片与人工智能计算，创始人黄仁勋就 AI 失控与监管发表观点",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "METR",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "独立安全评估机构，受邀参与 OpenAI 入侵事故调查",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Redwood Research",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "独立安全评估机构，受邀参与 OpenAI 入侵事故调查",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "e3c2cd5bad83371790c31463b6d31dd56eca30f7be5a741a3ece955ac1ac349b": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Meta",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Muse",
+     "Muse Charm",
+     "Meta VR眼镜",
+     "Ray-Ban Meta Gen 3智能眼镜"
+    ],
+    "products": [
+     {
+      "name": "Muse",
+      "relationship": "owned",
+      "quote": "Meta首席AI官Alexandr Wang近日发表公开信，阐述其主导构建Muse AI助手背后的核心理念"
+     },
+     {
+      "name": "Muse Charm",
+      "relationship": "owned",
+      "quote": "Meta推出了Muse Charm——一款专为语音交互设计的独立口袋设备"
+     },
+     {
+      "name": "Meta VR眼镜",
+      "relationship": "owned",
+      "quote": "以及重量仅100克、售价1299美元的Meta VR眼镜"
+     },
+     {
+      "name": "Ray-Ban Meta Gen 3智能眼镜",
+      "relationship": "owned",
+      "quote": "以及起售价249美元的第三代Ray-Ban Meta Gen 3智能眼镜等一系列硬件产品"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "AI助手、智能硬件",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Scale AI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "为AI模型训练提供数据标注服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": "曾是硅谷估值最高的AI基础设施公司之一",
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "787b8502b8abf0a500742ddd10d745a2a6c43792a947d7745d0a0717742d3982": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "魔芯科技",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "MoWorld 4D",
+     "KOKONI"
+    ],
+    "products": [
+     {
+      "name": "MoWorld 4D",
+      "relationship": "owned",
+      "quote": "2026年7月，魔芯联合国家人工智能应用中试基地、华为云发布MoWorld 4D"
+     },
+     {
+      "name": "KOKONI",
+      "relationship": "owned",
+      "quote": "2021年，陈天润在大三时做出第一台消费级3D打印机，创立KOKONI品牌"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "创始人兼CEO陈天润，浙大在读博士，导师潘云鹤",
+    "business": "4D世界模型，工业数字孪生、具身智能、城乡规划、文旅",
+    "investors": "华为哈勃、中芯聚源、杰华特、矽芯投资、联想、传音、干杯基金、晶科能源相关平台、深创投、浙创投、暾澜、Prosperity7",
+    "total_funding": null,
+    "valuation": "新一轮融资即将落地，整体估值跃升至近100亿元",
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "华为云",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "World Labs",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "美国",
+    "team": "李飞飞创立",
+    "business": "显式三维结构世界模型",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "英伟达",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Cosmos"
+    ],
+    "products": [
+     {
+      "name": "Cosmos",
+      "relationship": "owned",
+      "quote": "英伟达则用Cosmos世界基础模型平台绑定算力生态"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "字节跳动",
+    "entity_type": "company",
+    "aliases": [
+     "字节"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "Seed成立世界模型团队",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "0ba59639c8986a582048c1039795a967b6bb9d968145c9dd07cc6e52d4b6daac": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "P Equity Research",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "AI基础设施研究",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "UBS",
+    "entity_type": "company",
+    "aliases": [
+     "瑞银"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Samsung",
+    "entity_type": "company",
+    "aliases": [
+     "三星"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "AMD",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Microsoft",
+    "entity_type": "company",
+    "aliases": [
+     "微软"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Google",
+    "entity_type": "company",
+    "aliases": [
+     "谷歌"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Amazon",
+    "entity_type": "company",
+    "aliases": [
+     "亚马逊"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "NVIDIA",
+    "entity_type": "company",
+    "aliases": [
+     "英伟达"
+    ],
+    "product_names": [
+     "Vera Rubin",
+     "H100",
+     "Volta"
+    ],
+    "products": [
+     {
+      "name": "Vera Rubin",
+      "relationship": "owned",
+      "quote": "在Vera Rubin（英伟达新一代架构）的物料清单中"
+     },
+     {
+      "name": "H100",
+      "relationship": "owned",
+      "quote": "像H100现在的二手价格依然能卖到2.5万美元"
+     },
+     {
+      "name": "Volta",
+      "relationship": "owned",
+      "quote": "我相信英伟达的 Volta 架构芯片也还在被使用"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Dell",
+    "entity_type": "company",
+    "aliases": [
+     "戴尔"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "HP",
+    "entity_type": "company",
+    "aliases": [
+     "惠普"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Broadcom",
+    "entity_type": "company",
+    "aliases": [
+     "博通"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Mitsubishi",
+    "entity_type": "company",
+    "aliases": [
+     "三菱"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Siemens",
+    "entity_type": "company",
+    "aliases": [
+     "西门子"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "GE Vernova",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "CLSA",
+    "entity_type": "company",
+    "aliases": [
+     "里昂证券"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "SemiAnalysis",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Citrini",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "JP Morgan",
+    "entity_type": "company",
+    "aliases": [
+     "摩根大通"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "SK Hynix",
+    "entity_type": "company",
+    "aliases": [
+     "SK 海力士"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Sandisk",
+    "entity_type": "company",
+    "aliases": [
+     "闪迪"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Western Digital",
+    "entity_type": "company",
+    "aliases": [
+     "西部数据"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Nebius",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Tesla",
+    "entity_type": "company",
+    "aliases": [
+     "特斯拉"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Groq",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Cerebras",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "380daa8d42fe66bab0b29cf1fa12af6d1eeec5db566db97f5b45dc9aeec951f9": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "美国国家人工智能科学院",
+    "entity_type": "company",
+    "aliases": [
+     "NAAI",
+     "National Academy of Artificial Intelligence"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": "2024",
+    "country": "美国",
+    "team": null,
+    "business": "兜售会员资格、院士头衔及虚拟博士/博士后项目，使用大模型生成院士名单",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "欧洲工程院",
+    "entity_type": "company",
+    "aliases": [
+     "EAE"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "兜售会员资格与院士头衔，官网展示虚假总部图片并盗用其他机构内容",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "美国传记学会",
+    "entity_type": "company",
+    "aliases": [
+     "American Biographical Institute"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "出版名人录并出售年度人物头衔",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "三一南方大学",
+    "entity_type": "company",
+    "aliases": [
+     "Trinity Southern University"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "网络学校，出售学士学位等学历",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "SCIgen",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "SCIgen"
+    ],
+    "products": [
+     {
+      "name": "SCIgen",
+      "relationship": "unknown",
+      "quote": ""
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "自动生成计算机论文的程序",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "OMICS",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "印度",
+    "team": null,
+    "business": "学术出版商，在宣传学术会议时未经同意将知名学者列为特邀报告人",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "施普林格",
+    "entity_type": "company",
+    "aliases": [
+     "Springer"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "学术出版，曾从数据库中撤下由SCIgen生成的论文",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "IEEE",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "学术出版，曾从数据库中撤下由SCIgen生成的论文",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "甲骨文",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "曾公开预警有申请者购买虚荣奖项以包装资历申请签证",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "领英",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "职业社交平台，其联合创始人被列入NAAI大模型生成的院士名单",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1d6d37dc7ea2d996aab5b2ce30c88a77562895af444c13466461727f18dde880": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Hugging Face",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "DeepSeek",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Kimi",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "69b20d873e807f26c2d895152e57e653173b137249bb959eb21231cb1213dbfa": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "高盛",
+    "entity_type": "company",
+    "aliases": [
+     "高盛集团"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Meta",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Muse"
+    ],
+    "products": [
+     {
+      "name": "Muse",
+      "relationship": "owned",
+      "quote": "在 Meta 发布 Muse 产品后"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "57b2cdca06f1eef29eb338a558e918ec40c8e36507ca1bafd95af9d58846dcff": {
+  "status": "complete",
+  "companies": [],
+  "modelAttempted": true
+ },
+ "21d5d76136bfc8e388d682122eeb7e7f087cf78518e84afce4756bf023702bba": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "GPT-Red",
+     "GPT-5.4-mini",
+     "ChatGPT"
+    ],
+    "products": [
+     {
+      "name": "GPT-Red",
+      "relationship": "owned",
+      "quote": "为了让模型扛得住提示词注入，OpenAI有一套叫GPT-Red的自我对战训练"
+     },
+     {
+      "name": "GPT-5.4-mini",
+      "relationship": "owned",
+      "quote": "一个基于GPT-5.4-mini的内部攻击模型"
+     },
+     {
+      "name": "ChatGPT",
+      "relationship": "owned",
+      "quote": "有53张用户上传到ChatGPT的图片"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "AI模型与智能体研发，包括GPT系列模型、ChatGPT及安全对齐训练",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Anthropic",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Opus 5.5"
+    ],
+    "products": [
+     {
+      "name": "Opus 5.5",
+      "relationship": "owned",
+      "quote": "Anthropic在其最新发布的Opus 5.5系统卡中"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "AI模型研发与安全评估",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Transluce",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "发布关于OpenAI AI Agent访问联合国公开数据平台的独立报告",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "RubyGems",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "开源开发者社区，遭AI Agent疯狂扫描导致服务中断",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "1593a5895a2f8ff0937d4e2324454c0f9cb051e23fe3aeca74f95d35619678aa": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "OpenAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Claude",
+     "Astra",
+     "IM1"
+    ],
+    "products": [
+     {
+      "name": "Claude",
+      "relationship": "integrated",
+      "quote": "OpenAI说Claude更爱骗测试者，犯了规死不认"
+     },
+     {
+      "name": "Astra",
+      "relationship": "owned",
+      "quote": "人类研究员正在指挥Astra模型，去为下一代模型设计更优的底层算法"
+     },
+     {
+      "name": "IM1",
+      "relationship": "owned",
+      "quote": "黑进Hugging Face的IM1"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "AI模型研发与安全",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Anthropic",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Claude"
+    ],
+    "products": [
+     {
+      "name": "Claude",
+      "relationship": "owned",
+      "quote": "在Anthropic内部，Claude已经主导了高达26%的模型研发工作"
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "AI模型研发与安全",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "Hugging Face",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "AI基础设施与模型托管平台",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "谷歌",
+    "entity_type": "company",
+    "aliases": [
+     "Google"
+    ],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "AI模型研发与安全标准机构合作",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   },
+   {
+    "company_name": "METR",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "AI安全调查与评估",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "b326c6115a5801ed2d18c83113e70f2ebbd7ae2fb6846363ae42408ae5633fdf": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "腾讯",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "出资设立科学探索奖，由新基石科学基金会运营",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "新基石科学基金会",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "运营科学探索奖",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "AlphaFold",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "AlphaFold"
+    ],
+    "products": [
+     {
+      "name": "AlphaFold",
+      "relationship": "unknown",
+      "quote": "都会先用 AlphaFold 的工具预测它的结构"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": null,
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_model"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "2b60b9d89ad90d9a0681b24a147b9172b92355ebd2165d6002eed9752481a466": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "阿里巴巴达摩院",
+    "entity_type": "company",
+    "aliases": [
+     "达摩院"
+    ],
+    "product_names": [
+     "DAMO EAGLE",
+     "GRAPE",
+     "PANDA"
+    ],
+    "products": [
+     {
+      "name": "DAMO EAGLE",
+      "relationship": "owned",
+      "quote": "阿里巴巴达摩院联合四川省肿瘤医院、中山大学肿瘤防治中心等机构，发布食管癌筛查AI模型DAMO EAGLE"
+     },
+     {
+      "name": "GRAPE",
+      "relationship": "owned",
+      "quote": "去年发布的胃癌模型GRAPE，用在胃镜检查之前"
+     },
+     {
+      "name": "PANDA",
+      "relationship": "owned",
+      "quote": "胰腺癌模型PANDA在2025年4月获得FDA“突破性医疗器械”认定"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "平扫CT+AI多癌筛查，已发布胰腺癌、胃癌、结直肠癌和食管癌筛查模型，并覆盖主动脉夹层等重大疾病",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "四川省肿瘤医院",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "联合发布食管癌筛查AI模型DAMO EAGLE",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "中山大学肿瘤防治中心",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "联合发布食管癌筛查AI模型DAMO EAGLE",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Grail",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Galleri"
+    ],
+    "products": [
+     {
+      "name": "Galleri",
+      "relationship": "owned",
+      "quote": "多癌早筛还在研究液体活检，以Grail的Galleri为例，受检者要单独采血，再从cfDNA甲基化信号中寻找癌症线索"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "液体活检多癌早筛",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "c79f36201dfe65dfe59c1783a9cc3c7492c438c32d1350e2330cc3b139dd6f92": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Meta",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Muse",
+     "Ray-Ban智能眼镜",
+     "Llama 4",
+     "Sentinel",
+     "Muse安全虚拟机",
+     "Muse机密虚拟机"
+    ],
+    "products": [
+     {
+      "name": "Muse",
+      "relationship": "owned",
+      "quote": "Meta推出的个人AI Agent——Muse上线两周用户即达数百万"
+     },
+     {
+      "name": "Ray-Ban智能眼镜",
+      "relationship": "owned",
+      "quote": "他宣布Muse将整合至全线Ray-Ban智能眼镜"
+     },
+     {
+      "name": "Llama 4",
+      "relationship": "owned",
+      "quote": "扎克伯格还坦承了Llama 4失败是“最可怕的时刻”"
+     },
+     {
+      "name": "Sentinel",
+      "relationship": "owned",
+      "quote": "Meta还设计了“Sentinel”安全Agent，专门监控进出Muse的数据流"
+     },
+     {
+      "name": "Muse安全虚拟机",
+      "relationship": "owned",
+      "quote": "我们为此构建了整套Muse安全虚拟机"
+     },
+     {
+      "name": "Muse机密虚拟机",
+      "relationship": "unknown",
+      "quote": ""
+     }
+    ],
+    "founded": null,
+    "country": "美国",
+    "team": null,
+    "business": "社交网络、元宇宙、智能眼镜、人工智能",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "f090e5b6e14e1fa037a8f10cfbedb3b976bcd22ba814ef287c49a3299e500eca": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "摩根大通",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": "陈溪任董事总经理兼电子市场AI负责人",
+    "business": "组建AI Market Lab，主攻底层大模型和智能体系统，用AI重塑交易、做市等核心业务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "a49f6a6f014632ce215780c28cd7e0ca86f82746458ab226c78401b952bd98dd": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "Muse",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Muse"
+    ],
+    "products": [
+     {
+      "name": "Muse",
+      "relationship": "unknown",
+      "quote": "Muse上线两天后，仅美国iOS下载量就超过8.3万，并升到App Store总榜第二"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "Personal Agent产品，在美国上线，累计下载量超过340万",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_social"
+   },
+   {
+    "company_name": "Today.ai",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Today.ai"
+    ],
+    "products": [
+     {
+      "name": "Today.ai",
+      "relationship": "owned",
+      "quote": "Today.ai一开始强调的是“主动式Agent”"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "主动式Agent，通过长期记忆理解用户，在需要的时候主动出现并继续执行任务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_social"
+   },
+   {
+    "company_name": "持续低熵",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "AirJelly"
+    ],
+    "products": [
+     {
+      "name": "AirJelly",
+      "relationship": "owned",
+      "quote": "AirJelly由北京团队“持续低熵”开发"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "创始人黄柏特，团队目前只有十人左右",
+    "business": "开发运行在Mac和Windows上的Context-Aware Proactive Agent AirJelly",
+    "investors": "五源资本",
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "北京零一之外科技有限公司",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "Ling"
+    ],
+    "products": [
+     {
+      "name": "Ling",
+      "relationship": "owned",
+      "quote": "Ling的运营主体北京零一之外科技有限公司"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "创业者刘逸洵，曾在阿里巴巴、腾讯任职，先后创办嘟嘟巴士和共享汽车平台PonyCar",
+    "business": "运营运行在iPhone上的主动型AI伙伴Ling",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_social"
+   },
+   {
+    "company_name": "深圳市乐途宝网络科技有限公司",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "控股北京零一之外科技有限公司",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "EverMind",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "EverMe",
+     "EverOS",
+     "Raven"
+    ],
+    "products": [
+     {
+      "name": "EverMe",
+      "relationship": "owned",
+      "quote": "EverMe是EverMind推出的个人AI产品"
+     },
+     {
+      "name": "EverOS",
+      "relationship": "owned",
+      "quote": "背后的EverOS负责记忆、身份和权限等基础能力"
+     },
+     {
+      "name": "Raven",
+      "relationship": "owned",
+      "quote": "Raven则用来测试Agent处理真实个人任务的能力"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": "CEO邓亚峰曾任360副总裁、人工智能研究院院长和搜索业务负责人，此前担任格灵深瞳CTO，并在百度深度学习研究院工作",
+    "business": "由盛大集团孵化，同时在做面向Agent的记忆系统EverOS、底层记忆研究和面向个人用户的EverMe",
+    "investors": "盛大集团",
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "OpenHanako",
+    "entity_type": "company",
+    "aliases": [
+     "HanaAgent"
+    ],
+    "product_names": [
+     "HanaAgent",
+     "Hana"
+    ],
+    "products": [
+     {
+      "name": "HanaAgent",
+      "relationship": "owned",
+      "quote": "HanaAgent更准确的定位，不是一款免费提供模型额度的AI助手，而是一套开源的Personal Agent Harness"
+     },
+     {
+      "name": "Hana",
+      "relationship": "owned",
+      "quote": "用户可以免费下载Hana的软件"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": "由开发者liliMozi发起，采用Apache 2.0协议开源，主要由核心开发者和社区贡献者推动",
+    "business": "开源的Personal Agent Harness，把人格、长期记忆、Agent循环、工具调用、定时任务、Skill和多Agent协作等能力组装成一套可以直接运行的桌面应用",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "CowAgent",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "CowAgent",
+     "chatgpt-on-wechat"
+    ],
+    "products": [
+     {
+      "name": "CowAgent",
+      "relationship": "owned",
+      "quote": "CowAgent由开发者zhayujie发起，采用MIT协议开源"
+     },
+     {
+      "name": "chatgpt-on-wechat",
+      "relationship": "owned",
+      "quote": "CowAgent的前身是chatgpt-on-wechat"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": "由开发者zhayujie发起，由社区持续维护",
+    "business": "开源Agent Harness，可在个人电脑或服务器上持续运行，接入微信、飞书、钉钉、企业微信、QQ、公众号、Telegram和Slack等渠道",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "LinkAI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "为CowAgent提供托管和企业服务",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Alice",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Alice"
+    ],
+    "products": [
+     {
+      "name": "Alice",
+      "relationship": "unknown",
+      "quote": "Alice曾经用一个拥有持续记忆的“白艾莉”统筹搜索、写作、设计和开发等专业Agent"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "拥有持续记忆的“白艾莉”统筹搜索、写作、设计和开发等专业Agent",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_social"
+   },
+   {
+    "company_name": "Aira",
+    "entity_type": "product",
+    "aliases": [],
+    "product_names": [
+     "Aira"
+    ],
+    "products": [
+     {
+      "name": "Aira",
+      "relationship": "unknown",
+      "quote": "Alice和Aira尝试用人格维持长期关系"
+     }
+    ],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "尝试用人格维持长期关系",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_social"
+   }
+  ],
+  "modelAttempted": true
+ },
+ "e909a95d71f92622700aa0129d533e4ef3ee27d4af40fe687703544ae1a020bd": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "华为",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "麒麟训练场"
+    ],
+    "products": [
+     {
+      "name": "麒麟训练场",
+      "relationship": "owned",
+      "quote": "华为与国家地方共建人形机器人创新中心在今年WAIC大会正式发布首个具身智能实训场样板点——麒麟训练场"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "发布《物理智能云边端协同架构研究报告》，提出“三域协同·一网贯通”架构，并联合发布麒麟训练场",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "中国信息通信研究院",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "联合发布《物理智能云边端协同架构研究报告》",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "中国科学院沈阳自动化研究所",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "联合发布《物理智能云边端协同架构研究报告》",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "全球计算联盟",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "联合发布《物理智能云边端协同架构研究报告》",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "安永（中国）企业咨询有限公司",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "联合发布《物理智能云边端协同架构研究报告》",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "国家地方共建人形机器人创新中心",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [
+     "麒麟训练场"
+    ],
+    "products": [
+     {
+      "name": "麒麟训练场",
+      "relationship": "owned",
+      "quote": "华为与国家地方共建人形机器人创新中心在今年WAIC大会正式发布首个具身智能实训场样板点——麒麟训练场"
+     }
+    ],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "与华为联合发布麒麟训练场",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "Figure AI",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "在宝马工厂完成1250小时真实生产作业",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "智元机器人",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "具身业务部总裁姚卯青在WAIC 2026演讲中提到具身智能行业面临“三道墙”",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "英伟达",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "创始人黄仁勋将Physical AI称为“AI的下一波浪潮”",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "摩根士丹利",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": null,
+    "team": null,
+    "business": "年内第二次上调中国人形机器人出货量预测，并拆解2025年中国人形机器人出货流向",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "赛迪顾问",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "预测中国低空经济市场规模2026年将突破1万亿元",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   },
+   {
+    "company_name": "中国商业产业研究院",
+    "entity_type": "company",
+    "aliases": [],
+    "product_names": [],
+    "products": [],
+    "founded": null,
+    "country": "中国",
+    "team": null,
+    "business": "测算2026年中国自动驾驶市场规模将达到5293亿元",
+    "investors": null,
+    "total_funding": null,
+    "valuation": null,
+    "industry_id": "ai_other"
+   }
+  ],
+  "modelAttempted": true
  }
 }

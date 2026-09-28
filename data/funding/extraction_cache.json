@@ -2062,5 +2062,25 @@
    }
   ],
   "modelAttempted": true
+ },
+ "1:3:DeepSeek-V4-Pro:fpv5:direct:fe284b1c75000e97:e080cc1909573670": {
+  "status": "complete",
+  "companies": [
+   {
+    "company_name": "魔芯科技",
+    "product_name": "MoWorld 4D",
+    "founded": null,
+    "country": "中国",
+    "industry": "AI模型/基础设施",
+    "team": "创始人兼CEO陈天润为00后浙大在读博士，导师为中国工程院院士潘云鹤；核心研发班底延续浙大空间智能与三维视觉方向研究脉络，多数成员在国际顶会顶刊有持续发表经验",
+    "business": "4D世界模型研发，提供工业数字孪生、具身智能虚拟训练环境、城乡规划、文旅沉浸式内容生产等应用",
+    "investors": "华为哈勃、中芯聚源、杰华特、矽芯投资、联想、传音、干杯基金、晶科能源相关平台、深创投、浙创投、暾澜、Prosperity7",
+    "total_funding": null,
+    "valuation": "新一轮融资即将落地，整体估值跃升至近100亿元",
+    "industry_id": "AI模型/基础设施",
+    "company_type_id": "初创公司"
+   }
+  ],
+  "modelAttempted": true
  }
 }

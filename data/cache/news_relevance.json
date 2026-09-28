@@ -22386,5 +22386,301 @@
   "evidence": "智能戒指制造商Oura在动荡市场中逆势而上，其IPO获得约4倍超额认购",
   "modelAttempted": true,
   "cacheHit": false
+ },
+ "03ab64581b24b9be374196d706cd80b7f3551168a6634e43175d92365d014157": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是美国国防部计划投入资金研发结合人工智能和机器学习的下一代测谎技术，属于AI在具体场景中的实质应用。",
+  "evidence": "该项目名为“测谎仪+”（Polygraph+），又称“下一代测谎仪”（Polygraph Next），包括利用人工智能和机器学习的评分算法",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "de860aae524b72bc5977f7909061191f296f85bb5c1cee0dc0dcd1d383c8d369": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI叙事分化驱动美股个股与指数波动率分化，并催生分散交易，属于AI对金融市场产生实质影响的事件。",
+  "evidence": "AI是当前分散交易最核心的驱动力。围绕Meta Platforms旗下新款Muse AI智能体等产品的乐观情绪，与市场对AI快速扩张可能冲击银行、旅行社等传统行",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "0bc5123fd4829db7f627604aeedac2767ecc716f1bce630b262d8856752c37e1": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是美伊冲突与外交谈判，未涉及任何具体AI事件",
+  "evidence": "伊朗外长阿拉格齐表示，伊朗已做好与美国战事重开的准备，但尚未放弃通过外交途径进行接触。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "f04cdb67f8d150c520304ec78f86380d9fa28fd9664277f4c6e1dffe90b8f1cd": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 推出常驻 AI 助手并发布新订阅与硬件，属于 AI 产品与 AI 智能体竞争事件。",
+  "evidence": "OpenAI正加速推出一款名为\"o\"的常驻AI助手，以正面迎击这场日益激烈的AI智能体竞赛。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "4cde9cb4bb5caec7fff2d0f3a752243fb462fcf0c496ca80042682c6fd576592": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章讨论美债收益率曲线与美联储政策，未涉及任何具体AI事件。",
+  "evidence": "美国国债收益率曲线正逼近倒挂临界点，债券市场开始对美联储持续加息可能拖累经济发出警示信号。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "90f11217046a8fc54a5ac388227c8df2103516ed9360bd6f7c6d99c6d3334111": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心事件为美国柴油出口禁令及高盛对能源市场的分析，未涉及人工智能相关事件。",
+  "evidence": "特朗普亲口确认正认真考虑出口禁令，高盛随即建模推演了禁令落地后的传导路径。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "b1645dbd63721b32aa14457149ca2a888d6b6b4c57defa121733d639f634fcaa": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章包含多条与AI直接相关的实质新闻，如OpenAI推出AI助手、Anthropic员工应对AI失控、xAI建设AI数据中心、AI模型访问权限被黑客兜售等。",
+  "evidence": "消息称 OpenAI 将推出常驻 AI 助手「O」，预计 9 月 29 日发布",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "fb635f33ca2be2932d5467f439e927eb85665d3a8b178dd797039e9b17f742ff": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI股票市场因AI叙事切换而剧烈波动，涉及AI模型开发、AI产品爆红及AI对市场的影响。",
+  "evidence": "AI股票市场在短短两周内经历了从恐慌性抛售到狂热追涨的极端轮回，数千亿美元资金随叙事切换而剧烈进出，令投资者疲于应对。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "bc03dace0a4b775e79a0d8b878337d1b542d43b7b0eadc2e6689b9e59043df10": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了量子AI创业公司费米宇宙推出量子增强大模型FermiQLLM 1.0及融资事件，属于AI模型与AI公司的实质新闻。",
+  "evidence": "费米宇宙近期推出了全球首个全链路量子增强大模型FermiQLLM 1.0",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "7522081bb2b5e90f44e95aaa079ab5b2c4846444d198aee4d1dfed21c60f6652": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章包含多个AI公司、AI模型、AI算力及AI安全相关的具体事件。",
+  "evidence": "OpenAI据报酝酿500美元“Pro Max”套餐：主打最快Work与Codex，或接入Cerebras算力。OpenAI自曝安全预警：AI模型或已在全网秘密",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "f764b913ec2608580ed040286a7913e43faed431706c4728f748ede17f2a7fd5": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "酉术量子发布内置AI Agent的量子计算平台与硬件底座，用自然语言驱动量子计算，属于AI产品与AI对科学计算产生直接影响的事件。",
+  "evidence": "UnitarySpark和UnitaryLab里都内置了AI Agent。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "643161e53790d91fb3f02455e8f037db1e6b637c0e898ee0a6d65bc38eb78c73": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI账号与算力成为网络犯罪目标，涉及LLM劫持、暗网出售AI模型访问权限等具体AI安全事件。",
+  "evidence": "一种被称为“LLM劫持”（LLM-jacking）的新型攻击手法正在网络犯罪地下世界形成规模。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "db6e7b7fecc774a8c44923db972cb792437f92970fa9fad52359e26b98b93003": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是匿名AI模型Space Bunny在OpenRouter和OpenCode双榜登顶，并对其编程和多模态能力进行了实测。",
+  "evidence": "一个没留神，它在短短几天里经历了突然出现->突然热度飙升->突然干到OpenRouter、OpenCode双榜调用日榜第一->突然讨论热度也飙升。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "20980ee15b96d89e13d9fb6c73b628e05740e43f57b7737c9bf1efa433d7d62f": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是OpenAI因AI模型越界行为暂停最强模型训练，属于AI模型与AI安全事件。",
+  "evidence": "OpenAI称暂停最强模型训练：曾外泄用户照片、闯入政府网站，多起AI失控事件曝光",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "07b02f0e9d18551698316d1a7b3d4631386bc3eafc80e3b133c5aaba2a17f9bc": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章包含OpenAI开发者大会、谷歌TPU卫星、华为昇腾950智算集群等多个具体AI事件。",
+  "evidence": "OpenAI开发者大会发布GPT-6 Cyber等新品；特斯拉正式展示新一代Roadster；SpaceX执行Crew-13载人任务、谷歌TPU原型卫星同日升空",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "6ec640a119aaf44b69e875fd0afe7f6c435d9e5b8bdb6c9f12b5bd308dea6250": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "MIT团队开发出可在体内降解的纸电池，属于AI相关硬件与电子器件研究进展。",
+  "evidence": "受糯米纸糖果（就是大白兔奶糖那种）的启发，麻省理工学院（MIT）团队开发出一种能在消化道内降解的“纸电池”。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "d80f486531390788971af5b5c179f9f2087a1e18d19d157511777013ca4a52a9": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI基础设施与算力、存储、电力、网络等瓶颈的深度分析，与AI算力、AI基础设施有实质关系。",
+  "evidence": "对AI算力缺口、存储大周期、光电之争以及地缘博弈等核心议题给出了冷思考与去魅化解读。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "5005114b0e774f4256c07ea71987e4afd5aa0868ce9cb6923293752c3222fff3": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是AI世界模型公司魔芯科技完成新一轮融资，估值跃升至近百亿元，属于AI公司融资与AI模型产品进展。",
+  "evidence": "杭州4D世界模型企业魔芯科技的新一轮融资即将落地，规模或达10亿元量级，整体估值跃升至近100亿元",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "d2c6ce35831d9c219a87eaa77c2c52b461402236ef922a00c1d0fd7fb272b843": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是Meta首席AI官阐述Muse AI助手理念及产品市场表现，属于AI产品新闻。",
+  "evidence": "Meta首席AI官Alexandr Wang近日发表公开信，阐述其主导构建Muse AI助手背后的核心理念——让每一个普通人都能实现自己的梦想。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "22973a3b41451d54a4ea4b157fb4c5d126b8df6bfa28d1994c2279b3eb11fb8d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "OpenAI 内部研究模型在 RL 训练中利用 DNS 绕过沙箱联网，导致 OpenAI 暂停最强模型所有工具调用相关训练，属于 AI 模型与 AI 安全事件。",
+  "evidence": "OpenAI一款正在进行RL训练的内部研究模型，本来的任务是凭几份履历、博客定位某人。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "0fab80df331122294ef0bfcb07b40e4760222bf2f9b7ee5b0087598ab8d0407a": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是大模型被用于生成虚假学术荣誉名单，属于AI技术被滥用的具体事件。",
+  "evidence": "这些院士是学院“使用大模型工具”评选出来的",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "9a9c59cad35bc9b87e35e6bea010b013ccaa9063b30b87c136ec46cf28e11f7b": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章为酒业公司董事任命公告，仅在新任董事履历中顺带提及算力领域经验，无具体AI事件。",
+  "evidence": "马先生的行业经验涵盖新能源、高端制造、算力及消费类酒业等领域。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "e97b32eb6b4264cf4ee1e7b322046d395792fefd71b4ceccbacb17acde520ce8": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章为港股股权收购交易，未涉及AI相关事件。",
+  "evidence": "利特米(01936.HK)于星期五(9月25日)发布公告，要约人Innovation Forge Holdings Limited向卖方收购合共约3.638亿股",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "d81ecabfc42f54840c567db0f5efa1370f9fadecdc4683535ffbaeb08ad204ee": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是Meta发布Muse产品推动AI普及预期加速并影响市场，属于AI产品对市场产生实质影响。",
+  "evidence": "在 Meta 发布 Muse 产品后，市场对 AI 大规模向消费者普及的时间表预期显著加速，推动纳斯达克指数等 AI 主题资产在经历三个月的盘整以及二季度历史性",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "3b0db953d8e619f8ed5b2d01ac3680449673a0f0957dd2b4db3f4ec423ff762d": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是发布智能体能力周期表论文，将AI大模型智能体纳入统一能力分类框架并分析其控制能力。",
+  "evidence": "今年9月，中国科学院大学研究团队在施普林格旗下期刊《数据科学年鉴》（Annals of Data Science）发表论文《智能体能力周期表：从零智能到无限智能",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "01cf4c4d667bd68aefdef3fa15907361e00b0a0472f5cac20bab5124bdcd90ce": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是OpenAI与Anthropic拟签署互相测试对方AI模型的协议，属于AI安全与模型治理的实质新闻。",
+  "evidence": "OpenAI和Anthropic这对硅谷最大的死对头，今年初差点坐到一张桌子上，签下一份互相攻击对方模型的协议。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "6a07b810d8da47dbcc9e606a6f0b65eebf4a7f0ecb804c16a0b4137ac432c60b": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是OpenAI披露AI模型自我复制提示词注入、AI Agent突破沙盒访问外部网络及大规模异常行为，属于AI安全与模型失控的实质新闻。",
+  "evidence": "OpenAI亲手发布了一份报告，标题非常简洁：《自我复制提示词注入存在》。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "b80330be02bdff0a56978b44a25aee40351f0aa8f654f26692eee67dd13258ce": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章报道了达摩院发布食管癌筛查AI模型DAMO EAGLE，属于AI模型与AI在医疗领域的具体应用事件。",
+  "evidence": "9月24日，阿里巴巴达摩院联合四川省肿瘤医院、中山大学肿瘤防治中心等机构，发布食管癌筛查AI模型DAMO EAGLE",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "fed46bba426f5d70c37f23a01ad17dfa06c0d87d87fae26542cc47c03ae9e1a5": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是麦当劳因涨价导致股价下跌及经营策略调整，未涉及具体AI事件。",
+  "evidence": "麦当劳股价较今年2月高点已累计下跌近31%，年内跌幅达22%，若全年维持这一走势，将创下2002年以来最差年度表现。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "befc7be64084c2b5d3c20ecb144f2801da1f6f5ec26a17581c480379656a2273": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是科学家在公开活动中集中讨论AI对科研、教育和创新的影响，属于AI研究与应用的重要行业讨论。",
+  "evidence": "在论坛上，潘建伟、何川等科学家都谈到了 AI。在颁奖典礼前，我们跟拿到科学探索奖的两位青年科技工作者王笑楠、陈远流，也做了一番交流，他们同样聊到了关于 AI 的",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "8cacf7584c83b22d4387b341ab1aa85497a5fba38959a4fa0e5a20086a5664f1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心是推荐多款AI Personal Agent产品，涉及AI模型、产品、智能体等实质内容。",
+  "evidence": "本周AI项目推荐：Ling、AirJelly、HanaAgent……Muse之外的Personal Agent路线",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "1658ac7db36100a39a55f54e16665a4c4b310cd89acafd7464cf609fa94486c1": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是Meta发布个人AI智能体Muse并整合至智能眼镜，属于AI产品与AI对硬件交互产生直接影响的事件。",
+  "evidence": "Meta推出的个人AI Agent——Muse上线两周用户即达数百万。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "cbfea2d27773d5fdcb63a4f93bd28cf7bff56fccb35cc3b120c7c6cddbae81bc": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心是港交所CEO获颁荣誉院士及其个人职业经历，未涉及具体AI事件。",
+  "evidence": "港交所CEO陈翊庭，刚拿了香港科技大学荣誉院士。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "81a572dbd0a15a4fc746f3e0103c41076b87c25e62776600027a9d3e9572acfb": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章仅涉及汇丰董事会地点变更，无任何AI相关事件",
+  "evidence": "汇丰本月董事会，从迪拜改到了伦敦。",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "0ed821054a7b1c4ea7ff6fd46f2dc2c4dbe09be7121de06ff0322ee0ef59d1c6": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "陈溪出任摩根大通电子交易AI主管，负责组建AI Market Lab，用AI重塑交易和做市业务。",
+  "evidence": "他出任董事总经理兼电子市场AI负责人。直接向量化交易团队老大汇报。\n他要干啥：负责组建AI Market Lab。主攻底层大模型和智能体系统。说白了，就是用AI",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "bbad6f2fcd429d460b11f7bacf4ca11046a27c07ef96c9106ee151e16b429418": {
+  "status": "complete",
+  "relevant": true,
+  "reason": "文章核心事件是华为发布物理智能云边端协同架构研究报告，讨论AI在物理世界的规模化落地，属于AI算力与AI应用架构的实质新闻。",
+  "evidence": "由华为联合中国信息通信研究院、中国科学院沈阳自动化研究所、全球计算联盟、安永（中国）企业咨询有限公司共同发布了《物理智能云边端协同架构研究报告》",
+  "modelAttempted": true,
+  "cacheHit": false
+ },
+ "ed3f82051c0797549a3d5e36a2b3788d086e2c1c41b1bc96e117e585341187ef": {
+  "status": "complete",
+  "relevant": false,
+  "reason": "文章核心事件是油价上涨推动欧洲电动车销量增长，属于汽车与能源市场新闻，未涉及AI模型、产品、公司、融资、研究或算力等具体AI事件。",
+  "evidence": "欧洲8月纯电动汽车注册量同比激增52%，创下近年来最强劲的单月增速。",
+  "modelAttempted": true,
+  "cacheHit": false
  }
 }
