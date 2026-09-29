@@ -1,1 +1,13 @@
-{}
+{
+ "direct:bc5f9cfd0f65ebb6": {
+  "status": "failed",
+  "companies": [],
+  "reason": "output_limit",
+  "modelAttempted": true,
+  "error": {
+   "category": "output_limit",
+   "httpStatus": null,
+   "systemic": false
+  }
+ }
+}

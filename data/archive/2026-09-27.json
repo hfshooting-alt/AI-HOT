@@ -1,7 +1,7 @@
 {
  "date": "2026-09-27",
- "finalized": false,
- "finalizedAt": null,
+ "finalized": true,
+ "finalizedAt": "2026-09-29T15:44:33.963845+08:00",
  "items": [
   {
    "id": "direct:1da794d938383014",
@@ -1141,5 +1141,5 @@
    "summaryOrigin": "model"
   }
  ],
- "updatedAt": "2026-09-28T15:23:43.772777+08:00"
+ "updatedAt": "2026-09-29T15:44:33.963845+08:00"
 }

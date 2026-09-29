@@ -1,32 +1,625 @@
 {
  "schemaVersion": 1,
- "generatedAt": "2026-09-28T15:33:15+08:00",
+ "generatedAt": "2026-09-29T17:28:38+08:00",
  "coverageNote": "覆盖 Garena 投资精选中的融资类新闻；已有融资记录按原有合并规则保留",
  "searchNote": "已跳过搜索补全（--skip-search）",
  "stats": {
-  "articlesProcessed": 1,
-  "modelCalls": 1,
-  "modelSuccesses": 1,
+  "articlesProcessed": 10,
+  "modelCalls": 10,
+  "modelSuccesses": 10,
   "modelFailures": 0,
   "cacheHits": 0,
   "extractionFailed": 0,
   "articlesWithoutFundingInfo": 0,
-  "companiesTotal": 1,
+  "companiesTotal": 37,
   "companiesSearched": 0
  },
  "companies": [
   {
-   "id": "fund:742493c0c699ee87",
-   "company_name": "魔芯科技",
-   "product_name": "MoWorld 4D",
+   "id": "fund:8fbe8f99d874a931",
+   "company_name": "World Labs",
+   "product_name": "Marble",
+   "founded": "2024年初",
+   "country": null,
+   "industry": "AI模型/基础设施",
+   "team": "创始人李飞飞、Justin Johnson、Christoph Lassner和Ben Mildenhall",
+   "business": "空间智能与世界模型，构建能够感知、生成、重建和模拟三维世界的世界模型",
+   "investors": "AMD旗下投资机构、Geoffrey Hinton、Andrej Karpathy、Jeff Dean、AMD Ventures、NVIDIA、Autodesk、a16z、Radical Ventures",
+   "total_funding": "累计筹集约12亿美元",
+   "valuation": "82亿美元（AMD全股票收购）",
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:fc2260df93dbacc6",
+     "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
+     "url": "https://view.inews.qq.com/a/20260929A0338Q00",
+     "publishedAt": "2026-09-29T08:48:27+08:00",
+     "mpName": "量子位"
+    }
+   ]
+  },
+  {
+   "id": "fund:5dc984e2aef527ea",
+   "company_name": "AMD",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI模型/基础设施",
+   "team": null,
+   "business": "芯片与系统设计，AI算力基础设施",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "大厂/已上市",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:fc2260df93dbacc6",
+     "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
+     "url": "https://view.inews.qq.com/a/20260929A0338Q00",
+     "publishedAt": "2026-09-29T08:48:27+08:00",
+     "mpName": "量子位"
+    }
+   ]
+  },
+  {
+   "id": "fund:540df7f83845146f",
+   "company_name": "NVIDIA",
+   "product_name": "Cosmos",
+   "founded": null,
+   "country": null,
+   "industry": "AI模型/基础设施",
+   "team": null,
+   "business": "芯片与AI算力基础设施，拥有Cosmos等开放世界模型",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "大厂/已上市",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:fc2260df93dbacc6",
+     "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
+     "url": "https://view.inews.qq.com/a/20260929A0338Q00",
+     "publishedAt": "2026-09-29T08:48:27+08:00",
+     "mpName": "量子位"
+    }
+   ]
+  },
+  {
+   "id": "fund:432f9f50a7192e99",
+   "company_name": "HuggingFace",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI模型/基础设施",
+   "team": null,
+   "business": "AI模型平台",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "其他",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:fc2260df93dbacc6",
+     "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
+     "url": "https://view.inews.qq.com/a/20260929A0338Q00",
+     "publishedAt": "2026-09-29T08:48:27+08:00",
+     "mpName": "量子位"
+    }
+   ]
+  },
+  {
+   "id": "fund:a10362ede5ed8ed5",
+   "company_name": "Autodesk",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "其他",
+   "team": null,
+   "business": null,
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "其他",
+    "公司类型": "大厂/已上市",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:fc2260df93dbacc6",
+     "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
+     "url": "https://view.inews.qq.com/a/20260929A0338Q00",
+     "publishedAt": "2026-09-29T08:48:27+08:00",
+     "mpName": "量子位"
+    }
+   ]
+  },
+  {
+   "id": "fund:3175a583a9b05b2c",
+   "company_name": "SceniX",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "具身智能/机器人",
+   "team": null,
+   "business": "机器人仿真方向，覆盖强化学习环境生成和Real-to-Sim工作流",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "具身智能/机器人",
+    "公司类型": "其他",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:fc2260df93dbacc6",
+     "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
+     "url": "https://view.inews.qq.com/a/20260929A0338Q00",
+     "publishedAt": "2026-09-29T08:48:27+08:00",
+     "mpName": "量子位"
+    }
+   ]
+  },
+  {
+   "id": "fund:1b0395296091a197",
+   "company_name": "Jina AI",
+   "product_name": "Jina",
+   "founded": "2020年",
+   "country": null,
+   "industry": "人工智能、神经搜索、开源、SaaS",
+   "team": "创始人兼CEO肖涵，慕尼黑工业大学计算机博士，前腾讯AI部门高级科学家，前Zalando高级研究员，知名开源项目Fashion-MNIST及Bert-as-service作者",
+   "business": "专注基于深度学习模型搭建搜索引擎技术的开源商业公司，提供神经搜索框架，实现文本、图片、语音、视频等跨模态数据搜索",
+   "investors": "Canaan Partners领投，Mango Capital、GGV纪源资本、SAP.iO、云启资本跟投",
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
+    "国家/地区": "其他"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:2872f6beab341c1b",
+     "title": "A轮融资3000万美元，开源公司怎么赚钱？",
+     "url": "https://view.inews.qq.com/a/20260929A00U7T00",
+     "publishedAt": "2026-09-29T01:24:25+08:00",
+     "mpName": "极客公园"
+    }
+   ],
+   "fieldQuarantines": [
+    {
+     "field": "total_funding",
+     "originalValue": "A轮3000万美元（2021.11）",
+     "reasonCode": "single_round_not_total",
+     "reason": "单轮融资金额不能作为累计融资",
+     "articleId": "direct:2872f6beab341c1b",
+     "url": "https://view.inews.qq.com/a/20260929A00U7T00",
+     "title": "A轮融资3000万美元，开源公司怎么赚钱？",
+     "publishedAt": "2026-09-29T01:24:25+08:00",
+     "sourceName": "极客公园",
+     "origin": "article"
+    }
+   ]
+  },
+  {
+   "id": "fund:d3256334361e4b47",
+   "company_name": "星河动力",
+   "product_name": null,
    "founded": null,
    "country": "中国",
-   "industry": "AI模型/基础设施",
-   "team": "创始人兼CEO陈天润为00后浙大在读博士，导师为中国工程院院士潘云鹤；核心研发班底延续浙大空间智能与三维视觉方向研究脉络，多数成员在国际顶会顶刊有持续发表经验",
-   "business": "4D世界模型研发，提供工业数字孪生、具身智能虚拟训练环境、城乡规划、文旅沉浸式内容生产等应用",
-   "investors": "华为哈勃、中芯聚源、杰华特、矽芯投资、联想、传音、干杯基金、晶科能源相关平台、深创投、浙创投、暾澜、Prosperity7",
+   "industry": "商业运载火箭",
+   "team": "创始人兼CEO刘百奇",
+   "business": "商业运载火箭提供商，致力于研发新一代低成本、高可靠商业运载火箭，提供航天发射服务",
+   "investors": null,
    "total_funding": null,
-   "valuation": "新一轮融资即将落地，整体估值跃升至近100亿元",
+   "valuation": null,
+   "dims": {
+    "所属行业": "其他",
+    "公司类型": "初创公司",
+    "国家/地区": "其他"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:2872f6beab341c1b",
+     "title": "A轮融资3000万美元，开源公司怎么赚钱？",
+     "url": "https://view.inews.qq.com/a/20260929A00U7T00",
+     "publishedAt": "2026-09-29T01:24:25+08:00",
+     "mpName": "极客公园"
+    }
+   ],
+   "fieldQuarantines": [
+    {
+     "field": "total_funding",
+     "originalValue": "2021年7月至12月完成总额12.7亿元B及B+轮融资",
+     "reasonCode": "single_round_not_total",
+     "reason": "单轮融资金额不能作为累计融资",
+     "articleId": "direct:2872f6beab341c1b",
+     "url": "https://view.inews.qq.com/a/20260929A00U7T00",
+     "title": "A轮融资3000万美元，开源公司怎么赚钱？",
+     "publishedAt": "2026-09-29T01:24:25+08:00",
+     "sourceName": "极客公园",
+     "origin": "article"
+    }
+   ]
+  },
+  {
+   "id": "fund:756c9d78239a34a4",
+   "company_name": "EvenUp",
+   "product_name": "Piai™",
+   "founded": "2019年",
+   "country": null,
+   "industry": "AI创作工具/生产力",
+   "team": "创始人 Rami Karabibar 曾在 Waymo 和 Zoomer 工作；Saam Mashhad 有多年索赔辩护经验；Raymond Mieszaniec 因父亲车祸赔偿经历参与创业",
+   "business": "利用 AI 帮助律师起草个人伤害索赔文件，自动化人身伤害案件工作流程",
+   "investors": "Bain Capital Ventures、Lightspeed Venture Partners、SignalFire、Bessemer Venture Partners、B Capital Group",
+   "total_funding": null,
+   "valuation": "超10亿美元",
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8eb92c97a6016254",
+     "title": "融资1.35亿，估值超10亿美元的法律AI公司，帮1000家律所追回了15亿赔偿金",
+     "url": "https://view.inews.qq.com/a/20260928A0BZ9C00",
+     "publishedAt": "2026-09-28T21:35:04+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:6e7ed51853e8153b",
+   "company_name": "Supio",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI创作工具/生产力",
+   "team": null,
+   "business": "提供 AI 工具，帮助律所客户分析案件记录、总结证词、深入研究证人证词或专家报告等，为庭审做准备",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8eb92c97a6016254",
+     "title": "融资1.35亿，估值超10亿美元的法律AI公司，帮1000家律所追回了15亿赔偿金",
+     "url": "https://view.inews.qq.com/a/20260928A0BZ9C00",
+     "publishedAt": "2026-09-28T21:35:04+08:00",
+     "mpName": "极客公园"
+    }
+   ],
+   "fieldQuarantines": [
+    {
+     "field": "total_funding",
+     "originalValue": "2500万美元A轮融资",
+     "reasonCode": "single_round_not_total",
+     "reason": "单轮融资金额不能作为累计融资",
+     "articleId": "direct:8eb92c97a6016254",
+     "url": "https://view.inews.qq.com/a/20260928A0BZ9C00",
+     "title": "融资1.35亿，估值超10亿美元的法律AI公司，帮1000家律所追回了15亿赔偿金",
+     "publishedAt": "2026-09-28T21:35:04+08:00",
+     "sourceName": "极客公园",
+     "origin": "article"
+    }
+   ]
+  },
+  {
+   "id": "fund:3d83f27f0845faf9",
+   "company_name": "Harvey",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI创作工具/生产力",
+   "team": null,
+   "business": "法律 AI 初创公司，完善 AI 法律研究能力",
+   "investors": "OpenAI、Google、Elad Gil",
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8eb92c97a6016254",
+     "title": "融资1.35亿，估值超10亿美元的法律AI公司，帮1000家律所追回了15亿赔偿金",
+     "url": "https://view.inews.qq.com/a/20260928A0BZ9C00",
+     "publishedAt": "2026-09-28T21:35:04+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:f3cd74a2103e7ba9",
+   "company_name": "Clio",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI创作工具/生产力",
+   "team": null,
+   "business": "法律科技公司",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8eb92c97a6016254",
+     "title": "融资1.35亿，估值超10亿美元的法律AI公司，帮1000家律所追回了15亿赔偿金",
+     "url": "https://view.inews.qq.com/a/20260928A0BZ9C00",
+     "publishedAt": "2026-09-28T21:35:04+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:d38c207f37662ccc",
+   "company_name": "Casetext",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI创作工具/生产力",
+   "team": null,
+   "business": "法律研究初创公司",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8eb92c97a6016254",
+     "title": "融资1.35亿，估值超10亿美元的法律AI公司，帮1000家律所追回了15亿赔偿金",
+     "url": "https://view.inews.qq.com/a/20260928A0BZ9C00",
+     "publishedAt": "2026-09-28T21:35:04+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:c131c214fc6d7a17",
+   "company_name": "vLex",
+   "product_name": "Vincent AI Legal Research Assistant",
+   "founded": null,
+   "country": null,
+   "industry": "AI创作工具/生产力",
+   "team": null,
+   "business": "法律研究公司，提供生成式 AI 法律研究工具",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "其他",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8eb92c97a6016254",
+     "title": "融资1.35亿，估值超10亿美元的法律AI公司，帮1000家律所追回了15亿赔偿金",
+     "url": "https://view.inews.qq.com/a/20260928A0BZ9C00",
+     "publishedAt": "2026-09-28T21:35:04+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:56381b6973eb36e9",
+   "company_name": "273 Ventures",
+   "product_name": "KL3M",
+   "founded": null,
+   "country": null,
+   "industry": "AI模型/基础设施",
+   "team": null,
+   "business": "推出法律大模型 KL3M 及法律数据集 Kelvin Legal DataPack",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8eb92c97a6016254",
+     "title": "融资1.35亿，估值超10亿美元的法律AI公司，帮1000家律所追回了15亿赔偿金",
+     "url": "https://view.inews.qq.com/a/20260928A0BZ9C00",
+     "publishedAt": "2026-09-28T21:35:04+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:5d38c8a88820cc75",
+   "company_name": "Thomas Reuters",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI创作工具/生产力",
+   "team": null,
+   "business": "法律、税务、会计和新闻等领域公司，计划将生成式 AI 嵌入核心领域",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "大厂/已上市",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8eb92c97a6016254",
+     "title": "融资1.35亿，估值超10亿美元的法律AI公司，帮1000家律所追回了15亿赔偿金",
+     "url": "https://view.inews.qq.com/a/20260928A0BZ9C00",
+     "publishedAt": "2026-09-28T21:35:04+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:6f6f3b2918c9460b",
+   "company_name": "像素绽放 PixelBloom",
+   "product_name": "AiPPT.com",
+   "founded": null,
+   "country": null,
+   "industry": "AI创作工具/生产力",
+   "team": null,
+   "business": "旗下产品包括 AiPPT.cn（国内）/AiPPT.com（海外）、爱设计 AIGC 内容中台、365 编辑器、爱设计在线设计工具、AiH5、叮当好记 Readlecture.cn、Visdoc.Ai 等超过 10 余款应用 AI 能力的内容创作工具",
+   "investors": "北京市人工智能产业投资基金（由顺禧基金和启明创投管理）领投，知名机构和明星企业家跟投；此前投资方包括视觉中国、星连资本（智谱生态 Z 基金）、36 氪、心元资本、微梦传媒、信天创投、策源创投、亚杰基金、神策数据、小米联合创始人王川等",
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8f08669846efd503",
+     "title": "突然有很多好消息，最近几周这些 AI 公司融到了钱",
+     "url": "https://view.inews.qq.com/a/20260928A0BVH500",
+     "publishedAt": "2026-09-28T21:19:53+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:958d49227f267d8a",
+   "company_name": "智象未来",
+   "product_name": "HiDream.ai",
+   "founded": null,
+   "country": null,
+   "industry": "AI互动内容/娱乐",
+   "team": null,
+   "business": "自研多模态大模型「智象大模型」，实现文本、图像、视频、3D 四种模态的互生能力，可为企业客户提供分钟级的营销视频生成服务，同时为个人用户提供 5 秒～15 秒的视频生成工具",
+   "investors": "敦鸿资本领投 Pre-A 轮；A 轮以合肥产投为主的国资基金领投，安徽省人工智能母基金和湖北省长江电影集团有限公司等机构参与投资",
+   "total_funding": "数亿元人民币",
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI互动内容/娱乐",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8f08669846efd503",
+     "title": "突然有很多好消息，最近几周这些 AI 公司融到了钱",
+     "url": "https://view.inews.qq.com/a/20260928A0BVH500",
+     "publishedAt": "2026-09-28T21:19:53+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:ae0633a6b7c09837",
+   "company_name": "爱诗科技",
+   "product_name": "PixVerse",
+   "founded": null,
+   "country": null,
+   "industry": "AI互动内容/娱乐",
+   "team": null,
+   "business": "核心 AI 视频生成产品 PixVerse，全球用户数已超 1200 万，月活跃用户数近 600 万，团队已实现规模化收入",
+   "investors": "蚂蚁集团、北京市人工智能产业投资基金、国科投资及光源资本",
+   "total_funding": "近 3 亿元人民币",
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI互动内容/娱乐",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8f08669846efd503",
+     "title": "突然有很多好消息，最近几周这些 AI 公司融到了钱",
+     "url": "https://view.inews.qq.com/a/20260928A0BVH500",
+     "publishedAt": "2026-09-28T21:19:53+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:5f250b6b2d15c85d",
+   "company_name": "阶跃星辰",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI模型/基础设施",
+   "team": null,
+   "business": "基础模型研发，形成从理解到生成、从文本到多模态全系列模型矩阵，过去 10 个月发布 11 个自研基座模型",
+   "investors": "上海国有资本投资有限公司及其旗下基金、腾讯投资、五源资本、启明创投等",
+   "total_funding": "数亿美元",
+   "valuation": null,
    "dims": {
     "所属行业": "AI模型/基础设施",
     "公司类型": "初创公司",
@@ -36,11 +629,518 @@
    "searchSources": [],
    "sourceArticles": [
     {
-     "id": "direct:fe284b1c75000e97",
-     "title": "浙大00后在读博士，百亿估值了",
-     "url": "https://view.inews.qq.com/a/20260927A0B4NQ00",
-     "publishedAt": "2026-09-27T18:50:34+08:00",
-     "mpName": "华尔街见闻"
+     "id": "direct:8f08669846efd503",
+     "title": "突然有很多好消息，最近几周这些 AI 公司融到了钱",
+     "url": "https://view.inews.qq.com/a/20260928A0BVH500",
+     "publishedAt": "2026-09-28T21:19:53+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:6eb13db89c93a406",
+   "company_name": "智谱 AI",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI模型/基础设施",
+   "team": null,
+   "business": "发布视频生成模型 CogVideoX、端到端语音模型 GLM-4-Voice 和 GLM-4-VideoCall、自主操作手机的智能体 AutoGLM",
+   "investors": "新投资方包括多家战投及国资，君联资本等老股东继续跟投；2024 年 9 月中关村科学城公司以投前 200 亿估值领投",
+   "total_funding": "30 亿元",
+   "valuation": "投前 200 亿估值",
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8f08669846efd503",
+     "title": "突然有很多好消息，最近几周这些 AI 公司融到了钱",
+     "url": "https://view.inews.qq.com/a/20260928A0BVH500",
+     "publishedAt": "2026-09-28T21:19:53+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:fbc5a0b03ed18cec",
+   "company_name": "面壁智能",
+   "product_name": "面壁小钢炮 MiniCPM",
+   "founded": null,
+   "country": null,
+   "industry": "AI模型/基础设施",
+   "team": null,
+   "business": "以端侧 AI 为代表的高效大模型商业化布局，面壁小钢炮 MiniCPM 系列累计下载量突破 300 万",
+   "investors": "龙芯创投、鼎晖百孚、中关村科学城基金和赛富基金联合领投，北京市人工智能产业投资基金与清科创投跟投，万甲资本担任独家财务顾问",
+   "total_funding": "数亿元",
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8f08669846efd503",
+     "title": "突然有很多好消息，最近几周这些 AI 公司融到了钱",
+     "url": "https://view.inews.qq.com/a/20260928A0BVH500",
+     "publishedAt": "2026-09-28T21:19:53+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:62cfed5e5ec746ce",
+   "company_name": "造梦次元",
+   "product_name": "造梦次元",
+   "founded": "2023 年",
+   "country": null,
+   "industry": "AI互动内容/娱乐",
+   "team": null,
+   "business": "专注于多模态 AI 驱动的新一代内容平台，核心产品「造梦次元」定位于服务年轻用户，结合生成式 AI 技术，提供交互式、剧情化的虚拟角色互动体验，通过 UGC 模式创作多节点内容",
+   "investors": "锦秋基金领投，明势创投、高榕创投、商汤科技等参投",
+   "total_funding": "数千万人民币",
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI互动内容/娱乐",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8f08669846efd503",
+     "title": "突然有很多好消息，最近几周这些 AI 公司融到了钱",
+     "url": "https://view.inews.qq.com/a/20260928A0BVH500",
+     "publishedAt": "2026-09-28T21:19:53+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:31fd472e436e02e6",
+   "company_name": "闪极科技",
+   "product_name": "闪极 AI「拍拍镜」A1",
+   "founded": null,
+   "country": null,
+   "industry": "具身智能/机器人",
+   "team": null,
+   "business": "智能硬件品牌，推出首款 AI 眼镜——闪极 AI「拍拍镜」A1，支持数十家大模型接入",
+   "investors": "A+ 轮由绿洲资本独家投资；A 轮由光远投资领投，未来光锥前沿科技基金、边缘 AI 芯片公司云天励飞跟投",
+   "total_funding": "超亿元",
+   "valuation": null,
+   "dims": {
+    "所属行业": "具身智能/机器人",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:8f08669846efd503",
+     "title": "突然有很多好消息，最近几周这些 AI 公司融到了钱",
+     "url": "https://view.inews.qq.com/a/20260928A0BVH500",
+     "publishedAt": "2026-09-28T21:19:53+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:beab7912e3d81887",
+   "company_name": "The Browser Company",
+   "product_name": "Dia",
+   "founded": null,
+   "country": null,
+   "industry": "AI浏览器",
+   "team": "创始人 Josh Miller 继续担任 CEO，Hursh 继续担任 CTO，整个团队保持不变",
+   "business": "开发 AI 浏览器 Dia 及 Arc 浏览器，致力于将浏览器打造为操作系统",
+   "investors": "Atlassian 风投、Salesforce 风投、Dylan Field、Reid Hoffman",
+   "total_funding": null,
+   "valuation": "去年估值达 5.5 亿美元",
+   "dims": {
+    "所属行业": "其他",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:1dfbf1369c488f64",
+     "title": "6 亿美元，AI浏览器 Dia 及团队被 Jira 母公司 Atlassian 收购",
+     "url": "https://view.inews.qq.com/a/20260928A0BSBG00",
+     "publishedAt": "2026-09-28T21:04:28+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:deff6b318be72040",
+   "company_name": "Atlassian",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "软件开发协作工具",
+   "team": null,
+   "business": "旗下拥有 Jira、Confluence、Trello 等协作工具，是软件开发协作领域的知名公司",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "其他",
+    "公司类型": "大厂/已上市",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:1dfbf1369c488f64",
+     "title": "6 亿美元，AI浏览器 Dia 及团队被 Jira 母公司 Atlassian 收购",
+     "url": "https://view.inews.qq.com/a/20260928A0BSBG00",
+     "publishedAt": "2026-09-28T21:04:28+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:514af8064108a871",
+   "company_name": "VideoTutor",
+   "product_name": "VideoTutor",
+   "founded": null,
+   "country": null,
+   "industry": "AI教育",
+   "team": "CEO Kai Zhao（赵凯）为华人大三学生，有三次教育创业经历，大二参与创建MathGPTPro，项目入选奇绩创坛；CTO James Zhan来自谷歌Gemini，是AI工程和算法核心工程师；团队共6人，住在一起，核心成员为校友",
+   "business": "面向K12学生，主打一句话即可生成个人专属教学/讲解视频的教育Agent产品，聚焦美国高考SAT、AP等理科场景的可视化学习",
+   "investors": "YZi Labs（领投）、百度风投、锦秋基金、Amino Capital、BridgeOne Capital",
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "其他",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:d74a13ef80b4dd11",
+     "title": "赵长鹏投了一个华人大三学生，1100 万美元种子轮，做教育 Agent",
+     "url": "https://view.inews.qq.com/a/20260928A0BQBV00",
+     "publishedAt": "2026-09-28T20:55:05+08:00",
+     "mpName": "极客公园"
+    }
+   ],
+   "fieldQuarantines": [
+    {
+     "field": "total_funding",
+     "originalValue": "种子轮1100万美元",
+     "reasonCode": "single_round_not_total",
+     "reason": "单轮融资金额不能作为累计融资",
+     "articleId": "direct:d74a13ef80b4dd11",
+     "url": "https://view.inews.qq.com/a/20260928A0BQBV00",
+     "title": "赵长鹏投了一个华人大三学生，1100 万美元种子轮，做教育 Agent",
+     "publishedAt": "2026-09-28T20:55:05+08:00",
+     "sourceName": "极客公园",
+     "origin": "article"
+    }
+   ]
+  },
+  {
+   "id": "fund:2b28587f6d880ea9",
+   "company_name": "MAI",
+   "product_name": "Google Ads Agent",
+   "founded": null,
+   "country": null,
+   "industry": "AI创作工具/生产力",
+   "team": "联合创始人兼CEO吴雨辰曾担任Instacart工程副总裁，2010-2020期间就职于Google，参与广告系统构建；联合创始人兼CTO王健曾就职于Instacart，负责带领增长技术团队",
+   "business": "提供营销AI Agent，帮助品牌在Google Ads等平台实现广告投放、管理和优化，提升广告投入与转化效率",
+   "investors": "凯鹏华盈（Kleiner Perkins）、高榕创投、UpHonest Capital",
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:6b54a44ab440ac1c",
+     "title": "种子轮、2500 万美金，营销 Agent 创业公司，帮客户销售额增长 40%",
+     "url": "https://view.inews.qq.com/a/20260928A0BQBI00",
+     "publishedAt": "2026-09-28T20:55:05+08:00",
+     "mpName": "极客公园"
+    }
+   ]
+  },
+  {
+   "id": "fund:bf4d554de8d8993e",
+   "company_name": "上海智灵新境科技有限公司",
+   "product_name": "Neo AI",
+   "founded": "2025年1月",
+   "country": "中国",
+   "industry": "AI创作工具/生产力",
+   "team": "法定代表人费元华有游戏行业背景，2024年6月启动AI创业",
+   "business": "AI短剧与漫剧工业化平台，输入剧本可自动生成整部剧集",
+   "investors": "华策影视全资子公司西溪投资、上海汉浔智能",
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:49416709698e9328",
+     "title": "又投一家Agent，基金超5.5亿，华策在AI投资领域杀疯了！",
+     "url": "https://view.inews.qq.com/a/20260928A0BGCF00",
+     "publishedAt": "2026-09-28T20:15:58+08:00",
+     "mpName": "娱乐资本论"
+    }
+   ]
+  },
+  {
+   "id": "fund:61158955583277b9",
+   "company_name": "华策影视",
+   "product_name": null,
+   "founded": null,
+   "country": "中国",
+   "industry": "AI互动内容/娱乐",
+   "team": null,
+   "business": "剧集制作与影视内容生产，布局AI视频生成、AI内容工具链投资",
+   "investors": null,
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI互动内容/娱乐",
+    "公司类型": "大厂/已上市",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:49416709698e9328",
+     "title": "又投一家Agent，基金超5.5亿，华策在AI投资领域杀疯了！",
+     "url": "https://view.inews.qq.com/a/20260928A0BGCF00",
+     "publishedAt": "2026-09-28T20:15:58+08:00",
+     "mpName": "娱乐资本论"
+    }
+   ]
+  },
+  {
+   "id": "fund:6890036ae60adfc6",
+   "company_name": "水母智能",
+   "product_name": null,
+   "founded": null,
+   "country": "中国",
+   "industry": "AI创作工具/生产力",
+   "team": null,
+   "business": null,
+   "investors": "华策影视全资子公司西溪投资",
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:49416709698e9328",
+     "title": "又投一家Agent，基金超5.5亿，华策在AI投资领域杀疯了！",
+     "url": "https://view.inews.qq.com/a/20260928A0BGCF00",
+     "publishedAt": "2026-09-28T20:15:58+08:00",
+     "mpName": "娱乐资本论"
+    }
+   ]
+  },
+  {
+   "id": "fund:a922781653c188dd",
+   "company_name": "触手AI",
+   "product_name": null,
+   "founded": null,
+   "country": "中国",
+   "industry": "AI创作工具/生产力",
+   "team": null,
+   "business": "覆盖漫画、动态漫、竖屏漫短剧全流程的创作平台",
+   "investors": "华策影视",
+   "total_funding": null,
+   "valuation": null,
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "初创公司",
+    "国家/地区": "中国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:49416709698e9328",
+     "title": "又投一家Agent，基金超5.5亿，华策在AI投资领域杀疯了！",
+     "url": "https://view.inews.qq.com/a/20260928A0BGCF00",
+     "publishedAt": "2026-09-28T20:15:58+08:00",
+     "mpName": "娱乐资本论"
+    }
+   ]
+  },
+  {
+   "id": "fund:85ab1e22088b3571",
+   "company_name": "DensityAI",
+   "product_name": null,
+   "founded": "一年前",
+   "country": null,
+   "industry": "AI芯片",
+   "team": "由Ganesh Venkataramanan（特斯拉Dojo团队前负责人）、Bill Chang（Dojo前首席系统工程师）以及Ben Floering（Dojo人工智能基础设施团队前负责人）创立",
+   "business": "设计专用AI芯片，采用3D DRAM堆叠技术，旨在使芯片在运行人工智能任务时更快速、更节能",
+   "investors": "Dolby Family Ventures、South Park Commons、Firestreak Ventures、Gradient Ventures；Andreessen Horowitz一直在洽谈领投此轮融资",
+   "total_funding": "此前已获得一笔未披露金额的资金",
+   "valuation": "融资后估值将达100亿美元（深入谈判中）",
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:3ea5a8f4baab319e",
+     "title": "速递｜前特斯拉高管创立，AI芯片创企DensityAI估值已达100亿美元",
+     "url": "https://view.inews.qq.com/a/20260928A03V3Z00",
+     "publishedAt": "2026-09-28T10:02:29+08:00",
+     "mpName": "ZPotential"
+    }
+   ]
+  },
+  {
+   "id": "fund:7733aeac5791cf2b",
+   "company_name": "Etched",
+   "product_name": null,
+   "founded": "成立四年",
+   "country": null,
+   "industry": "AI芯片",
+   "team": null,
+   "business": "设计专用AI芯片，已于今年夏天开始出货其芯片",
+   "investors": "Jane Street领投",
+   "total_funding": "8月由Jane Street领投的一轮融资中筹得7亿美元",
+   "valuation": "估值达210亿美元",
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:3ea5a8f4baab319e",
+     "title": "速递｜前特斯拉高管创立，AI芯片创企DensityAI估值已达100亿美元",
+     "url": "https://view.inews.qq.com/a/20260928A03V3Z00",
+     "publishedAt": "2026-09-28T10:02:29+08:00",
+     "mpName": "ZPotential"
+    }
+   ]
+  },
+  {
+   "id": "fund:ef99c4d75dba94ea",
+   "company_name": "d-Matrix",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI芯片",
+   "team": null,
+   "business": "芯片初创公司，已向客户销售芯片，并在其第二代芯片中使用3D DRAM堆叠技术",
+   "investors": null,
+   "total_funding": "上一轮融资2.75亿美元",
+   "valuation": "估值约为20亿美元，目前正在洽谈新一轮融资",
+   "dims": {
+    "所属行业": "AI模型/基础设施",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:3ea5a8f4baab319e",
+     "title": "速递｜前特斯拉高管创立，AI芯片创企DensityAI估值已达100亿美元",
+     "url": "https://view.inews.qq.com/a/20260928A03V3Z00",
+     "publishedAt": "2026-09-28T10:02:29+08:00",
+     "mpName": "ZPotential"
+    }
+   ]
+  },
+  {
+   "id": "fund:eea8f7c33dc2f64e",
+   "company_name": "Cognition",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI编程",
+   "team": null,
+   "business": "精简编写和调试代码流程的AI编程服务",
+   "investors": null,
+   "total_funding": null,
+   "valuation": "480亿美元",
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "初创公司",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:85e292703d825e53",
+     "title": "速递｜AI编程创企Cognition ARR已达10亿美元，较四个月前增长1倍",
+     "url": "https://view.inews.qq.com/a/20260928A03V3S00",
+     "publishedAt": "2026-09-28T10:02:29+08:00",
+     "mpName": "ZPotential"
+    }
+   ]
+  },
+  {
+   "id": "fund:1791a97a8403730e",
+   "company_name": "Cursor",
+   "product_name": null,
+   "founded": null,
+   "country": null,
+   "industry": "AI编程",
+   "team": null,
+   "business": "AI编程",
+   "investors": null,
+   "total_funding": null,
+   "valuation": "600亿美元（被SpaceX收购）",
+   "dims": {
+    "所属行业": "AI创作工具/生产力",
+    "公司类型": "其他",
+    "国家/地区": "美国"
+   },
+   "filledBySearch": [],
+   "searchSources": [],
+   "sourceArticles": [
+    {
+     "id": "direct:85e292703d825e53",
+     "title": "速递｜AI编程创企Cognition ARR已达10亿美元，较四个月前增长1倍",
+     "url": "https://view.inews.qq.com/a/20260928A03V3S00",
+     "publishedAt": "2026-09-28T10:02:29+08:00",
+     "mpName": "ZPotential"
     }
    ]
   }
