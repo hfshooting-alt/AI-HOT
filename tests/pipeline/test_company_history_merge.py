@@ -77,6 +77,20 @@ class CompanyHistoryMergeTest(unittest.TestCase):
         self.assertEqual(row['company_name'], 'Example')
         self.assertEqual([a['id'] for a in row['sourceArticles']], ['latest', 'historical'])
 
+    def test_newer_same_name_product_preserves_company_and_history(self):
+        previous = {'companies': self.merge(self.article('historical', 18), self.extraction())}
+        original = copy.deepcopy(previous)
+        latest = self.article('latest', 20)
+        row = self.merge(latest, self.extraction(entity_type='product'), previous)[0]
+        self.assertEqual(row['entityType'], 'company')
+        self.assertEqual(row['id'], previous['companies'][0]['id'])
+        self.assertEqual(row['lastSeenAt'], latest['publishedAt'])
+        self.assertEqual([a['id'] for a in row['sourceArticles']], ['latest', 'historical'])
+        self.assertEqual(previous, original)
+        # An actually unassigned product still remains a product.
+        standalone = self.merge(latest, self.extraction(entity_type='product'))[0]
+        self.assertEqual(standalone['entityType'], 'product')
+
 
 if __name__ == '__main__':
     unittest.main()

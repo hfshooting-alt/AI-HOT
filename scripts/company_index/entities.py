@@ -101,10 +101,10 @@ def merge_entities(articles: list[dict], extracts: dict[str, dict], previous: di
                 rec['company_name'] = division['record_name']
             is_latest = timestamp(article.get('publishedAt')) >= timestamp(rec.get('lastSeenAt'))
             incoming_type = item.get('entity_type', 'company')
-            # A product alias (e.g. a known company's app) can update that company
-            # without turning the company itself into an unassigned product.
-            product_alias = (incoming_type == 'product' and rec.get('entityType') == 'company'
-                             and normalize_company_key(rec['company_name']) != keys[0])
+            # A product may share its company's name (e.g. Figma). A later
+            # product mention must not demote the existing company into the
+            # unassigned-product queue; reviewed identity rules run separately.
+            product_alias = (incoming_type == 'product' and rec.get('entityType') == 'company')
             if not product_alias and (is_latest or not rec.get('entityType')):
                 rec['entityType'] = incoming_type
             for key in keys:
