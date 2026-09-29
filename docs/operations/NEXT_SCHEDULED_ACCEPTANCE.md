@@ -1,6 +1,6 @@
 # 当前直采真实定时验收
 
-2026-09-23用户授权恢复GitHub北京时间每天09:30调度，默认UTC cron为 `30 1 * * *`；保留手动运行，未恢复Codex定时跟进。仅执行all/direct-only，匿名媒体直采后统一Paratera DeepSeek-V4-Pro，Manus/Tavily/AIHOT继续停用。前端设置页已删除，配置通过.env/Secrets管理；后台设置服务与CLI仅保留兼容。
+2026-09-29用户取消全部定时任务，GitHub schedule已移除，Codex ai-hot已删除。本文件以下清单保留作历史验收参考，不再安排下一次定时跟进；恢复调度需要用户新指令。手动仍仅all/direct-only，统一Paratera DeepSeek-V4-Pro，Manus/Tavily/AIHOT继续停用。
 
 定时先核对schedule-audit的状态、event、runId、runAttempt和headSha，以该run的createdAtBeijing最近已到达的09:30为截止点（09:30前创建取前一天），冻结此前24小时 `[start, end)`。排队跨午夜及重跑不滑窗；无法可靠取得创建时间则在付费前停止。手动保持启动时冻结的rolling-24h，不能代替event=schedule验收。GitHub可能延迟创建或排队；如平台跨日才创建，须记录事实，不能反推原计划触发日或保证准点。
 

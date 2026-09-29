@@ -1,5 +1,7 @@
 # docs/maintenance/AGENTS.MD — 新闻Daily 项目 Agent 开发守则
 
+2026-09-29最新指令：用户取消项目全部定时任务。GitHub新闻工作流移除schedule，仅保留手动入口；Codex ai-hot自动跟进已删除。未经用户新指令不得恢复任何定时器。下方旧09:30调度授权仅为历史，窗口解析代码保留用于显式手动及旧批次回放。CI/Pages的提交触发不是定时采集，不新增新闻或模型请求。当前API清单见docs/operations/MODEL_API_INVENTORY.md。
+
 2026-09-29腾讯采集：按真实分页游标读至结束或10页上限，旧时间边界仅作观察。DOM缺失可用已验证window.DATA正文；必须精确绑定文章ID/URL、账号suid、媒体名、标题、原始pubtime，不能用内嵌数据盖过可见冲突，不执行JS或取摘要冒充全文。不自动启用浏览器、其他服务或超额页数。
 
 直采失败恢复入口为 `python -m direct_source.recovery`，仅针对原批明确失败或缺正文的详情URL；列表与成功响应哈希回放，固定原窗口，输出独立新集合，不自动发布。不得覆盖旧state/fingerprint或将补抓标成完整24小时重扫。health区分失败与零样本，模型及发布状态另行核验。详见直采操作说明。

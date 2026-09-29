@@ -10,7 +10,7 @@
 
 独立打标修复与旧批次补处理已完成，历史诊断见[技术记录](docs/architecture/UNIFIED_NEWS_PIPELINE.md#2026-09-23-独立打标调整)。当前批次结果以公开JSON及维护上下文为准。
 
-GitHub 定时使用 UTC cron `30 1 * * *`（北京时间每天 09:30）。核对本次 run 的审计状态、event、run ID、attempt 与 head SHA 后，以 `created_at` 转北京时间最近已到达的 09:30 冻结截止时刻：09:30 前创建取前一天 09:30，之后取当天 09:30；窗口为此前 24 小时 `[start, end)`。`NEWS_COLLECTION_END` 贯穿各阶段，排队跨午夜或重跑不滑窗；创建时间无法可靠取得时，在采集与模型付费前停止。手动运行仍在启动时冻结 `rolling-24h`，可用含时区的 `--window-end` 显式指定；恢复沿原窗口。原始发布/发送时间是唯一绝对时间依据，编辑、评论及互动不让旧文章重新入窗。既有“昨天”发布例外保留前一自然日精度和原文证据，不补造时分，且不代表严格 24 小时完整覆盖。完整规则见[统一新闻链路](docs/architecture/UNIFIED_NEWS_PIPELINE.md)。
+2026-09-29 已按用户要求取消项目全部定时任务：GitHub 新闻采集仅保留手动入口，Codex 自动跟进已删除。手动运行在启动时冻结 `rolling-24h`，可用含时区的 `--window-end` 显式指定；`NEWS_COLLECTION_END` 贯穿各阶段，恢复沿原窗口。所有时间使用北京时间。原始发布/发送时间是唯一绝对时间依据，编辑、评论及互动不让旧文章重新入窗。既有“昨天”发布例外保留前一自然日精度和原文证据，不补造时分，且不代表严格 24 小时完整覆盖。完整规则见[统一新闻链路](docs/architecture/UNIFIED_NEWS_PIPELINE.md)，当前模型与凭证配置见[API 清单](docs/operations/MODEL_API_INVENTORY.md)。
 
 ## 本地启动
 
@@ -26,7 +26,7 @@ npm --prefix web run dev
 
 ## 采集、候选与发布
 
-已恢复 GitHub 每天北京时间 09:30 的定时入口，并保留手动运行；未恢复 Codex 或本地定时跟进。实际触发及发布仍需[真实定时验收](docs/operations/NEXT_SCHEDULED_ACCEPTANCE.md)。统一入口默认 `direct-only`，`full` 同样映射到直采；`--no-promote` 生成隔离审核候选。显式 `manus-only` 暂停，`aihot-only` 仍被拒绝。20 个新闻信源来自 `config/manus_sources.json`，最多并发 3 个。合格文章继续处理；单来源失败不等于窗口内没有更新。
+采集仅手动启动；代码提交触发的离线 CI 和 Pages 部署保留，不会自动开始新闻采集或模型加工。统一入口默认 `direct-only`，`full` 同样映射到直采；`--no-promote` 生成隔离审核候选。显式 `manus-only` 暂停，`aihot-only` 仍被拒绝。20 个新闻信源来自 `config/manus_sources.json`，最多并发 3 个。合格文章继续处理；单来源失败不等于窗口内没有更新。
 
 ```sh
 python scripts/run_pipeline.py doctor
@@ -41,7 +41,7 @@ npm --prefix web test
 
 候选生成后统一核对新闻、公司、融资、来源状态及隐私边界；通过 `review-candidate` / `publish-candidate` 发布已有候选不会重新调用模型或创建任务。运行与恢复步骤见[操作说明](docs/operations/AUTOMATED_PIPELINE.md)。Pages 部署读取发布后的整套 JSON，最终是否上线以数据提交和 Pages 结果为准。
 
-手动复核固定时间批次可显式使用 `--window-mode ten-am --date YYYY-MM-DD --cutoff-time 09:30`；日常手动运行仍默认滚动 24 小时。GitHub 定时截止点由本次 run 创建时间冻结，不取 runner 开始工作的日期。
+手动复核固定时间批次可显式使用 `--window-mode ten-am --date YYYY-MM-DD --cutoff-time 09:30`；日常手动运行仍默认滚动 24 小时。历史定时窗口解析仅为旧批次回放保留，不代表定时任务仍启用。
 
 ## 前端与公开资源
 

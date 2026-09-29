@@ -20,12 +20,14 @@ class DirectWorkflowTests(unittest.TestCase):
         self.assertIsNotNone(match, name)
         return match.group(1)
 
-    def test_schedule_and_manual_full_direct_route_is_exposed_and_executed(self):
+    def test_manual_full_direct_route_without_scheduled_collection(self):
         triggers = self.workflow.split('\npermissions:', 1)[0]
         self.assertIn('\n  workflow_dispatch:', triggers)
         self.assertNotRegex(triggers, r'(?m)^  (?:push|pull_request|workflow_run):')
-        self.assertIn("\n  schedule:\n    - cron: '30 1 * * *'", triggers)
-        self.assertNotIn('timezone:', triggers)  # cron is already converted from Beijing to UTC.
+        self.assertNotRegex(triggers, r'(?m)^\s+schedule:')
+        for workflow in (ROOT / '.github/workflows').glob('*.yml'):
+            self.assertNotRegex(workflow.read_text(encoding='utf-8'),
+                                r'(?m)^\s*(?:schedule:|-?\s*cron:)', workflow.name)
         for name, value in (('stage', 'all'), ('source_mode', 'direct-only')):
             block = self.input_block(name)
             self.assertIn(f'options: [{value}]', block)
