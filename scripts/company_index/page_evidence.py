@@ -5,6 +5,7 @@ from urllib.parse import urlsplit
 
 from field_value_guard import rejection_reason
 from manus_source.crawler import fetch_html, extract_text, truncate_head_tail, _looks_like_risk_page
+from manus_source.source_urls import same_tencent_article, tencent_article_id
 
 
 _AGGREGATE_FUNDING = re.compile(
@@ -22,12 +23,15 @@ _COMPANY_LOCATION = re.compile(
 
 
 def read_page(url):
-    """仅读取指定公共HTTPS页面；拒绝跨域跳转和非HTML正文。"""
+    """读取指定网页；仅允许已验证的同篇腾讯文章跨域别名。"""
     host = urlsplit(url).hostname or ''
     if urlsplit(url).scheme != 'https' or urlsplit(url).username or not host or host == 'localhost' or re.fullmatch(r'[\d.:]+', host):
         raise ValueError('需要公共网页域名')
     final, html = fetch_html(url, timeout_seconds=15, retries=0)
-    if urlsplit(final).hostname != host:
+    # Tencent's mobile article URLs redirect to their desktop article aliases.
+    # Require the exact recognized article ID; no general qq.com domain bypass.
+    if (urlsplit(final).hostname != host or tencent_article_id(url)) and not (
+            same_tencent_article(url, final)):
         raise ValueError('页面跨域跳转，保留待核实')
     text, title = extract_text(html)
     if not text or len(text) < 60 or _looks_like_risk_page(html, text):
