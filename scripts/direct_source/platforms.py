@@ -111,7 +111,11 @@ def _body(doc, platform):
     nodes, _ = _body_nodes(doc, platform)
     if len(nodes) != 1:
         return '', 'article_body_container_missing'
-    node = deepcopy(nodes[0])
+    return _node_body(nodes[0])
+
+
+def _node_body(node):
+    node = deepcopy(node)
     for child in node.xpath('.//script|.//style|.//nav|.//form|.//iframe|.//button'):
         child.drop_tree()
     for name in ('post_statement', 'post_recommend', 'post_recommends', 'post_top_share'):
@@ -220,6 +224,9 @@ def _detail(source, known, row, response, window):
     # The unique observed page-title ID, not the first/any h1, is authoritative.
     title_selector = '//h1[@id="article-title"]' if platform == 'Tencent News' else '//h1'
     headings = doc.xpath(title_selector)
+    if platform == 'Tencent News' and (not headings or not doc.xpath('//*[@id="article-author"]')
+            or not doc.xpath('//meta[@property="article:published_time"]/@content')):
+        return _embedded_detail(source, known, row, response, window, doc)
     if len(headings) != 1 or not _same_title(headings[0].text_content(), row['title']):
         raise EvidenceError('detail_title_mismatch')
     headers = doc.xpath('//*[@id="article-author"]') if platform == 'Tencent News' else doc.xpath(f'//div[{_classes("post_info")}]')
@@ -254,6 +261,13 @@ def _detail(source, known, row, response, window):
         text, body_status = _body(doc, platform)
     except Exception as exc:
         text, body_status = '', 'body_extraction_' + type(exc).__name__
+    if not text and platform == 'Tencent News':
+        try:
+            embedded = _embedded_detail(source, known, row, response, window, doc)
+            if embedded and embedded['content_text']:
+                return embedded
+        except EvidenceError:
+            pass  # Verified DOM metadata survives a rejected body fallback.
     publication = at.isoformat()
     return {'title': row['title'], 'url': row['url'], 'publishedAt': publication,
             'publishedPrecision': 'datetime',
@@ -271,6 +285,92 @@ def _detail(source, known, row, response, window):
                            'bodySha256': hashlib.sha256(text.encode('utf-8')).hexdigest() if text else None}}
 
 
+def _embedded_detail(source, known, row, response, window, doc):
+    """Parse observed public window.DATA JSON, never execute page JavaScript.
+
+    Exact article/account/time binding is required. Descriptions and recommendation
+    objects are never body fallbacks; visible conflicting metadata cannot be rescued.
+    """
+    values = []
+    for script in doc.xpath('//script[not(@src)]/text()'):
+        matches = list(re.finditer(r'(?:^|[;\n])\s*window\.DATA\s*=\s*', script))
+        for match in matches:
+            try:
+                value, _ = json.JSONDecoder().raw_decode(script[match.end():])
+                values.append(value)
+            except ValueError:
+                raise EvidenceError('embedded_data_invalid') from None
+    if len(values) != 1 or not isinstance(values[0], dict):
+        raise EvidenceError('embedded_data_missing_or_ambiguous')
+    data = values[0]
+    ident = _article_id(row['url'], 'Tencent News')
+    card = data.get('card') if isinstance(data.get('card'), dict) else {}
+    if (not known or data.get('article_id') != ident
+            or _article_id(data.get('url'), 'Tencent News') != ident
+            or card.get('suid') != known[0] or card.get('chlname') not in known[1]
+            or data.get('media') not in known[1] or not _same_title(_clean(data.get('title')), row['title'])):
+        raise EvidenceError('embedded_identity_unverified')
+    pay = data.get('payment_column_info_v1', {})
+    if (data.get('article_is_pay') is not False or data.get('isOversize') is not False
+            or not isinstance(pay, dict) or pay.get('is_column_pay') or pay.get('is_column_article_pay')):
+        raise EvidenceError('embedded_access_or_completeness_unverified')
+    at = _parse_time(data.get('pubtime'))
+    headings = doc.xpath('//h1[@id="article-title"]')
+    if headings and (len(headings) != 1 or not _same_title(headings[0].text_content(), row['title'])):
+        raise EvidenceError('detail_title_mismatch')
+    published = doc.xpath('//meta[@property="article:published_time"]/@content')
+    if published and (len(published) != 1 or _parse_time(published[0]) != at):
+        raise EvidenceError('embedded_publication_conflict')
+    headers = doc.xpath('//*[@id="article-author"]')
+    if headers:
+        expected = _account(source['home_url'], 'Tencent News')
+        if not any(_account(a.get('href'), 'Tencent News') == expected and _clean(a.text_content()) in known[1]
+                   for node in headers for a in node.xpath('.//a[@href]')):
+            raise EvidenceError('detail_source_identity_mismatch')
+        times = [(m[0], _parse_time(m[0])) for node in headers for m in _DATE.finditer(node.text_content())]
+        if times and not any((at == t if re.search(r'\d{2}:\d{2}:\d{2}', label)
+                             else 0 <= (at-t).total_seconds() < 60) for label, t in times):
+            raise EvidenceError('publication_header_conflict')
+    if row.get('listTimeConflict'):
+        raise EvidenceError('list_time_conflict')
+    if row.get('listDisplayedAt'):
+        delta = (at - timestamp(row['listDisplayedAt'])).total_seconds()
+        if (row.get('listPrecision') == 'minute' and not 0 <= delta < 60
+                or row.get('listPrecision') != 'minute' and delta != 0):
+            raise EvidenceError('list_detail_publication_conflict')
+    if not timestamp(window['start']) <= at < timestamp(window['end']):
+        return None
+    origin = data.get('originContent')
+    markup = origin.get('text') if isinstance(origin, dict) else None
+    if not isinstance(markup, str) or not markup.strip() or len(markup.encode()) > MAX_TEXT_BYTES:
+        raise EvidenceError('embedded_body_missing')
+    body_doc = _document(markup)
+    # Include a root body container when the saved fragment has no outer document.
+    wrapper = html.Element('div')
+    wrapper.append(body_doc)
+    body, status = _body(wrapper, 'Tencent News')
+    if not body and status == 'article_body_container_missing':
+        # Observed originContent also contains flat <P> paragraphs without the
+        # rendered-page wrapper (e.g. Jev). Scope remains the bound body field.
+        children = [child for child in body_doc if isinstance(child.tag, str)]
+        if re.search(r'<p(?:\s|>)', markup, re.I) and (body_doc.tag == 'p'
+                or (children and all(child.tag == 'p' for child in children))):
+            body, status = _node_body(body_doc)
+    return {'title': row['title'], 'url': row['url'], 'publishedAt': at.isoformat(),
+            'publishedPrecision': 'datetime', 'content_text': body,
+            'sourcePlatform': 'Tencent News', 'collector': 'direct_site',
+            'timeEvidence': {'kind': 'absolute', 'originalText': data['pubtime'],
+                'observedAt': response['observedAt'], 'field': 'window.DATA.pubtime',
+                'normalizedAt': at.isoformat()},
+            'validation': {'passed': True, 'titleMatched': True, 'sourceMatched': True,
+                'publicationTimeVerified': True, 'earliestCrossPlatformOriginalTimeVerified': False,
+                'sourceHomeUrl': source['home_url'], 'detailUrl': response['url'],
+                'detailSha256': response['sha256'], 'detailReceipt': response.get('receipt'),
+                'titleSelector': 'window.DATA.title', 'sourceIdentityBasis': 'window.DATA.card.suid+media',
+                'bodyStatus': status, 'bodySelector': 'window.DATA.originContent.text',
+                'metadataOnly': not bool(body), 'bodySha256': hashlib.sha256(body.encode()).hexdigest() if body else None}}
+
+
 def collect(source: dict, window: dict, fetch, out_dir: Path) -> dict:
     """Collect one configured platform, sequentially; outer scheduler owns concurrency.
 
@@ -285,6 +385,8 @@ def collect(source: dict, window: dict, fetch, out_dir: Path) -> dict:
                            'maxListPages': MAX_LIST_PAGES, 'maxDetails': MAX_DETAILS,
                            'ordering': 'unverified', 'limitsReached': [], 'metadataOnlyItems': 0}}
     coverage = result['coverage']
+    coverage['paginationPolicy'] = ('exhaust_observed_cursor_or_cap' if source.get('platform') == 'Tencent News'
+                                    else 'observed_ssr_only')
     evidence, issues, candidates = [], [], []
     stop_reason = ''
     try:
@@ -356,9 +458,8 @@ def collect(source: dict, window: dict, fetch, out_dir: Path) -> dict:
                 coverage['listExhausted'] = True
                 stop_reason = 'list_exhausted'
                 break
-            if coverage['boundaryReached']:
-                stop_reason = 'observed_time_boundary_reached'
-                break
+            # A pinned old article or nonchronological next page is not a terminal
+            # cursor. Continue the observed API until exhaustion or the hard cap.
             next_cursor = payload.get('offsetInfo')
             if not isinstance(next_cursor, str) or not next_cursor or len(next_cursor) > 8192 or next_cursor in cursors or next_cursor == cursor:
                 issues.append({'stage': 'list', 'reason': 'pagination_cursor_missing_or_repeated'})

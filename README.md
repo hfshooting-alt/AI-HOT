@@ -1,5 +1,7 @@
 # 新闻Daily
 
+腾讯采集支持列表接口分页与页面内嵌正文后备提取；遇到旧文章继续按游标检查后续页，达到上限明确标记覆盖不完整。正文与原始发布时间均保留来源核验，具体适配范围见直采说明。
+
 运维支持逐源采集诊断与显式单篇失败恢复：复用原列表及成功响应，只补抓选定详情，保留原时间窗口与证据，不自动发布。见[直采恢复说明](docs/operations/DIRECT_NEWS_COLLECTION.md)。
 
 新闻Daily 通过匿名媒体页面直采获取新闻，统一使用并行科技 DeepSeek-V4-Pro 加工，提供“全部文章”、“Garena投资精选”和“公司与产品全景”。Manus 暂停，Tavily 停用，服务开关在 `config/services.json`，旧入口也在HTTP前阻断。直采运行及证据边界见[媒体页面直采](docs/operations/DIRECT_NEWS_COLLECTION.md)。AIHOT 采集、日报、热点、实时接口和演示内容回退已停用。现有仓库名称及 [GitHub Pages 部署路径](https://hfshooting-alt.github.io/AI-HOT/) 保留兼容。

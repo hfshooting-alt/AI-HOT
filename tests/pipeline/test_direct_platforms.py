@@ -106,14 +106,17 @@ class DirectPlatforms(unittest.TestCase):
             'normalizedAt': '2026-09-23T12:30:03+08:00'})
         self.assertEqual(result['items'][0]['collector'], 'direct_site')
 
-    def test_observed_lower_boundary_stops_but_never_claims_complete_coverage(self):
+    def test_observed_lower_boundary_does_not_skip_a_later_fresh_page(self):
         one, old = txrow(), txrow('20260921A0000200', '2026-09-21 12:00:00', '旧文')
-        fake = Fake({'': page([one, old], 'next', True)}, {one['url']: detail(one)})
+        later = txrow('20260923A0000300', title='次页新文')
+        fake = Fake({'': page([one, old], 'next', True), 'next': page([later])},
+                    {one['url']: detail(one), later['url']: detail(later)})
         result = self.collect(fake)
-        self.assertEqual(len(fake.calls), 2)
+        self.assertEqual(len(fake.calls), 4)
         self.assertTrue(result['coverage']['boundaryReached'])
-        self.assertFalse(result['coverage']['coverageComplete'])
-        self.assertEqual(result['status'], 'partial')
+        self.assertEqual(len(result['items']), 2)
+        self.assertTrue(result['coverage']['listExhausted'])
+        self.assertEqual(result['coverage']['ordering'], 'unverified')
 
     def test_out_of_order_old_pinned_row_does_not_stop_pagination(self):
         old, one = txrow('20260921A0000200', '2026-09-21 12:00:00'), txrow()
